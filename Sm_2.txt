@@ -1,0 +1,10 @@
+Name: Sm
+Age: 2
+Session: 2
+login closed  Tue Feb 27 18:39:43 2024
+instructions_game
+Time: Tue Feb 27 18:39:49 2024
+cherry selected 
+apple selected 
+cherry selected 
+orange selected 
