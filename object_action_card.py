@@ -82,34 +82,6 @@ def object_card(id):
     send_post_request(action)
     
 
-
-# def img_callback(img):
-#     convertedImage = CvBridge().imgmsg_to_cv2(img, "bgr8")
-#     frame = imutils.resize(convertedImage, width=1280)
-#     (corners, ids, rejected) = cv2.aruco.detectMarkers(frame, arucoDict, parameters=arucoParams)
-#
-#     if ids is not None:
-#         for i, corner in enumerate(corners):
-#             marker_size = cv2.norm(corner[0][0] - corner[0][2])  # Distance between two opposite corners
-#             if marker_size > 20:  # Adjust threshold as needed
-#                 print("Detected ID:", ids[i])
-#                 cv2.aruco.drawDetectedMarkers(frame, corners)
-#                 global t1
-#                 # cv2.aruco.drawDetectedMarkers(frame, corners)  # Draw A square around the markers
-#
-#                 print(ids)
-#                 t2 = time.time()
-#                 send_post_request(str(object_action_dictionary[ids[0][0]]))
-#                 t1 = time.time()
-#             else:
-#                 print("Ignoring small marker:", ids[i])
-#     else:
-#         print("No AR tag detected")
-#
-#     cv2.imshow('AR Tag Detection', frame)
-#     if cv2.waitKey(1) == ord('q'):
-#         cv2.destroyAllWindows()
-
 def img_callback(img):
     convertedImage = CvBridge().imgmsg_to_cv2(img, "rgb8")
     # bgr_image = cv2.cvtColor(convertedImage, cv2.COLOR_BayerBG2BGR)
