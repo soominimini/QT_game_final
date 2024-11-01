@@ -297,8 +297,6 @@ def boy_table_main(msg):
 
 
 
-
-
 def interact_main():
     threading.Thread(target=lambda: rospy.init_node('interact',
                                                     disable_signals=True)).start()  # it helps to start the rospy and ends terminal
