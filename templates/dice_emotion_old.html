@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <link rel="stylesheet" href="dice.css">
+    <title>Dice Roll</title>
+</head>
+<style>
+  * { padding: 0px; margin: 0px; }
+html, body { max-width: 100%; height:100%; background-color: skyblue; }
+
+#wrap { display: flex; width: 100%; height: 100%; justify-content: center; align-items: center; }
+#diceBox { max-width: 600px; width: 90vw; height: auto; background-color: #fff; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); padding: 40px; box-sizing: border-box; }
+#diceBox > .dice_wrap { width: 100%; height: auto; display: flex; margin-bottom: 20px;}
+#diceBox > .dice_wrap > [class^=dice]:last-of-type {margin-right: 0px;}
+
+
+#diceBox > .dice_wrap > [class^=dice] { width: 49%; margin-right: 2%; padding-top: 49%; position: relative; }
+.dice_inner { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; perspective: 300px; padding: 20%; box-sizing: border-box; }
+#diceBox > .dice_wrap > [class^=dice] .dice { width: 100%; height: 100%; transform-style: preserve-3d; transition: 1s; }
+#diceBox > .dice_wrap > [class^=dice] .dice > div { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; opacity: 0.8; color: #fff; font-size: 60px; }
+#diceBox > .dice_wrap > [class^=dice] .dice .face1 { transform: rotateY(0deg) translateZ(60px); background: red; }
+#diceBox > .dice_wrap > [class^=dice] .dice .face2 { transform: rotateY(90deg) translateZ(60px); background: blue; }
+#diceBox > .dice_wrap > [class^=dice] .dice .face3 { transform: rotateX(90deg) translateZ(60px); background: green; }
+#diceBox > .dice_wrap > [class^=dice] .dice .face4 { transform: rotateX(270deg) translateZ(60px); background: pink; }
+#diceBox > .dice_wrap > [class^=dice] .dice .face5 { transform: rotateY(270deg) translateZ(60px); background: royalblue; }
+#diceBox > .dice_wrap > [class^=dice] .dice .face6 { transform: rotateY(180deg) translateZ(60px); background: purple; }
+
+
+#diceBox > .dice_wrap > [class^=dice] .dice.face1 { transform: rotateX(0deg) rotateY(0deg); }
+#diceBox > .dice_wrap > [class^=dice] .dice.face2 { transform: rotateX(0deg) rotateY(-90deg); }
+#diceBox > .dice_wrap > [class^=dice] .dice.face3 { transform: rotateX(-90deg) rotateY(0deg); }
+#diceBox > .dice_wrap > [class^=dice] .dice.face4 { transform: rotateX(-270deg) rotateY(0deg); }
+#diceBox > .dice_wrap > [class^=dice] .dice.face5 { transform: rotateX(0deg) rotateY(-270deg); }
+#diceBox > .dice_wrap > [class^=dice] .dice.face6 { transform: rotateX(0deg) rotateY(-180deg); }
+#btnRolling { display: block; width: 160px; height: 40px; margin: 0 auto; background-color: royalblue; border: none; border-radius: 4px; color: #fff; cursor: pointer; position: relative; overflow: hidden; }
+#btnRolling::before{ display: block; content: ''; width: 60px; height: 100%; background-color: #fff; position: absolute; top:0; left: -60px; transition: all 0.5s; transform: skewX(-45deg); transform-origin: top left; opacity: 0.3; }
+#btnRolling:hover::before { transform: skewX(-45deg) translateX(280px); }
+
+
+
+@media screen and (max-width : 429px){
+  #diceBox { box-shadow:none;}
+  #diceBox > .dice_wrap { display: block;}
+  #diceBox > .dice_wrap > [class^=dice] { width: 100%; margin-right: 0%; padding-top: 100%; }
+}
+</style>
+
+<body>
+    <div id="wrap">
+  <section id="diceBox">
+    <div class="dice_wrap">
+      <div class="dice01">
+        <div class="dice_inner">
+          <div class="dice">
+            <div id = "anger" class="face1"><img style="width: 90%" src="static/dice/anger.jpg"></div>
+            <div id = "anger "class="face2"><img style="width: 90%" src="static/dice/happy.jpg"></div>
+            <div id = "sad" class="face3"><img style="width: 90%" src="static/dice/sad.jpg"></div>
+            <div id = "scared" class="face4"><img style="width: 90%" src="static/dice/scared.jpg"></div>
+            <div id = "sick" class="face5"><img style="width: 90%" src="static/dice/sick.jpg"></div>
+            <div id = "surprised" class="face6"><img style="width: 90%" src="static/dice/surprised.jpg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="btnRolling">Roll</button>
+  </section>
+</div>
+</body>
+<script>
+
+    var socket = io.connect('http://192.168.100.2:5000');
+
+ var dice = document.querySelectorAll('.dice');
+var dice_width = dice[0].clientWidth;
+var face1 = document.querySelectorAll('.face1');
+var face2 = document.querySelectorAll('.face2');
+var face3 = document.querySelectorAll('.face3');
+var face4 = document.querySelectorAll('.face4');
+var face5 = document.querySelectorAll('.face5');
+var face6 = document.querySelectorAll('.face6');
+function DiceResizing(){
+  Array.prototype.forEach.call(face1, function(item){
+    item.style.transform = 'rotateY(0deg) translateZ(' + dice_width/2 + 'px)';
+  });
+  Array.prototype.forEach.call(face2, function(item){
+    item.style.transform = 'rotateY(90deg) translateZ(' + dice_width/2 + 'px)';
+  });
+  Array.prototype.forEach.call(face3, function(item){
+    item.style.transform = 'rotateX(90deg) translateZ(' + dice_width/2 + 'px)';
+  });
+  Array.prototype.forEach.call(face4, function(item){
+    item.style.transform = 'rotateX(270deg) translateZ(' + dice_width/2 + 'px)';
+  });
+  Array.prototype.forEach.call(face5, function(item){
+    item.style.transform = 'rotateY(270deg) translateZ(' + dice_width/2 + 'px)';
+  });
+  Array.prototype.forEach.call(face6, function(item){
+    item.style.transform = 'rotateY(180deg) translateZ(' + dice_width/2 + 'px)';
+  });
+}
+
+DiceResizing();
+
+window.onresize = function(){
+  dice_width = dice[0].clientWidth;
+  DiceResizing();
+};
+
+
+var RandomNumber = function(){
+    let dice_face = Math.floor(Math.random()*6);
+    console.log("Math.floor(Math.random()*6): ",dice_face);
+    value = ''
+    if(dice_face==1){value = 'anger'}
+    else if(dice_face==2){value = 'happy'}
+    else if(dice_face==3){value ='sad'}
+    else if(dice_face==4){value = 'scared'}
+    else if(dice_face==5){value = 'feeling sick'}
+    else{value = 'surprised'}
+
+   socket.emit('dice_face_in_young_emotion', value);
+  return 'face' + dice_face;
+};
+function rolling(){
+  dice[0].classList.add(RandomNumber());
+}
+
+var btnRolling = document.querySelector('#btnRolling');
+btnRolling.onclick = function(){
+{#    console.log("dice[0].classList: ",dice[0].classList.value);#}
+{#  let dice_face = dice[0].classList.value = "dice";#}
+{#console.log("dice_face: ",dice_face);#}
+  rolling();
+};
+</script>
+</html>

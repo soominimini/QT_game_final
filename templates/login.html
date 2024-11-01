@@ -44,7 +44,7 @@ input {
     <script type="text/javascript">
     $(document).ready(function() {
     var socket = io.connect('http://192.168.100.2:5000');
-    //var socket = io.connect('http://127.0.0.1:5000');
+    // var socket = io.connect('localhost:5000');
          
           socket.on( 'my response', function() {
           socket.emit('first event')
@@ -52,9 +52,13 @@ input {
 
  
   $('input.sync').on('click', function(event) {
-                socket.emit('login', {name : $('input.username').val() , session_no : $('input.date').val() , age: $('input.age').val()}
-            
-            )});
+      if($('input.username').val()=="" || $('input.date').val()==""|| $('input.age').val()=="") {
+          alert("Please type all information");
+      }
+      else{
+          socket.emit('login', {name : $('input.username').val() , session_no : $('input.date').val() , age: $('input.age').val()});
+      }
+  });
 
   
  socket.on('redirect' , function(data)

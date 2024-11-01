@@ -18,11 +18,7 @@
     var socket = io.connect('http://192.168.100.2:5000');
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
-    {#$('input.sync').on('click', function(event) {#}
-    {#       socket.emit('my event1', {who: $(this).attr('id') , data : "none" , name: "Introduction"#}
-    {#     });#}
-    {#       return false;#}
-    {#   });#}
+
 
      $(document).ready(function() {
      socket.emit('first_talk', 'I want fruits.');

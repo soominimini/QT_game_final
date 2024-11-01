@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Main</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+      <script type="text/javascript">
+    var socket = io.connect('http://192.168.100.2:5000');
+    console.log("first socket:", socket);
+    socket.emit('connect event', {data: 'User Connected'});
+
+
+     $(document).ready(function() {
+        socket.emit('start_talk');
+        // setTimeout(enabling, 7000);
+
+     });
+        function girl() {
+
+            window.setTimeout(function(){
+                 // do whatever you want to do
+                  }, 600);
+            // socket.emit('character_select',girl);
+            console.log('girl');
+            location.href = '/girl/first_page';
+            socket.emit('character_select','girl');
+
+        }
+
+        function boy() {
+            window.setTimeout(function(){
+                 // do whatever you want to do
+                  }, 600);
+            location.href = '/boy/first_page';
+            socket.emit('character_select','boy');
+        }
+
+
+</script>
+      <style>
+body{
+ background-image: url("{{ url_for('static', filename='images/back.jpg') }}");
+}
+
+input {
+
+    font-size:20px;
+    height:70px;
+    width:200px;
+}
+
+</style>
+<body>
+
+<div class="container" style="display: flex; flex-wrap: wrap; flex-direction: row; align-items: center;">
+
+    <div class="object"  style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly; width: 100%; margin-top: 10%">
+
+       <div class="building" >
+        <button onclick="girl()">
+            <img src="../static/story/first_girl.png">
+        </button>
+         </div>
+
+      <div class="building" >
+        <button onclick="boy()" >
+            <img src="../static/story/first_boy.png" >
+        </button>
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

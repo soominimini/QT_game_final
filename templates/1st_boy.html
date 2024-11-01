@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 제이쿼리, 제이쿼리ui-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <!--   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>-->
+    <!-- touch punch는 jquery ui 아래에 위치해야함 -->
+    <title>JavaScript - Drag and Drop Demo</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+      <script type="text/javascript">
+    var socket = io.connect('http://192.168.100.2:5000');
+    console.log("first socket:", socket);
+    socket.emit('connect event', {data: 'User Connected'});
+
+
+     $(document).ready(function() {
+        socket.emit('first_page',{data: 'sending'});
+        // setTimeout(enabling, 7000);
+
+     });
+        function go_to_next_page() {
+            location.href = '/boy/lodge';
+    }
+
+</script>
+<body>
+<div class="container">
+        <form id="data-send" name="data-send">
+
+        <input type="button" value="Next" onclick="go_to_next_page()" style="width: 150px; height: 50px"/>
+    </form>
+    <div class="object" style="width: 100%">
+        <img src="../static/story/first_boy.png"  style="width: 25%">
+    <img src="../static/story/first_bear.png" style="width: 30%" style="width: 35%">
+    </div>
+
+</div>
+
+Once upon a time lived Goldilocks and The Three Bears.
+</body>
+</html>

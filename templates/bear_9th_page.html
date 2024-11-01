@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Main</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+      <script type="text/javascript">
+    var socket = io.connect('http://192.168.100.2:5000');
+    console.log("first socket:", socket);
+    socket.emit('connect event', {data: 'User Connected'});
+
+    $(document).ready(function() {
+        socket.emit('bear_9th');
+        // setTimeout(enabling, 7000);
+     });
+    var character_js = '{{character}}';
+    console.log("character_js: "+character_js);
+            function go_to_next_page() {
+                if(character_js=='girl') {
+                    // socket.emit('sixth');
+                    location.href = '/girl/bear_10th';
+                }
+                else if (character_js=='boy') {
+                     location.href = '/boy/bear_10th';
+                }
+                else{
+
+                }
+    }
+</script>
+<body>
+<div style="position:relative; display: flex; flex-direction: column; justify-content: center">
+    <form id="data-send" name="data-send"style="position:relative; display: flex;flex-direction: row;">
+
+        <input type="button" value="Next" onclick="go_to_next_page()" style="position:relative; display: flex;flex-direction: row; margin-left: auto; margin-right: auto; width: 100px; height: 50px">
+    </form>
+    <button onclick="force_to_go_next()" style="position:relative; display: flex;flex-direction: row; margin-left: auto;width: 50px; height: 50px;border-radius: 50%; background: red; color: white">Ignore</button>
+    </div>
+<div class="container" style="width: 100%">
+    <div class="object" style="width: 100%; height: auto; position:relative; display: flex; flex-direction: row; justify-content: center">
+<img src="../static/story/mom_bear_bed.png" style="width: 70%">
+
+    </div>
+“Someone’s been sleeping on my bed too,” said the Mummy Bear
+</div>
+{{character}}
+
+</body>
+</html>

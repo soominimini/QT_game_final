@@ -59,6 +59,7 @@ arucoDict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
 arucoParams = cv2.aruco.DetectorParameters()
 # detector = cv2.aruco.ArucoDetector(arucoDict, arucoParams)
 
+
 emotion_dictionary = {0:"angry" , 1:"happy" , 2: "happy_blinking" , 3:"sad" , 4:"afraid" , 5: "shy"}
 gesture_dictionary = {0:"angry" , 1:"happy" , 2: "hoora" , 3:"sad" , 4:"afraid" , 5: "shy"}
 state = 0
@@ -137,7 +138,7 @@ def img_callback(img):
 
 def main_emotion_game3():
     # rospy.init_node('my_tutorial_node')
-    threading.Thread(target=lambda:rospy.init_node('node3', disable_signals=True)).start() 
+    # threading.Thread(target=lambda:rospy.init_node('node3', disable_signals=True)).start()
     rospy.loginfo("my_tutorial_node started!")
     global t1 
     t1 = time.time()

@@ -122,7 +122,8 @@ scared = ["When I feel scared, my heart beats so loud.",
 shy = ["When I feel shy, I feel like my heart is racing." , "When I feel shy, I get red in my face."  , "When I feel shy, I want to hide behind my parents.", "Going to a new school, makes me feel shy." , "Speaking in front of class, makes me feel shy." ,  "Meeting mom and dad’s friends makes me feel shy."]
     
 def send_post_request(emotion):
-    r = requests.post('http://192.168.100.2:5000/request', data={'emotion': emotion})
+    # r = requests.post('http://192.168.100.2:5000/request', data={'emotion': emotion})
+    r = requests.post('http://127.0.01:5000/request', data={'emotion': emotion})
 
 def emotion_card(id):
     if id == 0:
@@ -214,7 +215,7 @@ def img_callback(img):
 
 def main_emotion_game2():
     # rospy.init_node('my_tutorial_node')
-    threading.Thread(target=lambda:rospy.init_node('node2', disable_signals=True)).start() 
+    # threading.Thread(target=lambda:rospy.init_node('node2', disable_signals=True)).start()
     rospy.loginfo("my_tutorial_node started!")
     global t1 
     t1 = time.time()

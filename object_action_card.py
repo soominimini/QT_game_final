@@ -53,11 +53,17 @@ args = vars(ap.parse_args())
 
 # load the ArUCo dictionary and grab the ArUCo parameters
 print("[INFO] detecting '{}' tags...".format(args["type"]))
+# arucoDict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_5X5_50)
 
 arucoDict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
 # arucoDict = cv2.aruco.getPredefinedDictionary(ARUCO_DICT[args["type"]])
 arucoParams = cv2.aruco.DetectorParameters()
-# detector = cv2.aruco.ArucoDetector(arucoDict, arucoParams)
+
+arucoParams.adaptiveThreshWinSizeMin = 5
+arucoParams.adaptiveThreshWinSizeMax = 15
+arucoParams.adaptiveThreshConstant = 7
+
+
 
 object_action_dictionary= {
     0: "eat", 1: "play" , 2: "wash", 3: "walk", 4: "draw",
@@ -65,7 +71,8 @@ object_action_dictionary= {
 }  
 
 def send_post_request(action):
-    r = requests.post('http://192.168.100.2:5000/request', data={'action': action})
+    # r = requests.post('http://192.168.100.2:5000/request', data={'action': action})
+    r = requests.post('http://127.0.01:5000/request', data={'action': action})
 
 
 def object_card(id):
@@ -74,25 +81,56 @@ def object_card(id):
     talktext_pub.publish(action)
     send_post_request(action)
     
-   
+
+
+# def img_callback(img):
+#     convertedImage = CvBridge().imgmsg_to_cv2(img, "bgr8")
+#     frame = imutils.resize(convertedImage, width=1280)
+#     (corners, ids, rejected) = cv2.aruco.detectMarkers(frame, arucoDict, parameters=arucoParams)
+#
+#     if ids is not None:
+#         for i, corner in enumerate(corners):
+#             marker_size = cv2.norm(corner[0][0] - corner[0][2])  # Distance between two opposite corners
+#             if marker_size > 20:  # Adjust threshold as needed
+#                 print("Detected ID:", ids[i])
+#                 cv2.aruco.drawDetectedMarkers(frame, corners)
+#                 global t1
+#                 # cv2.aruco.drawDetectedMarkers(frame, corners)  # Draw A square around the markers
+#
+#                 print(ids)
+#                 t2 = time.time()
+#                 send_post_request(str(object_action_dictionary[ids[0][0]]))
+#                 t1 = time.time()
+#             else:
+#                 print("Ignoring small marker:", ids[i])
+#     else:
+#         print("No AR tag detected")
+#
+#     cv2.imshow('AR Tag Detection', frame)
+#     if cv2.waitKey(1) == ord('q'):
+#         cv2.destroyAllWindows()
+
 def img_callback(img):
-    convertedImage = CvBridge().imgmsg_to_cv2(img, "bgr8")
+    convertedImage = CvBridge().imgmsg_to_cv2(img, "rgb8")
+    # bgr_image = cv2.cvtColor(convertedImage, cv2.COLOR_BayerBG2BGR)
+    # cv2.imshow("Image Window", bgr_image)
     frame = imutils.resize(convertedImage, width=1920)
-    (corners, ids, rejected) = cv2.aruco.detectMarkers(frame, arucoDict,
-    parameters=arucoParams)
+    (corners, ids, rejected) = cv2.aruco.detectMarkers(frame, arucoDict, parameters=arucoParams)
     if corners:
         global t1
-        cv2.aruco.drawDetectedMarkers(frame, corners)  # Draw A square around the markers
+        # cv2.aruco.drawDetectedMarkers(frame, corners)  # Draw A square around the markers
+
         print(ids)
         t2 = time.time()
-        if((t2- t1) >  4 and ids[0] < 10):
+        if ((t2 - t1) > 2 and ids[0] < 10):
+        # if((t2- t1) >  4 and ids[0] < 10):
             # object_card(ids[0][0])
             send_post_request(str(object_action_dictionary[ids[0][0]]))
             t1 = time.time()
         # print("rejected" , rejected)
-    #cv2.imshow('frame', frame)
+    cv2.imshow('frame', frame)
     if cv2.waitKey(1) == ord('q'):
-        return  
+        return
 # def signal_handler(signal, frame):
 #   sys.exit(0)
 
@@ -111,7 +149,7 @@ def exit_main_action():
 
 def main_action():
     # rospy.init_node('my_tutorial_node')
-    threading.Thread(target=lambda:rospy.init_node('node4', disable_signals=True)).start() 
+    # threading.Thread(target=lambda:rospy.init_node('node4', disable_signals=True)).start()
     rospy.loginfo("my_tutorial_node started!")
     global t1 
     t1 = time.time()
@@ -125,29 +163,4 @@ def main_action():
     emotionShow_pub = rospy.Publisher('/qt_robot/emotion/show', String, queue_size=10)
     talktext_pub = rospy.Publisher('/qt_robot/behavior/talkText',String,queue_size=10)
     gesturePlay_pub = rospy.Publisher('/qt_robot/gesture/play',String,queue_size=10)    
-    sub = rospy.Subscriber('/usb_cam/image_raw/', Image, img_callback)
-
-
-
-
-# if __name__ == '__main__':
-#     rospy.init_node('my_tutorial_node')
-#     rospy.loginfo("my_tutorial_node started!")
-#     global t1 
-#     t1 = time.time()
-#    # creating a ros publisher
-#     speechSay_pub = rospy.Publisher('/qt_robot/speech/say', String, queue_size=10)
-#     emotionShow_pub = rospy.Publisher('/qt_robot/emotion/show', String, queue_size=10)
-#     talktext_pub = rospy.Publisher('/qt_robot/behavior/talkText',String,queue_size=10)
-#     rospy.Subscriber('/usb_cam/image_raw/', Image, img_callback)
-    
-   # publish a text message to TTS
-   
-
-    # try:
-    #     rospy.spin()
-        
-    # except KeyboardInterrupt:
-    #     pass
-
-    # rospy.loginfo("finsihed!")
+    sub = rospy.Subscriber('/usb_cam/image_raw', Image, img_callback)

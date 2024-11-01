@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Main</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+      <script type="text/javascript">
+    var socket = io.connect('http://192.168.100.2:5000');
+    console.log("first socket:", socket);
+    socket.emit('connect event', {data: 'User Connected'});
+
+     $(document).ready(function() {
+        socket.emit('bear_6th');
+        // setTimeout(enabling, 7000);
+
+     });
+      function go_to_next_page() {
+          location.href = '/bear_7th';
+    }
+</script>
+<body>
+  <div style="position:relative; display: flex; flex-direction: column; justify-content: center">
+    <form id="data-send" name="data-send"style="position:relative; display: flex;flex-direction: row;">
+
+        <input type="button" value="Next" onclick="go_to_next_page()" style="position:relative; display: flex;flex-direction: row; margin-left: auto; margin-right: auto; width: 100px; height: 50px">
+    </form>
+  </div>
+<div class="container" style="width: 100%">
+    <div class="object" style="width: 100%; height: auto; position:relative; display: flex; flex-direction: row; justify-content: center">
+<img src="../static/story/mom_bear_chair.png" style="width: 70%">
+
+    </div>
+“Someone’s been sitting in my chair!” said Mummy Bear.
+
+</div>
+
+
+</body>
+</html>

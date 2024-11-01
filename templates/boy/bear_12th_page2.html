@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Main</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+      <script type="text/javascript">
+    var socket = io.connect('http://192.168.100.2:5000');
+    console.log("first socket:", socket);
+    socket.emit('connect event', {data: 'User Connected'});
+        $(document).ready(function() {
+                socket.emit('boy_bear_12th');
+                // setTimeout(enabling, 7000);
+             });
+</script>
+<body>
+<div class="container">
+    <div class="object">
+<img src="../../static/story/boy_last_lodge2.png" style="width: 50%" >
+
+</div>
+Goldilocks ran down the stairs and into the forest. And he never went back into the woods again.
+
+</div>
+
+
+</body>
+</html>

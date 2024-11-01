@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 제이쿼리, 제이쿼리ui-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <!--   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>-->
+    <!-- touch punch는 jquery ui 아래에 위치해야함 -->
+    <title>JavaScript - Drag and Drop Demo</title>
+<!--    <link rel="stylesheet" href="../static/style.css">-->
+</head>
+<style>
+#table{
+     width: auto; position:relative;  display: block;    margin-left: auto;    margin-right: auto ;
+    padding-top: 10%;
+}
+button.dad {
+    width: 25%;
+background-color: rgba(0,0,0,0);
+    border: 2px solid transparent;
+}
+button.mom {
+    width: 25%;
+background-color: rgba(0,0,0,0);
+      border: 2px solid transparent;
+}
+button.baby {
+    width: 20%;
+background-color: rgba(0,0,0,0);
+  border: 2px solid transparent;
+}
+</style>
+<script>
+        var socket = io.connect('http://192.168.100.2:5000');
+        let arr =new Array();
+    console.log("first socket:", socket);
+    // console.log("arr:", arr);
+    socket.emit('connect event', {data: 'User Connected'});
+    socket.on('html_data_recv' , function(data)
+            {
+                console.log(data)
+                arr = data
+                console.log(arr)
+            });
+     $(document).ready(function() {
+    socket.emit('checking_visit_after_click');
+
+     });
+
+    function dad() {
+        location.href = '/girl/dad_bowl';
+        arr[0] =1;
+        socket.emit('checking_visit', arr);
+
+    }
+    function mom() {
+        location.href = '/girl/mom_bowl';
+        arr[1] =1;
+        socket.emit('checking_visit', arr);
+    }
+    function baby() {
+        location.href = '/girl/baby_bowl';
+        arr[2] = 1;
+        socket.emit('checking_visit', arr);
+    }
+        function go_to_next_page() {
+            console.log("click")
+            console.log("data: ",arr)
+            // socket.emit('checking_visit_after_click');
+            console.log("data: ",arr)
+                if (arr[0] == 1 && arr[1]  == 1 && arr[2] ==1) {
+                    // socket.emit('sixth');
+                    location.href = '/girl/chair';
+        }
+        else {
+            socket.emit('block_page', "Please try all!") //emit the information of dragged item
+            socket.emit('object_list', {data: "try to go to next step before finishing the current page"}); //emit the information of dragged item
+        }
+
+    }
+    function force_to_go_next() {
+                    location.href = '/girl/chair';
+    }
+</script>
+<body>
+<div style="position:relative;">
+    <form id="data-send" name="data-send"style="position:relative; display: flex;flex-direction: column;">
+
+        <input type="button" value="Next" onclick="go_to_next_page()" style="position:relative; display: flex;flex-direction: row; margin-left: auto; margin-right: auto; width: 100px; height: 50px">
+    </form>
+    <button onclick="force_to_go_next()" style="position:relative; display: flex;flex-direction: row; margin-left: auto;width: 50px; height: 50px;border-radius: 50%; background: red; color: white">Ignore</button>
+    </div>
+<div class="container" style="width: 100%">
+
+    <div class="object" style="width: 100%; height: auto; position:relative;">
+        <div id="table">
+            <img src="../static/story/4page.png"  style="width: 100%">
+            <div style="display: flex; flex-wrap: wrap; flex-direction: row; margin-top: -88%;justify-content: center;">
+                <button class="dad" onclick="dad()">  <img src="../static/story/Dad_bowl.png" style="width: 100%"> </button>
+         <button class="mom"  onclick="mom()">  <img src="../static/story/mom_bowl.png" style="width: 100%"> </button>
+         <button class="baby"  onclick="baby()">  <img src="../static/story/baby_bowl.png" style="width: 100%"> </button>
+                <div style="display: flex;  font-size: 40px;" >
+                    At the table, there were three bowls of porridge. Goldilocks was hungry.
+                </div>
+            </div>
+
+</div>
+
+    </div>
+
+
+
+</div>
+
+
+</body>
+</html>

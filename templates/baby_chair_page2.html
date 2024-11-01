@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 제이쿼리, 제이쿼리ui-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <!--   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>-->
+    <!-- touch punch는 jquery ui 아래에 위치해야함 -->
+    <title>JavaScript - Drag and Drop Demo</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<script>
+   var socket = io.connect('http://192.168.100.2:5000');
+    console.log("first socket:", socket);
+    socket.emit('connect event', {data: 'User Connected'});
+
+     $(document).ready(function() {
+         socket.emit('baby_chair2')
+        // setTimeout(enabling, 7000);
+     });
+
+</script>
+<body>
+<div class="container">
+    <div class="object">
+<img src="../static/story/girl_11th.png" style="width: 50%">
+
+    </div>
+    Just as Goldilocks settled down into the chair to rest, it broke into pieces!
+
+</div>
+
+</body>
+</html>

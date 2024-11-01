@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 제이쿼리, 제이쿼리ui-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <!--   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>-->
+    <!-- touch punch는 jquery ui 아래에 위치해야함 -->
+    <title>JavaScript - Drag and Drop Demo</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<script>
+        var socket = io.connect('http://192.168.100.2:5000');
+    console.log("first socket:", socket);
+    socket.emit('connect event', {data: 'User Connected'});
+
+
+     $(document).ready(function() {
+         socket.emit('girl_lodge')
+        // setTimeout(enabling, 7000);
+
+     });
+    function lodge1(){
+        socket.emit('lodge_select','lodge1');
+        // setTimeout(enabling, 2000);
+        location.href = '/girl/bowl';
+    }
+    function lodge2(){
+        socket.emit('lodge_select','lodge2');
+        // setTimeout(enabling, 2000);
+        location.href = '/girl/bowl';
+    }
+
+</script>
+<body>
+
+<div class="container" style="display: flex; flex-wrap: wrap; flex-direction: column; align-items: center;">
+
+    <div class="object"  style="display: flex; flex-wrap: wrap; width: 100%">
+         <div class="building" style="width: 45%; height: auto" >
+        <button onclick="lodge1()">
+            <img src="../static/story/lodge1.png" >
+        </button>
+         </div>
+
+        <div class="building" style="width:45%; height: auto">
+        <button onclick="lodge2()" >
+            <img src="../static/story/lodge2.png"  >
+        </button>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; width: auto;  margin-top: 20px;">One day, Goldilocks went for a walk in the forest and  found a house. She knocked, and when nobody  answered, she decided to go inside.</div>
+    </div>
+</div>
+
+</body>
+</html>
