@@ -153,28 +153,3 @@ def main_emotion_game3():
     gesturePlay_pub = rospy.Publisher('/qt_robot/gesture/play',String,queue_size=10)    
     rospy.Subscriber('/usb_cam/image_raw/', Image, img_callback)
 
-
-
-
-# if __name__ == '__main__':
-#     rospy.init_node('my_tutorial_node')
-#     rospy.loginfo("my_tutorial_node started!")
-#     global t1 
-#     t1 = time.time()
-#    # creating a ros publisher
-#     speechSay_pub = rospy.Publisher('/qt_robot/speech/say', String, queue_size=10)
-#     emotionShow_pub = rospy.Publisher('/qt_robot/emotion/show', String, queue_size=10)
-#     talktext_pub = rospy.Publisher('/qt_robot/behavior/talkText',String,queue_size=10)
-#     gesturePlay_pub = rospy.Publisher('/qt_robot/gesture/play',String,queue_size=10)
-#     rospy.Subscriber('/usb_cam/image_raw/', Image, img_callback)
-    
-#    # publish a text message to TTS
-   
-
-#     try:
-#         rospy.spin()
-        
-#     except KeyboardInterrupt:
-#         pass
-
-#     rospy.loginfo("finsihed!")
