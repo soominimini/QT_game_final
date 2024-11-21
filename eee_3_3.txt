@@ -1,8 +1,0 @@
-Name: eee
-Age: 3
-Session: 3
-login closed  Sat Nov 16 22:41:05 2024
-0-3
-Time: Sat Nov 16 22:41:05 2024
-dice_action_young
-Time: Sat Nov 16 22:41:11 2024
