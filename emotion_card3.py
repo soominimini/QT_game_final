@@ -15,7 +15,9 @@ from cv_bridge import CvBridge
 import random
 import threading
 
-
+sub = None
+state = 0
+em = None
 ARUCO_DICT = {
     "DICT_4X4_50": cv2.aruco.DICT_4X4_50,
     "DICT_4X4_100": cv2.aruco.DICT_4X4_100,
@@ -40,13 +42,12 @@ ARUCO_DICT = {
     "DICT_APRILTAG_36h11": cv2.aruco.DICT_APRILTAG_36h11
 }
 
-
-#for enabling command line arguments
+# for enabling command line arguments
 ap = argparse.ArgumentParser()
 
 ap.add_argument("-i", "--image", required=False, help="path to input image containing ArUCo tag")
 
-#make sure that --type is the SAME as the type used when the tag was generated
+# make sure that --type is the SAME as the type used when the tag was generated
 ap.add_argument("-t", "--type", type=str, default="DICT_ARUCO_ORIGINAL", help="type of ArUCo tag to detect")
 
 args = vars(ap.parse_args())
@@ -60,87 +61,111 @@ arucoParams = cv2.aruco.DetectorParameters()
 # detector = cv2.aruco.ArucoDetector(arucoDict, arucoParams)
 
 
-emotion_dictionary = {0:"angry" , 1:"happy" , 2: "happy_blinking" , 3:"sad" , 4:"afraid" , 5: "shy"}
-gesture_dictionary = {0:"angry" , 1:"happy" , 2: "hoora" , 3:"sad" , 4:"afraid" , 5: "shy"}
+emotion_dictionary = {0: "angry", 1: "happy", 2: "happy_blinking", 3: "sad", 4: "afraid", 5: "shy"}
+gesture_dictionary = {0: "angry", 1: "happy", 2: "hoora", 3: "sad", 4: "afraid", 5: "shy"}
 state = 0
+
 
 def emotion_show(ids):
     global state
     global em
-    em = random.randint(0,len(ids)-1)
-    print("em " , em)
+    em = random.randint(0, len(ids) - 1)
     em = ids[em]
+    print("em ", str(em[0]))
     state = 1
-    rospy.sleep(2)
-    emotionShow_pub.publish("/QT/" + emotion_dictionary[em[0]])
-    rospy.sleep(3)
-    gesturePlay_pub.publish("/QT/emotions/" + gesture_dictionary[em[0]])
+    if em==4: #scared
+        rospy.sleep(2.0)
+        emotionShow_pub.publish("/QT/" + emotion_dictionary[em[0]])
+        rospy.sleep(2.0)
+        gesturePlay_pub.publish("/QT/emotions/" + gesture_dictionary[em[0]])
+
+    elif em==3:
+        rospy.sleep(2.0)
+        emotionShow_pub.publish("/QT/" + emotion_dictionary[em[0]])
+        gesturePlay_pub.publish("/QT/emotions/" + gesture_dictionary[em[0]])
+        emotionShow_pub.publish("/QT/" + emotion_dictionary[em[0]])
+    else:
+
+        rospy.sleep(1)
+        emotionShow_pub.publish("/QT/" + emotion_dictionary[em[0]])
+        rospy.sleep(2)
+        gesturePlay_pub.publish("/QT/emotions/" + gesture_dictionary[em[0]])
+        emotionShow_pub.publish("/QT/" + emotion_dictionary[em[0]])
 
 
 def wrong():
-	rospy.sleep(2)
-	talktext_pub.publish("That's not correct! Please try again!")
+    rospy.sleep(2)
+    talktext_pub.publish("That's not correct! Please try again!")
+
 
 def correct():
-	global state
-	rospy.sleep(2)
-	talktext_pub.publish("That's correct! Show me two other cards!")
-	state = 0
+    global state
+    rospy.sleep(2)
+    talktext_pub.publish("That's correct! Show me two other cards!")
+    state = 0
+
+
 def closing(sth):
     # print(sth)
     return
+
+
 def exit_main_game():
-    rospy.Subscriber('/usb_cam/image_raw/', Image, closing)
-    global sub
-    sub.unregister()
+    global state, em, sub
+    state = 0
+    em = None
+    if sub:
+        sub.unregister()  # Properly unregister the subscriber
+        sub = None
     cv2.destroyAllWindows()
-    exit()
+    print("Exiting AR tag game")
+
 
 def img_callback(img):
     convertedImage = CvBridge().imgmsg_to_cv2(img, "bgr8")
-    
+
     frame = imutils.resize(convertedImage, width=1920)
 
     # (corners, ids, rejected) = detector.detectMarkers(frame)
     (corners, ids, rejected) = cv2.aruco.detectMarkers(frame, arucoDict,
-    parameters=arucoParams)
+                                                       parameters=arucoParams)
     if corners:
         global t1
         global state
         global em
-        #cv2.aruco.drawDetectedMarkers(frame, corners)  # Draw A square around the markers
+        # cv2.aruco.drawDetectedMarkers(frame, corners)  # Draw A square around the markers
         # print(corners)
         print(ids)
         t2 = time.time()
-        if((t2- t1) > 3):
+        if ((t2 - t1) > 3):
             # emotion_card(ids[0])
             print(ids)
-            print("length of ids" , len(ids))
-            if(len(ids) == 2 and state ==0):
+            print("length of ids", len(ids))
+            if (len(ids) == 2 and state == 0):
                 print("detected??")
                 talktext_pub.publish("which face is this?")
                 rospy.sleep(1)
                 emotion_show(ids)
-            elif(len(ids)== 1 and state == 1):
-            	if(ids[0] == em):
-            		correct()
-            	else:
-            		wrong()
-			# elif(len(ids) == 2 and state == 1):
-			# 	talktext_pub("please show me only one card!")
+            elif (len(ids) == 1 and state == 1):
+                if (ids[0] == em):
+                    correct()
+                else:
+                    wrong()
+                # elif(len(ids) == 2 and state == 1):
+                # 	talktext_pub("please show me only one card!")
             t1 = time.time()
         # print("rejected" , rejected)
-    #cv2.imshow('frame', frame)
+    # cv2.imshow('frame', frame)
     if cv2.waitKey(1) == ord('q'):
-        return  
-
+        return
 
 
 def main_emotion_game3():
     # rospy.init_node('my_tutorial_node')
     # threading.Thread(target=lambda:rospy.init_node('node3', disable_signals=True)).start()
     rospy.loginfo("my_tutorial_node started!")
-    global t1 
+    global t1
+    global sub
     t1 = time.time()
     global talktext_pub
     global speechSay_pub
@@ -149,7 +174,7 @@ def main_emotion_game3():
     # creating a ros publisher
     speechSay_pub = rospy.Publisher('/qt_robot/speech/say', String, queue_size=10)
     emotionShow_pub = rospy.Publisher('/qt_robot/emotion/show', String, queue_size=10)
-    talktext_pub = rospy.Publisher('/qt_robot/behavior/talkText',String,queue_size=10)
-    gesturePlay_pub = rospy.Publisher('/qt_robot/gesture/play',String,queue_size=10)    
+    talktext_pub = rospy.Publisher('/qt_robot/behavior/talkText', String, queue_size=10)
+    gesturePlay_pub = rospy.Publisher('/qt_robot/gesture/play', String, queue_size=10)
     rospy.Subscriber('/usb_cam/image_raw/', Image, img_callback)
 

@@ -16,6 +16,12 @@ import requests
 import threading
 
 
+
+sub = None
+state = 0
+em = None
+
+
 ARUCO_DICT = {
     "DICT_4X4_50": cv2.aruco.DICT_4X4_50,
     "DICT_4X4_100": cv2.aruco.DICT_4X4_100,
@@ -83,10 +89,11 @@ def object_card(id):
     
 
 def img_callback(img):
-    convertedImage = CvBridge().imgmsg_to_cv2(img, "rgb8")
+
+    convertedImage = CvBridge().imgmsg_to_cv2(img, "bgr8")
     # bgr_image = cv2.cvtColor(convertedImage, cv2.COLOR_BayerBG2BGR)
     # cv2.imshow("Image Window", bgr_image)
-    frame = imutils.resize(convertedImage, width=1920)
+    frame = imutils.resize(convertedImage, width=1280)
     (corners, ids, rejected) = cv2.aruco.detectMarkers(frame, arucoDict, parameters=arucoParams)
     if corners:
         global t1
@@ -100,7 +107,7 @@ def img_callback(img):
             send_post_request(str(object_action_dictionary[ids[0][0]]))
             t1 = time.time()
         # print("rejected" , rejected)
-    cv2.imshow('frame', frame)
+    # cv2.imshow('frame', frame)
     if cv2.waitKey(1) == ord('q'):
         return
 # def signal_handler(signal, frame):
@@ -112,11 +119,22 @@ def closing(sth):
 
 
 def exit_main_action():
-    # rospy.Subscriber('/usb_cam/image_raw/', Image, closing)
-    global sub
-    sub.unregister()
+    global state, em, sub
+    state = 0
+    em = None
+    if sub:
+        sub.unregister()  # Properly unregister the subscriber
+        sub = None
     cv2.destroyAllWindows()
-    exit()
+    print("Exiting AR tag game")
+
+
+# def exit_main_action():
+#     # rospy.Subscriber('/usb_cam/image_raw/', Image, closing)
+#     global sub
+#     sub.unregister()
+#     cv2.destroyAllWindows()
+#     exit()
 
 
 def main_action():

@@ -15,13 +15,18 @@
               if(document.getElementById("action_game").style.display=='none'){
                   document.getElementById("action_game").style.display = 'block';
                   document.getElementById("emotion_game_1").style.display = 'block';
-                  {#document.getElementById("dice_emotion_young").style.display = 'block';#}
+                  document.getElementById("emotion_game3").style.display = 'block';
+                  document.getElementById("dice_action_young").style.display = 'block';
+                  document.getElementById("dice_emotion_young").style.display = 'block';
 
               }
               else{
                     document.getElementById("action_game").style.display = 'none';
                     document.getElementById("emotion_game_1").style.display = 'none';
-                  {#document.getElementById("dice_emotion_young").style.display = 'none';#}
+                    document.getElementById("emotion_game3").style.display = 'none';
+                  document.getElementById("dice_action_young").style.display = 'none';
+                  document.getElementById("dice_emotion_young").style.display = 'none';
+
               }
           }
 
@@ -31,15 +36,19 @@
                   document.getElementById("story").style.display = 'block';
                   document.getElementById("instructions_game").style.display = 'block';
                   document.getElementById("emotion_game2").style.display = 'block';
-                  document.getElementById("dice_emotion").style.display = 'block';
-                  document.getElementById("emotion_game3").style.display = 'block';
+                  document.getElementById("dice_emotion_old").style.display = 'block';
+                  document.getElementById("dice_5w1h_1").style.display = 'block';
+                  document.getElementById("dice_5w1h_2").style.display = 'block';
+                  document.getElementById("dice_board").style.display = 'block';
               }
               else{
                     document.getElementById("story").style.display = 'none';
                     document.getElementById("instructions_game").style.display = 'none';
                   document.getElementById("emotion_game2").style.display = 'none';
-                  document.getElementById("emotion_game3").style.display = 'none';
-                  document.getElementById("dice_emotion").style.display = 'none';
+                  document.getElementById("dice_emotion_old").style.display = 'none';
+                  document.getElementById("dice_5w1h_1").style.display = 'none';
+                  document.getElementById("dice_5w1h_2").style.display = 'none';
+                  document.getElementById("dice_board").style.display = 'none';
               }
           }
 
@@ -85,30 +94,36 @@ body{
 }
 
 input {
-
-    font-size:20px;
+  white-space: normal;
+  -webkit-appearance: none;
+ font-size:20px;
     height:70px;
     width:200px;
-}​
-
+  background: #ffffff;
+}
 </style>
 
 
    <body>
-<input id="0-3" class="sync" type="button" value="0-4 years old" onclick="young()" style = "position:absolute; left:80px; top:50px;"  required/>
-<input id="3-5" class="sync" type="button" value="5-8 years old" onclick="older()" style = "position:absolute; left:80px; top:450px;"  required/>
+<input id="0-3" class="sync" type="button" value="0-4 years old" onclick="young()" style = "position:absolute; left:80px; top:50px;  border-radius: 50px; cursor: pointer;"  required/>
+<input id="3-5" class="sync" type="button" value="5-9 years old" onclick="older()" style = "position:absolute; left:80px; top:450px;  border-radius: 50px; cursor: pointer;"   required/>
 
 
-<input id="action_game" class="sync" type="button" value="Action game" style = "position:absolute; left:340px; top:50px; display: none"  required/>
-<input id="emotion_game_1" class="sync" type="button" value="Emotion game 1" style = "position:absolute; left:340px; top:150px;display: none"  required/>
-<input id="dice_emotion_young" class="sync" type="button" value="Dice game/ emotions" style = "position:absolute; left:340px; top:250px;display: none"  required/>
-<input id="emotion_game3" class="sync" type="button" value="Emotion game with two cards" style = "position:absolute; left:340px; top:350px;display: none"  required/>
+<input id="action_game" class="sync" type="button" value="Action card game" style = "position:absolute; left:340px; top:50px; display: none; cursor: pointer;"  required/>
+<input id="emotion_game_1" class="sync" type="button" value="Emotion card game" style = "position:absolute; left:340px; top:150px;display: none;cursor: pointer;"  required/>
+<input id="emotion_game3" class="sync" type="button" value="Emotion game with two cards" style = "position:absolute; left:340px; top:250px;display: none;cursor: pointer;"  required/>
+<input id="dice_action_young" class="sync" type="button" value="Dice game/ action" style = "position:absolute; left:640px; top:50px;display: none;cursor: pointer;"  required/>
+<input id="dice_emotion_young" class="sync" type="button" value="Dice game/ emotions" style = "position:absolute; left:640px; top:150px;display: none;cursor: pointer;"  required/>
 
-<input id="emotion_game2" class="sync" type="button" value="Emotion game 2" style = "position:absolute; left:340px; top:550px; display: none"  required/>
 
-<input id="instructions_game" class="sync" type="button" value="Taking instructions" style = "position:absolute; left:340px; top:650px;display: none"  required/>
-<input id="story" class="sync" type="button" value="Interactive Story" style = "position:absolute; left:340px; top:750px;display: none"  required/>
-<input id="dice_emotion" class="sync" type="button" value="Dice Emotion" style = "position:absolute; left:340px; top:850px;display: none"  required/>
+<input id="emotion_game2" class="sync" type="button" value="Emotion card game" style = "position:absolute; left:340px; top:450px; display: none;cursor: pointer;"  required/>
+
+<input id="instructions_game" class="sync" type="button" value="Instruction game" style = "position:absolute; left:340px; top:550px;display: none;cursor: pointer;"  required/>
+<input id="story" class="sync" type="button" value="Interactive story" style = "position:absolute; left:340px; top:650px;display: none;cursor: pointer;"  required/>
+<input id="dice_emotion_old" class="sync" type="button" value="Rolling emotion dice" style = "position:absolute; left:640px; top:450px;display: none;cursor: pointer;"  required/>
+<input id="dice_5w1h_1" class="sync" type="button" value="Rolling dice (why when how)" style = "position:absolute; left:640px; top:550px;display: none;cursor: pointer;"  required/>
+<input id="dice_5w1h_2" class="sync" type="button" value="Rolling dice (what who where)" style = "position:absolute; left:940px; top:550px;display: none;cursor: pointer;"  required/>
+<input id="dice_board" class="sync" type="button" value="Rolling dice with board" style = "position:absolute; left:640px; top:650px;display: none;cursor: pointer;"  required/>
 
 
 </body>

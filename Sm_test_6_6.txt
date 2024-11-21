@@ -1,0 +1,26 @@
+Name: Sm_test
+Age: 6
+Session: 6
+login closed  Tue Nov 19 23:28:23 2024
+0-3
+Time: Tue Nov 19 23:28:33 2024
+3-5
+Time: Tue Nov 19 23:28:35 2024
+3-5
+Time: Tue Nov 19 23:28:37 2024
+0-3
+Time: Tue Nov 19 23:28:38 2024
+0-3
+Time: Tue Nov 19 23:28:59 2024
+3-5
+Time: Tue Nov 19 23:29:00 2024
+0-3
+Time: Tue Nov 19 23:29:02 2024
+3-5
+Time: Tue Nov 19 23:29:03 2024
+0-3
+Time: Tue Nov 19 23:29:05 2024
+3-5
+Time: Tue Nov 19 23:29:08 2024
+dice_emotion_old
+Time: Tue Nov 19 23:29:13 2024

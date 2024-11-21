@@ -16,6 +16,13 @@ import random
 import requests
 import threading
 
+
+
+sub = None
+state = 0
+em = None
+
+
 ARUCO_DICT = {
     "DICT_4X4_50": cv2.aruco.DICT_4X4_50,
     "DICT_4X4_100": cv2.aruco.DICT_4X4_100,
@@ -126,52 +133,52 @@ def send_post_request(emotion):
     r = requests.post('http://127.0.01:5000/request', data={'emotion': emotion})
 
 def emotion_card(id):
+
     if id == 0:
         rospy.sleep(1.0)
         talktext_pub.publish("angry!")
-        rospy.sleep(1.0)
         emotionShow_pub.publish("QT/angry")
-        rospy.sleep(5.0)
+        rospy.sleep(3.0)
         gesturePlay_pub.publish("/QT/emotions/angry")
+        emotionShow_pub.publish("QT/angry")
         r1 = random.randint(0,len(angry)-1)
         print("r1" , r1 , "length" , len(angry))        
-        # talktext_pub.publish(angry[r1]) 
+        # talktext_pub.publish(angry[r1])
     elif id == 1: 
         rospy.sleep(1.0)
         talktext_pub.publish("happy!")
-        rospy.sleep(1.0)
         emotionShow_pub.publish("QT/happy")
-        rospy.sleep(5.0)
+        rospy.sleep(3.0)
         gesturePlay_pub.publish("/QT/emotions/happy")    
         r2 = random.randint(0,len(happy)-1)
         print("r2" , r2 , "length" , len(happy))        
-        # talktext_pub.publish(happy[r2]) 
+        # talktext_pub.publish(happy[r2])
     elif id == 2:
         rospy.sleep(1.0)
         talktext_pub.publish("excited!")
-        rospy.sleep(1.0)
         emotionShow_pub.publish("QT/happy_blinking")
-        rospy.sleep(5.0)
+        rospy.sleep(3.0)
+        emotionShow_pub.publish("QT/happy_blinking")
         gesturePlay_pub.publish("/QT/emotions/hoora")
         r3 = random.randint(0,len(excited)-1)
         print("r3" , r3 , "length" , len(excited))        
-        # talktext_pub.publish(excited[r3]) 
+        # talktext_pub.publish(excited[r3])
     elif id == 3:
         rospy.sleep(1.0)
         talktext_pub.publish("sad!")
-        rospy.sleep(1.0)
         emotionShow_pub.publish("QT/sad") 
-        rospy.sleep(5.0)
-        gesturePlay_pub.publish("/QT/emotions/sad")        
+        rospy.sleep(3.0)
+        emotionShow_pub.publish("QT/sad")
+        gesturePlay_pub.publish("/QT/emotions/sad")
+        emotionShow_pub.publish("QT/sad")
         r4 = random.randint(0,len(sad)-1)
         print("r4" , r4 , "length" , len(sad))        
-        # talktext_pub.publish(sad[r4])      
+        # talktext_pub.publish(sad[r4])
     elif id == 4:
         rospy.sleep(1.0)
         talktext_pub.publish("scared!")
-        rospy.sleep(1.0)
         emotionShow_pub.publish("QT/afraid")
-        rospy.sleep(5.0)
+        rospy.sleep(1.0)
         gesturePlay_pub.publish("/QT/emotions/afraid")        
         r5 = random.randint(0,len(scared)-1)
         print("r5" , r5 , "length" , len(scared))        
@@ -179,21 +186,52 @@ def emotion_card(id):
     elif id == 5:
         rospy.sleep(1.0)
         talktext_pub.publish("shy!")
-        rospy.sleep(1.0)
         emotionShow_pub.publish("QT/shy")
-        rospy.sleep(5.0)
+        rospy.sleep(3.0)
+        emotionShow_pub.publish("QT/shy")
         gesturePlay_pub.publish("/QT/emotions/shy")
+        emotionShow_pub.publish("QT/shy")
         r6 = random.randint(0,len(shy)-1)
         print("r6" , r6 , "length" , len(shy))
-        # talktext_pub.publish(shy[r6]) 
+        # talktext_pub.publish(shy[r6])
     if (id < 6 and id > -1):
-        talktext_pub.publish("which one is " + emotion_dictionary[id] ) 
-        send_post_request(emotion_dictionary[id])
+        rospy.sleep(3.0)
+        talktext_pub.publish("which one is " + emotion_dictionary[id] )
+        send_post_request(id)
+        # send_post_request(emotion_dictionary[id])
+
+
+
+def signal_handler(signal, frame):
+  sys.exit(0)
+
+def closing(sth):
+    # print(sth)
+    return
+
+def exit_main():
+    global state, em, sub
+    state = 0
+    em = None
+    if sub:
+        sub.unregister()  # Properly unregister the subscriber
+        sub = None
+    cv2.destroyAllWindows()
+    print("Exiting AR tag game")
+
+
+# def exit_main():
+#     rospy.Subscriber('/usb_cam/image_raw/', Image, closing)  # /camera/color/image_raw
+#     global sub
+#     sub.unregister()
+#     cv2.destroyAllWindows()
+#     exit()
+
 
 def img_callback(img):
     convertedImage = CvBridge().imgmsg_to_cv2(img, "bgr8")
     
-    frame = imutils.resize(convertedImage, width=1920)
+    frame = imutils.resize(convertedImage, width=1280)
 
     # (corners, ids, rejected) = detector.detectMarkers(frame)
     (corners, ids, rejected) = cv2.aruco.detectMarkers(frame, arucoDict,
@@ -208,7 +246,7 @@ def img_callback(img):
             emotion_card(ids[0][0])
             t1 = time.time()
         # print("rejected" , rejected)
-    cv2.imshow('frame', frame)
+    # cv2.imshow('frame', frame)
     if cv2.waitKey(1) == ord('q'):
         return  
 
@@ -230,27 +268,3 @@ def main_emotion_game2():
     gesturePlay_pub = rospy.Publisher('/qt_robot/gesture/play',String,queue_size=10)    
     rospy.Subscriber('/usb_cam/image_raw/', Image, img_callback)
 
-
-
-# if __name__ == '__main__':
-#     rospy.init_node('my_tutorial_node')
-#     rospy.loginfo("my_tutorial_node started!")
-#     global t1 
-#     t1 = time.time()
-#    # creating a ros publisher
-#     speechSay_pub = rospy.Publisher('/qt_robot/speech/say', String, queue_size=10)
-#     emotionShow_pub = rospy.Publisher('/qt_robot/emotion/show', String, queue_size=10)
-#     talktext_pub = rospy.Publisher('/qt_robot/behavior/talkText',String,queue_size=10)
-#     gesturePlay_pub = rospy.Publisher('/qt_robot/gesture/play',String,queue_size=10)    
-#     rospy.Subscriber('/usb_cam/image_raw/', Image, img_callback)
-    
-#    # publish a text message to TTS
-   
-
-#     try:
-#         rospy.spin()
-        
-#     except KeyboardInterrupt:
-#         pass
-
-#     rospy.loginfo("finsihed!")

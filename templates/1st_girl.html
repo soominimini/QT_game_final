@@ -28,6 +28,14 @@
 
             location.href = '/girl/lodge';
     }
+    function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 
 </script>
 
@@ -40,9 +48,16 @@
     <div class="object" style="width: 100%">
 <img src="../static/story/first_girl.jpg" style="width: 25%">
     <img src="../static/story/first_bear.png" style="width: 30%" style="width: 35%">
-
+<button onclick="myFunction()">Click Me</button>
     </div>
-Once upon a time lived Goldilocks and The Three Bears.
+
+<div id="myDIV">
+    {% if show_text %}
+        <p>Once upon a time lived Goldilocks and The Three Bears.</p>
+        {% endif %}
+
+</div>
+
 </div>
 
 </body>

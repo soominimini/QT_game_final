@@ -52,7 +52,11 @@
             <img src="../static/story/lodge2.png"  >
         </button>
         </div>
-        <div style="display: flex; flex-wrap: wrap; width: auto;  margin-top: 20px;">One day, Goldilocks went for a walk in the forest and  found a house. She knocked, and when nobody  answered, she decided to go inside.</div>
+        <div style="display: flex; flex-wrap: wrap; width: auto;  margin-top: 20px;">
+            {% if show_text %}
+            One day, Goldilocks went for a walk in the forest and  found a house. She knocked, and when nobody  answered, she decided to go inside.
+             {% endif %}
+        </div>
     </div>
 </div>
 

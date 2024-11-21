@@ -104,7 +104,9 @@ background-color: rgba(0,0,0,0);
          <button class="mom"  onclick="mom()">  <img src="../static/story/mom_bowl.png" style="width: 100%"> </button>
          <button class="baby"  onclick="baby()">  <img src="../static/story/baby_bowl.png" style="width: 100%"> </button>
                 <div style="display: flex;  font-size: 40px;" >
+                    {% if show_text %}
                     At the table, there were three bowls of porridge. Goldilocks was hungry.
+                     {% endif %}
                 </div>
             </div>
 

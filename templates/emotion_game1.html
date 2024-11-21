@@ -51,8 +51,8 @@ socket.on('cancle highlight' , function()
                     // console.log(msg.path[i])
                     document.getElementById('img00').src = msg.path[0]
                     document.getElementById('img00').style.border = "none"
-                    document.getElementById('img01').src = msg.path[1]
-                    document.getElementById('img01').style.border = "none"
+                    {#document.getElementById('img01').src = msg.path[1]#}
+                    {#document.getElementById('img01').style.border = "none"#}
             
             });
             
@@ -137,7 +137,7 @@ input {
 </form>
 
 <img  src= "../static/images/emotions/ask.jpg" id="img00" class="sync"  width="300" height="300" style = "position:absolute; left:300px; top:120px;">
-<img  src= "../static/images/emotions/ask.jpg" id="img01" class="sync"  width="300" height="300" style = "position:absolute; left:650px; top:120px;">
+{#<img  src= "../static/images/emotions/ask.jpg" id="img01" class="sync"  width="300" height="300" style = "position:absolute; left:650px; top:120px;">#}
 
 
 

@@ -26,10 +26,19 @@ path = "/static/images/"
 
 # f = open("instruction_.txt", "w")
 
+
+is_redirecting = False
+sub = None
+state = 0
+em = None
+
+
+
 table_id = ''
 error_record = 0
 success_record=0
 
+show_text = False
 arr_visit = [False, False, False]
 praise_order = [0, 1, 2, 3]
 encourage_order = [0, 1, 2]
@@ -46,6 +55,9 @@ emotion_game2_failure =0
 emotion_game3_failure =0
 
 
+
+emotion_dictionary= {0: "angry", 1: "happy" , 2: "excited", 3: "sad", 4: "scared", 5: "shy"}
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
@@ -59,6 +71,12 @@ app.config['MYSQL_DB'] = 'USERS'
 conn =sql.connect(host='localhost',user='root', password='root',database='USERS')
 
 mysql = MySQL(app)
+
+
+@socketio.on('speech_stop')
+def speech_stop():
+    global speechStop
+
 
 @socketio.on('category_talk')
 def first_talk_robot():
@@ -98,7 +116,7 @@ def first_talk_robot():
 def init_interaction_robot(msg):
     print("message: ", msg)
     talktext_pub.publish(msg)
-    
+
 
 @socketio.on('first_talk')
 def first_talk_robot(msg):
@@ -129,8 +147,8 @@ def correct_answer():
     global random_praise
     global emotionShow_pub
     global gesturePlay_servc
-    emotionShow_pub.publish("QT/happy") 
-    
+    emotionShow_pub.publish("QT/happy")
+
     if random_praise == 4:
         random_praise = 0
         random.shuffle(praise_order)  # shuffle again
@@ -166,16 +184,16 @@ def score_handle_from_html():
     global gesturePlay_servc
     ref_r = Float64MultiArray()
     ref_l = Float64MultiArray()
-    emotionShow_pub.publish("QT/sad") 
+    emotionShow_pub.publish("QT/sad")
     gesturePlay_servc("QT/sad", 1) # it needs to down both hands after performing the gestures
-    
-    
+
+
     #[shoulderPitch, shoulderRoll, elbowRoll]
     ref_r.data = [-85,-65, -20]
     ref_l.data = [88, -71, -23]
 
-    
-    
+
+
     if random_encouragement == 3:
         random_encouragement = 0
         random.shuffle(encourage_order)  # shuffle again
@@ -201,7 +219,7 @@ def score_handle_from_html():
 
 @socketio.on('wrong_repeat')
 def speak_repeat(msg):
-    emotionShow_pub.publish("QT/sad") 
+    emotionShow_pub.publish("QT/sad")
     rospy.sleep(3.0)
     talktext_pub.publish(str(msg))
 
@@ -232,6 +250,7 @@ def test_connect(message):
 
 @socketio.on('disconnect')
 def test_connect():
+
     print("disconnected")
 
 
@@ -272,6 +291,8 @@ def logged_in(message):
 
 @socketio.on('click_main')
 def main_menu(message):
+    global is_redirecting, current_game
+
     global game
     global f
     global file_name
@@ -282,32 +303,59 @@ def main_menu(message):
         start = time.ctime()
         f.write(message["who"] + "\n")
         f.write("Time: " + time.ctime() + "\n")
+
+        # Prevent multiple redirects
+    if is_redirecting:
+        print("Redirect is already in progress.")
+        return
+    is_redirecting = True
+    current_game = game
+
+    print(f"Received click for game: {message['who']}")
+
     if (message["who"] == 'instructions_game'):
         socketio.emit('redirect', {'url': url_for('taking_instruction')})
     elif (message["who"] == 'emotion_game_1'):
+        print("test emotion card file")
         main()
         game = "emotion_game1"
         socketio.emit('redirect', {'url': url_for('emotion_games_start')})
+
     elif(message["who"] == 'action_game'):
         main_action()
         game = "action_game"
         socketio.emit('redirect', {'url': url_for('emotion_games_start')})
 
+    elif (message["who"] == 'dice_action_young'):
+        socketio.emit('redirect', {'url': url_for('dice_action_young_start')})
+
     elif(message["who"] == 'emotion_game2'):
         game = "emotion_game2"
         main()
         socketio.emit('redirect', {'url': url_for('emotion_games_start')})
+
     elif(message["who"] == 'emotion_game3'):
         main_emotion_game3()
         game = "emotion_game3"
         socketio.emit('redirect', {'url': url_for('emotion_games_start')})
+
     elif (message["who"] == 'story'):
         interact_main()
         socketio.emit('redirect', {'url': url_for('start_page_story')})
-    elif (message["who"] == 'dice_emotion'):
-        dice_main_emotion_young()
+    elif (message["who"] == 'dice_emotion_young'):
+        # dice_main_emotion_young()
         socketio.emit('redirect', {'url': url_for('dice_emotion_young_start')})
 
+    elif(message["who"]=='dice_emotion_old'):
+        socketio.emit('redirect', {'url': url_for('dice_emotion_old_start')})
+    elif (message["who"] == 'dice_5w1h_1'):
+        socketio.emit('redirect', {'url': url_for('dice_5w1h_1')})
+    elif (message["who"] == 'dice_5w1h_2'):
+        socketio.emit('redirect', {'url': url_for('dice_5w1h_2')})
+    elif (message["who"] == 'dice_board'):
+        socketio.emit('redirect', {'url': url_for('dice_board')})
+
+    is_redirecting = False
 
 
 
@@ -318,8 +366,14 @@ def main_page():
 
 @socketio.on('client_disconnecting')
 def disconnect_details(data):
-    global f 
+    global f
     global file_name
+    global is_redirecting, current_game
+
+    # Reset the flag on disconnect
+    is_redirecting = False
+    current_game = None
+    print("closing pages")
     with open(file_name,'a+') as f:
     # f.open(file_name , "a")
     # print("time.ctime(): ",time.ctime())
@@ -389,8 +443,12 @@ def park2():
 def character_select_func(msg):
     print("msg: ",msg)
     global selected_character
+    global show_text
+
     selected_character = msg
-    print('character_select: ', selected_character)
+    show_text = msg['showText']
+
+    print(f"Character selected: {selected_character}, Show text: {show_text}")
 
 @socketio.on('lodge_select')
 def lodge_select_func(msg):
@@ -470,198 +528,197 @@ def start_page_story():
 @app.route('/girl/first_page')
 def girl_2nd_page():
     second()
-    return render_template('1st_girl.html')
+    return render_template('1st_girl.html', show_text=show_text)
 
 @app.route('/boy/first_page')
 def boy_2nd_page():
     second()
-    return render_template('1st_boy.html')
+    return render_template('1st_boy.html', show_text=show_text)
 
 @app.route('/girl/lodge')
 def girl_lodge():
     third_girl()
-    return render_template('girl_lodge.html')
+    return render_template('girl_lodge.html', show_text=show_text)
 
 @app.route('/boy/lodge')
 def boy_lodge():
     third_boy()
-    return render_template('boy_lodge.html')
+    return render_template('boy_lodge.html', show_text=show_text)
 @app.route('/girl/bowl')
 def bowl_table():
     table_main(selected_lodge)
     print("table_visit: ",table_visit)
-    return render_template('girl_table.html')
+    return render_template('girl_table.html', show_text=show_text)
 
 @app.route('/boy/bowl')
 def boy_bowl_table():
     boy_table_main(selected_lodge)
-    return render_template('boy_table.html')
+    return render_template('boy_table.html', show_text=show_text)
 
 @app.route('/girl/dad_bowl')
 def dad_bowl():
     dad_porridge()
-    return render_template('dad_bowl_page.html')
+    return render_template('dad_bowl_page.html', show_text=show_text)
 
 @app.route('/girl/mom_bowl')
 def mom_bowl():
     mom_porridge()
-    return render_template('mom_bowl_page.html')
+    return render_template('mom_bowl_page.html', show_text=show_text)
 
 @app.route('/girl/baby_bowl')
 def baby_bowl():
     baby_porridge()
-    return render_template('baby_bowl_page.html')
+    return render_template('baby_bowl_page.html', show_text=show_text)
 
 @app.route('/boy/dad_bowl')
 def boy_dad_bowl():
     dad_porridge()
-    return render_template('/boy/dad_bowl_page.html')
+    return render_template('/boy/dad_bowl_page.html', show_text=show_text)
 
 @app.route('/boy/mom_bowl')
 def boy_mom_bowl():
     mom_porridge()
-    return render_template('/boy/mom_bowl_page.html')
+    return render_template('/boy/mom_bowl_page.html', show_text=show_text)
 
 @app.route('/boy/baby_bowl')
 def boy_baby_bowl():
     baby_porridge()
-    return render_template('/boy/baby_bowl_page.html')
+    return render_template('/boy/baby_bowl_page.html', show_text=show_text)
 
 
 @app.route('/girl/chair')
 def chairs():
     chair_main()
-    return render_template('chairs.html')
+    return render_template('chairs.html', show_text=show_text)
 
 @app.route('/girl/dad_chair')
 def dad_chairs():
     dad_chair()
-    return render_template('dad_chair_page.html')
+    return render_template('dad_chair_page.html', show_text=show_text)
 
 @app.route('/girl/mom_chair')
 def mom_chairs():
     mom_chair()
-    return render_template('mom_chair_page.html')
+    return render_template('mom_chair_page.html', show_text=show_text)
 @app.route('/girl/baby_chair')
 def baby_chairs():
     baby_chair()
     print("chair_visit main file: ", chair_visit)
-    return render_template('baby_chair_page.html')
+    return render_template('baby_chair_page.html', show_text=show_text)
 @app.route('/girl/baby_chair2')
 def baby_chairs2():
     baby_chair2()
-    return render_template('baby_chair_page2.html')
+    return render_template('baby_chair_page2.html', show_text=show_text)
 @app.route('/boy/chair')
 def boy_chairs():
     chair_main()
-    return render_template('/boy/chairs.html')
+    return render_template('/boy/chairs.html', show_text=show_text)
 
 @app.route('/boy/dad_chair')
 def boy_dad_chairs():
     dad_chair()
-    return render_template('/boy/dad_chair_page.html')
+    return render_template('/boy/dad_chair_page.html', show_text=show_text)
 
 @app.route('/boy/mom_chair')
 def boy_mom_chairs():
     chair_main()
-    return render_template('/boy/mom_chair_page.html')
+    return render_template('/boy/mom_chair_page.html', show_text=show_text)
 
 @app.route('/boy/baby_chair')
 def boy_baby_chairs():
     baby_chair()
-    return render_template('/boy/baby_chair_page.html')
+    return render_template('/boy/baby_chair_page.html', show_text=show_text)
 
 @app.route('/boy/baby_chair2')
 def boy_baby_chairs2():
     baby_chair2()
-    return render_template('/boy/baby_chair_page2.html')
+    return render_template('/boy/baby_chair_page2.html', show_text=show_text)
 @app.route('/girl/bed')
 def beds():
     bed_main()
-    return render_template('beds.html')
+    return render_template('beds.html', show_text=show_text)
 @app.route('/girl/dad_bed')
 def dad_bed():
     dad_bed_func()
-    return render_template('dad_bed_page.html')
+    return render_template('dad_bed_page.html', show_text=show_text)
 
 @app.route('/girl/mom_bed')
 def mom_bed():
     mom_bed_func()
-    return render_template('mom_bed_page.html')
+    return render_template('mom_bed_page.html', show_text=show_text)
 
 @app.route('/girl/baby_bed')
 def baby_bed():
     baby_bed_func()
-    return render_template('baby_bed_page.html')
+    return render_template('baby_bed_page.html', show_text=show_text)
 
 @app.route('/boy/bed')
 def boy_beds():
     bed_main()
-    return render_template('/boy/beds.html')
+    return render_template('/boy/beds.html', show_text=show_text)
 
 @app.route('/boy/dad_bed')
 def boy_dad_bed():
     dad_bed_func()
-    return render_template('/boy/dad_bed_page.html')
+    return render_template('/boy/dad_bed_page.html', show_text=show_text)
 
 @app.route('/boy/mom_bed')
 def boy_mom_bed():
     mom_bed_func()
-    return render_template('/boy/mom_bed_page.html')
+    return render_template('/boy/mom_bed_page.html', show_text=show_text)
 
 @app.route('/boy/baby_bed')
 def boy_baby_bed():
     baby_bed_func()
-    return render_template('/boy/baby_bed_page.html')
+    return render_template('/boy/baby_bed_page.html', show_text=show_text)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 @app.route('/bear_1st')
 def bear_1st():
     bear_1st_func()
-    return render_template('bear_1st_page.html')
+    return render_template('bear_1st_page.html', show_text=show_text)
 
 # @app.route('/girl/bear_2nd')
 @app.route('/bear_2nd')
 def bear_2nd():
     bear_2nd_func()
-    return render_template('bear_2nd_page.html')
+    return render_template('bear_2nd_page.html', show_text=show_text)
 
 # @app.route('/girl/bear_3th')
 @app.route('/bear_3rd')
 def bear_3th():
     bear_3rd_func()
-    return render_template('bear_3th_page.html')
+    return render_template('bear_3th_page.html', show_text=show_text)
 
 # @app.route('/girl/bear_4th')
 @app.route('/bear_4th')
 def bear_4th():
     bear_4th_func()
-    return render_template('bear_4th_page.html')
+    return render_template('bear_4th_page.html', show_text=show_text)
 
 # @app.route('/girl/bear_5th')
 @app.route('/bear_5th')
 def bear_5th():
     bear_5th_func()
-    return render_template('bear_5th_page.html')
+    return render_template('bear_5th_page.html', show_text=show_text)
 
 # @app.route('/girl/bear_6th')
 @app.route('/bear_6th')
 def bear_6th():
     bear_6th_func()
-    return render_template('bear_6th_page.html')
+    return render_template('bear_6th_page.html', show_text=show_text)
 
-# @app.route('/girl/bear_7th')
 @app.route('/bear_7th')
 def bear_7th():
     bear_7th_func()
-    return render_template('bear_7th_page.html')
+    return render_template('bear_7th_page.html', show_text=show_text)
 
 # @app.route('/girl/bear_8th')
 @app.route('/bear_8th')
 def bear_8th():
     bear_8th_func()
-    return render_template('bear_8th_page.html')
+    return render_template('bear_8th_page.html', show_text=show_text)
 
 # @app.route('/girl/bear_9th')
 @app.route('/bear_9th')
@@ -669,106 +726,282 @@ def bear_9th():
     bear_9th_func()
     global selected_character
     print("selected_character: ",selected_character)
-    return render_template('bear_9th_page.html',character =selected_character)
-
+    return render_template('bear_9th_page.html',character =selected_character, show_text=show_text)
 @app.route('/girl/bear_10th')
 def bear_10th():
     bear_10th_func()
-    return render_template('bear_10th_page.html')
+    return render_template('bear_10th_page.html', show_text=show_text)
 @app.route('/girl/bear_11th')
 def bear_11th():
     bear_11th_func()
-    return render_template('bear_11th_page.html')
+    return render_template('bear_11th_page.html', show_text=show_text)
 @app.route('/girl/bear_12th')
 def bear_12th():
     bear_12th_func()
     if selected_lodge=='lodge1':
-        return render_template('bear_12th_page1.html')
+        return render_template('bear_12th_page1.html', show_text=show_text)
     else:
-        return render_template('bear_12th_page2.html')
+        return render_template('bear_12th_page2.html', show_text=show_text)
 
 @app.route('/boy/bear_10th')
 def boy_bear_10th():
     boy_bear_10th_func()
-    return render_template('boy/bear_10th_page.html')
+    return render_template('boy/bear_10th_page.html', show_text=show_text)
 @app.route('/boy/bear_11th')
 def boy_bear_11th():
     boy_bear_11th_func()
-    return render_template('boy/bear_11th_page.html')
+    return render_template('boy/bear_11th_page.html', show_text=show_text)
 @app.route('/boy/bear_12th')
 def boy_bear_12th():
     boy_bear_12th_func()
     if selected_lodge=='lodge1':
-        return render_template('boy/bear_12th_page1.html')
+        return render_template('boy/bear_12th_page1.html', show_text=show_text)
     else:
-        return render_template('boy/bear_12th_page2.html')
+        return render_template('boy/bear_12th_page2.html', show_text=show_text)
 ######################################################################################### Dice game with URAs     ############################################################################################
 
-@socketio.on('dice_face_in')
-def dice_face_in(digit):
-    print("dice_face_in: ",digit)
+# @socketio.on('dice_face_in')
+# def dice_face_in(digit):
+#     print("dice_face_in: ",digit)
+#
+#     if digit==0:
+#         rospy.sleep(1)
+#         talktext_pub.publish("Click again")
+#     else:
+#
+#         rospy.sleep(1)
+#         talktext_pub.publish(str(digit))
+#         rospy.sleep(2)
+#         talktext_pub.publish("Let's move your piece on the board by " + str(digit))
 
-    if digit==0:
-        rospy.sleep(1)
-        talktext_pub.publish("Click again")
-    else:
 
-        rospy.sleep(1)
-        talktext_pub.publish(str(digit))
+@socketio.on('dice_face_in_young_action')
+def dice_face_in_young_action(dice_face_str):
+    global emotionShow_pub
+    global gesturePlay_servc
+    print("dice_face_str: "+dice_face_str)
+    gesturePlay_servc("QT/neutral", 2)
+
+    rospy.sleep(1)
+    # talktext_pub.publish(dice_face_str)
+    if dice_face_str=='Jumping Jacks':
+        talktext_pub.publish("Let's do 10 jummping jacks!")
         rospy.sleep(2)
-        talktext_pub.publish("Let's move your piece on the board by " + str(digit))
+        for i in range(1, 11):
+            talktext_pub.publish(str(i))
+            gesturePlay_servc("jumping_soomin", 2)
+
+    elif dice_face_str=='Count to 5':
+        talktext_pub.publish("Let's deep breathe for five seconds")
+        rospy.sleep(2)
+        talktext_pub.publish("1, 2, 3, 4, 5")
+        # gesturePlay_pub.publish("breathing_soomin")
+        gesturePlay_servc("breathing_soomin", 1.5)
+
+    elif dice_face_str=='Sing a Song':
+        # talktext_pub.publish("Let's sing a song!")
+        music = ["IncyWincySpider", "ABCsong", "Old_MacDonald", "twinkletwinklelittlestar", "Wheels_bus"]
+        random_song = random.choice(music)
+        print("random_song: "+random_song)
+        
+        
+        if str(random_song) == "IncyWincySpider":
+            talktext_pub.publish("Let's sing Incy Wincy Spider")
+            rospy.sleep(2)
+            gesturePlay_pub.publish("IncyWincySpider")
+            audioPlay_pub.publish(random_song)
+
+        elif str(random_song) == "ABCsong":
+            talktext_pub.publish("Let's sing ABC")
+            rospy.sleep(2)
+            gesturePlay_pub.publish("ABCsong")
+            audioPlay_pub.publish(random_song)
+
+        elif str(random_song) == "Old_MacDonald":
+            talktext_pub.publish("Let's sing Old MacDonald")
+            rospy.sleep(2)
+            gesturePlay_pub.publish("Old_MacDonald")
+            audioPlay_pub.publish(random_song)
+
+        elif str(random_song) == "twinkletwinklelittlestar":
+            talktext_pub.publish("Let's sing twinkle twinkle little star")
+            rospy.sleep(2)
+            gesturePlay_pub.publish("twinkletwinklelittlestar")
+            audioPlay_pub.publish(random_song)
+
+        elif str(random_song) == "Wheels_bus":
+            talktext_pub.publish("Let's sing Wheels on the bus")
+            rospy.sleep(2)
+            gesturePlay_pub.publish("Wheels_bus")
+            audioPlay_pub.publish(random_song)
 
 
 
+    elif dice_face_str=='Wiggle':
+        talktext_pub.publish("Let's wiggle our body!")
+        rospy.sleep(2)
+        talktext_pub.publish("1, 2, 3, 4, 5, 6, 7, 8, 9, 10")
+        gesturePlay_servc("wiggle_body", 1.5)
+
+        # rospy.sleep(2)
+
+
+    elif dice_face_str=='Bear Hug':
+        talktext_pub.publish("Let's have a bear hug!")
+        rospy.sleep(2)
+        talktext_pub.publish("1, 2, 3, 4, 5")
+        rospy.sleep(1)
+        gesturePlay_servc("hug", 1.3)
+
+
+
+    elif dice_face_str == 'High Five':
+        talktext_pub.publish("Give me a high five!")
+        rospy.sleep(2)
+        gesturePlay_servc("high_five_soomin", 1.5)
+
+    rospy.sleep(2)
 
 @socketio.on('dice_face_in_young_emotion')
 def dice_face_in_young_emotion(dice_face_str):
     global emotionShow_pub
     global gesturePlay_servc
-
+    gesturePlay_servc("QT/neutral", 2)
     rospy.sleep(1)
     talktext_pub.publish(dice_face_str)
     if dice_face_str=='anger':
-
-        gesturePlay_servc("QT/angry", 2)
-        rospy.sleep(1)
+        rospy.sleep(2)
         emotionShow_pub.publish("QT/angry")
+        rospy.sleep(1)
+        gesturePlay_servc("QT/angry", 1)
 
     elif dice_face_str=='happy':
-        gesturePlay_servc("QT/happy", 2)
-        rospy.sleep(1)
+        rospy.sleep(2)
         emotionShow_pub.publish("QT/happy")
-    elif dice_face_str=='sad':
+        gesturePlay_servc("QT/happy", 1)
 
-        gesturePlay_servc("soomin_sad", 2)
-        rospy.sleep(1)
+    elif dice_face_str=='sad':
+        rospy.sleep(2)
         emotionShow_pub.publish("QT/sad")
+        gesturePlay_servc("soomin_sad", 1)
 
     elif dice_face_str=='scared':
-
-        gesturePlay_servc("soomin_sad", 2)
-        rospy.sleep(1)
+        rospy.sleep(2)
         emotionShow_pub.publish("QT/afraid")
+        gesturePlay_servc("QT/afraid", 1)
 
     elif dice_face_str=='surprised':
+        rospy.sleep(2)
         emotionShow_pub.publish("QT/surprise")
-        rospy.sleep(1)
+        gesturePlay_servc("soomin_surprise",2)
+
 
     else:
         emotionShow_pub.publish("QT/disgusted")
-        gesturePlay_servc("QT/sad", 2)
+        gesturePlay_servc("uwaterloo-1/kickstart/Ugh",1.5)
 
     rospy.sleep(2)
 
 
 
+@socketio.on('dice_face_in_old_emotion')
+def dice_face_in_old_emotion(dice_face_str):
+   global emotionShow_pub
+   global gesturePlay_servc
+
+   rospy.sleep(1)
+   talktext_pub.publish(dice_face_str)
+   if dice_face_str=='curious':
+       rospy.sleep(1.5)
+       emotionShow_pub.publish("QT/breathing_exercise")
+       rospy.sleep(2)
+       talktext_pub.publish("what makes you curious?")
+
+   elif dice_face_str=='silly':
+       rospy.sleep(1.5)
+       emotionShow_pub.publish("QT/blowing_raspberry")
+       rospy.sleep(2)
+       gesturePlay_servc("soomin_silly", 2)
+       rospy.sleep(2)
+       talktext_pub.publish("when do you feel silly?")
+
+   elif dice_face_str=='excited':
+       rospy.sleep(1.5)
+       emotionShow_pub.publish("QT/happy")
+       rospy.sleep(2)
+       gesturePlay_servc("QT/happy", 1)
+       rospy.sleep(2)
+       talktext_pub.publish("Who makes you feel excited?")
+
+   elif dice_face_str=='tired':
+       rospy.sleep(1.5)
+       emotionShow_pub.publish("QT/yawn")
+       rospy.sleep(1)
+       gesturePlay_servc("QT/yawn", 1)
+       rospy.sleep(2)
+       talktext_pub.publish("When do you feel tired?")
+
+   elif dice_face_str=='frustrated':
+       rospy.sleep(1)
+       emotionShow_pub.publish("QT/cry")
+       rospy.sleep(2)
+       talktext_pub.publish("ahhh")
+       rospy.sleep(2)
+       talktext_pub.publish("When do you feel frustrated?")
+
+   else:
+       rospy.sleep(2)
+       emotionShow_pub.publish("question")
+       rospy.sleep(2)
+       talktext_pub.publish("What makes you feel confused?")
+
+@socketio.on('dice_5w1h')
+def dice_5w1h(dice_face_str):
+   global emotionShow_pub
+   global gesturePlay_servc
+
+   rospy.sleep(1)
+   print("dice_5w1h: "+dice_face_str)
+   talktext_pub.publish(dice_face_str)
 
 
 
-@app.route('/dice_emotion_old_start')
-def dice_emotion_old_start():
+@socketio.on('dice_board')
+def dice_board(dice_face_str):
+   global emotionShow_pub
+   global gesturePlay_servc
+
+   rospy.sleep(1)
+   talktext_pub.publish("Move your piece on the board by")
+   if dice_face_str=='1':
+       talktext_pub.publish("One step")
+       rospy.sleep(1)
+
+   elif dice_face_str=='2':
+       talktext_pub.publish("Two steps")
+       rospy.sleep(1)
+
+   elif dice_face_str=='3':
+       talktext_pub.publish("Three steps")
+       rospy.sleep(1)
+
+   elif dice_face_str=='4':
+       talktext_pub.publish("Four steps")
+       rospy.sleep(1)
+
+   elif dice_face_str=='5':
+       talktext_pub.publish("Five steps")
+       rospy.sleep(1)
+   else:
+       talktext_pub.publish("Six steps")
+       rospy.sleep(1)
+
+
+
+@app.route('/dice_action_young_start')
+def dice_action_young_start():
     talktext_pub.publish("Let's roll the dice")
-    return render_template('dice_emotion_young.html')
+    return render_template('dice_action_young.html')
 
 @app.route('/dice_emotion_young_start')
 def dice_emotion_young_start():
@@ -776,103 +1009,139 @@ def dice_emotion_young_start():
     return render_template('dice_emotion_young.html')
 
 
+@app.route('/dice_emotion_old_start')
+def dice_emotion_old_start():
+    talktext_pub.publish("Let's roll the dice")
+    return render_template('dice_emotion_old.html')
+
+# @app.route('/dice_5w1h')
+# def dice_5w1h():
+#     talktext_pub.publish("Let's roll the dice")
+#     return render_template('dice_5w1h.html')
+
+
+@app.route('/dice_5w1h_1')
+def dice_5w1h_1():
+    talktext_pub.publish("Let's roll the dice")
+    return render_template('dice_why_when_how.html')
+
+
+@app.route('/dice_5w1h_2')
+def dice_5w1h_2():
+    talktext_pub.publish("Let's roll the dice")
+    return render_template('dice_what_who_where.html')
+
+@app.route('/dice_board')
+def dice_board():
+    talktext_pub.publish("Let's roll the dice")
+    return render_template('dice_board_game.html')
+
+
 ######################################################################################### Negin     ############################################################################################
 # Emotion game1
-
 def emotion_card(id):
     global talktext_pub
     global speechSay_pub
     global emotionShow_pub
     global gesturePlay_pub
-    gesturePlay_servc("QT/neutral",2)
+    # gesturePlay_servc("QT/neutral", 2)
     if id == 0:
-        rospy.sleep(1.0)
         talktext_pub.publish("angry!")
 
-        rospy.sleep(2.0)
-        gesturePlay_pub.publish("/QT/emotions/angry")
+        rospy.sleep(3.0)
+        emotionShow_pub.publish("QT/angry")
         rospy.sleep(1.0)
+        gesturePlay_pub.publish("/QT/emotions/angry")
         emotionShow_pub.publish("QT/angry")
         # r1 = random.randint(0,len(angry)-1)
-        # talktext_pub.publish(angry[r1]) 
-    elif id == 1: 
-        rospy.sleep(1.0)
+        # talktext_pub.publish(angry[r1])
+    elif id == 1:
         talktext_pub.publish("happy!")
-        rospy.sleep(1.0)
+        rospy.sleep(3.0)
         emotionShow_pub.publish("QT/happy")
-        rospy.sleep(5.0)
-        gesturePlay_pub.publish("/QT/emotions/happy")    
+        rospy.sleep(1.0)
+        gesturePlay_pub.publish("/QT/emotions/happy")
+        emotionShow_pub.publish("QT/happy")
         # r2 = random.randint(0,len(happy)-1)
-        # talktext_pub.publish(happy[r2]) 
+        # talktext_pub.publish(happy[r2])
     elif id == 2:
-        rospy.sleep(1.0)
         talktext_pub.publish("excited!")
-        rospy.sleep(1.0)
+        rospy.sleep(3.0)
         emotionShow_pub.publish("QT/happy_blinking")
-        rospy.sleep(5.0)
+        rospy.sleep(1.0)
         gesturePlay_pub.publish("/QT/emotions/hoora")
-        # r3 = random.randint(0,len(excited)-1)
-        # talktext_pub.publish(excited[r3]) 
+        emotionShow_pub.publish("QT/happy_blinking")
+
     elif id == 3:
-        rospy.sleep(1.0)
         talktext_pub.publish("sad!")
+        rospy.sleep(3.0)
+        emotionShow_pub.publish("QT/sad")
         rospy.sleep(1.0)
-        emotionShow_pub.publish("QT/sad") 
-        rospy.sleep(5.0)
-        gesturePlay_pub.publish("/QT/emotions/sad")        
+        gesturePlay_pub.publish("/QT/emotions/sad")
+        emotionShow_pub.publish("QT/sad")
         # r4 = random.randint(0,len(sad)-1)
-        # talktext_pub.publish(sad[r4])      
+        # talktext_pub.publish(sad[r4])
     elif id == 4:
-        rospy.sleep(1.0)
         talktext_pub.publish("scared!")
-        rospy.sleep(1.0)
+        rospy.sleep(3.0)
         emotionShow_pub.publish("QT/afraid")
-        rospy.sleep(5.0)
-        gesturePlay_pub.publish("/QT/emotions/afraid")        
+        rospy.sleep(1.0)
+        gesturePlay_pub.publish("/QT/emotions/afraid")
+        emotionShow_pub.publish("QT/afraid")
         # r5 = random.randint(0,len(scared)-1)
         # talktext_pub.publish(scared[r5])
     elif id == 5:
-        rospy.sleep(1.0)
         talktext_pub.publish("shy!")
-        rospy.sleep(1.0)
+        rospy.sleep(3.0)
         emotionShow_pub.publish("QT/shy")
-        rospy.sleep(5.0)
+        rospy.sleep(1.0)
         gesturePlay_pub.publish("/QT/emotions/shy")
         # r6 = random.randint(0,len(shy)-1)
-        # talktext_pub.publish(shy[r6]) 
+        # talktext_pub.publish(shy[r6])
     if (id < 6 and id > -1):
         rospy.sleep(8)
-        talktext_pub.publish("Look at the tablet, which one is " + " " + emotion_dictionary[id]) 
-        
+        talktext_pub.publish("Look at the tablet, which one is " + " " + emotion_dictionary[id])
 
 
-emotion_dictionary= {0: "angry", 1: "happy" , 2: "excited", 3: "sad", 4: "scared", 5: "shy"}
+emotion_dictionary = {0: "angry", 1: "happy", 2: "excited", 3: "sad", 4: "scared", 5: "shy"}
+
 
 def object_card(id):
     talktext_pub.publish(action)
     rospy.sleep(4)
-    talktext_pub.publish("Look at the tablet, click on the picture") 
+    talktext_pub.publish("Look at the tablet, click on the picture")
+
+
+def young_emotion_card(data):
+    print(data)
+    talktext_pub.publish(data)
+    rospy.sleep(4)
+    talktext_pub.publish("Look at the tablet, click on the picture")
+
 
 @app.route('/request', methods=['POST'])
 def request_callback():
     global game
     global selected
-    if (game == "emotion_game1"):
+    if (game == "emotion_game1"): #one emotion card + which face is this
+
+        global selected_emotion
         id = request.form['emotion']
-        print("ID: "+id)
+        print("ID: " + id)
         data = emotion_dictionary[int(id)]
+        selected_emotion= data
         emotion = list(emotions.keys())[list(emotions.values()).index(data)]
         if selected == 0 and int(id) < 7:
-            emotion_card(int(id))
+            young_emotion_card(data)
             socketio.emit('update image', {'path': random_image_selector(emotion)}, broadcast=True)
     elif (game == "emotion_game2"):
         # data = request.form['emotion']
         # id = list(emotions.keys())[list(emotions.values()).index(data)]
         id = request.form['emotion']
         data = emotion_dictionary[int(id)]
-        emotion = list(emotions.keys())[list(emotions.values()).index(data)]        
-        if selected == 0: 
-            emotion_card(int(id))       
+        emotion = list(emotions.keys())[list(emotions.values()).index(data)]
+        if selected == 0:
+            emotion_card(int(id))
             socketio.emit('update image', {'path': random_image(emotion)}, broadcast=True)
     elif (game == "action_game"):
         global action
@@ -883,24 +1152,21 @@ def request_callback():
             object_card(action)
     return "pass"
 
+
 emotions = {0: "happy", 1: "angry", 2: "scared", 3: "excited", 4: "shy", 5: "sad"}
 
+happy = {'ice': 'Having ice cream makes me feel', 'smile': 'I smile when I am',
+         'energy': 'I feel like I have a lot of energy when I am',
+         'jump': 'I want to jump for joy when I am'}
+sad = {'sad': 'My smile disappears when I am', 'toy': 'When my favorite toy is broken, it makes me',
+       'friend_sad': 'My friend is depressed, it makes me feel'}
+angry = {'scream': 'I want to scream and yell when I feel'}
 
+shy = {'shy': 'I get red in my face when I feel'}
 
-happy = {'ice': 'Having ice cream makes me feel happy!', 'smile': 'when I am happy, I smile!',
-         'energy': 'When I am happy, I feel like I have a lot of energy!',
-         'jump': 'When I am happy, I want to jump for joy!'}
-sad = {'sad': 'When I am sad, my smile disappears', 'toy': 'My favorite toy is broken, it makes me feel sad!',
-       'friend_sad': 'My friend is sad, it makes me feel sad too!'}
-angry = {'scream': 'When I feel angry, I want to scream and yell!'}
+excited = {'travel': 'Travelling with my family, makes me feel'}
 
-shy ={'shy': 'When I feel Shy, I get red in my face'}
-
-
-excited= {'travel':'Travelling with my family, makes me feel excited'}
-
-scared = {'scared': 'When I feel scared, my legs shake'}
-
+scared = {'scared': 'My legs shake when I feel'}
 
 
 def random_image_selector(id):
@@ -911,6 +1177,7 @@ def random_image_selector(id):
     l.append(path + "emotions/" + emotions[x] + ".jpg")
     l.append(path + "emotions/" + emotions[y] + ".jpg")
     return l
+
 
 def random_image(id):
     global var
@@ -949,19 +1216,20 @@ def random_image(id):
 def start_game(message):
     global selected
     global speech_flag
+    global speech_flag_emotion
     global game
     selected = 0
     speech_flag = False
+    speech_flag_emotion = False
     if (message['who'] == 'start_game'):
         socketio.emit('redirect', {'url': url_for('first_view')})
-        if(game == "emotion_game1" or game == "emotion_game2"):
+        if (game == "emotion_game1" or game == "emotion_game2"):
             talktext_pub.publish("Let's play a game, show me an emotion card!")
-        elif(game == "emotion_game3"):
+        elif (game == "emotion_game3"):
             talktext_pub.publish("Let's play a game, show me two emotion cards")
-        elif(game == "action_game"):
+        elif (game == "action_game"):
             talktext_pub.publish("Let's play a game, show me an action card!")
         rospy.sleep(1)
-
 
 
 @socketio.on('selected')
@@ -971,60 +1239,70 @@ def image_selected(message):
 
     global emotion_game1_success, emotion_game2_success, emotion_game3_success
     global emotion_game1_failure, emotion_game2_failure, emotion_game3_failure
-    if(game == "emotion_game1"):
-        if(selected == 0):
-            if(message['who'] == "img00"):
-                socketio.emit('highlight',{},  broadcast = True)
-                speechSay_pub.publish("Good job!")
-                selected = 1
-                rospy.sleep(2)
-                talktext_pub.publish("You can click next.")
-
-                emotion_game1_success+=1
-            else:
-                speechSay_pub.publish("Please try again!")
-                emotion_game1_failure += 1
-    elif(game == "emotion_game2"):
+    if (game == "emotion_game1"):
+        global speech_flag_emotion
+        if not speech_flag_emotion:
+            speech_flag_emotion = True
+            speechSay_pub.publish(selected_emotion)
+            rospy.sleep(1)
+            talktext_pub.publish("You can click next.")
+    elif (game == "emotion_game2"):
         global var
-        if(selected == 0):
-            if(message['who'] == "img00"):
-                socketio.emit('highlight',{},  broadcast = True)
+        if (selected == 0):
+            if (message['who'] == "img00"):
+                socketio.emit('highlight', {}, broadcast=True)
+                # emotion elaboration
+                sentence = var
+
+                # speechSay_pub.publish(var)
                 speechSay_pub.publish(var)
                 rospy.sleep(1)
-                talktext_pub.publish("You can click next.")
                 selected = 1
-                emotion_game2_success+=1
+                emotion_game2_success += 1
             else:
                 speechSay_pub.publish("Please try again!")
-                emotion_game2_failure+=1
-    elif(game == "action_game"):
+                emotion_game2_failure += 1
+    elif (game == "action_game"):
         global speech_flag
         if not speech_flag:
             speech_flag = True
             speechSay_pub.publish(action)
             rospy.sleep(1)
-            talktext_pub.publish("You can click next.")   
-    #rospy.sleep(1)
+            talktext_pub.publish("You can click next.")
+            # rospy.sleep(1)
+
 
 @socketio.on('next button')
 def next_button(message):
     global game
     global selected
-    global speech_flag
-    if(game == "emotion_game1" or game  == "emotion_game2"):
+    global speech_flag, speech_flag_emotion
+    if(game == "emotion_game1"):
+        rospy.sleep(2)
+        talktext_pub.publish("Show me another emotion card!")
+        global speech_flag_emotion
+        if (speech_flag_emotion == True):
+            speech_flag_emotion = False
+            socketio.emit('update image', {'path': [path + "emotions/ask.jpg"]}, broadcast=True)
+
+
+    elif (game == "emotion_game2"):
         rospy.sleep(2)
         talktext_pub.publish("Show me another emotion card!")
         rospy.sleep(1.5)
-        if(selected == 1):
-            selected = 0 
-            socketio.emit('update image', {'path': [path + "emotions/ask.jpg" , path + "emotions/ask.jpg"]}, broadcast=True)
-    elif(game == "action_game"):
+        if (selected == 1):
+            selected = 0
+            socketio.emit('update image',{'path': [path + "emotions/ask.jpg", path + "emotions/ask.jpg"]},
+                          broadcast=True)
+
+    elif (game == "action_game"):
         rospy.sleep(2)
         talktext_pub.publish("Show me another action card!")
         global speech_flag
-        if(speech_flag == True):
-            speech_flag = False 
+        if (speech_flag == True):
+            speech_flag = False
             socketio.emit('update image', {'path': [path + "emotions/ask.jpg"]}, broadcast=True)
+
 
 @app.route('/first_view')
 def first_view():
@@ -1032,15 +1310,14 @@ def first_view():
     # print("game")
     # return render_template('emotion_game1.html')
     global game
-    if(game == "emotion_game1"):
+    if (game == "emotion_game1"):
         return render_template('emotion_game1.html')
-    elif(game == "emotion_game2"):
+    elif (game == "emotion_game2"):
         return render_template('emotion_game1.html')
-    elif(game == "action_game"):
+    elif (game == "action_game"):
         return render_template('action_game.html')
-    elif(game == "emotion_game3"):
+    elif (game == "emotion_game3"):
         return render_template('emotion_game3.html')
-
 
 
 ######################################################################################### Main ############################################################################################
@@ -1052,19 +1329,21 @@ if __name__ == '__main__':
     gesturePlay_pub = rospy.Publisher('/qt_robot/gesture/play', String, queue_size=10)
     emotionShow_pub = rospy.Publisher('/qt_robot/emotion/show', String, queue_size=10)
     audioPlay_pub = rospy.Publisher('/qt_robot/audio/play', String, queue_size=10)
-    
+
+    # speechStop_servc = rospy.ServiceProxy('/qt_robot/speech/stop', speech_stop)
+    # rospy.wait_for_service('/qt_robot/speech/stop')
     gesturePlay_servc = rospy.ServiceProxy('/qt_robot/gesture/play', gesture_play)
     rospy.wait_for_service('/qt_robot/gesture/play')
-    
+
     right_pub = rospy.Publisher('/qt_robot/right_arm_position/command', Float64MultiArray, queue_size=1)
-    left_pub = rospy.Publisher('/qt_robot/left_arm_position/command', Float64MultiArray, queue_size=1)   
+    left_pub = rospy.Publisher('/qt_robot/left_arm_position/command', Float64MultiArray, queue_size=1)
     global f
     time_start = time.ctime()
 
     socketio.run(app, host='0.0.0.0', debug=True)  # connect to 192.168.100.2:5000 in web
     end = time.ctime()
 
-    
+
 
 
 

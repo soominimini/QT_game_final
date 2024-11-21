@@ -21,7 +21,9 @@ import os
 import signal
 
 
-
+sub = None
+state = 0
+em = None
 
 
 
@@ -71,138 +73,69 @@ arucoParams = cv2.aruco.DetectorParameters()
 emotion_dictionary= {0: "angry", 1: "happy" , 2: "excited", 3: "sad", 4: "scared", 5: "shy"}
 
 happy = [ "When I'm happy, I smile!" , "When I'm happy, I feel like i have, a lot of energy" , "When I'm happy, I want to jump of joy!" , "Playing with my friends makes me happy!" , "Having my favorite snack makes me happy!" , "Staying with my family makes me feel happy." ]
-sad = ["When im sad, my smile disappears." , 
-    "When im sad, I want to cry.", 
+sad = ["When im sad, my smile disappears." ,
+    "When im sad, I want to cry.",
 
-    "My favorite toy is broken, it makes me feel sad." ,   
+    "My favorite toy is broken, it makes me feel sad." ,
 
-    "My friend is sad, it makes me feel sad too.", 
+    "My friend is sad, it makes me feel sad too.",
 
-    "When im feeling sad, I can talk to my friends.",  
+    "When im feeling sad, I can talk to my friends.",
 
     "When im feeling sad, I can listen to my favorite music."]
 
 angry = ["When I feel angry, I feel like I want to stomp my feet!" , "When I feel angry, I want to scream and shout", "when I feel angry, I feel like I am going to explode!", "when someone makes fun of me, it makes me feel angry!" , "when someone ruins my painting, it makes me feel angry" , "When i am blamed for something, I did n't do, it makes me feel angry!"]
-excited = ["When I feel excited, I can not be calm.", 
+excited = ["When I feel excited, I can not be calm.",
 
-    "When I feel excited, I feel like my heaty is racing.", 
+    "When I feel excited, I feel like my heaty is racing.",
 
-    "When I feel excited, I can not stop laughing.",  
+    "When I feel excited, I can not stop laughing.",
 
-    "Travelling with my family, makes me feel excited.",  
+    "Travelling with my family, makes me feel excited.",
 
-    "My birthday is coming, it makes me feel excited.",  
+    "My birthday is coming, it makes me feel excited.",
 
     "Winning a trophy makes me feel excited."]
 
-jealous = ["When I feel jealous, I feel like no one cares about me.", 
+jealous = ["When I feel jealous, I feel like no one cares about me.",
 
-    "When I feel jealous, I become rudeness.", 
+    "When I feel jealous, I become rudeness.",
 
     "When someone has a new toy and I don’t, it makes me feel jealous." ,
 
-    "When others gets more attention than me, it makes me feel jealous.",  
+    "When others gets more attention than me, it makes me feel jealous.",
 
     "When others win in the race, it makes me feel jealous."]
 
-disappointed = ["When I feel disappointed, my smile disappears.", 
-    "When I feel disappointed, I want to stay alone.",   
-    "When in feel disappointed, I am in bed mood.",   
-    "When I cannot go to park as planned, I feel disappointed.",  
-    "When my favorite flavor is sold out in the shop, I feel disappointed.", 
+disappointed = ["When I feel disappointed, my smile disappears.",
+    "When I feel disappointed, I want to stay alone.",
+    "When in feel disappointed, I am in bed mood.",
+    "When I cannot go to park as planned, I feel disappointed.",
+    "When my favorite flavor is sold out in the shop, I feel disappointed.",
     "When what I want to have happen, doesn’t happen, I feel disappointed." ]
 
 
 
 
-scared = ["When I feel scared, my heart beats so loud.",  
+scared = ["When I feel scared, my heart beats so loud.",
 
-    "When I feel scared u want to hide in a place that makes me feel safe."  , 
-    
-    "When I feel scared, my legs shake.", 
+    "When I feel scared u want to hide in a place that makes me feel safe."  ,
 
-    "When I get lost in a crowd, it makes me feel scared." , 
+    "When I feel scared, my legs shake.",
 
-    "When I watch a spooky movie, It makes me feel scared.",  
+    "When I get lost in a crowd, it makes me feel scared." ,
+
+    "When I watch a spooky movie, It makes me feel scared.",
 
     "When I have a bad dream, It makes me feel scared."]
 
 
 shy = ["When I feel shy, I feel like my heart is racing." , "When I feel shy, I get red in my face."  , "When I feel shy, I want to hide behind my parents.", "Going to a new school, makes me feel shy." , "Speaking in front of class, makes me feel shy." ,  "Meeting mom and dad’s friends makes me feel shy."]
-    
+
 def send_post_request(emotion):
     # r = requests.post('http://192.168.100.2:5000/request', data={'emotion': emotion})
     r = requests.post('http://127.0.01:5000/request', data={'emotion': emotion})
 
-
-def emotion_card(id):
-    global talktext_pub
-    global speechSay_pub
-    global emotionShow_pub
-    global gesturePlay_pub
-    if id == 0:
-        rospy.sleep(1.0)
-        talktext_pub.publish("angry!")
-        rospy.sleep(1.0)
-        emotionShow_pub.publish("QT/angry")
-        rospy.sleep(5.0)
-        gesturePlay_pub.publish("/QT/emotions/angry")
-        r1 = random.randint(0,len(angry)-1)
-        print("r1" , r1 , "length" , len(angry))        
-        # talktext_pub.publish(angry[r1]) 
-    elif id == 1: 
-        rospy.sleep(1.0)
-        talktext_pub.publish("happy!")
-        rospy.sleep(1.0)
-        emotionShow_pub.publish("QT/happy")
-        rospy.sleep(5.0)
-        gesturePlay_pub.publish("/QT/emotions/happy")    
-        r2 = random.randint(0,len(happy)-1)
-        print("r2" , r2 , "length" , len(happy))        
-        # talktext_pub.publish(happy[r2]) 
-    elif id == 2:
-        rospy.sleep(1.0)
-        talktext_pub.publish("excited!")
-        rospy.sleep(1.0)
-        emotionShow_pub.publish("QT/happy_blinking")
-        rospy.sleep(5.0)
-        gesturePlay_pub.publish("/QT/emotions/hoora")
-        r3 = random.randint(0,len(excited)-1)
-        print("r3" , r3 , "length" , len(excited))        
-        # talktext_pub.publish(excited[r3]) 
-    elif id == 3:
-        rospy.sleep(1.0)
-        talktext_pub.publish("sad!")
-        rospy.sleep(1.0)
-        emotionShow_pub.publish("QT/sad") 
-        rospy.sleep(5.0)
-        gesturePlay_pub.publish("/QT/emotions/sad")        
-        r4 = random.randint(0,len(sad)-1)
-        print("r4" , r4 , "length" , len(sad))        
-        # talktext_pub.publish(sad[r4])      
-    elif id == 4:
-        rospy.sleep(1.0)
-        talktext_pub.publish("scared!")
-        rospy.sleep(1.0)
-        emotionShow_pub.publish("QT/afraid")
-        rospy.sleep(5.0)
-        gesturePlay_pub.publish("/QT/emotions/afraid")        
-        r5 = random.randint(0,len(scared)-1)
-        print("r5" , r5 , "length" , len(scared))        
-        # talktext_pub.publish(scared[r5])
-    elif id == 5:
-        rospy.sleep(1.0)
-        talktext_pub.publish("shy!")
-        rospy.sleep(1.0)
-        emotionShow_pub.publish("QT/shy")
-        rospy.sleep(5.0)
-        gesturePlay_pub.publish("/QT/emotions/shy")
-        r6 = random.randint(0,len(shy)-1)
-        print("r6" , r6 , "length" , len(shy))
-        # talktext_pub.publish(shy[r6]) 
-    if (id < 6 and id > -1):
-        talktext_pub.publish("which one is " + emotion_dictionary[id] ) 
-        send_post_request(emotion_dictionary[id])
 
 
 def img_callback(img):
@@ -220,7 +153,7 @@ def img_callback(img):
             send_post_request(ids[0][0])
             t1 = time.time()
         # print("rejected" , rejected)
-    cv2.imshow('frame', frame)
+    # cv2.imshow('frame', frame)
     # print("subscriber keeps calling")
     if cv2.waitKey(1) == ord('q'):
         cv2.aruco.drawDetectedMarkers()
@@ -235,16 +168,25 @@ def signal_handler(signal, frame):
 def closing(sth):
     # print(sth)
     return
-
-
 def exit_main():
-    rospy.Subscriber('/usb_cam/image_raw/', Image, closing)
-    global sub
-    sub.unregister()
+    global state, em, sub
+    state = 0
+    em = None
+    if sub:
+        sub.unregister()  # Properly unregister the subscriber
+        sub = None
     cv2.destroyAllWindows()
-    exit()
+    print("Exiting AR tag game")
+
+# def exit_main():
+#     rospy.Subscriber('/usb_cam/image_raw/', Image, closing)  # /camera/color/image_raw
+#     global sub
+#     sub.unregister()
+#     cv2.destroyAllWindows()
+#     exit()
 
 
+#young age emotion game with one card
 
 def main():
     # rospy.init_node('my_tutorial_node')
@@ -262,30 +204,5 @@ def main():
     emotionShow_pub = rospy.Publisher('/qt_robot/emotion/show', String, queue_size=10)
     talktext_pub = rospy.Publisher('/qt_robot/behavior/talkText',String,queue_size=10)
     gesturePlay_pub = rospy.Publisher('/qt_robot/gesture/play',String,queue_size=10)    
-    sub = rospy.Subscriber('/usb_cam/image_raw/', Image, img_callback)
+    sub = rospy.Subscriber('/usb_cam/image_raw/', Image, img_callback) # /camera/color/image_raw   # /usb_cam/image_raw/
 
-
-
-
-# if __name__ == '__main__':
-#     rospy.init_node('my_tutorial_node')
-#     rospy.loginfo("my_tutorial_node started!")
-#     global t1 
-#     t1 = time.time()
-#    # creating a ros publisher
-    # speechSay_pub = rospy.Publisher('/qt_robot/speech/say', String, queue_size=10)
-    # emotionShow_pub = rospy.Publisher('/qt_robot/emotion/show', String, queue_size=10)
-    # talktext_pub = rospy.Publisher('/qt_robot/behavior/talkText',String,queue_size=10)
-    # gesturePlay_pub = rospy.Publisher('/qt_robot/gesture/play',String,queue_size=10)    
-    # rospy.Subscriber('/usb_cam/image_raw/', Image, img_callback)
-    
-#    # publish a text message to TTS
-   
-
-#     try:
-#         rospy.spin()
-        
-#     except KeyboardInterrupt:
-#         pass
-
-#     rospy.loginfo("finsihed!")

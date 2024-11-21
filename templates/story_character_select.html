@@ -18,23 +18,26 @@
 
      });
         function girl() {
-
+ let showText = document.getElementById('showTextCheckbox').checked;
             window.setTimeout(function(){
                  // do whatever you want to do
                   }, 600);
             // socket.emit('character_select',girl);
             console.log('girl');
             location.href = '/girl/first_page';
-            socket.emit('character_select','girl');
+            socket.emit('character_select', { character: 'girl', showText: showText });
+            {#socket.emit('character_select','girl');#}
 
         }
 
         function boy() {
+             let showText = document.getElementById('showTextCheckbox').checked;
             window.setTimeout(function(){
                  // do whatever you want to do
                   }, 600);
             location.href = '/boy/first_page';
-            socket.emit('character_select','boy');
+            socket.emit('character_select', { character: 'boy', showText: showText });
+            {#socket.emit('character_select','boy');#}
         }
 
 
@@ -68,6 +71,12 @@ input {
         <button onclick="boy()" >
             <img src="../static/story/first_boy.png" >
         </button>
+        </div>
+
+         <div style="margin-top: 20px;">
+            <label>
+                <input type="checkbox" id="showTextCheckbox"> Show Story Text
+            </label>
         </div>
 
     </div>
