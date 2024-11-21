@@ -903,7 +903,6 @@ def dice_face_in_young_emotion(dice_face_str):
     rospy.sleep(2)
 
 
-
 @socketio.on('dice_face_in_old_emotion')
 def dice_face_in_old_emotion(dice_face_str):
    global emotionShow_pub
@@ -929,7 +928,7 @@ def dice_face_in_old_emotion(dice_face_str):
        rospy.sleep(1.5)
        emotionShow_pub.publish("QT/happy")
        rospy.sleep(2)
-       gesturePlay_servc("QT/happy", 1)
+       gesturePlay_servc("QT/point_front", 1)
        rospy.sleep(2)
        talktext_pub.publish("Who makes you feel excited?")
 
@@ -942,12 +941,14 @@ def dice_face_in_old_emotion(dice_face_str):
        talktext_pub.publish("When do you feel tired?")
 
    elif dice_face_str=='frustrated':
-       rospy.sleep(1)
-       emotionShow_pub.publish("QT/cry")
        rospy.sleep(2)
-       talktext_pub.publish("ahhh")
+       emotionShow_pub.publish("QT/scream")
+       # rospy.sleep(2)
+       # talktext_pub.publish("ahhh")
+       gesturePlay_servc("frustration", 1.5)
+       # talktext_pub.publish("ahhh")
        rospy.sleep(2)
-       talktext_pub.publish("When do you feel frustrated?")
+       # talktext_pub.publish("When do you feel frustrated?")
 
    else:
        rospy.sleep(2)
