@@ -1,8 +1,0 @@
-Name: Jj
-Age: 7
-Session: 7
-login closed  Fri Dec  6 19:32:00 2024
-3-5
-Time: Fri Dec  6 19:32:06 2024
-story
-Time: Fri Dec  6 19:32:08 2024
