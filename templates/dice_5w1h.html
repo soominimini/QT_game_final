@@ -13,7 +13,12 @@
 </head>
 <style>
   * { padding: 0px; margin: 0px; }
-html, body { max-width: 100%; height:100%; background-color: skyblue; }
+    html, body {
+        max-width: 100%;
+        height: 100%;
+        background-color: #C7E5FF;
+    }
+
 
 #wrap { display: flex; width: 100%; height: 100%; justify-content: center; align-items: center; }
 #diceBox { max-width: 600px; width: 90vw; height: auto; background-color: #fff; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); padding: 40px; box-sizing: border-box; }
@@ -39,9 +44,41 @@ html, body { max-width: 100%; height:100%; background-color: skyblue; }
 #diceBox > .dice_wrap > [class^=dice] .dice.face4 { transform: rotateX(-270deg) rotateY(0deg); }
 #diceBox > .dice_wrap > [class^=dice] .dice.face5 { transform: rotateX(0deg) rotateY(-270deg); }
 #diceBox > .dice_wrap > [class^=dice] .dice.face6 { transform: rotateX(0deg) rotateY(-180deg); }
-#btnRolling { display: block; width: 160px; height: 40px; margin: 0 auto; background-color: royalblue; border: none; border-radius: 4px; color: #fff; cursor: pointer; position: relative; overflow: hidden; }
-#btnRolling::before{ display: block; content: ''; width: 60px; height: 100%; background-color: #fff; position: absolute; top:0; left: -60px; transition: all 0.5s; transform: skewX(-45deg); transform-origin: top left; opacity: 0.3; }
-#btnRolling:hover::before { transform: skewX(-45deg) translateX(280px); }
+ #btnRolling {
+        display: block;
+        font-size: 35px;
+        width: 150px;
+        height: 80px;
+        margin: 0 auto;
+        background-color: royalblue;
+        border: none;
+        border-radius: 30px;
+        color: #fff;
+        cursor: pointer;
+        overflow: hidden;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+    }
+
+    #btnRolling::before {
+        display: block;
+        content: '';
+        width: 60px;
+        height: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        left: -60px;
+        transition: all 0.5s;
+        transform: skewX(-45deg);
+        transform-origin: top left;
+        opacity: 0.3;
+    }
+
+    #btnRolling:hover::before {
+        transform: skewX(-45deg) translateX(280px);
+    }
 
 
 
@@ -50,10 +87,61 @@ html, body { max-width: 100%; height:100%; background-color: skyblue; }
   #diceBox > .dice_wrap { display: block;}
   #diceBox > .dice_wrap > [class^=dice] { width: 100%; margin-right: 0%; padding-top: 100%; }
 }
+
+  .repeat button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        left: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(128, 168, 255, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    }
+
+    /* Next button active effect */
+    .repeat button:disabled {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+    }
+
+    .stop button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(255, 0, 0, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    }
+
+    .stop button:disabled {
+        background: rgba(92, 43, 43, 0.6);
+        color: rgb(255, 255, 255);
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
+    }
 </style>
 
 <body>
     <div id="wrap">
+            <div class="repeat">
+        <button id="repeat-speech-btn"> Repeat</button>
+    </div>
+
+    <div class="stop">
+        <button id="stop-speech-btn"> STOP</button>
+    </div>
   <section id="diceBox">
     <div class="dice_wrap">
       <div class="dice01">
@@ -88,7 +176,7 @@ var face6 = document.querySelectorAll('.face6');
 
 // Track visited faces
 var visitedFaces = new Set();
-
+var dice_face = "";
 function DiceResizing(){
   Array.prototype.forEach.call(face1, function(item){
     item.style.transform = 'rotateY(0deg) translateZ(' + dice_width/2 + 'px)';
@@ -123,7 +211,6 @@ var RandomNumber = function(){
         visitedFaces.clear();
     }
 
-    let dice_face;
     do {
         dice_face = Math.floor(Math.random() * 6) + 1;
     } while (visitedFaces.has(dice_face));
@@ -158,5 +245,40 @@ btnRolling.onclick = function(){
   btnRolling.disabled = true;  // Disable button to prevent multiple clicks during roll
   rolling();
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+        const stopSpeechButton = document.getElementById("stop-speech-btn");
+        const repeatSpeechButton = document.getElementById("repeat-speech-btn");
+
+        stopSpeechButton.addEventListener("click", function () {
+
+            // Emit 'speech_stop' event to the backend
+            socket.emit('stop_trigger_force', {message: "Stop speech command sent"});
+            socket.emit('speech_stop', {message: "Stop speech command sent"});
+            console.log("Speech stop event emitted");
+
+            // Disable the button for 2 seconds
+            stopSpeechButton.disabled = true;
+            setTimeout(function () {
+                stopSpeechButton.disabled = false;
+            }, 500); // 2000ms = 2 seconds
+
+        });
+
+        repeatSpeechButton.addEventListener("click", function () {
+            if (dice_face == 1) socket.emit('repeat_speech', "curious. what makes you curious?");
+            else if (dice_face == 2) socket.emit('repeat_speech', "Silly. when do you feel silly?");
+            else if (dice_face == 3) socket.emit('repeat_speech', "Excited. Who makes you feel excited?");
+            else if (dice_face == 4) socket.emit('repeat_speech', "Tired. When do you feel tired?");
+            else if (dice_face == 5) socket.emit('repeat_speech', "Frustrated. When do you feel frustrated?");
+            else socket.emit('repeat_speech', "Confused. What makes you feel confused?");
+
+            // Disable the button for 2 seconds
+            repeatSpeechButton.disabled = true;
+            setTimeout(function () {
+                repeatSpeechButton.disabled = false;
+            }, 500); // 2000ms = 2 seconds
+        });
+    });
 </script>
 </html>

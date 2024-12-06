@@ -142,9 +142,11 @@ def img_callback(img):
             print(ids)
             print("length of ids", len(ids))
             if (len(ids) == 2 and state == 0):
+                talktext_pub.publish("Let me show you a face")
+                rospy.sleep(1.0)
                 print("detected??")
                 talktext_pub.publish("which face is this?")
-                rospy.sleep(1)
+                rospy.sleep(2.0)
                 emotion_show(ids)
             elif (len(ids) == 1 and state == 1):
                 if (ids[0] == em):

@@ -13,26 +13,86 @@
     <title>JavaScript - Drag and Drop Demo</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
+
+<style>
+    /* Main container styling */
+    .container {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Text styling */
+    .centered-text {
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 20px; /* Add space between the image and text */
+    }
+
+.repeat button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(250, 231, 200, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    /* Next button active effect */
+    .repeat button:active {
+        background: rgb(255, 200, 150);
+        color: rgb(255, 255, 255);
+    }
+
+    /* Image section styling */
+    .object img {
+        margin: 0 10px; /* Add spacing between images */
+    }
+</style>
+
 <script>
     var socket = io.connect('http://192.168.100.2:5000');
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
 
-     $(document).ready(function() {
-         socket.emit('mom_chair')
+    $(document).ready(function () {
+        socket.emit('mom_chair')
         // setTimeout(enabling, 7000);
-     });
+    });
+
+    function repeat_speech() {
+        socket.emit('repeat_speech', "Goldilocks sat in the medium sized chair. “This chair is too big, too!")
+    }
 </script>
 <body>
+
+
 <div class="container">
     <div class="object">
-<img src="../static/story/girl_9th.png" style="width: 40%">
+        <img src="../../static/story/girl_9th.png" style="width: 23%">
 
     </div>
-     {% if show_text %}
-She sat in the medium sized chair. “This chair is too big, too!” she said.
-    {% endif %}
+    <div class="repeat">
+        <button onclick="repeat_speech()">
+            Repeat<br>button
+        </button>
+    </div>
+    <div class="centered-text">
+        {% if show_text %}
+            Goldilocks sat in the medium sized chair. “This chair is too big, too!”
+        {% endif %}
+    </div>
 </div>
-
 </body>
 </html>

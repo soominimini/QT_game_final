@@ -11,32 +11,164 @@
     <!--   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>-->
     <!-- touch punch는 jquery ui 아래에 위치해야함 -->
     <title>JavaScript - Drag and Drop Demo</title>
+
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <style>
-#table{
-     width: auto; position:relative;  display: block;    margin-left: auto;    margin-right: auto ;
-    padding-top: 10%;
-}
-button.dad {
-    width: 43%;
-background-color: rgba(0,0,0,0);
-    border: 2px solid transparent;
-}
-button.mom {
-    width: 30%;
-background-color: rgba(0,0,0,0);
-      border: 2px solid transparent;
-}
-button.baby {
-    width: 25%;
-background-color: rgba(0,0,0,0);
-  border: 2px solid transparent;
-}
+    /* Disable scrolling */
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden; /* Prevent scrolling */
+         background-color: #C7E5FF; /* Light purple */
+    }
+
+    /* Main container */
+    .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        text-align: center;
+    }
+
+    /* Table and image styling */
+    #table img {
+        width: 55%;
+       margin-top: 10%;
+    }
+
+    /* Buttons styling for dad, mom, and baby */
+    button {
+        border: none;
+        cursor: pointer;
+        border-radius: 10px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    }
+    button.dad {
+        width: 42%;
+        background-color: rgba(236, 236, 236, 0); /* Light blue background */
+    }
+
+    button.mom {
+        width: 28%;
+      background-color: rgba(236, 236, 236, 0);
+
+    }
+
+    button.baby {
+        width: 20%;
+       background-color: rgba(236, 236, 236, 0);
+    }
+
+    /* Button pressed (active) effect */
+    button:active {
+        transform: scale(0.95); /* Slight shrink on click */
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
+    }
+
+    /* Centered text styling */
+    .centered-text {
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: 20px; /* Space between image and text */
+    }
+    /* Next button styling */
+    .next-button {
+        font-size: 35px;
+        background: rgba(250, 231, 200, 1.0);
+        color: rgb(0, 0, 0);
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 80px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Next button active effect */
+    .next-button:active {
+        background: rgb(255, 200, 150);
+        color: rgb(255, 255, 255);
+    }
+    .repeat button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        left: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(128, 168, 255, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    /* Next button active effect */
+    .repeat button:active {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+    }
+
+    .stop button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(255, 0, 0, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    .stop button:disabled {
+        background: rgba(92, 43, 43, 0.6);
+        color: rgb(255, 255, 255);
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
+    }
 </style>
 <script>
  var socket = io.connect('http://192.168.100.2:5000');
         let arr = new Array();
+
+
+     /* STOP function */
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const stopSpeechButton = document.getElementById("stop-speech-btn");
+
+        stopSpeechButton.addEventListener("click", function () {
+            // Emit 'speech_stop' event to the backend
+            socket.emit('speech_stop', {message: "Stop speech command sent"});
+            console.log("Speech stop event emitted");
+
+            // Disable the button for 2 seconds
+            stopSpeechButton.disabled = true;
+            setTimeout(function () {
+                stopSpeechButton.disabled = false;
+            }, 500); // 2000ms = 2 seconds
+        });
+    });
+
+     /* STOP function */
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
     socket.on('html_data_recv' , function(data)
@@ -65,37 +197,42 @@ background-color: rgba(0,0,0,0);
         socket.emit('checking_visit_bed', arr);
     }
         function go_to_next_page() {
-               if (arr[0] == true && arr[1]  == true && arr[2] ==true) {
-                    // socket.emit('sixth');
-                    location.href = '/bear_1st';
-        }
-        else {
-            socket.emit('block_page', "Please try all!") //emit the information of dragged item
-            socket.emit('object_list', {data: "try to go to next step before finishing the current page"}); //emit the information of dragged item
-        }
 
+         location.href = '/bear_1st';
+
+    }
+         function repeat_speech() {
+        socket.emit('repeat_speech', "By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom")
     }
 </script>
 <body>
-<div style="position:relative; display: flex; flex-direction: column; justify-content: center">
-    <form id="data-send" name="data-send"style="position:relative; display: flex;flex-direction: row;">
 
-        <input type="button" value="Next" onclick="go_to_next_page()" style="position:relative; display: flex;flex-direction: row; margin-left: auto; margin-right: auto; width: 100px; height: 50px">
-    </form>
-    <button onclick="force_to_go_next()" style="position:relative; display: flex;flex-direction: row; margin-left: auto;width: 50px; height: 50px;border-radius: 50%; background: red; color: white">Ignore</button>
-    </div>
+
 <div class="container" style="width: 100%">
 
-    <div class="object" style="width: 100%; height: auto; position:relative;">
-        <div id="table">
-          <button class="dad"  onclick="dad()">  <img src="../../static/story/dad_bed.png" style="width:90%;" > </button>
-         <button class="baby"  onclick="baby()">  <img src="../../static/story/baby_bed.png"style="width:90%;" > </button>
-             <button class="mom"  onclick="mom()">  <img src="../../static/story/mom_bed.png" style="width:90%;" > </button>
-</div>
+        <div id="table" style="padding-top: 5%">
+          <button class="dad"  onclick="dad()">   <img src="../../static/story/dad_bed.png" style="width: 100%"> </button>
+         <button class="mom"  onclick="mom()">   <img src="../../static/story/mom_bed.png" style="width: 100%"> </button>
+         <button class="baby"  onclick="baby()">   <img src="../../static/story/baby_bed.png" style="width: 100%"> </button>
 
-    </div>
-    By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom
 </div>
+ <div class="repeat">
+            <button onclick="repeat_speech()"> Repeat</button>
+        </div>
+
+        <div class="stop">
+            <button id="stop-speech-btn"> STOP</button>
+        </div>
+         <!-- Centered text -->
+    {% if show_text %}
+    <div class="centered-text">
+           By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom
+         </div>
+    {% endif %}
+    </div>
+
+    <!-- Next button -->
+    <input type="button" value="Next" onclick="go_to_next_page()" class="next-button">
 
 
 </body>

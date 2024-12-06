@@ -1,53 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <title>Main</title>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-      <script type="text/javascript">
-    var socket = io.connect('http://192.168.100.2:5000');
-    console.log("first socket:", socket);
-    socket.emit('connect event', {data: 'User Connected'});
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <style>
+        body {
+            overflow: hidden; /* Prevent scrolling */
+            background-color: #C7E5FF; /* Light purple */
+        }
 
-    $(document).ready(function() {
-        socket.emit('bear_9th');
-        // setTimeout(enabling, 7000);
-     });
-    var character_js = '{{character}}';
-    console.log("character_js: "+character_js);
-            function go_to_next_page() {
-                if(character_js=='girl') {
-                    // socket.emit('sixth');
-                    location.href = '/girl/bear_10th';
-                }
-                else if (character_js=='boy') {
-                     location.href = '/boy/bear_10th';
-                }
-                else{
+        /* Main container styling */
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-                }
-    }
-</script>
+        /* Text styling */
+        .centered-text {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 10px; /* Add space between the image and text */
+        }
+
+
+        /* Next button styling */
+        .next-button {
+            font-size: 35px;
+            background: rgba(250, 231, 200, 0.6);
+            color: rgb(0, 0, 0);
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 80px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Next button active effect */
+        .next-button:active {
+            background: rgb(255, 200, 150);
+            color: rgb(255, 255, 255);
+        }
+
+        /* Image section styling */
+        .object img {
+            margin: 0 10px; /* Add spacing between images */
+        }
+
+        .object {
+            margin-top: -20%;
+        }
+
+        .repeat button {
+            position: fixed; /* Keeps it fixed relative to the viewport */
+            top: 20px; /* Distance from the top of the viewport */
+            left: 20px; /* Distance from the left of the viewport */
+            font-size: 20px;
+            background: rgba(128, 168, 255, 0.6);
+            color: rgb(0, 0, 0);
+            width: 100px;
+            height: 60px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px; /* Rounded corners */
+            transition: all 0.3s ease; /* Smooth transition */
+        {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+        }
+
+        /* Next button active effect */
+        .repeat button:active {
+            background: rgb(41, 57, 104);
+            color: rgb(255, 255, 255);
+        }
+
+        .stop button {
+            position: fixed; /* Keeps it fixed relative to the viewport */
+            top: 20px; /* Distance from the top of the viewport */
+            right: 20px; /* Distance from the left of the viewport */
+            font-size: 20px;
+            background: rgba(255, 0, 0, 0.6);
+            color: rgb(0, 0, 0);
+            width: 100px;
+            height: 60px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px; /* Rounded corners */
+            transition: all 0.3s ease; /* Smooth transition */
+        {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+        }
+
+        .stop button:disabled {
+            background: rgba(92, 43, 43, 0.6);
+            color: rgb(255, 255, 255);
+            cursor: not-allowed; /* Change cursor to indicate disabled state */
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        var socket = io.connect('http://192.168.100.2:5000');
+        console.log("first socket:", socket);
+        socket.emit('connect event', {data: 'User Connected'});
+
+        /* STOP function */
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const stopSpeechButton = document.getElementById("stop-speech-btn");
+
+            stopSpeechButton.addEventListener("click", function () {
+                // Emit 'speech_stop' event to the backend
+                socket.emit('speech_stop', {message: "Stop speech command sent"});
+                console.log("Speech stop event emitted");
+
+                // Disable the button for 2 seconds
+                stopSpeechButton.disabled = true;
+                setTimeout(function () {
+                    stopSpeechButton.disabled = false;
+                }, 500); // 2000ms = 2 seconds
+            });
+        });
+
+
+        $(document).ready(function () {
+            socket.emit('bear_9th');
+            // setTimeout(enabling, 7000);
+        });
+        var character_js = '{{character}}'; // This will be replaced by the backend value
+
+        // Step 1: Replace HTML entities with single quotes
+        var decodedString = character_js.replace(/&#39;/g, "'");
+
+        // Step 2: Replace single quotes with double quotes and fix boolean values
+        var jsonString = decodedString.replace(/'/g, '"').replace(/True/g, 'true').replace(/False/g, 'false');
+        // Step 3: Parse the JSON string
+        var jsonObject = JSON.parse(jsonString);
+
+        // Step 2: Parse JSON string into a JavaScript object
+        // Step 3: Dynamically access values
+        var character = jsonObject.character; // Access the 'character' key dynamically
+        var showText = jsonObject.showText;   // Access the 'showText' key dynamically
+
+        // Step 4: Use the values as needed
+        console.log("Character:", character); // Output: dynamically received character
+        console.log("Show Text:", showText);  // Output: true or false
+        console.log("character_js: " + character_js);
+
+        function go_to_next_page() {
+            if (character == 'girl') {
+                // socket.emit('sixth');
+                location.href = '/girl/bear_10th';
+            } else if (character == 'boy') {
+                location.href = '/boy/bear_10th';
+            } else {
+
+            }
+        }
+
+        function repeat_speech() {
+            socket.emit('repeat_speech', "Someone’s been sleeping on my bed too, said the Mummy Bear")
+        }
+    </script>
 <body>
-<div style="position:relative; display: flex; flex-direction: column; justify-content: center">
-    <form id="data-send" name="data-send"style="position:relative; display: flex;flex-direction: row;">
 
-        <input type="button" value="Next" onclick="go_to_next_page()" style="position:relative; display: flex;flex-direction: row; margin-left: auto; margin-right: auto; width: 100px; height: 50px">
-    </form>
-    <button onclick="force_to_go_next()" style="position:relative; display: flex;flex-direction: row; margin-left: auto;width: 50px; height: 50px;border-radius: 50%; background: red; color: white">Ignore</button>
-    </div>
-<div class="container" style="width: 100%">
-    <div class="object" style="width: 100%; height: auto; position:relative; display: flex; flex-direction: row; justify-content: center">
-<img src="../static/story/mom_bear_bed.png" style="width: 70%">
+
+<div class="container">
+
+    <div class="object">
+        <img src="../static/story/mom_bear_bed.png" style="width: 60%">
 
     </div>
+    <div class="repeat">
+        <button onclick="repeat_speech()"> Repeat</button>
+    </div>
+
+    <div class="stop">
+        <button id="stop-speech-btn"> STOP</button>
+    </div>
+    <!-- Centered text -->
     {% if show_text %}
-“Someone’s been sleeping on my bed too,” said the Mummy Bear
-     {% endif %}
+        <div class="centered-text">
+            “Someone’s been sleeping on my bed too,” said the Mummy Bear
+        </div>
+    {% endif %}
 </div>
-{{character}}
 
+<!-- Next button -->
+<input type="button" value="Next" onclick="go_to_next_page()" class="next-button">
+
+
+{#{{character}}#}
+<div id="character-data" style="display: none;">{{ character }}</div>
 </body>
 </html>

@@ -13,25 +13,110 @@
     <title>JavaScript - Drag and Drop Demo</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
+<style>
+    /* Main container styling */
+    .container {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Text styling */
+    .centered-text {
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 20px; /* Add space between the image and text */
+    }
+
+    /* Button styling */
+    .next-button {
+        font-size: 50px;
+        background: rgba(250, 231, 200, 0.6);
+        color: rgb(0, 0, 0);
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        height: 100px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Image section styling */
+    .object img {
+        margin: 0 10px; /* Add spacing between images */
+    }
+
+.repeat button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(250, 231, 200, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+
+    /* Next button active effect */
+    .repeat button:active {
+        background: rgb(255, 200, 150);
+        color: rgb(255, 255, 255);
+    }
+
+</style>
 <script>
     var socket = io.connect('http://192.168.100.2:5000');
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
 
-     $(document).ready(function() {
-         socket.emit('dad_bed')
+    $(document).ready(function () {
+        socket.emit('dad_bed')
         // setTimeout(enabling, 7000);
-     });
+    });
+
+    function repeat_speech() {
+        socket.emit('repeat_speech', "Goldilocks lay down on the large bed. “This bed is too hard!”")
+    }
 </script>
 <body>
+
+
 <div class="container">
     <div class="object">
-<img src="../static/story/girl_12th.png" style="width: 70%">
+        <img src="../../static/story/girl_12th.png" style="width: 45%">
 
     </div>
+    <div class="centered-text">
+        Goldilocks lay down on the large bed. “This bed is too hard!”
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="object">
+        <img src="../static/story/girl_12th.png" style="width: 70%">
+    </div>
+    <div class="repeat">
+        <button onclick="repeat_speech()">
+            Repeat<br>button
+        </button>
+    </div>
     {% if show_text %}
-Goldilocks lay down on the large bed. “This bed is too hard!”
-{% endif %}
+        Goldilocks lay down on the large bed. “This bed is too hard!”
+    {% endif %}
 </div>
 
 

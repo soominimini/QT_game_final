@@ -119,13 +119,21 @@ def chair_main():
 
 
 @socketio.on('dad_chair')
-def dad_chair( ):
-    rospy.sleep(2.0)
+def dad_chair(msg_selected_character):
+    print("here")
+    rospy.sleep(5.0)
+    print("here 2")
     print("chair_visit: ", chair_visit)
-    emotionShow_pub.publish("QT/confused")
-    gesturePlay_pub.publish("uwaterloo-1/kickstart/hmm")
+    print("msg_selected_character: ",msg_selected_character)
+    if msg_selected_character =='boy':
+        emotionShow_pub.publish("QT/confused")
+        gesturePlay_servc("interact_meh", 2)
+        talktext_pub.publish("Goldilocks sat in the large chair to rest his feet. “This chair is too big!")
+    else:
+        emotionShow_pub.publish("QT/confused")
+        gesturePlay_pub.publish("uwaterloo-1/kickstart/hmm")
+        talktext_pub.publish("Goldilocks sat in the large chair to rest her feet. “This chair is too big!")
     chair_visited[0] = True
-    talktext_pub.publish("Goldilocks sat in the large chair to rest her feet. “This chair is too big!")
 
 
 @socketio.on('mom_chair')
@@ -182,10 +190,14 @@ def dad_bed_func( ):
 
 
 @socketio.on('mom_bed')
-def mom_bed_func():
+def mom_bed_func(msg_selected_character):
     rospy.sleep(2.0)
-    emotionShow_pub.publish("QT/confused")
-    gesturePlay_pub.publish("uwaterloo-1/kickstart/hmm")
+    if msg_selected_character =='boy':
+        emotionShow_pub.publish("QT/confused")
+        gesturePlay_servc("interact_meh", 2)
+    else:
+        emotionShow_pub.publish("QT/confused")
+        gesturePlay_pub.publish("uwaterloo-1/kickstart/hmm")
     bed_visited[0] = True
     talktext_pub.publish("Goldilocks lay down on the medium sized bed. This bed is too soft!")
 

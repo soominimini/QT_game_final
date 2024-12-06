@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Emotion Game</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function() {
+             // Connect to the server
+             var socket = io.connect("http://192.168.100.2:5000");
+
+             socket.on('my response', function() {});
+
+             // Handle the button click event
+             $('input.sync').on('click', function(event) {
+                 // Emit the event to start the game
+                 socket.emit('start game', {who: $(this).attr('id')});
+
+                 // Change the button color on click
+                 $(this).css('background', 'rgba(35,27,27,0.63)'); // Example active color
+                 $(this).css('color', 'white'); // Optional: change text color
+                    $(this).prop('disabled', true);
+                 // Revert the button color after a delay
+                 let button = $(this); // Save reference to the button
+                 setTimeout(function() {
+                     button.css('background', 'rgba(250,231,200, 0.6)'); // Original color
+                     button.css('color', 'rgb(0,0,0)'); // Original text color
+                 }, 300); // 300ms delay
+
+                 return false;
+             });
+
+             socket.on('redirect', function(data) {
+                 console.log(data);
+                 window.location = data.url;
+             });
+
+             // Handle client disconnecting
+             window.onbeforeunload = function() {
+                 socket.emit('client_disconnecting', {'data': "Start Emotion games"});
+             };
+         });
+      </script>
+   </head>
+   <body>
+      <style>
+         body {
+            {#background-image: url("{{ url_for('static', filename='images/back.jpg') }}");#}
+             background-color: #AE5CFF; /* Light purple */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            width: 1000px;
+            height: 800px;
+         }
+
+         img {
+            border: none;
+         }
+
+         input {
+            font-size: 40px;
+            width: 200px;
+            height: 70px;
+         }
+      </style>
+      <form method="post" action="/"></form>
+      <p style="position:absolute; font-weight:bold; left:80px; top:8px; color:rgb(243, 240, 240); font-size:30px">
+         {{value}}
+      </p>
+      <input id="start_game" class="sync" type="button" value="Start"
+         style="font-size:50px;
+                background: rgba(250,231,200, 0.6);
+                color: rgb(0,0,0);
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 300px;
+                height: 100px;
+                border-radius: 30px;"
+         required />
+   </body>
+</html>

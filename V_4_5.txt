@@ -1,0 +1,25 @@
+Name: V
+Age: 4
+Session: 5
+login closed  Fri Dec  6 21:42:02 2024
+0-3
+Time: Fri Dec  6 21:42:04 2024
+action_game
+Time: Fri Dec  6 21:42:04 2024
+Start Emotion games closed  Fri Dec  6 21:42:29 2024
+emotion_game_1
+Time: Fri Dec  6 21:43:36 2024
+action_game closed  Fri Dec  6 21:43:36 2024
+Start Emotion games closed  Fri Dec  6 21:43:42 2024
+emotion_game1 closed  Fri Dec  6 21:45:28 2024
+emotion_game1 closed  Fri Dec  6 21:45:40 2024
+Main closed  Fri Dec  6 21:46:22 2024
+0-3
+Time: Fri Dec  6 21:46:23 2024
+Main closed  Fri Dec  6 21:46:24 2024
+0-3
+Time: Fri Dec  6 21:46:25 2024
+emotion_game_1
+Time: Fri Dec  6 21:46:25 2024
+emotion_game1 closed  Fri Dec  6 21:46:25 2024
+Start Emotion games closed  Fri Dec  6 21:46:36 2024

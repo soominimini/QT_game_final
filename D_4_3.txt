@@ -1,0 +1,21 @@
+Name: D
+Age: 4
+Session: 3
+login closed  Fri Dec  6 21:27:51 2024
+0-3
+Time: Fri Dec  6 21:27:52 2024
+action_game
+Time: Fri Dec  6 21:27:53 2024
+Start Emotion games closed  Fri Dec  6 21:27:58 2024
+action_game closed  Fri Dec  6 21:29:02 2024
+action_game closed  Fri Dec  6 21:29:37 2024
+action_game closed  Fri Dec  6 21:32:35 2024
+0-3
+Time: Fri Dec  6 21:32:38 2024
+Main closed  Fri Dec  6 21:32:39 2024
+0-3
+Time: Fri Dec  6 21:32:39 2024
+action_game
+Time: Fri Dec  6 21:32:40 2024
+Start Emotion games closed  Fri Dec  6 21:32:45 2024
+Main closed  Fri Dec  6 21:33:16 2024

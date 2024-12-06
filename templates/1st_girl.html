@@ -13,6 +13,83 @@
     <title>JavaScript - Drag and Drop Demo</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
+
+    <style>
+        .object{
+            margin-top: -15%;
+        }
+        /* Main container styling */
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+   button {
+        border: 2px solid #000; /* Solid border for visibility */
+        cursor: pointer;
+        border-radius: 10px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+
+        /* Text styling */
+        .centered-text {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px; /* Add space between the image and text */
+        }
+.repeat button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(250, 231, 200, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    /* Next button active effect */
+    .next-button:active {
+        background: rgb(255, 200, 150);
+        color: rgb(255, 255, 255);
+    }
+        /* Image section styling */
+        .object img {
+            margin: 0 10px; /* Add spacing between images */
+        }
+              .repeat button {
+            position: fixed; /* Keeps it fixed relative to the viewport */
+            top: 100px; /* Distance from the top of the viewport */
+            right: 50px; /* Distance from the left of the viewport */
+            font-size: 20px;
+            background: rgba(250,231,200, 0.6);
+            color: rgb(0, 0, 0);
+            width: 100px;
+            height: 100px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+        }
+
+    /* Next button active effect */
+    .repeat button:active {
+        background: rgb(255, 200, 150);
+        color: rgb(255, 255, 255);
+    }
+    </style>
+
    <script >
     var socket = io.connect('http://192.168.100.2:5000');
     console.log("first socket:", socket);
@@ -36,29 +113,43 @@
     x.style.display = "none";
   }
 }
+function repeat_speech(){
+         socket.emit('repeat_speech', "Once upon a time lived Goldilocks and The Three Bears.")
+}
 
 </script>
 
 <body>
-<div class="container">
-        <form id="data-send" name="data-send">
 
-        <input type="button" value="Next" onclick="go_to_next_page()" style="width: 150px; height: 50px"/>
-    </form>
-    <div class="object" style="width: 100%">
-<img src="../static/story/first_girl.jpg" style="width: 25%">
-    <img src="../static/story/first_bear.png" style="width: 30%" style="width: 35%">
-<button onclick="myFunction()">Click Me</button>
-    </div>
+    <div class="container">
+        <!-- Images Section -->
+        <div class="object">
+            <img src="../static/story/first_girl.png" style="width: 18%;"  >
+            <img src="../static/story/first_bear.png" style="width: 27%;"  >
+            <div class="repeat">
+            <button onclick="repeat_speech()">
+                Repeat<br>button
+            </button>
+              </div>
+        </div>
 
-<div id="myDIV">
-    {% if show_text %}
-        <p>Once upon a time lived Goldilocks and The Three Bears.</p>
+        <!-- Centered text below the images -->
+   <!-- Conditionally render text -->
+        {% if show_text %}
+        <div class="centered-text">
+            Once upon a time lived Goldilocks and The Three Bears.
+        </div>
         {% endif %}
 
-</div>
+    </div>
+        <!-- Next Button -->
+        <input
+            type="button"
+            value="Next"
+            onclick="go_to_next_page()"
+            class="next-button">
 
-</div>
+
 
 </body>
 </html>

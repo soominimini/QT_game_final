@@ -51,13 +51,22 @@
     $(".item").draggable({
             disabled: "true"
         });
-    setTimeout(makeDragged, 5000);
+    setTimeout(makeDragged, 3000);
     }
     var makeDragged = function(){
     //make items non draggable
         $(".item").draggable('enable');
 
     }
+
+    const img1 = new Image();
+        img1.src = "../static/cart_with_apple.png";
+    const img2 = new Image();
+        img2.src = "../static/cart_with_orange.png";
+    const img3 = new Image();
+        img3.src = "../static/cart_with_cherries.png";
+
+
     function handleDropEvent(event, ui) {
         var draggable = ui.draggable;
         var dragged_item = draggable[0].children[0].getAttribute('id'); // dragged item
@@ -68,11 +77,22 @@
 
                 score += 1;
                 $('#' + dragged_item).hide();
-                $("#drop_cart").attr("src","../static/cart_with_apple.png");
+                {#$("#drop_cart").attr("src","../static/cart_with_apple.png");#}
+
+                $("#drop_cart").attr("src", img1.src); // Update the cart image
                 first_choice = true;
-                socket.emit('correct') //robot praise
-                socket.emit('giveme_talk', 'Can you give me an orange?'); //robot ask for the second item
-                socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
+                   // Emit events with delay
+                        setTimeout(() => {
+                            socket.emit('correct'); //robot praise
+                        }, 1000); // No delay for the first emit
+
+                        setTimeout(() => {
+                            socket.emit('giveme_talk', 'Can you give me an orange?'); //robot ask for the second item
+                        }, 1000); // 1-second delay after the first emit
+
+                        setTimeout(() => {
+                            socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
+                        },1000); // 2-second delay after the second emit
             }
             else {
                 nonDragged();
@@ -88,7 +108,8 @@
 
                 score += 1;
                 $('#' + dragged_item).hide();
-                $("#drop_cart").attr("src","../static/cart_with_orange.png");
+                {#$("#drop_cart").attr("src","../static/cart_with_orange.png");#}
+                $("#drop_cart").attr("src", img2.src); // Update the cart image
                 second_choidce = true;
                 socket.emit('correct') //robot praise
                 socket.emit('giveme_talk', 'Can you give me two cherries?');
@@ -108,7 +129,10 @@
 
                 score += 1;
                 $('#' + dragged_item).hide();
-                $("#drop_cart").attr("src","../static/cart_with_cherries.png");
+                {#$("#drop_cart").attr("src","../static/cart_with_cherries.png");#}
+                $("#drop_cart").attr("src", img3.src); // Update the cart image
+
+
                 third_choidce = true;
                 socket.emit('correct') //robot praise
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item

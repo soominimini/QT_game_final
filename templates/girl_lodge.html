@@ -13,6 +13,80 @@
     <title>JavaScript - Drag and Drop Demo</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
+
+
+
+ <style>
+        /* Main container styling */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Styling for buildings and buttons */
+        .building {
+            width: 35%;
+            height: auto;
+        }
+
+        .object {
+            margin-top: -10%;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .object img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Text styling */
+        .centered-text {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 10px; /* Add space between the image and text */
+        }
+
+
+   button {
+        border: 2px solid #000; /* Solid border for visibility */
+        cursor: pointer;
+        border-radius: 10px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+        /* Button styling */
+        .building button {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+      .repeat button {
+            position: fixed; /* Keeps it fixed relative to the viewport */
+            top: 100px; /* Distance from the top of the viewport */
+            right: 50px; /* Distance from the left of the viewport */
+            font-size: 20px;
+            background: rgba(250,231,200, 0.6);
+            color: rgb(0, 0, 0);
+            width: 100px;
+            height: 100px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+        }
+
+    /* Next button active effect */
+    .repeat button:active {
+        background: rgb(255, 200, 150);
+        color: rgb(255, 255, 255);
+    }
+    </style>
+
 <script>
         var socket = io.connect('http://192.168.100.2:5000');
     console.log("first socket:", socket);
@@ -34,31 +108,41 @@
         // setTimeout(enabling, 2000);
         location.href = '/girl/bowl';
     }
+function repeat_speech(){
+         socket.emit('repeat_speech', " One day, Goldilocks went for a walk in the forest and  found a house. She knocked, and when nobody  answered, she decided to go inside.")
+}
 
 </script>
 <body>
 
-<div class="container" style="display: flex; flex-wrap: wrap; flex-direction: column; align-items: center;">
-
-    <div class="object"  style="display: flex; flex-wrap: wrap; width: 100%">
-         <div class="building" style="width: 45%; height: auto" >
-        <button onclick="lodge1()">
-            <img src="../static/story/lodge1.png" >
-        </button>
-         </div>
-
-        <div class="building" style="width:45%; height: auto">
-        <button onclick="lodge2()" >
-            <img src="../static/story/lodge2.png"  >
-        </button>
+<div class="container">
+    <!-- Image buttons -->
+    <div class="object">
+        <div class="building">
+            <button onclick="lodge1()">
+                <img src="../static/story/lodge1.png" alt="Lodge 1">
+            </button>
         </div>
-        <div style="display: flex; flex-wrap: wrap; width: auto;  margin-top: 20px;">
-            {% if show_text %}
-            One day, Goldilocks went for a walk in the forest and  found a house. She knocked, and when nobody  answered, she decided to go inside.
-             {% endif %}
+        <div class="building">
+            <button onclick="lodge2()">
+                <img src="../static/story/lodge2.png" alt="Lodge 2">
+            </button>
+        </div>
+        <div>
+              <div class="repeat">
+            <button onclick="repeat_speech()">
+                Repeat<br>button
+            </button>
+              </div>
         </div>
     </div>
-</div>
 
+    <!-- Centered text below the images -->
+    {% if show_text %}
+    <div class="centered-text">
+        One day, Goldilocks went for a walk in the forest and  found a house.<br> She knocked, and when nobody  answered, she decided to go inside.
+    </div>
+    {% endif %}
+</div>
 </body>
 </html>

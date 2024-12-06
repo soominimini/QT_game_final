@@ -16,49 +16,6 @@
         //socket.emit('first event')
       } );
 
-
- // $('input.sync').on('click', function(event) {
- //                socket.emit('next button', {who: $(this).attr('id')});
- //                // return false;
- //                    // document.getElementById('img00').src = "../static/images/emotions/ask.jpg"
- //                    // document.getElementById('img00').style.border = "none"
- //                    // document.getElementById('img01').src = "../static/images/emotions/ask.jpg"
- //                    // document.getElementById('img01').style.border = "none"
- //            });
-
-
-// socket.on('highlight' , function()
-//             {   
-//                 document.getElementById('img00').style.border =  "5px solid green"
-//                 document.getElementById('img01').style.border = "none"
-//                 //document.getElementById("btn").style.border = "9px solid yellow";
-               
-//             });  
-// socket.on('cancle highlight' , function()
-//             {   
-
-//                 document.getElementById('img00').style.border = "none"
-//                 document.getElementById('img01').style.border = "none"
-//                 //document.getElementById("btn").style.border = "none";
-               
-//             }); 
-
-
-
- // socket.on('update image' , function(msg)
- //            {
-               
- //                    // console.log(msg.path[i])
- //                    document.getElementById('img00').src = msg.path[0]
- //                    document.getElementById('img00').style.border = "none"
- //                    document.getElementById('img01').src = msg.path[1]
- //                    document.getElementById('img01').style.border = "none"
-            
- //            });
-            
-
-
-
               var a = 0 ;     
 
    $('img').click(function(event){
@@ -93,16 +50,16 @@
    <body>
     
  <style>
-body{
- background-image: url("{{ url_for('static', filename='images/back.jpg') }}");
+body {
+    {#background-image: url("{{ url_for('static', filename='images/back.jpg') }}");#} background-color: #FFFCA3; /* Light yellow */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        width: 1000px;
+        height: 800px;
 
-  background-repeat: no-repeat;
- background-size: cover;
- background-attachment: fixed;
-  width: 1000px;
- height: 800px;
-    
-}
+    }
+
 
 
 
@@ -129,7 +86,7 @@ input {
 <form method="post" action="/">
 <p style="position: absolute;
           font-weight: bold;
-          color: rgb(243, 240, 240);
+          color: rgb(0,0,0);
           font-size: 30px;
           left: 50%;
           top: 50%;

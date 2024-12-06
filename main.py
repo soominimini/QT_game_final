@@ -12,7 +12,6 @@ from qt_robot_interface.srv import *
 from qt_gesture_controller.srv import *
 from std_msgs.msg import Float64MultiArray
 
-
 from emotion_card import *
 from object_action_card import *
 from emotion_card2 import *
@@ -54,8 +53,9 @@ emotion_game1_failure =0
 emotion_game2_failure =0
 emotion_game3_failure =0
 
+head_idle = []
 
-
+Idle_gestures = ["both_arms","right_arm","left_arm", "head_natural","head_natural_left", "natural_arms_wide", "head_arm_natural"]
 emotion_dictionary= {0: "angry", 1: "happy" , 2: "excited", 3: "sad", 4: "scared", 5: "shy"}
 
 app = Flask(__name__)
@@ -73,43 +73,166 @@ conn =sql.connect(host='localhost',user='root', password='root',database='USERS'
 mysql = MySQL(app)
 
 
-@socketio.on('speech_stop')
-def speech_stop():
-    global speechStop
+stop_triggered_flag = False
 
+speech_stop_event = threading.Event()  # Global stop signal for speech
+emotion_stop_event = threading.Event()
+gesture_stop_event = threading.Event()
+audio_stop_event = threading.Event()
+
+def neturalize():
+    gesturePlay_servc("QT/neutral", 0.5)
+
+
+# @socketio.on('stop_trigger_force')
+# def handle_speech_stop_force(data):
+#     global stop_triggered_flag
+#     stop_triggered_flag = True
+#
+#     print("Speech stop event triggered.")
+
+
+@socketio.on('stop_trigger_force')
+def handle_speech_stop_force(data):
+    global stop_triggered_flag
+    stop_triggered_flag = True
+    print("Speech stop event triggered.")
+
+def execute_jumping_jacks():
+    global stop_triggered_flag
+    for i in range(1, 11):
+        if stop_triggered_flag:
+            print("Stop triggered during jumping jacks!")
+            break
+        else:
+            print("Doing jumping jack", i)
+            time.sleep(2)  # Simulate the delay for each jumping jack
+
+        rospy.sleep(1)
+        talktext_pub.publish(str(i))
+        handle_gesture_play("jumping_soomin", 2)
+
+
+@socketio.on('speech_stop')
+def handle_speech_stop(data):
+    speech_stop_event.set()  # Signal to stop speech
+    emotion_stop_event.set()
+    gesture_stop_event.set()
+    audio_stop_event.set()
+    speechStop_servc()  # Call the speech stop service
+    gestureStop_servc()
+    emotionStop_servc()
+    audioPlay_servc()
+    rospy.sleep(1.0)
+    neturalize()
+
+    print("Speech stop event triggered.")
+
+@socketio.on('speech_say')
+def handle_speech_say(data):
+    def say_speech():
+        speech_stop_event.clear()  # Reset stop signal before starting speech
+        # speechSay_pub.publish(data)  # Publish speech
+        speechSay_servc(data)
+    # Run speech processing in a separate thread
+    threading.Thread(target=say_speech).start()
+    print("Speech say event received:", data)
+
+
+
+@socketio.on('speech_say_slow')
+def handle_speech_say_slow(data):
+    def say_speech_slow():
+        speech_stop_event.clear()  # Reset stop signal before starting speech
+        # speechSay_pub.publish(data)  # Publish speech
+        time.sleep(2.5)
+        # rospy.sleep(2.0)
+        speechSay_servc(data)
+
+    # Run speech processing in a separate thread
+    time.sleep(1)
+    threading.Thread(target=say_speech_slow).start()
+    print("Speech say event received:", data)
+
+@socketio.on('emotion_play')
+def handle_emotion_play(data):
+    def play_emotion():
+        emotion_stop_event.clear()  # Reset stop signal before starting speech
+        emotionShow_pub.publish(data)  # Publish speech
+    # Run speech processing in a separate thread
+    threading.Thread(target=play_emotion).start()
+    print("Emotion play event received:", data)
+
+@socketio.on('gesture_play')
+def handle_gesture_play(data, speed):
+    def play_gesture():
+        gesture_stop_event.clear()  # Reset stop signal before starting speech
+        gesturePlay_servc(data, speed)
+    # Run speech processing in a separate thread
+    threading.Thread(target=play_gesture).start()
+    print("Gesture play event received:", data)
+
+
+@socketio.on('audio_play')
+def handle_audio_play(data):
+    def play_audio():
+        audio_stop_event.clear()  # Reset stop signal before starting speech
+        audioPlay_pub.publish(data)
+    # Run speech processing in a separate thread
+    threading.Thread(target=play_audio).start()
+    print("Audio play event received:", data)
+
+
+
+@socketio.on('repeat_speech')
+def handle_repeat_speeach(data):
+    print("repeat_speech: ", data)
+    def say_speech_repeat():
+        speech_stop_event.clear()  # Reset stop signal before starting speech
+        # speechSay_pub.publish(data)  # Publish speech
+        # speechSay_servc(data)
+        talktext_pub.publish(data)
+        # Run speech processing in a separate thread
+
+    threading.Thread(target=say_speech_repeat).start()
+    print("Speech say event received:", data)
+
+#     #     #     #     #    STOP functions  #     #     #     #     #     #     #     #     #     #     #     #     #     #
 
 @socketio.on('category_talk')
 def first_talk_robot():
     print(arr_visit)
     # rospy.sleep(2.0)
-    socketio.emit('number', arr_visit, broadcast=True)
+    # socketio.emit('number', arr_visit, broadcast=True)
     if arr_visit[0] == False:
-        talktext_pub.publish("Let's go to the supermarket!")
+        handle_speech_say("Let's go to the supermarket!")
+        # talktext_pub.publish("Let's go to the supermarket!")
         rospy.sleep(3.0)
         # talktext_pub.publish("Touch the correct one on the tablet!")  # Instruction
         arr_visit[0] = True
     elif arr_visit[0] == True and arr_visit[1] == False:
         # audioPlay_pub.publish(" ") #hospital audio
-        talktext_pub.publish("Let's go to the hospital")
+        handle_speech_say("Let's go to the hospital")
         rospy.sleep(2.5)
         # talktext_pub.publish("Touch the correct one on the tablet!")  # Instruction
         arr_visit[1] = True
     elif arr_visit[0] == True and arr_visit[1] == True and arr_visit[2] == False:
-        talktext_pub.publish("Let's go to the park")  # park
+        handle_speech_say("Let's go to the park")
+        # talktext_pub.publish("Let's go to the park")  # park
         rospy.sleep(3.0)
         # talktext_pub.publish("Touch the correct one on the tablet!")  # Instruction
         arr_visit[2] = True
     else:
-        talktext_pub.publish("All done! Let's go back!")  # park
+        handle_speech_say("All done! Let's go back!")
 
-    print("error_record, success_record: ", error_record, success_record)
-    cur = conn.cursor()
-    global table_id
-    print("table_id: ",table_id)
-    query = f"INSERT INTO {table_id} (success, fail) VALUES (%s, %s)"
-    cur.execute(query, (success_record, error_record))
-    conn.commit()
-    cur.close()
+    # print("error_record, success_record: ", error_record, success_record)
+    # cur = conn.cursor()
+    # global table_id
+    # print("table_id: ",table_id)
+    # query = f"INSERT INTO {table_id} (success, fail) VALUES (%s, %s)"
+    # cur.execute(query, (success_record, error_record))
+    # conn.commit()
+    # cur.close()
 
 
 @socketio.on('init_after_category')
@@ -122,14 +245,16 @@ def init_interaction_robot(msg):
 def first_talk_robot(msg):
     print("message: ", msg)
     rospy.sleep(1.0)
-    talktext_pub.publish(msg)
+    handle_speech_say(msg)
+    # talktext_pub.publish(msg)
 
 
 @socketio.on('giveme_talk')
 def giveme_talk_robot(msg):
     print("message: ", msg)
     rospy.sleep(1.5)
-    talktext_pub.publish(msg)
+    handle_speech_say(msg)
+    # talktext_pub.publish(msg)
 
 
 @socketio.on('object_list')
@@ -147,32 +272,51 @@ def correct_answer():
     global random_praise
     global emotionShow_pub
     global gesturePlay_servc
-    emotionShow_pub.publish("QT/happy")
-
+    # emotionShow_pub.publish("QT/happy")
+    rospy.sleep(1)
     if random_praise == 4:
         random_praise = 0
         random.shuffle(praise_order)  # shuffle again
     if praise_order[random_praise] == 0:
-        gesturePlay_servc("QT/happy", 2)
-        talktext_pub.publish("Good job!")
+        handle_speech_say("Good job!")
+        rospy.sleep(1)
+        handle_emotion_play("QT/happy")
+        handle_gesture_play("QT/happy", 2)
+        # gesturePlay_servc("QT/happy", 2)
+        # talktext_pub.publish("Good job!")
         random_praise += 1
         # audioPlay_pub.publish("QT/good_job")
     elif praise_order[random_praise] == 1:
-        gesturePlay_servc("QT/happy", 2)
-        talktext_pub.publish("Well done!")
+
+        handle_speech_say("Well done!")
+        rospy.sleep(2)
+        handle_emotion_play("QT/happy")
+        handle_gesture_play("QT/happy", 2)
+        # gesturePlay_servc("QT/happy", 2)
+        # talktext_pub.publish("Well done!")
         random_praise += 1
         # audioPlay_pub.publish("QT/well_done")
     elif praise_order[random_praise] == 2:
-        gesturePlay_servc("QT/emotions/hoora", 2)
-        talktext_pub.publish("Amazing!")
+
+        handle_speech_say("Amazing!")
+        rospy.sleep(1.5)
+        handle_emotion_play("QT/happy")
+        handle_gesture_play("QT/emotions/hoora", 2)
+        # gesturePlay_servc("QT/emotions/hoora", 2)
+        # talktext_pub.publish("Amazing!")
         random_praise += 1
         # audioPlay_pub.publish("QT/amazing")
     else:
-        gesturePlay_servc("QT/emotions/hoora", 2)
-        talktext_pub.publish("Great job!")
+        handle_speech_say("Great job!")
+        rospy.sleep(1)
+        handle_emotion_play("QT/happy")
+        handle_gesture_play("QT/emotions/hoora", 2)
+        # gesturePlay_servc("QT/emotions/hoora", 2)
+        # talktext_pub.publish("Great job!")
         random_praise += 1
         # audioPlay_pub.publish("QT/amazing")
 
+    rospy.sleep(3)
     global success_record
     success_record+=1
 
@@ -184,6 +328,11 @@ def score_handle_from_html():
     global gesturePlay_servc
     ref_r = Float64MultiArray()
     ref_l = Float64MultiArray()
+
+    handle_emotion_play("QT/sad")
+    handle_gesture_play("QT/sad", 1)
+
+
     emotionShow_pub.publish("QT/sad")
     gesturePlay_servc("QT/sad", 1) # it needs to down both hands after performing the gestures
 
@@ -199,16 +348,22 @@ def score_handle_from_html():
         random.shuffle(encourage_order)  # shuffle again
 
     if encourage_order[random_encouragement] == 0:
-        talktext_pub.publish("Try again!")
+        handle_speech_say("Try again!")
+        # talktext_pub.publish("Try again!")
         random_encouragement += 1
+        rospy.sleep(1)
 
     elif encourage_order[random_encouragement] == 1:
-        talktext_pub.publish("Do it again!")
+        handle_speech_say("Do it again!")
+        # talktext_pub.publish("Do it again!")
         random_encouragement += 1
+        rospy.sleep(1)
 
     else:
-        talktext_pub.publish("Choose another one!")
+        handle_speech_say("Choose another one!")
+        # talktext_pub.publish("Choose another one!")
         random_encouragement += 1
+        rospy.sleep(1)
     right_pub.publish(ref_r)
     left_pub.publish(ref_l)
 
@@ -219,28 +374,33 @@ def score_handle_from_html():
 
 @socketio.on('wrong_repeat')
 def speak_repeat(msg):
-    emotionShow_pub.publish("QT/sad")
+    # emotionShow_pub.publish("QT/sad")
+    handle_emotion_play("QT/sad")
     rospy.sleep(3.0)
-    talktext_pub.publish(str(msg))
+    # talktext_pub.publish(str(msg))
+    handle_speech_say(str(msg))
 
 
 @socketio.on('block_page')
 def block_page_redirect(msg):
     rospy.sleep(1.0)
-    talktext_pub.publish(str(msg))
+    # talktext_pub.publish(str(msg))
+    handle_speech_say(str(msg))
 
 
 @socketio.on('next_page')
 def block_page_redirect():
     rospy.sleep(3.0)
-    talktext_pub.publish("Let's go to the next page!")
+    # talktext_pub.publish("Let's go to the next page!")
+    handle_speech_say("Let's go to the next page!")
 
 
 @socketio.on('end')
 def first_talk_robot():
     # gesturePlay_servc("QT/happy", 2)
     rospy.sleep(1.0)
-    talktext_pub.publish("Let's play another game!")
+    # talktext_pub.publish("Let's play another game!")
+    handle_speech_say("Let's play another game!")
 
 
 @socketio.on('connect event')
@@ -271,21 +431,21 @@ def logged_in(message):
     f.write("Name: " + name + "\n")
     f.write("Age: " + age + "\n")
     f.write("Session: " + session + "\n")
-    global table_id
-    table_id = f"{name}_{age}_{session}"
-    # Ensure table ID contains valid SQL table name characters (remove special characters)
-    table_id = ''.join(e for e in table_id if e.isalnum() or e == '_')
-    cur = conn.cursor()
-    # query = "CREATE TABLE IF NOT EXISTS table_id (name  VARCHAR(40), session INT, age INT, success INT, fail INT )"
-    query = f"CREATE TABLE IF NOT EXISTS {table_id} (name  VARCHAR(40), session INT, age INT, success INT, fail INT )"
-
-    cur.execute(query)
-    conn.commit()
-
-    query = f"INSERT INTO {table_id} (name, session, age) VALUES (%s, %s, %s)"
-    cur.execute(query, (name, session , age))
-    conn.commit()
-    cur.close()
+    # global table_id
+    # table_id = f"{name}_{age}_{session}"
+    # # Ensure table ID contains valid SQL table name characters (remove special characters)
+    # table_id = ''.join(e for e in table_id if e.isalnum() or e == '_')
+    # cur = conn.cursor()
+    # # query = "CREATE TABLE IF NOT EXISTS table_id (name  VARCHAR(40), session INT, age INT, success INT, fail INT )"
+    # query = f"CREATE TABLE IF NOT EXISTS {table_id} (name  VARCHAR(40), session INT, age INT, success INT, fail INT )"
+    #
+    # cur.execute(query)
+    # conn.commit()
+    #
+    # query = f"INSERT INTO {table_id} (name, session, age) VALUES (%s, %s, %s)"
+    # cur.execute(query, (name, session , age))
+    # conn.commit()
+    # cur.close()
     socketio.emit('redirect', {'url': url_for('main_page')})
 
 
@@ -315,13 +475,14 @@ def main_menu(message):
 
     if (message["who"] == 'instructions_game'):
         socketio.emit('redirect', {'url': url_for('taking_instruction')})
-    elif (message["who"] == 'emotion_game_1'):
+
+    elif (message["who"] == 'emotion_game_1'): # first emotion game for young age
         print("test emotion card file")
         main()
         game = "emotion_game1"
         socketio.emit('redirect', {'url': url_for('emotion_games_start')})
 
-    elif(message["who"] == 'action_game'):
+    elif(message["who"] == 'action_game'): # young age
         main_action()
         game = "action_game"
         socketio.emit('redirect', {'url': url_for('emotion_games_start')})
@@ -329,10 +490,10 @@ def main_menu(message):
     elif (message["who"] == 'dice_action_young'):
         socketio.emit('redirect', {'url': url_for('dice_action_young_start')})
 
-    elif(message["who"] == 'emotion_game2'):
+    elif(message["who"] == 'emotion_game2'): # second emotion game for old age
         game = "emotion_game2"
         main()
-        socketio.emit('redirect', {'url': url_for('emotion_games_start')})
+        socketio.emit('redirect', {'url': url_for('emotion_games_start_2')})
 
     elif(message["who"] == 'emotion_game3'):
         main_emotion_game3()
@@ -362,6 +523,7 @@ def main_menu(message):
 
 @app.route('/main')
 def main_page():
+    # gesturePlay_servc("head_natural", 1.5)
     return render_template('main.html')
 
 @socketio.on('client_disconnecting')
@@ -388,19 +550,32 @@ def disconnect_details(data):
 
 @app.route('/taking_instruction_main')
 def taking_instruction():
-    return render_template('Taking_Instructions_main.html')
+    global arr_visit  # Assuming arr_visit is a global variable
+    rand_var = random.randint(0, 5)
+    # gesturePlay_servc(Idle_gestures[rand_var], 1.5)
+    return render_template('Taking_Instructions_main.html', arr_visit=arr_visit)
 
 
 @app.route('/first_page')
 def taking_instruction1():
     rospy.sleep(1.0)
+    # rand_var = random.randint(0, 4)
+    # gesturePlay_servc(Idle_gestures[rand_var], 1.5)
     # talktext_pub.publish("I want fruits!")
     return render_template('index_taking_instruction.html')
 
 
 @app.route('/emotion_games')
 def emotion_games_start():
+    rand_var = random.randint(0,5)
+    gesturePlay_servc(Idle_gestures[rand_var], 1.5)
     return render_template('start_game.html')
+
+@app.route('/emotion_games2')
+def emotion_games_start_2():
+    rand_var = random.randint(0,5)
+    gesturePlay_servc(Idle_gestures[rand_var], 1.5)
+    return render_template('start_game2.html')
 
 
 @app.route('/second_page')
@@ -593,7 +768,7 @@ def chairs():
 
 @app.route('/girl/dad_chair')
 def dad_chairs():
-    dad_chair()
+    dad_chair('girl')
     return render_template('dad_chair_page.html', show_text=show_text)
 
 @app.route('/girl/mom_chair')
@@ -616,12 +791,12 @@ def boy_chairs():
 
 @app.route('/boy/dad_chair')
 def boy_dad_chairs():
-    dad_chair()
+    dad_chair('boy')
     return render_template('/boy/dad_chair_page.html', show_text=show_text)
 
 @app.route('/boy/mom_chair')
 def boy_mom_chairs():
-    chair_main()
+    mom_chair()
     return render_template('/boy/mom_chair_page.html', show_text=show_text)
 
 @app.route('/boy/baby_chair')
@@ -644,7 +819,7 @@ def dad_bed():
 
 @app.route('/girl/mom_bed')
 def mom_bed():
-    mom_bed_func()
+    mom_bed_func('girl')
     return render_template('mom_bed_page.html', show_text=show_text)
 
 @app.route('/girl/baby_bed')
@@ -664,7 +839,7 @@ def boy_dad_bed():
 
 @app.route('/boy/mom_bed')
 def boy_mom_bed():
-    mom_bed_func()
+    mom_bed_func('boy')
     return render_template('/boy/mom_bed_page.html', show_text=show_text)
 
 @app.route('/boy/baby_bed')
@@ -779,24 +954,52 @@ def boy_bear_12th():
 def dice_face_in_young_action(dice_face_str):
     global emotionShow_pub
     global gesturePlay_servc
+    global stop_triggered_flag
     print("dice_face_str: "+dice_face_str)
-    gesturePlay_servc("QT/neutral", 2)
+    handle_gesture_play("QT/neutral", 2)
+    # gesturePlay_servc("QT/neutral", 2)
 
     rospy.sleep(1)
     # talktext_pub.publish(dice_face_str)
-    if dice_face_str=='Jumping Jacks':
-        talktext_pub.publish("Let's do 10 jummping jacks!")
+    print("stop_triggered_flag: ",stop_triggered_flag)
+
+    if dice_face_str == 'Jumping Jacks':
+        handle_speech_say("Let's do 10 jumping jacks!")
         rospy.sleep(2)
-        for i in range(1, 11):
-            talktext_pub.publish(str(i))
-            gesturePlay_servc("jumping_soomin", 2)
+
+        # Run the jumping jacks logic in a separate thread
+        threading.Thread(target=execute_jumping_jacks).start()
+        # threading.start()
+
+    #
+    # if dice_face_str=='Jumping Jacks':
+    #     handle_speech_say("Let's do 10 jummping jacks!")
+    #     # talktext_pub.publish("Let's do 10 jummping jacks!")
+    #
+    #     rospy.sleep(2)
+    #     # speechConfig_servc('en-US', 105, 50)
+    #     for i in range(1, 11):
+    #         if stop_triggered_flag==True:
+    #             break
+    #         else:
+    #             print("triggering not happened")
+    #         time.sleep(3)
+    #         rospy.sleep(3)
+    #         talktext_pub.publish(str(i))
+    #         # gesturePlay_servc("jumping_soomin", 2)
+    #         handle_gesture_play("jumping_soomin", 2)
+    #         rospy.sleep(1)
+
 
     elif dice_face_str=='Count to 5':
-        talktext_pub.publish("Let's deep breathe for five seconds")
+        # talktext_pub.publish("Let's deep breathe for five seconds")
+        handle_speech_say("Let's deep breathe for five seconds")
         rospy.sleep(2)
-        talktext_pub.publish("1, 2, 3, 4, 5")
+        # talktext_pub.publish("1, 2, 3, 4, 5")
+        handle_speech_say("1, 2, 3, 4, 5")
         # gesturePlay_pub.publish("breathing_soomin")
-        gesturePlay_servc("breathing_soomin", 1.5)
+        # gesturePlay_servc("breathing_soomin", 1.5)
+        handle_gesture_play("breathing_soomin", 1.5)
 
     elif dice_face_str=='Sing a Song':
         # talktext_pub.publish("Let's sing a song!")
@@ -806,99 +1009,142 @@ def dice_face_in_young_action(dice_face_str):
         
         
         if str(random_song) == "IncyWincySpider":
-            talktext_pub.publish("Let's sing Incy Wincy Spider")
+            # talktext_pub.publish("Let's sing Incy Wincy Spider")
+            # handle_speech_say("Let's sing Incy Wincy Spider")
+            handle_speech_say("Let's sing a song")
             rospy.sleep(2)
-            gesturePlay_pub.publish("IncyWincySpider")
-            audioPlay_pub.publish(random_song)
+            # gesturePlay_pub.publish("IncyWincySpider")
+            handle_gesture_play("IncyWincySpider",1)
+            # audioPlay_pub.publish(random_song)
+            handle_audio_play(random_song)
 
         elif str(random_song) == "ABCsong":
-            talktext_pub.publish("Let's sing ABC")
+            # talktext_pub.publish("Let's sing ABC")
+            # handle_speech_say("Let's sing ABC")
+            handle_speech_say("Let's sing a song")
             rospy.sleep(2)
-            gesturePlay_pub.publish("ABCsong")
-            audioPlay_pub.publish(random_song)
+            # gesturePlay_pub.publish("ABCsong")
+            handle_gesture_play("ABCsong",1)
+            # audioPlay_pub.publish(random_song)
+            handle_audio_play(random_song)
 
         elif str(random_song) == "Old_MacDonald":
-            talktext_pub.publish("Let's sing Old MacDonald")
+            # talktext_pub.publish("Let's sing Old MacDonald")
+            # handle_speech_say("Let's sing Old MacDonald")
+            handle_speech_say("Let's sing a song")
             rospy.sleep(2)
-            gesturePlay_pub.publish("Old_MacDonald")
-            audioPlay_pub.publish(random_song)
+            # gesturePlay_pub.publish("Old_MacDonald")
+            handle_gesture_play("Old_MacDonald",1)
+            # audioPlay_pub.publish(random_song)
+            handle_audio_play(random_song)
 
         elif str(random_song) == "twinkletwinklelittlestar":
-            talktext_pub.publish("Let's sing twinkle twinkle little star")
+            # talktext_pub.publish("Let's sing twinkle twinkle little star")
+            # handle_speech_say("Let's sing twinkle twinkle")
+            handle_speech_say("Let's sing a song")
             rospy.sleep(2)
-            gesturePlay_pub.publish("twinkletwinklelittlestar")
-            audioPlay_pub.publish(random_song)
+            # gesturePlay_pub.publish("twinkletwinklelittlestar")
+            handle_gesture_play("twinkletwinklelittlestar",1)
+            # audioPlay_pub.publish(random_song)
+            handle_audio_play(random_song)
 
         elif str(random_song) == "Wheels_bus":
-            talktext_pub.publish("Let's sing Wheels on the bus")
+            # talktext_pub.publish("Let's sing Wheels on the bus")
+            # handle_speech_say("Let's sing Wheels on the bus")
+            handle_speech_say("Let's sing a song")
             rospy.sleep(2)
-            gesturePlay_pub.publish("Wheels_bus")
-            audioPlay_pub.publish(random_song)
+            # gesturePlay_pub.publish("Wheels_bus")
+            handle_gesture_play("Wheels_bus",1)
+            # audioPlay_pub.publish(random_song)
+            handle_audio_play(random_song)
 
 
 
     elif dice_face_str=='Wiggle':
-        talktext_pub.publish("Let's wiggle our body!")
+        # talktext_pub.publish("Let's wiggle our body!")
+        handle_speech_say("Let's wiggle our body for ten seconds!")
         rospy.sleep(2)
-        talktext_pub.publish("1, 2, 3, 4, 5, 6, 7, 8, 9, 10")
-        gesturePlay_servc("wiggle_body", 1.5)
-
+        # talktext_pub.publish("1, 2, 3, 4, 5, 6, 7, 8, 9, 10")
+        handle_speech_say("1, 2, 3, 4, 5, 6, 7, 8, 9, 10")
+        # gesturePlay_servc("wiggle_body", 1.5)
+        handle_gesture_play("wiggle_body", 1.5)
         # rospy.sleep(2)
 
 
     elif dice_face_str=='Bear Hug':
-        talktext_pub.publish("Let's have a bear hug!")
+        # talktext_pub.publish("Let's have a bear hug!")
+        handle_speech_say("Let's have a bear hug!")
         rospy.sleep(2)
-        talktext_pub.publish("1, 2, 3, 4, 5")
+        # talktext_pub.publish("1, 2, 3, 4, 5")
+        handle_speech_say("1, 2, 3, 4, 5")
         rospy.sleep(1)
-        gesturePlay_servc("hug", 1.3)
+        # gesturePlay_servc("hug", 1.3)
+        handle_gesture_play("hug", 1.3)
 
 
 
     elif dice_face_str == 'High Five':
-        talktext_pub.publish("Give me a high five!")
+        # talktext_pub.publish("Give me a high five!")
+        handle_speech_say("Let's have a high five!")
         rospy.sleep(2)
-        gesturePlay_servc("high_five_soomin", 1.5)
+        # gesturePlay_servc("high_five_soomin", 1.5)
+        handle_gesture_play("high_five_soomin", 1.5)
 
+    # speechConfig_servc('en-US', 105, 75)
     rospy.sleep(2)
 
 @socketio.on('dice_face_in_young_emotion')
 def dice_face_in_young_emotion(dice_face_str):
     global emotionShow_pub
     global gesturePlay_servc
-    gesturePlay_servc("QT/neutral", 2)
+    # gesturePlay_servc("QT/neutral", 2)
+    handle_gesture_play("QT/neutral", 2)
     rospy.sleep(1)
-    talktext_pub.publish(dice_face_str)
+    # talktext_pub.publish(dice_face_str)
+    handle_speech_say(dice_face_str)
     if dice_face_str=='anger':
         rospy.sleep(2)
-        emotionShow_pub.publish("QT/angry")
+        # emotionShow_pub.publish("QT/angry")
+        handle_emotion_play("QT/angry")
         rospy.sleep(1)
-        gesturePlay_servc("QT/angry", 1)
+        # gesturePlay_servc("QT/angry", 1)
+        handle_gesture_play("QT/angry", 1)
 
     elif dice_face_str=='happy':
         rospy.sleep(2)
-        emotionShow_pub.publish("QT/happy")
-        gesturePlay_servc("QT/happy", 1)
+        # emotionShow_pub.publish("QT/happy")
+        # gesturePlay_servc("QT/happy", 1)
+        handle_emotion_play("QT/happy")
+        handle_gesture_play("QT/happy", 1)
+
 
     elif dice_face_str=='sad':
         rospy.sleep(2)
-        emotionShow_pub.publish("QT/sad")
-        gesturePlay_servc("soomin_sad", 1)
+        # emotionShow_pub.publish("QT/sad")
+        # gesturePlay_servc("soomin_sad", 1)
+        handle_emotion_play("QT/sad")
+        handle_gesture_play("soomin_sad", 1)
 
     elif dice_face_str=='scared':
         rospy.sleep(2)
-        emotionShow_pub.publish("QT/afraid")
-        gesturePlay_servc("QT/afraid", 1)
+        # emotionShow_pub.publish("QT/afraid")
+        # gesturePlay_servc("QT/afraid", 1)
+        handle_emotion_play("QT/afraid")
+        handle_gesture_play("QT/afraid", 1)
 
     elif dice_face_str=='surprised':
         rospy.sleep(2)
-        emotionShow_pub.publish("QT/surprise")
-        gesturePlay_servc("soomin_surprise",2)
+        # emotionShow_pub.publish("QT/surprise")
+        # gesturePlay_servc("soomin_surprise",2)
+        handle_emotion_play("QT/surprise")
+        handle_gesture_play("soomin_surprise",2)
 
 
     else:
-        emotionShow_pub.publish("QT/disgusted")
-        gesturePlay_servc("uwaterloo-1/kickstart/Ugh",1.5)
+        # emotionShow_pub.publish("QT/disgusted")
+        # gesturePlay_servc("uwaterloo-1/kickstart/Ugh",1.5)
+        handle_emotion_play("QT/disgusted")
+        handle_gesture_play("uwaterloo-1/kickstart/Ugh",1.5)
 
     rospy.sleep(2)
 
@@ -912,58 +1158,77 @@ def dice_face_in_old_emotion(dice_face_str):
    talktext_pub.publish(dice_face_str)
    if dice_face_str=='curious':
        rospy.sleep(1.5)
-       emotionShow_pub.publish("QT/breathing_exercise")
-       rospy.sleep(2)
-       talktext_pub.publish("what makes you curious?")
+       # emotionShow_pub.publish("QT/breathing_exercise")
+       handle_emotion_play("QT/breathing_exercise")
+       rospy.sleep(3.5)
+       # talktext_pub.publish("what makes you curious?")
+       handle_speech_say("what makes you curious?")
 
    elif dice_face_str=='silly':
        rospy.sleep(1.5)
-       emotionShow_pub.publish("QT/blowing_raspberry")
-       rospy.sleep(2)
-       gesturePlay_servc("soomin_silly", 2)
-       rospy.sleep(2)
-       talktext_pub.publish("when do you feel silly?")
+       # emotionShow_pub.publish("QT/blowing_raspberry")
+       handle_emotion_play("QT/blowing_raspberry")
+       rospy.sleep(1.5)
+       # gesturePlay_servc("soomin_silly", 2)
+       handle_gesture_play("soomin_silly", 3)
+       rospy.sleep(3)
+       # talktext_pub.publish("when do you feel silly?")
+       handle_speech_say("when do you feel silly?")
 
    elif dice_face_str=='excited':
+       rospy.sleep(2)
+       # emotionShow_pub.publish("QT/happy")
+       handle_emotion_play("QT/happy")
        rospy.sleep(1.5)
-       emotionShow_pub.publish("QT/happy")
-       rospy.sleep(2)
-       gesturePlay_servc("QT/point_front", 1)
-       rospy.sleep(2)
-       talktext_pub.publish("Who makes you feel excited?")
+       # gesturePlay_servc("QT/point_front", 1)
+       handle_gesture_play("QT/emotions/hoora", 1)
+       rospy.sleep(3.8)
+       # talktext_pub.publish("Who makes you feel excited?")
+       handle_speech_say("Who makes you feel excited?")
 
    elif dice_face_str=='tired':
        rospy.sleep(1.5)
-       emotionShow_pub.publish("QT/yawn")
+       # emotionShow_pub.publish("QT/yawn")
+       handle_emotion_play("QT/yawn")
        rospy.sleep(1)
-       gesturePlay_servc("QT/yawn", 1)
-       rospy.sleep(2)
-       talktext_pub.publish("When do you feel tired?")
+       # gesturePlay_servc("QT/yawn", 1)
+       handle_gesture_play("QT/yawn", 1)
+       rospy.sleep(3.5)
+       # talktext_pub.publish("When do you feel tired?")
+       handle_speech_say("When do you feel tired?")
 
    elif dice_face_str=='frustrated':
        rospy.sleep(2)
-       emotionShow_pub.publish("QT/scream")
+       # emotionShow_pub.publish("QT/scream")
+       handle_emotion_play("QT/scream")
        # rospy.sleep(2)
        # talktext_pub.publish("ahhh")
-       gesturePlay_servc("frustration", 1.5)
+       # gesturePlay_servc("frustration", 1.5)
+       handle_gesture_play("frustration", 1.5)
        # talktext_pub.publish("ahhh")
-       rospy.sleep(2)
+       rospy.sleep(4)
        # talktext_pub.publish("When do you feel frustrated?")
+       handle_speech_say("When do you feel frustrated?")
 
    else:
        rospy.sleep(2)
-       emotionShow_pub.publish("question")
-       rospy.sleep(2)
-       talktext_pub.publish("What makes you feel confused?")
+       # emotionShow_pub.publish("question")
+       handle_emotion_play("question")
+       rospy.sleep(1)
+       # talktext_pub.publish("What makes you feel confused?")
+       handle_speech_say("What makes you feel confused?")
 
 @socketio.on('dice_5w1h')
 def dice_5w1h(dice_face_str):
    global emotionShow_pub
    global gesturePlay_servc
-
+   rand_var = random.randint(0,4)
+   # gesturePlay_servc(Idle_gestures[rand_var], 1.5)
+   handle_gesture_play(Idle_gestures[rand_var], 1.5)
    rospy.sleep(1)
    print("dice_5w1h: "+dice_face_str)
-   talktext_pub.publish(dice_face_str)
+   # talktext_pub.publish(dice_face_str)
+   handle_speech_say(dice_face_str)
 
 
 
@@ -973,46 +1238,56 @@ def dice_board(dice_face_str):
    global gesturePlay_servc
 
    rospy.sleep(1)
-   talktext_pub.publish("Move your piece on the board by")
+   # talktext_pub.publish("Move your piece on the board by")
+   handle_speech_say("Move your piece on the board by")
    if dice_face_str=='1':
-       talktext_pub.publish("One step")
+       # talktext_pub.publish("One step")
+       handle_speech_say("One step")
        rospy.sleep(1)
 
    elif dice_face_str=='2':
-       talktext_pub.publish("Two steps")
+       # talktext_pub.publish("Two steps")
+       handle_speech_say("Two step")
        rospy.sleep(1)
 
    elif dice_face_str=='3':
-       talktext_pub.publish("Three steps")
+       # talktext_pub.publish("Three steps")
+       handle_speech_say("Three step")
        rospy.sleep(1)
 
    elif dice_face_str=='4':
-       talktext_pub.publish("Four steps")
+       # talktext_pub.publish("Four steps")
+       handle_speech_say("Four step")
        rospy.sleep(1)
 
    elif dice_face_str=='5':
-       talktext_pub.publish("Five steps")
+       # talktext_pub.publish("Five steps")
+       handle_speech_say("Five step")
        rospy.sleep(1)
    else:
-       talktext_pub.publish("Six steps")
+       # talktext_pub.publish("Six steps")
+       handle_speech_say("Six step")
        rospy.sleep(1)
 
 
 
 @app.route('/dice_action_young_start')
 def dice_action_young_start():
-    talktext_pub.publish("Let's roll the dice")
+    # talktext_pub.publish("Let's roll the dice")
+    handle_speech_say("Let's roll the dice")
     return render_template('dice_action_young.html')
 
 @app.route('/dice_emotion_young_start')
 def dice_emotion_young_start():
-    talktext_pub.publish("Let's roll the dice")
+    # talktext_pub.publish("Let's roll the dice")
+    handle_speech_say("Let's roll the dice")
     return render_template('dice_emotion_young.html')
 
 
 @app.route('/dice_emotion_old_start')
 def dice_emotion_old_start():
-    talktext_pub.publish("Let's roll the dice")
+    # talktext_pub.publish("Let's roll the dice")
+    handle_speech_say("Let's roll the dice")
     return render_template('dice_emotion_old.html')
 
 # @app.route('/dice_5w1h')
@@ -1023,18 +1298,21 @@ def dice_emotion_old_start():
 
 @app.route('/dice_5w1h_1')
 def dice_5w1h_1():
-    talktext_pub.publish("Let's roll the dice")
+    # talktext_pub.publish("Let's roll the dice")
+    handle_speech_say("Let's roll the dice")
     return render_template('dice_why_when_how.html')
 
 
 @app.route('/dice_5w1h_2')
 def dice_5w1h_2():
-    talktext_pub.publish("Let's roll the dice")
+    # talktext_pub.publish("Let's roll the dice")
+    handle_speech_say("Let's roll the dice")
     return render_template('dice_what_who_where.html')
 
 @app.route('/dice_board')
 def dice_board():
-    talktext_pub.publish("Let's roll the dice")
+    # talktext_pub.publish("Let's roll the dice")
+    handle_speech_say("Let's roll the dice")
     return render_template('dice_board_game.html')
 
 
@@ -1109,14 +1387,13 @@ emotion_dictionary = {0: "angry", 1: "happy", 2: "excited", 3: "sad", 4: "scared
 
 def object_card(id):
     talktext_pub.publish(action)
-    rospy.sleep(4)
+    rospy.sleep(3)
     talktext_pub.publish("Look at the tablet, click on the picture")
-
 
 def young_emotion_card(data):
     print(data)
     talktext_pub.publish(data)
-    rospy.sleep(4)
+    rospy.sleep(3)
     talktext_pub.publish("Look at the tablet, click on the picture")
 
 
@@ -1237,31 +1514,39 @@ def start_game(message):
 def image_selected(message):
     global game
     global selected
+    rospy.sleep(3)
 
     global emotion_game1_success, emotion_game2_success, emotion_game3_success
     global emotion_game1_failure, emotion_game2_failure, emotion_game3_failure
+
+    next_dialogue = ["You can click next.", "Please press the next", "Let's go to next", "Let's move to next"]
+    random_number = random.randint(0, 3)
+
     if (game == "emotion_game1"):
         global speech_flag_emotion
         if not speech_flag_emotion:
             speech_flag_emotion = True
+            rospy.sleep(1)
             speechSay_pub.publish(selected_emotion)
             rospy.sleep(1)
-            talktext_pub.publish("You can click next.")
+            talktext_pub.publish(next_dialogue[random_number])
     elif (game == "emotion_game2"):
         global var
         if (selected == 0):
             if (message['who'] == "img00"):
-                socketio.emit('highlight', {}, broadcast=True)
+                socketio.emit('highlight',var, broadcast=True)
                 # emotion elaboration
                 sentence = var
 
                 # speechSay_pub.publish(var)
+                rospy.sleep(1)
                 speechSay_pub.publish(var)
                 rospy.sleep(1)
                 selected = 1
                 emotion_game2_success += 1
             else:
                 speechSay_pub.publish("Please try again!")
+                socketio.emit('emotion_repeat_update', "Please try again!",broadcast=True)
                 emotion_game2_failure += 1
     elif (game == "action_game"):
         global speech_flag
@@ -1269,7 +1554,7 @@ def image_selected(message):
             speech_flag = True
             speechSay_pub.publish(action)
             rospy.sleep(1)
-            talktext_pub.publish("You can click next.")
+            talktext_pub.publish(next_dialogue[random_number])
             # rospy.sleep(1)
 
 
@@ -1295,6 +1580,7 @@ def next_button(message):
             selected = 0
             socketio.emit('update image',{'path': [path + "emotions/ask.jpg", path + "emotions/ask.jpg"]},
                           broadcast=True)
+            socketio.emit('emotion_repeat_update',"Show me another emotion card!", broadcast=True)
 
     elif (game == "action_game"):
         rospy.sleep(2)
@@ -1311,10 +1597,11 @@ def first_view():
     # print("game")
     # return render_template('emotion_game1.html')
     global game
-    if (game == "emotion_game1"):
+    if (game == "emotion_game1"): #first emotion game for young age
         return render_template('emotion_game1.html')
-    elif (game == "emotion_game2"):
-        return render_template('emotion_game1.html')
+    elif (game == "emotion_game2"): #second emotion game for old age
+        print("here for old age")
+        return render_template('emotion_game2.html')
     elif (game == "action_game"):
         return render_template('action_game.html')
     elif (game == "emotion_game3"):
@@ -1331,8 +1618,18 @@ if __name__ == '__main__':
     emotionShow_pub = rospy.Publisher('/qt_robot/emotion/show', String, queue_size=10)
     audioPlay_pub = rospy.Publisher('/qt_robot/audio/play', String, queue_size=10)
 
-    # speechStop_servc = rospy.ServiceProxy('/qt_robot/speech/stop', speech_stop)
-    # rospy.wait_for_service('/qt_robot/speech/stop')
+    speechStop_servc = rospy.ServiceProxy('/qt_robot/speech/stop', speech_stop)
+    rospy.wait_for_service('/qt_robot/speech/stop')
+    emotionStop_servc = rospy.ServiceProxy('/qt_robot/emotion/stop',emotion_stop)
+    rospy.wait_for_service('/qt_robot/emotion/stop')
+    gestureStop_servc = rospy.ServiceProxy('/qt_robot/gesture/stop', gesture_stop)
+    rospy.wait_for_service('/qt_robot/gesture/stop')
+    audioPlay_servc = rospy.ServiceProxy('/qt_robot/audio/stop', audio_stop)
+    rospy.wait_for_service('/qt_robot/audio/play')
+    speechSay_servc = rospy.ServiceProxy('/qt_robot/speech/say', speech_say)
+    rospy.wait_for_service('/qt_robot/speech/say')
+    # speechConfig_servc = rospy.ServiceProxy('/qt_robot/speech/config', speech_config)
+    # rospy.wait_for_service('/qt_robot/speech/config')
     gesturePlay_servc = rospy.ServiceProxy('/qt_robot/gesture/play', gesture_play)
     rospy.wait_for_service('/qt_robot/gesture/play')
 

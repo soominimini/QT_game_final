@@ -13,6 +13,78 @@
     <title>JavaScript - Drag and Drop Demo</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
+ <style>
+        /* Button with convex styling */
+        .convex-button {
+            width: 450px;
+            padding: 10px;
+            {#background: linear-gradient(to bottom, #ffffff, #dcdcdc); /* Gradient for convex effect */#}
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+            border: 2px solid #000; /* Solid border for visibility */
+        cursor: pointer;
+        border-radius: 10px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+ background-color: rgba(236, 236, 236, 0.8);
+        }
+        /* Active (pressed) effect */
+        .convex-button:active {
+             transform: scale(0.95); /* Slight shrink on click */
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
+        }
+
+        /* Main container styling */
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Text styling */
+        .centered-text {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px; /* Add space between the image and text */
+        }
+
+        /* Image section styling */
+        .object img {
+            margin: 0 10px; /* Add spacing between images */
+        }
+.repeat button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(250, 231, 200, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+
+    /* Next button active effect */
+        .repeat button:active {
+            background: rgb(255, 200, 150);
+            color: rgb(255, 255, 255);
+        }
+        .object {
+            margin-top: -5%;
+            width: 30%;
+        }
+    </style>
+
 <script>
    var socket = io.connect('http://192.168.100.2:5000');
     console.log("first socket:", socket);
@@ -24,23 +96,37 @@
         // setTimeout(enabling, 7000);
 
      });
-
-
-    function next() {
+  function next(button) {
+                 button.disabled = true;
+        button.style.opacity = 0.6; // Optional: Make the button appear disabled
+        button.style.cursor = 'not-allowed';
         location.href = '../girl/baby_chair2';
     }
 
+
+function repeat_speech(){
+         socket.emit('repeat_speech', "Goldilocks sat in the small chair. “This chair is just right,”)
+}
 </script>
 <body>
-<div class="container">
-    <div class="object">
-         <div class="building" style="width: 45%; height: auto" >
-        <button onclick="next()">
-            <img src="../static/story/girl_10th.png">
-        </button>
-         </div>
+
+
+ <div class="container">
+        <div class="object">
+            <button class="convex-button" onclick="next(this)">
+                <img src="../static/story/girl_10th.png" style="width: 105%; margin-left: -5%">
+            </button>
+        </div>
+         <div class="repeat">
+                <button onclick="repeat_speech()">
+                    Repeat<br>button
+                </button>
+              </div>
+        <!-- Centered text -->
+
+        <div class="centered-text">
         {% if show_text %}
-She sat in the small chair. “This chair is just right,” she sighed.
+Goldilocks sat in the small chair. “This chair is just right,”
         {% endif %}
 </div>
 </div>

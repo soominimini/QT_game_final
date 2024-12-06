@@ -78,6 +78,7 @@ object_action_dictionary= {
 
 def send_post_request(action):
     # r = requests.post('http://192.168.100.2:5000/request', data={'action': action})
+    time.sleep(2)
     r = requests.post('http://127.0.01:5000/request', data={'action': action})
 
 

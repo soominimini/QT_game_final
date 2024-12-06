@@ -19,33 +19,12 @@
     var arr = new Array();
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
-
-    socket.on('number' , function(data)
-            {
-
-              console.log("data: ",data)
-              arr = data
-              console.log("arr: ", arr)
-         if (arr[0]==true && arr[1] ==false && arr[2] ==false){
-
-            document.getElementById("supermarket").className = "clicked_building";
-
-            }
-     else if(arr[0]==true && arr[1] ==true && arr[2] ==false){
-            document.getElementById("supermarket").className = "clicked_building";
-            document.getElementById("hospital").className = "clicked_building";
-     }
-    else if(arr[0]==true && arr[1] ==true && arr[2] ==true){
-            document.getElementById("supermarket").className = "clicked_building";
-            document.getElementById("hospital").className = "clicked_building";
-            document.getElementById("park").className = "clicked_building";
-    }
-
-            });
+        var arr = JSON.parse('{{ arr_visit | tojson | safe }}');
+        console.log("arr from backend:", arr);
 
      $(document).ready(function() {
         socket.emit('category_talk');
-        setTimeout(enabling, 7000);
+        setTimeout(enabling, 2000);
 
      });
 
@@ -61,10 +40,12 @@ var disabling = function(){
          document.getElementById("btn1").disabled = true;
          document.getElementById("btn2").disabled = true;
          document.getElementById("btn3").disabled = true;
-         setTimeout(enabling, 2000);
+         setTimeout(enabling, 1000);
 }
 
     function supermarket() {
+    console.log("supermarket clicked")
+           console.log("supermarket arr: ", arr)
         if (arr[0]==false && arr[1] ==false && arr[2] ==false){
             socket.emit('init_after_category', "Let's go to play!")
             location.href = '/first_page';
@@ -107,6 +88,22 @@ var disabling = function(){
  background-attachment: fixed;
  width: 100%;
 
+}
+
+            .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+.object{
+            margin-top:-10%;
+        }
+.building{
+    width: 350px;
 }
 </style>
 <body>
