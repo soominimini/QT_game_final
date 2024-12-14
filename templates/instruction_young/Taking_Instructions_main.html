@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 제이쿼리, 제이쿼리ui-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <!--   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>-->
+    <!-- touch punch는 jquery ui 아래에 위치해야함 -->
+    <title>Instruction Game</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<script>
+
+    var socket = io.connect('http://192.168.100.2:5000');
+    var arr = new Array();
+    var value = "";
+    console.log("first socket:", socket);
+    socket.emit('connect event', {data: 'User Connected'});
+        var arr = JSON.parse('{{ arr_visit | tojson | safe }}');
+        console.log("arr from backend:", arr);
+
+     $(document).ready(function() {
+        socket.emit('category_talk');
+        setTimeout(enabling, 2000);
+
+     });
+
+var enabling = function(){
+
+         document.getElementById("btn1").disabled = false;
+         document.getElementById("btn2").disabled = false;
+         document.getElementById("btn3").disabled = false;
+}
+
+var disabling = function(){
+
+         document.getElementById("btn1").disabled = true;
+         document.getElementById("btn2").disabled = true;
+         document.getElementById("btn3").disabled = true;
+         setTimeout(enabling, 1000);
+}
+
+    function supermarket() {
+
+    console.log("supermarket clicked")
+           console.log("supermarket arr: ", arr)
+        if (arr[0]==false && arr[1] ==false && arr[2] ==false){
+            socket.emit('init_after_category', "Let's go to play!")
+            location.href = '/first_page';
+            value = "Let's go to play!"
+            }
+        else{
+        disabling();
+        socket.emit('block_page', "Please choose another building!") //emit the information of dragged item
+            value =  "Please choose another building!"
+        }
+    }
+    function hospital() {
+        if (arr[0]==true && arr[1] ==false && arr[2] ==false){
+            socket.emit('init_after_category', "Let's go to play!")
+            location.href = '/hospital_first';
+             value = "Let's go to play!"
+            }
+        else{
+        disabling();
+        socket.emit('block_page', "Please choose another building!") //emit the information of dragged item
+             value =  "Please choose another building!"
+        }
+     }
+     function park() {
+        if (arr[0]==true && arr[1] ==true && arr[2] ==false){
+            socket.emit('init_after_category', "Let's go to play!")
+            location.href = '/park_first';
+            value = "Let's go to play!"
+            }
+        else{
+        disabling();
+        socket.emit('block_page',"Please choose another building!") //emit the information of dragged item
+             value =  "Please choose another building!"
+        }
+    }
+document.addEventListener("DOMContentLoaded", function () {
+        const stopSpeechButton = document.getElementById("stop-speech-btn");
+        const repeatSpeechButton = document.getElementById("repeat-speech-btn");
+
+        stopSpeechButton.addEventListener("click", function () {
+
+            // Emit 'speech_stop' event to the backend
+            socket.emit('stop_trigger_force', {message: "Stop speech command sent"});
+            socket.emit('speech_stop', {message: "Stop speech command sent"});
+            console.log("Speech stop event emitted");
+
+            // Disable the button for 2 seconds
+            stopSpeechButton.disabled = true;
+            setTimeout(function () {
+                stopSpeechButton.disabled = false;
+            }, 500); // 2000ms = 2 seconds
+
+        });
+
+        repeatSpeechButton.addEventListener("click", function () {
+            socket.emit('repeat_speech', value);
+
+            // Disable the button for 2 seconds
+            repeatSpeechButton.disabled = true;
+            setTimeout(function () {
+                repeatSpeechButton.disabled = false;
+            }, 500); // 2000ms = 2 seconds
+        });
+    });
+
+</script>
+<style>
+  html, body {
+        max-width: 100%;
+        height: 100%;
+        background-color: #C7E5FF;
+    }
+
+            .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+.object{
+            margin-top:-10%;
+        }
+.building{
+    width: 350px;
+}
+
+  .repeat button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        left: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(128, 168, 255, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    }
+
+    /* Next button active effect */
+    .repeat button:disabled {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+    }
+
+    .stop button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(255, 0, 0, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    }
+
+    .stop button:disabled {
+        background: rgba(92, 43, 43, 0.6);
+        color: rgb(255, 255, 255);
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
+    }
+</style>
+<body>
+<div class="container">
+    <div class="repeat">
+        <button id="repeat-speech-btn"> Repeat</button>
+    </div>
+
+    <div class="stop">
+        <button id="stop-speech-btn"> STOP</button>
+    </div>
+    <div class="object">
+        <div id ="supermarket" class="building">
+            <button id ="btn1" disabled = "disabled"  onclick="supermarket()">
+                <img src="../static/supermarket.png">
+            </button>
+        </div>
+
+        <div  id = "hospital"  class="building">
+            <button id ="btn2" disabled = "disabled" onclick="hospital()">
+                <img src="../static/hospital-building.png">
+            </button>
+        </div>
+        <div id = "park" class="building">
+            <button id ="btn3" disabled = "disabled" onclick="park()">
+                <img  src="../static/park.png">
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
