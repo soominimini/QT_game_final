@@ -1,5 +1,5 @@
 import numpy as np
-from flask import Flask, render_template, redirect, url_for, session, request
+from flask import Flask, render_template, redirect, url_for, session, request,send_from_directory
 from flask_socketio import SocketIO, emit, join_room
 #from flask_cors import CORS
 import random
@@ -80,16 +80,10 @@ emotion_stop_event = threading.Event()
 gesture_stop_event = threading.Event()
 audio_stop_event = threading.Event()
 
+global_sentence = ''
+
 def neturalize():
     gesturePlay_servc("QT/neutral", 0.5)
-
-
-# @socketio.on('stop_trigger_force')
-# def handle_speech_stop_force(data):
-#     global stop_triggered_flag
-#     stop_triggered_flag = True
-#
-#     print("Speech stop event triggered.")
 
 
 @socketio.on('stop_trigger_force')
@@ -111,6 +105,7 @@ def execute_jumping_jacks():
         rospy.sleep(1)
         talktext_pub.publish(str(i))
         handle_gesture_play("jumping_soomin", 2)
+    stop_triggered_flag = False
 
 
 @socketio.on('speech_stop')
@@ -186,6 +181,10 @@ def handle_audio_play(data):
 
 @socketio.on('repeat_speech')
 def handle_repeat_speeach(data):
+    if data =='':
+        global global_sentence
+        data = global_sentence
+
     print("repeat_speech: ", data)
     def say_speech_repeat():
         speech_stop_event.clear()  # Reset stop signal before starting speech
@@ -197,15 +196,18 @@ def handle_repeat_speeach(data):
     threading.Thread(target=say_speech_repeat).start()
     print("Speech say event received:", data)
 
-#     #     #     #     #    STOP functions  #     #     #     #     #     #     #     #     #     #     #     #     #     #
+
+#     #     #     #     #     #     #     #     #     #     #     # #     #     #    STOP functions  #     #     #     #     #     #     #     #     #     #     #     #     #     #
 
 @socketio.on('category_talk')
 def first_talk_robot():
     print(arr_visit)
-    # rospy.sleep(2.0)
+    global global_sentence
+    rospy.sleep(1.0)
     # socketio.emit('number', arr_visit, broadcast=True)
     if arr_visit[0] == False:
         handle_speech_say("Let's go to the supermarket!")
+        global_sentence = "Let's go to the supermarket!"
         # talktext_pub.publish("Let's go to the supermarket!")
         rospy.sleep(3.0)
         # talktext_pub.publish("Touch the correct one on the tablet!")  # Instruction
@@ -213,31 +215,28 @@ def first_talk_robot():
     elif arr_visit[0] == True and arr_visit[1] == False:
         # audioPlay_pub.publish(" ") #hospital audio
         handle_speech_say("Let's go to the hospital")
+        global_sentence = "Let's go to the hospital!"
         rospy.sleep(2.5)
         # talktext_pub.publish("Touch the correct one on the tablet!")  # Instruction
         arr_visit[1] = True
     elif arr_visit[0] == True and arr_visit[1] == True and arr_visit[2] == False:
         handle_speech_say("Let's go to the park")
+        global_sentence = "Let's go to the park!"
         # talktext_pub.publish("Let's go to the park")  # park
         rospy.sleep(3.0)
         # talktext_pub.publish("Touch the correct one on the tablet!")  # Instruction
         arr_visit[2] = True
     else:
-        handle_speech_say("All done! Let's go back!")
-
-    # print("error_record, success_record: ", error_record, success_record)
-    # cur = conn.cursor()
-    # global table_id
-    # print("table_id: ",table_id)
-    # query = f"INSERT INTO {table_id} (success, fail) VALUES (%s, %s)"
-    # cur.execute(query, (success_record, error_record))
-    # conn.commit()
-    # cur.close()
+        arr_visit[0] = False
+        arr_visit[1] = False
+        arr_visit[2] = False
+        handle_speech_say("All done! Let's play other games!")
 
 
 @socketio.on('init_after_category')
 def init_interaction_robot(msg):
     print("message: ", msg)
+    rospy.sleep(0.5)
     talktext_pub.publish(msg)
 
 
@@ -252,7 +251,7 @@ def first_talk_robot(msg):
 @socketio.on('giveme_talk')
 def giveme_talk_robot(msg):
     print("message: ", msg)
-    rospy.sleep(1.5)
+    rospy.sleep(1)
     handle_speech_say(msg)
     # talktext_pub.publish(msg)
 
@@ -278,7 +277,7 @@ def correct_answer():
         random_praise = 0
         random.shuffle(praise_order)  # shuffle again
     if praise_order[random_praise] == 0:
-        handle_speech_say("Good job!")
+        handle_speech_say("You’re doing so well!")
         rospy.sleep(1)
         handle_emotion_play("QT/happy")
         handle_gesture_play("QT/happy", 2)
@@ -331,10 +330,11 @@ def score_handle_from_html():
 
     handle_emotion_play("QT/sad")
     handle_gesture_play("QT/sad", 1)
+    handle_speech_say("That's not correct!")
 
-
-    emotionShow_pub.publish("QT/sad")
-    gesturePlay_servc("QT/sad", 1) # it needs to down both hands after performing the gestures
+    #
+    # emotionShow_pub.publish("QT/sad")
+    # gesturePlay_servc("QT/sad", 1) # it needs to down both hands after performing the gestures
 
 
     #[shoulderPitch, shoulderRoll, elbowRoll]
@@ -354,7 +354,7 @@ def score_handle_from_html():
         rospy.sleep(1)
 
     elif encourage_order[random_encouragement] == 1:
-        handle_speech_say("Do it again!")
+        handle_speech_say("You’re so close! Do it again")
         # talktext_pub.publish("Do it again!")
         random_encouragement += 1
         rospy.sleep(1)
@@ -375,7 +375,7 @@ def score_handle_from_html():
 @socketio.on('wrong_repeat')
 def speak_repeat(msg):
     # emotionShow_pub.publish("QT/sad")
-    handle_emotion_play("QT/sad")
+    # handle_emotion_play("QT/sad")
     rospy.sleep(3.0)
     # talktext_pub.publish(str(msg))
     handle_speech_say(str(msg))
@@ -390,7 +390,7 @@ def block_page_redirect(msg):
 
 @socketio.on('next_page')
 def block_page_redirect():
-    rospy.sleep(3.0)
+    rospy.sleep(2.0)
     # talktext_pub.publish("Let's go to the next page!")
     handle_speech_say("Let's go to the next page!")
 
@@ -414,38 +414,46 @@ def test_connect():
     print("disconnected")
 
 
+@socketio.on('reload_page')
+def reload():
+
+    print("page reload in main")
 @app.route('/')
 def login():
     return render_template('login.html')
 
 
+
 @socketio.on('login')
 def logged_in(message):
     name = message['name']
-    session = message["session_no"]
-    age = message["age"]
     global f
     global file_name
-    file_name = name + "_" + age + "_" + session+".txt"
-    f = open(file_name , "a")
-    f.write("Name: " + name + "\n")
-    f.write("Age: " + age + "\n")
-    f.write("Session: " + session + "\n")
-    # global table_id
-    # table_id = f"{name}_{age}_{session}"
-    # # Ensure table ID contains valid SQL table name characters (remove special characters)
-    # table_id = ''.join(e for e in table_id if e.isalnum() or e == '_')
-    # cur = conn.cursor()
-    # # query = "CREATE TABLE IF NOT EXISTS table_id (name  VARCHAR(40), session INT, age INT, success INT, fail INT )"
-    # query = f"CREATE TABLE IF NOT EXISTS {table_id} (name  VARCHAR(40), session INT, age INT, success INT, fail INT )"
-    #
-    # cur.execute(query)
-    # conn.commit()
-    #
-    # query = f"INSERT INTO {table_id} (name, session, age) VALUES (%s, %s, %s)"
-    # cur.execute(query, (name, session , age))
-    # conn.commit()
-    # cur.close()
+
+    # Directory where files will be saved (change if needed)
+    save_directory = "user_files"
+    os.makedirs(save_directory, exist_ok=True)  # Ensure the directory exists
+
+    # Initialize the file counter
+    counter = 0
+    base_file_name = f"{name}_"
+    file_path = os.path.join(save_directory, f"{base_file_name}{counter}.txt")
+
+    # Increment the counter if a file with the same name already exists
+    while os.path.exists(file_path):
+        counter += 1
+        file_path = os.path.join(save_directory, f"{base_file_name}{counter}.txt")
+
+    # Use the resolved file path
+    file_name = file_path
+    f = open(file_name, "a")
+      # Write user information to the file
+    f.write(f"Name: {name}\n")
+    f.close()
+
+    print(f"File saved as: {file_name}")
+
+    # Redirect to the main page
     socketio.emit('redirect', {'url': url_for('main_page')})
 
 
@@ -475,7 +483,8 @@ def main_menu(message):
 
     if (message["who"] == 'instructions_game'):
         socketio.emit('redirect', {'url': url_for('taking_instruction')})
-
+    elif (message["who"] == 'instructions_game_young'):
+        socketio.emit('redirect', {'url': url_for('taking_instruction_young')})
     elif (message["who"] == 'emotion_game_1'): # first emotion game for young age
         print("test emotion card file")
         main()
@@ -556,6 +565,15 @@ def taking_instruction():
     return render_template('Taking_Instructions_main.html', arr_visit=arr_visit)
 
 
+@app.route('/taking_instruction_main_young')
+def taking_instruction_young():
+    print("taking_instruction_young")
+    global arr_visit  # Assuming arr_visit is a global variable
+    rand_var = random.randint(0, 5)
+    # gesturePlay_servc(Idle_gestures[rand_var], 1.5)
+    return render_template('/instruction_young/Taking_Instructions_main.html', arr_visit=arr_visit)
+
+
 @app.route('/first_page')
 def taking_instruction1():
     rospy.sleep(1.0)
@@ -563,6 +581,13 @@ def taking_instruction1():
     # gesturePlay_servc(Idle_gestures[rand_var], 1.5)
     # talktext_pub.publish("I want fruits!")
     return render_template('index_taking_instruction.html')
+@app.route('/supermarket_firstpage_young')
+def taking_instruction1_young():
+    rospy.sleep(1.0)
+    # rand_var = random.randint(0, 4)
+    # gesturePlay_servc(Idle_gestures[rand_var], 1.5)
+    # talktext_pub.publish("I want fruits!")
+    return render_template('/instruction_young/index_taking_instruction.html')
 
 
 @app.route('/emotion_games')
@@ -580,8 +605,13 @@ def emotion_games_start_2():
 
 @app.route('/second_page')
 def taking_instruction2():
-    rospy.sleep(1.0)
+    rospy.sleep(1.5)
     return render_template('index_taking_instruction_page2.html')
+
+@app.route('/supermarket_secondpage_young')
+def taking_instruction2_young():
+    rospy.sleep(1.5)
+    return render_template('/instruction_young/index_taking_instruction_page2.html')
 
 
 @app.route('/third_page')
@@ -590,10 +620,21 @@ def taking_instruction3():
     return render_template('index_taking_instruction_page3.html')
 
 
+@app.route('/supermarket_thirdpage_young')
+def taking_instruction3_young():
+    rospy.sleep(1.0)
+    return render_template('/instruction_young/index_taking_instruction_page3.html')
+
+
 @app.route('/hospital_first')
 def hospital1():
     rospy.sleep(1.0)
     return render_template('hospital1_instruction.html')
+
+@app.route('/hospital_first_young')
+def hospital1_young():
+    rospy.sleep(1.0)
+    return render_template('/instruction_young/hospital1_instruction.html')
 
 
 @app.route('/hospital_second')
@@ -602,10 +643,35 @@ def hospital2():
     return render_template('hospital2_instruction.html')
 
 
+@app.route('/hospital_second_young')
+def hospital2_young():
+    rospy.sleep(1.0)
+    return render_template('/instruction_young/hospital2_instruction.html')
+
+
+@app.route('/hospital_third')
+def hospital3():
+    rospy.sleep(1.0)
+    return render_template('hospital3_instruction.html')
+
+
+@app.route('/hospital_third_young')
+def hospital3_young():
+    rospy.sleep(1.0)
+    return render_template('/instruction_young/hospital3_instruction.html')
+
+
+
 @app.route('/park_first')
 def park1():
     rospy.sleep(1.0)
     return render_template('park1_instruction.html')
+
+@app.route('/park_first_young')
+def park1_young():
+    rospy.sleep(1.0)
+    return render_template('/instruction_young/park1_instruction.html')
+
 
 
 @app.route('/park_second')
@@ -613,6 +679,20 @@ def park2():
     rospy.sleep(1.0)
     return render_template('park2_instruction.html')
 
+@app.route('/park_second_young')
+def park2_young():
+    rospy.sleep(1.0)
+    return render_template('/instruction_young/park2_instruction.html')
+
+@app.route('/park_third')
+def park3():
+    rospy.sleep(1.0)
+    return render_template('park3_instruction.html')
+
+@app.route('/park_third_young')
+def park3_young():
+    rospy.sleep(1.0)
+    return render_template('/instruction_young/park3_instruction.html')
 
 @socketio.on('character_select')
 def character_select_func(msg):
@@ -1006,8 +1086,8 @@ def dice_face_in_young_action(dice_face_str):
         music = ["IncyWincySpider", "ABCsong", "Old_MacDonald", "twinkletwinklelittlestar", "Wheels_bus"]
         random_song = random.choice(music)
         print("random_song: "+random_song)
-        
-        
+
+
         if str(random_song) == "IncyWincySpider":
             # talktext_pub.publish("Let's sing Incy Wincy Spider")
             # handle_speech_say("Let's sing Incy Wincy Spider")
@@ -1092,6 +1172,7 @@ def dice_face_in_young_action(dice_face_str):
 
     # speechConfig_servc('en-US', 105, 75)
     rospy.sleep(2)
+    stop_triggered_flag = False
 
 @socketio.on('dice_face_in_young_emotion')
 def dice_face_in_young_emotion(dice_face_str):
@@ -1392,8 +1473,9 @@ def object_card(id):
 
 def young_emotion_card(data):
     print(data)
+    rospy.sleep(2.0)
     talktext_pub.publish(data)
-    rospy.sleep(3)
+    rospy.sleep(2.0)
     talktext_pub.publish("Look at the tablet, click on the picture")
 
 
@@ -1510,11 +1592,10 @@ def start_game(message):
         rospy.sleep(1)
 
 
-@socketio.on('selected')
+@socketio.on('selected')    #when the user clicks the image on the tablet
 def image_selected(message):
     global game
     global selected
-    rospy.sleep(3)
 
     global emotion_game1_success, emotion_game2_success, emotion_game3_success
     global emotion_game1_failure, emotion_game2_failure, emotion_game3_failure
@@ -1526,9 +1607,10 @@ def image_selected(message):
         global speech_flag_emotion
         if not speech_flag_emotion:
             speech_flag_emotion = True
-            rospy.sleep(1)
+            print("emotion speak")
+            rospy.sleep(2.0)
             speechSay_pub.publish(selected_emotion)
-            rospy.sleep(1)
+            rospy.sleep(2.0)
             talktext_pub.publish(next_dialogue[random_number])
     elif (game == "emotion_game2"):
         global var
@@ -1539,7 +1621,6 @@ def image_selected(message):
                 sentence = var
 
                 # speechSay_pub.publish(var)
-                rospy.sleep(1)
                 speechSay_pub.publish(var)
                 rospy.sleep(1)
                 selected = 1
@@ -1608,6 +1689,15 @@ def first_view():
         return render_template('emotion_game3.html')
 
 
+
+## Serve static files with Cache-Control headers
+@app.after_request
+def add_cache_control(response):
+    print("add_cache_control")
+    if request.path.startswith('/static/'):
+        response.headers['Cache-Control'] = 'public, max-age=2592000'  # Cache for 30 days
+    return response
+
 ######################################################################################### Main ############################################################################################
 
 if __name__ == '__main__':
@@ -1620,6 +1710,7 @@ if __name__ == '__main__':
 
     speechStop_servc = rospy.ServiceProxy('/qt_robot/speech/stop', speech_stop)
     rospy.wait_for_service('/qt_robot/speech/stop')
+    emotionStop_servc = rospy.ServiceProxy('/qt_robot/emotion/stop',emotion_stop)
     emotionStop_servc = rospy.ServiceProxy('/qt_robot/emotion/stop',emotion_stop)
     rospy.wait_for_service('/qt_robot/emotion/stop')
     gestureStop_servc = rospy.ServiceProxy('/qt_robot/gesture/stop', gesture_stop)

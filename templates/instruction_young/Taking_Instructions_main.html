@@ -50,7 +50,7 @@ var disabling = function(){
            console.log("supermarket arr: ", arr)
         if (arr[0]==false && arr[1] ==false && arr[2] ==false){
             socket.emit('init_after_category', "Let's go to play!")
-            location.href = '/first_page';
+            location.href = '/supermarket_firstpage_young';
             value = "Let's go to play!"
             }
         else{
@@ -62,7 +62,7 @@ var disabling = function(){
     function hospital() {
         if (arr[0]==true && arr[1] ==false && arr[2] ==false){
             socket.emit('init_after_category', "Let's go to play!")
-            location.href = '/hospital_first';
+            location.href = '/hospital_first_young';
              value = "Let's go to play!"
             }
         else{
@@ -74,7 +74,7 @@ var disabling = function(){
      function park() {
         if (arr[0]==true && arr[1] ==true && arr[2] ==false){
             socket.emit('init_after_category', "Let's go to play!")
-            location.href = '/park_first';
+            location.href = '/park_first_young';
             value = "Let's go to play!"
             }
         else{
@@ -115,10 +115,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 <style>
-  html, body {
+
+    html, body {
         max-width: 100%;
         height: 100%;
-        background-color: #C7E5FF;
+        background-color: #FFFCA3;
     }
 
             .container {

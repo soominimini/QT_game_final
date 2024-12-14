@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 제이쿼리, 제이쿼리ui-->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-    <!--   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>-->
-    <!-- touch punch는 jquery ui 아래에 위치해야함 -->
+
     <title>Instruction Game</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <script>
     var socket = io.connect('http://192.168.100.2:5000');
@@ -21,18 +19,17 @@
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
          const img1 = new Image();
-        img1.src = "../static/instruction/old/cart_cherry.png";
+        img1.src = "../static/instruction/young/cart_apple.png";
     const img2 = new Image();
-        img2.src = "../static/instruction/old/cart_cherry_pencil.png";
+        img2.src = "../static/instruction/young/cart_apple_orange.png";
     const img3 = new Image();
-        img3.src = "../static/instruction/old/cart_cherry_pencil_juice.png";
+        img3.src = "../static/instruction/young/cart_apple_orange_cherry.png";
 
      $(document).ready(function() {
      socket.emit('first_talk', 'I want fruits.');
-     value = 'I want fruits. Can you give me two cherries?'
-     socket.emit('giveme_talk', 'Can you give me two cherries?');
+     value = 'I want fruits. Can you give me one apple?'
+     socket.emit('giveme_talk', 'Can you give me one apple?');
      nonDragged();
-     document.getElementById("btn").disabled = true;
 
      });
 
@@ -91,10 +88,10 @@
 
                         setTimeout(() => {
 
-                            socket.emit('giveme_talk', 'Can you give me a pencil?');
+                            socket.emit('giveme_talk', 'Please give me an orange?');
 
-                            value =  'Can you give me a pencil?'
-                        }, 1000); // 1-second delay after the first emit
+                            value =  'Please give me an orange?'
+                        }, 2000); // 1-second delay after the first emit
 
                         setTimeout(() => {
                             socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
@@ -104,8 +101,8 @@
                 nonDragged();
                 score -= 1;
                 socket.emit('wrong') //robot encourage
-                socket.emit('wrong_repeat',  'I want cherries') //robot repeats what it asked
-                 value =  'I want cherries'
+                socket.emit('wrong_repeat',  'I want an apple') //robot repeats what it asked
+                 value =  'I want an apple'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         }
@@ -119,16 +116,16 @@
                 $("#drop_cart").attr("src", img2.src); // Update the cart image
                 second_choidce = true;
                 socket.emit('correct') //robot praise
-                socket.emit('giveme_talk', 'Can you give me a bottle of orange juice?'); //robot ask for the second item
-                 value = 'Can you give me a bottle of orange juice?'
+                socket.emit('giveme_talk', 'Could you please give me two cherries?'); //robot ask for the second item
+                 value = 'Could you please give me two cherries?'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
             else {
                 nonDragged();
                 score -= 1;
                 socket.emit('wrong') //robot encourage
-                socket.emit('wrong_repeat',  'I want a pencil') //robot repeats what it asked
-                value =  'I want a pencil'
+                socket.emit('wrong_repeat',  'I want an orange') //robot repeats what it asked
+                value =  'I want an orange'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         }
@@ -146,7 +143,6 @@
                 socket.emit('correct') //robot praise
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
                 socket.emit('next_page') //robot says go to next page
-                document.getElementById("btn").disabled = false;
 
             }
             else {
@@ -154,8 +150,8 @@
                 score -= 1;
                 socket.emit('wrong') //robot encourage
 
-                 socket.emit('wrong_repeat',  'I want orange juice') //robot repeats what it asked
-                 value =  'I want orange juice'
+                 socket.emit('wrong_repeat',  'I want two cherries') //robot repeats what it asked
+                 value =  'I want two cherries'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         }
@@ -163,11 +159,11 @@
 
     function go_to_next_page() {
         if (first_choice == true && second_choidce == true && third_choidce==true) {
-            location.href = '/second_page';
+            location.href = '/supermarket_secondpage_young';
         }
         else {
             socket.emit('block_page', "Please select all requested items!") //emit the information of dragged item
-            socket.emit('object_list', {data: "try to go to next step before finishing the current page"}); //emit the information of dragged item
+            {#socket.emit('object_list', {data: "try to go to next step before finishing the current page"}); //emit the information of dragged item#}
         }
     }
 
@@ -207,10 +203,10 @@
     });
 </script>
 <style>
-  html, body {
+    html, body {
         max-width: 100%;
         height: 100%;
-        background-color: #C7E5FF;
+        background-color: #FFFCA3;
     }
 
 
@@ -257,6 +253,28 @@
         color: rgb(255, 255, 255);
         cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
+        /* Next button styling */
+    .next-button {
+        font-size: 35px;
+        background: rgba(250, 231, 200, 1.0);
+        color: rgb(0, 0, 0);
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 80px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Next button active effect */
+    .next-button:active {
+        background: rgb(255, 200, 150);
+        color: rgb(255, 255, 255);
+    }
 </style>
 <body>
     <div class="repeat">
@@ -269,7 +287,7 @@
 <div class="container">
     <form id="data-send" name="data-send">
 
-        <input id ="btn" type="button" value="Next" onclick="go_to_next_page()" style="font-size : 30px; width: 100px; height: 50px;"/>
+        <input id ="btn"  class="next-button"type="button" value="Next" onclick="go_to_next_page()"/>
     </form>
     <div class="drop-targets">
 
@@ -277,15 +295,15 @@
             <img id="drop_cart" data-target-id="grocery" src="../static/instruction/shopping-cart.png">
         </div>
     </div>
-    <div class="object">
+    <div class="object" style="margin-top: -3%">
         <div class="item">
-           <img id="cherry" data-source-id="first_answer" src="../static/instruction/cherries.png">
+           <img id="apple" data-source-id="first_answer" src="../static/instruction/apple.png">
         </div>
         <div class="item">
-            <img id="juice" data-source-id="third_answer" src="../static/instruction/juice.png">
+            <img id="cherries" data-source-id="third_answer" src="../static/instruction/cherries.png">
         </div>
         <div class="item">
-            <img id="pencil" data-source-id="second_answer" src="../static/instruction/pencil.png">
+            <img id="orange" data-source-id="second_answer" src="../static/instruction/orange.png">
         </div>
     </div>
 

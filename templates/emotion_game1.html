@@ -8,50 +8,62 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <script type="text/javascript">
         let segments = "";
-        let lastPart = "";
+        let lastPart = "show me an emotion card";
         var socket = io.connect("http://192.168.100.2:5000");
 
 
-         /* STOP function */
+        /* STOP function */
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const stopSpeechButton = document.getElementById("stop-speech-btn");
-                const repeatSpeechButton = document.getElementById("repeat-speech-btn");
+        document.addEventListener("DOMContentLoaded", function () {
+            const stopSpeechButton = document.getElementById("stop-speech-btn");
+            const repeatSpeechButton = document.getElementById("repeat-speech-btn");
 
-                stopSpeechButton.addEventListener("click", function () {
-                    // Emit 'speech_stop' event to the backend
-                    socket.emit('speech_stop', {message: "Stop speech command sent"});
-                    console.log("Speech stop event emitted");
+            stopSpeechButton.addEventListener("click", function () {
+                // Emit 'speech_stop' event to the backend
+                socket.emit('speech_stop', {message: "Stop speech command sent"});
+                console.log("Speech stop event emitted");
 
-                    // Disable the button for 2 seconds
-                    stopSpeechButton.disabled = true;
-                    setTimeout(function () {
-                        stopSpeechButton.disabled = false;
-                    }, 500); // 2000ms = 2 seconds
-                });
-
-                repeatSpeechButton.addEventListener("click", function () {
-
-                    if (lastPart == "ask") {
-                        socket.emit('repeat_speech', "show me another emotion card");
-                    } else {
-                        console.log("value: ", lastPart);
-                        socket.emit('repeat_speech', lastPart);
-                    }
-                    {#socket.emit('speech_stop', {message: "Stop speech command sent"});#}
-                    {#console.log("Speech stop event emitted");#}
-
-                    // Disable the button for 2 seconds
-                    repeatSpeechButton.disabled = true;
-                    setTimeout(function () {
-                        repeatSpeechButton.disabled = false;
-                    }, 500); // 2000ms = 2 seconds
-                });
+                // Disable the button for 2 seconds
+                stopSpeechButton.disabled = true;
+                setTimeout(function () {
+                    stopSpeechButton.disabled = false;
+                }, 500); // 2000ms = 2 seconds
             });
+
+            repeatSpeechButton.addEventListener("click", function () {
+
+                if (lastPart == "ask") {
+                    socket.emit('repeat_speech', "show me another emotion card");
+                } else {
+                    console.log("value: ", lastPart);
+                    socket.emit('repeat_speech', lastPart);
+                }
+                {#socket.emit('speech_stop', {message: "Stop speech command sent"});#}
+                {#console.log("Speech stop event emitted");#}
+
+                // Disable the button for 2 seconds
+                repeatSpeechButton.disabled = true;
+                setTimeout(function () {
+                    repeatSpeechButton.disabled = false;
+                }, 500); // 2000ms = 2 seconds
+            });
+        });
 
         $(document).ready(function () {
             $('input.sync').on('click', function (event) {
                 socket.emit('next button', {who: $(this).attr('id')});
+
+                $(this).css('background', 'rgb(255, 200, 150)'); // Example active color
+                $(this).css('color', 'rgb(255, 255, 255)'); //
+
+                 $(this).prop('disabled', true);
+                 // Revert the button color after a delay
+                 let button = $(this); // Save reference to the button
+                 setTimeout(function() {
+                     button.css('background', 'rgba(250, 231, 200, 0.6)'); // Original color
+                     button.css('color', 'rgb(0, 0, 0)'); // Original text color
+                 }, 300); // 300ms delay
+
             });
 
 
@@ -131,8 +143,7 @@
 
 <style>
     body {
-    {#background-image: url("{{ url_for('static', filename='images/back.jpg') }}");#}
-        background-color: #FFFCA3; /* Light yellow */
+    {#background-image: url("{{ url_for('static', filename='images/back.jpg') }}");#} background-color: #FFFCA3; /* Light yellow */
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
@@ -153,6 +164,13 @@
         width: 200px;
         height: 70px;
 
+    }
+
+
+    /* Next button active effect */
+    .sync:active {
+        background: rgb(255, 200, 150);
+        color: rgb(255, 255, 255);
     }
 
     .repeat button {

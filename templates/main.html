@@ -7,221 +7,305 @@
       <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
       <script type="text/javascript">
-          var socket = io.connect('http://192.168.100.2:5000');
-          // var socket = io.connect('localhost:5000');
+            var socket = io.connect('http://192.168.100.2:5000');
 
-       // Check if the URL matches "/main"
-    if (window.location.pathname === '/main') {
-        // Use sessionStorage to ensure reload happens only once
-        if (!sessionStorage.getItem('reloaded')) {
-            sessionStorage.setItem('reloaded', 'true');
-            location.reload(); // Reload the page
+        function young() {
+            var ids = ["action_game_container", "emotion_game_1_container", "emotion_game3_container", "dice_action_young_container", "dice_emotion_young_container","instructions_game_container_young"];
+            toggleButtons(ids);
         }
-    }
 
+        function older() {
+            var ids = ["emotion_game2_container", "instructions_game_container", "story_container", "dice_emotion_old_container", "dice_5w1h_1_container", "dice_5w1h_2_container", "dice_board_container"];
+            toggleButtons(ids);
+        }
 
-          function young(){
-              document.getElementById("action_game");
-              if(document.getElementById("action_game").style.display=='none'){
-                  document.getElementById("action_game").style.display = 'block';
-                  document.getElementById("emotion_game_1").style.display = 'block';
-                  document.getElementById("emotion_game3").style.display = 'block';
-                  document.getElementById("dice_action_young").style.display = 'block';
-                  document.getElementById("dice_emotion_young").style.display = 'block';
-
-              }
-              else{
-                    document.getElementById("action_game").style.display = 'none';
-                    document.getElementById("emotion_game_1").style.display = 'none';
-                    document.getElementById("emotion_game3").style.display = 'none';
-                  document.getElementById("dice_action_young").style.display = 'none';
-                  document.getElementById("dice_emotion_young").style.display = 'none';
-
-              }
-          }
-
-          function older(){
-              document.getElementById("story");
-              if(document.getElementById("story").style.display=='none'){
-                  document.getElementById("story").style.display = 'block';
-                  document.getElementById("instructions_game").style.display = 'block';
-                  document.getElementById("emotion_game2").style.display = 'block';
-                  document.getElementById("dice_emotion_old").style.display = 'block';
-                  document.getElementById("dice_5w1h_1").style.display = 'block';
-                  document.getElementById("dice_5w1h_2").style.display = 'block';
-                  document.getElementById("dice_board").style.display = 'block';
-              }
-              else{
-                    document.getElementById("story").style.display = 'none';
-                    document.getElementById("instructions_game").style.display = 'none';
-                  document.getElementById("emotion_game2").style.display = 'none';
-                  document.getElementById("dice_emotion_old").style.display = 'none';
-                  document.getElementById("dice_5w1h_1").style.display = 'none';
-                  document.getElementById("dice_5w1h_2").style.display = 'none';
-                  document.getElementById("dice_board").style.display = 'none';
-              }
-          }
-document.addEventListener("DOMContentLoaded", function () {
-    const stopSpeechButton = document.getElementById("stop-speech-btn");
-
-    stopSpeechButton.addEventListener("click", function () {
-        // Emit 'speech_stop' event to the backend
-        socket.emit('speech_stop', { message: "Stop speech command sent" });
-        console.log("Speech stop event emitted");
-
-        // Disable the button for 2 seconds
-        stopSpeechButton.disabled = true;
-        setTimeout(function () {
-            stopSpeechButton.disabled = false;
-        }, 1500); // 2000ms = 2 seconds
-    });
-});
-
-      socket.on( 'connect', function() {
-        socket.emit( 'connect event', {
-          data: 'User Connected'
-        } )
-
-         $('input.sync').on('click', function(event) {
-                socket.emit('click_main', {who: $(this).attr('id')
-              });
-                return false;
+        function toggleButtons(ids) {
+            ids.forEach(function(id) {
+                var element = document.getElementById(id);
+                element.style.display = (element.style.display === 'none' || element.style.display === '') ? 'flex' : 'none';
             });
-            
-            socket.on('green', function(msg) {
-              var x = document.getElementById(msg.who);
-              x.style.color = "green";
+        }
+
+        function handleGameClick(gameId) {
+            console.log(`Game ${gameId} clicked`);
+            // Emit event or perform desired action here
+            socket.emit('click_main', { who: gameId });
+        }
+
+        function showInfo(message) {
+            document.getElementById("popup-text").innerText = message;
+            document.getElementById("popup-overlay").style.display = "block";
+            document.getElementById("info-popup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup-overlay").style.display = "none";
+            document.getElementById("info-popup").style.display = "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            socket.on('connect', function () {
+                socket.emit('connect event', {
+                    data: 'User Connected'
+                });
+
+                socket.on('green', function (msg) {
+                    var x = document.getElementById(msg.who);
+                    x.style.color = "green";
+                });
+
+                socket.on('redirect', function (data) {
+                    console.log(data)
+                    window.open(data.url)
+                });
+
+                window.onbeforeunload = function () {
+                    socket.emit('client_disconnecting', { 'data': "Main" });
+                }
             });
-           
-
- socket.on('redirect' , function(data)
-            {
-                console.log(data)
-    //window.location = data.url;
-    window.open(data.url)
-                
-            });
-window.onbeforeunload = function () {
-        socket.emit('client_disconnecting', {'data': "Main"});
-    }
+        });
+    </script>
 
 
-      } )
-      
-
-      </script>
-   </head>
       <style>
-          * {
-    box-sizing: border-box;
-}
+        /* Existing styles */
+        * {
+            box-sizing: border-box;
+        }
 
-    body, html {
-             margin: 0;
-             padding: 0;
-             width: 100%;
-             height: 100%;
-         overflow-x: hidden; /* Prevent horizontal scrolling */
-         }
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
 
-  .container {
-        min-width: 150%;
- margin: 0; /* Remove any unwanted margins */
-    padding: 0; /* Remove padding */
-    height: 100%;
-    {#width: 100%;#}
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
-    position: relative;
-         }
-         /* Top and bottom sections */
-         .top-section {
-             flex: 1;
-             width: 100%;
-             background-color: #FFFCA3; /* Light yellow */
-             display: flex;
-             justify-content: center;
-             align-items: center;
-         }
+        .container {
+            min-width: 150%;
+            margin: 0; /* Remove any unwanted margins */
+            padding: 0; /* Remove padding */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: stretch;
+            position: relative;
+        }
 
-         .bottom-section {
-             flex: 1;
-             width: 100%;
-             background-color: #C7E5FF; /* Light purple */
-             display: flex;
-             justify-content: center;
-             align-items: center;
-         }
+        /* Top and bottom sections */
+        .top-section {
+            flex: 1;
+            width: 100%;
+            background-color: #FFFCA3; /* Light yellow */
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            padding: 20px;
+        }
 
-         /* Buttons */
-         input {
-             font-size: 20px;
-             height: 70px;
-             width: 250px;
-             border: none;
-             cursor: pointer;
-             margin: 10px;
-         }
+        .bottom-section {
+            flex: 1;
+            width: 100%;
+            background-color: #C7E5FF; /* Light purple */
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        /* Button styles */
+        .age-button {
+            font-size: 20px;
+            height: 70px;
+            width: 250px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .button-container {
+            position: relative;
+            display: none; /* Hidden initially */
+            margin: 10px;
+            width: 230px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-button {
+            flex:4;
+            height: 100%;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #fff;
+        }
+
+        .info-button {
+            flex: 1;
+            height: 100%;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .info-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Popup styles */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .info-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .close-popup {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close-popup:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Top Section -->
+    <div class="top-section">
+        <!-- Age Button -->
+        <input id="0-3" class="age-button" type="button" value="0-4 years old" onclick="young()" required />
+
+        <!-- Game Buttons for 0-4 years old -->
+        <!-- Action Card Game -->
+        <div id="action_game_container" class="button-container" style="display: none;">
+            <input id="action_game" class="game-button sync" type="button" value="Action card game" onclick="handleGameClick('action_game')"  required />
+            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Action card game')" />
+        </div>
+
+        <!-- Emotion Card Game -->
+        <div id="emotion_game_1_container" class="button-container" style="display: none;">
+            <input id="emotion_game_1" class="game-button sync" type="button" value="Emotion card game" onclick="handleGameClick('emotion_game_1')" required />
+            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Emotion card game')" />
+        </div>
+
+        <!-- Emotion Game with Two Cards -->
+        <div id="emotion_game3_container" class="button-container" style="display: none;">
+            <input id="emotion_game3" class="game-button sync" type="button" value="Emotion game with two cards" onclick="handleGameClick('emotion_game3')"  required style="white-space: pre-wrap; line-height: 1.5; text-align: center;" />
+
+            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Emotion game with two cards')" />
+        </div>
+
+        <!-- Dice Game / Action -->
+        <div id="dice_action_young_container" class="button-container" style="display: none; position:fixed; top: 25%; left: 22%">
+            <input id="dice_action_young" class="game-button sync" type="button" value="Dice game/ action" onclick="handleGameClick('dice_action_young')" required />
+            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Dice game/ action')" />
+        </div>
+
+        <!-- Dice Game / Emotions -->
+        <div id="dice_emotion_young_container" class="button-container" style="display: none; position:fixed; top: 25%; left:42%">
+            <input id="dice_emotion_young" class="game-button sync" type="button" value="Dice game/ emotions" onclick="handleGameClick('dice_emotion_young')" required />
+            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Dice game/ emotions')" />
+        </div>
 
 
+        <!-- Dice Game / Emotions -->
+        <div id="instructions_game_container_young" class="button-container" style="display: none; position:fixed; top: 25%; left:62%">
+            <input id="instructions_game_young" class="game-button sync" type="button" value="Instruction game" onclick="handleGameClick('instructions_game_young')" required />
+            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Dice game/ emotions')" />
+        </div>
+    </div>
 
-         #stop-speech-btn {
-             font-size: 30px;
-             position: absolute;
-             left: 10%;
-             top: 25%;
-             transform: translateX(-50%);
-             width: 100px;
-             height: 100px;
-             background-color: #FF0000; /* Initial color: red */
-             color: white;
-             border: none;
-             cursor: pointer;
-         }
+    <!-- Bottom Section -->
+    <div class="bottom-section">
+        <!-- Age Button -->
+        <input id="3-5" class="age-button" type="button" value="5-9 years old" onclick="older()" required />
 
-         #stop-speech-btn:disabled {
-             background-color: #808080; /* Disabled color: gray */
-             cursor: not-allowed; /* Change cursor to indicate disabled state */
-         }
-         /* Hide buttons initially */
-         input.hidden {
-             display: none;
-         }
-      </style>
+        <!-- Game Buttons for 5-9 years old -->
+        <!-- Emotion Card Game -->
+        <div id="emotion_game2_container" class="button-container" style="display: none;">
+            <input id="emotion_game2" class="game-button sync" type="button" value="Emotion card game" onclick="handleGameClick('emotion_game2')" required />
+            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Emotion card game (older)')" />
+        </div>
 
-   <body>
+        <!-- Instruction Game -->
+        <div id="instructions_game_container" class="button-container" style="display: none;">
+            <input id="instructions_game" class="game-button sync" type="button" value="Instruction game" onclick="handleGameClick('instructions_game')" required />
+            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Instruction game')" />
+        </div>
 
-   <div class="container">
-       <div class="top-section ">
-<input id="0-3" class="sync" type="button" value="0-4 years old" onclick="young()" style = "position:absolute; left:80px; top:50px;  border-radius: 50px; cursor: pointer;"  required/>
+        <!-- Interactive Story -->
+        <div id="story_container" class="button-container" style="display: none;">
+            <input id="story" class="game-button sync" type="button" value="Interactive story" onclick="handleGameClick('story')" required />
+            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Interactive story')" />
+        </div>
 
+        <!-- Rolling Emotion Dice -->
+        <div id="dice_emotion_old_container" class="button-container" style="display: none;position:fixed; top: 75%; left: 12%">
+            <input id="dice_emotion_old" class="game-button sync" type="button" value="Rolling emotion dice" onclick="handleGameClick('dice_emotion_old')" required />
+            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Rolling emotion dice')" />
+        </div>
 
-<input id="action_game" class="sync" type="button" value="Action card game" style = "position:absolute; left:340px; top:50px; display: none; cursor: pointer;"  required/>
-<input id="emotion_game_1" class="sync" type="button" value="Emotion card game" style = "position:absolute; left:640px; top:50px;display: none;cursor: pointer;"  required/>
-<input id="emotion_game3" class="sync" type="button" value="Emotion game with two cards" style = "position:absolute; left:940px; top:50px;display: none;cursor: pointer;"  required/>
-<input id="dice_action_young" class="sync" type="button" value="Dice game/ action" style = "position:absolute; left:340px; top:150px;display: none;cursor: pointer;"  required/>
-<input id="dice_emotion_young" class="sync" type="button" value="Dice game/ emotions" style = "position:absolute; left:640px; top:150px;display: none;cursor: pointer;"  required/>
+        <!-- Rolling Dice (Why When How) -->
+        <div id="dice_5w1h_1_container" class="button-container" style="display: none;position:fixed; top: 75%; left:32%">
+            <input id="dice_5w1h_1" class="game-button sync" type="button" value="Rolling dice (why when how)" onclick="handleGameClick('dice_5w1h_1')" required style="white-space: pre-wrap; line-height: 1.5; text-align: center;" />
+            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Rolling dice (why when how)')" />
+        </div>
 
+        <!-- Rolling Dice (What Who Where) -->
+        <div id="dice_5w1h_2_container" class="button-container" style="display: none; position:fixed; top: 75%; left:52%">
+            <input id="dice_5w1h_2" class="game-button sync" type="button" value="Rolling dice (what who where)" onclick="handleGameClick('dice_5w1h_2')" required  style="white-space: pre-wrap; line-height: 1.5; text-align: center;" />
+            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Rolling dice (what who where)')" />
+        </div>
 
-       </div>
+        <!-- Rolling Dice with Board -->
+        <div id="dice_board_container" class="button-container" style="display: none; position:fixed; top: 75%; left:72%">
+            <input id="dice_board" class="game-button sync" type="button" value="Rolling dice with board" onclick="handleGameClick('dice_board')" required />
+            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Rolling dice with board')" />
+        </div>
+    </div>
+</div>
 
-       <div class="bottom-section">
-<input id="3-5" class="sync" type="button" value="5-9 years old" onclick="older()" style = "position:absolute; left:80px; top:310px;  border-radius: 50px; cursor: pointer;"   required/>
-<input id="emotion_game2" class="sync" type="button" value="Emotion card game" style = "position:absolute; left:340px; top:310px; display: none;cursor: pointer;"  required/>
-
-<input id="instructions_game" class="sync" type="button" value="Instruction game" style = "position:absolute; left:640px; top:310px;display: none;cursor: pointer;"  required/>
-<input id="story" class="sync" type="button" value="Interactive story" style = "position:absolute; left:940px; top:310px;display: none;cursor: pointer;"  required/>
-<input id="dice_emotion_old" class="sync" type="button" value="Rolling emotion dice" style = "position:absolute; left:340px; top:410px;display: none;cursor: pointer;"  required/>
-<input id="dice_5w1h_1" class="sync" type="button" value="Rolling dice (why when how)" style = "position:absolute; left:640px; top:410px;display: none;cursor: pointer;"  required/>
-<input id="dice_5w1h_2" class="sync" type="button" value="Rolling dice (what who where)" style = "position:absolute; left:940px; top:410px;display: none;cursor: pointer;"  required/>
-<input id="dice_board" class="sync" type="button" value="Rolling dice with board" style = "position:absolute; left:940px; top:510px;display: none;cursor: pointer;"  required/>
-
-       </div>
-
-   </div>
-{#   <button id="stop-speech-btn" > STOP </button>#}
+<!-- Popup for Game Information -->
+<div class="popup-overlay" id="popup-overlay"></div>
+<div class="info-popup" id="info-popup">
+    <p id="popup-text"></p>
+    <button class="close-popup" onclick="closePopup()">Close</button>
+</div>
 
 </body>
 </html>

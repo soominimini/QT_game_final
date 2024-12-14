@@ -21,16 +21,16 @@
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
          const img1 = new Image();
-        img1.src = "../static/instruction/old/basket_swing.png";
+        img1.src = "../static/instruction/young/basket_swing.png";
     const img2 = new Image();
-        img2.src = "../static/instruction/old/basket_swing_monkey.png";
+        img2.src = "../static/instruction/young/basket_swing_monkey.png";
     const img3 = new Image();
-        img3.src = "../static/instruction/old/basket_swing_monkey_tree.png";
+        img3.src = "../static/instruction/young/basket_swing_monkey_slide.png";
 
      $(document).ready(function() {
-     socket.emit('first_talk', "Let's go ride a swing.");
-     value = "Let's go ride a swing."
-     {#socket.emit('giveme_talk', 'Can you give me two cherries?');#}
+     socket.emit('first_talk',"Let’s have a good time in the park!");
+     value ="Let’s go have fun on the swing!"
+     socket.emit('giveme_talk', "I feel like riding the swing!");
      nonDragged();
      document.getElementById("btn").disabled = true;
 
@@ -104,8 +104,8 @@
                 nonDragged();
                 score -= 1;
                 socket.emit('wrong') //robot encourage
-                socket.emit('wrong_repeat',  'I want to ride a swing.') //robot repeats what it asked
-                 value =  'I want cherries'
+                socket.emit('wrong_repeat',  'I want to ride the swing!') //robot repeats what it asked
+                 value =  'I want to ride the swing!'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         }
@@ -119,8 +119,8 @@
                 $("#drop_cart").attr("src", img2.src); // Update the cart image
                 second_choidce = true;
                 socket.emit('correct') //robot praise
-                socket.emit('giveme_talk', "Let's go to the tree and play hide and seek."); //robot ask for the second item
-                 value = "Let's go to the tree and play hide and seek."
+                socket.emit('giveme_talk', "I’d like to go down the slide!"); //robot ask for the second item
+                 value = "I’d like to go down the slide!"
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
             else {
@@ -128,7 +128,7 @@
                 score -= 1;
                 socket.emit('wrong') //robot encourage
                 socket.emit('wrong_repeat',  'I want to play on the monkey bars') //robot repeats what it asked
-                value =  'I want a pencil'
+                value =  'I want to play on the monkey bars'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         }
@@ -154,8 +154,8 @@
                 score -= 1;
                 socket.emit('wrong') //robot encourage
 
-                 socket.emit('wrong_repeat',  'I want to go to the tree') //robot repeats what it asked
-                 value =  'I want to go to the tree'
+                 socket.emit('wrong_repeat',  "I want to go play on the slide!") //robot repeats what it asked
+                 value =  "I want to go play on the slide!"
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         }
@@ -163,7 +163,7 @@
 
     function go_to_next_page() {
         if (first_choice == true && second_choidce == true && third_choidce==true) {
-            location.href = '/park_second';
+            location.href = '/park_second_young';
         }
         else {
             socket.emit('block_page', "Please select all requested items!") //emit the information of dragged item
@@ -207,12 +207,11 @@
     });
 </script>
 <style>
-  html, body {
+    html, body {
         max-width: 100%;
         height: 100%;
-        background-color: #C7E5FF;
+        background-color: #FFFCA3;
     }
-
 
   .repeat button {
         position: fixed; /* Keeps it fixed relative to the viewport */
@@ -257,6 +256,27 @@
         color: rgb(255, 255, 255);
         cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
+      .next-button {
+        font-size: 35px;
+        background: rgba(250, 231, 200, 1.0);
+        color: rgb(0, 0, 0);
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 80px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Next button active effect */
+    .next-button:active {
+        background: rgb(255, 200, 150);
+        color: rgb(255, 255, 255);
+    }
 </style>
 <body>
     <div class="repeat">
@@ -268,8 +288,8 @@
     </div>
 <div class="container">
     <form id="data-send" name="data-send">
-
-        <input id ="btn" type="button" value="Next" onclick="go_to_next_page()" style="font-size : 30px; width: 100px; height: 50px;"/>
+<input id="btn" class="next-button" type="button" value="Next" onclick="go_to_next_page()"/>
+{#        <input id ="btn" type="button" value="Next" onclick="go_to_next_page()" style="font-size : 30px; width: 100px; height: 50px;"/>#}
     </form>
     <div class="drop-targets">
 
@@ -277,15 +297,15 @@
             <img id="drop_cart" data-target-id="grocery" src="../static/instruction/basket.png">
         </div>
     </div>
-    <div class="object">
+    <div class="object" style="margin-top: -3%">
         <div class="item">
-           <img id="cherry" data-source-id="first_answer" src="../static/instruction/swing.png">
+           <img id="swing" data-source-id="first_answer" src="../static/instruction/swing.png">
         </div>
         <div class="item">
-            <img id="juice" data-source-id="third_answer" src="../static/instruction/tree.png">
+            <img id="slide" data-source-id="third_answer" src="../static/instruction/slider.png">
         </div>
         <div class="item">
-            <img id="pencil" data-source-id="second_answer" src="../static/instruction/monkey.png">
+            <img id="monkey" data-source-id="second_answer" src="../static/instruction/monkey.png">
         </div>
     </div>
 

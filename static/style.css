@@ -60,14 +60,13 @@ h1 {
 
 
 .drag-over {
-    border: dashed 3px red;
+    border: dashed 3px green;
 }
 .object{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-
     position: relative;
 }
 

@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
+<html lang="en">
+<head>
     <title>Login</title>
-  </head>
-  <body>
-    <style>
-body{
- background-image: url("{{ url_for('static', filename='images/back.jpg') }}");
-
+</head>
+<body>
+<style>
+    body {
+        background-color: #FFFCA3;
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
         width: 100%;
-        height: 100vh; /* Full viewport height */
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 0;
+    }
 
-}
     .form-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background: rgba(255, 255, 255, 0.8); /* Slightly transparent background for better visibility */
+        background: rgba(255, 255, 255, 0.8);
         padding: 30px;
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -40,104 +39,90 @@ body{
     label {
         font-size: 25px;
         margin-right: 10px;
-        width: 100px; /* Fixed width for consistent alignment */
+        width: 100px;
         text-align: right;
     }
 
-    input {
+    select, input {
         font-size: 25px;
         height: 60px;
         width: 60%;
         padding: 5px;
-        text-align: center; /* Center the placeholder text horizontally */
-    }​
+        text-align: center;
+    }
 
     #btn {
         font-size: 25px;
         height: 60px;
         width: 60%;
         margin-top: 20px;
-    margin-left:20%;
+        margin-left: 20%;
     }
-{#input {#}
-{##}
-{#    font-size:25px;#}
-{#    height:60px;#}
-{#    width:20%;#}
-{#}​#}
-
-
 </style>
 <div class="form-container">
     <form action="" method="POST">
         <div class="form-group">
             <label for="username">Name:</label>
-            <input type="text" id="username" class="username" placeholder="Name" />
+            <select id="username" class="username">
+                <option value="" disabled selected>Select Name</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="I">I</option>
+                <option value="J">J</option>
+            </select>
         </div>
-        <div class="form-group">
-            <label for="age">Age:</label>
-            <input type="text" id="age" class="age" placeholder="Age" />
-        </div>
-        <div class="form-group">
-            <label for="session">Session:</label>
-            <input type="text" id="session" class="date" placeholder="Session" />
-        </div>
-        <input id="btn" class="sync" type="button" value="Start" style="margin-left:20%;" required />
+<!--        <div class="form-group">-->
+<!--            <label for="age">Age:</label>-->
+<!--            <input type="text" id="age" class="age" placeholder="Age" />-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="session">Session:</label>-->
+<!--            <input type="text" id="session" class="date" placeholder="Session" />-->
+<!--        </div>-->
+        <input id="btn" class="sync" type="button" value="Continue" required />
     </form>
 </div>
 
-{#    <form action="" method="POST">#}
-{#         <label for = "username">Name</label>#}
-{#      <input type="text" class="username" placeholder="Name" style = "position:absolute;left:40%; top:300px;"/>#}
-{#         <label for = "age">Age</label>#}
-{#      <input type="text" class="age" placeholder="Age" style = "position:absolute; left:40%; top:400px;"/>#}
-{#         <label for = "session">Session</label>#}
-{#      <input type="text" class="date" placeholder="Session" style = "position:absolute; left:40%; top:500px;"/>#}
-{#<input id="btn" class="sync" type="button" value="Start" style = "position:absolute; left:40%; top:600px;"  required />#}
-{##}
-{#    </form>#}
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
-    
+<script type="text/javascript">
+    $(document).ready(function () {
+        var socket = io.connect('http://192.168.100.2:5000');
 
+        socket.on('my response', function () {
+            socket.emit('first event');
+        });
 
-    <script type="text/javascript">
-    $(document).ready(function() {
-    var socket = io.connect('http://192.168.100.2:5000');
-    // var socket = io.connect('localhost:5000');
-         
-          socket.on( 'my response', function() {
-          socket.emit('first event')
-      } );
+        $('input.sync').on('click', function (event) {
+            if ($('select.username').val() === "None") {
+                alert("Please fill out all information.");
+            } else {
+                socket.emit('login', {
+                    name: $('select.username').val()
+                    {#session_no: $('input.date').val(),#}
+                    {#age: $('input.age').val()#}
+                });
+            }
+        });
 
- 
-  $('input.sync').on('click', function(event) {
-      if($('input.username').val()=="" || $('input.date').val()==""|| $('input.age').val()=="") {
-          alert("Please type all information");
-      }
-      else{
-          socket.emit('login', {name : $('input.username').val() , session_no : $('input.date').val() , age: $('input.age').val()});
-      }
-  });
+        socket.on('redirect', function (data) {
+            console.log(data);
+            window.location = data.url;
+        });
 
-  
- socket.on('redirect' , function(data)
-            {
-                console.log(data)
-    window.location = data.url;
-                
-            });
+        window.onbeforeunload = function () {
+            socket.emit('client_disconnecting', { data: "login" });
+        };
+    });
+</script>
 
-
-     window.onbeforeunload = function () {
-        socket.emit('client_disconnecting', {'data': "login"});
-    }
-   });
-
-
-    </script>
-
-  </body>
-  </html>
+</body>
+</html>
