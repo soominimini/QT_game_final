@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <!--   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>-->
+    <!-- touch punch는 jquery ui 아래에 위치해야함 -->
+    <title>balloon</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+    <style>
+      * { padding: 0; margin: 0; }
+      canvas { background: #eee; display: block; margin: 0 auto; }
+        img {
+width : 80px;
+height: 80px;
+border : none;
+}
+    </style>
+<body>
+
+
+<script>
+
+      var socket = io.connect('http://192.168.100.2:5000');
+
+    socket.on( 'my response', function() {
+      socket.emit('first event')
+    } );
+
+
+
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        var dx = 0;
+        var dy = -1;
+        var scr =  0;
+
+        var balloon_1 = new Image();
+        balloon_1.src = "/static/images/blue.png";
+
+        var balloon_2 = new Image();
+        balloon_2.src = '/static/images/purple.png';
+
+        var balloon_3 = new Image();
+        balloon_3.src = '/static/images/yellow.png';
+
+
+        var balloon_4 = new Image();
+        balloon_4.src = '/static/images/green.png';
+
+
+        var balloon_5 = new Image();
+        balloon_5.src = '/static/images/red.png';
+
+        var balloon_6 = new Image();
+        balloon_6.src = '/static/images/orange.png';
+
+
+        var pop = new Image();
+        pop.src = '/static/images/pop.jpeg';
+
+        var balloons = [];
+        var pops = [];
+        var pops_x = [];
+        var pops_y = [];
+        var score_game = 0;
+        var show_list = []
+
+        var game_started = 0;
+        var game_stop = 0;
+//document.getElementById('start_game').addEventListener('click' , Game_Init);
+
+x_prev = []
+
+function Balloon(){
+      this.render = function(balloon, x ,y){
+         ctx.drawImage(balloon,x,y , 80, 80);
+      }
+   }
+
+
+   function POP()
+   {
+       this.render = function(x ,y){
+         ctx.drawImage(pop,x,y , 50, 50);
+   }}
+
+
+
+    var balon = new Balloon();
+    var popp = new POP();
+
+   function addBalloon(){
+
+      //var x = Math.random()*1400/25*balloons.length + 1400/25
+      var x = Math.random()*1200;
+      /*
+       for (let k=0; k < x_prev.length ; k++)
+        vat tmp = x_prev[k].x
+        {while(x - tmp < 60 || tmp - x < 60)
+            {
+                x = Math.random()*1400;
+            }
+            }
+            x_prev.push("x" : x);*/
+      var y =Math.random()*200+350;
+
+      var rand = Math.random();
+      if(rand < 0.25){
+         randomType="blue";
+      }
+      else if(rand >= 0.25 && rand < 0.5){
+         randomType="green";
+
+      }
+      else if (rand >= 0.5 && rand < 0.75)
+      {
+         randomType="purple";
+      }
+
+  else if (rand >= 0.75)
+      {
+         randomType="yellow";
+      }
+
+
+      /*
+      if(rand < 0.16){
+         randomType="blue";
+      }
+      else if(rand >= 0.16 && rand < 0.33){
+         randomType="green";
+
+      }
+      else if (rand >= 0.33 && rand < 0.5)
+      {
+         randomType="purple";
+      }
+
+  else if (rand >= 0.5 && rand < 0.66)
+      {
+         randomType="yellow";
+      }
+        else if (rand >= 0.66 && rand < 0.83)
+      {
+         randomType="red";
+      }
+        else if (rand >= 0.83)
+      {
+         randomType="orange";
+      }
+    */
+
+        balloons.push({"x":x,"y":y,"type":randomType});
+   }
+
+
+function Game_Start()
+{
+ if (game_started === 0){
+ for(let j=0;j<40;j++)
+        { addBalloon();}
+socket.emit('state game', { state : "start" });
+ document.getElementById("scr").innerHTML  =  0;
+ game_started = 1;
+ document.getElementById("win").innerHTML  = " ";
+ game_stop = 0;
+}
+}
+
+function Game_Reset()
+{
+    if(game_started == 1){
+ ctx.clearRect(0, 0, canvas.width, canvas.height);
+ balloons = [];
+  for(let j=0;j<40;j++)
+        { addBalloon();}
+    socket.emit('state game', { state : "reset" });
+     document.getElementById("scr").innerHTML  = 0;
+      document.getElementById("win").innerHTML  = " ";
+      game_stop =0;
+ }
+}
+
+
+function Game_Instruction()
+{socket.emit( 'Game Instruction', { who : "instruction" }); }
+
+function Game_End()
+{
+    if(game_stop == 0 && game_started==1){
+        for (var i = 0; i < balloons.length; i++){
+            if(Math.floor(balloons[i].y) < 1)
+            {
+               balloons.splice(i,1);
+            }
+        }
+
+    if (balloons.length == 0)
+        {
+        document.getElementById("win").innerHTML  = "THE END!";
+        game_stop =1;
+        }
+
+
+}
+
+}
+setInterval(Game_End,2);
+
+
+function num_of_colored_balloons()
+{   var num_arr = [0,0,0,0];
+       for(let j = 0; j < balloons.length;j += 1){
+            var obj = balloons[j]
+
+            if(obj.type === "blue"){
+              num_arr[0] +=1;
+             }else if(obj.type === "purple"){
+                 num_arr[1] +=1;
+             }
+             else if(obj.type === "yellow"){
+                   num_arr[2] +=1;
+             }
+
+                else if(obj.type === "green"){
+                  num_arr[3] +=1;
+             }
+
+    }
+
+    socket.emit('number color', {array : num_arr });
+}
+setInterval(num_of_colored_balloons,1000);
+
+
+
+ function change_color()
+ {
+    if(game_stop != 1 && game_started ==1)
+     socket.emit('change color', {name: "color"});   }
+
+setInterval(change_color,4000);
+
+
+   ctx.canvas.addEventListener('mouseup',function(event){
+      mouseX = event.clientX - ctx.canvas.offsetLeft;
+      mouseY = event.clientY  - ctx.canvas.offsetTop;
+      for (var i = 0; i < balloons.length; i++){
+        var flag = 0
+      if((mouseY > balloons[i].y) && (mouseY < (balloons[i].y+50)) && (mouseX  > balloons[i].x) && (mouseX < (balloons[i].x+50))){
+         ctx.clearRect(balloons[i].x,balloons[i].y,50,50);
+         //POP.render(mouseX, mouseY);
+            //POP.clear((balloons[i].x+35)/2,(balloons[i].y+48)/2);
+
+            socket.emit('drag image', {who:balloons[i].type  , return:" " , state : " " , size: balloons[i].y });
+              socket.on('score balloon' , function(msg)
+            {
+                        document.getElementById("scr").innerHTML  = msg.return;
+                        //ctx.drawImage(pop,mouseX,mouseY , 60, 60);
+                        pops_x.push(mouseX);
+                        pops_y.push(mouseY);
+            });
+              balloons.splice(i,1);
+
+         }
+      }
+   });
+
+
+
+
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for(let i = 0; i < balloons.length;i += 1){
+            var object = balloons[i]
+
+            if(object.type === "blue"){
+             balon.render(balloon_1,object.x,object.y);
+             }else if(object.type === "purple"){
+                balon.render(balloon_2,object.x,object.y );
+             }
+             else if(object.type === "yellow"){
+                  balon.render(balloon_3,object.x,object.y);
+             }
+              else if(object.type === "green"){
+                  balon.render(balloon_4,object.x,object.y);
+             }
+             //   else if(object.type === "red"){
+             //     balon.render(balloon_5,object.x,object.y);
+             //}
+             // else if(object.type === "orange"){
+              //    balon.render(balloon_6,object.x,object.y);
+             //}
+
+             object.y += dy*0.1;
+
+    }
+        //socket.emit('drag image', {who: y});
+
+        for(let j = 0; j < pops_x.length;j += 1){
+            popp.render(pops_x[j] , pops_y[j]);
+            pops_x.splice(j,1);
+            pops_y.splice(j,1);
+        }
+
+    }
+setInterval(draw,2);
+
+
+
+
+
+/*
+canvas.addEventListener("mousedown", function(e) {
+
+    socket.emit('drag image', {who: img_src});
+});
+*/
+
+
+
+
+
+
+</script>
+<p id="show_turn" style = "position:absolute; font-weight:bold;left:560px; top:10px; color:rgb(0, 0, 0); font-size:30px">Score</p>
+<p id="scr" style = "position:absolute; font-weight:bold;left:680px; top:10px; color:rgb(0, 0, 0); font-size:30px">0</p>
+<p id="win" style = "position:absolute; font-weight:bold;left:560px; top:40px; color:rgb(0, 0, 0); font-size:30px"> </p>
+<input id="start_game" class="sync" type="button"  value="start" onclick="Game_Start()" style = "font-size:20px;position:absolute; left:450px; top:580px;color:rgb(0, 0, 0); width:200px; height:50px;"  required />
+<input id="reset_game" class="sync" type="button"  value="Play Again" onclick="Game_Reset()" style = "font-size:20px;position:absolute; left:700px; top:580px;color:rgb(0, 0, 0); width:200px; height:50px;"  required />
+<input id="instruction" class="sync" type="button"  value="Instructions(By QT)" onclick="Game_Instruction()" style = "font-size:20px;position:absolute; left:1050px; top:580px;color:rgb(0, 0, 0); width:200px; height:50px;"  required />
+</body>
+</html>

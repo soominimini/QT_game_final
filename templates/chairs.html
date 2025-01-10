@@ -11,7 +11,7 @@
     <!--   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>-->
     <!-- touch punch는 jquery ui 아래에 위치해야함 -->
     <title>JavaScript - Drag and Drop Demo</title>
-<!--    <link rel="stylesheet" href="../static/style.css">-->
+    <!--    <link rel="stylesheet" href="../static/style.css">-->
 </head>
 <style>
     /* Disable scrolling */
@@ -21,6 +21,7 @@
         width: 100%;
         height: 100%;
         overflow: hidden; /* Prevent scrolling */
+        background-color: #C7E5FF; /* Light purple */
     }
 
     /* Main container */
@@ -38,37 +39,40 @@
     /* Table and image styling */
     #table img {
         width: 55%;
-        margin-top: 0%;
+        margin-top: 10%;
     }
 
     /* Buttons styling for dad, mom, and baby */
     button {
-        border: 2px solid #000; /* Solid border for visibility */
+    {#border: 2px solid #000; /* Solid border for visibility */#} border: none;
         cursor: pointer;
         border-radius: 10px; /* Rounded corners */
         transition: all 0.3s ease; /* Smooth transition */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
     }
+
     button.dad {
         width: 42%;
-        background-color: rgba(236, 236, 236, 0.8); /* Light blue background */
+        background-color: rgba(236, 236, 236, 0); /* Light blue background */
     }
 
     button.mom {
         width: 28%;
-      background-color: rgba(236, 236, 236, 0.8);
+        background-color: rgba(236, 236, 236, 0);
 
     }
 
     button.baby {
         width: 20%;
-       background-color: rgba(236, 236, 236, 0.8);
+        background-color: rgba(236, 236, 236, 0);
     }
 
     /* Button pressed (active) effect */
     button:active {
         transform: scale(0.95); /* Slight shrink on click */
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
+        filter: grayscale(100%); /* Apply greyscale */
+        transition: filter 0.5s ease; /* Smooth transition effect */
     }
 
     /* Centered text styling */
@@ -80,15 +84,15 @@
 
     /* Next button styling */
     .next-button {
-        font-size: 50px;
-        background: rgba(250,231,200, 0.6);
+        font-size: 35px;
+        background: rgba(250, 231, 200, 1.0);
         color: rgb(0, 0, 0);
-        position: absolute;
+        position: fixed;
         bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
-        width: 300px;
-        height: 100px;
+        width: 150px;
+        height: 80px;
         border-radius: 30px;
         border: none;
         cursor: pointer;
@@ -100,15 +104,16 @@
         background: rgb(255, 200, 150);
         color: rgb(255, 255, 255);
     }
-.repeat button {
+
+    .repeat button {
         position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
-        right: 20px; /* Distance from the left of the viewport */
+        left: 20px; /* Distance from the left of the viewport */
         font-size: 20px;
-        background: rgba(250, 231, 200, 0.6);
+        background: rgba(128, 168, 255, 0.6);
         color: rgb(0, 0, 0);
         width: 100px;
-        height: 100px;
+        height: 60px;
         cursor: pointer;
         border: none;
         border-radius: 30px; /* Rounded corners */
@@ -116,52 +121,97 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     }
 
-
     /* Next button active effect */
     .repeat button:active {
-        background: rgb(255, 200, 150);
+        background: rgb(41, 57, 104);
         color: rgb(255, 255, 255);
+    }
+
+    .stop button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(255, 0, 0, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    .stop button:disabled {
+        background: rgba(92, 43, 43, 0.6);
+        color: rgb(255, 255, 255);
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
 </style>
 <script>
-        var socket = io.connect('http://192.168.100.2:5000');
-        let arr = new Array();
+    var socket = io.connect('http://192.168.100.2:5000');
+
+
+    /* STOP function */
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const stopSpeechButton = document.getElementById("stop-speech-btn");
+
+        stopSpeechButton.addEventListener("click", function () {
+            // Emit 'speech_stop' event to the backend
+            socket.emit('speech_stop', {message: "Stop speech command sent"});
+            console.log("Speech stop event emitted");
+
+            // Disable the button for 2 seconds
+            stopSpeechButton.disabled = true;
+            setTimeout(function () {
+                stopSpeechButton.disabled = false;
+            }, 500); // 2000ms = 2 seconds
+        });
+    });
+
+    let arr = new Array();
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
-    socket.on('html_data_recv' , function(data)
-            {
-                console.log(data)
-                arr = data
-                console.log(arr)
-            });
-     $(document).ready(function() {
-    socket.emit('checking_visit_chair_after_click');
+    socket.on('html_data_recv', function (data) {
+        console.log(data)
+        arr = data
+        console.log(arr)
+    });
+    $(document).ready(function () {
+        socket.emit('checking_visit_chair_after_click');
 
-     });
+    });
 
     function dad() {
         location.href = '/girl/dad_chair';
-        arr[0] =1;
+        arr[0] = 1;
         socket.emit('checking_visit_chair', arr);
     }
+
     function mom() {
         location.href = '/girl/mom_chair';
-        arr[1] =1;
+        arr[1] = 1;
         socket.emit('checking_visit_chair', arr);
     }
+
     function baby() {
         location.href = '/girl/baby_chair';
-         arr[2] = 1;
+        arr[2] = 1;
         socket.emit('checking_visit_chair', arr);
     }
-        function go_to_next_page() {
+
+    function go_to_next_page() {
 
 
-          location.href = '/girl/bed';
+        location.href = '/girl/bed';
     }
+
     function force_to_go_next() {
-         location.href = '/girl/bed';
+        location.href = '/girl/bed';
     }
+
     function repeat_speech() {
         socket.emit('repeat_speech', "Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.")
     }
@@ -169,30 +219,31 @@
 <body>
 
 
-
 <div class="container" style="width: 100%">
 
-        <div id="table" style="padding-top: 5%">
-          <button class="dad"  onclick="dad()">  <img src="../../static/story/dad_chair.png" style="width: 100%"> </button>
-         <button class="mom"  onclick="mom()">  <img src="../../static/story/mom_chair.png"style="width: 100%"> </button>
-         <button class="baby"  onclick="baby()">  <img src="../../static/story/baby_chair.png"style="width: 100%"> </button>
+    <div id="table" style="padding-top: 5%">
+        <button class="dad" onclick="dad()"><img src="../../static/story/dad_chair.png" style="width: 100%"></button>
+        <button class="mom" onclick="mom()"><img src="../../static/story/mom_chair.png" style="width: 100%"></button>
+        <button class="baby" onclick="baby()"><img src="../../static/story/baby_chair.png" style="width: 100%"></button>
 
-</div>
+    </div>
     <div class="repeat">
-        <button onclick="repeat_speech()">
-            Repeat<br>button
-        </button>
-    </div>
-         <!-- Centered text -->
-    {% if show_text %}
-    <div class="centered-text">
-         Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.
-         </div>
-    {% endif %}
+        <button onclick="repeat_speech()"> Repeat</button>
     </div>
 
-    <!-- Next button -->
-    <input type="button" value="Next" onclick="go_to_next_page()" class="next-button">
+    <div class="stop">
+        <button id="stop-speech-btn"> STOP</button>
+    </div>
+    <!-- Centered text -->
+    {% if show_text %}
+        <div class="centered-text">
+            Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.
+        </div>
+    {% endif %}
+</div>
+
+<!-- Next button -->
+<input type="button" value="Next" onclick="go_to_next_page()" class="next-button">
 
 
 </body>

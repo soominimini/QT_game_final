@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+</head>
+    <style>
+        /* Style for the Continue Button */
+        #btn {
+            background: linear-gradient(135deg, #4CAF50, #45a049); /* Gradient green background */
+            color: white; /* White text color */
+            font-size: 20px; /* Font size */
+            padding: 15px 30px; /* Padding */
+            border: none; /* Remove borders */
+            border-radius: 30px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+            text-transform: uppercase; /* Uppercase text */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+            outline: none; /* Remove outline on focus */
+        }
+
+        /* Hover Effect */
+        #btn:hover {
+            background: linear-gradient(135deg, #45a049, #3e8e41); /* Darker gradient on hover */
+            transform: translateY(-3px); /* Slight lift effect */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+        }
+
+        /* Active/Pressed Effect */
+        #btn:active {
+            background: #3e8e41; /* Solid darker color */
+            transform: translateY(1px); /* Push down effect */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Lower shadow */
+        }
+
+        body {
+            background-color: #FFFCA3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .confirmation-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-bottom: 20px; /* Space between confirmation and form container */
+        }
+
+        h1 {
+            margin: 0 0 20px 0;
+            font-size: 30px;
+        }
+
+        p {
+            font-size: 25px;
+            color: #333;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+</style>
+</head>
+<body>
+<div class="confirmation-container">
+    <h1>Hello, <strong>{{ username }}</strong>!</h1>
+    <p>If the name is correct, then press start button</p>
+<div class="form-container">
+    <form action="" method="POST">
+        <input id="btn" class="sync" type="button" value="Start" required/>
+    </form>
+</div>
+</div>
+
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var socket = io.connect('http://192.168.100.2:5000');
+        var username = "{{ username }}";
+
+        socket.on('my response', function () {
+            socket.emit('first event');
+        });
+
+        $('input.sync').on('click', function (event) {
+            socket.emit('login', {
+                name: username  // Send server-rendered username
+            });
+        });
+
+        socket.on('redirect', function (data) {
+            console.log(data);
+            window.location = data.url;
+        });
+
+        window.onbeforeunload = function () {
+            socket.emit('client_disconnecting', {data: "login"});
+        };
+    });
+</script>
+
+</body>
+</html>

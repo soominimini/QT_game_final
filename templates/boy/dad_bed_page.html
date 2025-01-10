@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <style>
-     body, html{
-            background-color: #C7E5FF; /* Light purple */
-        }
+    body, html {
+        background-color: #C7E5FF; /* Light purple */
+    }
+
     /* Main container styling */
     .container {
         position: relative;
@@ -89,7 +90,7 @@
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
 
-       /* STOP function */
+    /* STOP function */
 
     document.addEventListener("DOMContentLoaded", function () {
         const stopSpeechButton = document.getElementById("stop-speech-btn");
@@ -107,7 +108,7 @@
         });
     });
 
-     /* STOP function */
+    /* STOP function */
 
     $(document).ready(function () {
         socket.emit('dad_bed')
@@ -125,13 +126,13 @@
         <img src="../../static/story/boy_12th.png" style="width: 45%">
 
     </div>
-  <div class="repeat">
-            <button onclick="repeat_speech()"> Repeat</button>
-        </div>
+    <div class="repeat">
+        <button onclick="repeat_speech()"> Repeat</button>
+    </div>
 
-        <div class="stop">
-            <button id="stop-speech-btn"> STOP</button>
-        </div>
+    <div class="stop">
+        <button id="stop-speech-btn"> STOP</button>
+    </div>
     {% if show_text %}
         <div class="centered-text">
             Goldilocks lay down on the large bed. “This bed is too hard!”

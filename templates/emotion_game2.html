@@ -17,11 +17,20 @@
                 //socket.emit('first event')
             });
 
-
             $('input.sync').on('click', function (event) {
                 socket.emit('next button', {who: $(this).attr('id')});
+
                 $(this).css('background', 'rgb(255, 200, 150)'); // Example active color
                 $(this).css('color', 'rgb(255, 255, 255)'); //
+
+                 {#$(this).prop('disabled', true);#}
+                 // Revert the button color after a delay
+                 let button = $(this); // Save reference to the button
+                 setTimeout(function() {
+                     button.css('background', 'rgba(250, 231, 200, 0.6)'); // Original color
+                     button.css('color', 'rgb(0, 0, 0)'); // Original text color
+                 }, 300); // 300ms delay
+
             });
 
 
@@ -121,12 +130,13 @@
 
 <style>
     body {
-    {#background-image: url("{{ url_for('static', filename='images/back.jpg') }}");#} background-color: #C7E5FF; /* Light purple */
+        background-color: #C7E5FF; /* Light purple */
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
         width: 1000px;
         height: 800px;
+        overflow: hidden; /* Prevent scrolling */
     }
 
     img {
@@ -142,6 +152,7 @@
     }
 
     /* Next button active effect */
+
     .sync:active {
         background: rgb(255, 200, 150);
         color: rgb(255, 255, 255);

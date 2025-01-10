@@ -14,8 +14,11 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 
-
 <style>
+    body, html {
+        background-color: #C7E5FF; /* Light purple */
+    }
+
     /* Main container styling */
     .container {
         position: relative;
@@ -42,15 +45,15 @@
         margin-top: -13%;
     }
 
-.repeat button {
+    .repeat button {
         position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
-        right: 20px; /* Distance from the left of the viewport */
+        left: 20px; /* Distance from the left of the viewport */
         font-size: 20px;
-        background: rgba(250, 231, 200, 0.6);
+        background: rgba(128, 168, 255, 0.6);
         color: rgb(0, 0, 0);
         width: 100px;
-        height: 100px;
+        height: 60px;
         cursor: pointer;
         border: none;
         border-radius: 30px; /* Rounded corners */
@@ -58,11 +61,32 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     }
 
-
     /* Next button active effect */
     .repeat button:active {
-        background: rgb(255, 200, 150);
+        background: rgb(41, 57, 104);
         color: rgb(255, 255, 255);
+    }
+
+    .stop button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(255, 0, 0, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    .stop button:disabled {
+        background: rgba(92, 43, 43, 0.6);
+        color: rgb(255, 255, 255);
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
 </style>
 
@@ -70,6 +94,21 @@
     var socket = io.connect('http://192.168.100.2:5000');
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
+    document.addEventListener("DOMContentLoaded", function () {
+        const stopSpeechButton = document.getElementById("stop-speech-btn");
+
+        stopSpeechButton.addEventListener("click", function () {
+            // Emit 'speech_stop' event to the backend
+            socket.emit('speech_stop', {message: "Stop speech command sent"});
+            console.log("Speech stop event emitted");
+
+            // Disable the button for 2 seconds
+            stopSpeechButton.disabled = true;
+            setTimeout(function () {
+                stopSpeechButton.disabled = false;
+            }, 500); // 2000ms = 2 seconds
+        });
+    });
 
     $(document).ready(function () {
         socket.emit('mom_bed')
@@ -88,9 +127,11 @@
         <img src="../../static/story/girl_13th.png" style="width: 47%">
     </div>
     <div class="repeat">
-        <button onclick="repeat_speech()">
-            Repeat<br>button
-        </button>
+        <button onclick="repeat_speech()"> Repeat</button>
+    </div>
+
+    <div class="stop">
+        <button id="stop-speech-btn"> STOP</button>
     </div>
     <div class="centered-text">
         {% if show_text %}

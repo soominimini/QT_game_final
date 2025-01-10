@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 제이쿼리, 제이쿼리ui-->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <!--   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>-->
-    <!-- touch punch는 jquery ui 아래에 위치해야함 -->
+
     <title>Instruction Game</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
@@ -20,70 +19,81 @@
     var value = "";
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
-        var arr = JSON.parse('{{ arr_visit | tojson | safe }}');
-        console.log("arr from backend:", arr);
+    var arr = JSON.parse('{{ arr_visit | tojson | safe }}');
+    console.log("arr from backend:", arr);
 
-     $(document).ready(function() {
+    $(document).ready(function () {
         socket.emit('category_talk');
-        setTimeout(enabling, 2000);
+        {#setTimeout(enabling, 2000);#}
 
-     });
+    });
 
-var enabling = function(){
+    var enabling = function () {
 
-         document.getElementById("btn1").disabled = false;
-         document.getElementById("btn2").disabled = false;
-         document.getElementById("btn3").disabled = false;
-}
+        document.getElementById("btn1").disabled = false;
+        document.getElementById("btn2").disabled = false;
+        document.getElementById("btn3").disabled = false;
+    }
 
-var disabling = function(){
+    function applyButtonClickEffect(button) {
+        button.style.backgroundColor = "gray"; // Temporarily change the button color
+        setTimeout(() => {
+            button.style.backgroundColor = ""; // Revert to the original color after 1 second
+        }, 1000); // 1000ms = 1 second
+    }
 
-         document.getElementById("btn1").disabled = true;
-         document.getElementById("btn2").disabled = true;
-         document.getElementById("btn3").disabled = true;
-         setTimeout(enabling, 1000);
-}
 
     function supermarket() {
 
-    console.log("supermarket clicked")
-           console.log("supermarket arr: ", arr)
-        if (arr[0]==false && arr[1] ==false && arr[2] ==false){
+        console.log("supermarket clicked")
+        console.log("supermarket arr: ", arr)
+        const btn = document.getElementById("btn1");
+        // Apply visual feedback for all clicks
+        applyButtonClickEffect(btn);
+        if (arr[0] == false && arr[1] == false && arr[2] == false) {
             socket.emit('init_after_category', "Let's go to play!")
             location.href = '/supermarket_firstpage_young';
             value = "Let's go to play!"
-            }
-        else{
-        disabling();
-        socket.emit('block_page', "Please choose another building!") //emit the information of dragged item
-            value =  "Please choose another building!"
+        } else {
+            {#disabling();#}
+            socket.emit('block_page', "Please choose another building!") //emit the information of dragged item
+            value = "Please choose another building!"
         }
     }
+
     function hospital() {
-        if (arr[0]==true && arr[1] ==false && arr[2] ==false){
+        const btn = document.getElementById("btn2");
+        // Apply visual feedback for all clicks
+        applyButtonClickEffect(btn);
+
+        if (arr[0] == true && arr[1] == false && arr[2] == false) {
             socket.emit('init_after_category', "Let's go to play!")
             location.href = '/hospital_first_young';
-             value = "Let's go to play!"
-            }
-        else{
-        disabling();
-        socket.emit('block_page', "Please choose another building!") //emit the information of dragged item
-             value =  "Please choose another building!"
+            value = "Let's go to play!"
+        } else {
+            {#disabling();#}
+            socket.emit('block_page', "Please choose another building!") //emit the information of dragged item
+            value = "Please choose another building!"
         }
-     }
-     function park() {
-        if (arr[0]==true && arr[1] ==true && arr[2] ==false){
+    }
+
+    function park() {
+
+        const btn = document.getElementById("btn3");
+        // Apply visual feedback for all clicks
+        applyButtonClickEffect(btn);
+        if (arr[0] == true && arr[1] == true && arr[2] == false) {
             socket.emit('init_after_category', "Let's go to play!")
             location.href = '/park_first_young';
             value = "Let's go to play!"
-            }
-        else{
-        disabling();
-        socket.emit('block_page',"Please choose another building!") //emit the information of dragged item
-             value =  "Please choose another building!"
+        } else {
+            {#disabling();#}
+            socket.emit('block_page', "Please choose another building!") //emit the information of dragged item
+            value = "Please choose another building!"
         }
     }
-document.addEventListener("DOMContentLoaded", function () {
+
+    document.addEventListener("DOMContentLoaded", function () {
         const stopSpeechButton = document.getElementById("stop-speech-btn");
         const repeatSpeechButton = document.getElementById("repeat-speech-btn");
 
@@ -122,23 +132,25 @@ document.addEventListener("DOMContentLoaded", function () {
         background-color: #FFFCA3;
     }
 
-            .container {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-.object{
-            margin-top:-10%;
-        }
-.building{
-    width: 350px;
-}
+    .container {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 
-  .repeat button {
+    .object {
+        margin-top: -10%;
+    }
+
+    .building {
+        width: 350px;
+    }
+
+    .repeat button {
         position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
         left: 20px; /* Distance from the left of the viewport */
@@ -192,20 +204,20 @@ document.addEventListener("DOMContentLoaded", function () {
         <button id="stop-speech-btn"> STOP</button>
     </div>
     <div class="object">
-        <div id ="supermarket" class="building">
-            <button id ="btn1" disabled = "disabled"  onclick="supermarket()">
+        <div id="supermarket" class="building">
+            <button id="btn1"   onclick="supermarket()">
                 <img src="../static/supermarket.png">
             </button>
         </div>
 
-        <div  id = "hospital"  class="building">
-            <button id ="btn2" disabled = "disabled" onclick="hospital()">
+        <div id="hospital" class="building">
+            <button id="btn2"  onclick="hospital()">
                 <img src="../static/hospital-building.png">
             </button>
         </div>
-        <div id = "park" class="building">
-            <button id ="btn3" disabled = "disabled" onclick="park()">
-                <img  src="../static/park.png">
+        <div id="park" class="building">
+            <button id="btn3"   onclick="park()">
+                <img src="../static/park.png">
             </button>
         </div>
 

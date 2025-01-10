@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<style>
+    body, html {
+        background-color: #FFFCA3; /* Light purple */
+    }
+
+    .repeat button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        left: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(128, 168, 255, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    /* Next button active effect */
+    .repeat button:active {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+    }
+
+    .other button {
+
+        font-size: 20px;
+        background: rgba(159, 243, 139, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    /* Next button active effect */
+    .other button:active {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+    }
+
+    .stop button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(255, 0, 0, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    .stop button:disabled {
+        background: rgba(92, 43, 43, 0.6);
+        color: rgb(255, 255, 255);
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
+    }
+</style>
+
+<script>
+    var socket = io.connect('http://192.168.100.2:5000');
+    console.log("first socket:", socket);
+    socket.emit('connect event', {data: 'User Connected'});
+
+    $(document).ready(function () {
+    });
+
+    function repeat_speech(msg) {
+        socket.emit('repeat_speech', msg)
+    }
+
+    function audio_play_front(msg) {
+        socket.emit('audio_play', msg)
+    }
+
+    /* STOP function */
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const stopSpeechButton = document.getElementById("stop-speech-btn");
+
+        stopSpeechButton.addEventListener("click", function () {
+            // Emit 'speech_stop' event to the backend
+            socket.emit('speech_stop', {message: "Stop speech command sent"});
+            console.log("Speech stop event emitted");
+
+            // Disable the button for 2 seconds
+            stopSpeechButton.disabled = true;
+            setTimeout(function () {
+                stopSpeechButton.disabled = false;
+            }, 500); // 2000ms = 2 seconds
+        });
+    });
+
+    function toggleSongs() {
+        // Select both buttons
+        var abcButton = document.getElementById("abc-song");
+        var twinkleButton = document.getElementById("twinkle-song");
+        var oldButton = document.getElementById("Old-mc-song");
+        var incyButton = document.getElementById("Incy-song");
+        var wheelButton = document.getElementById("wheel-song");
+
+        // Toggle their visibility
+        var displayState = (abcButton.style.display === "none" || abcButton.style.display === ""|| oldButton.style.display === ""|| incyButton.style.display === ""|| wheelButton.style.display === "") ? "block" : "none";
+        abcButton.style.display = displayState;
+        twinkleButton.style.display = displayState;
+        oldButton.style.display = displayState;
+        incyButton.style.display = displayState;
+        wheelButton.style.display = displayState;
+        speak('Lets sing a song')
+    }
+
+    function speak(msg){
+socket.emit('repeat_speech', msg)
+    }
+</script>
+<body>
+
+<div class="repeat">
+    <button onclick="repeat_speech()"> Repeat</button>
+</div>
+
+<div class="stop">
+    <button id="stop-speech-btn"> STOP</button>
+</div>
+
+
+<div class="other" style="position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 110px; /* Distance from the top of the viewport */
+        left: 300px; /* Distance from the left of the viewport */">
+    <button onclick="toggleSongs()"> Sing</button>
+</div>
+
+<div class="other" style="position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 200px; /* Distance from the top of the viewport */
+        left: 300px; /* Distance from the left of the viewport */">
+    <button onclick="speak('Lets do the monkey jumps')"> Monkey Jump</button>
+</div>
+
+
+<div class="other" style="position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 300px; /* Distance from the top of the viewport */
+        left: 300px; /* Distance from the left of the viewport */">
+    <button onclick="speak('Lets spin the wheel')"> Spin the wheel</button>
+</div>
+
+<div id="abc-song" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 110px; /* Distance from the top of the viewport */
+        left: 430px; /* Distance from the left of the viewport */">
+    <button onclick="audio_play_front('ABCsong')"> ABC</button>
+</div>
+
+<div id="twinkle-song" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 110px; /* Distance from the top of the viewport */
+        left: 540px; /* Distance from the left of the viewport */">
+    <button onclick="audio_play_front('twinkletwinklelittlestar')"> Twinkle Twinkle</button>
+</div>
+<div id="Old-mc-song" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 110px; /* Distance from the top of the viewport */
+        left: 650px; /* Distance from the left of the viewport */">
+    <button onclick="audio_play_front('Old_MacDonald')"> Old MacDonald</button>
+</div>
+
+<div id="Incy-song" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 110px; /* Distance from the top of the viewport */
+        left: 760px; /* Distance from the left of the viewport */">
+    <button onclick="audio_play_front('IncyWincySpider')"> Incy Wincy</button>
+</div>
+
+<div id="wheel-song" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 110px; /* Distance from the top of the viewport */
+        left: 870px; /* Distance from the left of the viewport */">
+    <button onclick="audio_play_front('Wheels_bus')"> Bus</button>
+</div>
+
+
+</body>
+
+
+</html>

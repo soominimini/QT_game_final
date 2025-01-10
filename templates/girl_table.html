@@ -11,16 +11,17 @@
     <!--   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>-->
     <!-- touch punch는 jquery ui 아래에 위치해야함 -->
     <title>JavaScript - Drag and Drop Demo</title>
-<!--    <link rel="stylesheet" href="../static/style.css">-->
+    <!--    <link rel="stylesheet" href="../static/style.css">-->
 </head>
 <style>
-     /* Disable scrolling */
+    /* Disable scrolling */
     body, html {
         margin: 0;
         padding: 0;
         width: 100%;
         height: 100%;
         overflow: hidden; /* Prevent scrolling */
+        background-color: #C7E5FF; /* Light purple */
     }
 
     /* Main container */
@@ -34,76 +35,80 @@
         position: relative;
         text-align: center;
     }
-        /* Table and image styling */
-        #table {
-            width: 100%;
-            margin-top: 5%;
-        }
+
+    /* Table and image styling */
+    #table {
+        width: 100%;
+        margin-top: 5%;
+    }
 
 
-        /* Table and image styling */
-        #table img {
-            width: 55%;
-            margin-top: 5%;
-        }
+    /* Table and image styling */
+    #table img {
+        width: 55%;
+        margin-top: 5%;
+    }
 
 
-
-   button {
+    button {
         border: 2px solid #000; /* Solid border for visibility */
         cursor: pointer;
         border-radius: 10px; /* Rounded corners */
         transition: all 0.3s ease; /* Smooth transition */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     }
-        button.dad {
-            width: 12%;
-            margin-top: 36%;
-            margin-left: -2%;
-            background-color: rgba(236, 236, 236, 0.8); /* Light blue background */
-        }
 
-        button.mom {
-            width: 12%;
-             margin-left: 15px;
-            margin-top: 36%;
-            background-color: rgba(236, 236, 236, 0.8); /* Light blue background */
-        }
+    button.dad {
+        width: 12%;
+        margin-top: 36%;
+        margin-left: -2%;
+        background-color: rgba(236, 236, 236, 0.8); /* Light blue background */
+    }
 
-        button.baby {
-            width: 8%;
-            margin-top: 40%;
-            margin-left: 20px;
-            background-color: rgba(236, 236, 236, 0.8); /* Light blue background */
-        }
-  /* Button pressed (active) effect */
+    button.mom {
+        width: 12%;
+        margin-left: 15px;
+        margin-top: 36%;
+        background-color: rgba(236, 236, 236, 0.8); /* Light blue background */
+    }
+
+    button.baby {
+        width: 8%;
+        margin-top: 40%;
+        margin-left: 20px;
+        background-color: rgba(236, 236, 236, 0.8); /* Light blue background */
+    }
+
+    /* Button pressed (active) effect */
     button:active {
         transform: scale(0.95); /* Slight shrink on click */
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
     }
-        /* Centered text styling */
-        .centered-text {
-            background: white;
-            width: 100%;
-            font-size: 30px;
-            font-weight: bold;
 
-               position: absolute;
-      top: 65%; /* Center vertically */
-      left: 50%; /* Center horizontally */
-      transform: translate(-50%, -50%); /* Center text exactly */
-        }
+    /* Centered text styling */
+    .centered-text {
+        background: white;
+        width: 100%;
+        font-size: 30px;
+        font-weight: bold;
+
+        position: absolute;
+        top: 65%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Center text exactly */
+    }
+
     /* Next button styling */
     .next-button {
-        font-size: 50px;
-        background: rgba(250,231,200, 1.0);
+        font-size: 35px;
+        background: rgba(250, 231, 200, 1.0);
         color: rgb(0, 0, 0);
-        position: absolute;
-        bottom: 110px;
+        position: fixed;
+        bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
-        width: 300px;
-        height: 100px;
+        width: 150px;
+        height: 80px;
         border-radius: 30px;
         border: none;
         cursor: pointer;
@@ -116,90 +121,132 @@
         color: rgb(255, 255, 255);
     }
 
-            .button-group {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            width: 55%; /* Match table width */
-            position: relative;
-              width: 100%;
-            margin-top: -84%;
-        }
+    .button-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 55%; /* Match table width */
+        position: relative;
+        width: 100%;
+        margin-top: -84%;
+    }
 
 
-        .button-group button img {
-            width: 100%;
-        }
+    .button-group button img {
+        width: 100%;
+    }
 
- .repeat button {
-            position: fixed; /* Keeps it fixed relative to the viewport */
-            top: 100px; /* Distance from the top of the viewport */
-            right: 50px; /* Distance from the left of the viewport */
-            font-size: 20px;
-            background: rgba(250,231,200, 0.6);
-            color: rgb(0, 0, 0);
-            width: 100px;
-            height: 100px;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-        }
+    .repeat button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        left: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(128, 168, 255, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
 
     /* Next button active effect */
     .repeat button:active {
-        background: rgb(255, 200, 150);
+        background: rgb(41, 57, 104);
         color: rgb(255, 255, 255);
+    }
+
+    .stop button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(255, 0, 0, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    .stop button:disabled {
+        background: rgba(92, 43, 43, 0.6);
+        color: rgb(255, 255, 255);
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
 </style>
 <script>
-        var socket = io.connect('http://192.168.100.2:5000');
-        let arr =new Array();
+    var socket = io.connect('http://192.168.100.2:5000');
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const stopSpeechButton = document.getElementById("stop-speech-btn");
+
+        stopSpeechButton.addEventListener("click", function () {
+            // Emit 'speech_stop' event to the backend
+            socket.emit('speech_stop', {message: "Stop speech command sent"});
+            console.log("Speech stop event emitted");
+
+            // Disable the button for 2 seconds
+            stopSpeechButton.disabled = true;
+            setTimeout(function () {
+                stopSpeechButton.disabled = false;
+            }, 500); // 2000ms = 2 seconds
+        });
+    });
+
+
+    let arr = new Array();
     console.log("first socket:", socket);
     // console.log("arr:", arr);
     socket.emit('connect event', {data: 'User Connected'});
-    socket.on('html_data_recv' , function(data)
-            {
-                console.log(data)
-                arr = data
-                console.log(arr)
-            });
-     $(document).ready(function() {
-    socket.emit('checking_visit_after_click');
+    socket.on('html_data_recv', function (data) {
+        console.log(data)
+        arr = data
+        console.log(arr)
+    });
+    $(document).ready(function () {
+        socket.emit('checking_visit_after_click');
 
-     });
+    });
 
     function dad() {
         location.href = '/girl/dad_bowl';
-        arr[0] =1;
+        arr[0] = 1;
         socket.emit('checking_visit', arr);
 
     }
+
     function mom() {
         location.href = '/girl/mom_bowl';
-        arr[1] =1;
+        arr[1] = 1;
         socket.emit('checking_visit', arr);
     }
+
     function baby() {
         location.href = '/girl/baby_bowl';
         arr[2] = 1;
         socket.emit('checking_visit', arr);
     }
-        function go_to_next_page() {
-            console.log("click")
-            console.log("data: ",arr)
-            // socket.emit('checking_visit_after_click');
-            console.log("data: ",arr)
 
-            location.href = '/girl/chair';
+    function go_to_next_page() {
+        console.log("click")
+        console.log("data: ", arr)
+        // socket.emit('checking_visit_after_click');
+        console.log("data: ", arr)
+
+        location.href = '/girl/chair';
 
     }
-    function force_to_go_next() {
-                    location.href = '/girl/chair';
+
+    function repeat_speech() {
+        socket.emit('repeat_speech', "At the table, there were three bowls of porridge. Goldilocks was hungry.")
     }
-        function repeat_speech(){
-         socket.emit('repeat_speech', "At the table, there were three bowls of porridge. Goldilocks was hungry.")
-}
 </script>
 <body>
 
@@ -210,12 +257,12 @@
         <img src="../static/story/4page.png" alt="Table Image" style="width: 50%">
 
 
-            <!-- Centered text -->
-    {% if show_text %}
-    <div class="centered-text">
-        At the table, there were three bowls of porridge. <br>Goldilocks was hungry.
-    </div>
-    {% endif %}
+        <!-- Centered text -->
+        {% if show_text %}
+            <div class="centered-text">
+                At the table, there were three bowls of porridge. <br>Goldilocks was hungry.
+            </div>
+        {% endif %}
 
     </div>
 
@@ -231,17 +278,17 @@
             <img src="../static/story/baby_bowl.png" alt="Baby's Bowl">
         </button>
     </div>
-<div class="repeat">
-            <button onclick="repeat_speech()">
-                Repeat<br>button
-            </button>
-              </div>
+    <div class="repeat">
+        <button onclick="repeat_speech()"> Repeat</button>
+    </div>
+
+    <div class="stop">
+        <button id="stop-speech-btn"> STOP</button>
+    </div>
 
     <!-- Next button -->
     <input type="button" value="Next" onclick="go_to_next_page()" class="next-button">
 </div>
-
-
 
 
 </body>

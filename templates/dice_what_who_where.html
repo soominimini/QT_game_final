@@ -31,13 +31,13 @@
         justify-content: center;
         align-items: center;
     }
-
     #diceBox {
-        max-width: 600px;
+        max-width: 800px;
         width: 90vw;
         height: auto;
-    {#background-color: #fff;#} border-radius: 10px;
-    {#box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);#} padding: 40px;
+        border-radius: 10px;
+        margin-top: -6%;
+        padding: 40px;
         box-sizing: border-box;
     }
 
@@ -164,7 +164,7 @@
         overflow: hidden;
         position: fixed;
         bottom: 20px;
-        left: 47%;
+        left: 45%;
     }
 
     #btnDisplay {
@@ -209,17 +209,7 @@
         transform: skewX(-45deg) translateX(280px);
     }
 
-    .question-button {
-        width: 100px;
-        height: 40px;
-        margin: 5px;
-        background-color: #3498db;
-        border: none;
-        border-radius: 4px;
-        color: #fff;
-        cursor: pointer;
-    }
-
+.question-button { width: 200px; height: 100px; margin: 10px; background-color: #3498db; border: none; border-radius: 4px; color: #fff; cursor: pointer; font-size: medium; }
     @media screen and (max-width: 429px) {
         #diceBox {
             box-shadow: none;
@@ -417,13 +407,13 @@
 
         // Set questions based on the current face
         if (currentFace == 'face1' || currentFace == 'face2') {
-            questions = ['Where Question 1', 'Where Question 2', 'Where Question 3', 'Where Question 4', 'Where Question 5', 'Where Question 6', 'Where Question 7', 'Where Question 8', 'Where Question 9', 'Where Question 10'];
+            questions = ['Where do we see clowns and a ringmaster?', 'Where do we watch movies on a big screen?', 'Where can we borrow books?', 'Where do cars and trucks drive?', 'Where do we buy things?', 'Where do we plant flowers and other plants?', 'Where do we play on slides and swings?', 'Where do we go to learn?', 'Where do we go to see wild animals like lions and tigers?', 'Where are the clouds?'];
 
         } else if (currentFace == 'face3' || currentFace == 'face4') {
-            questions = ['Who Question 1', 'Who Question 2', 'Who Question 3', 'Who Question 4', 'Who Question 5', 'Who Question 6', 'Who Question 7', 'Who Question 8', 'Who Question 9', 'Who Question 10'];
+            questions = ['Who takes care of our teeth?', 'Who takes our garbage and puts it into garbage truck?', 'Who drives a school bus?', 'Who makes sure we are safe in the pool or at the beach?', 'Who teaches at school?', 'Who helps you when you are sick?', 'Who saves people from a fire?', 'Who cooks food in a restaurant?', 'Who brings us the mail?', 'Who grows food and has a barn full of animals?'];
 
         } else {
-            questions = ['What Question 1', 'What Question 2', 'What Question 3', 'What Question 4', 'What Question 5', 'What Question 6', 'What Question 7', 'What Question 8', 'What Question 9', 'What Question 10'];
+            questions = ['What do we use to tell the time?', 'what do bees make?', 'What do we write with?', 'What keeps our food cold?', 'What do we eat soup with?', 'What colour is grass?', 'What colour is the sky?', 'What do we use to clean our teeth?', 'What do we wear on our feet?', 'What do we use to call or text someone?'];
 
         }
         // Create 10 buttons for questions
@@ -433,7 +423,36 @@
             button.innerText = questions[i];
             button.onclick = function () {
                 value = button.innerText
-                socket.emit('dice_5w1h', button.innerText);
+                if(value=='Where do we see clowns and a ringmaster?'){
+                    socket.emit('dice_5w1h', 'Where do we see clowns and ringmaster');
+                }
+                else if(value=='Where do we plant flowers and other plants?'){
+                    socket.emit('dice_5w1h', 'Where do we plant flowers and other plants');
+                }
+                else if(value=='Who makes sure we are safe in the pool or at the beach?'){
+                    socket.emit('dice_5w1h', "Who makes sure we are safe in the pool, or at the beach?");
+                }
+                else if(value=='Who drives a school bus?'){
+                    socket.emit('dice_5w1h', 'Who drives a school bus');
+                }
+                else if(value=='What colour is the sky?'){
+                    socket.emit('dice_5w1h', 'What color is the sky');
+                }
+                else if(value=='What do we wear on our feet?'){
+                    socket.emit('dice_5w1h', 'What do we wearon r feet?');
+                }
+                else if(value=='Who grows food and has a barn full of animals?'){
+                    socket.emit('dice_5w1h', 'Who grows food, and has a barn full off animolls');
+                }
+                else if(value=='Who helps you when you are sick?'){
+                    socket.emit('dice_5w1h', 'Who helps you when you r sick?');
+                }
+                else if(value=='Where are the clouds?'){
+                    socket.emit('dice_5w1h', 'Where r the clouds?');
+                }
+                else {
+                    socket.emit('dice_5w1h', button.innerText);
+                }
             };
             document.querySelector('.dice_wrap').appendChild(button);
         }

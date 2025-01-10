@@ -28,8 +28,8 @@
         img3.src = "../static/instruction/young/basket_tree_bench_frisbee.png";
 
      $(document).ready(function() {
-     socket.emit('first_talk', "Can we play hide and seek? Let’s run to the tree!");
-     value = "Can we play hide and seek? Let’s run to the tree!"
+     socket.emit('first_talk', "Can we play hide n seek? Let’s run to the tree!");
+     value = "Can we play hide n seek? Let’s run to the tree!"
      {#socket.emit('giveme_talk', 'Can you give me two cherries?');#}
      nonDragged();
      document.getElementById("btn").disabled = true;
@@ -87,9 +87,9 @@
 
                         setTimeout(() => {
 
-                            socket.emit('giveme_talk',"I feel like sitting on a bench. Let’s find one!");
+                            socket.emit('giveme_talk',"I want to sit on a bench. Let’s find one!");
 
-                            value = "I feel like sitting on a bench. Let’s find one!"
+                            value = "I want to sit on a bench. Let’s find one!"
                         }, 1000); // 1-second delay after the first emit
 
                         setTimeout(() => {

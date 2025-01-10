@@ -20,12 +20,14 @@
 
     .form-container {
         display: flex;
+        width: 500px;
+        height: 300px;
         flex-direction: column;
         align-items: center;
-        background: rgba(255, 255, 255, 0.8);
+        {#background: rgba(255, 255, 255, 0.8);#}
         padding: 30px;
         border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        {#box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);#}
     }
 
     .form-group {
@@ -33,13 +35,14 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 20px;
+        margin-top: 20px;
         width: 100%;
     }
 
     label {
         font-size: 25px;
         margin-right: 10px;
-        width: 100px;
+        width: 170px;
         text-align: right;
     }
 
@@ -55,14 +58,14 @@
         font-size: 25px;
         height: 60px;
         width: 60%;
-        margin-top: 20px;
+        margin-top: 130px;
         margin-left: 20%;
     }
 </style>
 <div class="form-container">
     <form action="" method="POST">
         <div class="form-group">
-            <label for="username">Name:</label>
+            <label for="username">Child Name:</label>
             <select id="username" class="username">
                 <option value="" disabled selected>Select Name</option>
                 <option value="A">A</option>
@@ -105,11 +108,10 @@
             if ($('select.username').val() === "None") {
                 alert("Please fill out all information.");
             } else {
-                socket.emit('login', {
+                socket.emit('user_confirming', {
                     name: $('select.username').val()
-                    {#session_no: $('input.date').val(),#}
-                    {#age: $('input.age').val()#}
                 });
+                      window.location.href = '/user_confirm';
             }
         });
 

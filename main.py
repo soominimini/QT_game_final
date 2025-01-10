@@ -1,4 +1,5 @@
-import numpy as np
+import os
+from datetime import datetime
 from flask import Flask, render_template, redirect, url_for, session, request,send_from_directory
 from flask_socketio import SocketIO, emit, join_room
 #from flask_cors import CORS
@@ -7,7 +8,7 @@ import time
 import threading
 import rospy
 from std_msgs.msg import String
-from anytree import Node, RenderTree
+# from anytree import Node, RenderTree
 from qt_robot_interface.srv import *
 from qt_gesture_controller.srv import *
 from std_msgs.msg import Float64MultiArray
@@ -421,7 +422,10 @@ def reload():
 @app.route('/')
 def login():
     return render_template('login.html')
-
+@app.route('/user_confirm')
+def user_confirm_func():
+    global name
+    return render_template('user_confirm.html', username=name)
 
 
 @socketio.on('login')
@@ -430,31 +434,87 @@ def logged_in(message):
     global f
     global file_name
 
-    # Directory where files will be saved (change if needed)
+    # Directory where files will be saved
     save_directory = "user_files"
     os.makedirs(save_directory, exist_ok=True)  # Ensure the directory exists
 
-    # Initialize the file counter
-    counter = 0
+    # Get today's date in YYYY-MM-DD format
+    today_date = datetime.now().strftime("%Y-%m-%d")
     base_file_name = f"{name}_"
-    file_path = os.path.join(save_directory, f"{base_file_name}{counter}.txt")
 
-    # Increment the counter if a file with the same name already exists
-    while os.path.exists(file_path):
-        counter += 1
-        file_path = os.path.join(save_directory, f"{base_file_name}{counter}.txt")
+    # Search for the most recent file created today
+    recent_file = None
+    for file in sorted(os.listdir(save_directory), reverse=True):
+        if file.startswith(base_file_name) and file.endswith(".txt"):
+            file_path = os.path.join(save_directory, file)
+            file_date = datetime.fromtimestamp(os.path.getctime(file_path)).strftime("%Y-%m-%d")
+            if file_date == today_date:  # Check if file was created today
+                recent_file = file_path
+                break
 
-    # Use the resolved file path
-    file_name = file_path
-    f = open(file_name, "a")
-      # Write user information to the file
-    f.write(f"Name: {name}\n")
-    f.close()
+    # Use the recent file if found; otherwise, create a new file
+    if recent_file:
+        file_name = recent_file
+        print(f"Appending to existing file: {file_name}")
+    else:
+        # Create a new file with an incremented counter
+        counter = 0
+        file_name = os.path.join(save_directory, f"{base_file_name}{counter}.txt")
+        while os.path.exists(file_name):
+            counter += 1
+            file_name = os.path.join(save_directory, f"{base_file_name}{counter}.txt")
+        print(f"Creating new file: {file_name}")
+
+    # Open file in append mode and write user information
+    with open(file_name, "a") as f:
+        f.write(f"Name: {name}\n")
 
     print(f"File saved as: {file_name}")
 
     # Redirect to the main page
     socketio.emit('redirect', {'url': url_for('main_page')})
+    
+#     
+# @socketio.on('login')
+# def logged_in(message):
+#     name = message['name']
+#     global f
+#     global file_name
+# 
+#     # Directory where files will be saved (change if needed)
+#     save_directory = "user_files"
+#     os.makedirs(save_directory, exist_ok=True)  # Ensure the directory exists
+# 
+#     # Initialize the file counter
+#     counter = 0
+#     base_file_name = f"{name}_"
+#     file_path = os.path.join(save_directory, f"{base_file_name}{counter}.txt")
+# 
+#     # Increment the counter if a file with the same name already exists
+#     while os.path.exists(file_path):
+#         counter += 1
+#         file_path = os.path.join(save_directory, f"{base_file_name}{counter}.txt")
+# 
+#     # Use the resolved file path
+#     file_name = file_path
+#     f = open(file_name, "a")
+#       # Write user information to the file
+#     f.write(f"Name: {name}\n")
+#     f.close()
+# 
+#     print(f"File saved as: {file_name}")
+# 
+#     # Redirect to the main page
+#     socketio.emit('redirect', {'url': url_for('main_page')})
+
+@socketio.on('user_confirming')
+def user_confirming_func(message):
+    global name
+    name = message['name']
+
+    # Redirect to the main page
+    # socketio.emit('redirect', {'url': url_for('main_page')})
+
 
 
 @socketio.on('click_main')
@@ -524,6 +584,11 @@ def main_menu(message):
         socketio.emit('redirect', {'url': url_for('dice_5w1h_2')})
     elif (message["who"] == 'dice_board'):
         socketio.emit('redirect', {'url': url_for('dice_board')})
+
+    elif (message["who"] == 'break'):
+        socketio.emit('redirect', {'url': url_for('break_fucn')})
+    elif (message["who"] == 'at_talks'):
+        socketio.emit('redirect', {'url': url_for('at_talks_func')})
 
     is_redirecting = False
 
@@ -1396,6 +1461,21 @@ def dice_board():
     handle_speech_say("Let's roll the dice")
     return render_template('dice_board_game.html')
 
+######################################################################################### break, at talks     ############################################################################################
+#
+
+@app.route('/break')
+def break_fucn():
+    # talktext_pub.publish("Let's roll the dice")
+    handle_speech_say("Let's take a break")
+    gesturePlay_servc("head_natural", 1.5)
+    return render_template('break.html')
+@app.route('/at_talks')
+def at_talks_func():
+    # talktext_pub.publish("Let's roll the dice")
+    # handle_speech_say("Let's roll the dice")
+    return render_template('at_talks.html')
+
 
 ######################################################################################### Negin     ############################################################################################
 # Emotion game1
@@ -1456,8 +1536,7 @@ def emotion_card(id):
         emotionShow_pub.publish("QT/shy")
         rospy.sleep(1.0)
         gesturePlay_pub.publish("/QT/emotions/shy")
-        # r6 = random.randint(0,len(shy)-1)
-        # talktext_pub.publish(shy[r6])
+
     if (id < 6 and id > -1):
         rospy.sleep(8)
         talktext_pub.publish("Look at the tablet, which one is " + " " + emotion_dictionary[id])
@@ -1471,10 +1550,65 @@ def object_card(id):
     rospy.sleep(3)
     talktext_pub.publish("Look at the tablet, click on the picture")
 
-def young_emotion_card(data):
-    print(data)
-    rospy.sleep(2.0)
-    talktext_pub.publish(data)
+def young_emotion_card(id):
+    print(id)
+    global talktext_pub
+    global speechSay_pub
+    global emotionShow_pub
+    global gesturePlay_pub
+    # gesturePlay_servc("QT/neutral", 2)
+    if id == 0:
+        talktext_pub.publish("angry!")
+
+        rospy.sleep(3.0)
+        emotionShow_pub.publish("QT/angry")
+        rospy.sleep(1.0)
+        gesturePlay_pub.publish("/QT/emotions/angry")
+        emotionShow_pub.publish("QT/angry")
+        # r1 = random.randint(0,len(angry)-1)
+        # talktext_pub.publish(angry[r1])
+    elif id == 1:
+        talktext_pub.publish("happy!")
+        rospy.sleep(3.0)
+        emotionShow_pub.publish("QT/happy")
+        rospy.sleep(1.0)
+        gesturePlay_pub.publish("/QT/emotions/happy")
+        emotionShow_pub.publish("QT/happy")
+        # r2 = random.randint(0,len(happy)-1)
+        # talktext_pub.publish(happy[r2])
+    elif id == 2:
+        talktext_pub.publish("excited!")
+        rospy.sleep(3.0)
+        emotionShow_pub.publish("QT/happy_blinking")
+        rospy.sleep(1.0)
+        gesturePlay_pub.publish("/QT/emotions/hoora")
+        emotionShow_pub.publish("QT/happy_blinking")
+
+    elif id == 3:
+        talktext_pub.publish("sad!")
+        rospy.sleep(3.0)
+        emotionShow_pub.publish("QT/sad")
+        rospy.sleep(1.0)
+        gesturePlay_pub.publish("/QT/emotions/sad")
+        emotionShow_pub.publish("QT/sad")
+        # r4 = random.randint(0,len(sad)-1)
+        # talktext_pub.publish(sad[r4])
+    elif id == 4:
+        talktext_pub.publish("scared!")
+        rospy.sleep(3.0)
+        emotionShow_pub.publish("QT/afraid")
+        rospy.sleep(1.0)
+        gesturePlay_pub.publish("/QT/emotions/afraid")
+        emotionShow_pub.publish("QT/afraid")
+        # r5 = random.randint(0,len(scared)-1)
+        # talktext_pub.publish(scared[r5])
+    elif id == 5:
+        talktext_pub.publish("shy!")
+        rospy.sleep(3.0)
+        emotionShow_pub.publish("QT/shy")
+        rospy.sleep(1.0)
+        gesturePlay_pub.publish("/QT/emotions/shy")
+
     rospy.sleep(2.0)
     talktext_pub.publish("Look at the tablet, click on the picture")
 
@@ -1492,7 +1626,7 @@ def request_callback():
         selected_emotion= data
         emotion = list(emotions.keys())[list(emotions.values()).index(data)]
         if selected == 0 and int(id) < 7:
-            young_emotion_card(data)
+            young_emotion_card(int(id))
             socketio.emit('update image', {'path': random_image_selector(emotion)}, broadcast=True)
     elif (game == "emotion_game2"):
         # data = request.form['emotion']
@@ -1515,18 +1649,18 @@ def request_callback():
 
 emotions = {0: "happy", 1: "angry", 2: "scared", 3: "excited", 4: "shy", 5: "sad"}
 
-happy = {'ice': 'Having ice cream makes me feel', 'smile': 'I smile when I am',
-         'energy': 'I feel like I have a lot of energy when I am',
-         'jump': 'I want to jump for joy when I am'}
-sad = {'sad': 'My smile disappears when I am', 'toy': 'When my favorite toy is broken, it makes me',
-       'friend_sad': 'My friend is depressed, it makes me feel'}
-angry = {'scream': 'I want to scream and yell when I feel'}
+happy = {'ice': 'Having ice cream, makes me feel happy', 'smile': 'I smile, when I am happy',
+         'energy': 'I feel like, I have a lot of energy, when I am happy',
+         'jump': 'I want to jump for joy when I am happy'}
+sad = {'sad': "My smile disappears when I'm sad", 'toy': 'When my favorite toys broken, it makes me sad',
+       'friend_sad': 'My friend is depressed, it makes me feel sad'}
+angry = {'scream': 'I want to scream and yell, when I feel angry'}
 
-shy = {'shy': 'I get red in my face when I feel'}
+shy = {'shy': 'My face gets red, when I feel shy'}
 
-excited = {'travel': 'Travelling with my family, makes me feel'}
+excited = {'travel': 'Travelling with my family, makes me feel excited'}
 
-scared = {'scared': 'My legs shake when I feel'}
+scared = {'scared': 'When I feel scared, my legs shake'}
 
 
 def random_image_selector(id):
@@ -1690,7 +1824,7 @@ def first_view():
 
 
 
-## Serve static files with Cache-Control headers
+# Serve static files with Cache-Control headers
 @app.after_request
 def add_cache_control(response):
     print("add_cache_control")

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<style>
+    body, html {
+        {#background-color: #C7E5FF; /* Light purple */#}
+        height: 100%;
+        margin: 0;
+        background: linear-gradient(to right, #FFFCA3 50%, #C7E5FF 50%);
+    }
+
+    .other button {
+
+        font-size: 20px;
+        background: rgba(159, 243, 139, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    /* Next button active effect */
+    .other button:active {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+    }
+
+    .stop button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(255, 0, 0, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    .stop button:disabled {
+        background: rgba(92, 43, 43, 0.6);
+        color: rgb(255, 255, 255);
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
+    }
+</style>
+
+<script>
+    var socket = io.connect('http://192.168.100.2:5000');
+    console.log("first socket:", socket);
+    socket.emit('connect event', {data: 'User Connected'});
+
+    $(document).ready(function () {
+
+    });
+
+    function repeat_speech(msg) {
+        socket.emit('repeat_speech', msg)
+    }
+
+    function agetoggle_young() {
+        var schedule1 = document.getElementById("schedule1");
+        var praise1 = document.getElementById("praise1");
+        var praise2 = document.getElementById("praise2");
+        var bye1 = document.getElementById("bye1");
+        var bye2 = document.getElementById("bye2");
+        var hello1 = document.getElementById("hello1");
+        var hello2 = document.getElementById("hello2");
+        var encrgmnt1 = document.getElementById("encrgmnt1");
+            // Toggle their visibility
+        var displayState = (schedule1.style.display === "none" || schedule1.style.display === ""|| praise1.style.display === ""|| praise2.style.display === ""|| bye1.style.display === ""|| bye2.style.display === ""|| hello1.style.display === ""|| hello2.style.display === ""|| encrgmnt1.style.display === "") ? "block" : "none";
+        schedule1.style.display = displayState;
+        praise1.style.display = displayState;
+        praise2.style.display = displayState;
+        bye1.style.display = displayState;
+        bye2.style.display = displayState;
+        hello1.style.display = displayState;
+        hello2.style.display = displayState;
+        encrgmnt1.style.display = displayState;
+    }
+
+    function agetoggle_old() {
+        var schedule2 = document.getElementById("schedule2");
+        var praise1 = document.getElementById("praise1_old");
+        var praise2 = document.getElementById("praise2_old");
+        var bye1 = document.getElementById("bye1_old");
+        var bye2 = document.getElementById("bye2_old");
+        var hello1 = document.getElementById("hello1_old");
+        var hello2 = document.getElementById("hello2_old");
+        var encrgmnt1 = document.getElementById("encrgmnt1_old");
+        var encrgmnt2 = document.getElementById("encrgmnt2_old");
+        var displayState = (schedule2.style.display === "none" || schedule2.style.display === ""|| praise1.style.display === ""|| praise2.style.display === ""|| bye1.style.display === ""|| bye2.style.display === ""|| hello1.style.display === ""|| hello2.style.display === "" || encrgmnt1.style.display === ""|| encrgmnt2.style.display === "") ? "block" : "none";
+        schedule2.style.display = displayState;
+        praise1.style.display = displayState;
+        praise2.style.display = displayState;
+        bye1.style.display = displayState;
+        bye2.style.display = displayState;
+        hello1.style.display = displayState;
+        hello2.style.display = displayState;
+        encrgmnt1.style.display = displayState;
+        encrgmnt2.style.display = displayState;
+    }
+
+    function speak(msg) {
+        socket.emit('repeat_speech', msg)
+    }
+</script>
+<body>
+
+<div class="other" style="position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        left: 40px; /* Distance from the left of the viewport */">
+    <button onclick="agetoggle_young()">Younger age</button>
+</div>
+
+<div class="other" style="position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        left: 650px; /* Distance from the left of the viewport */">
+    <button onclick="agetoggle_old()">Older age</button>
+</div>
+
+
+<div id="schedule1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        left: 170px; /* Distance from the left of the viewport */">
+    <button onclick="speak('lets see what r we goin to do today')">schedule</button>
+</div>
+
+<div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 120px; /* Distance from the top of the viewport */
+        left: 170px; /* Distance from the left of the viewport */">
+    <button onclick="speak('You did great job')">praise1 great</button>
+</div>
+
+
+<div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 120px; /* Distance from the top of the viewport */
+        left: 280px; /* Distance from the left of the viewport */">
+    <button onclick="speak('You r amazing!')">praise2 amazing</button>
+</div>
+
+
+<div id="bye1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 230px; /* Distance from the top of the viewport */
+        left: 170px; /* Distance from the left of the viewport */">
+    <button onclick="speak('good bye!')">Good bye</button>
+</div>
+
+<div id="bye2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 230px; /* Distance from the top of the viewport */
+        left: 280px; /* Distance from the left of the viewport */">
+    <button onclick="speak('See you later!')">See you later</button>
+</div>
+
+
+<div id="hello1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 340px; /* Distance from the top of the viewport */
+        left: 170px; /* Distance from the left of the viewport */">
+    <button onclick="speak('Hello!')">Hello</button>
+</div>
+
+<div id="hello2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 340px; /* Distance from the top of the viewport */
+        left: 280px; /* Distance from the left of the viewport */">
+    <button onclick="speak('How r you today?')">How are you</button>
+</div>
+
+<div id="encrgmnt1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        left: 170px; /* Distance from the left of the viewport */">
+    <button onclick="speak('Nice try!')">Nice try</button>
+</div>
+
+
+
+
+
+<div id="schedule2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        left: 780px; /* Distance from the left of the viewport */">
+    <button onclick="speak('lets look at the visual schedule')">schedule</button>
+</div>
+
+<div id="praise1_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 120px; /* Distance from the top of the viewport */
+        left: 780px; /* Distance from the left of the viewport */">
+    <button onclick="speak('You dida amazing job today')">praise1 amazing</button>
+</div>
+
+
+<div id="praise2_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 120px; /* Distance from the top of the viewport */
+        left: 890px; /* Distance from the left of the viewport */">
+    <button onclick="speak('You r awesome!')">praise2 awesome</button>
+</div>
+
+<div id="bye1_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 230px; /* Distance from the top of the viewport */
+        left: 780px; /* Distance from the left of the viewport */">
+    <button onclick="speak('Good bye!')">Good bye</button>
+</div>
+
+<div id="bye2_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 230px; /* Distance from the top of the viewport */
+        left: 890px; /* Distance from the left of the viewport */">
+    <button onclick="speak('See you later!')">See you later</button>
+</div>
+
+
+<div id="hello1_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 340px; /* Distance from the top of the viewport */
+        left: 780px; /* Distance from the left of the viewport */">
+    <button onclick="speak('Hello!')">Hello</button>
+</div>
+
+<div id="hello2_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 340px; /* Distance from the top of the viewport */
+        left: 890px; /* Distance from the left of the viewport */">
+    <button onclick="speak('How r you today?')">How are you</button>
+</div>
+
+<div id="encrgmnt1_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        left: 780px; /* Distance from the left of the viewport */">
+    <button onclick="speak('Nice try!')">Nice try</button>
+</div>
+
+<div id="encrgmnt2_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        left: 890px; /* Distance from the left of the viewport */">
+    <button onclick="speak('Great effort!')">Great effort</button>
+</div>
+
+</body>
+</html>

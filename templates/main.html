@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <title>Main</title>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-      <script type="text/javascript">
-            var socket = io.connect('http://192.168.100.2:5000');
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script type="text/javascript">
+        var socket = io.connect('http://192.168.100.2:5000');
 
         function young() {
-            var ids = ["action_game_container", "emotion_game_1_container", "emotion_game3_container", "dice_action_young_container", "dice_emotion_young_container","instructions_game_container_young"];
+            var ids = ["action_game_container", "emotion_game_1_container", "emotion_game3_container", "dice_action_young_container", "dice_emotion_young_container", "instructions_game_container_young"];
             toggleButtons(ids);
         }
 
@@ -20,7 +20,7 @@
         }
 
         function toggleButtons(ids) {
-            ids.forEach(function(id) {
+            ids.forEach(function (id) {
                 var element = document.getElementById(id);
                 element.style.display = (element.style.display === 'none' || element.style.display === '') ? 'flex' : 'none';
             });
@@ -29,7 +29,7 @@
         function handleGameClick(gameId) {
             console.log(`Game ${gameId} clicked`);
             // Emit event or perform desired action here
-            socket.emit('click_main', { who: gameId });
+            socket.emit('click_main', {who: gameId});
         }
 
         function showInfo(message) {
@@ -42,6 +42,19 @@
             document.getElementById("popup-overlay").style.display = "none";
             document.getElementById("info-popup").style.display = "none";
         }
+
+        function addClickEffect(buttonId) {
+            const buttonContainer = document.getElementById(buttonId).parentElement;
+
+            // Add a temporary CSS class to the parent `div`
+            buttonContainer.classList.add('clicked-effect');
+
+            // Remove the class after 500ms
+            setTimeout(() => {
+                buttonContainer.classList.remove('clicked-effect');
+            }, 500); // Adjust the duration as needed
+        }
+
 
         document.addEventListener("DOMContentLoaded", function () {
             socket.on('connect', function () {
@@ -60,14 +73,14 @@
                 });
 
                 window.onbeforeunload = function () {
-                    socket.emit('client_disconnecting', { 'data': "Main" });
+                    socket.emit('client_disconnecting', {'data': "Main"});
                 }
             });
         });
     </script>
 
 
-      <style>
+    <style>
         /* Existing styles */
         * {
             box-sizing: border-box;
@@ -139,7 +152,7 @@
         }
 
         .game-button {
-            flex:4;
+            flex: 4;
             height: 100%;
             font-size: 18px;
             border: none;
@@ -200,6 +213,34 @@
         .close-popup:hover {
             background-color: #0056b3;
         }
+
+        /* Small round button styles */
+        .small-round-button {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #FFB6C1; /* Light pink */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .other-button {
+            font-size: 19px;
+            text-align: center;
+            border: none;
+            background: none;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .clicked-effect {
+            background-color: #553b3f; /* Gold color */
+            transform: scale(1.1); /* Slightly enlarge the button container */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+            transition: all 0.3s ease; /* Smooth transition for effects */
+        }
     </style>
 </head>
 <body>
@@ -208,96 +249,143 @@
     <!-- Top Section -->
     <div class="top-section">
         <!-- Age Button -->
-        <input id="0-3" class="age-button" type="button" value="0-4 years old" onclick="young()" required />
+        <input id="0-3" class="age-button" type="button" value="0-4 years old" onclick="young()" required/>
 
         <!-- Game Buttons for 0-4 years old -->
         <!-- Action Card Game -->
         <div id="action_game_container" class="button-container" style="display: none;">
-            <input id="action_game" class="game-button sync" type="button" value="Action card game" onclick="handleGameClick('action_game')"  required />
-            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Action card game')" />
+            <input id="action_game" class="game-button sync" type="button" value="Action card game"
+                   onclick="handleGameClick('action_game')" required/>
+            <input class="info-button" type="button" value="i" onclick="showInfo('Show a card, and the robot names the activity (e.g., drawing, playing)')"/>
         </div>
 
         <!-- Emotion Card Game -->
         <div id="emotion_game_1_container" class="button-container" style="display: none;">
-            <input id="emotion_game_1" class="game-button sync" type="button" value="Emotion card game" onclick="handleGameClick('emotion_game_1')" required />
-            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Emotion card game')" />
+            <input id="emotion_game_1" class="game-button sync" type="button" value="Emotion card game"
+                   onclick="handleGameClick('emotion_game_1')" required/>
+            <input class="info-button" type="button" value="i" onclick="showInfo('Show a card, and the robot names the emotion (e.g., happy, sad)')"/>
         </div>
 
         <!-- Emotion Game with Two Cards -->
         <div id="emotion_game3_container" class="button-container" style="display: none;">
-            <input id="emotion_game3" class="game-button sync" type="button" value="Emotion game with two cards" onclick="handleGameClick('emotion_game3')"  required style="white-space: pre-wrap; line-height: 1.5; text-align: center;" />
+            <input id="emotion_game3" class="game-button sync" type="button" value="Emotion game with two cards"
+                   onclick="handleGameClick('emotion_game3')" required
+                   style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
 
-            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Emotion game with two cards')" />
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Show two cards, the robot picks an emotion, and the user guesses it')"/>
         </div>
 
         <!-- Dice Game / Action -->
-        <div id="dice_action_young_container" class="button-container" style="display: none; position:fixed; top: 25%; left: 22%">
-            <input id="dice_action_young" class="game-button sync" type="button" value="Dice game/ action" onclick="handleGameClick('dice_action_young')" required />
-            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Dice game/ action')" />
+        <div id="dice_action_young_container" class="button-container"
+             style="display: none; position:fixed; top: 25%; left: 22%">
+            <input id="dice_action_young" class="game-button sync" type="button" value="Dice game/ action"
+                   onclick="handleGameClick('dice_action_young')" required/>
+            <input class="info-button" type="button" value="i" onclick="showInfo('Roll a virtual dice with activities (e.g., singing, dancing)')"/>
         </div>
 
         <!-- Dice Game / Emotions -->
-        <div id="dice_emotion_young_container" class="button-container" style="display: none; position:fixed; top: 25%; left:42%">
-            <input id="dice_emotion_young" class="game-button sync" type="button" value="Dice game/ emotions" onclick="handleGameClick('dice_emotion_young')" required />
-            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Dice game/ emotions')" />
+        <div id="dice_emotion_young_container" class="button-container"
+             style="display: none; position:fixed; top: 25%; left:42%">
+            <input id="dice_emotion_young" class="game-button sync" type="button" value="Dice game/ emotions"
+                   onclick="handleGameClick('dice_emotion_young')" required/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Roll a virtual dice with emotions (e.g., scared, sick)')"/>
         </div>
 
 
         <!-- Dice Game / Emotions -->
-        <div id="instructions_game_container_young" class="button-container" style="display: none; position:fixed; top: 25%; left:62%">
-            <input id="instructions_game_young" class="game-button sync" type="button" value="Instruction game" onclick="handleGameClick('instructions_game_young')" required />
-            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Dice game/ emotions')" />
+        <div id="instructions_game_container_young" class="button-container"
+             style="display: none; position:fixed; top: 25%; left:62%">
+            <input id="instructions_game_young" class="game-button sync" type="button" value="Instruction game"
+                   onclick="handleGameClick('instructions_game_young')" required/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Drag and drop the correct image into a basket for the robot')"/>
         </div>
+
     </div>
 
     <!-- Bottom Section -->
     <div class="bottom-section">
         <!-- Age Button -->
-        <input id="3-5" class="age-button" type="button" value="5-9 years old" onclick="older()" required />
+        <input id="3-5" class="age-button" type="button" value="5-9 years old" onclick="older()" required/>
 
         <!-- Game Buttons for 5-9 years old -->
         <!-- Emotion Card Game -->
         <div id="emotion_game2_container" class="button-container" style="display: none;">
-            <input id="emotion_game2" class="game-button sync" type="button" value="Emotion card game" onclick="handleGameClick('emotion_game2')" required />
-            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Emotion card game (older)')" />
+            <input id="emotion_game2" class="game-button sync" type="button" value="Emotion card game"
+                   onclick="handleGameClick('emotion_game2')" required/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Show a card, and the robot names the emotion (e.g., excited, angry)')"/>
         </div>
 
         <!-- Instruction Game -->
         <div id="instructions_game_container" class="button-container" style="display: none;">
-            <input id="instructions_game" class="game-button sync" type="button" value="Instruction game" onclick="handleGameClick('instructions_game')" required />
-            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Instruction game')" />
+            <input id="instructions_game" class="game-button sync" type="button" value="Instruction game"
+                   onclick="handleGameClick('instructions_game')" required/>
+            <input class="info-button" type="button" value="i" onclick="showInfo('Drag and drop the correct image into a basket for the robot')"/>
         </div>
 
         <!-- Interactive Story -->
         <div id="story_container" class="button-container" style="display: none;">
-            <input id="story" class="game-button sync" type="button" value="Interactive story" onclick="handleGameClick('story')" required />
-            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Interactive story')" />
+            <input id="story" class="game-button sync" type="button" value="Interactive story"
+                   onclick="handleGameClick('story')" required/>
+            <input class="info-button" type="button" value="i" onclick="showInfo('The robot narrates the story of Goldilocks and the Three Bears.')"/>
         </div>
 
         <!-- Rolling Emotion Dice -->
-        <div id="dice_emotion_old_container" class="button-container" style="display: none;position:fixed; top: 75%; left: 12%">
-            <input id="dice_emotion_old" class="game-button sync" type="button" value="Rolling emotion dice" onclick="handleGameClick('dice_emotion_old')" required />
-            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Rolling emotion dice')" />
+        <div id="dice_emotion_old_container" class="button-container"
+             style="display: none;position:fixed; top: 75%; left: 12%">
+            <input id="dice_emotion_old" class="game-button sync" type="button" value="Rolling emotion dice"
+                   onclick="handleGameClick('dice_emotion_old')" required/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Roll a virtual dice with emotions (e.g., frustrated, silly)')"/>
         </div>
 
         <!-- Rolling Dice (Why When How) -->
-        <div id="dice_5w1h_1_container" class="button-container" style="display: none;position:fixed; top: 75%; left:32%">
-            <input id="dice_5w1h_1" class="game-button sync" type="button" value="Rolling dice (why when how)" onclick="handleGameClick('dice_5w1h_1')" required style="white-space: pre-wrap; line-height: 1.5; text-align: center;" />
-            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Rolling dice (why when how)')" />
+        <div id="dice_5w1h_1_container" class="button-container"
+             style="display: none;position:fixed; top: 75%; left:32%">
+            <input id="dice_5w1h_1" class="game-button sync" type="button" value="Rolling dice (why when how)"
+                   onclick="handleGameClick('dice_5w1h_1')" required
+                   style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Roll a virtual dice with \'Wh-\' questions (e.g., why, when, how) to spark discussion.')"/>
         </div>
 
         <!-- Rolling Dice (What Who Where) -->
-        <div id="dice_5w1h_2_container" class="button-container" style="display: none; position:fixed; top: 75%; left:52%">
-            <input id="dice_5w1h_2" class="game-button sync" type="button" value="Rolling dice (what who where)" onclick="handleGameClick('dice_5w1h_2')" required  style="white-space: pre-wrap; line-height: 1.5; text-align: center;" />
-            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Rolling dice (what who where)')" />
+        <div id="dice_5w1h_2_container" class="button-container"
+             style="display: none; position:fixed; top: 75%; left:52%">
+            <input id="dice_5w1h_2" class="game-button sync" type="button" value="Rolling dice (what who where)"
+                   onclick="handleGameClick('dice_5w1h_2')" required
+                   style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Roll a virtual dice with \'Wh-\' questions (e.g., what, who, where) to spark discussion.')"/>
         </div>
 
         <!-- Rolling Dice with Board -->
-        <div id="dice_board_container" class="button-container" style="display: none; position:fixed; top: 75%; left:72%">
-            <input id="dice_board" class="game-button sync" type="button" value="Rolling dice with board" onclick="handleGameClick('dice_board')" required />
-            <input class="info-button" type="button" value="i" onclick="showInfo('Description for Rolling dice with board')" />
+        <div id="dice_board_container" class="button-container"
+             style="display: none; position:fixed; top: 75%; left:72%">
+            <input id="dice_board" class="game-button sync" type="button" value="Rolling dice with board"
+                   onclick="handleGameClick('dice_board')" required/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Roll a virtual dice with numbers to move your piece on a game board')"/>
         </div>
     </div>
+
+
+    <!-- At Talks Button -->
+    <div id="at_talks_button" class="small-round-button"
+         style=" position: fixed; top: 50%; left: 86%; transform: translate(-50%, -50%);">
+        <input id="at_talks" class="other-button sync" type="button" value="At Talks"
+               onclick="handleGameClick('at_talks'); addClickEffect('at_talks');" required/>
+    </div>
+    <!-- Break Button -->
+    <div id="break_button" class="small-round-button "
+         style=" position: fixed; top: 50%; left: 95%; transform: translate(-50%, -50%);">
+        <input id="break" class="other-button sync" type="button" value="Break"
+               onclick="handleGameClick('break'); addClickEffect('break');" required/>
+    </div>
+
 </div>
 
 <!-- Popup for Game Information -->

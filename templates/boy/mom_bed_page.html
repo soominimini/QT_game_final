@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <style>
-     body, html{
-            background-color: #C7E5FF; /* Light purple */
-        }
+    body, html {
+        background-color: #C7E5FF; /* Light purple */
+    }
+
     /* Main container styling */
     .container {
         position: relative;
@@ -42,6 +43,7 @@
     .object {
         margin-top: -13%;
     }
+
     .repeat button {
         position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
@@ -91,7 +93,7 @@
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
 
-       /* STOP function */
+    /* STOP function */
 
     document.addEventListener("DOMContentLoaded", function () {
         const stopSpeechButton = document.getElementById("stop-speech-btn");
@@ -109,7 +111,7 @@
         });
     });
 
-     /* STOP function */
+    /* STOP function */
 
     $(document).ready(function () {
         socket.emit('mom_bed')
@@ -126,13 +128,13 @@
         <img src="../../static/story/boy_13th.png" style="width: 47%">
 
     </div>
-  <div class="repeat">
-            <button onclick="repeat_speech()"> Repeat</button>
-        </div>
+    <div class="repeat">
+        <button onclick="repeat_speech()"> Repeat</button>
+    </div>
 
-        <div class="stop">
-            <button id="stop-speech-btn"> STOP</button>
-        </div>
+    <div class="stop">
+        <button id="stop-speech-btn"> STOP</button>
+    </div>
     <div class="centered-text">
         {% if show_text %}
             Goldilocks lay down on the medium sized bed. "This bed is too soft!"

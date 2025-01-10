@@ -1,0 +1,13 @@
+anytree==2.12.1
+cv_bridge==1.16.2
+Flask==3.1.0
+Flask_MySQLdb==2.0.0
+Flask_SocketIO==5.4.1
+imutils==0.5.4
+mysql_connector_repackaged==0.3.1
+numpy==1.24.3
+numpy==1.17.4
+pyserial==3.5
+Requests==2.32.3
+rospy==1.17.0
+sensor_msgs==1.13.1

@@ -33,8 +33,7 @@
 
                 if (lastPart == "ask") {
                     socket.emit('repeat_speech', "show me another action card");
-                }
-                else {
+                } else {
                     console.log("value: ", lastPart);
                     socket.emit('repeat_speech', lastPart);
                 }
@@ -55,17 +54,15 @@
             lastPart = "Show me an action card";
             $('input#btn').on('click', function (event) {
                 // Change the button color on click
-                $(this).css('background', 'rgba(35,27,27,0.63)'); // Example color
-                $(this).css('color', 'white'); // Optional: change text color
-                $(this).css('border', '2px solid black'); // Optional: add a border
+                $(this).css('background', 'rgb(255, 200, 150)'); // Example active color
+                $(this).css('color', 'rgb(255, 255, 255)'); //
 
                 // Revert the color back after a delay
                 let button = $(this); // Save reference to the button
                 setTimeout(function () {
-                    button.css('background', 'rgba(250,231,200, 0.6)'); // Original color
-                    button.css('color', 'rgb(0,0,0)'); // Original text color
-                    button.css('border', '2px solid black'); // Revert border to none or original style
-                }, 300); // 300ms delay (adjust as needed)
+                    button.css('background', 'rgba(250, 231, 200, 0.6)'); // Original color
+                    button.css('color', 'rgb(0, 0, 0)'); // Original text color
+                }, 300); // 300ms delay
             });
 
             // sending a connect request to the server.
@@ -149,14 +146,13 @@
 
 <style>
     body {
-    {#background-image: url("{{ url_for('static', filename='images/back.jpg') }}");#}
-        background-color: #FFFCA3; /* Light yellow */
+    {#background-image: url("{{ url_for('static', filename='images/back.jpg') }}");#} background-color: #FFFCA3; /* Light yellow */
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
         width: 1000px;
         height: 800px;
-
+        overflow: hidden; /* Prevent scrolling */
     }
 
 

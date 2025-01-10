@@ -87,9 +87,9 @@
 
                         setTimeout(() => {
 
-                            socket.emit('giveme_talk',"Let's head to the bike path and go for a ride.");
+                            socket.emit('giveme_talk',"Let's go to the bike path and go for a ride.");
 
-                            value =  "Let's head to the bike path and go for a ride."
+                            value =  "Let's go to the bike path and go for a ride."
                         }, 1000); // 1-second delay after the first emit
 
                         setTimeout(() => {
@@ -115,8 +115,8 @@
                 $("#drop_cart").attr("src", img2.src); // Update the cart image
                 second_choidce = true;
                 socket.emit('correct') //robot praise
-                socket.emit('giveme_talk', "I want to dig and play in the sandbox!"); //robot ask for the second item
-                 value = "I want to dig and play in the sandbox!"
+                socket.emit('giveme_talk', "I want to play with my friends in the sandbox!"); //robot ask for the second item
+                 value = "I want to play with my friends in the sandbox!"
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
             else {

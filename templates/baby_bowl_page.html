@@ -13,33 +13,39 @@
     <title>JavaScript - Drag and Drop Demo</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
-    <style>
-        /* Main container styling */
-        .container {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+<style>
+    body, html {
+        background-color: #C7E5FF; /* Light purple */
+    }
 
-        /* Text styling */
-        .centered-text {
-            font-size: 30px;
-            font-weight: bold;
-            margin-top: 20px; /* Add space between the image and text */
-        }
-.repeat button {
+    /* Main container styling */
+    .container {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Text styling */
+    .centered-text {
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 20px; /* Add space between the image and text */
+    }
+
+
+    .repeat button {
         position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
-        right: 20px; /* Distance from the left of the viewport */
+        left: 20px; /* Distance from the left of the viewport */
         font-size: 20px;
-        background: rgba(250, 231, 200, 0.6);
+        background: rgba(128, 168, 255, 0.6);
         color: rgb(0, 0, 0);
         width: 100px;
-        height: 100px;
+        height: 60px;
         cursor: pointer;
         border: none;
         border-radius: 30px; /* Rounded corners */
@@ -47,52 +53,93 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     }
 
-
     /* Next button active effect */
-        .repeat button:active {
-            background: rgb(255, 200, 150);
-            color: rgb(255, 255, 255);
-        }
+    .repeat button:active {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+    }
 
-        /* Image section styling */
-        .object img {
-            margin: 0 10px; /* Add spacing between images */
-        }
-    </style>
+    .stop button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(255, 0, 0, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    .stop button:disabled {
+        background: rgba(92, 43, 43, 0.6);
+        color: rgb(255, 255, 255);
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
+    }
+
+    /* Image section styling */
+    .object img {
+        margin: 0 10px; /* Add spacing between images */
+    }
+</style>
 
 <script>
     var socket = io.connect('http://192.168.100.2:5000');
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
+    /* STOP function */
 
-     $(document).ready(function() {
-         socket.emit('baby_porridge')
+    document.addEventListener("DOMContentLoaded", function () {
+        const stopSpeechButton = document.getElementById("stop-speech-btn");
+
+        stopSpeechButton.addEventListener("click", function () {
+            // Emit 'speech_stop' event to the backend
+            socket.emit('speech_stop', {message: "Stop speech command sent"});
+            console.log("Speech stop event emitted");
+
+            // Disable the button for 2 seconds
+            stopSpeechButton.disabled = true;
+            setTimeout(function () {
+                stopSpeechButton.disabled = false;
+            }, 500); // 2000ms = 2 seconds
+        });
+    });
+
+    $(document).ready(function () {
+        socket.emit('baby_porridge')
         // setTimeout(enabling, 7000);
-     });
-     function repeat_speech(){
-         socket.emit('repeat_speech', "Goldilocks tasted the porridge from the small bowl. “This porridge is just right,” Goldilocks said and ate it all up.")
-}
+    });
+
+    function repeat_speech() {
+        socket.emit('repeat_speech', "Goldilocks tasted the porridge from the small bowl. “This porridge is just right,” Goldilocks said and ate it all up.")
+    }
 </script>
 <body>
 
 
-
 <div class="container">
     <div class="object">
-<img src="../../static/story/girl_7th.png" style="width: 45%">
+        <img src="../../static/story/girl_7th.png" style="width: 45%">
 
     </div>
-<div class="repeat">
-            <button onclick="repeat_speech()">
-                Repeat<br>button
-            </button>
-              </div>
-     <div class="centered-text">
+    <div class="repeat">
+        <button onclick="repeat_speech()"> Repeat</button>
+    </div>
 
-    {% if show_text %}
-Goldilocks tasted the porridge from the small bowl.<br> “This porridge is just right,” Goldilocks said and ate it all up.
-    {% endif %}
-</div>
+    <div class="stop">
+        <button id="stop-speech-btn"> STOP</button>
+    </div>
+    <div class="centered-text">
+
+        {% if show_text %}
+            Goldilocks tasted the porridge from the small bowl.<br> “This porridge is just right,” Goldilocks said and
+            ate it all up.
+        {% endif %}
+    </div>
 </div>
 </body>
 </html>

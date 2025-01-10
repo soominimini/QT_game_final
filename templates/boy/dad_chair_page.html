@@ -13,32 +13,33 @@
     <title>JavaScript - Drag and Drop Demo</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
-    <style>
-        body, html{
-            background-color: #C7E5FF; /* Light purple */
-        }
-        /* Main container styling */
-        .container {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+<style>
+    body, html {
+        background-color: #C7E5FF; /* Light purple */
+    }
 
-        /* Text styling */
-        .centered-text {
-            font-size: 30px;
-            font-weight: bold;
-            margin-top: 20px; /* Add space between the image and text */
-        }
+    /* Main container styling */
+    .container {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 
-        /* Image section styling */
-        .object img {
-            margin: 0 10px; /* Add spacing between images */
-        }
+    /* Text styling */
+    .centered-text {
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 20px; /* Add space between the image and text */
+    }
+
+    /* Image section styling */
+    .object img {
+        margin: 0 10px; /* Add spacing between images */
+    }
 
     .repeat button {
         position: fixed; /* Keeps it fixed relative to the viewport */
@@ -83,12 +84,12 @@
         color: rgb(255, 255, 255);
         cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
-    </style>
+</style>
 <script>
     var socket = io.connect('http://192.168.100.2:5000');
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
-      /* STOP function */
+    /* STOP function */
 
     document.addEventListener("DOMContentLoaded", function () {
         const stopSpeechButton = document.getElementById("stop-speech-btn");
@@ -106,34 +107,35 @@
         });
     });
 
-     /* STOP function */
+    /* STOP function */
 
-     $(document).ready(function() {
-         socket.emit('dad_chair')
+    $(document).ready(function () {
+        socket.emit('dad_chair')
         // setTimeout(enabling, 7000);
-     });
-     function repeat_speech(){
-         socket.emit('repeat_speech', "Goldilocks sat in the large chair to rest his feet. “This chair is too big!”")
-}
+    });
+
+    function repeat_speech() {
+        socket.emit('repeat_speech', "Goldilocks sat in the large chair to rest his feet. “This chair is too big!”")
+    }
 </script>
 <body>
 <div class="container">
     <div class="object">
-<img src="../../static/story/boy_8th.png" style="width: 35%">
+        <img src="../../static/story/boy_8th.png" style="width: 35%">
 
     </div>
-  <div class="repeat">
-            <button onclick="repeat_speech()"> Repeat</button>
-        </div>
+    <div class="repeat">
+        <button onclick="repeat_speech()"> Repeat</button>
+    </div>
 
-        <div class="stop">
-            <button id="stop-speech-btn"> STOP</button>
-        </div>
-             <div class="centered-text">
-                 {% if show_text %}
-    Goldilocks sat in the large chair to rest his feet. “This chair is too big!
-                  {% endif %}
-</div>
+    <div class="stop">
+        <button id="stop-speech-btn"> STOP</button>
+    </div>
+    <div class="centered-text">
+        {% if show_text %}
+            Goldilocks sat in the large chair to rest his feet. “This chair is too big!
+        {% endif %}
+    </div>
 </div>
 
 </body>

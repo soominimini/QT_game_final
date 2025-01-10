@@ -14,50 +14,60 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 
-    <style>
-        .object{
-            margin-top: -15%;
-        }
-        /* Main container styling */
-        .container {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
 
-   button {
-        border: 2px solid #000; /* Solid border for visibility */
-        cursor: pointer;
-        border-radius: 10px; /* Rounded corners */
-        transition: all 0.3s ease; /* Smooth transition */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+<style>
+    body, html {
+        background-color: #C7E5FF; /* Light purple */
+    }
+.container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+}
+
+/* Image section styling */
+.object {
+    display: flex;
+    justify-content: center; /* Center images horizontally */
+    align-items: center; /* Center images vertically */
+    gap: 20px; /* Add space between images */
+    margin-top:-8%; /* Remove any negative margin that offsets images */
+    width: 100%; /* Ensure it spans the width for proper centering */
+    text-align: center;
+}
+
+/* Image styling */
+.object img {
+    display: inline-block; /* Ensure proper inline-block behavior */
+    max-width: 100%;
+    height: auto;
+}
+    /* Text styling */
+    .centered-text {
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 20px; /* Add space between the image and text */
     }
 
-
-        /* Text styling */
-        .centered-text {
-            font-size: 30px;
-            font-weight: bold;
-            margin-top: 20px; /* Add space between the image and text */
-        }
-.repeat button {
-        position: fixed; /* Keeps it fixed relative to the viewport */
-        top: 20px; /* Distance from the top of the viewport */
-        right: 20px; /* Distance from the left of the viewport */
-        font-size: 20px;
+    /* Next button styling */
+    .next-button {
+        font-size: 35px;
         background: rgba(250, 231, 200, 0.6);
         color: rgb(0, 0, 0);
-        width: 100px;
-        height: 100px;
-        cursor: pointer;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 80px;
+        border-radius: 30px;
         border: none;
-        border-radius: 30px; /* Rounded corners */
-        transition: all 0.3s ease; /* Smooth transition */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 
     /* Next button active effect */
@@ -65,36 +75,74 @@
         background: rgb(255, 200, 150);
         color: rgb(255, 255, 255);
     }
-        /* Image section styling */
-        .object img {
-            margin: 0 10px; /* Add spacing between images */
-        }
-              .repeat button {
-            position: fixed; /* Keeps it fixed relative to the viewport */
-            top: 100px; /* Distance from the top of the viewport */
-            right: 50px; /* Distance from the left of the viewport */
-            font-size: 20px;
-            background: rgba(250,231,200, 0.6);
-            color: rgb(0, 0, 0);
-            width: 100px;
-            height: 100px;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-        }
+
+
+    .repeat button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        left: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(128, 168, 255, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    }
 
     /* Next button active effect */
     .repeat button:active {
-        background: rgb(255, 200, 150);
+        background: rgb(41, 57, 104);
         color: rgb(255, 255, 255);
     }
-    </style>
 
+    .stop button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(255, 0, 0, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    }
+
+    .stop button:disabled {
+        background: rgba(92, 43, 43, 0.6);
+        color: rgb(255, 255, 255);
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
+    }
+</style>
    <script >
     var socket = io.connect('http://192.168.100.2:5000');
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
 
+    /* STOP function */
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const stopSpeechButton = document.getElementById("stop-speech-btn");
+
+        stopSpeechButton.addEventListener("click", function () {
+            // Emit 'speech_stop' event to the backend
+            socket.emit('speech_stop', {message: "Stop speech command sent"});
+            console.log("Speech stop event emitted");
+
+            // Disable the button for 2 seconds
+            stopSpeechButton.disabled = true;
+            setTimeout(function () {
+                stopSpeechButton.disabled = false;
+            }, 500); // 2000ms = 2 seconds
+        });
+    });
 
      $(document).ready(function() {
         socket.emit('first_page',{data: 'sending'});
@@ -105,14 +153,7 @@
 
             location.href = '/girl/lodge';
     }
-    function myFunction() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
+
 function repeat_speech(){
          socket.emit('repeat_speech', "Once upon a time lived Goldilocks and The Three Bears.")
 }
@@ -126,11 +167,13 @@ function repeat_speech(){
         <div class="object">
             <img src="../static/story/first_girl.png" style="width: 18%;"  >
             <img src="../static/story/first_bear.png" style="width: 27%;"  >
-            <div class="repeat">
-            <button onclick="repeat_speech()">
-                Repeat<br>button
-            </button>
-              </div>
+        <div class="repeat">
+            <button onclick="repeat_speech()"> Repeat</button>
+        </div>
+
+        <div class="stop">
+            <button id="stop-speech-btn"> STOP</button>
+        </div>
         </div>
 
         <!-- Centered text below the images -->
@@ -142,13 +185,13 @@ function repeat_speech(){
         {% endif %}
 
     </div>
-        <!-- Next Button -->
-        <input
-            type="button"
-            value="Next"
-            onclick="go_to_next_page()"
-            class="next-button">
 
+<!-- Next Button -->
+<input
+        type="button"
+        value="Next"
+        onclick="go_to_next_page()"
+        class="next-button">
 
 
 </body>

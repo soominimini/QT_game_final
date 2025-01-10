@@ -20,13 +20,12 @@
     }
 
 #wrap { display: flex; width: 100%; height: 100%; justify-content: center; align-items: center; }
- #diceBox {
-        max-width: 600px;
+    #diceBox {
+        max-width: 800px;
         width: 90vw;
         height: auto;
-        {#background-color: #fff;#}
         border-radius: 10px;
-        {#box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);#}
+        margin-top: -6%;
         padding: 40px;
         box-sizing: border-box;
     }
@@ -65,7 +64,7 @@
         overflow: hidden;
         position: fixed;
         bottom: 20px;
-        left: 44.5%;
+        left: 45%;
     }
 
     #btnDisplay{
@@ -110,7 +109,7 @@
         transform: skewX(-45deg) translateX(280px);
     }
 
-.question-button { width: 100px; height: 40px; margin: 5px; background-color: #3498db; border: none; border-radius: 4px; color: #fff; cursor: pointer; }
+.question-button { width: 200px; height: 100px; margin: 10px; background-color: #3498db; border: none; border-radius: 4px; color: #fff; cursor: pointer; font-size: medium; }
 
 @media screen and (max-width : 429px){
   #diceBox { box-shadow:none;}
@@ -290,11 +289,11 @@ btnDisplay.onclick = function(){
 
     // Set questions based on the current face
     if(currentFace =='face1' || currentFace =='face2'){
-        questions = ['When Question 1', 'When Question 2', 'When Question 3', 'When Question 4', 'When Question 5', 'When Question 6', 'When Question 7', 'When Question 8', 'When Question 9', 'When Question 10'];
+        questions = ['When do you wear sunglasses?', 'When do we go to school?', 'When is your birthday?', 'When do we go outside to play at school?', 'When do we eat breakfast?', 'When do we use an umbrella?', 'When do we eat lunch?', 'When do we put our pajamas?', "When is New Year's Day?", 'When do leaves fall down from trees?'];
 
     }
     else if(currentFace =='face3' || currentFace =='face4'){
-        questions = ['Why Question 1', 'Why Question 2', 'Why Question 3', 'Why Question 4', 'Why Question 5', 'Why Question 6', 'Why Question 7', 'Why Question 8', 'Why Question 9', 'Why Question 10'];
+        questions = ['Why do we wear sunscreen?', 'Why do we go to school?', 'Why do we wear a jacket?', 'Why do we brush our teeth?', 'Why do we wear a seat belt in the car?', 'Why do we wear a helmet when riding a bike?', 'Why do we drive cars?', 'Why do we turn on the lights?', "Why do we go to the dentist's office?", 'Why do we use umbrellas?'];
 
     }
     else{
@@ -308,7 +307,24 @@ btnDisplay.onclick = function(){
         button.innerText = questions[i];
         button.onclick = function() {
              value = button.innerText
-            socket.emit('dice_5w1h', button.innerText);
+            if(value=="When is New Year's Day?"){
+                 socket.emit('dice_5w1h', "When is New ears Day?");
+            }
+            else if(value== 'When do leavse fall down from trees?'){
+                socket.emit('dice_5w1h', "When is New ears Day?");
+            }
+            else if(value=='When do we use an umbrella?'){
+                socket.emit('dice_5w1h', "When do we use an umbrella");
+            }
+            else if(value=='Why do we use umbrellas?'){
+                socket.emit('dice_5w1h', "Why do we use umbrellas");
+            }
+            else if(value=='Why do we wear a helmet when riding a bike?'){
+                socket.emit('dice_5w1h', "Why do we wear a helmet, when riding a bike");
+            }
+            else {
+                socket.emit('dice_5w1h', button.innerText);
+            }
         };
         document.querySelector('.dice_wrap').appendChild(button);
     }
