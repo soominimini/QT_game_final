@@ -1609,7 +1609,7 @@ def young_emotion_card(id):
         rospy.sleep(1.0)
         gesturePlay_pub.publish("/QT/emotions/shy")
 
-    rospy.sleep(2.0)
+    rospy.sleep(3.0)
     talktext_pub.publish("Look at the tablet, click on the picture")
 
 
