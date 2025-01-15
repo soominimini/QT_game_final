@@ -50,15 +50,9 @@
         const btn = document.getElementById("btn1");
         // Apply visual feedback for all clicks
         applyButtonClickEffect(btn);
-        if (arr[0] == false && arr[1] == false && arr[2] == false) {
-            socket.emit('init_after_category', "Let's go to play!")
+         socket.emit('init_after_category', "Let's go to play!")
             location.href = '/supermarket_firstpage_young';
             value = "Let's go to play!"
-        } else {
-            {#disabling();#}
-            socket.emit('block_page', "Please choose another building!") //emit the information of dragged item
-            value = "Please choose another building!"
-        }
     }
 
     function hospital() {
@@ -66,15 +60,9 @@
         // Apply visual feedback for all clicks
         applyButtonClickEffect(btn);
 
-        if (arr[0] == true && arr[1] == false && arr[2] == false) {
-            socket.emit('init_after_category', "Let's go to play!")
+        socket.emit('init_after_category', "Let's go to play!")
             location.href = '/hospital_first_young';
             value = "Let's go to play!"
-        } else {
-            {#disabling();#}
-            socket.emit('block_page', "Please choose another building!") //emit the information of dragged item
-            value = "Please choose another building!"
-        }
     }
 
     function park() {
@@ -82,15 +70,9 @@
         const btn = document.getElementById("btn3");
         // Apply visual feedback for all clicks
         applyButtonClickEffect(btn);
-        if (arr[0] == true && arr[1] == true && arr[2] == false) {
-            socket.emit('init_after_category', "Let's go to play!")
+        socket.emit('init_after_category', "Let's go to play!")
             location.href = '/park_first_young';
             value = "Let's go to play!"
-        } else {
-            {#disabling();#}
-            socket.emit('block_page', "Please choose another building!") //emit the information of dragged item
-            value = "Please choose another building!"
-        }
     }
 
     document.addEventListener("DOMContentLoaded", function () {

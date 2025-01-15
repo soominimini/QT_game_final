@@ -116,6 +116,42 @@
   #diceBox > .dice_wrap { display: block;}
   #diceBox > .dice_wrap > [class^=dice] { width: 100%; margin-right: 0%; padding-top: 100%; }
 }
+
+#diceBox > .dice_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    {#gap: 10px; /* Adds spacing between items */#}
+}
+
+#diceBox > .dice_wrap > div {
+    width: 18%; /* Adjusted to fit 5 images per row with spacing */
+    margin: 1%; /* Space between items */
+    text-align: center;
+    box-sizing: border-box; /* Include padding and borders in the width calculation */
+}
+
+#diceBox > .dice_wrap > div img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image scales nicely */
+    border-radius: 10px; /* Optional: Rounded corners */
+    border: 1px solid #ddd; /* Optional: Add a border for better distinction */
+}
+
+@media screen and (max-width: 768px) {
+    #diceBox > .dice_wrap > div {
+        width: 30%; /* Three images per row on medium screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #diceBox > .dice_wrap > div {
+        width: 45%; /* Two images per row on smaller screens */
+    }
+}
+
+
   .repeat button {
         position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
@@ -159,6 +195,8 @@
         color: rgb(255, 255, 255);
         cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
+
+
 </style>
 
 <body>
@@ -277,7 +315,7 @@ btnRolling.onclick = function(){
 };
 
 var btnDisplay = document.querySelector('#btnDisplay');
-btnDisplay.onclick = function(){
+btnDisplay.onclick = function () {
     document.querySelector('.dice01').style.display = 'none';
     btnRolling.style.display = 'none';
     btnDisplay.style.display = 'none';
@@ -286,60 +324,119 @@ btnDisplay.onclick = function(){
     // Get the current face
     let currentFace = dice[0].classList[1];
     let questions = [];
+    let images = [];
 
-    // Set questions based on the current face
-    if(currentFace =='face1' || currentFace =='face2'){
-        questions = ['When do you wear sunglasses?', 'When do we go to school?', 'When is your birthday?', 'When do we go outside to play at school?', 'When do we eat breakfast?', 'When do we use an umbrella?', 'When do we eat lunch?', 'When do we put our pajamas?', "When is New Year's Day?", 'When do leaves fall down from trees?'];
+    // Set questions and images based on the current face
+    if (currentFace == 'face1' || currentFace == 'face2') {
+        questions = [
+            'When do you wear sunglasses?',
+            'When do we go to school?',
+            'When is your birthday?',
+            'When do we go outside to play at school?',
+            'When do we eat breakfast?',
+            'When do we use an umbrella?',
+            'When do we eat lunch?',
+            'When do we put our pajamas?',
+            "When is New Year's Day?",
+            'When do leaves fall down from trees?',
+        ];
+        images = [
+            '../static/dice/wh_images/when/sunglass.png', // Replace with the path to your image
+            '../static/dice/wh_images/when/school.jpeg',
+            '../static/dice/wh_images/when/birthday.jpeg',
+            '../static/dice/wh_images/when/play_outside.jpeg',
+            '../static/dice/wh_images/when/breakfast.jpg',
+            '../static/dice/wh_images/when/umbrella.png',
+            '../static/dice/wh_images/when/lunch.jpeg',
+            '../static/dice/wh_images/when/pajama.png',
+            '../static/dice/wh_images/when/new_year.jpg',
+            '../static/dice/wh_images/when/autumn-fall.jpg',
+        ];
+    } else if (currentFace == 'face3' || currentFace == 'face4') {
+        questions = [
+            'Why do we wear sunscreen?',
+            'Why do we go to school?',
+            'Why do we wear a jacket?',
+            'Why do we brush our teeth?',
+            'Why do we wear a seat belt in the car?',
+            'Why do we wear a helmet when riding a bike?',
+            'Why do we drive cars?',
+            'Why do we turn on the lights?',
+            "Why do we go to the dentist's office?",
+            'Why do we use umbrellas?',
+        ];
+        images = [
+            'sunscreen.png',
+            'school.png',
+            'jacket.png',
+            'teeth_brush.png',
+            'seat_belt.png',
+            'helmet.png',
+            'car.png',
+            'lights.png',
+            'dentist.png',
+            'umbrella.png',
+        ];
+    } else {
+        questions = [
+            'How Question 1',
+            'How Question 2',
+            'How Question 3',
+            'How Question 4',
+            'How Question 5',
+            'How Question 6',
+            'How Question 7',
+            'How Question 8',
+            'How Question 9',
+            'How Question 10',
+        ];
+        images = [
+            'how1.png',
+            'how2.png',
+            'how3.png',
+            'how4.png',
+            'how5.png',
+            'how6.png',
+            'how7.png',
+            'how8.png',
+            'how9.png',
+            'how10.png',
+        ];
+    }
+    // Create image and text elements for questions
+for (let i = 0; i < 10; i++) {
+    let container = document.createElement('div');
 
-    }
-    else if(currentFace =='face3' || currentFace =='face4'){
-        questions = ['Why do we wear sunscreen?', 'Why do we go to school?', 'Why do we wear a jacket?', 'Why do we brush our teeth?', 'Why do we wear a seat belt in the car?', 'Why do we wear a helmet when riding a bike?', 'Why do we drive cars?', 'Why do we turn on the lights?', "Why do we go to the dentist's office?", 'Why do we use umbrellas?'];
+    let img = document.createElement('img');
+    img.src = images[i]; // Path to the image
+    img.alt = questions[i];
+    container.appendChild(img);
 
-    }
-    else{
-        questions = ['How Question 1', 'How Question 2', 'How Question 3', 'How Question 4', 'How Question 5', 'How Question 6', 'How Question 7', 'How Question 8', 'How Question 9', 'How Question 10'];
+    let questionText = document.createElement('p');
+    questionText.innerText = questions[i];
+    questionText.style.fontSize = '16px';
+    questionText.style.fontWeight = 'bold';
+    questionText.style.marginTop = '10px';
+    container.appendChild(questionText);
 
-    }
-    // Create 10 buttons for questions
-    for (let i = 0; i < 10; i++) {
-        let button = document.createElement('button');
-        button.className = 'question-button';
-        button.innerText = questions[i];
-        button.onclick = function() {
-             value = button.innerText
-            if(value=="When is New Year's Day?"){
-                 socket.emit('dice_5w1h', "When is New ears Day?");
-            }
-            else if(value== 'When do leavse fall down from trees?'){
-                socket.emit('dice_5w1h', "When is New ears Day?");
-            }
-            else if(value=='When do we use an umbrella?'){
-                socket.emit('dice_5w1h', "When do we use an umbrella");
-            }
-            else if(value=='Why do we use umbrellas?'){
-                socket.emit('dice_5w1h', "Why do we use umbrellas");
-            }
-            else if(value=='Why do we wear a helmet when riding a bike?'){
-                socket.emit('dice_5w1h', "Why do we wear a helmet, when riding a bike");
-            }
-            else {
-                socket.emit('dice_5w1h', button.innerText);
-            }
-        };
-        document.querySelector('.dice_wrap').appendChild(button);
-    }
+    document.querySelector('.dice_wrap').appendChild(container);
+}
+
 };
+
+
 var btnGoBack = document.querySelector('#btnGoBack');
-btnGoBack.onclick = function(){
-    document.querySelector('.dice01').style.display = 'block';
-    btnRolling.style.display = 'block';
-    btnDisplay.style.display = 'block';
-    btnGoBack.style.display = 'none';
+btnGoBack.onclick = function () {
+    document.querySelector('.dice01').style.display = 'block'; // Show dice
+    btnRolling.style.display = 'block'; // Show roll button
+    btnDisplay.style.display = 'block'; // Show display button
+    btnGoBack.style.display = 'none'; // Hide go back button
 
-    // Remove the 10 buttons
-    let questionButtons = document.querySelectorAll('.question-button');
-    questionButtons.forEach(button => button.remove());
+    // Remove only the dynamically created question elements (images and text)
+    let questionContainers = document.querySelectorAll('.dice_wrap > div:not(.dice01)');
+    questionContainers.forEach(container => container.remove());
 };
+
 document.addEventListener("DOMContentLoaded", function () {
         const stopSpeechButton = document.getElementById("stop-speech-btn");
         const repeatSpeechButton = document.getElementById("repeat-speech-btn");

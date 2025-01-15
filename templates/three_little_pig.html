@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <title>Three Little Pigs</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <style>
+        body, html {
+            background-color: #C7E5FF;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .object {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: -8%;
+            width: 100%;
+            text-align: center;
+        }
+
+        .object img {
+            display: inline-block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .centered-text {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .play-pause-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+        }
+
+        .button {
+            font-size: 20px;
+            background: rgba(250, 231, 200, 0.6);
+            color: rgb(0, 0, 0);
+            width: 120px;
+            height: 50px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+        }
+
+        .button:active {
+            background: rgb(255, 200, 150);
+            color: rgb(255, 255, 255);
+        }
+
+        .draggable-images {
+            position: absolute;
+            bottom: 10%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .draggable {
+            width: 100px;
+            height: 100px;
+            cursor: grab;
+        }
+
+        .drop-zone {
+            position: relative;
+            margin-top: -20px;
+        }
+
+        .drop-zone img {
+            width: 50%;
+        }
+
+        .dropped-item {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="object">
+        <div class="drop-zone">
+            <img src="../static/story/pig/three_little_pig_background.png" alt="Background Image">
+        </div>
+
+        <div class="repeat">
+            <button onclick="repeat_speech()">Repeat</button>
+        </div>
+
+        <div class="stop">
+            <button id="stop-speech-btn">STOP</button>
+        </div>
+    </div>
+
+    <!-- Draggable Images Section -->
+    <div class="draggable-images">
+        <img  style="width: 100px;" src="../static/story/pig/straw_house.png" class="draggable" alt="Straw House">
+        <img style="width: 100px;" src="../static/story/pig/wooden_house.png" class="draggable" alt="Wooden House">
+        <img  style="width: 100px;" src="../static/story/pig/brick_house.png" class="draggable" alt="Brick House">
+    </div>
+</div>
+
+<!-- Play and Pause Buttons -->
+<div class="play-pause-buttons">
+    <button id="play-button" class="button">Play</button>
+    <button id="pause-button" class="button" disabled>Pause</button>
+</div>
+
+<script>
+    let socket = io.connect('http://192.168.100.2:5000');
+    let storyText = [
+        "Once upon a time there were three little pigs.",
+"One pig built a house of straw.",
+"while the second pig built his house with sticks.",
+"They built their houses very quickly and then sang and danced all day because they were lazy.",
+"The third little pig worked hard all day and built his house with bricks.",
+"A big bad wolf saw the two little pigs while they danced and played and thought.",
+"What juicy tender meals they will make!",
+"He chased the two pigs and they ran and hid in their houses.",
+"The big bad wolf went to the first house and huffed and puffed and blew the house down in minutes.",
+"The frightened little pig ran to the second pig’s house that was made of sticks.",
+"The big bad wolf now came to this house and huffed and puffed and blew the house down in hardly any time.",
+"Now, the two little pigs were terrified and ran to the third pig’s house that was made of bricks.",
+"The big bad wolf tried to huff and puff and blow the house down, but he could not.",
+"He kept trying for hours but the house was very strong and the little pigs were safe inside.",
+"He tried to enter through the chimney but the third little pig boiled a big pot of water and kept it below the chimney.",
+"The wolf fell into it and died.",
+"The two little pigs now felt sorry for having been so lazy. They too built their houses with bricks and lived happily ever after."
+    ];
+    let currentIndex = 0;
+    let isPlaying = false;
+    let intervalId;
+
+    $(function () {
+        // Make images draggable
+        $(".draggable").draggable({
+            revert: "invalid", // Revert if not dropped in a valid area
+            start: function () {
+                $(this).css("cursor", "grabbing");
+            },
+            stop: function () {
+                $(this).css("cursor", "grab");
+            }
+        });
+$(".drop-zone").droppable({
+    accept: ".draggable",
+    drop: function (event, ui) {
+        const droppedItem = ui.draggable.clone();
+        const originalItem = ui.draggable;
+
+        // Disable the original item to prevent duplicate dragging
+        originalItem.draggable("disable");
+
+        // Append the cloned item to the drop zone
+        $(this).append(droppedItem);
+
+        // Position the cloned item correctly
+        droppedItem.addClass("dropped-item").css({
+            top: ui.position.top - $(this).offset().top + "px",
+            left: ui.position.left - $(this).offset().left + "px",
+            position: "absolute",
+            width: originalItem.width(),
+            height: originalItem.height(),
+            cursor: "grab",
+            "pointer-events": "auto" // Enable interaction
+        });
+
+        // Make the cloned item draggable within the drop zone
+        droppedItem.draggable({
+            containment: ".drop-zone",
+            stop: function () {
+                console.log(`${droppedItem.attr("alt")} moved within the background.`);
+            }
+        });
+
+        console.log(`${originalItem.attr("alt")} dropped on the background.`);
+    }
+});
+
+
+
+    });
+
+    function playStory() {
+        if (!isPlaying) {
+            isPlaying = true;
+            $("#play-button").prop("disabled", true);
+            $("#pause-button").prop("disabled", false);
+
+            intervalId = setInterval(() => {
+                if (currentIndex < storyText.length) {
+                    socket.emit('story_text', storyText[currentIndex]);
+                    console.log(`Sent: ${storyText[currentIndex]}`);
+                    currentIndex++;
+                } else {
+                    clearInterval(intervalId);
+                    $("#play-button").prop("disabled", false);
+                    $("#pause-button").prop("disabled", true);
+                    isPlaying = false;
+                }
+            }, 2000); // Send sentence every 2 seconds
+        }
+    }
+
+    function pauseStory() {
+        if (isPlaying) {
+            clearInterval(intervalId);
+            isPlaying = false;
+            $("#play-button").prop("disabled", false);
+            $("#pause-button").prop("disabled", true);
+            console.log("Story paused.");
+        }
+    }
+
+    $("#play-button").on("click", playStory);
+    $("#pause-button").on("click", pauseStory);
+
+    function repeat_speech() {
+        socket.emit('repeat_speech', "Once upon a time lived Goldilocks and The Three Bears.");
+    }
+
+    function go_to_next_page() {
+        console.log("Next button clicked.");
+    }
+</script>
+</body>
+</html>

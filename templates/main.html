@@ -15,7 +15,7 @@
         }
 
         function older() {
-            var ids = ["emotion_game2_container", "instructions_game_container", "story_container", "dice_emotion_old_container", "dice_5w1h_1_container", "dice_5w1h_2_container", "dice_board_container"];
+            var ids = ["emotion_game2_container", "instructions_game_container", "story_container", "dice_emotion_old_container", "dice_wh_container","dice_5w1h_1_container", "dice_5w1h_2_container", "dice_board_container", "three_little_pig"];
             toggleButtons(ids);
         }
 
@@ -279,7 +279,7 @@
         <!-- Dice Game / Action -->
         <div id="dice_action_young_container" class="button-container"
              style="display: none; position:fixed; top: 25%; left: 22%">
-            <input id="dice_action_young" class="game-button sync" type="button" value="Dice game/ action"
+            <input id="dice_action_young" class="game-button sync" type="button" value="Brain breaks"
                    onclick="handleGameClick('dice_action_young')" required/>
             <input class="info-button" type="button" value="i" onclick="showInfo('Roll a virtual dice with activities (e.g., singing, dancing)')"/>
         </div>
@@ -297,8 +297,9 @@
         <!-- Dice Game / Emotions -->
         <div id="instructions_game_container_young" class="button-container"
              style="display: none; position:fixed; top: 25%; left:62%">
-            <input id="instructions_game_young" class="game-button sync" type="button" value="Instruction game"
-                   onclick="handleGameClick('instructions_game_young')" required/>
+            <input id="instructions_game_young" class="game-button sync" type="button" value="Following direction game"
+                   onclick="handleGameClick('instructions_game_young')" required
+                   style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
             <input class="info-button" type="button" value="i"
                    onclick="showInfo('Drag and drop the correct image into a basket for the robot')"/>
         </div>
@@ -321,8 +322,9 @@
 
         <!-- Instruction Game -->
         <div id="instructions_game_container" class="button-container" style="display: none;">
-            <input id="instructions_game" class="game-button sync" type="button" value="Instruction game"
-                   onclick="handleGameClick('instructions_game')" required/>
+            <input id="instructions_game" class="game-button sync" type="button" value="Following complex direction game"
+                   onclick="handleGameClick('instructions_game')" required
+                   style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
             <input class="info-button" type="button" value="i" onclick="showInfo('Drag and drop the correct image into a basket for the robot')"/>
         </div>
 
@@ -343,24 +345,34 @@
         </div>
 
         <!-- Rolling Dice (Why When How) -->
-        <div id="dice_5w1h_1_container" class="button-container"
+        <div id="dice_wh_container" class="button-container"
              style="display: none;position:fixed; top: 75%; left:32%">
-            <input id="dice_5w1h_1" class="game-button sync" type="button" value="Rolling dice (why when how)"
-                   onclick="handleGameClick('dice_5w1h_1')" required
+            <input id="dice_5w1h" class="game-button sync" type="button" value="Rolling dice wh questions"
+                   onclick="handleGameClick('dice_5w1h')" required
                    style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
             <input class="info-button" type="button" value="i"
-                   onclick="showInfo('Roll a virtual dice with \'Wh-\' questions (e.g., why, when, how) to spark discussion.')"/>
+                   onclick="showInfo('Roll a virtual dice with \'Wh-\' questions to spark discussion.')"/>
         </div>
-
-        <!-- Rolling Dice (What Who Where) -->
-        <div id="dice_5w1h_2_container" class="button-container"
-             style="display: none; position:fixed; top: 75%; left:52%">
-            <input id="dice_5w1h_2" class="game-button sync" type="button" value="Rolling dice (what who where)"
-                   onclick="handleGameClick('dice_5w1h_2')" required
-                   style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
-            <input class="info-button" type="button" value="i"
-                   onclick="showInfo('Roll a virtual dice with \'Wh-\' questions (e.g., what, who, where) to spark discussion.')"/>
-        </div>
+{##}
+{#        <!-- Rolling Dice (Why When How) -->#}
+{#        <div id="dice_5w1h_1_container" class="button-container"#}
+{#             style="display: none;position:fixed; top: 75%; left:32%">#}
+{#            <input id="dice_5w1h_1" class="game-button sync" type="button" value="Rolling dice (why when how)"#}
+{#                   onclick="handleGameClick('dice_5w1h_1')" required#}
+{#                   style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>#}
+{#            <input class="info-button" type="button" value="i"#}
+{#                   onclick="showInfo('Roll a virtual dice with \'Wh-\' questions (e.g., why, when, how) to spark discussion.')"/>#}
+{#        </div>#}
+{##}
+{#        <!-- Rolling Dice (What Who Where) -->#}
+{#        <div id="dice_5w1h_2_container" class="button-container"#}
+{#             style="display: none; position:fixed; top: 75%; left:52%">#}
+{#            <input id="dice_5w1h_2" class="game-button sync" type="button" value="Rolling dice (what who where)"#}
+{#                   onclick="handleGameClick('dice_5w1h_2')" required#}
+{#                   style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>#}
+{#            <input class="info-button" type="button" value="i"#}
+{#                   onclick="showInfo('Roll a virtual dice with \'Wh-\' questions (e.g., what, who, where) to spark discussion.')"/>#}
+{#        </div>#}
 
         <!-- Rolling Dice with Board -->
         <div id="dice_board_container" class="button-container"
@@ -370,6 +382,7 @@
             <input class="info-button" type="button" value="i"
                    onclick="showInfo('Roll a virtual dice with numbers to move your piece on a game board')"/>
         </div>
+
     </div>
 
 
