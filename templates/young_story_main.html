@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <link rel="stylesheet" href="dice.css">
+    <title>Dice Roll</title>
+</head>
+
+<script type="text/javascript">
+    var socket = io.connect('http://192.168.100.2:5000');
+    socket.on('redirect', function (data) {
+        console.log(data);
+        window.location = data.url;
+    });
+
+    // Function to show the info popup
+    function showInfo(message) {
+        document.getElementById("popup-text").innerText = message;
+        document.getElementById("popup-overlay").style.display = "block";
+        document.getElementById("info-popup").style.display = "block";
+    }
+
+    // Function to close the popup
+    function closePopup() {
+            document.getElementById("popup-overlay").style.display = "none";
+            document.getElementById("info-popup").style.display = "none";
+    }
+
+
+    // Function to handle game button clicks
+    function handleGameClick(gameId) {
+        console.log(`Game ${gameId} clicked`);
+        // Emit event or perform desired action here
+        {#socket.emit('click_main', {who: gameId});#}
+        if(gameId =='brown_bear') {
+            window.location.href = '/brown_bear';
+        }
+        else{
+             window.location.href = '/brown_bear';
+        }
+    }
+
+
+</script>
+
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    html, body {
+        max-width: 100%;
+        height: 100%;
+        background-color: #C7E5FF;
+    }
+
+
+    #wrap {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #diceBox {
+        max-width: 600px;
+        width: 90vw;
+        height: auto;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        padding: 40px;
+        box-sizing: border-box;
+    }
+
+    #diceBox > .dice_wrap {
+        width: 100%;
+        height: auto;
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice]:last-of-type {
+        margin-right: 0px;
+    }
+
+
+    #diceBox > .dice_wrap > [class^=dice] {
+        width: 49%;
+        margin-right: 2%;
+        padding-top: 49%;
+        margin-left: 25%;
+        position: relative;
+    }
+
+    .dice_inner {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        perspective: 300px;
+        padding: 20%;
+        box-sizing: border-box;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: 1s;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1.0;
+        color: #fff;
+        font-size: 60px;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice .face1 {
+        transform: rotateY(0deg) translateZ(60px);
+        background: red;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice .face2 {
+        transform: rotateY(90deg) translateZ(60px);
+        background: blue;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice .face3 {
+        transform: rotateX(90deg) translateZ(60px);
+        background: green;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice .face4 {
+        transform: rotateX(270deg) translateZ(60px);
+        background: pink;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice .face5 {
+        transform: rotateY(270deg) translateZ(60px);
+        background: royalblue;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice .face6 {
+        transform: rotateY(180deg) translateZ(60px);
+        background: purple;
+    }
+
+
+    #diceBox > .dice_wrap > [class^=dice] .dice.face1 {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice.face2 {
+        transform: rotateX(0deg) rotateY(-90deg);
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice.face3 {
+        transform: rotateX(-90deg) rotateY(0deg);
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice.face4 {
+        transform: rotateX(-270deg) rotateY(0deg);
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice.face5 {
+        transform: rotateX(0deg) rotateY(-270deg);
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice.face6 {
+        transform: rotateX(0deg) rotateY(-180deg);
+    }
+
+    #btnRolling {
+        display: block;
+        font-size: 35px;
+        width: 150px;
+        height: 80px;
+        margin: 0 auto;
+        background-color: royalblue;
+        border: none;
+        border-radius: 30px;
+        color: #fff;
+        cursor: pointer;
+        overflow: hidden;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+    }
+
+    #btnRolling::before {
+        display: block;
+        content: '';
+        width: 60px;
+        height: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        left: -60px;
+        transition: all 0.5s;
+        transform: skewX(-45deg);
+        transform-origin: top left;
+        opacity: 0.3;
+    }
+
+    #btnRolling:hover::before {
+        transform: skewX(-45deg) translateX(280px);
+    }
+
+
+    @media screen and (max-width: 429px) {
+        #diceBox {
+            box-shadow: none;
+        }
+
+        #diceBox > .dice_wrap {
+            display: block;
+        }
+
+        #diceBox > .dice_wrap > [class^=dice] {
+            width: 100%;
+            margin-right: 0%;
+            padding-top: 100%;
+        }
+    }
+
+    .repeat button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        left: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(128, 168, 255, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    }
+
+    /* Next button active effect */
+    .repeat button:disabled {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+    }
+
+    .stop button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(255, 0, 0, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    }
+
+    .stop button:disabled {
+        background: rgba(92, 43, 43, 0.6);
+        color: rgb(255, 255, 255);
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
+    }
+
+    .button-container {
+        position: relative;
+        display: block; /* Hidden initially */
+        margin: 10px;
+        width: 230px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .game-button {
+        flex: 4;
+        height: 100%;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+        background-color: #fff;
+    }
+
+    .other-button {
+        font-size: 19px;
+        text-align: center;
+        border: none;
+        background: none;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .info-button {
+        flex: 1;
+        height: 100%;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+        background-color: #007BFF;
+        color: white;
+    }
+
+    .info-button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Popup styles */
+    .popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .info-popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .close-popup {
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .close-popup:hover {
+        background-color: #0056b3;
+    }
+
+</style>
+
+<body>
+<body>
+<div id="wrap">
+    <div class="repeat">
+        <button id="repeat-speech-btn">Repeat</button>
+    </div>
+
+    <div class="stop">
+        <button id="stop-speech-btn">STOP</button>
+    </div>
+
+    <div id="dice-buttons"
+         style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+        <!-- Brown bear -->
+        <div id="dice_5w1h_1_container" class="button-container">
+            <input id="dice_5w1h_1" class="game-button sync" type="button" value="Brown Bear"
+                   onclick="handleGameClick('brown_bear')" required
+                   style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Robot tells the Brown bear Brown bear, what do you see? story')"/>
+        </div>
+
+        <!-- Good night -->
+        <div id="dice_5w1h_2_container" class="button-container">
+            <input id="dice_5w1h_2" class="game-button sync" type="button" value="Rolling dice (what who where)"
+                   onclick="handleGameClick('dice_5w1h_2')" required
+                   style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Roll a virtual dice with \'Wh-\' questions (e.g., what, who, where) to spark discussion.')"/>
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="info-popup" id="info-popup">
+            <p id="popup-text">Popup Content Here</p>
+            <button class="close-popup" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+</div>
+</body>
+
+</body>
+
+</html>

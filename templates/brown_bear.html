@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brown Bear</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+
+    <style>
+        body {
+            overflow: hidden; /* Prevent scrolling */
+            background-color: #FFFCA3;
+        }
+
+        /* Main container styling */
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Text styling */
+        .centered-text {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 10px; /* Add space between the image and text */
+        }
+
+        /* Next button styling */
+        .next-button {
+            font-size: 35px;
+            background: rgba(250, 231, 200, 0.6);
+            color: rgb(0, 0, 0);
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 80px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Next button active effect */
+        .next-button:active {
+            background: rgb(255, 200, 150);
+            color: rgb(255, 255, 255);
+        }
+
+        /* Image section styling */
+        .object img {
+            margin: 0 10px; /* Add spacing between images */
+        }
+
+        .object {
+            margin-top: -20%;
+        }
+
+        .repeat button {
+            position: fixed; /* Keeps it fixed relative to the viewport */
+            top: 20px; /* Distance from the top of the viewport */
+            left: 20px; /* Distance from the left of the viewport */
+            font-size: 20px;
+            background: rgba(128, 168, 255, 0.6);
+            color: rgb(0, 0, 0);
+            width: 100px;
+            height: 60px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px; /* Rounded corners */
+            transition: all 0.3s ease; /* Smooth transition */
+        {
+            #box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+            #
+        }
+        }
+
+        /* Next button active effect */
+        .repeat button:active {
+            background: rgb(41, 57, 104);
+            color: rgb(255, 255, 255);
+        }
+
+        .stop button {
+            position: fixed; /* Keeps it fixed relative to the viewport */
+            top: 20px; /* Distance from the top of the viewport */
+            right: 20px; /* Distance from the left of the viewport */
+            font-size: 20px;
+            background: rgba(255, 0, 0, 0.6);
+            color: rgb(0, 0, 0);
+            width: 100px;
+            height: 60px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px; /* Rounded corners */
+            transition: all 0.3s ease; /* Smooth transition */
+        {
+            #box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+            #
+        }
+        }
+
+        .stop button:disabled {
+            background: rgba(92, 43, 43, 0.6);
+            color: rgb(255, 255, 255);
+            cursor: not-allowed; /* Change cursor to indicate disabled state */
+        }
+
+        button {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        button img {
+            width: 150px; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Optional: Add rounded corners */
+            border: 1px solid #ddd; /* Optional: Add a border */
+        }
+
+        .object {
+            margin-top: -20%;
+            background-image: url('../static/story/brown_bear/scene1.png'); /* Replace with your image path */
+            background-size: cover; /* Ensures the image covers the entire object container */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            width: 100%; /* Ensures the object container spans the full width */
+            height: auto; /* Adjust height as needed */
+            padding: 20px; /* Add padding for spacing around the content */
+            border-radius: 10px; /* Optional: Add rounded corners */
+        }
+
+        .grey-out {
+            filter: grayscale(100%); /* Makes the button appear grey */
+            opacity: 0.9; /* Optional: Makes it look faded */
+            pointer-events: none; /* Optional: Prevent further clicks while greyed out */
+        }
+
+        .other button {
+
+            font-size: 15px;
+            background: rgba(159, 243, 139, 0.6);
+            color: rgb(0, 0, 0);
+            width: 70px;
+            height: 40px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px; /* Rounded corners */
+            transition: all 0.3s ease; /* Smooth transition */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+
+        /* Next button active effect */
+        .other button:active {
+            background: rgb(41, 57, 104);
+            color: rgb(255, 255, 255);
+        }
+
+
+    </style>
+    <script type="text/javascript">
+        var socket = io.connect('http://192.168.100.2:5000');
+
+        function handleImageClick(imageName) {
+            // Example: Emit an event to the server
+            socket.emit('image_clicked', {image: imageName});
+            console.log(`${imageName} image clicked`);
+        }
+
+        function handleButtonClick(button) {
+            // Add the 'grey-out' class to the button
+            button.classList.add('grey-out');
+
+            // Remove the class after 1 second
+            setTimeout(() => {
+                button.classList.remove('grey-out');
+            }, 1000); // 1000 ms = 1 second
+        }
+
+        /* STOP function */
+        // Define global variables for prompts
+        let currentPrompt = "";
+        let currentPrompt2 = "";
+        let statement = "";
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const stopSpeechButton = document.getElementById("stop-speech-btn");
+
+            stopSpeechButton.addEventListener("click", function () {
+                // Emit 'speech_stop' event to the backend
+                socket.emit('speech_stop', {message: "Stop speech command sent"});
+                console.log("Speech stop event emitted");
+
+                // Disable the button for 2 seconds
+                stopSpeechButton.disabled = true;
+                setTimeout(function () {
+                    stopSpeechButton.disabled = false;
+                }, 500); // 2000ms = 2 seconds
+            });
+            // Initialize the current sequence state
+            currentPrompt = "Brown Bear, Brown Bear, What do you see?";
+            currentPrompt2 = "I see a, red burd, looking at me.";
+            let expectedAnswer = "bird";
+
+            socket.emit('brown_talk', currentPrompt, 2);
+            socket.emit('brown_talk', currentPrompt2, 4);
+
+            // Function to handle button clicks and sequence
+            function handleImageClick(imageName) {
+                if (imageName === expectedAnswer) {
+                    // Correct answer clicked
+                    console.log(`Correct answer: ${imageName}`);
+
+                    // Update the next sequence
+                    if (imageName === "bird") {
+                        socket.emit('correct');
+                        currentPrompt = "Red bird, Red bird, What do you see?";
+                        currentPrompt2 = "I see a yellow duck, looking at me.";
+                        expectedAnswer = "duck";
+
+                        socket.emit('brown_talk', currentPrompt, 3);
+                        socket.emit('brown_talk', currentPrompt2, 4.5);
+
+                    } else if (imageName === "duck") {
+                        socket.emit('correct');
+                        currentPrompt = "Yellow duck, Yellow Duck, What do you see?";
+                        currentPrompt2 = "I see a, blue horse, looking at me.";
+                        expectedAnswer = "horse";
+
+                        socket.emit('brown_talk', currentPrompt, 3);
+                        socket.emit('brown_talk', currentPrompt2, 4.5);
+
+                    } else if (imageName === "horse") {
+                        socket.emit('correct');
+                        socket.emit('brown_talk', "Lets go to next page", 3);
+                    } else {
+                        console.log("End of sequence");
+                        return; // End the sequence
+                    }
+
+
+                } else {
+                    // Incorrect answer
+                    console.log(`Incorrect answer: ${imageName}. Try again.`);
+                    socket.emit('wrong');
+                }
+            }
+
+            // Attach the function to buttons
+            window.handleImageClick = handleImageClick; // Make it globally accessible
+
+
+        });
+
+        /* STOP function */
+        console.log("first socket:", socket);
+        socket.emit('connect event', {data: 'User Connected'});
+
+
+        function go_to_next_page() {
+            location.href = '/brown_bear2';
+        }
+
+        function repeat_speech() {
+            socket.emit('repeat_speech', currentPrompt);
+            setTimeout(() => {
+                socket.emit('repeat_speech', currentPrompt2);
+            }, 1000); // Delay for better UX
+        }
+
+        function praise() {
+            var praise1 = document.getElementById("praise1");
+            // Toggle their visibility
+            var displayState = (praise1.style.display === "none") ? "block" : "none";
+            praise1.style.display = displayState;
+        }
+
+        function speak(msg) {
+            socket.emit('repeat_speech', msg)
+        }
+    </script>
+
+<body>
+<div class="container">
+    <div class="object" style="background-color: white; width: 900px; height: 700px; margin-top: 0;">
+        <button onclick="handleImageClick('bear'); handleButtonClick(this);"
+                style="position:absolute; top: 60%; right: 20%">
+            <img src="../static/story/brown_bear/bear.png" alt="Bear" style="transform: scaleX(-1);">
+        </button>
+        <button onclick="handleImageClick('bird'); handleButtonClick(this);"
+                style="position:absolute; right: 30%">
+            <img src="../static/story/brown_bear/bird.png" alt="Bird" style=" width:100px; transform: scaleX(-1);">
+        </button>
+        <button onclick="handleImageClick('duck'); handleButtonClick(this);"
+                style="position:absolute; top: 70%; left: 20%;">
+            <img src="../static/story/brown_bear/duck.png" style="width: 100px;transform: scaleX(-1);" alt="Duck">
+        </button>
+        <button onclick="handleImageClick('horse'); handleButtonClick(this);"
+                style="position:absolute;top: 50%; left: 40%; ">
+            <img src="../static/story/brown_bear/horse.png" alt="Horse">
+        </button>
+
+    </div>
+    <div class="repeat">
+        <button onclick="repeat_speech()"> Repeat</button>
+    </div>
+
+    <div class="stop">
+        <button id="stop-speech-btn"> STOP</button>
+    </div>
+
+
+    <div class="other" style="position: fixed;  top: 400px; left: 40px">
+        <button onclick="praise()">Praise</button>
+    </div>
+
+
+    <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 400px; /* Distance from the top of the viewport */
+        left: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Good Job')">Good job</button>
+    </div>
+</div>
+
+<!-- Next button -->
+<input type="button" value="Next" onclick="go_to_next_page()" class="next-button">
+</div>
+
+
+</body>
+</html>

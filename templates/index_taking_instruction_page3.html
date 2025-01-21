@@ -4,13 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 제이쿼리, 제이쿼리ui-->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-    <!--   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>-->
-    <!-- touch punch는 jquery ui 아래에 위치해야함 -->
     <title>Instruction Game</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
@@ -20,27 +17,38 @@
     var value = "";
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
-         const img1 = new Image();
-        img1.src = "../static/instruction/old/cart_apple.png";
-    const img2 = new Image();
-        img2.src = "../static/instruction/old/cart_apple_milk.png";
-    const img3 = new Image();
-        img3.src = "../static/instruction/old/cart_apple_milk_bag.png";
 
-     $(document).ready(function() {
-     socket.emit('first_talk', 'I want fruits');
-     value = 'I want a school item. Can you give an apple?'
-     socket.emit('giveme_talk', 'Can you give me an apple?');
-     nonDragged();
-     document.getElementById("btn").disabled = true;
+    // Initialize the sentences and shuffle them
+    const sentences = [
+        {text: "Cherries in the fruit section, next to the cashier.", id: "cherries", target: "drop_cart"},
+        {text: "Lets place the milk on the counter.", id: "milk", target: "drop_cart2"},
+        {text: "I want to place the orange juice on the top left grocery shelf", id: "juice", target: "drop_cart3"}
+    ];
+    let currentSentenceIndex = 0;
 
-     });
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
 
-    var score = 0;
-    var count = 0;
-    var first_choice = false;
-    var second_choidce = false;
-    var third_choidce = false;
+    // Shuffle the sentences array
+    shuffleArray(sentences);
+
+    $(document).ready(function () {
+        // Emit the first sentence
+        let selectedSentence = sentences[currentSentenceIndex++];
+        value = selectedSentence.text;
+        socket.emit('giveme_talk', selectedSentence.text, 2.0);
+
+        nonDragged();
+        document.getElementById("btn").disabled = false;
+
+        // Save the selected sentence details for validation
+        window.currentSentence = selectedSentence;
+    });
+
     $(function () {
         $(".item").draggable({
             revert: "invalid",
@@ -50,130 +58,90 @@
         $(".cart").droppable({
             drop: handleDropEvent,
             hoverClass: 'drag-over'
-
         });
     });
 
-    var nonDragged = function(){
-    //make items non draggable
-    $(".item").draggable({
-            disabled: "true"
+    var nonDragged = function () {
+        $(".item").draggable({
+            disabled: true
         });
-    setTimeout(makeDragged, 3000);
-    }
-    var makeDragged = function(){
-    //make items non draggable
+        setTimeout(makeDragged, 3000);
+    };
+
+    var makeDragged = function () {
         $(".item").draggable('enable');
+    };
+    // Push the initial state to the history stack
+    window.addEventListener("load", function () {
+        history.pushState({page: 'main'}, '', window.location.href);
 
-    }
-
-
-
+        // Listen for the browser's native "Go Back" button
+        window.addEventListener("popstate", function (event) {
+            // Redirect to `taking_instruction_main.html` when the "Go Back" button is clicked
+            location.href = '/taking_instruction_main';
+        });
+    });
 
     function handleDropEvent(event, ui) {
+
         var draggable = ui.draggable;
-        var dragged_item = draggable[0].children[0].getAttribute('id'); // dragged item
-        var dragged_item_category = draggable[0].children[0].attributes[1].value; // dragged item category
-        if (first_choice == false && second_choidce == false && third_choidce == false) {
-            if (dragged_item_category == "first_answer") { //based on the type
-                nonDragged(); //make items are not draggable
+        var dragged_item_id = draggable.find("img").attr('id'); // Get ID of dragged item
+        var drop_target = $(this); // Reference to the drop target
+        var drop_target_id = $(this).attr('id'); // ID of the drop target
 
-                score += 1;
-                $('#' + dragged_item).hide();
-                {#$("#drop_cart").attr("src","../static/cart_with_apple.png");#}
+        const selectedSentence = window.currentSentence;
 
-                $("#drop_cart").attr("src", img1.src); // Update the cart image
-                first_choice = true;
-                   // Emit events with delay
-                        setTimeout(() => {
-                            socket.emit('correct'); //robot praise
-                        }, 1000); // No delay for the first emit
-
-                        setTimeout(() => {
-
-                            socket.emit('giveme_talk', 'I want drinks. Can you give me some milk?');
-
-                            value =  'Can you give me some milk?'
-                        }, 1000); // 1-second delay after the first emit
-
-                        setTimeout(() => {
-                            socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
-                        },1000); // 2-second delay after the second emit
-            }
-            else {
-                nonDragged();
-                score -= 1;
-                socket.emit('wrong') //robot encourage
-                socket.emit('wrong_repeat',  'I want an apple') //robot repeats what it asked
-                 value =  'I want cherries'
-                socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
-            }
+        // Check if the drop target already contains an image
+        console.log("drop_target.find :", drop_target.find("img").length)
+        if (drop_target.find("img").length > 0) {
+            console.log(`Drop target ${drop_target_id} already contains an image. Ignoring this drop.`);
+            return; // Exit the function if there's already an image
         }
-        else if (first_choice == true && second_choidce == false && third_choidce == false) {
-            if (dragged_item_category == "second_answer") { //based on the type
-             nonDragged(); //make items are not draggable
+        // If the item is dropped on the correct container
+        if (dragged_item_id === selectedSentence.id && drop_target_id === selectedSentence.target) {
+            var clonedImage = draggable.find("img").clone();
+            clonedImage.css({
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%"
+            });
 
-                score += 1;
-                $('#' + dragged_item).hide();
-                {#$("#drop_cart").attr("src","../static/cart_with_orange.png");#}
-                $("#drop_cart").attr("src", img2.src); // Update the cart image
-                second_choidce = true;
-                socket.emit('correct') //robot praise
-                socket.emit('giveme_talk', 'I want school items. Can you give me a backpack?'); //robot ask for the second item
-                 value = 'Can you give me a backpack?'
-                socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
+            // Place the item inside the container
+            $(this).append(clonedImage);
+
+            // Remove the item from the bottom list
+            draggable.remove();
+
+            // Emit the success event
+            socket.emit('correct') //robot praise
+            // Move to the next sentence if available
+            if (currentSentenceIndex < sentences.length) {
+                let selectedSentence_ = sentences[currentSentenceIndex++];
+                value = selectedSentence_.text;
+                socket.emit('giveme_talk', selectedSentence_.text, 2.0);
+                window.currentSentence = selectedSentence_;
+            } else {
+                console.log("All sentences have been completed.");
+                socket.emit('giveme_talk', "All done", 2.0);
             }
-            else {
-                nonDragged();
-                score -= 1;
-                socket.emit('wrong') //robot encourage
-                socket.emit('wrong_repeat',  'I want milk') //robot repeats what it asked
-                value =  'I want milk'
-                socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
-            }
+
+        } else {
+            socket.emit('wrong');
         }
-        else {
-            if (dragged_item_category == "third_answer") { //based on the type
-             nonDragged(); //make items are not draggable
-
-                score += 1;
-                $('#' + dragged_item).hide();
-                {#$("#drop_cart").attr("src","../static/cart_with_cherries.png");#}
-                $("#drop_cart").attr("src", img3.src); // Update the cart image
 
 
-                third_choidce = true;
-                socket.emit('correct') //robot praise
-                socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
-                socket.emit('next_page') //robot says go to next page
-                document.getElementById("btn").disabled = false;
-
-            }
-            else {
-                nonDragged();
-                score -= 1;
-                socket.emit('wrong') //robot encourage
-
-                 socket.emit('wrong_repeat',  'I want a backpack') //robot repeats what it asked
-                 value =  'I want a backpack'
-                socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
-            }
-        }
     }
 
     function go_to_next_page() {
-        if (first_choice == true && second_choidce == true && third_choidce==true) {
-            location.href = '/taking_instruction_main';
-        }
-        else {
-            socket.emit('block_page', "Please select all requested items!") //emit the information of dragged item
-            socket.emit('object_list', {data: "try to go to next step before finishing the current page"}); //emit the information of dragged item
-        }
+        // Additional logic can be added here
+        location.href = '/taking_instruction_main';
     }
 
-         window.onbeforeunload = function () {
-        socket.emit('client_disconnecting', {'data': "Taking Instruction supermarket1"});
-    }
+    window.onbeforeunload = function () {
+        socket.emit('client_disconnecting', {data: "Taking Instruction supermarket3"});
+    };
 
     document.addEventListener("DOMContentLoaded", function () {
         const stopSpeechButton = document.getElementById("stop-speech-btn");
@@ -196,6 +164,7 @@
 
         repeatSpeechButton.addEventListener("click", function () {
             console.log("repeat click")
+
             socket.emit('repeat_speech', value);
 
             // Disable the button for 2 seconds
@@ -207,14 +176,23 @@
     });
 </script>
 <style>
-  html, body {
+    html, body {
         max-width: 100%;
         height: 100%;
         background-color: #C7E5FF;
     }
 
+    .container {
+        background: url('../static/instruction/supermarket3.png') no-repeat center center;
+        background-size: 600px 500px; /* Set the width and height here */
+        background-position: center top 10px; /* Align the image at 1px from the top and horizontally centered */
+        position: relative;
 
-  .repeat button {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .repeat button {
         position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
         left: 20px; /* Distance from the left of the viewport */
@@ -227,10 +205,10 @@
         border: none;
         border-radius: 30px; /* Rounded corners */
         transition: all 0.3s ease; /* Smooth transition */
-    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+        z-index: 1000; /* Ensure this is above other elements */
     }
 
-    /* Next button active effect */
+
     .repeat button:disabled {
         background: rgb(41, 57, 104);
         color: rgb(255, 255, 255);
@@ -239,7 +217,7 @@
     .stop button {
         position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
-        right: 20px; /* Distance from the left of the viewport */
+        right: 20px; /* Distance from the right of the viewport */
         font-size: 20px;
         background: rgba(255, 0, 0, 0.6);
         color: rgb(0, 0, 0);
@@ -249,69 +227,99 @@
         border: none;
         border-radius: 30px; /* Rounded corners */
         transition: all 0.3s ease; /* Smooth transition */
-    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+        z-index: 1000; /* Ensure this is above other elements */
     }
 
     .stop button:disabled {
         background: rgba(92, 43, 43, 0.6);
         color: rgb(255, 255, 255);
-        cursor: not-allowed; /* Change cursor to indicate disabled state */
+        cursor: not-allowed;
     }
-        .next-button {
+
+    .next-button {
         font-size: 35px;
         background: rgba(250, 231, 200, 1.0);
         color: rgb(0, 0, 0);
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        bottom: 20px; /* Distance from the bottom of the viewport */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Center horizontally */
         width: 150px;
         height: 80px;
         border-radius: 30px;
         border: none;
         cursor: pointer;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        z-index: 1000; /* Ensure it's above other elements */
     }
 
-    /* Next button active effect */
     .next-button:active {
         background: rgb(255, 200, 150);
         color: rgb(255, 255, 255);
     }
+
+
+    .cart {
+        height: 100px;
+        width: 100px;
+        border: 3px dashed #ccc;
+        margin: 10px;
+        position: relative;
+    }
+
+    .cart img {
+        pointer-events: none; /* Prevent draggable items inside drop targets */
+    }
+
+    .item {
+        display: inline-block;
+        margin: 10px;
+    }
+
+    .object_old {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        margin-left: -1070px;
+        width: 10%;
+        top: -5%;
+    }
 </style>
 <body>
-    <div class="repeat">
-        <button id="repeat-speech-btn"> Repeat</button>
-    </div>
-
-    <div class="stop">
-        <button id="stop-speech-btn"> STOP</button>
-    </div>
-<div class="container">
-    <form id="data-send" name="data-send">
-   <input id ="btn"  class="next-button"type="button" value="Next" onclick="go_to_next_page()"/>
-{#        <input id ="btn" type="button" value="Next" onclick="go_to_next_page()" style="font-size : 30px; width: 100px; height: 50px;"/>#}
-    </form>
-    <div class="drop-targets">
-
-        <div class="cart">
-            <img id="drop_cart" data-target-id="grocery" src="../static/instruction/shopping-cart.png">
-        </div>
-    </div>
-    <div class="object" style="margin-top: -3%; width: 36%;">
-        <div class="item" style="width: 100px">
-           <img id="milk" data-source-id="second_answer" src="../static/instruction/milk.png">
-        </div>
-        <div class="item">
-            <img id="bag" data-source-id="third_answer" src="../static/instruction/bag.png"  >
-        </div>
-        <div class="item">
-            <img id="apple" data-source-id="first_answer" src="../static/instruction/apple.png">
-        </div>
-    </div>
-
+<div class="repeat">
+    <button id="repeat-speech-btn"> Repeat</button>
 </div>
 
+<div class="stop">
+    <button id="stop-speech-btn"> STOP</button>
+</div>
+<div class="container">
+    <form id="data-send" name="data-send">
+        <input id="btn" class="next-button" type="button" value="Next" onclick="go_to_next_page()"/>
+    </form>
+    <div class="drop-targets">
+        <div class="cart" id="drop_cart" style="position: absolute; top: 280px; left: 400px;"></div>
+        <div class="cart" id="drop_cart2" 2
+             style="position: absolute; top: 300px; left: 600px; height: 20%;"></div>
+        <div class="cart" id="drop_cart3" style="position: absolute; top:10px; left: 330px;"></div>
+    </div>
 
+    <div class="object_old" style="background-color: white">
+        <div class="item">
+            <img id="cherries" data-source-id="first_answer" src="../static/instruction/cherries.png"
+                 style="width: 100px; height: 100px;">
+        </div>
+        <div class="item">
+            <img id="juice" data-source-id="third_answer" src="../static/instruction/juice.png"
+            >
+        </div>
+        <div class="item">
+            <img id="milk" data-source-id="second_answer" src="../static/instruction/milk.png"
+                 style="width: 100px; height: 150px;">
+        </div>
+    </div>
+</div>
 </body>
 </html>

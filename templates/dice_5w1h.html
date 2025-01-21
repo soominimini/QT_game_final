@@ -37,7 +37,13 @@
     function handleGameClick(gameId) {
         console.log(`Game ${gameId} clicked`);
         // Emit event or perform desired action here
-        socket.emit('click_main', {who: gameId});
+        {#socket.emit('click_main', {who: gameId});#}
+        if(gameId =='dice_5w1h_1') {
+            window.location.href = '/dice_5w1h_1';
+        }
+        else{
+             window.location.href = '/dice_5w1h_2';
+        }
     }
 
 

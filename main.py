@@ -139,18 +139,15 @@ def handle_speech_say(data):
 
 
 @socketio.on('speech_say_slow')
-def handle_speech_say_slow(data):
+def handle_speech_say_slow(data, time_sleep):
     def say_speech_slow():
         speech_stop_event.clear()  # Reset stop signal before starting speech
         # speechSay_pub.publish(data)  # Publish speech
-        time.sleep(2.5)
-        # rospy.sleep(2.0)
+        rospy.sleep(time_sleep)
         speechSay_servc(data)
 
-    # Run speech processing in a separate thread
-    time.sleep(1)
     threading.Thread(target=say_speech_slow).start()
-    print("Speech say event received:", data)
+    print("Speech slow say event received:", data)
 
 
 @socketio.on('emotion_play')
@@ -223,35 +220,21 @@ def first_talk_robot():
     print(arr_visit)
     global global_sentence
     rospy.sleep(1.0)
-    # socketio.emit('number', arr_visit, broadcast=True)
-    handle_speech_say("Where do you wanna go?")
-    global_sentence = "Where do you wanna go?"
-    # if arr_visit[0] == False:
-    #     handle_speech_say("Let's go to the supermarket!")
-    #     global_sentence = "Let's go to the supermarket!"
-    #     # talktext_pub.publish("Let's go to the supermarket!")
-    #     rospy.sleep(3.0)
-    #     # talktext_pub.publish("Touch the correct one on the tablet!")  # Instruction
-    #     arr_visit[0] = True
-    # elif arr_visit[0] == True and arr_visit[1] == False:
-    #     # audioPlay_pub.publish(" ") #hospital audio
-    #     handle_speech_say("Let's go to the hospital")
-    #     global_sentence = "Let's go to the hospital!"
-    #     rospy.sleep(2.5)
-    #     # talktext_pub.publish("Touch the correct one on the tablet!")  # Instruction
-    #     arr_visit[1] = True
-    # elif arr_visit[0] == True and arr_visit[1] == True and arr_visit[2] == False:
-    #     handle_speech_say("Let's go to the park")
-    #     global_sentence = "Let's go to the park!"
-    #     # talktext_pub.publish("Let's go to the park")  # park
-    #     rospy.sleep(3.0)
-    #     # talktext_pub.publish("Touch the correct one on the tablet!")  # Instruction
-    #     arr_visit[2] = True
-    # else:
-    #     arr_visit[0] = False
-    #     arr_visit[1] = False
-    #     arr_visit[2] = False
-    #     handle_speech_say("All done! Let's play other games!")
+
+    # List of sentences to choose from
+    sentences = [
+        "Where do you wanna go?",
+        "Where do you want to go?",
+        "Where do you feel like going?",
+        "Where shall we go?",
+        "What place do you wanna go to?"
+    ]
+    # Randomly select a sentence
+    selected_sentence = random.choice(sentences)
+    # Say the selected sentence
+    talktext_pub.publish(selected_sentence)
+    # Update the global sentence
+    global_sentence = selected_sentence
 
 
 @socketio.on('init_after_category')
@@ -270,11 +253,11 @@ def first_talk_robot(msg):
 
 
 @socketio.on('giveme_talk')
-def giveme_talk_robot(msg):
+def giveme_talk_robot(msg, time_sleep):
     print("message: ", msg)
-    rospy.sleep(1)
-    handle_speech_say(msg)
-    # talktext_pub.publish(msg)
+    # handle_speech_say(msg)
+    rospy.sleep(time_sleep)
+    talktext_pub.publish(msg)
 
 
 @socketio.on('object_list')
@@ -610,6 +593,10 @@ def main_menu(message):
         socketio.emit('redirect', {'url': url_for('break_fucn')})
     elif (message["who"] == 'at_talks'):
         socketio.emit('redirect', {'url': url_for('at_talks_func')})
+    elif (message["who"] == 'story_young_client'):
+        socketio.emit('redirect', {'url': url_for('story_young_main')})
+    elif (message["who"] == 'brown_bear'):
+        socketio.emit('redirect', {'url': url_for('story_young')})
 
     is_redirecting = False
 
@@ -1582,6 +1569,41 @@ def at_talks_func():
     return render_template('at_talks.html')
 
 
+
+
+
+######################################################################################### brwon bear  ##############################################################
+@app.route('/story_game_young')
+def story_young_main():
+    # talktext_pub.publish("Let's roll the dice")
+    handle_speech_say("Lets choose a story")
+    return render_template('young_story_main.html')
+
+
+@app.route('/brown_bear')
+def story_young():
+    talktext_pub.publish("I will tell you a story")
+    return render_template('brown_bear.html')
+
+@app.route('/brown_bear2')
+def story_young2():
+    return render_template('brown_bear2.html')
+@app.route('/brown_bear3')
+def story_young3():
+    return render_template('brown_bear3.html')
+
+@app.route('/brown_bear4')
+def story_young4():
+    return render_template('brown_bear4.html')
+
+
+
+
+@socketio.on('brown_talk')
+def speech_brown_bear(text, sleep_time):
+    print("brown_talk: ", text, sleep_time)
+    rospy.sleep(sleep_time)
+    talktext_pub.publish(text)
 ######################################################################################### Negin     ############################################################################################
 # Emotion game1
 def emotion_card(id):

@@ -23,7 +23,6 @@
         background-color: #C7E5FF;
     }
 
-
     #wrap {
         display: flex;
         width: 100%;
@@ -31,6 +30,7 @@
         justify-content: center;
         align-items: center;
     }
+
     #diceBox {
         max-width: 800px;
         width: 90vw;
@@ -72,7 +72,20 @@
         box-sizing: border-box;
     }
 
-    {##diceBox > .dice_wrap > [class^=dice] .dice { width: 100%; height: 100%; transform-style: preserve-3d; transition: 1s; }#}
+    {
+        # #diceBox > . dice_wrap > [class^=dice] . dice
+    {
+        width: 100%
+    ;
+        height: 100%
+    ;
+        transform-style: preserve-3d
+    ;
+        transition: 1s
+    ;
+    }
+        #
+    }
     #diceBox > .dice_wrap > [class^=dice] .dice {
         width: 100%;
         height: 100%;
@@ -149,7 +162,6 @@
         transform: rotateX(0deg) rotateY(-180deg);
     }
 
-
     #btnRolling, #btnGoBack {
         display: block;
         font-size: 35px;
@@ -209,7 +221,18 @@
         transform: skewX(-45deg) translateX(280px);
     }
 
-.question-button { width: 200px; height: 100px; margin: 10px; background-color: #3498db; border: none; border-radius: 4px; color: #fff; cursor: pointer; font-size: medium; }
+    .question-button {
+        width: 200px;
+        height: 100px;
+        margin: 10px;
+        background-color: #3498db;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        font-size: medium;
+    }
+
     @media screen and (max-width: 429px) {
         #diceBox {
             box-shadow: none;
@@ -223,6 +246,52 @@
             width: 100%;
             margin-right: 0%;
             padding-top: 100%;
+        }
+    }
+
+    #diceBox > .dice_wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    {
+        #gap: 10px; /* Adds spacing between items */
+        #
+    }
+    }
+
+    #diceBox > .dice_wrap > div {
+        width: 18%; /* Adjusted to fit 5 images per row with spacing */
+        margin: 1%; /* Space between items */
+        text-align: center;
+        box-sizing: border-box; /* Include padding and borders in the width calculation */
+    }
+
+    #diceBox > .dice_wrap > div img {
+        /*width: 100%; !* Make the image fill the container *!*/
+        /*height: auto; !* Maintain aspect ratio *!*/
+        /*object-fit: cover; !* Ensure the image scales nicely *!*/
+        /*border-radius: 10px; !* Optional: Rounded corners *!*/
+        /*border: 1px solid #ddd; !* Optional: Add a border for better distinction *!*/
+
+
+        width: 130px; /* Fixed width */
+        height: 100px; /* Fixed height */
+        object-fit: cover; /* Ensures the image fills the container while maintaining aspect ratio */
+        border-radius: 10px; /* Optional: Rounded corners */
+        border: 1px solid #ddd; /* Optional: Add a border for better distinction */
+        margin: auto; /* Center the image inside the container */
+        display: block; /* Ensures proper alignment */
+    }
+
+    @media screen and (max-width: 768px) {
+        #diceBox > .dice_wrap > div {
+            width: 30%; /* Three images per row on medium screens */
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        #diceBox > .dice_wrap > div {
+            width: 45%; /* Two images per row on smaller screens */
         }
     }
 
@@ -240,7 +309,10 @@
         border: none;
         border-radius: 30px; /* Rounded corners */
         transition: all 0.3s ease; /* Smooth transition */
-    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    {
+        #box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        #
+    }
     }
 
     /* Next button active effect */
@@ -262,7 +334,10 @@
         border: none;
         border-radius: 30px; /* Rounded corners */
         transition: all 0.3s ease; /* Smooth transition */
-    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    {
+        #box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        #
+    }
     }
 
     .stop button:disabled {
@@ -270,6 +345,8 @@
         color: rgb(255, 255, 255);
         cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
+
+
 </style>
 
 <body>
@@ -359,15 +436,14 @@
         visitedFaces.add(dice_face);
         console.log("Math.floor(Math.random()*6): ", dice_face);
 
-        {#let value = '';#}
         if (dice_face == 1) {
-            value = 'where';
+            value = 'Where';
         } else if (dice_face == 2) {
-            value = 'where';
+            value = 'Where';
         } else if (dice_face == 3) {
-            value = 'who';
+            value = 'Who';
         } else if (dice_face == 4) {
-            value = 'who';
+            value = 'Who';
         } else if (dice_face == 5) {
             value = 'what';
         } else {
@@ -404,71 +480,84 @@
         // Get the current face
         let currentFace = dice[0].classList[1];
         let questions = [];
-
+        let images = [];
         // Set questions based on the current face
         if (currentFace == 'face1' || currentFace == 'face2') {
             questions = ['Where do we see clowns and a ringmaster?', 'Where do we watch movies on a big screen?', 'Where can we borrow books?', 'Where do cars and trucks drive?', 'Where do we buy things?', 'Where do we plant flowers and other plants?', 'Where do we play on slides and swings?', 'Where do we go to learn?', 'Where do we go to see wild animals like lions and tigers?', 'Where are the clouds?'];
-
+            images = [
+                '../static/dice/wh_images/where/ringmaster.png',
+                '../static/dice/wh_images/where/cinema.jpg',
+                '../static/dice/wh_images/where/booksotre.jpg',
+                '../static/dice/wh_images/where/road.png',
+                '../static/dice/wh_images/where/store.png',
+                '../static/dice/wh_images/where/garden.png',
+                '../static/dice/wh_images/where/playground.jpg',
+                '../static/dice/wh_images/where/school.jpg',
+                '../static/dice/wh_images/where/zoo.jpeg',
+                '../static/dice/wh_images/where/sky2.jpg'
+            ];
         } else if (currentFace == 'face3' || currentFace == 'face4') {
             questions = ['Who takes care of our teeth?', 'Who takes our garbage and puts it into garbage truck?', 'Who drives a school bus?', 'Who makes sure we are safe in the pool or at the beach?', 'Who teaches at school?', 'Who helps you when you are sick?', 'Who saves people from a fire?', 'Who cooks food in a restaurant?', 'Who brings us the mail?', 'Who grows food and has a barn full of animals?'];
-
+            images = [
+                '../static/dice/wh_images/who/dentist.png',
+                '../static/dice/wh_images/who/garbage_man.png',
+                '../static/dice/wh_images/who/school_bus_driver.png',
+                '../static/dice/wh_images/who/safety_guard.png',
+                '../static/dice/wh_images/who/teacher.png',
+                '../static/dice/wh_images/who/doctor.png',
+                '../static/dice/wh_images/who/firefighters.png',
+                '../static/dice/wh_images/who/chef.png',
+                '../static/dice/wh_images/who/postman.png',
+                '../static/dice/wh_images/who/farmer.png'
+            ];
         } else {
             questions = ['What do we use to tell the time?', 'what do bees make?', 'What do we write with?', 'What keeps our food cold?', 'What do we eat soup with?', 'What colour is grass?', 'What colour is the sky?', 'What do we use to clean our teeth?', 'What do we wear on our feet?', 'What do we use to call or text someone?'];
-
+            images = [
+                '../static/dice/wh_images/what/Clock.jpeg',
+                '../static/dice/wh_images/what/beehive.jpg',
+                '../static/dice/wh_images/what/pencil.jpg',
+                '../static/dice/wh_images/what/fridge.jpg',
+                '../static/dice/wh_images/what/spoon.jpeg',
+                '../static/dice/wh_images/what/grass.jpeg',
+                '../static/dice/wh_images/what/sky1.jpeg',
+                '../static/dice/wh_images/what/toothbrush.jpg',
+                '../static/dice/wh_images/what/shoe.jpg',
+                '../static/dice/wh_images/what/cellphone.jpg'
+            ];
         }
-        // Create 10 buttons for questions
+        // Create image and text elements for questions
         for (let i = 0; i < 10; i++) {
-            let button = document.createElement('button');
-            button.className = 'question-button';
-            button.innerText = questions[i];
-            button.onclick = function () {
-                value = button.innerText
-                if(value=='Where do we see clowns and a ringmaster?'){
-                    socket.emit('dice_5w1h', 'Where do we see clowns and ringmaster');
-                }
-                else if(value=='Where do we plant flowers and other plants?'){
-                    socket.emit('dice_5w1h', 'Where do we plant flowers and other plants');
-                }
-                else if(value=='Who makes sure we are safe in the pool or at the beach?'){
-                    socket.emit('dice_5w1h', "Who makes sure we are safe in the pool, or at the beach?");
-                }
-                else if(value=='Who drives a school bus?'){
-                    socket.emit('dice_5w1h', 'Who drives a school bus');
-                }
-                else if(value=='What colour is the sky?'){
-                    socket.emit('dice_5w1h', 'What color is the sky');
-                }
-                else if(value=='What do we wear on our feet?'){
-                    socket.emit('dice_5w1h', 'What do we wearon r feet?');
-                }
-                else if(value=='Who grows food and has a barn full of animals?'){
-                    socket.emit('dice_5w1h', 'Who grows food, and has a barn full off animolls');
-                }
-                else if(value=='Who helps you when you are sick?'){
-                    socket.emit('dice_5w1h', 'Who helps you when you r sick?');
-                }
-                else if(value=='Where are the clouds?'){
-                    socket.emit('dice_5w1h', 'Where r the clouds?');
-                }
-                else {
-                    socket.emit('dice_5w1h', button.innerText);
-                }
-            };
-            document.querySelector('.dice_wrap').appendChild(button);
+            let container = document.createElement('div');
+
+            let img = document.createElement('img');
+            img.src = images[i]; // Path to the image
+            img.alt = questions[i];
+            container.appendChild(img);
+
+            let questionText = document.createElement('p');
+            questionText.innerText = questions[i];
+            questionText.style.fontSize = '16px';
+            questionText.style.fontWeight = 'bold';
+            questionText.style.marginTop = '10px';
+            container.appendChild(questionText);
+
+            document.querySelector('.dice_wrap').appendChild(container);
         }
+
     };
+
+
     var btnGoBack = document.querySelector('#btnGoBack');
     btnGoBack.onclick = function () {
-        document.querySelector('.dice01').style.display = 'block';
-        btnRolling.style.display = 'block';
-        btnDisplay.style.display = 'block';
-        btnGoBack.style.display = 'none';
+        document.querySelector('.dice01').style.display = 'block'; // Show dice
+        btnRolling.style.display = 'block'; // Show roll button
+        btnDisplay.style.display = 'block'; // Show display button
+        btnGoBack.style.display = 'none'; // Hide go back button
 
-        // Remove the 10 buttons
-        let questionButtons = document.querySelectorAll('.question-button');
-        questionButtons.forEach(button => button.remove());
+        // Remove only the dynamically created question elements (images and text)
+        let questionContainers = document.querySelectorAll('.dice_wrap > div:not(.dice01)');
+        questionContainers.forEach(container => container.remove());
     };
-
 
     document.addEventListener("DOMContentLoaded", function () {
         const stopSpeechButton = document.getElementById("stop-speech-btn");

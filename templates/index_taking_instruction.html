@@ -40,7 +40,7 @@
         // Emit the first sentence
         let selectedSentence = sentences[currentSentenceIndex++];
         value = selectedSentence.text;
-        socket.emit('giveme_talk', selectedSentence.text);
+        socket.emit('giveme_talk', selectedSentence.text, 2.0);
 
         nonDragged();
         document.getElementById("btn").disabled = false;
@@ -71,6 +71,16 @@
     var makeDragged = function () {
         $(".item").draggable('enable');
     };
+    // Push the initial state to the history stack
+    window.addEventListener("load", function () {
+        history.pushState({page: 'main'}, '', window.location.href);
+
+        // Listen for the browser's native "Go Back" button
+        window.addEventListener("popstate", function (event) {
+            // Redirect to `taking_instruction_main.html` when the "Go Back" button is clicked
+            location.href = '/taking_instruction_main';
+        });
+    });
 
     function handleDropEvent(event, ui) {
 
@@ -110,73 +120,13 @@
             if (currentSentenceIndex < sentences.length) {
                 let selectedSentence_ = sentences[currentSentenceIndex++];
                 value = selectedSentence_.text;
-                socket.emit('giveme_talk', selectedSentence_.text);
+                socket.emit('giveme_talk', selectedSentence_.text, 2.0);
                 window.currentSentence = selectedSentence_;
             } else {
                 console.log("All sentences have been completed.");
-                // Emit an event or perform an action to indicate completion
-                socket.emit('all_tasks_completed', {message: "All tasks are completed!"});
+                socket.emit('giveme_talk', "Lets go to the next page", 2.0);
             }
 
-        } else if (dragged_item_id === selectedSentence.id && drop_target_id === selectedSentence.target) {
-            var clonedImage = draggable.find("img").clone();
-            clonedImage.css({
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%"
-            });
-
-            // Place the item inside the container
-            $(this).append(clonedImage);
-
-            // Remove the item from the bottom list
-            draggable.remove();
-
-            // Emit the success event
-            socket.emit('correct') //robot praise
-            // Move to the next sentence if available
-            if (currentSentenceIndex < sentences.length) {
-                let selectedSentence_ = sentences[currentSentenceIndex++];
-                value = selectedSentence_.text;
-                socket.emit('giveme_talk', selectedSentence_.text);
-                window.currentSentence = selectedSentence_;
-            } else {
-                console.log("All sentences have been completed.");
-                // Emit an event or perform an action to indicate completion
-                socket.emit('all_tasks_completed', {message: "All tasks are completed!"});
-            }
-
-        } else if (dragged_item_id === selectedSentence.id && drop_target_id === selectedSentence.target) {
-            var clonedImage = draggable.find("img").clone();
-            clonedImage.css({
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%"
-            });
-
-            // Place the item inside the container
-            $(this).append(clonedImage);
-
-            // Remove the item from the bottom list
-            draggable.remove();
-
-            // Emit the success event
-            socket.emit('correct') //robot praise
-            // Move to the next sentence if available
-            if (currentSentenceIndex < sentences.length) {
-                let selectedSentence_ = sentences[currentSentenceIndex++];
-                value = selectedSentence_.text;
-                socket.emit('giveme_talk', selectedSentence_.text);
-                window.currentSentence = selectedSentence_;
-            } else {
-                console.log("All sentences have been completed.");
-                // Emit an event or perform an action to indicate completion
-                socket.emit('all_tasks_completed', {message: "All tasks are completed!"});
-            }
         } else {
             socket.emit('wrong');
         }
@@ -350,10 +300,11 @@
         <input id="btn" class="next-button" type="button" value="Next" onclick="go_to_next_page()"/>
     </form>
     <div class="drop-targets">
-        <div class="cart" id="drop_cart" style="position: absolute; top: 200px; left: 500px; height: 25%"></div>
+        <div class="cart" id="drop_cart" style="position: absolute; top: 190px; left: 500px; height: 25%"></div>
         <div class="cart" id="drop_cart2"
-             style="position: absolute; top: 360px; left: 660px; width: 130px; height: 130px;"></div>
-        <div class="cart" id="drop_cart3" style="position: absolute; top:300px; left: 850px; height: 25%"></div>
+             style="position: absolute; top: 330px; left: 640px; width: 160px; height: 160px;"></div>
+        <div class="cart" id="drop_cart3"
+             style="position: absolute; top:240px; left: 850px;width: 130px; height: 35%"></div>
     </div>
 
     <div class="object_old" style="background-color: white">
