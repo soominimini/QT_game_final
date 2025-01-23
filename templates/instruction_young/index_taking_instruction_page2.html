@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 제이쿼리, 제이쿼리ui-->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-    <!--   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>-->
-    <!-- touch punch는 jquery ui 아래에 위치해야함 -->
+
     <title>Instruction Game</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <script>
     var socket = io.connect('http://192.168.100.2:5000');
@@ -20,21 +18,21 @@
     var value = "";
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
-         const img1 = new Image();
-        img1.src = "../static/instruction/young/cart_pencil.png";
+    const img1 = new Image();
+    img1.src = "../static/instruction/young/cart_pencil.png";
     const img2 = new Image();
-        img2.src = "../static/instruction/young/cart_pencil_book.png";
+    img2.src = "../static/instruction/young/cart_pencil_book.png";
     const img3 = new Image();
-        img3.src = "../static/instruction/young/cart_pencil_book_bag.png";
+    img3.src = "../static/instruction/young/cart_pencil_book_bag.png";
 
-     $(document).ready(function() {
-     socket.emit('first_talk', 'I want a school item.');
-     value = 'I want a school item. Could you please give me a pencil'
-     socket.emit('giveme_talk', ' Could you please give me a pencil?');
-     nonDragged();
-     document.getElementById("btn").disabled = true;
+    $(document).ready(function () {
+        socket.emit('first_talk', 'I want a school item.');
+        value = 'I want a school item. Could you please give me a pencil'
+        socket.emit('giveme_talk', ' Could you please give me a pencil?', 1.0);
+        nonDragged();
+        document.getElementById("btn").disabled = true;
 
-     });
+    });
 
     var score = 0;
     var count = 0;
@@ -54,21 +52,18 @@
         });
     });
 
-    var nonDragged = function(){
-    //make items non draggable
-    $(".item").draggable({
+    var nonDragged = function () {
+        //make items non draggable
+        $(".item").draggable({
             disabled: "true"
         });
-    setTimeout(makeDragged, 3000);
+        setTimeout(makeDragged, 3000);
     }
-    var makeDragged = function(){
-    //make items non draggable
+    var makeDragged = function () {
+        //make items non draggable
         $(".item").draggable('enable');
 
     }
-
-
-
 
     function handleDropEvent(event, ui) {
         var draggable = ui.draggable;
@@ -80,65 +75,58 @@
 
                 score += 1;
                 $('#' + dragged_item).hide();
-                {#$("#drop_cart").attr("src","../static/cart_with_apple.png");#}
 
                 $("#drop_cart").attr("src", img1.src); // Update the cart image
                 first_choice = true;
-                   // Emit events with delay
-                        setTimeout(() => {
-                            socket.emit('correct'); //robot praise
-                        }, 1000); // No delay for the first emit
+                // Emit events with delay
+                setTimeout(() => {
+                    socket.emit('correct'); //robot praise
+                }, 1000); // No delay for the first emit
 
-                        setTimeout(() => {
+                setTimeout(() => {
 
-                            socket.emit('giveme_talk', 'Please give me a book');
+                    socket.emit('giveme_talk', 'Please give me a book', 1.0);
 
-                            value =  'Please give me a book'
-                        }, 1000); // 1-second delay after the first emit
+                    value = 'Please give me a book'
+                }, 1000); // 1-second delay after the first emit
 
-                        setTimeout(() => {
-                            socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
-                        },1000); // 2-second delay after the second emit
-            }
-            else {
+                setTimeout(() => {
+                    socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
+                }, 1000); // 2-second delay after the second emit
+            } else {
                 nonDragged();
                 score -= 1;
                 socket.emit('wrong') //robot encourage
-                socket.emit('wrong_repeat',  'I want a pencil') //robot repeats what it asked
-                 value = 'I want a pencil'
+                socket.emit('wrong_repeat', 'I want a pencil') //robot repeats what it asked
+                value = 'I want a pencil'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
-        }
-        else if (first_choice == true && second_choidce == false && third_choidce == false) {
+        } else if (first_choice == true && second_choidce == false && third_choidce == false) {
             if (dragged_item_category == "second_answer") { //based on the type
-             nonDragged(); //make items are not draggable
+                nonDragged(); //make items are not draggable
 
                 score += 1;
                 $('#' + dragged_item).hide();
-                {#$("#drop_cart").attr("src","../static/cart_with_orange.png");#}
                 $("#drop_cart").attr("src", img2.src); // Update the cart image
                 second_choidce = true;
                 socket.emit('correct') //robot praise
-                socket.emit('giveme_talk', 'Can you give me a backpack?'); //robot ask for the second item
-                 value = 'Can you give me a backpack?'
+                socket.emit('giveme_talk', 'Can you give me a backpack?', 1.0);
+                value = 'Can you give me a backpack?'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
-            }
-            else {
+            } else {
                 nonDragged();
                 score -= 1;
                 socket.emit('wrong') //robot encourage
-                socket.emit('wrong_repeat',  'I want a book') //robot repeats what it asked
-                value =   'I want a book'
+                socket.emit('wrong_repeat', 'I want a book') //robot repeats what it asked
+                value = 'I want a book'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
-        }
-        else {
+        } else {
             if (dragged_item_category == "third_answer") { //based on the type
-             nonDragged(); //make items are not draggable
+                nonDragged(); //make items are not draggable
 
                 score += 1;
                 $('#' + dragged_item).hide();
-                {#$("#drop_cart").attr("src","../static/cart_with_cherries.png");#}
                 $("#drop_cart").attr("src", img3.src); // Update the cart image
 
 
@@ -148,30 +136,28 @@
                 socket.emit('next_page') //robot says go to next page
                 document.getElementById("btn").disabled = false;
 
-            }
-            else {
+            } else {
                 nonDragged();
                 score -= 1;
                 socket.emit('wrong') //robot encourage
 
-                 socket.emit('wrong_repeat',  'I want a backpack') //robot repeats what it asked
-                 value = 'I want a backpack'
+                socket.emit('wrong_repeat', 'I want a backpack') //robot repeats what it asked
+                value = 'I want a backpack'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         }
     }
 
     function go_to_next_page() {
-        if (first_choice == true && second_choidce == true && third_choidce==true) {
+        if (first_choice == true && second_choidce == true && third_choidce == true) {
             location.href = '/supermarket_thirdpage_young';
-        }
-        else {
+        } else {
             socket.emit('block_page', "Please select all requested items!") //emit the information of dragged item
             socket.emit('object_list', {data: "try to go to next step before finishing the current page"}); //emit the information of dragged item
         }
     }
 
-         window.onbeforeunload = function () {
+    window.onbeforeunload = function () {
         socket.emit('client_disconnecting', {'data': "Taking Instruction supermarket1"});
     }
 
@@ -205,6 +191,35 @@
             }, 500); // 2000ms = 2 seconds
         });
     });
+    function praise() {
+        var praise1 = document.getElementById("praise1");
+        var praise2 = document.getElementById("praise2");
+        var praise3 = document.getElementById("praise3");
+        var praise4 = document.getElementById("praise4");
+        // Toggle their visibility
+        var displayState = (praise1.style.display === "none" || praise2.style.display === "" || praise3.style.display === "" || praise4.style.display === "") ? "block" : "none";
+        praise1.style.display = displayState;
+        praise2.style.display = displayState;
+        praise3.style.display = displayState;
+        praise4.style.display = displayState;
+    }
+
+    function encour() {
+        var encour1 = document.getElementById("encour1");
+        var encour2 = document.getElementById("encour2");
+        var encour3 = document.getElementById("encour3");
+        var encour4 = document.getElementById("encour4");
+        // Toggle their visibility
+        var displayState = (encour1.style.display === "none" || encour2.style.display === "" || encour3.style.display === "") ? "block" : "none";
+        encour1.style.display = displayState;
+        encour2.style.display = displayState;
+        encour3.style.display = displayState;
+        encour4.style.display = displayState;
+    }
+
+    function speak(msg) {
+        socket.emit('repeat_speech', msg)
+    }
 </script>
 <style>
     html, body {
@@ -213,7 +228,7 @@
         background-color: #FFFCA3;
     }
 
-  .repeat button {
+    .repeat button {
         position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
         left: 20px; /* Distance from the left of the viewport */
@@ -226,7 +241,10 @@
         border: none;
         border-radius: 30px; /* Rounded corners */
         transition: all 0.3s ease; /* Smooth transition */
-    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    {
+        #box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        #
+    }
     }
 
     /* Next button active effect */
@@ -248,7 +266,10 @@
         border: none;
         border-radius: 30px; /* Rounded corners */
         transition: all 0.3s ease; /* Smooth transition */
-    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    {
+        #box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        #
+    }
     }
 
     .stop button:disabled {
@@ -256,7 +277,8 @@
         color: rgb(255, 255, 255);
         cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
-            /* Next button styling */
+
+    /* Next button styling */
     .next-button {
         font-size: 35px;
         background: rgba(250, 231, 200, 1.0);
@@ -278,20 +300,38 @@
         background: rgb(255, 200, 150);
         color: rgb(255, 255, 255);
     }
+
+    .other button {
+        font-size: 15px;
+        background: rgba(159, 243, 139, 0.6);
+        color: rgb(0, 0, 0);
+        width: 70px;
+        height: 40px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    /* Next button active effect */
+    .other button:active {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+    }
 </style>
 <body>
-    <div class="repeat">
-        <button id="repeat-speech-btn"> Repeat</button>
-    </div>
+<div class="repeat">
+    <button id="repeat-speech-btn"> Repeat</button>
+</div>
 
-    <div class="stop">
-        <button id="stop-speech-btn"> STOP</button>
-    </div>
+<div class="stop">
+    <button id="stop-speech-btn"> STOP</button>
+</div>
 <div class="container">
     <form id="data-send" name="data-send">
 
-        <input id ="btn"  class="next-button" type="button" value="Next" onclick="go_to_next_page()"/>
-{#        <input id ="btn" type="button" value="Next" onclick="go_to_next_page()" style="font-size : 30px; width: 100px; height: 50px;"/>#}
+        <input id="btn" class="next-button" type="button" value="Next" onclick="go_to_next_page()"/>
     </form>
     <div class="drop-targets">
 
@@ -301,16 +341,61 @@
     </div>
     <div class="object" style="margin-top: -3%">
         <div class="item">
-           <img id="book" data-source-id="second_answer" src="../static/instruction/book.png">
+            <img id="book" data-source-id="second_answer" src="../static/instruction/book.png">
         </div>
         <div class="item">
-            <img id="bag" data-source-id="third_answer" src="../static/instruction/bag.png" >
+            <img id="bag" data-source-id="third_answer" src="../static/instruction/bag.png">
         </div>
         <div class="item">
             <img id="pencil" data-source-id="first_answer" src="../static/instruction/pencil.png">
         </div>
     </div>
 
+    <div class="other" style="position: fixed;  top: 400px; left: 40px">
+        <button onclick="praise()">Praise</button>
+    </div>
+    <div class="other" style="position: fixed;  top: 400px; right: 40px">
+        <button onclick="encour()">Encourage</button>
+    </div>
+
+
+    <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 400px; /* Distance from the top of the viewport */
+        left: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Good Job')">Good job</button>
+    </div>
+    <div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        left: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Well done')">Well done</button>
+    </div>
+    <div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 500px; /* Distance from the top of the viewport */
+        left: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('You did it')">You did it</button>
+    </div>
+    <div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 550px; /* Distance from the top of the viewport */
+        left: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Amazing')">Amazing</button>
+    </div>
+
+
+    <div id="encour1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 400px; /* Distance from the top of the viewport */
+        right: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('You can do it!')">You can do it</button>
+    </div>
+    <div id="encour2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        right: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Keep trying!')">Keep trying</button>
+    </div>
+    <div id="encour3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 500px; /* Distance from the top of the viewport */
+        right: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Don’t give up!')">Don’t give up</button>
+    </div>
 </div>
 
 

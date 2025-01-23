@@ -38,8 +38,14 @@
                     console.log("value: ", lastPart);
                     socket.emit('repeat_speech', lastPart);
                 }
-                {#socket.emit('speech_stop', {message: "Stop speech command sent"});#}
-                {#console.log("Speech stop event emitted");#}
+                {
+                    #socket.emit('speech_stop', {message: "Stop speech command sent"});
+                #
+                }
+                {
+                    #console.log("Speech stop event emitted");
+                #
+                }
 
                 // Disable the button for 2 seconds
                 repeatSpeechButton.disabled = true;
@@ -56,7 +62,10 @@
                 $(this).css('background', 'rgb(255, 200, 150)'); // Example active color
                 $(this).css('color', 'rgb(255, 255, 255)'); //
 
-                {#$(this).prop('disabled', true);#}
+                {
+                    #$(this).prop('disabled', true);
+                #
+                }
                 // Revert the button color after a delay
                 let button = $(this); // Save reference to the button
                 setTimeout(function () {
@@ -134,7 +143,35 @@
             }
 
         }
+function praise() {
+            var praise1 = document.getElementById("praise1");
+            var praise2 = document.getElementById("praise2");
+            var praise3 = document.getElementById("praise3");
+            var praise4 = document.getElementById("praise4");
+            // Toggle their visibility
+            var displayState = (praise1.style.display === "none" || praise2.style.display === "" || praise3.style.display === "" || praise4.style.display === "") ? "block" : "none";
+            praise1.style.display = displayState;
+            praise2.style.display = displayState;
+            praise3.style.display = displayState;
+            praise4.style.display = displayState;
+        }
 
+        function encour() {
+            var encour1 = document.getElementById("encour1");
+            var encour2 = document.getElementById("encour2");
+            var encour3 = document.getElementById("encour3");
+            var encour4 = document.getElementById("encour4");
+            // Toggle their visibility
+            var displayState = (encour1.style.display === "none" || encour2.style.display === "" || encour3.style.display === "" ) ? "block" : "none";
+            encour1.style.display = displayState;
+            encour2.style.display = displayState;
+            encour3.style.display = displayState;
+            encour4.style.display = displayState;
+        }
+
+        function speak(msg) {
+            socket.emit('repeat_speech', msg)
+        }
     </script>
 </head>
 
@@ -143,7 +180,8 @@
 
 <style>
     body {
-    {#background-image: url("{{ url_for('static', filename='images/back.jpg') }}");#} background-color: #FFFCA3; /* Light yellow */
+
+        background-color: #FFFCA3; /* Light yellow */
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
@@ -151,6 +189,7 @@
         height: 800px;
         overflow: hidden; /* Prevent scrolling */
     }
+
     img {
         border: none;
     }
@@ -159,9 +198,7 @@
         font-size: 40px;
         width: 200px;
         height: 70px;
-
     }
-
 
     /* Next button active effect */
     .sync:active {
@@ -182,7 +219,10 @@
         border: none;
         border-radius: 30px; /* Rounded corners */
         transition: all 0.3s ease; /* Smooth transition */
-    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    {
+        #box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        #
+    }
     }
 
     /* Next button active effect */
@@ -207,7 +247,10 @@
         border: none;
         border-radius: 30px; /* Rounded corners */
         transition: all 0.3s ease; /* Smooth transition */
-    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    {
+        #box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        #
+    }
     }
 
     .stop button:disabled {
@@ -215,24 +258,48 @@
         color: rgb(255, 255, 255);
         cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
+
+    .other button {
+        font-size: 15px;
+        background: rgba(159, 243, 139, 0.6);
+        color: rgb(0, 0, 0);
+        width: 70px;
+        height: 40px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    /* Next button active effect */
+    .other button:active {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+    }
 </style>
 
 
 <form method="post" action="/">
 
 
-    <p style="position:absolute; font-weight:bold;left:80px; top:8px; color:rgb(243, 240, 240); font-size:30px"> {{ value }} </p>
+    <p style="position:absolute; font-weight:bold;left:80px; top:8px; color:rgb(243, 240, 240); font-size:30px"> {{
+        value }} </p>
 
-    {#<img  src= "../static/images/emotions/QT_img.png" id="QT_img" class="sync" style = "position:absolute; right:20px; top:10px; width:80px; border-color:5px solid gray;">#}
+    {#<img src="../static/images/emotions/QT_img.png" id="QT_img" class="sync"
+           style="position:absolute; right:20px; top:10px; width:80px; border-color:5px solid gray;">#}
 
 </form>
 
 <img src="../static/images/emotions/ask.jpg" id="img00" class="sync" width="300" height="300"
      style="position: absolute;  left: 50%;  top: 50%;  transform: translate(-50%, -50%);  border: none;"/>
-{#<img  src= "../static/images/emotions/ask.jpg" id="img01" class="sync"  width="300" height="300" style = "position:absolute; left:650px; top:120px;">#}
+{#<img src="../static/images/emotions/ask.jpg" id="img01" class="sync" width="300" height="300"
+       style="position:absolute; left:650px; top:120px;">#}
 
 
-{#<input id="btn" class="sync" type="button" value="Next" style = "font-size:20px; background: rgba(250,231,200, 0.6); color:rgb(0,0,0); position:absolute; right:435px; top:30px; width:200px; height:50px"  required />#}
+{#<input id="btn" class="sync" type="button" value="Next"
+         style="font-size:20px; background: rgba(250,231,200, 0.6); color:rgb(0,0,0); position:absolute; right:435px; top:30px; width:200px; height:50px"
+         required/>#}
 <input id="btn" class="sync" type="button" value="Next"
        style="     font-size: 35px;
         background: rgba(250, 231, 200, 0.6);
@@ -256,6 +323,51 @@
 <div class="stop">
     <button id="stop-speech-btn"> STOP</button>
 </div>
+    <div class="other" style="position: fixed;  top: 400px; left: 40px">
+        <button onclick="praise()">Praise</button>
+    </div>
+    <div class="other" style="position: fixed;  top: 400px; right: 40px">
+        <button onclick="encour()">Encourage</button>
+    </div>
+
+
+    <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 400px; /* Distance from the top of the viewport */
+        left: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Good Job')">Good job</button>
+    </div>
+    <div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        left: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Well done')">Well done</button>
+    </div>
+    <div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 500px; /* Distance from the top of the viewport */
+        left: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('You did it')">You did it</button>
+    </div>
+    <div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 550px; /* Distance from the top of the viewport */
+        left: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Amazing')">Amazing</button>
+    </div>
+
+
+    <div id="encour1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 400px; /* Distance from the top of the viewport */
+        right: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('You can do it!')">You can do it</button>
+    </div>
+    <div id="encour2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        right: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Keep trying!')">Keep trying</button>
+    </div>
+    <div id="encour3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 500px; /* Distance from the top of the viewport */
+        right: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Don’t give up!')">Don’t give up</button>
+    </div>
+
 </body>
 </html>
-

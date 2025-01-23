@@ -9,6 +9,7 @@ from std_msgs.msg import String
 from qt_robot_interface.srv import *
 from qt_gesture_controller.srv import *
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
@@ -41,7 +42,7 @@ def first_talk_robot_interactive():
     rospy.sleep(1.0)
     global talktext_pub
     print("first_talk_robot_interactive")
-    talktext_pub.publish("Click one of the characters you like")
+    talktext_pub.publish("Lets start the story!")
 
 @socketio.on('first_page')
 def second():
@@ -50,20 +51,11 @@ def second():
     # rospy.sleep(2.0)
     talktext_pub.publish("Once upon a time lived Goldilocks and The Three Bears.")
 
-
-
 @socketio.on('girl_lodge')
 def third_girl():
     rospy.sleep(1.0)
     # global talktext_pub
     talktext_pub.publish("One day, Goldilocks went for a walk in the forest and found a house. She knocked, and when nobody answered, she decided to go inside.")
-
-
-@socketio.on('boy_lodge')
-def third_boy():
-    rospy.sleep(2.0)
-    # global talktext_pub
-    talktext_pub.publish("One day, Goldilocks went for a walk in the forest and found a house. He knocked, and when nobody answered, he decided to go inside.")
 
 @socketio.on('girl_table')
 def table_main(msg):
@@ -225,6 +217,9 @@ def bear_1st_func():
 def bear_2nd_func():
     rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been eating my porridge, growled Daddy Bear.")
+    rospy.sleep(3.5)
+    audioPlay_pub.publish('QT/growl')
+
 @socketio.on('bear_3rd')
 def bear_3rd_func():
     rospy.sleep(2.0)
@@ -234,6 +229,8 @@ def bear_3rd_func():
 def bear_4th_func():
     rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been eating my porridge and it’s all gone!. Cried Baby Bear")
+    rospy.sleep(3.5)
+    audioPlay_pub.publish('QT/growl')
 
 @socketio.on('bear_5th')
 def bear_5th_func():
@@ -249,6 +246,8 @@ def bear_6th_func():
 def bear_7th_func():
     rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been sitting in my chair and it’s broken!. Cried Baby Bear.")
+    rospy.sleep(3.5)
+    audioPlay_pub.publish('QT/cry')
 
 @socketio.on('bear_8th')
 def bear_8th_func():
@@ -264,48 +263,20 @@ def bear_9th_func():
 def bear_10th_func():
     rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been sleeping in my bed, and she’s still there!. Cried Baby Bear.")
-
-@socketio.on('boy_bear_10th')
-def boy_bear_10th_func():
-    rospy.sleep(2.0)
-    talktext_pub.publish("Someone’s been sleeping in my bed, and he’s still there!. Cried Baby Bear.")
+    rospy.sleep(3.5)
+    audioPlay_pub.publish('QT/cry')
 
 @socketio.on('bear_11th')
 def bear_11th_func():
     rospy.sleep(2.0)
     talktext_pub.publish("Just then Goldilocks woke up and saw The Three Bears. Help!. She screamed.")
-
-@socketio.on('boy_bear_11th')
-def boy_bear_11th_func():
-    rospy.sleep(2.0)
-    talktext_pub.publish("Just then Goldilocks woke up and saw The Three Bears. Help!. He screamed.")
+    rospy.sleep(5)
+    audioPlay_pub.publish('QT/scream_low')
 
 @socketio.on('bear_12th')
 def bear_12th_func():
     rospy.sleep(2.0)
     talktext_pub.publish("Goldilocks ran down the stairs and into the forest. And she never went back into the woods again.")
-
-
-@socketio.on('boy_bear_12th')
-def boy_bear_12th_func():
-    rospy.sleep(2.0)
-    talktext_pub.publish("Goldilocks ran down the stairs and into the forest. And he never went back into the woods again.")
-
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-@socketio.on('boy_table')
-def boy_table_main(msg):
-    rospy.sleep(1.0)
-    print("msg: ",msg)
-    selected_lodge = msg
-    print("porridge_visited: ",porridge_visited[0])
-    socketio.emit('checking_visit', "String ", broadcast=True)
-    print("msg: ",selected_lodge)
-
-    if(porridge_visited[0]==False and selected_lodge != " "):
-        # If this is the first visit on this page, robot speaks to choose one bowl
-        rospy.sleep(2.0)
-        talktext_pub.publish("At the table, there were three bowls of porridge. Goldilocks was hungry.")
 
 
 

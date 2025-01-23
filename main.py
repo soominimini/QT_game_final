@@ -872,35 +872,16 @@ def girl_2nd_page():
     return render_template('1st_girl.html', show_text=show_text)
 
 
-@app.route('/boy/first_page')
-def boy_2nd_page():
-    second()
-    return render_template('1st_boy.html', show_text=show_text)
-
-
 @app.route('/girl/lodge')
 def girl_lodge():
     third_girl()
     return render_template('girl_lodge.html', show_text=show_text)
-
-
-@app.route('/boy/lodge')
-def boy_lodge():
-    third_boy()
-    return render_template('boy_lodge.html', show_text=show_text)
-
 
 @app.route('/girl/bowl')
 def bowl_table():
     table_main(selected_lodge)
     print("table_visit: ", table_visit)
     return render_template('girl_table.html', show_text=show_text)
-
-
-@app.route('/boy/bowl')
-def boy_bowl_table():
-    boy_table_main(selected_lodge)
-    return render_template('boy_table.html', show_text=show_text)
 
 
 @app.route('/girl/dad_bowl')
@@ -919,25 +900,6 @@ def mom_bowl():
 def baby_bowl():
     baby_porridge()
     return render_template('baby_bowl_page.html', show_text=show_text)
-
-
-@app.route('/boy/dad_bowl')
-def boy_dad_bowl():
-    dad_porridge()
-    return render_template('/boy/dad_bowl_page.html', show_text=show_text)
-
-
-@app.route('/boy/mom_bowl')
-def boy_mom_bowl():
-    mom_porridge()
-    return render_template('/boy/mom_bowl_page.html', show_text=show_text)
-
-
-@app.route('/boy/baby_bowl')
-def boy_baby_bowl():
-    baby_porridge()
-    return render_template('/boy/baby_bowl_page.html', show_text=show_text)
-
 
 @app.route('/girl/chair')
 def chairs():
@@ -970,36 +932,6 @@ def baby_chairs2():
     return render_template('baby_chair_page2.html', show_text=show_text)
 
 
-@app.route('/boy/chair')
-def boy_chairs():
-    chair_main()
-    return render_template('/boy/chairs.html', show_text=show_text)
-
-
-@app.route('/boy/dad_chair')
-def boy_dad_chairs():
-    dad_chair('boy')
-    return render_template('/boy/dad_chair_page.html', show_text=show_text)
-
-
-@app.route('/boy/mom_chair')
-def boy_mom_chairs():
-    mom_chair()
-    return render_template('/boy/mom_chair_page.html', show_text=show_text)
-
-
-@app.route('/boy/baby_chair')
-def boy_baby_chairs():
-    baby_chair()
-    return render_template('/boy/baby_chair_page.html', show_text=show_text)
-
-
-@app.route('/boy/baby_chair2')
-def boy_baby_chairs2():
-    baby_chair2()
-    return render_template('/boy/baby_chair_page2.html', show_text=show_text)
-
-
 @app.route('/girl/bed')
 def beds():
     bed_main()
@@ -1023,29 +955,6 @@ def baby_bed():
     baby_bed_func()
     return render_template('baby_bed_page.html', show_text=show_text)
 
-
-@app.route('/boy/bed')
-def boy_beds():
-    bed_main()
-    return render_template('/boy/beds.html', show_text=show_text)
-
-
-@app.route('/boy/dad_bed')
-def boy_dad_bed():
-    dad_bed_func()
-    return render_template('/boy/dad_bed_page.html', show_text=show_text)
-
-
-@app.route('/boy/mom_bed')
-def boy_mom_bed():
-    mom_bed_func('boy')
-    return render_template('/boy/mom_bed_page.html', show_text=show_text)
-
-
-@app.route('/boy/baby_bed')
-def boy_baby_bed():
-    baby_bed_func()
-    return render_template('/boy/baby_bed_page.html', show_text=show_text)
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1134,42 +1043,7 @@ def bear_12th():
         return render_template('bear_12th_page2.html', show_text=show_text)
 
 
-@app.route('/boy/bear_10th')
-def boy_bear_10th():
-    boy_bear_10th_func()
-    return render_template('boy/bear_10th_page.html', show_text=show_text)
 
-
-@app.route('/boy/bear_11th')
-def boy_bear_11th():
-    boy_bear_11th_func()
-    return render_template('boy/bear_11th_page.html', show_text=show_text)
-
-
-@app.route('/boy/bear_12th')
-def boy_bear_12th():
-    boy_bear_12th_func()
-    if selected_lodge == 'lodge1':
-        return render_template('boy/bear_12th_page1.html', show_text=show_text)
-    else:
-        return render_template('boy/bear_12th_page2.html', show_text=show_text)
-
-
-######################################################################################### Dice game with URAs     ############################################################################################
-
-# @socketio.on('dice_face_in')
-# def dice_face_in(digit):
-#     print("dice_face_in: ",digit)
-#
-#     if digit==0:
-#         rospy.sleep(1)
-#         talktext_pub.publish("Click again")
-#     else:
-#
-#         rospy.sleep(1)
-#         talktext_pub.publish(str(digit))
-#         rospy.sleep(2)
-#         talktext_pub.publish("Let's move your piece on the board by " + str(digit))
 
 
 @socketio.on('dice_face_in_young_action')
@@ -1192,25 +1066,6 @@ def dice_face_in_young_action(dice_face_str):
         # Run the jumping jacks logic in a separate thread
         threading.Thread(target=execute_jumping_jacks).start()
         # threading.start()
-
-    #
-    # if dice_face_str=='Jumping Jacks':
-    #     handle_speech_say("Let's do 10 jummping jacks!")
-    #     # talktext_pub.publish("Let's do 10 jummping jacks!")
-    #
-    #     rospy.sleep(2)
-    #     # speechConfig_servc('en-US', 105, 50)
-    #     for i in range(1, 11):
-    #         if stop_triggered_flag==True:
-    #             break
-    #         else:
-    #             print("triggering not happened")
-    #         time.sleep(3)
-    #         rospy.sleep(3)
-    #         talktext_pub.publish(str(i))
-    #         # gesturePlay_servc("jumping_soomin", 2)
-    #         handle_gesture_play("jumping_soomin", 2)
-    #         rospy.sleep(1)
 
     elif dice_face_str == 'Count to 5':
         # talktext_pub.publish("Let's deep breathe for five seconds")
@@ -1512,11 +1367,6 @@ def dice_emotion_old_start():
     handle_speech_say("Let's roll the dice")
     return render_template('dice_emotion_old.html')
 
-
-# @app.route('/dice_5w1h')
-# def dice_5w1h():
-#     talktext_pub.publish("Let's roll the dice")
-#     return render_template('dice_5w1h.html')
 
 @app.route('/dice_5w1h')
 def dice_5w1h():

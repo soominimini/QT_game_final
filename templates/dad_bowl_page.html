@@ -85,6 +85,25 @@
         color: rgb(255, 255, 255);
         cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
+
+    .other button {
+        font-size: 15px;
+        background: rgba(159, 243, 139, 0.6);
+        color: rgb(0, 0, 0);
+        width: 70px;
+        height: 40px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    /* Next button active effect */
+    .other button:active {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+    }
 </style>
 <script>
     var socket = io.connect('http://192.168.100.2:5000');
@@ -116,6 +135,36 @@
     function repeat_speech() {
         socket.emit('repeat_speech', "Goldilocks tasted the porridge from the large bowl. “This porridge is too salty!”.")
     }
+
+    function praise() {
+        var praise1 = document.getElementById("praise1");
+        var praise2 = document.getElementById("praise2");
+        var praise3 = document.getElementById("praise3");
+        var praise4 = document.getElementById("praise4");
+        // Toggle their visibility
+        var displayState = (praise1.style.display === "none" || praise2.style.display === "" || praise3.style.display === "" || praise4.style.display === "") ? "block" : "none";
+        praise1.style.display = displayState;
+        praise2.style.display = displayState;
+        praise3.style.display = displayState;
+        praise4.style.display = displayState;
+    }
+
+    function encour() {
+        var encour1 = document.getElementById("encour1");
+        var encour2 = document.getElementById("encour2");
+        var encour3 = document.getElementById("encour3");
+        var encour4 = document.getElementById("encour4");
+        // Toggle their visibility
+        var displayState = (encour1.style.display === "none" || encour2.style.display === "" || encour3.style.display === "") ? "block" : "none";
+        encour1.style.display = displayState;
+        encour2.style.display = displayState;
+        encour3.style.display = displayState;
+        encour4.style.display = displayState;
+    }
+
+    function speak(msg) {
+        socket.emit('repeat_speech', msg)
+    }
 </script>
 
 <body>
@@ -134,8 +183,55 @@
     </div>
     <div class="centered-text">
         {% if show_text %}
-            Goldilocks tasted the porridge from the large bowl.<br> “This porridge is too salty!”.
+        Goldilocks tasted the porridge from the large bowl.<br> “This porridge is too salty!”.
         {% endif %}
+
+    </div>
+
+    <div class="other" style="position: fixed;  top: 400px; left: 40px">
+        <button onclick="praise()">Praise</button>
+    </div>
+    <div class="other" style="position: fixed;  top: 400px; right: 40px">
+        <button onclick="encour()">Encourage</button>
+    </div>
+
+
+    <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 400px; /* Distance from the top of the viewport */
+        left: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Good Job')">Good job</button>
+    </div>
+    <div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        left: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Well done')">Well done</button>
+    </div>
+    <div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 500px; /* Distance from the top of the viewport */
+        left: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('You did it')">You did it</button>
+    </div>
+    <div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 550px; /* Distance from the top of the viewport */
+        left: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Amazing')">Amazing</button>
+    </div>
+
+
+    <div id="encour1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 400px; /* Distance from the top of the viewport */
+        right: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('You can do it!')">You can do it</button>
+    </div>
+    <div id="encour2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        right: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Keep trying!')">Keep trying</button>
+    </div>
+    <div id="encour3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 500px; /* Distance from the top of the viewport */
+        right: 120px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Don’t give up!')">Don’t give up</button>
     </div>
 </div>
 
