@@ -184,6 +184,17 @@
 
     }
 
+    // Push the initial state to the history stack
+    window.addEventListener("load", function () {
+        history.pushState({page: 'main'}, '', window.location.href);
+
+        // Listen for the browser's native "Go Back" button
+        window.addEventListener("popstate", function (event) {
+            // Redirect to `taking_instruction_main.html` when the "Go Back" button is clicked
+            location.href = '/taking_instruction_main';
+        });
+    });
+
     function go_to_next_page() {
         // Additional logic can be added here
         location.href = '/second_page';
@@ -272,25 +283,26 @@
         height: 100vh;
     }
 
-       button {
-            background: none;
-            border: none;
-            padding: 0;
-            margin: 0;
-            cursor: pointer;
-        }
+    button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+    }
 
-        button img {
-            width: 150px; /* Adjust width as needed */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 10px; /* Optional: Add rounded corners */
-            border: 1px solid #ddd; /* Optional: Add a border */
-        }
+    button img {
+        width: 150px; /* Adjust width as needed */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 10px; /* Optional: Add rounded corners */
+        border: 1px solid #ddd; /* Optional: Add a border */
+    }
 
-        /* Remove outline for all buttons */
-        button:focus {
-            outline: none;
-        }
+    /* Remove outline for all buttons */
+    button:focus {
+        outline: none;
+    }
+
     .repeat button {
         position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
@@ -374,27 +386,28 @@
         display: inline-block;
         margin: 10px;
     }
-.container .object_old .item {
-    width: auto !important; /* Removes the set width */
-    height: auto !important; /* Removes the set height */
-}
+
+    .container .object_old .item {
+        width: auto !important; /* Removes the set width */
+        height: auto !important; /* Removes the set height */
+    }
+
     .object_old {
 
-    justify-content: center; /* Center vertically */
-    background-color: white; /* Optional: Keep the background color */
-    margin: 0; /* Remove unnecessary margins */
-    padding: 0; /* Remove unnecessary padding */
+        justify-content: center; /* Center vertically */
+        background-color: white; /* Optional: Keep the background color */
+        margin: 0; /* Remove unnecessary margins */
+        padding: 0; /* Remove unnecessary padding */
 
 
         display: flex;
         flex-direction: column;
-        {#justify-content: space-around;#}
-        align-items: center;
+    {#justify-content: space-around;#} align-items: center;
         position: relative;
         margin-left: -70%;
         width: 10%;
         top: -5%;
-        {#left: 7%;#}
+    {#left: 7%;#}
     }
 
     .other button {
@@ -450,6 +463,8 @@
                  style="width: 100px; height: 170px;">
         </div>
     </div>
+
+
     <div class="other" style="position: fixed;  top: 280px; left: 30px">
         <button onclick="praise()">Praise</button>
     </div>

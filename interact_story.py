@@ -218,7 +218,7 @@ def bear_2nd_func():
     rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been eating my porridge, growled Daddy Bear.")
     rospy.sleep(3.5)
-    audioPlay_pub.publish('QT/growl')
+    audioPlay_pub.publish('QT/growl_3')
 
 @socketio.on('bear_3rd')
 def bear_3rd_func():
@@ -229,13 +229,15 @@ def bear_3rd_func():
 def bear_4th_func():
     rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been eating my porridge and it’s all gone!. Cried Baby Bear")
-    rospy.sleep(3.5)
-    audioPlay_pub.publish('QT/growl')
+    rospy.sleep(4.0)
+    audioPlay_pub.publish('QT/cry_10')
 
 @socketio.on('bear_5th')
 def bear_5th_func():
     rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been sitting in my chair!. Growled Daddy Bear.")
+    rospy.sleep(4.0)
+    audioPlay_pub.publish('QT/growl_3')
 
 @socketio.on('bear_6th')
 def bear_6th_func():
@@ -247,7 +249,7 @@ def bear_7th_func():
     rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been sitting in my chair and it’s broken!. Cried Baby Bear.")
     rospy.sleep(3.5)
-    audioPlay_pub.publish('QT/cry')
+    audioPlay_pub.publish('QT/cry_10')
 
 @socketio.on('bear_8th')
 def bear_8th_func():
@@ -264,7 +266,7 @@ def bear_10th_func():
     rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been sleeping in my bed, and she’s still there!. Cried Baby Bear.")
     rospy.sleep(3.5)
-    audioPlay_pub.publish('QT/cry')
+    audioPlay_pub.publish('QT/cry_10')
 
 @socketio.on('bear_11th')
 def bear_11th_func():

@@ -1,0 +1,11 @@
+Name: D
+login closed  Fri Jan 24 17:59:22 2025
+instructions_game
+Time: Fri Jan 24 17:59:24 2025
+Taking Instruction supermarket1 closed  Fri Jan 24 17:59:36 2025
+Taking Instruction supermarket2 closed  Fri Jan 24 17:59:42 2025
+Taking Instruction supermarket3 closed  Fri Jan 24 18:00:01 2025
+instructions_game
+Time: Fri Jan 24 18:01:14 2025
+Taking Instruction supermarket1 closed  Fri Jan 24 18:01:49 2025
+login closed  Fri Jan 24 18:12:12 2025
