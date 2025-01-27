@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+
+    <title>JavaScript - Drag and Drop Demo</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+
+<style>
+    body, html {
+        background-color: #C7E5FF; /* Light purple */
+    }
+.container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+}
+
+/* Image section styling */
+.object {
+    display: flex;
+    justify-content: center; /* Center images horizontally */
+    align-items: center; /* Center images vertically */
+    gap: 20px; /* Add space between images */
+    margin-top:-8%; /* Remove any negative margin that offsets images */
+    width: 100%; /* Ensure it spans the width for proper centering */
+    text-align: center;
+}
+
+/* Image styling */
+.object img {
+    display: inline-block; /* Ensure proper inline-block behavior */
+    max-width: 100%;
+    height: auto;
+}
+    /* Text styling */
+    .centered-text {
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 20px; /* Add space between the image and text */
+    }
+
+    /* Next button styling */
+    .next-button {
+        font-size: 35px;
+        background: rgba(250, 231, 200, 0.6);
+        color: rgb(0, 0, 0);
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 80px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Next button active effect */
+    .next-button:active {
+        background: rgb(255, 200, 150);
+        color: rgb(255, 255, 255);
+    }
+
+
+    .repeat button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        left: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(128, 168, 255, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    }
+
+    /* Next button active effect */
+    .repeat button:active {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+    }
+
+    .stop button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(255, 0, 0, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
+    }
+
+    .stop button:disabled {
+        background: rgba(92, 43, 43, 0.6);
+        color: rgb(255, 255, 255);
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
+    }
+            .other button {
+            font-size: 15px;
+            background: rgba(159, 243, 139, 0.6);
+            color: rgb(0, 0, 0);
+            width: 70px;
+            height: 40px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px; /* Rounded corners */
+            transition: all 0.3s ease; /* Smooth transition */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+
+        /* Next button active effect */
+        .other button:active {
+            background: rgb(41, 57, 104);
+            color: rgb(255, 255, 255);
+        }
+</style>
+   <script >
+    var socket = io.connect('http://192.168.100.2:5000');
+    console.log("first socket:", socket);
+    socket.emit('connect event', {data: 'User Connected'});
+
+    /* STOP function */
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const stopSpeechButton = document.getElementById("stop-speech-btn");
+
+        stopSpeechButton.addEventListener("click", function () {
+            // Emit 'speech_stop' event to the backend
+            socket.emit('speech_stop', {message: "Stop speech command sent"});
+            console.log("Speech stop event emitted");
+
+            // Disable the button for 2 seconds
+            stopSpeechButton.disabled = true;
+            setTimeout(function () {
+                stopSpeechButton.disabled = false;
+            }, 500); // 2000ms = 2 seconds
+        });
+    });
+
+     $(document).ready(function() {
+        socket.emit('first_page',{data: 'sending'});
+        // setTimeout(enabling, 7000);
+
+     });
+        function go_to_next_page() {
+
+            location.href = '/red_riding_hood2';
+    }
+
+function repeat_speech(){
+         socket.emit('repeat_speech', "There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went. One day, she decided to go visit her dear grandmother, who lift deep in the woods.")
+
+}
+        function praise() {
+            var praise1 = document.getElementById("praise1");
+            var praise2 = document.getElementById("praise2");
+            var praise3 = document.getElementById("praise3");
+            var praise4 = document.getElementById("praise4");
+            // Toggle their visibility
+            var displayState = (praise1.style.display === "none" || praise2.style.display === "" || praise3.style.display === "" || praise4.style.display === "") ? "block" : "none";
+            praise1.style.display = displayState;
+            praise2.style.display = displayState;
+            praise3.style.display = displayState;
+            praise4.style.display = displayState;
+        }
+
+        function encour() {
+            var encour1 = document.getElementById("encour1");
+            var encour2 = document.getElementById("encour2");
+            var encour3 = document.getElementById("encour3");
+            var encour4 = document.getElementById("encour4");
+            // Toggle their visibility
+            var displayState = (encour1.style.display === "none" || encour2.style.display === "" || encour3.style.display === "") ? "block" : "none";
+            encour1.style.display = displayState;
+            encour2.style.display = displayState;
+            encour3.style.display = displayState;
+            encour4.style.display = displayState;
+        }
+
+        function speak(msg) {
+            socket.emit('repeat_speech', msg)
+        }
+
+</script>
+
+<body>
+
+    <div class="container">
+        <!-- Images Section -->
+        <div class="object">
+            <img src="../static/story/red_images/red1.png" style="width: 40%;"  >
+        <div class="repeat">
+            <button onclick="repeat_speech()"> Repeat</button>
+        </div>
+
+        <div class="stop">
+            <button id="stop-speech-btn"> STOP</button>
+        </div>
+        </div>
+
+        <!-- Centered text below the images -->
+   <!-- Conditionally render text -->
+        {% if show_text %}
+        <div class="centered-text">
+            Once upon a time lived Goldilocks and The Three Bears.
+        </div>
+        {% endif %}
+
+    </div>
+
+<!-- Next Button -->
+<input
+        type="button"
+        value="Next"
+        onclick="go_to_next_page()"
+        class="next-button">
+
+
+    <div class="other" style="position: fixed;  top: 280px; left: 30px">
+        <button onclick="praise()">Praise</button>
+    </div>
+    <div class="other" style="position: fixed;  top: 280px; right: 30px">
+        <button onclick="encour()">Encourage</button>
+    </div>
+
+
+    <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 350px; /* Distance from the top of the viewport */
+        left: 30px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Good Job')">Good job</button>
+    </div>
+    <div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 400px; /* Distance from the top of the viewport */
+        left: 30px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Well done')">Well done</button>
+    </div>
+    <div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        left: 30px; /* Distance from the left of the viewport */">
+        <button onclick="speak('You did it')">You did it</button>
+    </div>
+    <div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 500px; /* Distance from the top of the viewport */
+        left: 30px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Amazing')">Amazing</button>
+    </div>
+
+
+    <div id="encour1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 350px; /* Distance from the top of the viewport */
+        right: 30px; /* Distance from the left of the viewport */">
+        <button onclick="speak('You can do it!')">You can do it</button>
+    </div>
+    <div id="encour2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 400px; /* Distance from the top of the viewport */
+        right: 30px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Keep trying!')">Keep trying</button>
+    </div>
+    <div id="encour3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        right: 30px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Don’t give up!')">Don’t give up</button>
+    </div>
+</body>
+</html>

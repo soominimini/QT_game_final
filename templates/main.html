@@ -10,12 +10,12 @@
         var socket = io.connect('http://192.168.100.2:5000');
 
         function young() {
-            var ids = ["action_game_container", "emotion_game_1_container", "emotion_game3_container", "dice_action_young_container", "dice_emotion_young_container", "instructions_game_container_young","story_young"];
+            var ids = ["action_game_container", "emotion_game_1_container", "emotion_game3_container", "dice_action_young_container", "dice_emotion_young_container", "instructions_game_container_young","story_young_container", "yes_no_game_container_young"];
             toggleButtons(ids);
         }
 
         function older() {
-            var ids = ["emotion_game2_container", "instructions_game_container", "story_container", "dice_emotion_old_container", "dice_wh_container","dice_5w1h_1_container", "dice_5w1h_2_container", "dice_board_container", "three_little_pig"];
+            var ids = ["emotion_game2_container", "instructions_game_container", "story_container", "dice_emotion_old_container", "dice_wh_container", "dice_board_container", "yes_no_game_container_old"];
             toggleButtons(ids);
         }
 
@@ -277,8 +277,8 @@
         </div>
 
         <!--Interactive story -->
-        <div id="story_young" class="button-container" style="display: none;">
-            <input id="story_young" class="game-button sync" type="button" value="Interactive story"
+        <div id="story_young_container" class="button-container" style="display: none;">
+            <input id="story_young_" class="game-button sync" type="button" value="Interactive story"
                    onclick="handleGameClick('story_young_client')" required
                    style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
             <input class="info-button" type="button" value="i"
@@ -314,6 +314,16 @@
                    onclick="showInfo('Drag and drop the correct image into a basket for the robot')"/>
         </div>
 
+        <!-- Yes or No -->
+        <div id="yes_no_game_container_young" class="button-container"
+             style="display: none; position:fixed; top: 25%; left: 81%;" >
+            <input id="yes_no_game_young" class="game-button sync" type="button" value="Yes or No"
+                   onclick="handleGameClick('yes_no_young')" required
+                   style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Yes or No questions')"/>
+        </div>
+
     </div>
 
     <!-- Bottom Section -->
@@ -341,13 +351,13 @@
         <!-- Interactive Story -->
         <div id="story_container" class="button-container" style="display: none;">
             <input id="story" class="game-button sync" type="button" value="Interactive story"
-                   onclick="handleGameClick('story')" required/>
+                   onclick="handleGameClick('story_old_client')" required/>
             <input class="info-button" type="button" value="i" onclick="showInfo('The robot narrates the story of Goldilocks and the Three Bears.')"/>
         </div>
 
         <!-- Rolling Emotion Dice -->
         <div id="dice_emotion_old_container" class="button-container"
-             style="display: none;position:fixed; top: 75%; left: 12%">
+             style="display: none;position:fixed; top: 75%; left: 22%">
             <input id="dice_emotion_old" class="game-button sync" type="button" value="Rolling emotion dice"
                    onclick="handleGameClick('dice_emotion_old')" required/>
             <input class="info-button" type="button" value="i"
@@ -356,7 +366,7 @@
 
         <!-- Rolling Dice (Why When How) -->
         <div id="dice_wh_container" class="button-container"
-             style="display: none;position:fixed; top: 75%; left:32%">
+             style="display: none; position:fixed; top: 75%; left:41%">
             <input id="dice_5w1h" class="game-button sync" type="button" value="Rolling dice wh questions"
                    onclick="handleGameClick('dice_5w1h')" required
                    style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
@@ -367,11 +377,21 @@
 
         <!-- Rolling Dice with Board -->
         <div id="dice_board_container" class="button-container"
-             style="display: none; position:fixed; top: 75%; left:72%">
+             style="display: none;  position:fixed; top: 75%; left:61%">
             <input id="dice_board" class="game-button sync" type="button" value="Rolling dice with board"
                    onclick="handleGameClick('dice_board')" required/>
             <input class="info-button" type="button" value="i"
                    onclick="showInfo('Roll a virtual dice with numbers to move your piece on a game board')"/>
+        </div>
+
+                <!-- Yes or No -->
+        <div id="yes_no_game_container_old" class="button-container"
+             style="display: none;  position:fixed; top: 75%; left:81%">
+            <input id="yes_no_game_old" class="game-button sync" type="button" value="Yes or No"
+                   onclick="handleGameClick('yes_no_old')" required
+                   style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Yes or No questions')"/>
         </div>
 
     </div>

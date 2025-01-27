@@ -42,7 +42,7 @@
             window.location.href = '/brown_bear';
         }
         else{
-             window.location.href = '/brown_bear';
+             window.location.href = '/goodnight';
         }
     }
 
@@ -386,8 +386,8 @@
     <div id="dice-buttons"
          style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
         <!-- Brown bear -->
-        <div id="dice_5w1h_1_container" class="button-container">
-            <input id="dice_5w1h_1" class="game-button sync" type="button" value="Brown Bear"
+        <div id="brown_bear_container" class="button-container">
+            <input id="brown_bear" class="game-button sync" type="button" value="Brown Bear"
                    onclick="handleGameClick('brown_bear')" required
                    style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
             <input class="info-button" type="button" value="i"
@@ -395,12 +395,12 @@
         </div>
 
         <!-- Good night -->
-        <div id="dice_5w1h_2_container" class="button-container">
-            <input id="dice_5w1h_2" class="game-button sync" type="button" value="Rolling dice (what who where)"
-                   onclick="handleGameClick('dice_5w1h_2')" required
+        <div id="goodnight_container" class="button-container">
+            <input id="goodnight" class="game-button sync" type="button" value="Goodnight moon"
+                   onclick="handleGameClick('goodnight')" required
                    style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
             <input class="info-button" type="button" value="i"
-                   onclick="showInfo('Roll a virtual dice with \'Wh-\' questions (e.g., what, who, where) to spark discussion.')"/>
+                   onclick="showInfo('Robot tells the Goodnight Moon story')"/>
         </div>
     </div>
 

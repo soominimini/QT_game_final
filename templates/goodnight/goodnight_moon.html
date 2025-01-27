@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Goodnight moon</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+
+    <style>
+        body {
+            overflow: hidden; /* Prevent scrolling */
+            background-color: #FFFCA3;
+        }
+
+        /* Main container styling */
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Remove outline for all buttons */
+        button:focus {
+            outline: none;
+        }
+
+        /* Next button styling */
+        .next-button {
+            font-size: 35px;
+            background: rgba(250, 231, 200, 0.6);
+            color: rgb(0, 0, 0);
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 80px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Next button active effect */
+        .next-button:active {
+            background: rgb(255, 200, 150);
+            color: rgb(255, 255, 255);
+        }
+
+        /* Image section styling */
+        .object img {
+            margin: 0 10px; /* Add spacing between images */
+        }
+
+        .object {
+            margin-top: -20%;
+        }
+
+        .repeat button {
+            position: fixed; /* Keeps it fixed relative to the viewport */
+            top: 20px; /* Distance from the top of the viewport */
+            left: 20px; /* Distance from the left of the viewport */
+            font-size: 20px;
+            background: rgba(128, 168, 255, 0.6);
+            color: rgb(0, 0, 0);
+            width: 100px;
+            height: 60px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px; /* Rounded corners */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+
+        /* Next button active effect */
+        .repeat button:active {
+            background: rgb(41, 57, 104);
+            color: rgb(255, 255, 255);
+        }
+
+        .stop button {
+            position: fixed; /* Keeps it fixed relative to the viewport */
+            top: 20px; /* Distance from the top of the viewport */
+            right: 20px; /* Distance from the left of the viewport */
+            font-size: 20px;
+            background: rgba(255, 0, 0, 0.6);
+            color: rgb(0, 0, 0);
+            width: 100px;
+            height: 60px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px; /* Rounded corners */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+
+        .stop button:disabled {
+            background: rgba(92, 43, 43, 0.6);
+            color: rgb(255, 255, 255);
+            cursor: not-allowed; /* Change cursor to indicate disabled state */
+        }
+
+        button {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        button img {
+            width: 150px; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Optional: Add rounded corners */
+            border: 1px solid #ddd; /* Optional: Add a border */
+        }
+
+
+        .object {
+            margin-top: -20%;
+            background-image: url('../static/story/goodnight_images/room.png'); /* Replace with your image path */
+            background-size: 200%; /* Scales the background image */
+            background-position: 100% 40%; /* Adjusts which part of the image is shown (X% Y%) */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            width: 100%; /* Ensures the object container spans the full width */
+            height: 500px; /* Adjust height as needed to control visible area */
+            padding: 20px; /* Optional: Add padding for spacing around the content */
+            border-radius: 10px; /* Optional: Add rounded corners */
+        }
+
+        .grey-out {
+            filter: grayscale(100%); /* Makes the button appear grey */
+            opacity: 0.9; /* Optional: Makes it look faded */
+            pointer-events: none; /* Optional: Prevent further clicks while greyed out */
+        }
+
+        .other button {
+
+            font-size: 15px;
+            background: rgba(159, 243, 139, 0.6);
+            color: rgb(0, 0, 0);
+            width: 70px;
+            height: 40px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px; /* Rounded corners */
+            transition: all 0.3s ease; /* Smooth transition */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+
+        /* Next button active effect */
+        .other button:active {
+            background: rgb(41, 57, 104);
+            color: rgb(255, 255, 255);
+        }
+
+
+    </style>
+    <script type="text/javascript">
+        var socket = io.connect('http://192.168.100.2:5000');
+
+        function handleImageClick(imageName) {
+            // Example: Emit an event to the server
+            socket.emit('image_clicked', {image: imageName});
+            console.log(`${imageName} image clicked`);
+        }
+
+        function handleButtonClick(button) {
+            // Add the 'grey-out' class to the button
+            button.classList.add('grey-out');
+
+            // Remove the class after 1 second
+            setTimeout(() => {
+                button.classList.remove('grey-out');
+            }, 1000); // 1000 ms = 1 second
+        }
+
+        /* STOP function */
+        // Define global variables for prompts
+        let currentPrompt = "";
+        let currentPrompt2 = "";
+        let statement = "";
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const stopSpeechButton = document.getElementById("stop-speech-btn");
+
+            stopSpeechButton.addEventListener("click", function () {
+                // Emit 'speech_stop' event to the backend
+                socket.emit('speech_stop', {message: "Stop speech command sent"});
+                console.log("Speech stop event emitted");
+
+                // Disable the button for 2 seconds
+                stopSpeechButton.disabled = true;
+                setTimeout(function () {
+                    stopSpeechButton.disabled = false;
+                }, 500); // 2000ms = 2 seconds
+            });
+            // Initialize the current sequence state
+            currentPrompt = "In the great green room, there was a telefone.";
+            currentPrompt2 = "Where is the telefone?";
+            let expectedAnswer = "telephone";
+
+            socket.emit('brown_talk', currentPrompt, 2);
+            socket.emit('brown_talk', currentPrompt2, 4.5);
+
+            // Function to handle button clicks and sequence
+            function handleImageClick(imageName) {
+                if (imageName === expectedAnswer) {
+                    // Correct answer clicked
+                    console.log(`Correct answer: ${imageName}`);
+
+                    // Update the next sequence
+                    if (imageName === "telephone") {
+                        socket.emit('correct');
+                        currentPrompt = "and a red balloon.";
+                        currentPrompt2 = "Where is the red balloon?";
+                        expectedAnswer = "balloon";
+
+                        socket.emit('brown_talk', currentPrompt, 3);
+                        socket.emit('brown_talk', currentPrompt2, 4.5);
+
+                    } else if (imageName === "balloon") {
+                        socket.emit('correct');
+                        currentPrompt = "and a picture of the cow jumping over the moon";
+                        currentPrompt2 = "Where is the picture of the cow jumping over the moon";
+                        expectedAnswer = "cow";
+
+                        socket.emit('brown_talk', currentPrompt, 3);
+                        socket.emit('brown_talk', currentPrompt2, 4.5);
+
+                    } else if (imageName === "cow") {
+                        socket.emit('brown_talk', "Lets go to next page", 3);
+                    } else {
+                        console.log("End of sequence");
+                        return; // End the sequence
+                    }
+
+
+                } else {
+                    // Incorrect answer
+                    console.log(`Incorrect answer: ${imageName}. Try again.`);
+                    socket.emit('wrong');
+                }
+            }
+
+            // Attach the function to buttons
+            window.handleImageClick = handleImageClick; // Make it globally accessible
+
+
+        });
+
+        /* STOP function */
+        console.log("first socket:", socket);
+        socket.emit('connect event', {data: 'User Connected'});
+
+
+        function go_to_next_page() {
+            location.href = '/goodnight2';
+        }
+
+        function repeat_speech() {
+            socket.emit('repeat_speech', currentPrompt);
+            setTimeout(() => {
+                socket.emit('repeat_speech', currentPrompt2);
+            }, 1000); // Delay for better UX
+        }
+
+        function praise() {
+            var praise1 = document.getElementById("praise1");
+            var praise2 = document.getElementById("praise2");
+            var praise3 = document.getElementById("praise3");
+            var praise4 = document.getElementById("praise4");
+            // Toggle their visibility
+            var displayState = (praise1.style.display === "none" || praise2.style.display === "" || praise3.style.display === "" || praise4.style.display === "") ? "block" : "none";
+            praise1.style.display = displayState;
+            praise2.style.display = displayState;
+            praise3.style.display = displayState;
+            praise4.style.display = displayState;
+        }
+
+        function encour() {
+            var encour1 = document.getElementById("encour1");
+            var encour2 = document.getElementById("encour2");
+            var encour3 = document.getElementById("encour3");
+            var encour4 = document.getElementById("encour4");
+            // Toggle their visibility
+            var displayState = (encour1.style.display === "none" || encour2.style.display === "" || encour3.style.display === "") ? "block" : "none";
+            encour1.style.display = displayState;
+            encour2.style.display = displayState;
+            encour3.style.display = displayState;
+            encour4.style.display = displayState;
+        }
+
+        function speak(msg) {
+            socket.emit('repeat_speech', msg)
+        }
+    </script>
+
+<body>
+<div class="container">
+    <div class="object" style="background-color: white; width: 900px; height: 700px; margin-top: 0;">
+        <button onclick="handleImageClick('balloon'); handleButtonClick(this);"
+                style="position:absolute; top:25%; right: 15%">
+            <img src="../static/story/goodnight_images/ballon.png" alt="Balloon">
+        </button>
+        <button onclick="handleImageClick('cow'); handleButtonClick(this);"
+                style="position:absolute; top: 20%; right: 65%">
+            <img src="../static/story/goodnight_images/cow_moon.png" alt="Cow"  style="width: 200px;">
+        </button>
+        <button onclick="handleImageClick('telephone'); handleButtonClick(this);"
+                style="position:absolute; top: 50%; right: 69%">
+            <img src="../static/story/goodnight_images/telephone.png" alt="telephone" style="width: 130px;" >
+        </button>
+
+    </div>
+    <div class="repeat">
+        <button onclick="repeat_speech()"> Repeat</button>
+    </div>
+
+    <div class="stop">
+        <button id="stop-speech-btn"> STOP</button>
+    </div>
+
+    <div class="other" style="position: fixed;  top: 280px; left: 30px">
+        <button onclick="praise()">Praise</button>
+    </div>
+    <div class="other" style="position: fixed;  top: 280px; right: 30px">
+        <button onclick="encour()">Encourage</button>
+    </div>
+
+
+    <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 350px; /* Distance from the top of the viewport */
+        left: 30px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Good Job')">Good job</button>
+    </div>
+    <div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 400px; /* Distance from the top of the viewport */
+        left: 30px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Well done')">Well done</button>
+    </div>
+    <div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        left: 30px; /* Distance from the left of the viewport */">
+        <button onclick="speak('You did it')">You did it</button>
+    </div>
+    <div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 500px; /* Distance from the top of the viewport */
+        left: 30px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Amazing')">Amazing</button>
+    </div>
+
+
+    <div id="encour1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 350px; /* Distance from the top of the viewport */
+        right: 30px; /* Distance from the left of the viewport */">
+        <button onclick="speak('You can do it!')">You can do it</button>
+    </div>
+    <div id="encour2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 400px; /* Distance from the top of the viewport */
+        right: 30px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Keep trying!')">Keep trying</button>
+    </div>
+    <div id="encour3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        right: 30px; /* Distance from the left of the viewport */">
+        <button onclick="speak('Don’t give up!')">Don’t give up</button>
+    </div>
+
+
+</div>
+
+<!-- Next button -->
+<input type="button" value="Next" onclick="go_to_next_page()" class="next-button">
+</div>
+
+
+</body>
+</html>
