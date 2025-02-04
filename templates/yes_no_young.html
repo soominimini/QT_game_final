@@ -184,7 +184,7 @@
     </style>
     <script type="text/javascript">
         var socket = io.connect('http://192.168.100.2:5000');
-
+        var msg;
         function handleImageClick(imageName) {
             // Example: Emit an event to the server
             socket.emit('image_clicked', {image: imageName});
@@ -211,10 +211,7 @@
         // }
 
         function repeat_speech() {
-            socket.emit('repeat_speech', currentPrompt);
-            setTimeout(() => {
-                socket.emit('repeat_speech', currentPrompt2);
-            }, 1000); // Delay for better UX
+            socket.emit('repeat_speech', msg);
         }
 
         // Example question set
@@ -279,7 +276,7 @@
         function loadQuestion() {
             if (remainingQuestions.length === 0) {
                 document.getElementById('question-text').innerText = "Quiz complete!";
-                socket.emit('yes_or_no',"Finished!. Lets play other games!",1.0)
+                socket.emit('yes_or_no', "Finished!. Lets play other games!", 1.0)
                 // document.getElementById('image-display').src = "";
                 return;
             }
@@ -311,8 +308,9 @@
             }
 
             // document.getElementById('question-text').innerText = currentQuestion.text;
-            console.log("currentQuestion.text:",currentQuestion.text)
-            socket.emit('yes_or_no',currentQuestion.text,1.0)
+            msg = currentQuestion.text
+            console.log("currentQuestion.text:", currentQuestion.text)
+            socket.emit('yes_or_no', currentQuestion.text, 1.0)
         }
 
         // Handle user's answer
@@ -329,6 +327,26 @@
 
         // Initialize the first question
         window.onload = loadQuestion;
+        document.addEventListener("DOMContentLoaded", function () {
+            const stopSpeechButton = document.getElementById("stop-speech-btn");
+            const repeatSpeechButton = document.getElementById("repeat-speech-btn");
+
+            stopSpeechButton.addEventListener("click", function () {
+
+                // Emit 'speech_stop' event to the backend
+                socket.emit('stop_trigger_force', {message: "Stop speech command sent"});
+                socket.emit('speech_stop', {message: "Stop speech command sent"});
+                console.log("Speech stop event emitted");
+
+                // Disable the button for 2 seconds
+                stopSpeechButton.disabled = true;
+                setTimeout(function () {
+                    stopSpeechButton.disabled = false;
+                }, 500); // 2000ms = 2 seconds
+
+            });
+
+        });
 
         function praise() {
             var praise1 = document.getElementById("praise1");
@@ -364,7 +382,7 @@
 <body>
 <div class="container">
     <div class="object" style="background-color: white; width: 900px; height: 500px; margin-top: -15%;">
-        <p id="question-text" class="question">  Yes or No Question</p>
+        <p id="question-text" class="question"> Yes or No Question</p>
         <img id="image-display" src="" alt="Question Image" style="width: 500px;">
     </div>
 

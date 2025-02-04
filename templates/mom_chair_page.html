@@ -144,16 +144,16 @@
         });
     });
 
-
-    $(document).ready(function () {
-        socket.emit('mom_chair')
-        // setTimeout(enabling, 7000);
-    });
+    window.onload = function () {
+        socket.emit('mom_chair');
+        console.log("first_page event emitted after full page load");
+    };
 
     function repeat_speech() {
         socket.emit('repeat_speech', "Goldilocks sat in the medium sized chair. “This chair is too big, too!")
     }
-        function praise() {
+
+    function praise() {
         var praise1 = document.getElementById("praise1");
         var praise2 = document.getElementById("praise2");
         var praise3 = document.getElementById("praise3");
@@ -203,7 +203,6 @@
             Goldilocks sat in the medium sized chair. “This chair is too big, too!”
         {% endif %}
     </div>
-
 
 
     <div class="other" style="position: fixed;  top: 280px; left: 30px">

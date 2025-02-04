@@ -129,11 +129,12 @@
                 stopSpeechButton.disabled = false;
             }, 500); // 2000ms = 2 seconds
         });
+        history.replaceState(null, "", "/girl/baby_chair");
     });
-    $(document).ready(function () {
-        socket.emit('baby_chair2')
-        // setTimeout(enabling, 7000);
-    });
+    window.onload = function () {
+        socket.emit('baby_chair2');
+        console.log("first_page event emitted after full page load");
+    };
 
     function repeat_speech() {
         socket.emit('repeat_speech', "Just as Goldilocks settled down into the chair to rest, it broke into pieces!")
@@ -185,7 +186,7 @@
     </div>
     <div class="centered-text">
         {% if show_text %}
-        Just as Goldilocks settled down into the chair to rest, it broke into pieces!
+            Just as Goldilocks settled down into the chair to rest, it broke into pieces!
         {% endif %}
     </div>
 

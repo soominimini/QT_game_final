@@ -147,16 +147,6 @@
         }
     }
 
-    // Push the initial state to the history stack
-    window.addEventListener("load", function () {
-        history.pushState({page: 'main'}, '', window.location.href);
-
-        // Listen for the browser's native "Go Back" button
-        window.addEventListener("popstate", function (event) {
-            // Redirect to `taking_instruction_main.html` when the "Go Back" button is clicked
-            location.href = '/taking_instruction_main_young';
-        });
-    });
 
     function go_to_next_page() {
         console.log("next button")
@@ -196,6 +186,7 @@
                 repeatSpeechButton.disabled = false;
             }, 500); // 2000ms = 2 seconds
         });
+        history.replaceState(null, "", "/taking_instruction_main_young");
     });
 
     function praise() {

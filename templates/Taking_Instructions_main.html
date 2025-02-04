@@ -29,6 +29,23 @@
 
     });
 
+    window.addEventListener("load", function () {
+        if (document.cookie.includes("refreshFlag=true")) {
+            console.log("Page was refreshed!");
+            console.log("window.history.length:", window.history.length);
+
+            // Go back as far as possible
+            let backCount = history.length - 1;
+            for (let i = 0; i < backCount; i++) {
+                history.back();
+            }
+
+            // Replace the final state
+            history.replaceState(null, "", window.location.href);
+        }
+    });
+
+
     var enabling = function () {
 
         document.getElementById("btn1").disabled = false;

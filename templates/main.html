@@ -10,12 +10,12 @@
         var socket = io.connect('http://192.168.100.2:5000');
 
         function young() {
-            var ids = ["action_game_container", "emotion_game_1_container", "emotion_game3_container", "dice_action_young_container", "dice_emotion_young_container", "instructions_game_container_young","story_young_container", "yes_no_game_container_young"];
+            var ids = ["action_game_container", "emotion_game_1_container", "emotion_game3_container", "dice_action_young_container", "dice_emotion_young_container", "instructions_game_container_young", "story_young_container", "yes_no_game_container_young"];
             toggleButtons(ids);
         }
 
         function older() {
-            var ids = ["emotion_game2_container", "instructions_game_container", "story_container", "dice_emotion_old_container", "dice_wh_container", "dice_board_container", "yes_no_game_container_old"];
+            var ids = ["emotion_game2_container", "instructions_game_container", "story_container", "dice_emotion_old_container", "dice_wh_container", "dice_board_container", "yes_no_game_container_old","inference_container_old"];
             toggleButtons(ids);
         }
 
@@ -216,8 +216,8 @@
 
         /* Small round button styles */
         .small-round-button {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             background-color: #FFB6C1; /* Light pink */
             display: flex;
@@ -256,14 +256,16 @@
         <div id="action_game_container" class="button-container" style="display: none;">
             <input id="action_game" class="game-button sync" type="button" value="Action card game"
                    onclick="handleGameClick('action_game')" required/>
-            <input class="info-button" type="button" value="i" onclick="showInfo('Show a card, and the robot names the activity (e.g., drawing, playing)')"/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Show a card, and the robot names the activity (e.g., drawing, playing)')"/>
         </div>
 
         <!-- Emotion Card Game -->
         <div id="emotion_game_1_container" class="button-container" style="display: none;">
             <input id="emotion_game_1" class="game-button sync" type="button" value="Emotion card game"
                    onclick="handleGameClick('emotion_game_1')" required/>
-            <input class="info-button" type="button" value="i" onclick="showInfo('Show a card, and the robot names the emotion (e.g., happy, sad)')"/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Show a card, and the robot names the emotion (e.g., happy, sad)')"/>
         </div>
 
         <!-- Emotion Game with Two Cards -->
@@ -291,7 +293,8 @@
              style="display: none; position:fixed; top: 25%; left: 22%">
             <input id="dice_action_young" class="game-button sync" type="button" value="Brain breaks"
                    onclick="handleGameClick('dice_action_young')" required/>
-            <input class="info-button" type="button" value="i" onclick="showInfo('Roll a virtual dice with activities (e.g., singing, dancing)')"/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Roll a virtual dice with activities (e.g., singing, dancing)')"/>
         </div>
 
         <!-- Dice Game / Emotions -->
@@ -316,7 +319,7 @@
 
         <!-- Yes or No -->
         <div id="yes_no_game_container_young" class="button-container"
-             style="display: none; position:fixed; top: 25%; left: 81%;" >
+             style="display: none; position:fixed; top: 25%; left: 81%;">
             <input id="yes_no_game_young" class="game-button sync" type="button" value="Yes or No"
                    onclick="handleGameClick('yes_no_young')" required
                    style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
@@ -342,17 +345,20 @@
 
         <!-- Instruction Game -->
         <div id="instructions_game_container" class="button-container" style="display: none;">
-            <input id="instructions_game" class="game-button sync" type="button" value="Following complex direction game"
+            <input id="instructions_game" class="game-button sync" type="button"
+                   value="Following complex direction game"
                    onclick="handleGameClick('instructions_game')" required
                    style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
-            <input class="info-button" type="button" value="i" onclick="showInfo('Drag and drop the correct image into a basket for the robot')"/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Drag and drop the correct image into a basket for the robot')"/>
         </div>
 
         <!-- Interactive Story -->
         <div id="story_container" class="button-container" style="display: none;">
             <input id="story" class="game-button sync" type="button" value="Interactive story"
                    onclick="handleGameClick('story_old_client')" required/>
-            <input class="info-button" type="button" value="i" onclick="showInfo('The robot narrates the story of Goldilocks and the Three Bears.')"/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('The robot narrates the story of Goldilocks and the Three Bears.')"/>
         </div>
 
         <!-- Rolling Emotion Dice -->
@@ -384,7 +390,7 @@
                    onclick="showInfo('Roll a virtual dice with numbers to move your piece on a game board')"/>
         </div>
 
-                <!-- Yes or No -->
+        <!-- Yes or No -->
         <div id="yes_no_game_container_old" class="button-container"
              style="display: none;  position:fixed; top: 75%; left:81%">
             <input id="yes_no_game_old" class="game-button sync" type="button" value="Yes or No"
@@ -392,6 +398,16 @@
                    style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
             <input class="info-button" type="button" value="i"
                    onclick="showInfo('Yes or No questions')"/>
+        </div>
+
+        <!-- Inference -->
+        <div id="inference_container_old" class="button-container"
+             style="display: none;  position:fixed; top: 75%; left:3%">
+            <input id="inference_old" class="game-button sync" type="button" value="Inference Question"
+                   onclick="handleGameClick('inference_old')" required
+                   style="white-space: pre-wrap; line-height: 1.5; text-align: center;"/>
+            <input class="info-button" type="button" value="i"
+                   onclick="showInfo('Inference quiz')"/>
         </div>
 
     </div>

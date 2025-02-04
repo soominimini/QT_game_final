@@ -126,11 +126,10 @@
             }, 500); // 2000ms = 2 seconds
         });
     });
-
-    $(document).ready(function () {
-        socket.emit('baby_porridge')
-        // setTimeout(enabling, 7000);
-    });
+     window.onload = function () {
+        socket.emit('baby_porridge');
+        console.log("first_page event emitted after full page load");
+    };
 
     function repeat_speech() {
         socket.emit('repeat_speech', "Goldilocks tasted the porridge from the small bowl. “This porridge is just right,” Goldilocks said and ate it all up.")

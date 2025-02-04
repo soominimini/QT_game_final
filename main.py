@@ -20,7 +20,7 @@ from emotion_card3 import *
 from flask_mysqldb import MySQL
 import mysql.connector as sql
 
-from interact_story import *
+# from interact_story import *
 
 # from dice_rolling import *
 path = "/static/images/"
@@ -36,6 +36,19 @@ em = None
 table_id = ''
 error_record = 0
 success_record = 0
+
+selected_character = ''
+selected_lodge = ''
+porridge_visited = [False]
+chair_visited = [False]
+bed_visited = [False]
+
+baby_chair_visit_check = False
+table_visit = [0, 0, 0]
+chair_visit =[0, 0, 0]
+bed_visit = [0, 0, 0]
+
+
 
 show_text = False
 arr_visit = [False, False, False]
@@ -132,7 +145,8 @@ def handle_speech_say(data):
     def say_speech():
         speech_stop_event.clear()  # Reset stop signal before starting speech
         # speechSay_pub.publish(data)  # Publish speech
-        speechSay_servc(data)
+        # speechSay_servc(data)
+        talktext_pub.publish(data)
 
     # Run speech processing in a separate thread
     threading.Thread(target=say_speech).start()
@@ -571,12 +585,13 @@ def main_menu(message):
     elif (message["who"] == 'story_old_client'):
         socketio.emit('redirect', {'url': url_for('story_old_main')})
     elif (message["who"] == 'goldilocks'):
-        interact_main()
+        # interact_main()
+        # first_talk_robot_interactive()
         print("here interact")
         socketio.emit('redirect', {'url': url_for('start_page_story')})
 
     elif (message["who"] == 'red_riding'):
-        socketio.emit('redirect', {'url': url_for('red_riding1')})
+        socketio.emit('redirect', {'url': url_for('red_riding_start')})
 
     elif (message["who"] == 'dice_emotion_young'):
         # dice_main_emotion_young()
@@ -608,7 +623,8 @@ def main_menu(message):
         socketio.emit('redirect', {'url': url_for('yes_no_young')})
     elif (message["who"] == 'yes_no_old'):
         socketio.emit('redirect', {'url': url_for('yes_no_old')})
-
+    elif (message["who"] == 'inference_old'):
+        socketio.emit('redirect', {'url': url_for('inference_fucn')})
     is_redirecting = False
 
 
@@ -879,13 +895,13 @@ def start_page_story():
 
 @app.route('/girl/first_page')
 def girl_2nd_page():
-    second()
+    # second()
     return render_template('1st_girl.html', show_text=show_text)
 
 
 @app.route('/girl/lodge')
 def girl_lodge():
-    third_girl()
+    # third_girl()
     return render_template('girl_lodge.html', show_text=show_text)
 
 
@@ -898,25 +914,25 @@ def bowl_table():
 
 @app.route('/girl/dad_bowl')
 def dad_bowl():
-    dad_porridge()
+    # dad_porridge()
     return render_template('dad_bowl_page.html', show_text=show_text)
 
 
 @app.route('/girl/mom_bowl')
 def mom_bowl():
-    mom_porridge()
+    # mom_porridge()
     return render_template('mom_bowl_page.html', show_text=show_text)
 
 
 @app.route('/girl/baby_bowl')
 def baby_bowl():
-    baby_porridge()
+    # baby_porridge()
     return render_template('baby_bowl_page.html', show_text=show_text)
 
 
 @app.route('/girl/chair')
 def chairs():
-    chair_main()
+    # chair_main()
     return render_template('chairs.html', show_text=show_text)
 
 
@@ -928,20 +944,20 @@ def dad_chairs():
 
 @app.route('/girl/mom_chair')
 def mom_chairs():
-    mom_chair()
+    # mom_chair()
     return render_template('mom_chair_page.html', show_text=show_text)
 
 
 @app.route('/girl/baby_chair')
 def baby_chairs():
-    baby_chair()
+    # baby_chair()
     print("chair_visit main file: ", chair_visit)
     return render_template('baby_chair_page.html', show_text=show_text)
 
 
 @app.route('/girl/baby_chair2')
 def baby_chairs2():
-    baby_chair2()
+    # baby_chair2()
     return render_template('baby_chair_page2.html', show_text=show_text)
 
 
@@ -953,19 +969,19 @@ def beds():
 
 @app.route('/girl/dad_bed')
 def dad_bed():
-    dad_bed_func()
+    # dad_bed_func()
     return render_template('dad_bed_page.html', show_text=show_text)
 
 
 @app.route('/girl/mom_bed')
 def mom_bed():
-    mom_bed_func('girl')
+    # mom_bed_func()
     return render_template('mom_bed_page.html', show_text=show_text)
 
 
 @app.route('/girl/baby_bed')
 def baby_bed():
-    baby_bed_func()
+    # baby_bed_func()
     return render_template('baby_bed_page.html', show_text=show_text)
 
 
@@ -973,62 +989,62 @@ def baby_bed():
 
 @app.route('/bear_1st')
 def bear_1st():
-    bear_1st_func()
+    # bear_1st_func()
     return render_template('bear_1st_page.html', show_text=show_text)
 
 
 # @app.route('/girl/bear_2nd')
 @app.route('/bear_2nd')
 def bear_2nd():
-    bear_2nd_func()
+    # bear_2nd_func()
     return render_template('bear_2nd_page.html', show_text=show_text)
 
 
 # @app.route('/girl/bear_3th')
 @app.route('/bear_3rd')
 def bear_3th():
-    bear_3rd_func()
+    # bear_3rd_func()
     return render_template('bear_3th_page.html', show_text=show_text)
 
 
 # @app.route('/girl/bear_4th')
 @app.route('/bear_4th')
 def bear_4th():
-    bear_4th_func()
+    # bear_4th_func()
     return render_template('bear_4th_page.html', show_text=show_text)
 
 
 # @app.route('/girl/bear_5th')
 @app.route('/bear_5th')
 def bear_5th():
-    bear_5th_func()
+    # bear_5th_func()
     return render_template('bear_5th_page.html', show_text=show_text)
 
 
 # @app.route('/girl/bear_6th')
 @app.route('/bear_6th')
 def bear_6th():
-    bear_6th_func()
+    # bear_6th_func()
     return render_template('bear_6th_page.html', show_text=show_text)
 
 
 @app.route('/bear_7th')
 def bear_7th():
-    bear_7th_func()
+    # bear_7th_func()
     return render_template('bear_7th_page.html', show_text=show_text)
 
 
 # @app.route('/girl/bear_8th')
 @app.route('/bear_8th')
 def bear_8th():
-    bear_8th_func()
+    # bear_8th_func()
     return render_template('bear_8th_page.html', show_text=show_text)
 
 
 # @app.route('/girl/bear_9th')
 @app.route('/bear_9th')
 def bear_9th():
-    bear_9th_func()
+    # bear_9th_func()
     global selected_character
     print("selected_character: ", selected_character)
     return render_template('bear_9th_page.html', character=selected_character, show_text=show_text)
@@ -1036,19 +1052,19 @@ def bear_9th():
 
 @app.route('/girl/bear_10th')
 def bear_10th():
-    bear_10th_func()
+    # bear_10th_func()
     return render_template('bear_10th_page.html', show_text=show_text)
 
 
 @app.route('/girl/bear_11th')
 def bear_11th():
-    bear_11th_func()
+    # bear_11th_func()
     return render_template('bear_11th_page.html', show_text=show_text)
 
 
 @app.route('/girl/bear_12th')
 def bear_12th():
-    bear_12th_func()
+    # bear_12th_func()
     if selected_lodge == 'lodge1':
         return render_template('bear_12th_page1.html', show_text=show_text)
     else:
@@ -1412,205 +1428,35 @@ def story_old_main():
     return render_template('old_story_main.html')
 
 
+@app.route('/red_riding_start_page')
+def red_riding_start():
+    print("red_riding1 start")
+    talktext_pub.publish("Lets start the story")
+    return render_template('red_riding/story_text_select.html')
+
+
 @app.route('/red_riding_hood1')
 def red_riding1():
+    print("red_riding1 route function")
     red_riding_first()
-    return render_template('red_riding/red_riding1.html')
+    return render_template('red_riding/red_riding1.html', show_text=show_text)
 
 
 @socketio.on('red_riding_first')
 def red_riding_first():
     rospy.sleep(1.0)
+    print("here")
     talktext_pub.publish(
         "There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went. One day, she decided to go visit her dear grandmother, who lift deep in the woods.")
-    # talktext_pub.publish("and she always wore a red riding cape wherever she went.")
-    # talktext_pub.publish("One day, she decided to go visit her dear grandmother, who lift deep in the woods.")
     print("...")
 
 
-@app.route('/red_riding_hood2')
-def red_riding2():
-    red_riding_second()
-    return render_template('red_riding/red_riding2.html')
-
-
-@socketio.on('red_riding_second')
-def red_riding_second():
+@socketio.on('story_line')
+def story_speak(msg):
     rospy.sleep(1.0)
-    talktext_pub.publish(
-        "When her mother packed a basket of treats, she warned her not to talk to strangers along the way. ")
-    print("...")
+    print("msg:", msg)
+    talktext_pub.publish(msg)
 
-
-@app.route('/red_riding_hood3')
-def red_riding3():
-    red_riding_third()
-    return render_template('red_riding/red_riding3.html')
-
-
-@socketio.on('red_riding_third')
-def red_riding_third():
-    rospy.sleep(1.0)
-    talktext_pub.publish(
-        "As Little Red Riding Hood happily strolled through the woods, she did not notice the sneaky wolf stalking her through the trees. ")
-    print("...")
-
-
-@app.route('/red_riding_hood4')
-def red_riding4():
-    red_riding_fourth()
-    return render_template('red_riding/red_riding4.html')
-
-
-@socketio.on('red_riding_fourth')
-def red_riding_fourth():
-    rospy.sleep(1.0)
-    talktext_pub.publish(
-        "The wolf, pretending to be lost, asked Little Red Riding Hood for directions. The wolf seemed harmless enough, so Little Red Riding Hood not only spoke to him. she also revealed where she was going.")
-
-    print("...")
-
-
-@app.route('/red_riding_hood5')
-def red_riding5():
-    red_riding_fifth()
-    return render_template('red_riding/red_riding5.html')
-
-
-@socketio.on('red_riding_fifth')
-def red_riding_fifth():
-    rospy.sleep(1.0)
-    talktext_pub.publish(
-        "The wolf rushed ahead to beat her to her grand mother’s house, gaining entry by pretending to be her dear granddaughter. ")
-    print("...")
-
-
-@app.route('/red_riding_hood6')
-def red_riding6():
-    red_riding_sixth()
-    return render_template('red_riding/red_riding6.html')
-
-
-@socketio.on('red_riding_sixth')
-def red_riding_sixth():
-    rospy.sleep(1.0)
-    talktext_pub.publish(
-        "Having locked her grandmother in the closet, the wolf waited for Little Red Riding Hood to arrive.")
-    print("...")
-
-
-@app.route('/red_riding_hood7')
-def red_riding7():
-    red_riding_seventh()
-    return render_template('red_riding/red_riding7.html')
-
-
-@socketio.on('red_riding_seventh')
-def red_riding_seventh():
-    rospy.sleep(1.0)
-    talktext_pub.publish(
-        "When she knocked on her grandmother’s door, she was greeted by a strange voice. “Come in dear,” said the wolf. ")
-    print("...")
-
-
-@app.route('/red_riding_hood8')
-def red_riding8():
-    red_riding_eighth()
-    return render_template('red_riding/red_riding8.html')
-
-
-@socketio.on('red_riding_eighth')
-def red_riding_eighth():
-    rospy.sleep(1.0)
-    talktext_pub.publish(
-        "As the wolf lay in bed, wearing one of her grandmother’s nightgowns, Little Red Riding Hood thought her grandmother sounded and looked strange. ")
-    print("...")
-
-
-@app.route('/red_riding_hood9')
-def red_riding9():
-    red_riding_ninth()
-    return render_template('red_riding/red_riding9.html')
-
-
-@socketio.on('red_riding_ninth')
-def red_riding_ninth():
-    rospy.sleep(1.0)
-    talktext_pub.publish(" What big ears you have, she said. Better to hear you with my dear, replied the wolf. ")
-    print("...")
-
-
-@app.route('/red_riding_hood10')
-def red_riding10():
-    red_riding_tenth()
-    return render_template('red_riding/red_riding10.html')
-
-
-@socketio.on('red_riding_tenth')
-def red_riding_tenth():
-    rospy.sleep(1.0)
-    talktext_pub.publish( " “What big eyes you have,” said Little Red Riding Hood. “Better to see you with my darling,” the wolf replied. ")
-    print("...")
-
-
-@app.route('/red_riding_hood11')
-def red_riding11():
-    red_riding_eleventh()
-    return render_template('red_riding/red_riding11.html')
-
-
-@socketio.on('red_riding_eleventh')
-def red_riding_eleventh():
-    rospy.sleep(1.0)
-    talktext_pub.publish("Your teeth, your teeth are large and as sharp as knives. Little Red Riding Hood exclaimed.")
-    # talktext_pub.publish("Little Red Riding Hood exclaimed.")
-    print("...")
-
-
-@app.route('/red_riding_hood12')
-def red_riding12():
-    red_riding_twelfth()
-    return render_template('red_riding/red_riding12.html')
-
-
-@socketio.on('red_riding_twelfth')
-def red_riding_twelfth():
-    rospy.sleep(1.0)
-    talktext_pub.publish("“The better to eat you with!” growled the wolf")
-    rospy.sleep(4.0)
-    audioPlay_pub.publish('QT/growl_3')
-    rospy.sleep(1.5)
-    talktext_pub.publish("as he jumped up and lunged at the girl. ")
-    print("...")
-
-
-@app.route('/red_riding_hood13')
-def red_riding13():
-    red_riding_thirteenth()
-    return render_template('red_riding/red_riding13.html')
-
-
-@socketio.on('red_riding_thirteenth')
-def red_riding_thirteenth():
-    rospy.sleep(1.0)
-    talktext_pub.publish(
-        "Luckily Little Red Riding Hood had practiced self defense, and grabbed a broom to fend off the wolf. Surprised by the girl's bravery, the wolf ran off with his tail between his legs. ")
-    # talktext_pub.publish("Surprised by the girl's bravery, the wolf ran off with his tail between his legs.  ")
-    print("...")
-
-
-@app.route('/red_riding_hood14')
-def red_riding14():
-    red_riding_fourteenth()
-    return render_template('red_riding/red_riding14.html')
-
-
-@socketio.on('red_riding_fourteenth')
-def red_riding_fourteenth():
-    rospy.sleep(1.0)
-    talktext_pub.publish(
-        "13. Little Red Riding Hood freed her grandmother from the closet, and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again.")
-    print("...")
 
 
 ######################################################################################### break, at talks     ############################################################################################
@@ -1665,7 +1511,8 @@ def story_young4():
 def speech_brown_bear(text, sleep_time):
     print("brown_talk: ", text, sleep_time)
     rospy.sleep(sleep_time)
-    talktext_pub.publish(text)
+    # talktext_pub.publish(text)
+    handle_speech_say(text)
 
 
 ############ Goodnight moon
@@ -1725,7 +1572,7 @@ def story_young_moon11():
     return render_template('/goodnight/goodnight_moon11.html')
 
 
-########################################################################################  Yes or No  ##############################################################
+########################################################################################  Yes or No, Inference  ##############################################################
 
 @socketio.on('yes_or_no')
 def speech_yes_or_no(text, sleep_time):
@@ -1744,6 +1591,238 @@ def yes_no_young():
 def yes_no_old():
     # talktext_pub.publish("I will tell you a story")
     return render_template('yes_no_old.html')
+
+
+############ Inference game
+
+@app.route('/inference')
+def inference_fucn():
+    # talktext_pub.publish("Lets play inference games")
+    # gesturePlay_servc("head_natural", 1.5)
+    return render_template('inference/inference1.html')
+
+
+
+
+
+
+
+#
+
+
+
+@socketio.on('start_talk')
+def first_talk_robot_interactive():
+    # Display two characters. Becomes the main character of the story
+    rospy.sleep(1.0)
+    global talktext_pub
+    print("first_talk_robot_interactive")
+    talktext_pub.publish("Lets start the story!")
+
+@socketio.on('first_page')
+def second():
+    # global talktext_pub
+    # rospy.sleep(2.0)
+    talktext_pub.publish("Once upon a time lived Goldilocks and The Three Bears.")
+
+@socketio.on('girl_lodge')
+def third_girl():
+    # global talktext_pub
+    talktext_pub.publish("One day, Goldilocks went for a walk in the forest and found a house. She knocked, and when nobody answered, she decided to go inside.")
+
+@socketio.on('girl_table')
+def table_main(msg):
+    print("msg: ",msg)
+    selected_lodge = msg
+    print("porridge_visited: ",porridge_visited[0])
+
+    socketio.emit('checking_visit', "String ", broadcast=True)
+    print("msg: ",selected_lodge)
+
+    if(porridge_visited[0]==False and selected_lodge != " "):
+        # If this is the first visit on this page, robot speaks to choose one bowl
+        rospy.sleep(2.0)
+        talktext_pub.publish("At the table, there were three bowls of porridge. Goldilocks was hungry.")
+
+@socketio.on('dad_porridge')
+def dad_porridge():
+    emotionShow_pub.publish("QT/disgusted")
+    gesturePlay_pub.publish("uwaterloo-1/kickstart/Ugh")
+    porridge_visited[0] = True
+    talktext_pub.publish("Goldilocks tasted the porridge from the large bowl. This porridge is too salty")
+
+@socketio.on('mom_porridge')
+def mom_porridge():
+    emotionShow_pub.publish("QT/confused")
+    gesturePlay_pub.publish("uwaterloo-1/kickstart/No_my")
+    porridge_visited[0] = True
+    talktext_pub.publish("Goldilocks tasted the porridge from the medium sized bowl. “This porridge is too sweet!")
+
+@socketio.on('baby_porridge')
+def baby_porridge():
+    emotionShow_pub.publish("QT/happy")
+    gesturePlay_pub.publish("QT/happy")
+    porridge_visited[0] = True
+    talktext_pub.publish("Goldilocks tasted the porridge from the small bowl. “This porridge is just right,” Goldilocks said and ate it all up.")
+
+
+@socketio.on('chair')
+def chair_main():
+    print("chair connected")
+    print("chair_visited: ",chair_visited[0])
+    print("chair_visit: ",chair_visit)
+    socketio.emit('number', chair_visit, broadcast=True)
+    if(chair_visited[0]==False):
+        talktext_pub.publish("Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.")
+
+
+@socketio.on('dad_chair')
+def dad_chair(msg_selected_character):
+    print("here")
+    print("here 2")
+    print("chair_visit: ", chair_visit)
+    print("msg_selected_character: ",msg_selected_character)
+    if msg_selected_character =='boy':
+        emotionShow_pub.publish("QT/confused")
+        gesturePlay_servc("interact_meh", 2)
+        talktext_pub.publish("Goldilocks sat in the large chair to rest his feet. “This chair is too big!")
+    else:
+        emotionShow_pub.publish("QT/confused")
+        gesturePlay_pub.publish("uwaterloo-1/kickstart/hmm")
+        talktext_pub.publish("Goldilocks sat in the large chair to rest her feet. “This chair is too big!")
+    chair_visited[0] = True
+
+
+@socketio.on('mom_chair')
+def mom_chair():
+    print("chair_visit: ", chair_visit)
+    emotionShow_pub.publish("QT/confused")
+    gesturePlay_pub.publish("uwaterloo-1/kickstart/cross_arm")
+    chair_visited[0] = True
+    talktext_pub.publish("Goldilocks sat in the medium sized chair. This chair is too big, too!")
+
+
+@socketio.on('baby_chair')
+def baby_chair():
+    global baby_chair_visit_check
+    print("chair_visit: ",chair_visit)
+    if(baby_chair_visit_check==False):
+        # To avoid speak again, after coming back from the 'baby_chair2'
+        emotionShow_pub.publish("QT/happy")
+        gesturePlay_pub.publish("QT/happy")
+        chair_visited[0] = True
+        talktext_pub.publish("Goldilocks sat in the small chair. “This chair is just right")
+        baby_chair_visit_check = True
+    else:
+        print("this is revisit from the next page")
+        print("Should do nothing")
+
+@socketio.on('baby_chair2')
+def baby_chair2():
+    talktext_pub.publish("Just as Goldilocks settled down into the chair to rest, it broke into pieces!")
+
+
+
+@socketio.on('bed')
+def bed_main():
+    print("bed_visited: ",bed_visited[0])
+    socketio.emit('number', bed_visit, broadcast=True)
+    if(bed_visited[0]==False):
+        # If this is the first visit on this page, robot speaks to choose one bowl
+        print("bed enter")
+        talktext_pub.publish("By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom.")
+
+@socketio.on('dad_bed')
+def dad_bed_func( ):
+    emotionShow_pub.publish("QT/confused")
+    gesturePlay_pub.publish("uwaterloo-1/kickstart/cross_arm")
+    bed_visited[0] = True
+    talktext_pub.publish("Goldilocks lay down on the large bed. “This bed is too hard!” ")
+
+
+@socketio.on('mom_bed')
+def mom_bed_func():
+    emotionShow_pub.publish("QT/confused")
+    gesturePlay_pub.publish("uwaterloo-1/kickstart/hmm")
+    bed_visited[0] = True
+    talktext_pub.publish("Goldilocks lay down on the medium sized bed. This bed is too soft!")
+
+
+@socketio.on('baby_bed')
+def baby_bed_func():
+    gesturePlay_pub.publish("soomin_yawn")
+    rospy.sleep(2.5)
+    emotionShow_pub.publish("QT/yawn")
+    bed_visited[0] = True
+    talktext_pub.publish("Goldilocks lay down on the small bed. This bed is just right. Goldilocks curled up and fell asleep.")
+
+
+# # # # # # # # # # # # Bear  # # # # # # # # # # # # # # # # # # #
+@socketio.on('bear_1st')
+def bear_1st_func():
+    talktext_pub.publish("As Goldilocks was sleeping, The Three Bears came home.")
+    porridge_visited[0] = False
+    chair_visited[0] = False
+    bed_visited[0] =False
+
+@socketio.on('bear_2nd')
+def bear_2nd_func():
+    talktext_pub.publish("Someone’s been eating my porridge, growled Daddy Bear.")
+    rospy.sleep(4.5)
+    # audioPlay_servc("QT/growl_3", "")
+    audioPlay_pub.publish('QT/growl_3')
+
+@socketio.on('bear_3rd')
+def bear_3rd_func():
+    talktext_pub.publish("Someone’s been eating my porridge, said Mummy Bear.")
+
+@socketio.on('bear_4th')
+def bear_4th_func():
+    talktext_pub.publish("Someone’s been eating my porridge and it’s all gone!. Cried Baby Bear")
+    rospy.sleep(4.0)
+    audioPlay_pub.publish('QT/cry_10')
+
+@socketio.on('bear_5th')
+def bear_5th_func():
+    talktext_pub.publish("Someone’s been sitting in my chair!. Growled Daddy Bear.")
+    rospy.sleep(4.0)
+    audioPlay_pub.publish('QT/growl_3')
+
+@socketio.on('bear_6th')
+def bear_6th_func():
+    talktext_pub.publish("Someone’s been sitting in my chair!” said Mummy Bear.")
+
+@socketio.on('bear_7th')
+def bear_7th_func():
+    talktext_pub.publish("Someone’s been sitting in my chair and it’s broken!. Cried Baby Bear.")
+    rospy.sleep(3.5)
+    audioPlay_pub.publish('QT/cry_10')
+
+@socketio.on('bear_8th')
+def bear_8th_func():
+    talktext_pub.publish("When they got upstairs to the bedroom, Daddy Bear growled. Someone’s been sleeping on my bed.")
+
+@socketio.on('bear_9th')
+def bear_9th_func():
+    talktext_pub.publish("Someone’s been sleeping on my bed too, said the Mummy Bear")
+
+@socketio.on('bear_10th')
+def bear_10th_func():
+    talktext_pub.publish("Someone’s been sleeping in my bed, and she’s still there!. Cried Baby Bear.")
+    rospy.sleep(3.5)
+    audioPlay_pub.publish('QT/cry_10')
+
+@socketio.on('bear_11th')
+def bear_11th_func():
+    talktext_pub.publish("Just then Goldilocks woke up and saw The Three Bears. Help!. She screamed.")
+    rospy.sleep(5)
+    audioPlay_pub.publish('QT/scream_low')
+
+@socketio.on('bear_12th')
+def bear_12th_func():
+    talktext_pub.publish("Goldilocks ran down the stairs and into the forest. And she never went back into the woods again.")
+
+
 
 
 ######################################################################################### Negin     ############################################################################################
@@ -2093,13 +2172,13 @@ def first_view():
         return render_template('emotion_game3.html')
 
 
-# Serve static files with Cache-Control headers
-@app.after_request
-def add_cache_control(response):
-    print("add_cache_control")
-    if request.path.startswith('/static/'):
-        response.headers['Cache-Control'] = 'public, max-age=2592000'  # Cache for 30 days
-    return response
+# # Serve static files with Cache-Control headers
+# @app.after_request
+# def add_cache_control(response):
+#     print("add_cache_control")
+#     if request.path.startswith('/static/'):
+#         response.headers['Cache-Control'] = 'public, max-age=2592000'  # Cache for 30 days
+#     return response
 
 
 ######################################################################################### Main ############################################################################################

@@ -127,15 +127,16 @@
             }, 500); // 2000ms = 2 seconds
         });
     });
-
-    $(document).ready(function () {
-        socket.emit('mom_porridge')
-    });
+    window.onload = function () {
+        socket.emit('mom_porridge');
+        console.log("first_page event emitted after full page load");
+    };
 
     function repeat_speech() {
         socket.emit('repeat_speech', "Goldilocks tasted the porridge from the medium sized bowl. “This porridge is too sweet!” said.")
     }
-        function praise() {
+
+    function praise() {
         var praise1 = document.getElementById("praise1");
         var praise2 = document.getElementById("praise2");
         var praise3 = document.getElementById("praise3");
@@ -185,7 +186,6 @@
             Goldilocks tasted the porridge from the medium sized bowl.<br> “This porridge is too sweet!” she said.
         {% endif %}
     </div>
-
 
 
     <div class="other" style="position: fixed;  top: 280px; left: 30px">

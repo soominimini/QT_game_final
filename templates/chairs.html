@@ -204,27 +204,40 @@
         arr = data
         console.log(arr)
     });
-    $(document).ready(function () {
-        socket.emit('checking_visit_chair_after_click');
 
-    });
+    window.onload = function () {
+        socket.emit('checking_visit_chair_after_click');
+        socket.emit('chair');
+        console.log("first_page event emitted after full page load");
+    };
+
 
     function dad() {
         location.href = '/girl/dad_chair';
         arr[0] = 1;
-        socket.emit('checking_visit_chair', arr);
+        window.onload = function () {
+            socket.emit('checking_visit_chair', arr);
+            console.log("first_page event emitted after full page load");
+        };
     }
 
     function mom() {
         location.href = '/girl/mom_chair';
         arr[1] = 1;
-        socket.emit('checking_visit_chair', arr);
+        window.onload = function () {
+            socket.emit('checking_visit_chair', arr);
+            console.log("first_page event emitted after full page load");
+        };
+
     }
 
     function baby() {
         location.href = '/girl/baby_chair';
         arr[2] = 1;
-        socket.emit('checking_visit_chair', arr);
+        window.onload = function () {
+            socket.emit('checking_visit_chair', arr);
+            console.log("first_page event emitted after full page load");
+        };
     }
 
     function go_to_next_page() {
@@ -291,9 +304,9 @@
     </div>
     <!-- Centered text -->
     {% if show_text %}
-    <div class="centered-text">
-        Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.
-    </div>
+        <div class="centered-text">
+            Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.
+        </div>
     {% endif %}
 
 

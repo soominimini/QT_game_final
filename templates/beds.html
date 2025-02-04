@@ -195,10 +195,10 @@
         arr = data
         console.log(arr)
     });
-    $(document).ready(function () {
-        socket.emit('checking_visit_bed_after_click');
 
-    });
+    window.onload = function () {
+        socket.emit('checking_visit_bed_after_click');
+    };
 
     function dad() {
         location.href = '/girl/dad_bed';
@@ -278,9 +278,9 @@
     </div>
     <!-- Centered text -->
     {% if show_text %}
-    <div class="centered-text">
-        By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom
-    </div>
+        <div class="centered-text">
+            By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom
+        </div>
     {% endif %}
 
 

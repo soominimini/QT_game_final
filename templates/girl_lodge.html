@@ -8,60 +8,58 @@
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-    <!--   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>-->
-    <!-- touch punch는 jquery ui 아래에 위치해야함 -->
-    <title>JavaScript - Drag and Drop Demo</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
 
-  <style>
-         body, html{
-            background-color: #C7E5FF; /* Light purple */
-        }
-        /* Main container styling */
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-        }
+<style>
+    body, html {
+        background-color: #C7E5FF; /* Light purple */
+    }
 
-        /* Styling for buildings and buttons */
-        .building {
-            width: 35%;
-            height: auto;
-        }
+    /* Main container styling */
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+    }
 
-        .object {
-            margin-top: -10%;
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
+    /* Styling for buildings and buttons */
+    .building {
+        width: 35%;
+        height: auto;
+    }
 
-        .object img {
-            max-width: 100%;
-            height: auto;
-        }
+    .object {
+        margin-top: -10%;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
 
-        /* Text styling */
-        .centered-text {
-            font-size: 30px;
-            font-weight: bold;
-            margin-top: 10px; /* Add space between the image and text */
-        }
+    .object img {
+        max-width: 100%;
+        height: auto;
+    }
 
-        /* Button styling */
-        .building button {
-            border: none;
-            background: none;
-            cursor: pointer;
-        }
+    /* Text styling */
+    .centered-text {
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 10px; /* Add space between the image and text */
+    }
+
+    /* Button styling */
+    .building button {
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
 
 
-   button {
+    button {
         border: 2px solid #000; /* Solid border for visibility */
         cursor: pointer;
         border-radius: 10px; /* Rounded corners */
@@ -132,15 +130,15 @@
         background: rgb(41, 57, 104);
         color: rgb(255, 255, 255);
     }
-    </style>
+</style>
 
 <script>
-        var socket = io.connect('http://192.168.100.2:5000');
+    var socket = io.connect('http://192.168.100.2:5000');
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
 
 
-     /* STOP function */
+    /* STOP function */
 
     document.addEventListener("DOMContentLoaded", function () {
         const stopSpeechButton = document.getElementById("stop-speech-btn");
@@ -156,25 +154,30 @@
                 stopSpeechButton.disabled = false;
             }, 500); // 2000ms = 2 seconds
         });
+        history.replaceState(null, "", "/story_game_old");
     });
-     $(document).ready(function() {
-         socket.emit('girl_lodge')
-        // setTimeout(enabling, 7000);
+    window.onload = function () {
+        socket.emit('girl_lodge');
+        console.log("first_page event emitted after full page load");
+    };
 
-     });
-    function lodge1(){
-        socket.emit('lodge_select','lodge1');
+
+    function lodge1() {
+        socket.emit('lodge_select', 'lodge1');
         // setTimeout(enabling, 2000);
         location.href = '/girl/bowl';
     }
-    function lodge2(){
-        socket.emit('lodge_select','lodge2');
+
+    function lodge2() {
+        socket.emit('lodge_select', 'lodge2');
         // setTimeout(enabling, 2000);
         location.href = '/girl/bowl';
     }
-function repeat_speech(){
-         socket.emit('repeat_speech', " One day, Goldilocks went for a walk in the forest and  found a house. She knocked, and when nobody  answered, she decided to go inside.")
-}
+
+    function repeat_speech() {
+        socket.emit('repeat_speech', " One day, Goldilocks went for a walk in the forest and  found a house. She knocked, and when nobody  answered, she decided to go inside.")
+    }
+
     function praise() {
         var praise1 = document.getElementById("praise1");
         var praise2 = document.getElementById("praise2");
@@ -212,15 +215,15 @@ function repeat_speech(){
     <div class="object">
         <div class="building">
             <button onclick="lodge1()">
-                <img src="../static/story/lodge1.png" alt="Lodge 1">
+                <img src="../static/story/lodge1.jpg" alt="Lodge 1">
             </button>
         </div>
         <div class="building">
             <button onclick="lodge2()">
-                <img src="../static/story/lodge2.png" alt="Lodge 2">
+                <img src="../static/story/lodge2.jpg" alt="Lodge 2">
             </button>
         </div>
-       <div class="repeat">
+        <div class="repeat">
             <button onclick="repeat_speech()"> Repeat</button>
         </div>
 
@@ -231,9 +234,10 @@ function repeat_speech(){
 
     <!-- Centered text below the images -->
     {% if show_text %}
-    <div class="centered-text">
-        One day, Goldilocks went for a walk in the forest and  found a house.<br> She knocked, and when nobody  answered, she decided to go inside.
-    </div>
+        <div class="centered-text">
+            One day, Goldilocks went for a walk in the forest and found a house.<br> She knocked, and when nobody
+            answered, she decided to go inside.
+        </div>
     {% endif %}
 
 

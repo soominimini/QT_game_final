@@ -28,9 +28,11 @@ bed_visit = [0, 0, 0]
 
 global talktext_pub
 global speechSay_pub
+global speechSay
 global emotionShow_pub
 global gesturePlay_pub
 global audioPlay_pub
+global audioPlay
 global gesturePlay_servc
 
 baby_chair_visit_check = False
@@ -46,20 +48,17 @@ def first_talk_robot_interactive():
 
 @socketio.on('first_page')
 def second():
-    rospy.sleep(1.0)
     # global talktext_pub
     # rospy.sleep(2.0)
     talktext_pub.publish("Once upon a time lived Goldilocks and The Three Bears.")
 
 @socketio.on('girl_lodge')
 def third_girl():
-    rospy.sleep(1.0)
     # global talktext_pub
     talktext_pub.publish("One day, Goldilocks went for a walk in the forest and found a house. She knocked, and when nobody answered, she decided to go inside.")
 
 @socketio.on('girl_table')
 def table_main(msg):
-    rospy.sleep(1.0)
     print("msg: ",msg)
     selected_lodge = msg
     print("porridge_visited: ",porridge_visited[0])
@@ -74,7 +73,6 @@ def table_main(msg):
 
 @socketio.on('dad_porridge')
 def dad_porridge():
-    rospy.sleep(2.0)
     emotionShow_pub.publish("QT/disgusted")
     gesturePlay_pub.publish("uwaterloo-1/kickstart/Ugh")
     porridge_visited[0] = True
@@ -82,7 +80,6 @@ def dad_porridge():
 
 @socketio.on('mom_porridge')
 def mom_porridge():
-    rospy.sleep(2.0)
     emotionShow_pub.publish("QT/confused")
     gesturePlay_pub.publish("uwaterloo-1/kickstart/No_my")
     porridge_visited[0] = True
@@ -90,7 +87,6 @@ def mom_porridge():
 
 @socketio.on('baby_porridge')
 def baby_porridge():
-    rospy.sleep(2.0)
     emotionShow_pub.publish("QT/happy")
     gesturePlay_pub.publish("QT/happy")
     porridge_visited[0] = True
@@ -100,7 +96,6 @@ def baby_porridge():
 @socketio.on('chair')
 def chair_main():
     print("chair connected")
-    rospy.sleep(1.0)
     print("chair_visited: ",chair_visited[0])
     print("chair_visit: ",chair_visit)
     socketio.emit('number', chair_visit, broadcast=True)
@@ -113,7 +108,6 @@ def chair_main():
 @socketio.on('dad_chair')
 def dad_chair(msg_selected_character):
     print("here")
-    rospy.sleep(5.0)
     print("here 2")
     print("chair_visit: ", chair_visit)
     print("msg_selected_character: ",msg_selected_character)
@@ -130,7 +124,6 @@ def dad_chair(msg_selected_character):
 
 @socketio.on('mom_chair')
 def mom_chair():
-    rospy.sleep(2.0)
     print("chair_visit: ", chair_visit)
     emotionShow_pub.publish("QT/confused")
     gesturePlay_pub.publish("uwaterloo-1/kickstart/cross_arm")
@@ -140,7 +133,6 @@ def mom_chair():
 
 @socketio.on('baby_chair')
 def baby_chair():
-    rospy.sleep(2.0)
     global baby_chair_visit_check
     print("chair_visit: ",chair_visit)
     if(baby_chair_visit_check==False):
@@ -156,14 +148,12 @@ def baby_chair():
 
 @socketio.on('baby_chair2')
 def baby_chair2():
-    rospy.sleep(2.0)
     talktext_pub.publish("Just as Goldilocks settled down into the chair to rest, it broke into pieces!")
 
 
 
 @socketio.on('bed')
 def bed_main():
-    rospy.sleep(1.0)
     print("bed_visited: ",bed_visited[0])
     socketio.emit('number', bed_visit, broadcast=True)
     if(bed_visited[0]==False):
@@ -174,7 +164,6 @@ def bed_main():
 
 @socketio.on('dad_bed')
 def dad_bed_func( ):
-    rospy.sleep(2.0)
     emotionShow_pub.publish("QT/confused")
     gesturePlay_pub.publish("uwaterloo-1/kickstart/cross_arm")
     bed_visited[0] = True
@@ -183,7 +172,6 @@ def dad_bed_func( ):
 
 @socketio.on('mom_bed')
 def mom_bed_func(msg_selected_character):
-    rospy.sleep(2.0)
     if msg_selected_character =='boy':
         emotionShow_pub.publish("QT/confused")
         gesturePlay_servc("interact_meh", 2)
@@ -196,7 +184,6 @@ def mom_bed_func(msg_selected_character):
 
 @socketio.on('baby_bed')
 def baby_bed_func():
-    rospy.sleep(2.0)
     gesturePlay_pub.publish("soomin_yawn")
     rospy.sleep(2.5)
     emotionShow_pub.publish("QT/yawn")
@@ -207,7 +194,6 @@ def baby_bed_func():
 # # # # # # # # # # # # Bear  # # # # # # # # # # # # # # # # # # #
 @socketio.on('bear_1st')
 def bear_1st_func():
-    rospy.sleep(2.0)
     talktext_pub.publish("As Goldilocks was sleeping, The Three Bears came home.")
     porridge_visited[0] = False
     chair_visited[0] = False
@@ -215,81 +201,73 @@ def bear_1st_func():
 
 @socketio.on('bear_2nd')
 def bear_2nd_func():
-    rospy.sleep(2.0)
-    talktext_pub.publish("Someone’s been eating my porridge, growled Daddy Bear.")
-    rospy.sleep(3.5)
-    audioPlay_pub.publish('QT/growl_3')
+    speechSay("Someone’s been eating my porridge, growled Daddy Bear.")
+    # rospy.sleep(5.5)
+    audioPlay("QT/growl_3", "")
+    # audioPlay_pub.publish('QT/growl_3')
 
 @socketio.on('bear_3rd')
 def bear_3rd_func():
-    rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been eating my porridge, said Mummy Bear.")
 
 @socketio.on('bear_4th')
 def bear_4th_func():
-    rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been eating my porridge and it’s all gone!. Cried Baby Bear")
     rospy.sleep(4.0)
     audioPlay_pub.publish('QT/cry_10')
 
 @socketio.on('bear_5th')
 def bear_5th_func():
-    rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been sitting in my chair!. Growled Daddy Bear.")
     rospy.sleep(4.0)
     audioPlay_pub.publish('QT/growl_3')
 
 @socketio.on('bear_6th')
 def bear_6th_func():
-    rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been sitting in my chair!” said Mummy Bear.")
 
 @socketio.on('bear_7th')
 def bear_7th_func():
-    rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been sitting in my chair and it’s broken!. Cried Baby Bear.")
     rospy.sleep(3.5)
     audioPlay_pub.publish('QT/cry_10')
 
 @socketio.on('bear_8th')
 def bear_8th_func():
-    rospy.sleep(2.0)
     talktext_pub.publish("When they got upstairs to the bedroom, Daddy Bear growled. Someone’s been sleeping on my bed.")
 
 @socketio.on('bear_9th')
 def bear_9th_func():
-    rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been sleeping on my bed too, said the Mummy Bear")
 
 @socketio.on('bear_10th')
 def bear_10th_func():
-    rospy.sleep(2.0)
     talktext_pub.publish("Someone’s been sleeping in my bed, and she’s still there!. Cried Baby Bear.")
     rospy.sleep(3.5)
     audioPlay_pub.publish('QT/cry_10')
 
 @socketio.on('bear_11th')
 def bear_11th_func():
-    rospy.sleep(2.0)
     talktext_pub.publish("Just then Goldilocks woke up and saw The Three Bears. Help!. She screamed.")
     rospy.sleep(5)
     audioPlay_pub.publish('QT/scream_low')
 
 @socketio.on('bear_12th')
 def bear_12th_func():
-    rospy.sleep(2.0)
     talktext_pub.publish("Goldilocks ran down the stairs and into the forest. And she never went back into the woods again.")
 
 
 
 def interact_main():
-    threading.Thread(target=lambda: rospy.init_node('interact',
-                                                    disable_signals=True)).start()  # it helps to start the rospy and ends terminal
+    # threading.Thread(target=lambda: rospy.init_node('interact2', disable_signals=True)).start()  # it helps to start the rospy and ends terminal
+    rospy.loginfo("interact python starts")
     global talktext_pub
     global speechSay_pub
+    global speechSay
     global emotionShow_pub
     global gesturePlay_pub
     global audioPlay_pub
+    global  audioPlay
     global gesturePlay_servc
     speechSay_pub = rospy.Publisher('/qt_robot/speech/say', String, queue_size=10)
     talktext_pub = rospy.Publisher('/qt_robot/behavior/talkText', String, queue_size=10)
@@ -297,4 +275,9 @@ def interact_main():
     emotionShow_pub = rospy.Publisher('/qt_robot/emotion/show', String, queue_size=10)
     gesturePlay_pub = rospy.Publisher('/qt_robot/gesture/play', String, queue_size=10)
     gesturePlay_servc = rospy.ServiceProxy('/qt_robot/gesture/play', gesture_play)
+    audioPlay = rospy.ServiceProxy('/qt_robot/audio/play', audio_play)
+    speechSay = rospy.ServiceProxy('/qt_robot/speech/say', speech_say)
+    emotionShow = rospy.ServiceProxy('/qt_robot/emotion/show', emotion_show)
+    behaviorTalkText = rospy.ServiceProxy('/qt_robot/behavior/talkText', behavior_talk_text)
+    behaviorTalkAudio = rospy.ServiceProxy('/qt_robot/behavior/talkAudio', behavior_talk_audio)
 

@@ -218,6 +218,9 @@
                 stopSpeechButton.disabled = false;
             }, 500); // 2000ms = 2 seconds
         });
+        {#history.replaceState(null, "", "/story_game_old");#}
+
+
     });
 
 
@@ -230,28 +233,40 @@
         arr = data
         console.log(arr)
     });
-    $(document).ready(function () {
-        socket.emit('checking_visit_after_click');
 
-    });
+    window.onload = function () {
+        socket.emit('checking_visit_after_click');
+        console.log("first_page event emitted after full page load");
+    };
+
 
     function dad() {
         location.href = '/girl/dad_bowl';
         arr[0] = 1;
-        socket.emit('checking_visit', arr);
+
+        window.onload = function () {
+            socket.emit('checking_visit', arr);
+            console.log("first_page event emitted after full page load");
+        };
 
     }
 
     function mom() {
         location.href = '/girl/mom_bowl';
         arr[1] = 1;
-        socket.emit('checking_visit', arr);
+        window.onload = function () {
+            socket.emit('checking_visit', arr);
+            console.log("first_page event emitted after full page load");
+        };
     }
 
     function baby() {
         location.href = '/girl/baby_bowl';
         arr[2] = 1;
-        socket.emit('checking_visit', arr);
+        window.onload = function () {
+            socket.emit('checking_visit', arr);
+            console.log("first_page event emitted after full page load");
+        };
     }
 
     function go_to_next_page() {
@@ -268,7 +283,7 @@
         socket.emit('repeat_speech', "At the table, there were three bowls of porridge. Goldilocks was hungry.")
     }
 
-        function praise() {
+    function praise() {
         var praise1 = document.getElementById("praise1");
         var praise2 = document.getElementById("praise2");
         var praise3 = document.getElementById("praise3");
@@ -338,7 +353,6 @@
 
     <!-- Next button -->
     <input type="button" value="Next" onclick="go_to_next_page()" class="next-button">
-
 
 
     <div class="other" style="position: fixed;  top: 280px; left: 30px">

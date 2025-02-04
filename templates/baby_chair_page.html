@@ -149,13 +149,11 @@
             }, 500); // 2000ms = 2 seconds
         });
     });
+     window.onload = function () {
+        socket.emit('baby_chair');
+        console.log("first_page event emitted after full page load");
+    };
 
-
-    $(document).ready(function () {
-        socket.emit('baby_chair')
-        // setTimeout(enabling, 7000);
-
-    });
 
     function next(button) {
         button.disabled = true;
@@ -166,7 +164,7 @@
 
 
     function repeat_speech() {
-        socket.emit('repeat_speech', "Goldilocks sat in the small chair. “This chair is just right,”)
+        socket.emit('repeat_speech', "Goldilocks sat in the small chair. This chair is just right");
     }
             function praise() {
             var praise1 = document.getElementById("praise1");

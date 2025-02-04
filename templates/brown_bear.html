@@ -115,12 +115,12 @@
             width: 150px; /* Adjust width as needed */
             height: auto; /* Maintain aspect ratio */
             border-radius: 10px; /* Optional: Add rounded corners */
-            border: 1px solid #ddd; /* Optional: Add a border */
+            {#border: 1px solid #ddd; /* Optional: Add a border */#}
         }
 
         .object {
             margin-top: -20%;
-            background-image: url('../static/story/brown_bear/scene1.png'); /* Replace with your image path */
+            background-image: url('../static/story/brown_bear/scene1.jpg'); /* Replace with your image path */
             background-size: cover; /* Ensures the image covers the entire object container */
             background-position: center; /* Centers the background image */
             background-repeat: no-repeat; /* Prevents the image from repeating */
@@ -203,7 +203,7 @@
             let expectedAnswer = "bird";
 
             socket.emit('brown_talk', currentPrompt, 2);
-            socket.emit('brown_talk', currentPrompt2, 4);
+            socket.emit('brown_talk', currentPrompt2, 4.3);
 
             // Function to handle button clicks and sequence
             function handleImageClick(imageName) {
@@ -223,15 +223,6 @@
 
                     } else if (imageName === "duck") {
                         socket.emit('correct');
-                        currentPrompt = "Yellow duck, Yellow Duck, What do you see?";
-                        currentPrompt2 = "I see a, blue horse, looking at me.";
-                        expectedAnswer = "horse";
-
-                        socket.emit('brown_talk', currentPrompt, 3);
-                        socket.emit('brown_talk', currentPrompt2, 4.5);
-
-                    } else if (imageName === "horse") {
-                        socket.emit('correct');
                         socket.emit('brown_talk', "Lets go to next page", 3);
                     } else {
                         console.log("End of sequence");
@@ -248,6 +239,7 @@
 
             // Attach the function to buttons
             window.handleImageClick = handleImageClick; // Make it globally accessible
+            history.replaceState(null, "", "/story_game_young");
 
 
         });
@@ -307,16 +299,12 @@
             <img src="../static/story/brown_bear/bear.png" alt="Bear" style="transform: scaleX(-1);">
         </button>
         <button onclick="handleImageClick('bird'); handleButtonClick(this);"
-                style="position:absolute; right: 30%">
-            <img src="../static/story/brown_bear/bird.png" alt="Bird" style=" width:100px; transform: scaleX(-1);">
+                style="position:absolute; right: 40%; top: 30%">
+            <img src="../static/story/brown_bear/bird.png" alt="Bird" style=" width:100px;  transform: scaleX(-1) rotate(-40deg);">
         </button>
         <button onclick="handleImageClick('duck'); handleButtonClick(this);"
                 style="position:absolute; top: 70%; left: 20%;">
-            <img src="../static/story/brown_bear/duck.png" style="width: 100px;transform: scaleX(-1);" alt="Duck">
-        </button>
-        <button onclick="handleImageClick('horse'); handleButtonClick(this);"
-                style="position:absolute;top: 50%; left: 40%; ">
-            <img src="../static/story/brown_bear/horse.png" alt="Horse">
+            <img src="../static/story/brown_bear/duck.png" style="width: 100px;transform: scaleX(-1) rotate(30deg);" alt="Duck">
         </button>
 
     </div>

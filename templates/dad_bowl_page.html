@@ -125,12 +125,10 @@
         });
     });
 
-
-    $(document).ready(function () {
-        socket.emit('dad_porridge')
-        // setTimeout(enabling, 7000);
-
-    });
+    window.onload = function () {
+        socket.emit('dad_porridge');
+        console.log("first_page event emitted after full page load");
+    };
 
     function repeat_speech() {
         socket.emit('repeat_speech', "Goldilocks tasted the porridge from the large bowl. “This porridge is too salty!”.")

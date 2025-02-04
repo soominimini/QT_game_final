@@ -153,11 +153,10 @@
         console.log("first socket:", socket);
         socket.emit('connect event', {data: 'User Connected'});
 
-        $(document).ready(function () {
+         window.onload = function () {
             socket.emit('bear_1st');
-            // setTimeout(enabling, 7000);
-
-        });
+            console.log("first_page event emitted after full page load");
+        };
 
         function go_to_next_page() {
             location.href = '/bear_2nd';
@@ -201,7 +200,7 @@
 <body>
 <div class="container">
     <div class="object">
-        <img src="../static/story/first_bear.png" style="width: 45%">
+        <img src="../static/story/first_bear.jpg" style="width: 45%">
     </div>
     <div class="repeat">
         <button onclick="repeat_speech()"> Repeat</button>

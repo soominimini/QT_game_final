@@ -127,7 +127,7 @@
 
         .object {
             margin-top: -20%;
-            background-image: url('../static/story/brown_bear/scene3.png'); /* Replace with your image path */
+            background-image: url('../static/story/brown_bear/scene3.jpg'); /* Replace with your image path */
             background-size: cover; /* Ensures the image covers the entire object container */
             background-position: center; /* Centers the background image */
             background-repeat: no-repeat; /* Prevents the image from repeating */
@@ -254,7 +254,7 @@
 
             // Attach the function to buttons
             window.handleImageClick = handleImageClick; // Make it globally accessible
-
+ history.replaceState(null, "", "/story_game_young");
 
         });
 
@@ -326,7 +326,7 @@
         </button>
         <button onclick="handleImageClick('children'); handleButtonClick(this);"
                 style="position:absolute;top: 43%; right: 10%;">
-            <img src="../static/story/brown_bear/children.png" alt="children" style="width: 300px;">
+            <img src="../static/story/brown_bear/children.jpg" alt="children" style="width: 300px;">
         </button>
 
     </div>

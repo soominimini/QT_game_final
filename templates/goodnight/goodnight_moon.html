@@ -121,7 +121,7 @@
 
         .object {
             margin-top: -20%;
-            background-image: url('../static/story/goodnight_images/room.png'); /* Replace with your image path */
+            background-image: url('../static/story/goodnight_images/room.jpg'); /* Replace with your image path */
             background-size: 200%; /* Scales the background image */
             background-position: 100% 40%; /* Adjusts which part of the image is shown (X% Y%) */
             background-repeat: no-repeat; /* Prevents the image from repeating */
@@ -249,7 +249,7 @@
             // Attach the function to buttons
             window.handleImageClick = handleImageClick; // Make it globally accessible
 
-
+            history.replaceState(null, "", "/story_game_young");
         });
 
         /* STOP function */

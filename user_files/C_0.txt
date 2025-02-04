@@ -1,0 +1,25 @@
+Name: C
+login closed  Tue Jan 28 21:27:44 2025
+story_old_client
+Time: Tue Jan 28 21:27:47 2025
+goldilocks
+Time: Tue Jan 28 21:27:48 2025
+Name: C
+login closed  Tue Jan 28 21:30:42 2025
+story_old_client
+Time: Tue Jan 28 21:31:30 2025
+red_riding
+Time: Tue Jan 28 21:31:40 2025
+story_old_client
+Time: Tue Jan 28 21:32:21 2025
+goldilocks
+Time: Tue Jan 28 21:32:23 2025
+story_old_client
+Time: Tue Jan 28 21:33:18 2025
+red_riding
+Time: Tue Jan 28 21:33:36 2025
+action_game
+Time: Tue Jan 28 21:33:55 2025
+emotion_game_1
+Time: Tue Jan 28 21:34:06 2025
+Start Emotion games closed  Tue Jan 28 21:34:07 2025

@@ -50,9 +50,9 @@
         const btn = document.getElementById("btn1");
         // Apply visual feedback for all clicks
         applyButtonClickEffect(btn);
-         socket.emit('init_after_category', "Let's go to play!")
-            location.href = '/supermarket_firstpage_young';
-            value = "Let's go to play!"
+        socket.emit('init_after_category', "Let's go to play!")
+        location.href = '/supermarket_firstpage_young';
+        value = "Let's go to play!"
     }
 
     function hospital() {
@@ -61,8 +61,8 @@
         applyButtonClickEffect(btn);
 
         socket.emit('init_after_category', "Let's go to play!")
-            location.href = '/hospital_first_young';
-            value = "Let's go to play!"
+        location.href = '/hospital_first_young';
+        value = "Let's go to play!"
     }
 
     function park() {
@@ -71,9 +71,26 @@
         // Apply visual feedback for all clicks
         applyButtonClickEffect(btn);
         socket.emit('init_after_category', "Let's go to play!")
-            location.href = '/park_first_young';
-            value = "Let's go to play!"
+        location.href = '/park_first_young';
+        value = "Let's go to play!"
     }
+
+    window.addEventListener("load", function () {
+        if (document.cookie.includes("refreshFlag=true")) {
+            console.log("Page was refreshed!");
+            console.log("window.history.length:", window.history.length);
+
+            // Go back as far as possible
+            let backCount = history.length - 1;
+            for (let i = 0; i < backCount; i++) {
+                history.back();
+            }
+
+            // Replace the final state
+            history.replaceState(null, "", window.location.href);
+        }
+    });
+
 
     document.addEventListener("DOMContentLoaded", function () {
         const stopSpeechButton = document.getElementById("stop-speech-btn");
@@ -185,7 +202,7 @@
     <div class="stop">
         <button id="stop-speech-btn"> STOP</button>
     </div>
-   <div class="object">
+    <div class="object">
         <div id="supermarket" class="building">
             <button id="btn1" onclick="supermarket()">
                 <img src="../static/supermarket.jpg">

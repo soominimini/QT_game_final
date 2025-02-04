@@ -162,6 +162,26 @@
                 stopSpeechButton.disabled = false;
             }, 500); // 2000ms = 2 seconds
         });
+
+        // Prevent default back navigation
+        history.pushState(null, null, location.href);
+
+        window.addEventListener("popstate", function () {
+            // Redirect to the first page when back is pressed
+            location.href = "/story_game_old";  // Change this to your first page URL
+        });
+
+        // Detect when the user tries to leave the page (for native back button)
+        window.addEventListener("beforeunload", function (event) {
+            // Redirect to the first page when user tries to leave
+            location.href = "/story_game_old";
+        });
+
+        // Prevent accidental navigation with system back button (for some tablets)
+        window.addEventListener("pagehide", function (event) {
+            location.href = "/story_game_old";
+        });
+
     });
 
     $(document).ready(function () {
@@ -176,7 +196,7 @@
     }
 
     function repeat_speech() {
-        socket.emit('repeat_speech', "When her mother packed a basket of treats, she warned her not to talk to strangers along the way. ")
+        socket.emit('repeat_speech', "When her mother packed a basket of treats, she warned her not to talk to strangers along the way.")
 
         function praise() {
             var praise1 = document.getElementById("praise1");

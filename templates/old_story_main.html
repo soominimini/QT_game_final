@@ -8,7 +8,6 @@
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-    <link rel="stylesheet" href="dice.css">
     <title>Dice Roll</title>
 </head>
 
@@ -16,7 +15,21 @@
     var socket = io.connect('http://192.168.100.2:5000');
     socket.on('redirect', function (data) {
         console.log(data);
+
         window.location = data.url;
+    });
+    document.cookie = "refreshFlag=true";
+
+    window.addEventListener("load", function () {
+        if (document.cookie.includes("refreshFlag=true")) {
+            console.log("Page was refreshed!");
+            console.log("window.history.length :", window.history.length);
+            if(window.history.length>2) {
+                window.close(); // Tries to close the current tab
+            }
+        } else {
+            console.log("First time loading!");
+        }
     });
 
     // Function to show the info popup
@@ -28,8 +41,8 @@
 
     // Function to close the popup
     function closePopup() {
-            document.getElementById("popup-overlay").style.display = "none";
-            document.getElementById("info-popup").style.display = "none";
+        document.getElementById("popup-overlay").style.display = "none";
+        document.getElementById("info-popup").style.display = "none";
     }
 
 
@@ -38,14 +51,7 @@
         console.log(`Game ${gameId} clicked`);
         // Emit event or perform desired action here
         socket.emit('click_main', {who: gameId});
-        if(gameId =='goldilocks') {
-            window.location.href = '/story_start';
-        }
-        else{
-             window.location.href = '/red_riding_hood1';
-        }
     }
-
 
 </script>
 
@@ -68,177 +74,6 @@
         height: 100%;
         justify-content: center;
         align-items: center;
-    }
-
-    #diceBox {
-        max-width: 600px;
-        width: 90vw;
-        height: auto;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-        padding: 40px;
-        box-sizing: border-box;
-    }
-
-    #diceBox > .dice_wrap {
-        width: 100%;
-        height: auto;
-        display: flex;
-        margin-bottom: 20px;
-    }
-
-    #diceBox > .dice_wrap > [class^=dice]:last-of-type {
-        margin-right: 0px;
-    }
-
-
-    #diceBox > .dice_wrap > [class^=dice] {
-        width: 49%;
-        margin-right: 2%;
-        padding-top: 49%;
-        margin-left: 25%;
-        position: relative;
-    }
-
-    .dice_inner {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        perspective: 300px;
-        padding: 20%;
-        box-sizing: border-box;
-    }
-
-    #diceBox > .dice_wrap > [class^=dice] .dice {
-        width: 100%;
-        height: 100%;
-        transform-style: preserve-3d;
-        transition: 1s;
-    }
-
-    #diceBox > .dice_wrap > [class^=dice] .dice > div {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 1.0;
-        color: #fff;
-        font-size: 60px;
-    }
-
-    #diceBox > .dice_wrap > [class^=dice] .dice .face1 {
-        transform: rotateY(0deg) translateZ(60px);
-        background: red;
-    }
-
-    #diceBox > .dice_wrap > [class^=dice] .dice .face2 {
-        transform: rotateY(90deg) translateZ(60px);
-        background: blue;
-    }
-
-    #diceBox > .dice_wrap > [class^=dice] .dice .face3 {
-        transform: rotateX(90deg) translateZ(60px);
-        background: green;
-    }
-
-    #diceBox > .dice_wrap > [class^=dice] .dice .face4 {
-        transform: rotateX(270deg) translateZ(60px);
-        background: pink;
-    }
-
-    #diceBox > .dice_wrap > [class^=dice] .dice .face5 {
-        transform: rotateY(270deg) translateZ(60px);
-        background: royalblue;
-    }
-
-    #diceBox > .dice_wrap > [class^=dice] .dice .face6 {
-        transform: rotateY(180deg) translateZ(60px);
-        background: purple;
-    }
-
-
-    #diceBox > .dice_wrap > [class^=dice] .dice.face1 {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
-
-    #diceBox > .dice_wrap > [class^=dice] .dice.face2 {
-        transform: rotateX(0deg) rotateY(-90deg);
-    }
-
-    #diceBox > .dice_wrap > [class^=dice] .dice.face3 {
-        transform: rotateX(-90deg) rotateY(0deg);
-    }
-
-    #diceBox > .dice_wrap > [class^=dice] .dice.face4 {
-        transform: rotateX(-270deg) rotateY(0deg);
-    }
-
-    #diceBox > .dice_wrap > [class^=dice] .dice.face5 {
-        transform: rotateX(0deg) rotateY(-270deg);
-    }
-
-    #diceBox > .dice_wrap > [class^=dice] .dice.face6 {
-        transform: rotateX(0deg) rotateY(-180deg);
-    }
-
-    #btnRolling {
-        display: block;
-        font-size: 35px;
-        width: 150px;
-        height: 80px;
-        margin: 0 auto;
-        background-color: royalblue;
-        border: none;
-        border-radius: 30px;
-        color: #fff;
-        cursor: pointer;
-        overflow: hidden;
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-    }
-
-    #btnRolling::before {
-        display: block;
-        content: '';
-        width: 60px;
-        height: 100%;
-        background-color: #fff;
-        position: absolute;
-        top: 0;
-        left: -60px;
-        transition: all 0.5s;
-        transform: skewX(-45deg);
-        transform-origin: top left;
-        opacity: 0.3;
-    }
-
-    #btnRolling:hover::before {
-        transform: skewX(-45deg) translateX(280px);
-    }
-
-
-    @media screen and (max-width: 429px) {
-        #diceBox {
-            box-shadow: none;
-        }
-
-        #diceBox > .dice_wrap {
-            display: block;
-        }
-
-        #diceBox > .dice_wrap > [class^=dice] {
-            width: 100%;
-            margin-right: 0%;
-            padding-top: 100%;
-        }
     }
 
     .repeat button {
