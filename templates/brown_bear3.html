@@ -127,9 +127,9 @@
 
         .object {
             margin-top: -20%;
-            background-image: url('../static/story/brown_bear/scene3.jpg'); /* Replace with your image path */
-            background-size: cover; /* Ensures the image covers the entire object container */
-            background-position: center; /* Centers the background image */
+        {#background-image: url('../static/story/brown_bear/scene3.jpg'); /* Replace with your image path */#} background-image: url('../static/story/brown_bear/scene1.jpg'); /* Replace with your image path */
+            background-size: 150%; /* Scales the background image */
+            background-position: 30% 70%; /* Adjusts which part of the image is shown (X% Y%) */
             background-repeat: no-repeat; /* Prevents the image from repeating */
             width: 100%; /* Ensures the object container spans the full width */
             height: auto; /* Adjust height as needed */
@@ -202,12 +202,14 @@
                 }, 500); // 2000ms = 2 seconds
             });
             // Initialize the current sequence state
-            currentPrompt = "White dog, White dog. What do you see?";
-            currentPrompt2 = "I see a black sheep looking at me.";
-            let expectedAnswer = "sheep";
-
-            socket.emit('brown_talk', currentPrompt, 2);
-            socket.emit('brown_talk', currentPrompt2, 4);
+            {#currentPrompt = "White dog, White dog. What do you see?";#}
+            {#currentPrompt2 = "I see a black sheep looking at me.";#}
+            {#let expectedAnswer = "sheep";#}
+            currentPrompt = "Green frog, green Frog. What do you see?";
+            currentPrompt2 = "I see a, purple cat looking at me.";
+            expectedAnswer = "cat";
+            socket.emit('brown_talk', currentPrompt, 3);
+            socket.emit('brown_talk', currentPrompt2, 4.5);
 
             // Function to handle button clicks and sequence
             function handleImageClick(imageName) {
@@ -216,6 +218,18 @@
                     console.log(`Correct answer: ${imageName}`);
 
                     // Update the next sequence
+                    if (imageName === "cat") {
+                        socket.emit('correct');
+                        currentPrompt = "Purple cat, Purple cat. What do you see?";
+                        currentPrompt2 = "I see a, white dog looking at me.";
+                        expectedAnswer = "dog";
+                        socket.emit('brown_talk', currentPrompt, 3);
+                        socket.emit('brown_talk', currentPrompt2, 5);
+                    }
+                    else if (imageName === "dog") {
+                        socket.emit('correct');
+                        socket.emit('brown_talk', "Lets go to next page", 3);
+                    }
                     if (imageName === "sheep") {
                         socket.emit('correct');
                         currentPrompt = "Black sheep, Black Sheep. What do you see?";
@@ -223,7 +237,8 @@
                         expectedAnswer = "fish";
                         socket.emit('brown_talk', currentPrompt, 3);
                         socket.emit('brown_talk', currentPrompt2, 4.5);
-                    } else if (imageName === "fish") {
+                    }
+                    else if (imageName === "fish") {
                         socket.emit('correct');
                         currentPrompt = "Goldfish, Goldfish. What do you see?";
                         currentPrompt2 = "I see a teacher looking at me.";
@@ -253,8 +268,8 @@
             }
 
             // Attach the function to buttons
-            window.handleImageClick = handleImageClick; // Make it globally accessible
- history.replaceState(null, "", "/story_game_young");
+            {#window.handleImageClick = handleImageClick; // Make it globally accessible#}
+            {#history.replaceState(null, "", "/story_game_young");#}
 
         });
 
@@ -264,6 +279,7 @@
 
 
         function go_to_next_page() {
+            console.log("here next page")
             location.href = '/brown_bear4';
         }
 
@@ -308,26 +324,20 @@
 <body>
 <div class="container">
     <div class="object" style="background-color: white; width: 900px; height: 700px; margin-top: 0;">
+
+        <button onclick="handleImageClick('frog'); handleButtonClick(this);"
+                style="position: absolute; top: 74%; left:10%;transform: scaleX(-1);">
+            <img src="../static/story/brown_bear/frog2.png" alt="frog" style="width: 20%">
+        </button>
+        <button onclick="handleImageClick('cat'); handleButtonClick(this);"
+                style="position:absolute;top: 56%; left: 30%;">
+            <img src="../static/story/brown_bear/cat.png" alt="cat" style="width: 130px; transform: scaleX(-1);">
+        </button>
         <button onclick="handleImageClick('dog'); handleButtonClick(this);"
-                style="position:absolute; top: 66%; left: 13%">
-            <img src="../static/story/brown_bear/dog.png" alt="dog">
+                style="position:absolute; top: 8%; left: 30%;">
+            <img src="../static/story/brown_bear/dog.png" alt="dog" style="width: 110px;">
         </button>
-        <button onclick="handleImageClick('sheep'); handleButtonClick(this);"
-                style="position:absolute; top: 66%; left: 28%;">
-            <img src="../static/story/brown_bear/sheep.png" alt="sheep">
-        </button>
-        <button onclick="handleImageClick('fish'); handleButtonClick(this);"
-                style="position:absolute; top: 45%; left: 25%; transform: scaleX(-1);">
-            <img src="../static/story/brown_bear/fish.png" alt="fish" style="width: 100px;">
-        </button>
-        <button onclick="handleImageClick('teacher'); handleButtonClick(this);"
-                style="position:absolute; top: 40%; left: 45%;">
-            <img src="../static/story/brown_bear/teacher.png" alt="teacher">
-        </button>
-        <button onclick="handleImageClick('children'); handleButtonClick(this);"
-                style="position:absolute;top: 43%; right: 10%;">
-            <img src="../static/story/brown_bear/children.jpg" alt="children" style="width: 300px;">
-        </button>
+
 
     </div>
     <div class="repeat">

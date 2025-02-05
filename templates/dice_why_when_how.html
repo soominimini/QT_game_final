@@ -12,14 +12,25 @@
     <title>Dice Roll</title>
 </head>
 <style>
-  * { padding: 0px; margin: 0px; }
-  html, body {
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    html, body {
         max-width: 100%;
         height: 100%;
         background-color: #C7E5FF;
     }
 
-#wrap { display: flex; width: 100%; height: 100%; justify-content: center; align-items: center; }
+    #wrap {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
     #diceBox {
         max-width: 800px;
         width: 90vw;
@@ -29,28 +40,116 @@
         padding: 40px;
         box-sizing: border-box;
     }
-  #diceBox > .dice_wrap { width: 100%; height: auto; display: flex; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; }
-#diceBox > .dice_wrap > [class^=dice]:last-of-type {margin-right: 0px;}
 
-#diceBox > .dice_wrap > [class^=dice] { width: 49%; margin-right: 2%; padding-top: 49%;  position: relative; }
-.dice_inner { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; perspective: 300px; padding: 20%; box-sizing: border-box; }
-{##diceBox > .dice_wrap > [class^=dice] .dice { width: 100%; height: 100%; transform-style: preserve-3d; transition: 1s; }#}
-#diceBox > .dice_wrap > [class^=dice] .dice {width: 100%;height: 100%;transform-style: preserve-3d;transition: 1s;transform: rotateX(-35deg) rotateY(45deg); /* Updated transform for 3 faces */}
-#diceBox > .dice_wrap > [class^=dice] .dice > div { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; opacity: 1.0; color: #fff; font-size: 60px; }
-#diceBox > .dice_wrap > [class^=dice] .dice .face1 { transform: rotateY(0deg) translateZ(60px); background: red; }
-#diceBox > .dice_wrap > [class^=dice] .dice .face2 { transform: rotateY(90deg) translateZ(60px); background: blue; }
-#diceBox > .dice_wrap > [class^=dice] .dice .face3 { transform: rotateX(90deg) translateZ(60px); background: green; }
-#diceBox > .dice_wrap > [class^=dice] .dice .face4 { transform: rotateX(270deg) translateZ(60px); background: pink; }
-#diceBox > .dice_wrap > [class^=dice] .dice .face5 { transform: rotateY(270deg) translateZ(60px); background: royalblue; }
-#diceBox > .dice_wrap > [class^=dice] .dice .face6 { transform: rotateY(180deg) translateZ(60px); background: purple; }
+    #diceBox > .dice_wrap {
+        width: 100%;
+        height: auto;
+        display: flex;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-#diceBox > .dice_wrap > [class^=dice] .dice.face1 { transform: rotateX(0deg) rotateY(0deg); }
-#diceBox > .dice_wrap > [class^=dice] .dice.face2 { transform: rotateX(0deg) rotateY(-90deg); }
-#diceBox > .dice_wrap > [class^=dice] .dice.face3 { transform: rotateX(-90deg) rotateY(0deg); }
-#diceBox > .dice_wrap > [class^=dice] .dice.face4 { transform: rotateX(-270deg) rotateY(0deg); }
-#diceBox > .dice_wrap > [class^=dice] .dice.face5 { transform: rotateX(0deg) rotateY(-270deg); }
-#diceBox > .dice_wrap > [class^=dice] .dice.face6 { transform: rotateX(0deg) rotateY(-180deg); }
-  #btnRolling, #btnGoBack{
+    #diceBox > .dice_wrap > [class^=dice]:last-of-type {
+        margin-right: 0px;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] {
+        width: 49%;
+        margin-right: 2%;
+        padding-top: 49%;
+        position: relative;
+    }
+
+    .dice_inner {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        perspective: 300px;
+        padding: 20%;
+        box-sizing: border-box;
+    }
+
+    {##diceBox > .dice_wrap > [class^=dice] .dice { width: 100%; height: 100%; transform-style: preserve-3d; transition: 1s; }#}
+    #diceBox > .dice_wrap > [class^=dice] .dice {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: 1s;
+        transform: rotateX(-35deg) rotateY(45deg); /* Updated transform for 3 faces */
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1.0;
+        color: #fff;
+        font-size: 60px;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice .face1 {
+        transform: rotateY(0deg) translateZ(60px);
+        background: red;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice .face2 {
+        transform: rotateY(90deg) translateZ(60px);
+        background: blue;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice .face3 {
+        transform: rotateX(90deg) translateZ(60px);
+        background: green;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice .face4 {
+        transform: rotateX(270deg) translateZ(60px);
+        background: pink;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice .face5 {
+        transform: rotateY(270deg) translateZ(60px);
+        background: royalblue;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice .face6 {
+        transform: rotateY(180deg) translateZ(60px);
+        background: purple;
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice.face1 {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice.face2 {
+        transform: rotateX(0deg) rotateY(-90deg);
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice.face3 {
+        transform: rotateX(-90deg) rotateY(0deg);
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice.face4 {
+        transform: rotateX(-270deg) rotateY(0deg);
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice.face5 {
+        transform: rotateX(0deg) rotateY(-270deg);
+    }
+
+    #diceBox > .dice_wrap > [class^=dice] .dice.face6 {
+        transform: rotateX(0deg) rotateY(-180deg);
+    }
+
+    #btnRolling, #btnGoBack {
         display: block;
         font-size: 35px;
         width: 150px;
@@ -67,7 +166,7 @@
         left: 45%;
     }
 
-    #btnDisplay{
+    #btnDisplay {
         display: block;
         width: 160px;
         height: 40px;
@@ -109,50 +208,70 @@
         transform: skewX(-45deg) translateX(280px);
     }
 
-.question-button { width: 200px; height: 100px; margin: 10px; background-color: #3498db; border: none; border-radius: 4px; color: #fff; cursor: pointer; font-size: medium; }
+    .question-button {
+        width: 200px;
+        height: 100px;
+        margin: 10px;
+        background-color: #3498db;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        font-size: medium;
+    }
 
-@media screen and (max-width : 429px){
-  #diceBox { box-shadow:none;}
-  #diceBox > .dice_wrap { display: block;}
-  #diceBox > .dice_wrap > [class^=dice] { width: 100%; margin-right: 0%; padding-top: 100%; }
-}
+    @media screen and (max-width: 429px) {
+        #diceBox {
+            box-shadow: none;
+        }
 
-#diceBox > .dice_wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+        #diceBox > .dice_wrap {
+            display: block;
+        }
+
+        #diceBox > .dice_wrap > [class^=dice] {
+            width: 100%;
+            margin-right: 0%;
+            padding-top: 100%;
+        }
+    }
+
+    #diceBox > .dice_wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     {#gap: 10px; /* Adds spacing between items */#}
-}
-
-#diceBox > .dice_wrap > div {
-    width: 18%; /* Adjusted to fit 5 images per row with spacing */
-    margin: 1%; /* Space between items */
-    text-align: center;
-    box-sizing: border-box; /* Include padding and borders in the width calculation */
-}
-
-#diceBox > .dice_wrap > div img {
-    width: 100%; /* Make the image fill the container */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Ensure the image scales nicely */
-    border-radius: 10px; /* Optional: Rounded corners */
-    border: 1px solid #ddd; /* Optional: Add a border for better distinction */
-}
-
-@media screen and (max-width: 768px) {
-    #diceBox > .dice_wrap > div {
-        width: 30%; /* Three images per row on medium screens */
     }
-}
 
-@media screen and (max-width: 480px) {
     #diceBox > .dice_wrap > div {
-        width: 45%; /* Two images per row on smaller screens */
+        width: 18%; /* Adjusted to fit 5 images per row with spacing */
+        margin: 1%; /* Space between items */
+        text-align: center;
+        box-sizing: border-box; /* Include padding and borders in the width calculation */
     }
-}
+
+    #diceBox > .dice_wrap > div img {
+        width: 100%; /* Make the image fill the container */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Ensure the image scales nicely */
+        border-radius: 10px; /* Optional: Rounded corners */
+        border: 1px solid #ddd; /* Optional: Add a border for better distinction */
+    }
+
+    @media screen and (max-width: 768px) {
+        #diceBox > .dice_wrap > div {
+            width: 30%; /* Three images per row on medium screens */
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        #diceBox > .dice_wrap > div {
+            width: 45%; /* Two images per row on smaller screens */
+        }
+    }
 
 
-  .repeat button {
+    .repeat button {
         position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
         left: 20px; /* Distance from the left of the viewport */
@@ -218,34 +337,33 @@
 </style>
 
 <body>
-    <div id="wrap">
-         <div class="repeat">
+<div id="wrap">
+    <div class="repeat">
         <button id="repeat-speech-btn"> Repeat</button>
     </div>
 
     <div class="stop">
         <button id="stop-speech-btn"> STOP</button>
     </div>
-  <section id="diceBox">
-      <button id="btnDisplay">Question Display</button>
-    <div class="dice_wrap">
-      <div class="dice01">
-        <div class="dice_inner">
-          <div class="dice">
-            <div id = "when" class="face1">When</div>
-            <div id = "where" class="face2">When</div>
-            <div id = "why" class="face3">Why</div>
-            <div id = "who" class="face4">Why</div>
-            <div id = "what" class="face5">How</div>
-            <div id = "how" class="face6">How</div>
-          </div>
+    <section id="diceBox">
+        <button id="btnDisplay">Question Display</button>
+        <div class="dice_wrap">
+            <div class="dice01">
+                <div class="dice_inner">
+                    <div class="dice">
+                        <div id="when" class="face1">When</div>
+                        <div id="where" class="face2">When</div>
+                        <div id="why" class="face3">Why</div>
+                        <div id="who" class="face4">Why</div>
+                        <div id="what" class="face5">How</div>
+                        <div id="how" class="face6">How</div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <button id="btnRolling">Roll</button>
-    <button id="btnGoBack">Go Back</button>
-  </section>
-
+        <button id="btnRolling">Roll</button>
+        <button id="btnGoBack">Go Back</button>
+    </section>
 
 
     <div class="other" style="position: fixed;  top: 280px; left: 30px">
@@ -297,213 +415,232 @@
 </body>
 <script>
     var socket = io.connect('http://192.168.100.2:5000');
-var value = "";
-var dice = document.querySelectorAll('.dice');
-var dice_width = dice[0].clientWidth;
-var face1 = document.querySelectorAll('.face1');
-var face2 = document.querySelectorAll('.face2');
-var face3 = document.querySelectorAll('.face3');
-var face4 = document.querySelectorAll('.face4');
-var face5 = document.querySelectorAll('.face5');
-var face6 = document.querySelectorAll('.face6');
+    var value = "";
+    var dice = document.querySelectorAll('.dice');
+    var dice_width = dice[0].clientWidth;
+    var face1 = document.querySelectorAll('.face1');
+    var face2 = document.querySelectorAll('.face2');
+    var face3 = document.querySelectorAll('.face3');
+    var face4 = document.querySelectorAll('.face4');
+    var face5 = document.querySelectorAll('.face5');
+    var face6 = document.querySelectorAll('.face6');
 
-// Track visited faces
-var visitedFaces = new Set();
+    // Track visited faces
+    var visitedFaces = new Set();
 
-function DiceResizing(){
-  Array.prototype.forEach.call(face1, function(item){
-    item.style.transform = 'rotateY(0deg) translateZ(' + dice_width/2 + 'px)';
-  });
-  Array.prototype.forEach.call(face2, function(item){
-    item.style.transform = 'rotateY(90deg) translateZ(' + dice_width/2 + 'px)';
-  });
-  Array.prototype.forEach.call(face3, function(item){
-    item.style.transform = 'rotateX(90deg) translateZ(' + dice_width/2 + 'px)';
-  });
-  Array.prototype.forEach.call(face4, function(item){
-    item.style.transform = 'rotateX(270deg) translateZ(' + dice_width/2 + 'px)';
-  });
-  Array.prototype.forEach.call(face5, function(item){
-    item.style.transform = 'rotateY(270deg) translateZ(' + dice_width/2 + 'px)';
-  });
-  Array.prototype.forEach.call(face6, function(item){
-    item.style.transform = 'rotateY(180deg) translateZ(' + dice_width/2 + 'px)';
-  });
-}
 
-DiceResizing();
-
-window.onresize = function(){
-  dice_width = dice[0].clientWidth;
-  DiceResizing();
-};
-
-var RandomNumber = function(){
-    // Check if all faces have been visited
-    if (visitedFaces.size === 6) {
-        visitedFaces.clear();
+    function DiceResizing() {
+        Array.prototype.forEach.call(face1, function (item) {
+            item.style.transform = 'rotateY(0deg) translateZ(' + dice_width / 2 + 'px)';
+        });
+        Array.prototype.forEach.call(face2, function (item) {
+            item.style.transform = 'rotateY(90deg) translateZ(' + dice_width / 2 + 'px)';
+        });
+        Array.prototype.forEach.call(face3, function (item) {
+            item.style.transform = 'rotateX(90deg) translateZ(' + dice_width / 2 + 'px)';
+        });
+        Array.prototype.forEach.call(face4, function (item) {
+            item.style.transform = 'rotateX(270deg) translateZ(' + dice_width / 2 + 'px)';
+        });
+        Array.prototype.forEach.call(face5, function (item) {
+            item.style.transform = 'rotateY(270deg) translateZ(' + dice_width / 2 + 'px)';
+        });
+        Array.prototype.forEach.call(face6, function (item) {
+            item.style.transform = 'rotateY(180deg) translateZ(' + dice_width / 2 + 'px)';
+        });
     }
 
-    let dice_face;
-    do {
-        dice_face = Math.floor(Math.random() * 6) + 1;
-    } while (visitedFaces.has(dice_face));
+    DiceResizing();
 
-    visitedFaces.add(dice_face);
-    console.log("Math.floor(Math.random()*6): ", dice_face);
+    window.onresize = function () {
+        dice_width = dice[0].clientWidth;
+        DiceResizing();
+    };
 
-    {#let value = '';#}
-    if(dice_face == 1){ value = 'when'; }
-    else if(dice_face == 2){ value = 'when'; }
-    else if(dice_face == 3){ value = 'why'; }
-    else if(dice_face == 4){ value = 'why'; }
-    else if(dice_face == 5){ value = 'how'; }
-    else { value = 'how'; }
+    var RandomNumber = function () {
+        // Check if all faces have been visited
+        if (visitedFaces.size === 6) {
+            visitedFaces.clear();
+        }
 
-    socket.emit('dice_5w1h', value);
-    return 'face' + dice_face;
-};
+        let dice_face;
+        do {
+            dice_face = Math.floor(Math.random() * 6) + 1;
+        } while (visitedFaces.has(dice_face));
 
-function rolling(){
-    // Remove existing face classes to ensure it always rolls
-    dice[0].classList.remove('face1', 'face2', 'face3', 'face4', 'face5', 'face6');
+        visitedFaces.add(dice_face);
+        console.log("Math.floor(Math.random()*6): ", dice_face);
 
-    setTimeout(() => {
-        dice[0].classList.add(RandomNumber());
-        btnRolling.disabled = false;
-    }, 100);  // Short delay to ensure face is removed before adding a new one
-}
+        {#let value = '';#}
+        if (dice_face == 1) {
+            value = 'when';
+        } else if (dice_face == 2) {
+            value = 'when';
+        } else if (dice_face == 3) {
+            value = 'why';
+        } else if (dice_face == 4) {
+            value = 'why';
+        } else if (dice_face == 5) {
+            value = 'how';
+        } else {
+            value = 'how';
+        }
 
-var btnRolling = document.querySelector('#btnRolling');
-btnRolling.onclick = function(){
-  btnRolling.disabled = true;  // Disable button to prevent multiple clicks during roll
-  rolling();
-};
+        socket.emit('dice_5w1h', value);
+        return 'face' + dice_face;
+    };
 
-var btnDisplay = document.querySelector('#btnDisplay');
-btnDisplay.onclick = function () {
-    document.querySelector('.dice01').style.display = 'none';
-    btnRolling.style.display = 'none';
-    btnDisplay.style.display = 'none';
-    btnGoBack.style.display = 'block';
+    function rolling() {
+        // Remove existing face classes to ensure it always rolls
+        dice[0].classList.remove('face1', 'face2', 'face3', 'face4', 'face5', 'face6');
+
+        setTimeout(() => {
+            dice[0].classList.add(RandomNumber());
+            btnRolling.disabled = false;
+        }, 100);  // Short delay to ensure face is removed before adding a new one
+    }
+
+    var btnRolling = document.querySelector('#btnRolling');
+    btnRolling.onclick = function () {
+        btnRolling.disabled = true;  // Disable button to prevent multiple clicks during roll
+        rolling();
+    };
+
+    var btnDisplay = document.querySelector('#btnDisplay');
+
 
     // Get the current face
     let currentFace = dice[0].classList[1];
     let questions = [];
     let images = [];
+    btnDisplay.onclick = function () {
+        document.querySelector('.dice01').style.display = 'none';
+        btnRolling.style.display = 'none';
+        btnDisplay.style.display = 'none';
+        btnGoBack.style.display = 'block';
 
-    // Set questions and images based on the current face
-     if (currentFace == 'face1' || currentFace == 'face2') {
-        questions = [
-            'When do you wear sunglasses?',
-            'When do we go to school?',
-            'When is your birthday?',
-            'When do we go outside to play at school?',
-            'When do we eat breakfast?',
-            'When do we use an umbrella?',
-            'When do we eat lunch?',
-            'When do we put our pajamas?',
-            "When is New Year's Day?",
-            'When do leaves fall down from trees?',
-        ];
-        images = [
-            '../static/dice/wh_images/when/sunglass.png',
-            '../static/dice/wh_images/when/school.jpeg',
-            '../static/dice/wh_images/when/birthday.jpeg',
-            '../static/dice/wh_images/when/play_outside.jpeg',
-            '../static/dice/wh_images/when/breakfast.jpg',
-            '../static/dice/wh_images/when/umbrella.png',
-            '../static/dice/wh_images/when/lunch.jpeg',
-            '../static/dice/wh_images/when/pajama.png',
-            '../static/dice/wh_images/when/new_year.jpg',
-            '../static/dice/wh_images/when/autumn-fall.jpg',
-        ];
-    } else if (currentFace == 'face3' || currentFace == 'face4') {
-        questions = [
-            'Why do we wear sunscreen?',
-            'Why do we go to school?',
-            'Why do we wear a jacket?',
-            'Why do we brush our teeth?',
-            'Why do we wear a seat belt in the car?',
-            'Why do we wear a helmet when riding a bike?',
-            'Why do we drive cars?',
-            'Why do we turn on the lights?',
-            "Why do we go to the dentist's office?",
-            'Why do we use umbrellas?',
-        ];
-        images = [
-            '../static/dice/wh_images/why/sunscreen.jpeg',
-            '../static/dice/wh_images/why/CLASS.jpg',
-            '../static/dice/wh_images/why/jacket.jpg',
-            '../static/dice/wh_images/why/brush.jpg',
-            '../static/dice/wh_images/why/seatbelt.jpg',
-            '../static/dice/wh_images/why/helmet.jpg',
-            '../static/dice/wh_images/why/car_driving.jpg',
-             '../static/dice/wh_images/why/light.png',
-            '../static/dice/wh_images/why/dentist.png',
-             '../static/dice/wh_images/why/umbrella.png',
-        ];
-    } else {
-        questions = [
-            'How do you brush your teeth?',
-            'How do you ride a bike?',
-            'How do you buy something at the store?',
-            'How do you go for "trick-or-treating"?',
-            'How do you wrap a present?',
-            'How do you get dressed in the morning?',
-            'How do you clean your room?',
-            'How do you make a sandwich?',
-            'How do you get to school?',
-            'How do you build a snowman? ',
-        ];
-        images = [
-            '../static/dice/wh_images/how/brush.png',
-            '../static/dice/wh_images/how/bike.png',
-            '../static/dice/wh_images/how/store.png',
-            '../static/dice/wh_images/how/trick.png',
-            '../static/dice/wh_images/how/present.png',
-            '../static/dice/wh_images/how/dress.png',
-            '../static/dice/wh_images/how/clean.png',
-            '../static/dice/wh_images/how/sandwich.png',
-            '../static/dice/wh_images/how/school.png',
-            '../static/dice/wh_images/how/snowman.png',
-        ];
+
+        // Set questions and images based on the current face
+        if (currentFace == 'face1' || currentFace == 'face2') {
+            questions = [
+                'When do you wear sunglasses?',
+                'When do we go to school?',
+                'When is your birthday?',
+                'When do we go outside to play at school?',
+                'When do we eat breakfast?',
+                'When do we use an umbrella?',
+                'When do we eat lunch?',
+                'When do we put our pajamas?',
+                "When is New Year's Day?",
+                'When do leaves fall down from trees?',
+            ];
+            images = [
+                '../static/dice/wh_images/when/sunglass.png',
+                '../static/dice/wh_images/when/school.jpg',
+                '../static/dice/wh_images/when/birthday.jpg',
+                '../static/dice/wh_images/when/play_outside.jpg',
+                '../static/dice/wh_images/when/breakfast.jpg',
+                '../static/dice/wh_images/when/umbrella.jpg',
+                '../static/dice/wh_images/when/lunch.jpg',
+                '../static/dice/wh_images/when/pajama.jpg',
+                '../static/dice/wh_images/when/new_year.jpg',
+                '../static/dice/wh_images/when/autumn-fall.jpg',
+            ];
+        } else if (currentFace == 'face3' || currentFace == 'face4') {
+            questions = [
+                'Why do we wear sunscreen?',
+                'Why do we go to school?',
+                'Why do we wear a jacket?',
+                'Why do we brush our teeth?',
+                'Why do we wear a seat belt in the car?',
+                'Why do we wear a helmet when riding a bike?',
+                'Why do we drive cars?',
+                'Why do we turn on the lights?',
+                "Why do we go to the dentist's office?",
+                'Why do we use umbrellas?',
+            ];
+            images = [
+                '../static/dice/wh_images/why/sunscreen.jpg',
+                '../static/dice/wh_images/why/CLASS.jpg',
+                '../static/dice/wh_images/why/jacket.jpg',
+                '../static/dice/wh_images/why/brush.jpg',
+                '../static/dice/wh_images/why/seatbelt.jpg',
+                '../static/dice/wh_images/why/helmet.jpg',
+                '../static/dice/wh_images/why/car_driving.jpg',
+                '../static/dice/wh_images/why/light.jpg',
+                '../static/dice/wh_images/why/dentist.jpg',
+                '../static/dice/wh_images/why/umbrella.jpg',
+            ];
+        } else {
+            questions = [
+                'How do you brush your teeth?',
+                'How do you ride a bike?',
+                'How do you buy something at the store?',
+                'How do you go for "trick-or-treating"?',
+                'How do you wrap a present?',
+                'How do you get dressed in the morning?',
+                'How do you clean your room?',
+                'How do you make a sandwich?',
+                'How do you get to school?',
+                'How do you build a snowman? ',
+            ];
+            images = [
+                '../static/dice/wh_images/how/brush.jpg',
+                '../static/dice/wh_images/how/bike.jpg',
+                '../static/dice/wh_images/how/store.jpg',
+                '../static/dice/wh_images/how/trick.jpg',
+                '../static/dice/wh_images/how/present.jpg',
+                '../static/dice/wh_images/how/dress.jpg',
+                '../static/dice/wh_images/how/clean.jpg',
+                '../static/dice/wh_images/how/sandwich.jpg',
+                '../static/dice/wh_images/how/school.jpg',
+                '../static/dice/wh_images/how/snowman.jpg',
+            ];
+        }
+        // Create image and text elements for questions
+        for (let i = 0; i < 10; i++) {
+            let container = document.createElement('div');
+
+            let img = document.createElement('img');
+            img.src = images[i]; // Path to the image
+            img.alt = questions[i];
+            container.appendChild(img);
+
+            let questionText = document.createElement('p');
+            questionText.innerText = questions[i];
+            questionText.style.fontSize = '16px';
+            questionText.style.fontWeight = 'bold';
+            questionText.style.marginTop = '10px';
+            container.appendChild(questionText);
+
+            // Add click event listener to the image
+            img.addEventListener('click', function () {
+                speak(questions[i]); // Speak the related question when clicked
+            });
+
+
+            document.querySelector('.dice_wrap').appendChild(container);
+        }
+
+    };
+
+    function speak(msg) {
+        socket.emit('repeat_speech', msg);
     }
-    // Create image and text elements for questions
-for (let i = 0; i < 10; i++) {
-    let container = document.createElement('div');
 
-    let img = document.createElement('img');
-    img.src = images[i]; // Path to the image
-    img.alt = questions[i];
-    container.appendChild(img);
+    var btnGoBack = document.querySelector('#btnGoBack');
+    btnGoBack.onclick = function () {
+        document.querySelector('.dice01').style.display = 'block'; // Show dice
+        btnRolling.style.display = 'block'; // Show roll button
+        btnDisplay.style.display = 'block'; // Show display button
+        btnGoBack.style.display = 'none'; // Hide go back button
 
-    let questionText = document.createElement('p');
-    questionText.innerText = questions[i];
-    questionText.style.fontSize = '16px';
-    questionText.style.fontWeight = 'bold';
-    questionText.style.marginTop = '10px';
-    container.appendChild(questionText);
+        // Remove only the dynamically created question elements (images and text)
+        let questionContainers = document.querySelectorAll('.dice_wrap > div:not(.dice01)');
+        questionContainers.forEach(container => container.remove());
+    };
 
-    document.querySelector('.dice_wrap').appendChild(container);
-}
-
-};
-
-
-var btnGoBack = document.querySelector('#btnGoBack');
-btnGoBack.onclick = function () {
-    document.querySelector('.dice01').style.display = 'block'; // Show dice
-    btnRolling.style.display = 'block'; // Show roll button
-    btnDisplay.style.display = 'block'; // Show display button
-    btnGoBack.style.display = 'none'; // Hide go back button
-
-    // Remove only the dynamically created question elements (images and text)
-    let questionContainers = document.querySelectorAll('.dice_wrap > div:not(.dice01)');
-    questionContainers.forEach(container => container.remove());
-};
-
-document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
         const stopSpeechButton = document.getElementById("stop-speech-btn");
         const repeatSpeechButton = document.getElementById("repeat-speech-btn");
 
@@ -532,8 +669,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 500); // 2000ms = 2 seconds
         });
     });
-
-
 
 
     function praise() {

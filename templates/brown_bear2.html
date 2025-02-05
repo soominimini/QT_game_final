@@ -117,7 +117,6 @@
             width: 150px; /* Adjust width as needed */
             height: auto; /* Maintain aspect ratio */
             border-radius: 10px; /* Optional: Add rounded corners */
-            border: 1px solid #ddd; /* Optional: Add a border */
         }
 
         /* Remove outline for all buttons */
@@ -128,13 +127,13 @@
         .object {
             margin-top: -20%;
             background-image: url('../static/story/brown_bear/scene1.jpg'); /* Replace with your image path */
-            background-size: cover; /* Ensures the image covers the entire object container */
-            background-position: center; /* Centers the background image */
             background-repeat: no-repeat; /* Prevents the image from repeating */
             width: 100%; /* Ensures the object container spans the full width */
             height: auto; /* Adjust height as needed */
             padding: 20px; /* Add padding for spacing around the content */
             border-radius: 10px; /* Optional: Add rounded corners */
+            background-size: 150%; /* Scales the background image */
+            background-position: 30% 70%; /* Adjusts which part of the image is shown (X% Y%) */
         }
 
         .grey-out {
@@ -261,8 +260,8 @@
             }
 
             // Attach the function to buttons
-            window.handleImageClick = handleImageClick; // Make it globally accessible
-            history.replaceState(null, "", "/story_game_young");
+            {#window.handleImageClick = handleImageClick; // Make it globally accessible#}
+            {#history.replaceState(null, "", "/story_game_young");#}
 
         });
 
@@ -317,26 +316,18 @@
 <div class="container">
     <div class="object" style="background-color: white; width: 900px; height: 700px; margin-top: 0;">
         <button onclick="handleImageClick('duck'); handleButtonClick(this);"
-                style="position:absolute; top: 10%; left: 35%;">
-            <img src="../static/story/brown_bear/duck.png" style="width: 100px;transform: scaleX(-1) rotate(-10deg);"
+                style="position:absolute; top: 50%; left: 45%;">
+            <img src="../static/story/brown_bear/duck.png" style="width: 100px;transform: scaleX(1);"
                  alt="Duck">
         </button>
         <button onclick="handleImageClick('horse'); handleButtonClick(this);"
-                style="position:absolute; top: 13%; right: 20%">
+                style="position:absolute; top: 63%; right: 20%">
             <img src="../static/story/brown_bear/horse.png" alt="horse">
         </button>
         <button onclick="handleImageClick('frog'); handleButtonClick(this);"
-                style="position: absolute; top: 34%; left:48%;transform: scaleX(-1);">
-            <img src="../static/story/brown_bear/frog2.png" alt="frog">
+                style="position: absolute; top: 74%; left:10%;transform: scaleX(-1);">
+            <img src="../static/story/brown_bear/frog2.png" alt="frog" style="width: 20%">
         </button>
-{#        <button onclick="handleImageClick('cat'); handleButtonClick(this);"#}
-{#                style="position:absolute;top: 56%; left: 30%;">#}
-{#            <img src="../static/story/brown_bear/cat.png" alt="cat" style="width: 130px; transform: scaleX(-1);">#}
-{#        </button>#}
-{#        <button onclick="handleImageClick('dog'); handleButtonClick(this);"#}
-{#                style="position:absolute; top: 8%; left: 30%;">#}
-{#            <img src="../static/story/brown_bear/dog.png" alt="dog" style="width: 110px;">#}
-{#        </button>#}
 
     </div>
     <div class="repeat">

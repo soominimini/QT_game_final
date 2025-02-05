@@ -128,8 +128,8 @@
         .object {
             margin-top: -20%;
             background-image: url('../static/story/brown_bear/scene1.jpg'); /* Replace with your image path */
-            background-size: cover; /* Ensures the image covers the entire object container */
-            background-position: center; /* Centers the background image */
+            background-size: 150%; /* Scales the background image */
+            background-position: 30% 70%; /* Adjusts which part of the image is shown (X% Y%) */
             background-repeat: no-repeat; /* Prevents the image from repeating */
             width: 100%; /* Ensures the object container spans the full width */
             height: auto; /* Adjust height as needed */
@@ -162,6 +162,7 @@
             background: rgb(41, 57, 104);
             color: rgb(255, 255, 255);
         }
+
     </style>
     <script type="text/javascript">
         var socket = io.connect('http://192.168.100.2:5000');
@@ -183,24 +184,9 @@
         }
 
         /* STOP function */
-
-        const animals = [
-            {name: "bear", prompt: "We see a, brown bear looking at us."},
-            {name: "bird", prompt: "We see a, red bird looking at us."},
-            {name: "duck", prompt: "We see a, yellow duck looking at us."},
-            {name: "horse", prompt: "We see a, blue horse looking at us."},
-            {name: "frog", prompt: "We see a, green frog looking at us."},
-            {name: "cat", prompt: "We see a, purple cat looking at us."},
-            {name: "dog", prompt: "We see a, white dog looking at us."},
-            {name: "sheep", prompt: "We see a, black sheep looking at us."},
-            {name: "fish", prompt: "We see a, goldfish looking at us."},
-            {name: "teacher", prompt: "We see a, teacher looking at us."}
-        ];
-        // Shuffle the animals array
-        animals.sort(() => Math.random() - 0.5);
-
-        // Keep track of the current animal index
-        let currentAnimalIndex = 0;
+        // Define global variables for prompts
+        let currentPrompt = "";
+        let currentPrompt2 = "";
         document.addEventListener("DOMContentLoaded", function () {
             const stopSpeechButton = document.getElementById("stop-speech-btn");
 
@@ -215,35 +201,34 @@
                     stopSpeechButton.disabled = false;
                 }, 500); // 2000ms = 2 seconds
             });
+            // Initialize the current sequence state
+            currentPrompt = "White dog, White dog. What do you see?";
+            currentPrompt2 = "I see a black sheep looking at me.";
+            let expectedAnswer = "sheep";
+            socket.emit('brown_talk', currentPrompt, 3);
+            socket.emit('brown_talk', currentPrompt2, 4.5);
 
-
-            socket.emit('brown_talk', `Children, Children. What do you see?`, 2);
-            socket.emit('brown_talk', animals[currentAnimalIndex].prompt, 4);
-
-            console.log("Speech emitted: Children, Children. What do you see?");
-            console.log("Speech emitted:", animals[currentAnimalIndex].prompt);
-
-            // Function to handle button clicks
+            // Function to handle button clicks and sequence
             function handleImageClick(imageName) {
-                if (imageName === animals[currentAnimalIndex].name) {
+                if (imageName === expectedAnswer) {
                     // Correct answer clicked
                     console.log(`Correct answer: ${imageName}`);
-                    socket.emit('correct');
 
-                    // Move to the next animal
-                    currentAnimalIndex++;
-                    if (currentAnimalIndex < animals.length) {
-
-                        socket.emit('brown_talk', `Children, Children. What do you see?`, 3);
-                        socket.emit('brown_talk', animals[currentAnimalIndex].prompt, 4.5);
-
-                        console.log("Speech emitted: Children, Children. What do you see?");
-                        console.log("Speech emitted:", animals[currentAnimalIndex].prompt);
-
+                    if (imageName === "sheep") {
+                        socket.emit('correct');
+                        currentPrompt = "Black sheep, Black Sheep. What do you see?";
+                        currentPrompt2 = "I see a, goldfish looking at me.";
+                        expectedAnswer = "fish";
+                        socket.emit('brown_talk', currentPrompt, 3);
+                        socket.emit('brown_talk', currentPrompt2, 4.5);
+                    } else if (imageName === "fish") {
+                        socket.emit('correct');
+                        socket.emit('brown_talk', "Lets go to next page", 3);
                     } else {
-                        socket.emit('speech_say', "That's what we see");
                         console.log("End of sequence");
+                        return; // End the sequence
                     }
+
                 } else {
                     // Incorrect answer
                     console.log(`Incorrect answer: ${imageName}. Try again.`);
@@ -252,22 +237,25 @@
             }
 
             // Attach the function to buttons
-            window.handleImageClick = handleImageClick; // Make it globally accessible
-             history.replaceState(null, "", "/story_game_young");
+            {#window.handleImageClick = handleImageClick; // Make it globally accessible#}
+            {#history.replaceState(null, "", "/story_game_young");#}
+
         });
+
         /* STOP function */
         console.log("first socket:", socket);
         socket.emit('connect event', {data: 'User Connected'});
 
 
-        function repeat_speech() {
+        function go_to_next_page() {
+            location.href = '/brown_bear5';
+        }
 
-            socket.emit('repeat_speech', `Children, Children. What do you see?`);
-            console.log("Speech emitted: Children, Children. What do you see?");
+        function repeat_speech() {
+            socket.emit('repeat_speech', currentPrompt);
             setTimeout(() => {
-                socket.emit('repeat_speech', animals[currentAnimalIndex].prompt);
-                console.log("Speech emitted:", animals[currentAnimalIndex].prompt);
-            }, 1000);
+                socket.emit('repeat_speech', currentPrompt2);
+            }, 1000); // Delay for better UX
         }
 
         function praise() {
@@ -304,51 +292,20 @@
 <body>
 <div class="container">
     <div class="object" style="background-color: white; width: 900px; height: 700px; margin-top: 0;">
-        <button onclick="handleImageClick('children'); handleButtonClick(this);"
-                style="position:absolute; top: 30%; right: 40%">
-            <img src="../static/story/brown_bear/children.jpg" alt="children" style="width: 250px;">
-        </button>
-        <button onclick="handleImageClick('bear'); handleButtonClick(this);"
-                style="position:absolute; top: 46%; left: 11%">
-            <img src="../static/story/brown_bear/bear.png" alt="bear">
-        </button>
-        <button onclick="handleImageClick('bird'); handleButtonClick(this);"
-                style="position:absolute; top: 10%; right: 35%;">
-            <img src="../static/story/brown_bear/bird.png" alt="bird" style="width: 80px;">
-        </button>
-        <button onclick="handleImageClick('duck'); handleButtonClick(this);"
-                style="position:absolute; top: 65%; left: 45%;">
-            <img src="../static/story/brown_bear/duck.png" alt="Duck" style="width: 80px;">
-        </button>
-        <button onclick="handleImageClick('horse'); handleButtonClick(this);"
-                style="position:absolute; top: 35%; right: 10%;">
-            <img src="../static/story/brown_bear/horse.png" alt="Horse">
-        </button>
-        <button onclick="handleImageClick('frog'); handleButtonClick(this);"
-                style="position:absolute; top: 65%; left: 27%">
-            <img src="../static/story/brown_bear/frog.png" alt="frog" style="width: 100px;">
-        </button>
-        <button onclick="handleImageClick('cat'); handleButtonClick(this);"
-                style="position:absolute; top: 29%; right: 27%;">
-            <img src="../static/story/brown_bear/cat.png" alt="cat" style="width: 100px;transform: scaleX(-1);">
-        </button>
+
+
         <button onclick="handleImageClick('dog'); handleButtonClick(this);"
-                style="position:absolute; top:65%; right: 14%;">
+                style="position:absolute; top: 66%; left: 13%">
             <img src="../static/story/brown_bear/dog.png" alt="dog">
         </button>
         <button onclick="handleImageClick('sheep'); handleButtonClick(this);"
-                style="position:absolute; top: 50%; left: 25%">
-            <img src="../static/story/brown_bear/sheep.png" alt="sheep" style="width: 120px;transform: scaleX(-1);">
+                style="position:absolute; top: 66%; left: 28%;">
+            <img src="../static/story/brown_bear/sheep.png" alt="sheep">
         </button>
         <button onclick="handleImageClick('fish'); handleButtonClick(this);"
-                style="position:absolute; top: 76%; left: 16%">
-            <img src="../static/story/brown_bear/fish.png" alt="fish" style="width: 80px; transform: scaleX(-1);">
+                style="position:absolute; top: 45%; left: 25%; transform: scaleX(-1);">
+            <img src="../static/story/brown_bear/fish.png" alt="fish" style="width: 100px;">
         </button>
-        <button onclick="handleImageClick('teacher'); handleButtonClick(this);"
-                style="position:absolute; top: 55%; left: 55%;">
-            <img src="../static/story/brown_bear/teacher.png" alt="teacher">
-        </button>
-
     </div>
     <div class="repeat">
         <button onclick="repeat_speech()"> Repeat</button>
@@ -403,7 +360,10 @@
         right: 30px; /* Distance from the left of the viewport */">
         <button onclick="speak('Don’t give up!')">Don’t give up</button>
     </div>
+</div>
 
+<!-- Next button -->
+<input type="button" value="Next" onclick="go_to_next_page()" class="next-button">
 </div>
 
 
