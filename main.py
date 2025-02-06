@@ -693,14 +693,16 @@ def taking_instruction1_young():
 @app.route('/emotion_games')
 def emotion_games_start():
     rand_var = random.randint(0, 5)
-    gesturePlay_servc(Idle_gestures[rand_var], 1.5)
+    # gesturePlay_servc(Idle_gestures[rand_var], 1.5)
+    gesturePlay_pub.publish(Idle_gestures[rand_var])
     return render_template('start_game.html')
 
 
 @app.route('/emotion_games2')
 def emotion_games_start_2():
     rand_var = random.randint(0, 5)
-    gesturePlay_servc(Idle_gestures[rand_var], 1.5)
+    # gesturePlay_servc(Idle_gestures[rand_var], 1.5)
+    gesturePlay_pub.publish(Idle_gestures[rand_var])
     return render_template('start_game2.html')
 
 
@@ -1338,36 +1340,22 @@ def dice_board(dice_face_str):
     global gesturePlay_servc
 
     rospy.sleep(1)
+
     # talktext_pub.publish("Move your piece on the board by")
-    handle_speech_say("Move your piece on the board by")
-    if dice_face_str == '1':
-        # talktext_pub.publish("One step")
-        handle_speech_say("One step")
-        rospy.sleep(1)
+    # gesturePlay_servc("idle_arms_up_1")
+    gestureStop_servc()
+    gesturePlay_pub.publish("idle_arms_up_1")
 
-    elif dice_face_str == '2':
-        # talktext_pub.publish("Two steps")
-        handle_speech_say("Two step")
-        rospy.sleep(1)
+    numbers = ["zero", "one", "two", "three", "four", "five", "six"]
 
-    elif dice_face_str == '3':
-        # talktext_pub.publish("Three steps")
-        handle_speech_say("Three step")
-        rospy.sleep(1)
+    s = "" if dice_face_str == '1' else "s"
 
-    elif dice_face_str == '4':
-        # talktext_pub.publish("Four steps")
-        handle_speech_say("Four step")
-        rospy.sleep(1)
+    handle_speech_say(f"Move your piece on the board by {numbers[int(dice_face_str)]} step{s}!")
+    rospy.sleep(1)
 
-    elif dice_face_str == '5':
-        # talktext_pub.publish("Five steps")
-        handle_speech_say("Five step")
-        rospy.sleep(1)
-    else:
-        # talktext_pub.publish("Six steps")
-        handle_speech_say("Six step")
-        rospy.sleep(1)
+    gestureStop_servc()
+    gesturePlay_pub.publish("idle_head")
+    rospy.sleep(1)
 
 
 @app.route('/dice_action_young_start')
@@ -1508,9 +1496,20 @@ def story_young5():
 @app.route('/brown_bear6')
 def story_young6():
     return render_template('brown_bear6.html')
+@app.route('/brown_bear7')
+def story_young7():
+    return render_template('brown_bear7.html')
 @app.route('/brown_bear8')
 def story_young8():
     return render_template('brown_bear8.html')
+
+@app.route('/brown_bear9')
+def story_young9():
+    return render_template('brown_bear9.html')
+
+@app.route('/brown_bear10')
+def story_young10():
+    return render_template('brown_bear10.html')
 
 
 @socketio.on('brown_talk')

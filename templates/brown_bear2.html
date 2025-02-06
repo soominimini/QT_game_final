@@ -260,7 +260,7 @@
             }
 
             // Attach the function to buttons
-            {#window.handleImageClick = handleImageClick; // Make it globally accessible#}
+            window.handleImageClick = handleImageClick; // Make it globally accessible
             {#history.replaceState(null, "", "/story_game_young");#}
 
         });

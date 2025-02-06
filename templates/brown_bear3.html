@@ -117,7 +117,6 @@
             width: 150px; /* Adjust width as needed */
             height: auto; /* Maintain aspect ratio */
             border-radius: 10px; /* Optional: Add rounded corners */
-            border: 1px solid #ddd; /* Optional: Add a border */
         }
 
         /* Remove outline for all buttons */
@@ -268,7 +267,7 @@
             }
 
             // Attach the function to buttons
-            {#window.handleImageClick = handleImageClick; // Make it globally accessible#}
+            window.handleImageClick = handleImageClick; // Make it globally accessible
             {#history.replaceState(null, "", "/story_game_young");#}
 
         });

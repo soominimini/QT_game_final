@@ -117,7 +117,6 @@
             width: 150px; /* Adjust width as needed */
             height: auto; /* Maintain aspect ratio */
             border-radius: 10px; /* Optional: Add rounded corners */
-            border: 1px solid #ddd; /* Optional: Add a border */
         }
 
         /* Remove outline for all buttons */
@@ -294,7 +293,7 @@
     <div class="object" style="background-color: white; width: 900px; height: 700px; margin-top: 0;">
 
         <button onclick="handleImageClick('fish'); handleButtonClick(this);"
-                style="position:absolute; top: 45%; left: 25%; transform: scaleX(-1);">
+                style="position:absolute; top: 25%; left: 25%; transform: scaleX(-1);">
             <img src="../static/story/brown_bear/fish.png" alt="fish" style="width: 100px;">
         </button>
         <button onclick="handleImageClick('teacher'); handleButtonClick(this);"
@@ -302,7 +301,7 @@
             <img src="../static/story/brown_bear/teacher.png" alt="teacher">
         </button>
         <button onclick="handleImageClick('children'); handleButtonClick(this);"
-                style="position:absolute;top: 43%; right: 10%;">
+                style="position:absolute;top: 43%; left: 10%;">
             <img src="../static/story/brown_bear/children.png" alt="children" style="width: 300px;">
         </button>
 
@@ -364,8 +363,6 @@
 
 <!-- Next button -->
 <input type="button" value="Next" onclick="go_to_next_page()" class="next-button">
-</div>
-
 
 </body>
 </html>

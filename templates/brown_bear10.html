@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Goodnight moon</title>
+    <title>Brown Bear</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
@@ -24,9 +24,11 @@
             text-align: center;
         }
 
-        /* Remove outline for all buttons */
-        button:focus {
-            outline: none;
+        /* Text styling */
+        .centered-text {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 10px; /* Add space between the image and text */
         }
 
         /* Next button styling */
@@ -117,29 +119,22 @@
             border-radius: 10px; /* Optional: Add rounded corners */
         }
 
-        /*.object {*/
-        /*    margin-top: -20%;*/
-        /*    background-image: url('../static/story/goodnight_images/room.png'); !* Replace with your image path *!*/
-        /*    background-size: cover; !* Ensures the image covers the entire object container *!*/
-        /*    background-position: center; !* Centers the background image *!*/
-        /*    background-repeat: no-repeat; !* Prevents the image from repeating *!*/
-        /*    width: 100%; !* Ensures the object container spans the full width *!*/
-        /*    height: auto; !* Adjust height as needed *!*/
-        /*    padding: 20px; !* Add padding for spacing around the content *!*/
-        /*    border-radius: 10px; !* Optional: Add rounded corners *!*/
-        /*}*/
-        .object {
-            margin-top: -20%;
-            background-image: url('../static/story/goodnight_images/room4.jpg'); /* Replace with your image path */
-            background-size: 220%; /* Scales the background image */
-            background-position: 90% 40%; /* Adjusts which part of the image is shown (X% Y%) */
-            background-repeat: no-repeat; /* Prevents the image from repeating */
-            width: 100%; /* Ensures the object container spans the full width */
-            height: 500px; /* Adjust height as needed to control visible area */
-            padding: 20px; /* Optional: Add padding for spacing around the content */
-            border-radius: 10px; /* Optional: Add rounded corners */
+        /* Remove outline for all buttons */
+        button:focus {
+            outline: none;
         }
 
+        .object {
+            margin-top: -20%;
+            background-image: url('../static/story/brown_bear/scene3_cleanup.jpg'); /* Replace with your image path */
+            background-size: cover; /* Ensures the image covers the entire object container */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            width: 100%; /* Ensures the object container spans the full width */
+            height: auto; /* Adjust height as needed */
+            padding: 20px; /* Add padding for spacing around the content */
+            border-radius: 10px; /* Optional: Add rounded corners */
+        }
 
         .grey-out {
             filter: grayscale(100%); /* Makes the button appear grey */
@@ -166,8 +161,6 @@
             background: rgb(41, 57, 104);
             color: rgb(255, 255, 255);
         }
-
-
     </style>
     <script type="text/javascript">
         var socket = io.connect('http://192.168.100.2:5000');
@@ -189,11 +182,16 @@
         }
 
         /* STOP function */
-        // Define global variables for prompts
-        let currentPrompt = "";
-        let currentPrompt2 = "";
-        let statement = "";
 
+        const animals = [
+            {name: "fish", prompt: "We see a, goldfish looking at us."},
+            {name: "teacher", prompt: "We see a, teacher looking at us."}
+        ];
+        // Shuffle the animals array
+        animals.sort(() => Math.random() - 0.5);
+
+        // Keep track of the current animal index
+        let currentAnimalIndex = 0;
         document.addEventListener("DOMContentLoaded", function () {
             const stopSpeechButton = document.getElementById("stop-speech-btn");
 
@@ -208,40 +206,35 @@
                     stopSpeechButton.disabled = false;
                 }, 500); // 2000ms = 2 seconds
             });
-            // Initialize the current sequence state
-            currentPrompt = "Goodnight room,  Goodnight moon";
-            currentPrompt2 = "Where is the moon?";
-            let expectedAnswer = "moon";
 
-            socket.emit('brown_talk', currentPrompt, 2);
-            socket.emit('brown_talk', currentPrompt2, 4);
 
-            // Function to handle button clicks and sequence
+            socket.emit('brown_talk', `Children, Children. What do you see?`, 2);
+            socket.emit('brown_talk', animals[currentAnimalIndex].prompt, 4);
+
+            console.log("Speech emitted: Children, Children. What do you see?");
+            console.log("Speech emitted:", animals[currentAnimalIndex].prompt);
+
+            // Function to handle button clicks
             function handleImageClick(imageName) {
-                if (imageName === expectedAnswer) {
+                if (imageName === animals[currentAnimalIndex].name) {
                     // Correct answer clicked
                     console.log(`Correct answer: ${imageName}`);
+                    socket.emit('correct');
 
-                    // Update the next sequence
-                    if (imageName === "moon") {
-                        socket.emit('correct');
-                        currentPrompt = "Goodnight cow jumping over the moon";
-                        currentPrompt2 = "Where is the cow?";
-                        expectedAnswer = "cow";
+                    // Move to the next animal
+                    currentAnimalIndex++;
+                    if (currentAnimalIndex < animals.length) {
 
-                        socket.emit('brown_talk', currentPrompt, 3);
-                        socket.emit('brown_talk', currentPrompt2, 4.5);
+                        socket.emit('brown_talk', `Children, Children. What do you see?`, 3);
+                        socket.emit('brown_talk', animals[currentAnimalIndex].prompt, 4.5);
 
-                    } else if (imageName === "cow") {
-                         socket.emit('correct');
-                        socket.emit('brown_talk', "Lets go to next page", 3);
+                        console.log("Speech emitted: Children, Children. What do you see?");
+                        console.log("Speech emitted:", animals[currentAnimalIndex].prompt);
 
-                    }  else {
+                    } else {
+                        socket.emit('speech_say', "All done");
                         console.log("End of sequence");
-                        return; // End the sequence
                     }
-
-
                 } else {
                     // Incorrect answer
                     console.log(`Incorrect answer: ${imageName}. Try again.`);
@@ -251,24 +244,21 @@
 
             // Attach the function to buttons
             window.handleImageClick = handleImageClick; // Make it globally accessible
-            history.replaceState(null, "", "/story_game_young");
-
+            {# history.replaceState(null, "", "/story_game_young");#}
         });
-
         /* STOP function */
         console.log("first socket:", socket);
         socket.emit('connect event', {data: 'User Connected'});
 
 
-        function go_to_next_page() {
-            location.href = '/goodnight6';
-        }
-
         function repeat_speech() {
-            socket.emit('repeat_speech', currentPrompt);
+
+            socket.emit('repeat_speech', `Children, Children. What do you see?`);
+            console.log("Speech emitted: Children, Children. What do you see?");
             setTimeout(() => {
-                socket.emit('repeat_speech', currentPrompt2);
-            }, 1000); // Delay for better UX
+                socket.emit('repeat_speech', animals[currentAnimalIndex].prompt);
+                console.log("Speech emitted:", animals[currentAnimalIndex].prompt);
+            }, 1000);
         }
 
         function praise() {
@@ -305,13 +295,21 @@
 <body>
 <div class="container">
     <div class="object" style="background-color: white; width: 900px; height: 700px; margin-top: 0;">
-        <button onclick="handleImageClick('cow'); handleButtonClick(this);"
-                style="position:absolute; top:12%; left: 20%">
-            <img src="../static/story/goodnight_images/cow_moon.png" alt="cow_moon" style="width: 240px;" >
+        <button onclick="handleImageClick('children'); handleButtonClick(this);"
+                style="position:absolute; top: 50%; right: 29%">
+            <img src="../static/story/brown_bear/children.png" alt="children" style="width: 300px;">
         </button>
-        <button onclick="handleImageClick('moon'); handleButtonClick(this);"
-                style="position:absolute; top:12.5%; right: 31.5%">
-            <img src="../static/story/goodnight_images/moon.png" alt="moon" style="width: 240px;" >
+        <button onclick="handleImageClick('sheep'); handleButtonClick(this);"
+                style="position:absolute; top: 60%; left: 25%">
+            <img src="../static/story/brown_bear/sheep.png" alt="sheep" style="width: 120px;transform: scaleX(-1);">
+        </button>
+        <button onclick="handleImageClick('fish'); handleButtonClick(this);"
+                style="position:absolute; top: 46%; left: 25%">
+            <img src="../static/story/brown_bear/fish.png" alt="fish" style="width: 80px; transform: scaleX(-1) rotate(-15deg);">
+        </button>
+        <button onclick="handleImageClick('teacher'); handleButtonClick(this);"
+                style="position:absolute; top: 43%; right: 13%;">
+            <img src="../static/story/brown_bear/teacher.png" alt="teacher" style="width: 75%; transform: scaleX(-1);">
         </button>
 
     </div>
@@ -369,13 +367,6 @@
         <button onclick="speak('Don’t give up!')">Don’t give up</button>
     </div>
 
-
 </div>
-
-<!-- Next button -->
-<input type="button" value="Next" onclick="go_to_next_page()" class="next-button">
-</div>
-
-
 </body>
 </html>

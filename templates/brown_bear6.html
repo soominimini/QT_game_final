@@ -117,7 +117,6 @@
             width: 150px; /* Adjust width as needed */
             height: auto; /* Maintain aspect ratio */
             border-radius: 10px; /* Optional: Add rounded corners */
-            border: 1px solid #ddd; /* Optional: Add a border */
         }
 
         /* Remove outline for all buttons */
@@ -127,7 +126,7 @@
 
         .object {
             margin-top: -20%;
-            background-image: url('../static/story/brown_bear/scene1.jpg'); /* Replace with your image path */
+            background-image: url('../static/story/brown_bear/scene2.jpg'); /* Replace with your image path */
             background-size: cover; /* Ensures the image covers the entire object container */
             background-position: center; /* Centers the background image */
             background-repeat: no-repeat; /* Prevents the image from repeating */
@@ -186,15 +185,7 @@
 
         const animals = [
             {name: "bear", prompt: "We see a, brown bear looking at us."},
-            {name: "bird", prompt: "We see a, red bird looking at us."},
-            {name: "duck", prompt: "We see a, yellow duck looking at us."},
-            {name: "horse", prompt: "We see a, blue horse looking at us."},
-            {name: "frog", prompt: "We see a, green frog looking at us."},
-            {name: "cat", prompt: "We see a, purple cat looking at us."},
-            {name: "dog", prompt: "We see a, white dog looking at us."},
-            {name: "sheep", prompt: "We see a, black sheep looking at us."},
-            {name: "fish", prompt: "We see a, goldfish looking at us."},
-            {name: "teacher", prompt: "We see a, teacher looking at us."}
+            {name: "bird", prompt: "We see a, red bird looking at us."}
         ];
         // Shuffle the animals array
         animals.sort(() => Math.random() - 0.5);
@@ -241,7 +232,7 @@
                         console.log("Speech emitted:", animals[currentAnimalIndex].prompt);
 
                     } else {
-                        socket.emit('speech_say', "That's what we see");
+                        {#socket.emit('speech_say', "That's what we see");#}
                         console.log("End of sequence");
                     }
                 } else {
@@ -253,11 +244,15 @@
 
             // Attach the function to buttons
             window.handleImageClick = handleImageClick; // Make it globally accessible
-             history.replaceState(null, "", "/story_game_young");
+            {#history.replaceState(null, "", "/story_game_young");#}
         });
         /* STOP function */
         console.log("first socket:", socket);
         socket.emit('connect event', {data: 'User Connected'});
+
+        function go_to_next_page() {
+            location.href = '/brown_bear7';
+        }
 
 
         function repeat_speech() {
@@ -305,48 +300,20 @@
 <div class="container">
     <div class="object" style="background-color: white; width: 900px; height: 700px; margin-top: 0;">
         <button onclick="handleImageClick('children'); handleButtonClick(this);"
-                style="position:absolute; top: 30%; right: 40%">
-            <img src="../static/story/brown_bear/children.jpg" alt="children" style="width: 250px;">
+                style="position:absolute; top: 40%; right: 15%">
+            <img src="../static/story/brown_bear/children.png" alt="children" style="width: 250px;">
         </button>
         <button onclick="handleImageClick('bear'); handleButtonClick(this);"
-                style="position:absolute; top: 46%; left: 11%">
+                style="position:absolute; top: 50%; left: 11%">
             <img src="../static/story/brown_bear/bear.png" alt="bear">
         </button>
         <button onclick="handleImageClick('bird'); handleButtonClick(this);"
-                style="position:absolute; top: 10%; right: 35%;">
+                style="position:absolute; top: 20%; left: 35%; transform: scaleX(-1) rotate(-40deg);">
             <img src="../static/story/brown_bear/bird.png" alt="bird" style="width: 80px;">
         </button>
-        <button onclick="handleImageClick('duck'); handleButtonClick(this);"
-                style="position:absolute; top: 65%; left: 45%;">
-            <img src="../static/story/brown_bear/duck.png" alt="Duck" style="width: 80px;">
-        </button>
-        <button onclick="handleImageClick('horse'); handleButtonClick(this);"
-                style="position:absolute; top: 35%; right: 10%;">
-            <img src="../static/story/brown_bear/horse.png" alt="Horse">
-        </button>
-        <button onclick="handleImageClick('frog'); handleButtonClick(this);"
-                style="position:absolute; top: 65%; left: 27%">
-            <img src="../static/story/brown_bear/frog.png" alt="frog" style="width: 100px;">
-        </button>
-        <button onclick="handleImageClick('cat'); handleButtonClick(this);"
-                style="position:absolute; top: 29%; right: 27%;">
-            <img src="../static/story/brown_bear/cat.png" alt="cat" style="width: 100px;transform: scaleX(-1);">
-        </button>
-        <button onclick="handleImageClick('dog'); handleButtonClick(this);"
-                style="position:absolute; top:65%; right: 14%;">
-            <img src="../static/story/brown_bear/dog.png" alt="dog">
-        </button>
-        <button onclick="handleImageClick('sheep'); handleButtonClick(this);"
-                style="position:absolute; top: 50%; left: 25%">
-            <img src="../static/story/brown_bear/sheep.png" alt="sheep" style="width: 120px;transform: scaleX(-1);">
-        </button>
         <button onclick="handleImageClick('fish'); handleButtonClick(this);"
-                style="position:absolute; top: 76%; left: 16%">
-            <img src="../static/story/brown_bear/fish.png" alt="fish" style="width: 80px; transform: scaleX(-1);">
-        </button>
-        <button onclick="handleImageClick('teacher'); handleButtonClick(this);"
-                style="position:absolute; top: 55%; left: 55%;">
-            <img src="../static/story/brown_bear/teacher.png" alt="teacher">
+                style="position:absolute; top: 78%; right: 25%">
+            <img src="../static/story/brown_bear/fish.png" alt="fish" style="width: 80px; ">
         </button>
 
     </div>
@@ -406,6 +373,7 @@
 
 </div>
 
-
+<!-- Next button -->
+<input type="button" value="Next" onclick="go_to_next_page()" class="next-button">
 </body>
 </html>

@@ -117,7 +117,6 @@
             width: 150px; /* Adjust width as needed */
             height: auto; /* Maintain aspect ratio */
             border-radius: 10px; /* Optional: Add rounded corners */
-            border: 1px solid #ddd; /* Optional: Add a border */
         }
 
         /* Remove outline for all buttons */
@@ -128,7 +127,7 @@
         .object {
             margin-top: -20%;
             background-image: url('../static/story/brown_bear/scene1.jpg'); /* Replace with your image path */
-            background-size: 150%; /* Scales the background image */
+            background-size: 180%; /* Scales the background image */
             background-position: 30% 70%; /* Adjusts which part of the image is shown (X% Y%) */
             background-repeat: no-repeat; /* Prevents the image from repeating */
             width: 100%; /* Ensures the object container spans the full width */
@@ -237,7 +236,7 @@
             }
 
             // Attach the function to buttons
-            {#window.handleImageClick = handleImageClick; // Make it globally accessible#}
+            window.handleImageClick = handleImageClick; // Make it globally accessible
             {#history.replaceState(null, "", "/story_game_young");#}
 
         });
@@ -295,15 +294,15 @@
 
 
         <button onclick="handleImageClick('dog'); handleButtonClick(this);"
-                style="position:absolute; top: 66%; left: 13%">
+                style="position:absolute; top: 66%; right: 13%">
             <img src="../static/story/brown_bear/dog.png" alt="dog">
         </button>
         <button onclick="handleImageClick('sheep'); handleButtonClick(this);"
-                style="position:absolute; top: 66%; left: 28%;">
+                style="position:absolute; top: 38%; left: 18%;transform: scaleX(-1);">
             <img src="../static/story/brown_bear/sheep.png" alt="sheep">
         </button>
         <button onclick="handleImageClick('fish'); handleButtonClick(this);"
-                style="position:absolute; top: 45%; left: 25%; transform: scaleX(-1);">
+                style="position:absolute; top: 55%; left: 45%;  transform: rotate(30deg);">
             <img src="../static/story/brown_bear/fish.png" alt="fish" style="width: 100px;">
         </button>
     </div>
