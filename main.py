@@ -128,11 +128,11 @@ def handle_speech_stop(data):
     gesture_stop_event.set()
     audio_stop_event.set()
     speechStop_servc()  # Call the speech stop service
-    speechSay_servc("All done")
     gestureStop_servc()
     emotionStop_servc()
     audioPlay_servc()
-    rospy.sleep(1.0)
+    talktext_pub.publish("all done")
+    rospy.sleep(1.5)
     neturalize()
 
     print("Speech stop event triggered.")
@@ -182,6 +182,12 @@ def handle_gesture_play(data, speed):
 
     # Run speech processing in a separate thread
     threading.Thread(target=play_gesture).start()
+    print("Gesture play event received:", data)
+
+
+@socketio.on('gesture_play_pub')
+def handle_gesture_play_pub(data):
+    gesturePlay_pub.publish(data)
     print("Gesture play event received:", data)
 
 
@@ -330,7 +336,7 @@ def correct_answer():
         random_praise += 1
         # audioPlay_pub.publish("QT/amazing")
 
-    rospy.sleep(3)
+    rospy.sleep(1)
     global success_record
     success_record += 1
 
@@ -343,41 +349,42 @@ def score_handle_from_html():
     ref_r = Float64MultiArray()
     ref_l = Float64MultiArray()
 
-    handle_emotion_play("QT/sad")
-    handle_gesture_play("QT/sad", 1)
-    handle_speech_say("That's not correct!")
+    # handle_emotion_play("QT/sad")
+    emotionShow_pub.publish("QT/sad")
+    gesturePlay_pub.publish("QT/sad")
+    speechSay_pub.publish("That's not correct!")
 
     #
     # emotionShow_pub.publish("QT/sad")
     # gesturePlay_servc("QT/sad", 1) # it needs to down both hands after performing the gestures
 
     # [shoulderPitch, shoulderRoll, elbowRoll]
-    ref_r.data = [-85, -65, -20]
-    ref_l.data = [88, -71, -23]
-
-    if random_encouragement == 3:
-        random_encouragement = 0
-        random.shuffle(encourage_order)  # shuffle again
-
-    if encourage_order[random_encouragement] == 0:
-        handle_speech_say("Try again!")
-        # talktext_pub.publish("Try again!")
-        random_encouragement += 1
-        rospy.sleep(1)
-
-    elif encourage_order[random_encouragement] == 1:
-        handle_speech_say("You’re so close! Do it again")
-        # talktext_pub.publish("Do it again!")
-        random_encouragement += 1
-        rospy.sleep(1)
-
-    else:
-        handle_speech_say("Choose another one!")
-        # talktext_pub.publish("Choose another one!")
-        random_encouragement += 1
-        rospy.sleep(1)
-    right_pub.publish(ref_r)
-    left_pub.publish(ref_l)
+    # ref_r.data = [-85, -65, -20]
+    # ref_l.data = [88, -71, -23]
+    # 
+    # if random_encouragement == 3:
+    #     random_encouragement = 0
+    #     random.shuffle(encourage_order)  # shuffle again
+    # 
+    # if encourage_order[random_encouragement] == 0:
+    #     handle_speech_say("Try again!")
+    #     # talktext_pub.publish("Try again!")
+    #     random_encouragement += 1
+    #     rospy.sleep(1)
+    # 
+    # elif encourage_order[random_encouragement] == 1:
+    #     handle_speech_say("You’re so close! Do it again")
+    #     # talktext_pub.publish("Do it again!")
+    #     random_encouragement += 1
+    #     rospy.sleep(1)
+    # 
+    # else:
+    #     handle_speech_say("Choose another one!")
+    #     # talktext_pub.publish("Choose another one!")
+    #     random_encouragement += 1
+    #     rospy.sleep(1)
+    # right_pub.publish(ref_r)
+    # left_pub.publish(ref_l)
 
     global error_record
     error_record += 1
@@ -485,40 +492,6 @@ def logged_in(message):
 
     # Redirect to the main page
     socketio.emit('redirect', {'url': url_for('main_page')})
-
-
-#     
-# @socketio.on('login')
-# def logged_in(message):
-#     name = message['name']
-#     global f
-#     global file_name
-# 
-#     # Directory where files will be saved (change if needed)
-#     save_directory = "user_files"
-#     os.makedirs(save_directory, exist_ok=True)  # Ensure the directory exists
-# 
-#     # Initialize the file counter
-#     counter = 0
-#     base_file_name = f"{name}_"
-#     file_path = os.path.join(save_directory, f"{base_file_name}{counter}.txt")
-# 
-#     # Increment the counter if a file with the same name already exists
-#     while os.path.exists(file_path):
-#         counter += 1
-#         file_path = os.path.join(save_directory, f"{base_file_name}{counter}.txt")
-# 
-#     # Use the resolved file path
-#     file_name = file_path
-#     f = open(file_name, "a")
-#       # Write user information to the file
-#     f.write(f"Name: {name}\n")
-#     f.close()
-# 
-#     print(f"File saved as: {file_name}")
-# 
-#     # Redirect to the main page
-#     socketio.emit('redirect', {'url': url_for('main_page')})
 
 @socketio.on('user_confirming')
 def user_confirming_func(message):
@@ -629,6 +602,9 @@ def main_menu(message):
 @app.route('/main')
 def main_page():
     # gesturePlay_servc("head_natural", 1.5)
+    gesturePlay_pub.publish("head_natural")
+    gesturePlay_pub.publish("natural_arms_wide")
+
     return render_template('main.html')
 
 
@@ -1083,7 +1059,7 @@ def dice_face_in_young_action(dice_face_str):
     rospy.sleep(1)
     # talktext_pub.publish(dice_face_str)
     print("stop_triggered_flag: ", stop_triggered_flag)
-
+    dice_face_str = 'Sing a Song'
     if dice_face_str == 'Jumping Jacks':
         handle_speech_say("Let's do 10 jumping jacks!")
         rospy.sleep(2)
@@ -1104,11 +1080,11 @@ def dice_face_in_young_action(dice_face_str):
 
     elif dice_face_str == 'Sing a Song':
         # talktext_pub.publish("Let's sing a song!")
-        music = ["IncyWincySpider", "ABCsong", "Old_MacDonald", "twinkletwinklelittlestar", "Wheels_bus"]
+        music = ["spider", "ABC", "mcdonald", "twinkle", "wheels"]
         random_song = random.choice(music)
+        random_song ="wheels"
         print("random_song: " + random_song)
-
-        if str(random_song) == "IncyWincySpider":
+        if str(random_song) == "spider":
             # talktext_pub.publish("Let's sing Incy Wincy Spider")
             # handle_speech_say("Let's sing Incy Wincy Spider")
             handle_speech_say("Let's sing a song")
@@ -1118,7 +1094,7 @@ def dice_face_in_young_action(dice_face_str):
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
 
-        elif str(random_song) == "ABCsong":
+        elif str(random_song) == "ABC":
             # talktext_pub.publish("Let's sing ABC")
             # handle_speech_say("Let's sing ABC")
             handle_speech_say("Let's sing a song")
@@ -1128,7 +1104,7 @@ def dice_face_in_young_action(dice_face_str):
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
 
-        elif str(random_song) == "Old_MacDonald":
+        elif str(random_song) == "mcdonald":
             # talktext_pub.publish("Let's sing Old MacDonald")
             # handle_speech_say("Let's sing Old MacDonald")
             handle_speech_say("Let's sing a song")
@@ -1138,7 +1114,7 @@ def dice_face_in_young_action(dice_face_str):
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
 
-        elif str(random_song) == "twinkletwinklelittlestar":
+        elif str(random_song) == "twinkle":
             # talktext_pub.publish("Let's sing twinkle twinkle little star")
             # handle_speech_say("Let's sing twinkle twinkle")
             handle_speech_say("Let's sing a song")
@@ -1148,7 +1124,7 @@ def dice_face_in_young_action(dice_face_str):
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
 
-        elif str(random_song) == "Wheels_bus":
+        elif str(random_song) == "wheels":
             # talktext_pub.publish("Let's sing Wheels on the bus")
             # handle_speech_say("Let's sing Wheels on the bus")
             handle_speech_say("Let's sing a song")
@@ -1326,8 +1302,8 @@ def dice_5w1h(dice_face_str):
     global emotionShow_pub
     global gesturePlay_servc
     rand_var = random.randint(0, 4)
-    # gesturePlay_servc(Idle_gestures[rand_var], 1.5)
-    handle_gesture_play(Idle_gestures[rand_var], 1.5)
+    # handle_gesture_play(Idle_gestures[rand_var], 1.5)
+    gesturePlay_pub.publish(Idle_gestures[rand_var])
     rospy.sleep(1)
     print("dice_5w1h: " + dice_face_str)
     # talktext_pub.publish(dice_face_str)
@@ -1417,7 +1393,7 @@ def story_old_main():
 @app.route('/red_riding_start_page')
 def red_riding_start():
     print("red_riding1 start")
-    talktext_pub.publish("Lets start the story")
+    # talktext_pub.publish("Lets start the story")
     return render_template('red_riding/story_text_select.html')
 
 
@@ -1451,7 +1427,8 @@ def story_speak(msg):
 def break_fucn():
     # talktext_pub.publish("Let's roll the dice")
     handle_speech_say("Let's take a break")
-    gesturePlay_servc("head_natural", 1.5)
+    # gesturePlay_servc("head_natural", 1.5)
+    # gesturePlay_pub.publish("head_natural")
     return render_template('break.html')
 
 

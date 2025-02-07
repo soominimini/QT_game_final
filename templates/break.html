@@ -122,7 +122,7 @@
         var wheelButton = document.getElementById("wheel-song");
 
         // Toggle their visibility
-        var displayState = (abcButton.style.display === "none" || abcButton.style.display === ""|| oldButton.style.display === ""|| incyButton.style.display === ""|| wheelButton.style.display === "") ? "block" : "none";
+        var displayState = (abcButton.style.display === "none" || abcButton.style.display === "" || oldButton.style.display === "" || incyButton.style.display === "" || wheelButton.style.display === "") ? "block" : "none";
         abcButton.style.display = displayState;
         twinkleButton.style.display = displayState;
         oldButton.style.display = displayState;
@@ -131,8 +131,14 @@
         speak('Lets sing a song')
     }
 
-    function speak(msg){
-socket.emit('repeat_speech', msg)
+    function speak(msg) {
+        socket.emit('repeat_speech', msg);
+        if (msg.includes('highfive')) {
+            // Do something
+            socket.emit('gesture_play_pub', "high_five");
+        }
+
+
     }
 </script>
 <body>
@@ -165,33 +171,39 @@ socket.emit('repeat_speech', msg)
     <button onclick="speak('Lets spin the wheel')"> Spin the wheel</button>
 </div>
 
+<div class="other" style="position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 400px; /* Distance from the top of the viewport */
+        left: 300px; /* Distance from the left of the viewport */">
+    <button onclick="speak('Lets highfive your teacher')"> High Five</button>
+</div>
+
 <div id="abc-song" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 110px; /* Distance from the top of the viewport */
         left: 430px; /* Distance from the left of the viewport */">
-    <button onclick="audio_play_front('ABCsong')"> ABC</button>
+    <button onclick="audio_play_front('ABC')"> ABC</button>
 </div>
 
 <div id="twinkle-song" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 110px; /* Distance from the top of the viewport */
         left: 540px; /* Distance from the left of the viewport */">
-    <button onclick="audio_play_front('twinkletwinklelittlestar')"> Twinkle Twinkle</button>
+    <button onclick="audio_play_front('twinkle')"> Twinkle Twinkle</button>
 </div>
 <div id="Old-mc-song" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 110px; /* Distance from the top of the viewport */
         left: 650px; /* Distance from the left of the viewport */">
-    <button onclick="audio_play_front('Old_MacDonald')"> Old MacDonald</button>
+    <button onclick="audio_play_front('mcdonald')"> Old MacDonald</button>
 </div>
 
 <div id="Incy-song" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 110px; /* Distance from the top of the viewport */
         left: 760px; /* Distance from the left of the viewport */">
-    <button onclick="audio_play_front('IncyWincySpider')"> Incy Wincy</button>
+    <button onclick="audio_play_front('spider')"> Incy Wincy</button>
 </div>
 
 <div id="wheel-song" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 110px; /* Distance from the top of the viewport */
         left: 870px; /* Distance from the left of the viewport */">
-    <button onclick="audio_play_front('Wheels_bus')"> Bus</button>
+    <button onclick="audio_play_front('wheels')"> Bus</button>
 </div>
 
 
