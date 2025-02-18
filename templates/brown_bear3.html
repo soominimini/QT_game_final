@@ -208,7 +208,7 @@
             currentPrompt2 = "I see a, purple cat looking at me.";
             expectedAnswer = "cat";
             socket.emit('brown_talk', currentPrompt, 3);
-            socket.emit('brown_talk', currentPrompt2, 4.5);
+            socket.emit('brown_talk', currentPrompt2, 4.5, true);
 
             // Function to handle button clicks and sequence
             function handleImageClick(imageName) {
@@ -223,11 +223,11 @@
                         currentPrompt2 = "I see a, white dog looking at me.";
                         expectedAnswer = "dog";
                         socket.emit('brown_talk', currentPrompt, 3);
-                        socket.emit('brown_talk', currentPrompt2, 5);
+                        socket.emit('brown_talk', currentPrompt2, 5, true);
                     }
                     else if (imageName === "dog") {
                         socket.emit('correct');
-                        socket.emit('brown_talk', "Lets go to next page", 3);
+                        socket.emit('brown_talk', "Lets go to next page", 3, true);
                     }
                     if (imageName === "sheep") {
                         socket.emit('correct');
@@ -235,25 +235,25 @@
                         currentPrompt2 = "I see a, goldfish looking at me.";
                         expectedAnswer = "fish";
                         socket.emit('brown_talk', currentPrompt, 3);
-                        socket.emit('brown_talk', currentPrompt2, 4.5);
+                        socket.emit('brown_talk', currentPrompt2, 4.5, true);
                     }
                     else if (imageName === "fish") {
                         socket.emit('correct');
                         currentPrompt = "Goldfish, Goldfish. What do you see?";
-                        currentPrompt2 = "I see a teacher looking at me.";
+                        currentPrompt2 = "I see a, teacher looking at me.";
                         expectedAnswer = "teacher";
                         socket.emit('brown_talk', currentPrompt, 3);
-                        socket.emit('brown_talk', currentPrompt2, 4.5);
+                        socket.emit('brown_talk', currentPrompt2, 4.5, true);
                     } else if (imageName === "teacher") {
                         socket.emit('correct');
                         currentPrompt = "Teacher,  Teacher. What do you see?";
-                        currentPrompt2 = "I see children looking at me.";
+                        currentPrompt2 = "I see, children looking at me.";
                         expectedAnswer = "children";
                         socket.emit('brown_talk', currentPrompt, 3);
-                        socket.emit('brown_talk', currentPrompt2, 4.5);
+                        socket.emit('brown_talk', currentPrompt2, 4.5, true);
                     } else if (imageName === "children") {
                         socket.emit('correct');
-                        socket.emit('brown_talk', "Lets go to next page", 3);
+                        socket.emit('brown_talk', "Lets go to next page", 3, true);
                     } else {
                         console.log("End of sequence");
                         return; // End the sequence
@@ -325,16 +325,16 @@
     <div class="object" style="background-color: white; width: 900px; height: 700px; margin-top: 0;">
 
         <button onclick="handleImageClick('frog'); handleButtonClick(this);"
-                style="position: absolute; top: 74%; left:10%;transform: scaleX(-1);">
+                style="position: absolute; top: 54%; right:20%;">
             <img src="../static/story/brown_bear/frog2.png" alt="frog" style="width: 20%">
         </button>
         <button onclick="handleImageClick('cat'); handleButtonClick(this);"
-                style="position:absolute;top: 56%; left: 30%;">
+                style="position:absolute;top: 40%; left: 10%;">
             <img src="../static/story/brown_bear/cat.png" alt="cat" style="width: 130px; transform: scaleX(-1);">
         </button>
         <button onclick="handleImageClick('dog'); handleButtonClick(this);"
-                style="position:absolute; top: 8%; left: 30%;">
-            <img src="../static/story/brown_bear/dog.png" alt="dog" style="width: 110px;">
+                style="position:absolute; top: 60%; right: 15%;">
+            <img src="../static/story/brown_bear/dog.png" alt="dog" style="width: 200px;">
         </button>
 
 

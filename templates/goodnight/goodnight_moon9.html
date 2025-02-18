@@ -215,7 +215,7 @@
             let expectedAnswer2 = "mouse";
 
             socket.emit('brown_talk', currentPrompt, 2);
-            socket.emit('brown_talk', currentPrompt2, 4);
+            socket.emit('brown_talk', currentPrompt2, 4, true);
 
             // Function to handle button clicks and sequence
             function handleImageClick(imageName) {
@@ -226,7 +226,7 @@
                     // Update the next sequence
                     if (imageName === "house" ||imageName === "mouse") {
                         socket.emit('correct');
-                        socket.emit('brown_talk', "Lets go to next page", 3);
+                        socket.emit('brown_talk', "Lets go to next page", 3, true);
 
                     } else {
                         console.log("End of sequence");

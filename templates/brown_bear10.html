@@ -209,7 +209,7 @@
 
 
             socket.emit('brown_talk', `Children, Children. What do you see?`, 2);
-            socket.emit('brown_talk', animals[currentAnimalIndex].prompt, 4);
+            socket.emit('brown_talk', animals[currentAnimalIndex].prompt, 4, true);
 
             console.log("Speech emitted: Children, Children. What do you see?");
             console.log("Speech emitted:", animals[currentAnimalIndex].prompt);
@@ -226,13 +226,13 @@
                     if (currentAnimalIndex < animals.length) {
 
                         socket.emit('brown_talk', `Children, Children. What do you see?`, 3);
-                        socket.emit('brown_talk', animals[currentAnimalIndex].prompt, 4.5);
+                        socket.emit('brown_talk', animals[currentAnimalIndex].prompt, 4.5, true);
 
                         console.log("Speech emitted: Children, Children. What do you see?");
                         console.log("Speech emitted:", animals[currentAnimalIndex].prompt);
 
                     } else {
-                        socket.emit('speech_say', "All done");
+                        socket.emit('brown_talk', "All done", 3);
                         console.log("End of sequence");
                     }
                 } else {
@@ -296,11 +296,11 @@
 <div class="container">
     <div class="object" style="background-color: white; width: 900px; height: 700px; margin-top: 0;">
         <button onclick="handleImageClick('children'); handleButtonClick(this);"
-                style="position:absolute; top: 50%; right: 29%">
+                style="position:absolute; top: 48%; right: 29%">
             <img src="../static/story/brown_bear/children.png" alt="children" style="width: 300px;">
         </button>
         <button onclick="handleImageClick('sheep'); handleButtonClick(this);"
-                style="position:absolute; top: 60%; left: 25%">
+                style="position:absolute; top: 68%; left: 25%">
             <img src="../static/story/brown_bear/sheep.png" alt="sheep" style="width: 120px;transform: scaleX(-1);">
         </button>
         <button onclick="handleImageClick('fish'); handleButtonClick(this);"
@@ -308,8 +308,8 @@
             <img src="../static/story/brown_bear/fish.png" alt="fish" style="width: 80px; transform: scaleX(-1) rotate(-15deg);">
         </button>
         <button onclick="handleImageClick('teacher'); handleButtonClick(this);"
-                style="position:absolute; top: 43%; right: 13%;">
-            <img src="../static/story/brown_bear/teacher.png" alt="teacher" style="width: 75%; transform: scaleX(-1);">
+                style="position:absolute; top: 40%; right: 13%;">
+            <img src="../static/story/brown_bear/teacher.png" alt="teacher" style="width: 83%; transform: scaleX(-1);">
         </button>
 
     </div>

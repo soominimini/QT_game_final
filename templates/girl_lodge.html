@@ -154,7 +154,7 @@
                 stopSpeechButton.disabled = false;
             }, 500); // 2000ms = 2 seconds
         });
-        history.replaceState(null, "", "/story_game_old");
+        {#history.replaceState(null, "", "/story_game_old");#}
     });
     window.onload = function () {
         socket.emit('girl_lodge');

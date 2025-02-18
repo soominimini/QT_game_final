@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 
-    <title>JavaScript - Drag and Drop Demo</title>
+    <title>Red Riding Hood</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
 
@@ -166,32 +166,40 @@
         // Image and text data for different steps
         let steps = [
             {
+                image: "../static/story/red_images/red1.jpg",
+                text: "One day, she decided to go visit her dear grandmother, who lived deep in the woods."
+            },
+            {
                 image: "../static/story/red_images/red2.jpg",
-                text: "When her mother packed a basket of treats, she warned her not to talk to strangers along the way."
+                text: "When her mother packed a basket of treats,<br> she warned her not to talk to strangers along the way."
             },
             {
                 image: "../static/story/red_images/red3.jpg",
-                text: "As Little Red Riding Hood happily strolled through the woods, she did not notice the sneaky wolf stalking her through the trees."
+                text: "As Little Red Riding Hood happily strolled through the woods, <br> she did not notice the sneaky wolf stalking her through the trees."
             },
             {
                 image: "../static/story/red_images/red4.jpg",
-                text: "The wolf, pretending to be lost, asked Little Red Riding Hood for directions. The wolf seemed harmless enough, so Little Red Riding Hood not only spoke to him. she also revealed where she was going."
+                text: "The wolf, pretending to be lost, asked Little Red Riding Hood for directions."
+            },
+            {
+                image: "../static/story/red_images/red4.jpg",
+                text: "The wolf seemed harmless enough, so Little Red Riding Hood not only spoke to him. <br> She also revealed where she was going."
             },
             {
                 image: "../static/story/red_images/red5.jpg",
-                text: "The wolf rushed ahead to beat her to her grand mother’s house, gaining entry by pretending to be her dear granddaughter. "
+                text: "The wolf rushed ahead to beat her to her grand mother’s house, <br> gaining entry by pretending to be her dear granddaughter. "
             },
             {
                 image: "../static/story/red_images/red6.jpg",
-                text: "Having locked her grandmother in the closet, the wolf waited for Little Red Riding Hood to arrive."
+                text: "Having locked her grandmother in the closet, <br>the wolf waited for Little Red Riding Hood to arrive."
             },
             {
                 image: "../static/story/red_images/red7.jpg",
-                text: "When she knocked on her grandmother’s door, she was greeted by a strange voice. “Come in dear,” said the wolf. "
+                text: "When she knocked on her grandmother’s door, she was greeted by a strange voice. <br>“Come in dear,” said the wolf. "
             },
             {
                 image: "../static/story/red_images/red8.jpg",
-                text: "As the wolf lay in bed, wearing one of her grandmother’s nightgowns, Little Red Riding Hood thought her grandmother sounded and looked strange. "
+                text: "As the wolf lay in bed, wearing one of her grandmother’s nightgowns,<br>Little Red Riding Hood thought her grandmother sounded and looked strange. "
             },
             {
                 image: "../static/story/red_images/red8.jpg",
@@ -199,11 +207,11 @@
             },
             {
                 image: "../static/story/red_images/red8.jpg",
-                text: "“What big eyes you have,” said Little Red Riding Hood. “Better to see you with my darling,” the wolf replied. "
+                text: "“What big eyes you have,” said Little Red Riding Hood. <br>“Better to see you with my darling,” the wolf replied. "
             },
             {
                 image: "../static/story/red_images/red8.jpg",
-                text: "Your teeth, your teeth are large and as sharp as knives. Little Red Riding Hood exclaimed."
+                text: "Your teeth, your teeth are large and as sharp as knives. <br>Little Red Riding Hood exclaimed."
             },
             {
                 image: "../static/story/red_images/red9.jpg",
@@ -215,7 +223,7 @@
             },
             {
                 image: "../static/story/red_images/red11.jpg",
-                text: "Little Red Riding Hood freed her grandmother from the closet, and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again."
+                text: "Little Red Riding Hood freed her grandmother from the closet, <br>and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again."
             }
         ];
 
@@ -228,6 +236,7 @@
 
         // Function to update the content dynamically
         function updateContent() {
+            console.log("currentIndex: ", currentIndex);
             if (currentIndex < steps.length) {
                 // Update UI
                 imageElement.src = steps[currentIndex].image;
@@ -235,13 +244,22 @@
                 let textContainer = document.querySelector(".centered-text");
                 console.log("textContainer: ".textContainer);
                 if (textContainer) {
-                    textElement.innerText = steps[currentIndex].text;
+                    textElement.innerHTML = steps[currentIndex].text;
                     textContainer.style.display = "block";  // Make sure it's visible
                 }
-                speech_text = steps[currentIndex].text;
+                {#speech_text = steps[currentIndex].text;#}
+                // Prepare speech text by removing <br> tags
+                speech_text = steps[currentIndex].text.replace(/<br\s*\/?>/g, ' ');
+                let sound = ""
+                if (currentIndex == 12) {
+                    sound = 'QT/growl_3'
+                }
+                if (currentIndex == 0) {
+                    speech_text = "One day, she decided to go visit her dear grandmother, who lift deep in the woods.";
+                }
 
                 // Emit the storyline to backend
-                socket.emit('story_line', steps[currentIndex].text);
+                socket.emit('story_line', speech_text, sound);
                 console.log("Story image emitted:", steps[currentIndex].image);
                 console.log("Story line emitted:", steps[currentIndex].text);
 
@@ -262,44 +280,44 @@
     });
 
     $(document).ready(function () {
-        socket.emit('first_page', {data: 'sending'});
         // setTimeout(enabling, 7000);
 
     });
-        function repeat_speech() {
-            socket.emit('repeat_speech', speech_text)
 
-        }
+    function repeat_speech() {
+        socket.emit('repeat_speech', speech_text)
 
-        function praise() {
-            var praise1 = document.getElementById("praise1");
-            var praise2 = document.getElementById("praise2");
-            var praise3 = document.getElementById("praise3");
-            var praise4 = document.getElementById("praise4");
-            // Toggle their visibility
-            var displayState = (praise1.style.display === "none" || praise2.style.display === "" || praise3.style.display === "" || praise4.style.display === "") ? "block" : "none";
-            praise1.style.display = displayState;
-            praise2.style.display = displayState;
-            praise3.style.display = displayState;
-            praise4.style.display = displayState;
-        }
+    }
 
-        function encour() {
-            var encour1 = document.getElementById("encour1");
-            var encour2 = document.getElementById("encour2");
-            var encour3 = document.getElementById("encour3");
-            var encour4 = document.getElementById("encour4");
-            // Toggle their visibility
-            var displayState = (encour1.style.display === "none" || encour2.style.display === "" || encour3.style.display === "") ? "block" : "none";
-            encour1.style.display = displayState;
-            encour2.style.display = displayState;
-            encour3.style.display = displayState;
-            encour4.style.display = displayState;
-        }
+    function praise() {
+        var praise1 = document.getElementById("praise1");
+        var praise2 = document.getElementById("praise2");
+        var praise3 = document.getElementById("praise3");
+        var praise4 = document.getElementById("praise4");
+        // Toggle their visibility
+        var displayState = (praise1.style.display === "none" || praise2.style.display === "" || praise3.style.display === "" || praise4.style.display === "") ? "block" : "none";
+        praise1.style.display = displayState;
+        praise2.style.display = displayState;
+        praise3.style.display = displayState;
+        praise4.style.display = displayState;
+    }
 
-        function speak(msg) {
-            socket.emit('repeat_speech', msg)
-        }
+    function encour() {
+        var encour1 = document.getElementById("encour1");
+        var encour2 = document.getElementById("encour2");
+        var encour3 = document.getElementById("encour3");
+        var encour4 = document.getElementById("encour4");
+        // Toggle their visibility
+        var displayState = (encour1.style.display === "none" || encour2.style.display === "" || encour3.style.display === "") ? "block" : "none";
+        encour1.style.display = displayState;
+        encour2.style.display = displayState;
+        encour3.style.display = displayState;
+        encour4.style.display = displayState;
+    }
+
+    function speak(msg) {
+        socket.emit('repeat_speech', msg)
+    }
 
 </script>
 
@@ -308,7 +326,7 @@
 <div class="container">
     <!-- Images Section -->
     <div class="object">
-        <img id="story-image" src="../static/story/red_images/red1.jpg" style="width: 40%;">
+        <img id="story-image" src="../static/story/red_images/red1.jpg" style="width: 31%; margin-top: -10%">
         <div class="repeat">
             <button onclick="repeat_speech()"> Repeat</button>
         </div>
@@ -320,8 +338,9 @@
     </div>
 
     <div class="centered-text" {% if not show_text %}style="display: none;"{% endif %}>
-        <p id="story-text">There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape
-            wherever she went. One day, she decided to go visit her dear grandmother, who lift deep in the woods.</p>
+        <p id="story-text">There once was a girl known as Little Red Riding Hood, <br>and she always wore a red riding
+            cape
+            wherever she went.</p>
     </div>
 
 </div>

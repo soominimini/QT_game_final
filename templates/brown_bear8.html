@@ -209,7 +209,7 @@
 
 
             socket.emit('brown_talk', `Children, Children. What do you see?`, 2);
-            socket.emit('brown_talk', animals[currentAnimalIndex].prompt, 4);
+            socket.emit('brown_talk', animals[currentAnimalIndex].prompt, 4, true);
 
             console.log("Speech emitted: Children, Children. What do you see?");
             console.log("Speech emitted:", animals[currentAnimalIndex].prompt);
@@ -226,7 +226,7 @@
                     if (currentAnimalIndex < animals.length) {
 
                         socket.emit('brown_talk', `Children, Children. What do you see?`, 3);
-                        socket.emit('brown_talk', animals[currentAnimalIndex].prompt, 4.5);
+                        socket.emit('brown_talk', animals[currentAnimalIndex].prompt, 4.5, true);
 
                         console.log("Speech emitted: Children, Children. What do you see?");
                         console.log("Speech emitted:", animals[currentAnimalIndex].prompt);

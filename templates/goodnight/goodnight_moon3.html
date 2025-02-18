@@ -230,11 +230,11 @@
                         expectedAnswer = "mouse";
 
                         socket.emit('brown_talk', currentPrompt, 3);
-                        socket.emit('brown_talk', currentPrompt2, 4.5);
+                        socket.emit('brown_talk', currentPrompt2, 4.5, true);
 
                     } else if (imageName === "mouse") {
-                          socket.emit('correct');
-                        socket.emit('brown_talk', "Lets go to next page", 3);
+                        socket.emit('correct');
+                        socket.emit('brown_talk', "Lets go to next page", 3, true);
 
                     }else {
                         console.log("End of sequence");

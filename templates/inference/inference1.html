@@ -51,7 +51,6 @@
             color: rgb(255, 255, 255);
         }
 
-
         .stop button {
             position: fixed; /* Keeps it fixed relative to the viewport */
             top: 20px; /* Distance from the top of the viewport */
@@ -183,42 +182,137 @@
         }
 
         function repeat_speech() {
-            socket.emit('repeat_speech', msg);
+            socket.emit('repeat_speech', currentPrompt);
+            setTimeout(() => {
+                socket.emit('repeat_speech', currentPrompt2);
+            }, 1000); // Delay for better UX
         }
 
         const questions = [
             {
-                text: "The farmers out picking the last pumpkin. What season is it?",
-                correctAnswer: "Fall",
-                image: "static/images/fall.jpg",
-                options: ["Fall", "Spring", "winter"]
+                text: "It’s a shape. It is symmetrical. You can see it in the sky at night",
+                correctAnswer: "star",
+                image: "static/images/star.jpg",
+                options: ["star", "circle", "square"]
             },
             {
-                text: "I visited a place with ladders, trucks, hoses, and a loud syeren. Can you guess where I went?",
-                correctAnswer: "Fire",
-                image: "static/images/fire.jpg",
-                options: ["Fire", "Farm", "Mall"]
+                text: "I play in the mud, I am usually pink. What am i?",
+                correctAnswer: "pig",
+                image: "static/images/pig.jpg",
+                options: ["pig", "horse", "cow"]
+            },
+            {
+                text: "I eat grass and live in a barn. I usually have black and white spots. I can give you milk. What am i?",
+                correctAnswer: "Cow",
+                image: "static/images/Cow.jpg",
+                options: ["Cow", "sheep", "chicken"]
+            },
+            {
+                text: "I have a long neck so I can eat leaves high up in the tree. I am yellow and have brown spots all over me. What am I?",
+                correctAnswer: "Giraffe",
+                image: "static/images/Giraffe.jpg",
+                options: ["Giraffe", "lion", "zebra"]
+            },
+            {
+                text: "I am grey. I have big floppy ears and a long trunk. I love peanuts. What am I?",
+                correctAnswer: "Elephant",
+                image: "static/images/Elephant.jpg",
+                options: ["Elephant", "monkey", "toucan"]
+            },
+            {
+                text: "You wear me when you are cold to keep you warm. I have a zipper and pockets. What am I?",
+                correctAnswer: "jacket",
+                image: "static/images/jacket.jpg",
+                options: ["jacket", "scarf", "hat"]
+            },
+            {
+                text: "You wear me on your feet. You use me when you want to go outside. I come in different colors. I can have laces or straps. What am I?",
+                correctAnswer: "Shoes",
+                image: "static/images/Shoes.jpg",
+                options: ["Shoes", "hat", "t-shirt"]
+            },
+            {
+                text: "It's yellow, and you must peel it to eat it.",
+                correctAnswer: "banana",
+                image: "static/images/banana.jpg",
+                options: ["banana", "strawberry", "grape"]
+            },
+            {
+                text: "It’s orange and round. You can carve it to make silly or scary faces. You can put a candle inside of it. You see it during Halloween. What am I?",
+                correctAnswer: "Pumpkin",
+                image: "static/images/pumpkin.jpg",
+                options: ["Pumpkin", "cucumber", "orange"]
+            },
+            {
+                text: "It's shaped like an oval. You crack it to open it. It comes from a chicken",
+                correctAnswer: "egg",
+                image: "static/images/egg.jpg",
+                options: ["egg", "cheese", "potato"]
+            },
+            {
+                text: "I am round. You can throw me and bounce on the ground. What am i?",
+                correctAnswer: "ball",
+                image: "static/images/ball.jpg",
+                options: ["ball", "blocks", "car"]
+            },
+            {
+                text: "I am a toy. I have small pieces to put together to make a picture. What am i?",
+                correctAnswer: "puzzle",
+                image: "static/images/puzzle.jpg",
+                options: ["dinosaur", "puzzle", "doll"]
+            },
+            {
+                text: "I am soft. You hug me when you sleep. I am an animal with brown fur. What am i?",
+                correctAnswer: "teddybear",
+                image: "static/images/teddybear.jpg",
+                options: ["teddybear", "keyboard", "bike"]
+            },
+            {
+                text: "I can be carried on your back or hand. You fill me with things you need. You take me to school. ",
+                correctAnswer: "Backpack",
+                image: "static/images/Backpack.jpg",
+                options: ["Backpack", "crayons", "pencil"]
+            },
+            {
+                text: "I am long and yellow. On one end I have an eraser. You use me to write or draw.",
+                correctAnswer: "pencil",
+                image: "static/images/pencil.jpg",
+                options: ["pencil", "backpack", "glue"]
+            },
+            {
+                text: "I work at a hospital. I help you when you are sick. I wear a white coat or scrubs. Who am I? ",
+                correctAnswer: "doctor",
+                image: "static/images/doctor.jpg",
+                options: ["doctor", "firefighter", "police"]
+            },
+            {
+                text: "I work at a school. I teach many subjects. I help students learn how to read and write. Who am I?",
+                correctAnswer: "teacher",
+                image: "static/images/teacher.jpg",
+                options: ["teacher", "mailman", "police"]
             }
         ];
         let remainingQuestions = questions;
         let currentQuestion;
         let displayedImage; // Track the currently displayed image
-        let msg;
+
         // Load a random question
         // Load a random question
-        function loadQuestion() {
+        function loadQuestion(time_para) {
+            console.log("Received time:", time_para, "Type:", typeof time_para); // Debugging
+
             if (remainingQuestions.length === 0) {
                 document.getElementById('question-text').innerText = "Quiz complete!";
-                socket.emit('yes_or_no', "Finished!. Lets play other games!", 1.0)
+                socket.emit('yes_or_no', "Its finished!. Lets play other games!", 1.0)
                 return;
             }
 
             const randomIndex = Math.floor(Math.random() * remainingQuestions.length);
             currentQuestion = remainingQuestions[randomIndex];
-            msg = currentQuestion.text;
             remainingQuestions.splice(randomIndex, 1); // Remove the question to avoid duplication
+
             console.log("currentQuestion.text:", currentQuestion.text)
-            socket.emit('yes_or_no', currentQuestion.text, 1.0);
+            socket.emit('yes_or_no', currentQuestion.text,2);
             let options = currentQuestion.options;
             shuffleArray(options);
 
@@ -230,14 +324,16 @@
         // Handle user's answer
         function handleAnswer(answer) {
             if (currentQuestion.correctAnswer === " ") {
-                console.log("Correct answer");
-                setTimeout(loadQuestion, 1000); // Show the next question after a short delay
+                console.log("end");
+                loadQuestion();
             } else {
                 if (answer === currentQuestion.correctAnswer) {
                     console.log("Correct answer");
-                    setTimeout(loadQuestion, 1000); // Show the next question after a short delay
+                    socket.emit('simple_correct');
+                    loadQuestion();
                 } else {
                     console.log("Wrong answer");
+                    socket.emit('simple_wrong');
                 }
             }
         }
@@ -245,27 +341,6 @@
 
         // Initialize the first question
         window.onload = loadQuestion;
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const stopSpeechButton = document.getElementById("stop-speech-btn");
-            const repeatSpeechButton = document.getElementById("repeat-speech-btn");
-
-            stopSpeechButton.addEventListener("click", function () {
-
-                // Emit 'speech_stop' event to the backend
-                socket.emit('stop_trigger_force', {message: "Stop speech command sent"});
-                socket.emit('speech_stop', {message: "Stop speech command sent"});
-                console.log("Speech stop event emitted");
-
-                // Disable the button for 2 seconds
-                stopSpeechButton.disabled = true;
-                setTimeout(function () {
-                    stopSpeechButton.disabled = false;
-                }, 500); // 2000ms = 2 seconds
-
-            });
-
-        });
 
         function praise() {
             var praise1 = document.getElementById("praise1");

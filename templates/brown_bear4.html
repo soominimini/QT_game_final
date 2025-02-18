@@ -205,7 +205,7 @@
             currentPrompt2 = "I see a black sheep looking at me.";
             let expectedAnswer = "sheep";
             socket.emit('brown_talk', currentPrompt, 3);
-            socket.emit('brown_talk', currentPrompt2, 4.5);
+            socket.emit('brown_talk', currentPrompt2, 4.5, true);
 
             // Function to handle button clicks and sequence
             function handleImageClick(imageName) {
@@ -219,10 +219,10 @@
                         currentPrompt2 = "I see a, goldfish looking at me.";
                         expectedAnswer = "fish";
                         socket.emit('brown_talk', currentPrompt, 3);
-                        socket.emit('brown_talk', currentPrompt2, 4.5);
+                        socket.emit('brown_talk', currentPrompt2, 4.5, true);
                     } else if (imageName === "fish") {
                         socket.emit('correct');
-                        socket.emit('brown_talk', "Lets go to next page", 3);
+                        socket.emit('brown_talk', "Lets go to next page", 3, true);
                     } else {
                         console.log("End of sequence");
                         return; // End the sequence
@@ -294,11 +294,11 @@
 
 
         <button onclick="handleImageClick('dog'); handleButtonClick(this);"
-                style="position:absolute; top: 66%; right: 13%">
-            <img src="../static/story/brown_bear/dog.png" alt="dog">
+                style="position:absolute; top: 63%; right: 15%">
+            <img src="../static/story/brown_bear/dog.png" alt="dog"style="width: 200px;">
         </button>
         <button onclick="handleImageClick('sheep'); handleButtonClick(this);"
-                style="position:absolute; top: 38%; left: 18%;transform: scaleX(-1);">
+                style="position:absolute; top: 38%; left: 18%; transform: scaleX(-1);">
             <img src="../static/story/brown_bear/sheep.png" alt="sheep">
         </button>
         <button onclick="handleImageClick('fish'); handleButtonClick(this);"

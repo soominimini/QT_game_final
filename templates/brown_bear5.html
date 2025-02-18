@@ -126,9 +126,9 @@
 
         .object {
             margin-top: -20%;
-            background-image: url('../static/story/brown_bear/scene3.jpg'); /* Replace with your image path */
-            background-size: 150%; /* Scales the background image */
-            background-position: 30% 70%; /* Adjusts which part of the image is shown (X% Y%) */
+            background-image: url('../static/story/brown_bear/scene3_cleanup.jpg'); /* Replace with your image path */
+            background-size: 165%; /* Scales the background image */
+            background-position: 10% 70%; /* Adjusts which part of the image is shown (X% Y%) */
             background-repeat: no-repeat; /* Prevents the image from repeating */
             width: 100%; /* Ensures the object container spans the full width */
             height: auto; /* Adjust height as needed */
@@ -205,7 +205,7 @@
             currentPrompt2 = "I see a teacher looking at me.";
             let expectedAnswer = "teacher";
             socket.emit('brown_talk', currentPrompt, 3);
-            socket.emit('brown_talk', currentPrompt2, 4.5);
+            socket.emit('brown_talk', currentPrompt2, 4.5, true);
 
             // Function to handle button clicks and sequence
             function handleImageClick(imageName) {
@@ -219,10 +219,10 @@
                         currentPrompt2 = "I see children looking at me.";
                         expectedAnswer = "children";
                         socket.emit('brown_talk', currentPrompt, 3);
-                        socket.emit('brown_talk', currentPrompt2, 4.5);
+                        socket.emit('brown_talk', currentPrompt2, 4.5, true);
                     } else if (imageName === "children") {
                         socket.emit('correct');
-                        socket.emit('brown_talk', "Lets go to next page", 3);
+                        socket.emit('brown_talk', "Lets go to next page", 3, true);
                     } else {
                         console.log("End of sequence");
                         return; // End the sequence
@@ -236,7 +236,7 @@
             }
 
             // Attach the function to buttons
-            {#window.handleImageClick = handleImageClick; // Make it globally accessible#}
+            window.handleImageClick = handleImageClick; // Make it globally accessible
             {#history.replaceState(null, "", "/story_game_young");#}
 
         });
@@ -293,15 +293,15 @@
     <div class="object" style="background-color: white; width: 900px; height: 700px; margin-top: 0;">
 
         <button onclick="handleImageClick('fish'); handleButtonClick(this);"
-                style="position:absolute; top: 25%; left: 25%; transform: scaleX(-1);">
+                style="position:absolute; top: 25%; left: 35%;">
             <img src="../static/story/brown_bear/fish.png" alt="fish" style="width: 100px;">
         </button>
         <button onclick="handleImageClick('teacher'); handleButtonClick(this);"
-                style="position:absolute; top: 40%; left: 45%;">
-            <img src="../static/story/brown_bear/teacher.png" alt="teacher">
+                style="position:absolute; top: 25%; left: 15%;">
+            <img src="../static/story/brown_bear/teacher2.png" alt="teacher"  style="width: 170px;">
         </button>
         <button onclick="handleImageClick('children'); handleButtonClick(this);"
-                style="position:absolute;top: 43%; left: 10%;">
+                style="position:absolute;top: 43%; right: 10%;">
             <img src="../static/story/brown_bear/children.png" alt="children" style="width: 300px;">
         </button>
 

@@ -1,5 +1,7 @@
 import os
 from datetime import datetime
+from symbol import continue_stmt
+
 from flask import Flask, render_template, redirect, url_for, session, request, send_from_directory
 from flask_socketio import SocketIO, emit, join_room
 # from flask_cors import CORS
@@ -94,7 +96,7 @@ audio_stop_event = threading.Event()
 global_sentence = ''
 
 
-def neturalize():
+def neutralize():
     gesturePlay_servc("QT/neutral", 0.5)
 
 
@@ -133,7 +135,7 @@ def handle_speech_stop(data):
     audioPlay_servc()
     talktext_pub.publish("all done")
     rospy.sleep(1.5)
-    neturalize()
+    neutralize()
 
     print("Speech stop event triggered.")
 
@@ -203,7 +205,7 @@ def handle_audio_play(data):
 
 
 @socketio.on('repeat_speech')
-def handle_repeat_speeach(data):
+def handle_repeat_speach(data):
     if data == '':
         global global_sentence
         data = global_sentence
@@ -214,7 +216,8 @@ def handle_repeat_speeach(data):
         speech_stop_event.clear()  # Reset stop signal before starting speech
         # speechSay_pub.publish(data)  # Publish speech
         # speechSay_servc(data)
-        talktext_pub.publish(data)
+        # talktext_pub.publish(data)
+        behaviorTalk_servc(data)
         # Run speech processing in a separate thread
 
     threading.Thread(target=say_speech_repeat).start()
@@ -227,7 +230,7 @@ def handle_story_speech(data):
     def story_speech():
         speech_stop_event.clear()  # Reset stop signal before starting speech
         # speechSay_pub.publish(data)  # Publish speech
-        speechSay_servc(data)
+        behaviorTalk_servc(data)
 
     # Run speech processing in a separate thread
     threading.Thread(target=story_speech).start()
@@ -287,12 +290,26 @@ def correct_answer(obj):
         f.write(obj["data"] + " selected " "\n")
 
 
+@socketio.on('simple_correct')
+def simple_correct_answer_res():
+    rospy.sleep(0.5)
+    talktext_pub.publish("That's correct")
+
+
+@socketio.on('simple_wrong')
+def simple_wrong_answer_res():
+    rospy.sleep(0.5)
+    talktext_pub.publish("That's not correct")
+
+
 @socketio.on('correct')
 def correct_answer():
     global random_praise
     global emotionShow_pub
     global gesturePlay_servc
     # emotionShow_pub.publish("QT/happy")
+    gestureStop_servc()
+
     rospy.sleep(1)
     if random_praise == 4:
         random_praise = 0
@@ -492,6 +509,7 @@ def logged_in(message):
 
     # Redirect to the main page
     socketio.emit('redirect', {'url': url_for('main_page')})
+
 
 @socketio.on('user_confirming')
 def user_confirming_func(message):
@@ -865,6 +883,7 @@ def start_page_story():
     chair_visit = [0, 0, 0]
     table_visit = [0, 0, 0]
 
+    print("func start_page_story")
     first_talk_robot_interactive()
     return render_template('story_character_select.html')
 
@@ -1082,7 +1101,7 @@ def dice_face_in_young_action(dice_face_str):
         # talktext_pub.publish("Let's sing a song!")
         music = ["spider", "ABC", "mcdonald", "twinkle", "wheels"]
         random_song = random.choice(music)
-        random_song ="wheels"
+        random_song = "wheels"
         print("random_song: " + random_song)
         if str(random_song) == "spider":
             # talktext_pub.publish("Let's sing Incy Wincy Spider")
@@ -1409,15 +1428,18 @@ def red_riding_first():
     rospy.sleep(1.0)
     print("here")
     talktext_pub.publish(
-        "There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went. One day, she decided to go visit her dear grandmother, who lift deep in the woods.")
+        "There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.")
     print("...")
 
 
 @socketio.on('story_line')
-def story_speak(msg):
+def story_speak(msg, sound):
     rospy.sleep(1.0)
     print("msg:", msg)
     talktext_pub.publish(msg)
+    if sound != "":
+        rospy.sleep(1.5)
+        audioPlay_pub.publish(sound)
 
 
 ######################################################################################### break, at talks     ############################################################################################
@@ -1467,22 +1489,32 @@ def story_young3():
 @app.route('/brown_bear4')
 def story_young4():
     return render_template('brown_bear4.html')
+
+
 @app.route('/brown_bear5')
 def story_young5():
     return render_template('brown_bear5.html')
+
+
 @app.route('/brown_bear6')
 def story_young6():
     return render_template('brown_bear6.html')
+
+
 @app.route('/brown_bear7')
 def story_young7():
     return render_template('brown_bear7.html')
+
+
 @app.route('/brown_bear8')
 def story_young8():
     return render_template('brown_bear8.html')
 
+
 @app.route('/brown_bear9')
 def story_young9():
     return render_template('brown_bear9.html')
+
 
 @app.route('/brown_bear10')
 def story_young10():
@@ -1490,11 +1522,22 @@ def story_young10():
 
 
 @socketio.on('brown_talk')
-def speech_brown_bear(text, sleep_time):
+def speech_brown_bear(text, sleep_time, wait=False):
     print("brown_talk: ", text, sleep_time)
     rospy.sleep(sleep_time)
     # talktext_pub.publish(text)
+
+    gesture = random.randint(1, 1)
+
+    gestureStop_servc()
+    gesturePlay_pub.publish(f"idle_arms_up_{gesture}")
+
     handle_speech_say(text)
+
+    if wait:
+        rospy.sleep(3)
+        gestureStop_servc()
+        gesturePlay_pub.publish("idle_head")
 
 
 ############ Goodnight moon
@@ -1590,9 +1633,9 @@ def inference_fucn():
 @socketio.on('start_talk')
 def first_talk_robot_interactive():
     # Display two characters. Becomes the main character of the story
+    print("func first_talk_robot_interactive")
     rospy.sleep(1.0)
     global talktext_pub
-    print("first_talk_robot_interactive")
     talktext_pub.publish("Lets start the story!")
 
 
@@ -1606,8 +1649,11 @@ def second():
 @socketio.on('girl_lodge')
 def third_girl():
     # global talktext_pub
-    talktext_pub.publish(
-        "One day, Goldilocks went for a walk in the forest and found a house. She knocked, and when nobody answered, she decided to go inside.")
+    talktext_pub.publish("One day, Goldilocks went for a walk in the forest and found a house.")
+    rospy.sleep(5.0)
+    audioPlay_pub.publish('QT/knock')
+    rospy.sleep(1.5)
+    behaviorTalk_servc("She knocked, and when nobody answered, she decided to go inside.")
 
 
 @socketio.on('girl_table')
@@ -1763,7 +1809,7 @@ def bear_3rd_func():
 def bear_4th_func():
     talktext_pub.publish("Someone’s been eating my porridge and it’s all gone!. Cried Baby Bear")
     rospy.sleep(4.0)
-    audioPlay_pub.publish('QT/cry_10')
+    audioPlay_pub.publish('QT/cry2_increased')
 
 
 @socketio.on('bear_5th')
@@ -1782,7 +1828,7 @@ def bear_6th_func():
 def bear_7th_func():
     talktext_pub.publish("Someone’s been sitting in my chair and it’s broken!. Cried Baby Bear.")
     rospy.sleep(3.5)
-    audioPlay_pub.publish('QT/cry_10')
+    audioPlay_pub.publish('QT/cry2_increased')
 
 
 @socketio.on('bear_8th')
@@ -1802,14 +1848,18 @@ def bear_9th_func():
 def bear_10th_func():
     talktext_pub.publish("Someone’s been sleeping in my bed, and she’s still there!. Cried Baby Bear.")
     rospy.sleep(3.5)
-    audioPlay_pub.publish('QT/cry_10')
+    audioPlay_pub.publish('QT/cry2_increased')
 
 
 @socketio.on('bear_11th')
 def bear_11th_func():
-    talktext_pub.publish("Just then Goldilocks woke up and saw The Three Bears. Help!. She screamed.")
-    rospy.sleep(5)
-    audioPlay_pub.publish('QT/scream_low')
+    talktext_pub.publish("Just then Goldilocks woke up and saw The Three Bears.")
+    # rospy.sleep(3)
+    # audioPlay_servc('QT/scream_low', "")
+    rospy.sleep(3)
+    audioPlay_pub.publish('QT/helpme')
+    rospy.sleep(0.5)
+    behaviorTalk_servc("She screamed.")
 
 
 @socketio.on('bear_12th')
@@ -1991,18 +2041,50 @@ def request_callback():
 
 emotions = {0: "happy", 1: "angry", 2: "scared", 3: "excited", 4: "shy", 5: "sad"}
 
-happy = {'ice': 'Having ice cream, makes me feel happy', 'smile': 'I smile, when I am happy',
-         'energy': 'I feel like, I have a lot of energy, when I am happy',
-         'jump': 'I want to jump for joy when I am happy'}
-sad = {'sad': "My smile disappears when I'm sad", 'toy': 'When my favorite toys broken, it makes me sad',
-       'friend_sad': 'My friend is depressed, it makes me feel sad'}
-angry = {'scream': 'I want to scream and yell, when I feel angry'}
+happy = {'pet_happy': "I like to cuddle and play with my pets when I'm happy", 'park_smile': "Going to the park makes me happy.",
+         'friend_happy': "I feel happy when I play with my friends.", 'toy': "I feel happy when I get my favorite toy.",
+         'jump': "I feel happy when I get praise or compliments.",
+         'energy': "I’m happy when I spend time with my family",
+         'smile_birthday': "I feel happy when I get presents on my birthday.",
+         'activity_happy': "I like to do my favorite activity when I feel happy."}
 
-shy = {'shy': 'My face gets red, when I feel shy'}
+sad = {'sad_family': "I feel sad when I miss my family.",
+       'sad_friend': "I feel sad when my friends don't share their toys with me.",
+       'sad_game': "I feel sad when I lose a game.",
+       'sad_snack': "I feel sad when I don’t get my favorite snack.",
+       'sad_outside': "I feel sad when I can’t go outside to play.",
+       'sad_birthday': "I feel sad when someone doesn’t wish me a Happy Birthday.",
+       'sad_toy': "I get sad when my favorite toy is lost or broken.",
+       'friend_sad': "I feel sad when someone is being mean to me."}
 
-excited = {'travel': 'Travelling with my family, makes me feel excited'}
+angry = {'scream': "I feel angry when someone takes my toy without asking.",
+         'scream': "I feel angry when I don’t get a turn playing a game.",
+         'scream': "I feel angry when someone messes up my room.",
+         'scream': "I feel angry when people aren’t listening to me.",
+         'scream': "I feel angry when I don’t understand my homework.",
+         'scream': "I feel angry when my friends don’t want to play the game I like.",
+         'scream': "I feel angry when my building blocks keep falling down.",
+         'scream': "I feel angry when my friend is busy and can’t play with me."}
 
-scared = {'scared': 'When I feel scared, my legs shake'}
+shy = {'shy': "I get shy when I meet new people.", 'shy': "I get shy when I have to read in front of my class.",
+       'shy': "I feel shy when I am asked to answer a question in school.",
+       'shy': "I feel shy when I have to perform on stage in front of everyone.",
+       'shy': "I feel shy when I have to talk on the phone.", 'shy': "I feel shy when I wear something new.",
+       'shy': "I feel shy when I have to join a new group of friends for an activity.",
+       'shy': "I feel why when I get a compliment and don’t know what to say back."}
+
+excited = {'travel': "I feel excited when I am going on vacation with my family."}
+
+scared = {
+    'scared': "I feel scared when it’s dark outside.",
+    'scared': "I feel scared when I have to go to the doctor.",
+    'scared': "I feel scared when I get lost.",
+    'scared': "I feel scared when I am alone.",
+    'scared': "I feel scared when I have a bad dream.",
+    'scared': "I feel scared when I see a scary character.",
+    'scared': "I feel scared when I have to do something by myself for the first time.",
+    'scared': "I feel scared when I hear a loud noise."
+}
 
 
 def random_image_selector(id):
@@ -2017,6 +2099,8 @@ def random_image_selector(id):
 
 def random_image(id):
     global var
+    print("--------------------random_image-----------------------------------")
+    print("happy.keys():",happy.keys())
     if id == 0:
         i = random.randint(0, len(happy) - 1)
         em = list(happy.keys())[i]
@@ -2033,6 +2117,8 @@ def random_image(id):
         i = random.randint(0, len(excited) - 1)
         em = list(excited.keys())[i]
         var = excited[em]
+
+        print("i, em, var: ", i, em, var)
     elif id == 4:
         i = random.randint(0, len(shy) - 1)
         em = list(shy.keys())[i]
@@ -2041,9 +2127,10 @@ def random_image(id):
         i = random.randint(0, len(sad) - 1)
         em = list(sad.keys())[i]
         var = sad[em]
+
     l = []
-    l.append(path + "emotion_game_2/" + em + "1.png")
-    l.append(path + "emotion_game_2/" + em + "2.png")
+    l.append(path + "emotion_game_2/" + em + "1.jpg")
+    l.append(path + "emotion_game_2/" + em + "2.jpg")
     print("list is :", l)
     return l
 
@@ -2060,11 +2147,11 @@ def start_game(message):
     if (message['who'] == 'start_game'):
         socketio.emit('redirect', {'url': url_for('first_view')})
         if (game == "emotion_game1" or game == "emotion_game2"):
-            talktext_pub.publish("Let's play a game, show me an emotion card!")
+            behaviorTalk_servc("Let's play a game, show me an emotion card!")
         elif (game == "emotion_game3"):
-            talktext_pub.publish("Let's play a game, show me two emotion cards")
+            behaviorTalk_servc("Let's play a game, show me two emotion cards")
         elif (game == "action_game"):
-            talktext_pub.publish("Let's play a game, show me an action card!")
+            behaviorTalk_servc("Let's play a game, show me an action card!")
         rospy.sleep(1)
 
 
@@ -2085,9 +2172,9 @@ def image_selected(message):
             speech_flag_emotion = True
             print("emotion speak")
             rospy.sleep(2.0)
-            speechSay_pub.publish(selected_emotion)
+            behaviorTalk_servc(selected_emotion)
             rospy.sleep(2.0)
-            talktext_pub.publish(next_dialogue[random_number])
+            behaviorTalk_servc(next_dialogue[random_number])
     elif (game == "emotion_game2"):
         global var
         if (selected == 0):
@@ -2095,9 +2182,10 @@ def image_selected(message):
                 socketio.emit('highlight', var, broadcast=True)
                 # emotion elaboration
                 sentence = var
+                print("sentence var: ",var)
 
                 # speechSay_pub.publish(var)
-                speechSay_pub.publish(var)
+                behaviorTalk_servc(var)
                 rospy.sleep(1)
                 selected = 1
                 emotion_game2_success += 1
@@ -2196,6 +2284,8 @@ if __name__ == '__main__':
     rospy.wait_for_service('/qt_robot/audio/play')
     speechSay_servc = rospy.ServiceProxy('/qt_robot/speech/say', speech_say)
     rospy.wait_for_service('/qt_robot/speech/say')
+    behaviorTalk_servc = rospy.ServiceProxy('/qt_robot/behavior/talkText', behavior_talk_text)
+    rospy.wait_for_service('/qt_robot/behavior/talkText')
     # speechConfig_servc = rospy.ServiceProxy('/qt_robot/speech/config', speech_config)
     # rospy.wait_for_service('/qt_robot/speech/config')
     gesturePlay_servc = rospy.ServiceProxy('/qt_robot/gesture/play', gesture_play)

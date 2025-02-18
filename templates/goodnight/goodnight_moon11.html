@@ -215,7 +215,7 @@
             let expectedAnswer = "stars";
 
             socket.emit('brown_talk', currentPrompt, 2);
-            socket.emit('brown_talk', currentPrompt2, 1);
+            socket.emit('brown_talk', currentPrompt2, 1, true);
 
             // Function to handle button clicks and sequence
             function handleImageClick(imageName) {
@@ -227,7 +227,7 @@
                     if (imageName === "stars") {
                         socket.emit('correct');
                         currentPrompt = " Goodnight air, Good night noises everywhere";
-                        socket.emit('brown_talk', currentPrompt, 3);
+                        socket.emit('brown_talk', currentPrompt, 3, true);
                         // Add a delay before applying the grayscale and background effects
                         console.log("End of sequence");
                         setTimeout(() => {

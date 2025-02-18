@@ -214,7 +214,7 @@
             let expectedAnswer = "brush";
 
             socket.emit('brown_talk', currentPrompt, 2);
-            socket.emit('brown_talk', currentPrompt2, 4);
+            socket.emit('brown_talk', currentPrompt2, 4, true);
 
             // Function to handle button clicks and sequence
             function handleImageClick(imageName) {
@@ -230,7 +230,7 @@
                         expectedAnswer = "mush";
 
                         socket.emit('brown_talk', currentPrompt, 3);
-                        socket.emit('brown_talk', currentPrompt2, 4.5);
+                        socket.emit('brown_talk', currentPrompt2, 4.5, true);
 
                     } else if (imageName === "mush") {
                         socket.emit('correct');
@@ -239,11 +239,11 @@
                         expectedAnswer = "old_lady";
 
                         socket.emit('brown_talk', currentPrompt, 3);
-                        socket.emit('brown_talk', currentPrompt2, 4.5);
+                        socket.emit('brown_talk', currentPrompt2, 4.5, true);
 
                     } else if (imageName === "old_lady") {
                         socket.emit('correct');
-                        socket.emit('brown_talk', "Lets go to next page", 3);
+                        socket.emit('brown_talk', "Lets go to next page", 3, true);
                     } else {
                         console.log("End of sequence");
                         return; // End the sequence

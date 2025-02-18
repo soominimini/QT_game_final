@@ -209,7 +209,7 @@
             let expectedAnswer = "horse";
 
             socket.emit('brown_talk', currentPrompt, 2);
-            socket.emit('brown_talk', currentPrompt2, 4);
+            socket.emit('brown_talk', currentPrompt2, 4, true);
 
             // Function to handle button clicks and sequence
             function handleImageClick(imageName) {
@@ -225,13 +225,13 @@
                         expectedAnswer = "frog";
 
                         socket.emit('brown_talk', currentPrompt, 3);
-                        socket.emit('brown_talk', currentPrompt2, 4.5);
+                        socket.emit('brown_talk', currentPrompt2, 4.5, true);
 
                     } else if (imageName === "frog") {
                         socket.emit('correct');
 
                         socket.emit('correct');
-                        socket.emit('brown_talk', "Lets go to next page", 3);
+                        socket.emit('brown_talk', "Lets go to next page", 3, true);
                         {#currentPrompt = "Green frog, green Frog. What do you see?";#}
                         {#currentPrompt2 = "I see a, purple cat looking at me.";#}
                         {#expectedAnswer = "cat";#}
@@ -243,10 +243,10 @@
                         currentPrompt2 = "I see a, white dog looking at me.";
                         expectedAnswer = "dog";
                         socket.emit('brown_talk', currentPrompt, 3);
-                        socket.emit('brown_talk', currentPrompt2, 5);
+                        socket.emit('brown_talk', currentPrompt2, 5, true);
                     } else if (imageName === "dog") {
                         socket.emit('correct');
-                        socket.emit('brown_talk', "Lets go to next page", 3);
+                        socket.emit('brown_talk', "Lets go to next page", 3, true);
                     } else {
                         console.log("End of sequence");
                         return; // End the sequence
@@ -325,7 +325,7 @@
             <img src="../static/story/brown_bear/horse.png" alt="horse">
         </button>
         <button onclick="handleImageClick('frog'); handleButtonClick(this);"
-                style="position: absolute; top: 74%; left:10%;transform: scaleX(-1);">
+                style="position: absolute; top: 70%; left:8%;transform: scaleX(-1);">
             <img src="../static/story/brown_bear/frog2.png" alt="frog" style="width: 20%">
         </button>
 
