@@ -319,9 +319,11 @@
 
             if (answer === correctAnswer) {
                 console.log("Correct answer");
+                socket.emit('simple_correct');
                 setTimeout(loadQuestion, 1000); // Show the next question after a short delay
             } else {
                 console.log("Wrong answer");
+                socket.emit('simple_wrong')
             }
         }
 

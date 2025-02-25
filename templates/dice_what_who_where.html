@@ -345,6 +345,7 @@
         color: rgb(255, 255, 255);
         cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
+
     .other button {
 
         font-size: 15px;
@@ -605,6 +606,11 @@
             questionText.style.fontWeight = 'bold';
             questionText.style.marginTop = '10px';
             container.appendChild(questionText);
+            // Add click event listener to the image
+            img.addEventListener('click', function () {
+                speak(questions[i]); // Speak the related question when clicked
+                value = questions[i];
+            });
 
             document.querySelector('.dice_wrap').appendChild(container);
         }
@@ -653,7 +659,6 @@
             }, 500); // 2000ms = 2 seconds
         });
     });
-
 
 
     function praise() {

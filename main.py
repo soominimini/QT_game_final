@@ -6,6 +6,7 @@ from flask import Flask, render_template, redirect, url_for, session, request, s
 from flask_socketio import SocketIO, emit, join_room
 # from flask_cors import CORS
 import random
+import re
 import time
 import threading
 import rospy
@@ -68,8 +69,10 @@ emotion_game3_failure = 0
 
 head_idle = []
 
-Idle_gestures = ["both_arms", "right_arm", "left_arm", "head_natural", "head_natural_left", "natural_arms_wide",
+Idle_gestures = ["both_arms", "right_arm", "left_arm", "head_natural_left", "natural_arms_wide",
                  "head_arm_natural"]
+
+idle_arm_gestures = ["idle_arms_up_1"]
 emotion_dictionary = {0: "angry", 1: "happy", 2: "excited", 3: "sad", 4: "scared", 5: "shy"}
 
 app = Flask(__name__)
@@ -99,6 +102,9 @@ global_sentence = ''
 def neutralize():
     gesturePlay_servc("QT/neutral", 0.5)
 
+def get_short_idle_gesture():
+    gestures = ["idle_arms_up_1", "idle_arms_1", "idle_arms_2", "idle_left_arm_and_head", "idle_right_arm_and_head"]
+    return random.choice(gestures)
 
 @socketio.on('stop_trigger_force')
 def handle_speech_stop_force(data):
@@ -153,16 +159,6 @@ def handle_speech_say(data):
     print("Speech say event received:", data)
 
 
-@socketio.on('speech_say_slow')
-def handle_speech_say_slow(data, time_sleep):
-    def say_speech_slow():
-        speech_stop_event.clear()  # Reset stop signal before starting speech
-        # speechSay_pub.publish(data)  # Publish speech
-        rospy.sleep(time_sleep)
-        speechSay_servc(data)
-
-    threading.Thread(target=say_speech_slow).start()
-    print("Speech slow say event received:", data)
 
 
 @socketio.on('emotion_play')
@@ -217,12 +213,14 @@ def handle_repeat_speach(data):
         # speechSay_pub.publish(data)  # Publish speech
         # speechSay_servc(data)
         # talktext_pub.publish(data)
+        gestureStop_servc()
+        gesturePlay_pub.publish(get_short_idle_gesture())
+
         behaviorTalk_servc(data)
         # Run speech processing in a separate thread
 
     threading.Thread(target=say_speech_repeat).start()
     print("Speech say event received:", data)
-
 
 #     #     #     #     #     #     #     #     #     #     #     # #     #     #    STOP functions  #     #     #     #     #     #     #     #     #     #     #     #     #     #
 @socketio.on('story_text')
@@ -1527,10 +1525,8 @@ def speech_brown_bear(text, sleep_time, wait=False):
     rospy.sleep(sleep_time)
     # talktext_pub.publish(text)
 
-    gesture = random.randint(1, 1)
-
     gestureStop_servc()
-    gesturePlay_pub.publish(f"idle_arms_up_{gesture}")
+    gesturePlay_pub.publish(get_short_idle_gesture())
 
     handle_speech_say(text)
 
@@ -1601,9 +1597,12 @@ def story_young_moon11():
 
 @socketio.on('yes_or_no')
 def speech_yes_or_no(text, sleep_time):
-    print("brown_talk: ", text, sleep_time)
+    print("speech_yes_or_no: ", text, sleep_time)
     rospy.sleep(sleep_time)
+    gestureStop_servc()
+    gesturePlay_pub.publish(get_short_idle_gesture())
     talktext_pub.publish(text)
+
 
 
 @app.route('/yes_no_young')
@@ -1626,6 +1625,26 @@ def inference_fucn():
     # gesturePlay_servc("head_natural", 1.5)
     return render_template('inference/inference1.html')
 
+@socketio.on('inference')
+def speech_inference(text, sleep_time):
+    """
+    Reads out the inference game text.
+    Every two sentences the robot will perform an idle gesture.
+
+    """
+    print("speech_inference: ", text, sleep_time)
+    rospy.sleep(sleep_time)
+
+    # Split the text by periods followed by a space or end of line
+    sentences = re.split(r'(?<=\.)\s+', text.strip())
+
+    # Create pairs of sentences
+    sentence_pairs = [" ".join(sentences[i:i + 2]) for i in range(0, len(sentences), 2)]
+
+    for two_sentences in sentence_pairs:
+        gestureStop_servc()
+        gesturePlay_pub.publish(get_short_idle_gesture())
+        behaviorTalk_servc(two_sentences)
 
 #
 

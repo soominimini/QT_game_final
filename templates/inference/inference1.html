@@ -303,7 +303,7 @@
 
             if (remainingQuestions.length === 0) {
                 document.getElementById('question-text').innerText = "Quiz complete!";
-                socket.emit('yes_or_no', "Its finished!. Lets play other games!", 1.0)
+                socket.emit('inference', "Its finished!. Lets play other games!", 1.0)
                 return;
             }
 
@@ -312,7 +312,7 @@
             remainingQuestions.splice(randomIndex, 1); // Remove the question to avoid duplication
 
             console.log("currentQuestion.text:", currentQuestion.text)
-            socket.emit('yes_or_no', currentQuestion.text,2);
+            socket.emit('inference', currentQuestion.text,2);
             let options = currentQuestion.options;
             shuffleArray(options);
 

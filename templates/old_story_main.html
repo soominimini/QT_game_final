@@ -13,45 +13,54 @@
 
 <script type="text/javascript">
     var socket = io.connect('http://192.168.100.2:5000');
-    socket.on('redirect', function (data) {
-        console.log(data);
+    {#socket.on('redirect', function (data) {#}
+    {#    console.log(data);#}
+    {##}
+    {#    window.location = data.url;#}
+    {#})
+        ;
+        #}
+        {#document.cookie = "refreshFlag=true";#}
+        {##}
+        {#window.addEventListener("load", function () {#}
+        {#    if (document.cookie.includes("refreshFlag=true")) {#}
+        {#        console.log("Page was refreshed!");#}
+        {#        console.log("window.history.length :", window.history.length);#}
+        {#        if(window.history.length>2) {#}
+        {#            window.close(); // Tries to close the current tab#}
+        {#        }#}
+        {#    } else {#}
+        {#        console.log("First time loading!");#}
+        {#    }#}
+        {#})
+            ;
+            #}
 
-        window.location = data.url;
-    });
-    document.cookie = "refreshFlag=true";
-
-    window.addEventListener("load", function () {
-        if (document.cookie.includes("refreshFlag=true")) {
-            console.log("Page was refreshed!");
-            console.log("window.history.length :", window.history.length);
-            if(window.history.length>2) {
-                window.close(); // Tries to close the current tab
+            // Function to show the info popup
+            function showInfo(message) {
+                document.getElementById("popup-text").innerText = message;
+                document.getElementById("popup-overlay").style.display = "block";
+                document.getElementById("info-popup").style.display = "block";
             }
-        } else {
-            console.log("First time loading!");
-        }
-    });
 
-    // Function to show the info popup
-    function showInfo(message) {
-        document.getElementById("popup-text").innerText = message;
-        document.getElementById("popup-overlay").style.display = "block";
-        document.getElementById("info-popup").style.display = "block";
-    }
-
-    // Function to close the popup
-    function closePopup() {
-        document.getElementById("popup-overlay").style.display = "none";
-        document.getElementById("info-popup").style.display = "none";
-    }
+            // Function to close the popup
+            function closePopup() {
+                document.getElementById("popup-overlay").style.display = "none";
+                document.getElementById("info-popup").style.display = "none";
+            }
 
 
-    // Function to handle game button clicks
-    function handleGameClick(gameId) {
-        console.log(`Game ${gameId} clicked`);
-        // Emit event or perform desired action here
-        socket.emit('click_main', {who: gameId});
-    }
+            // Function to handle game button clicks
+            function handleGameClick(gameId) {
+                console.log(`Game ${gameId} clicked`);
+                // Emit event or perform desired action here
+                socket.emit('click_main', {who: gameId});
+                closeTab();
+            }
+
+            function closeTab() {
+                window.close();
+            }
 
 </script>
 
