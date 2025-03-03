@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate">
     <meta charset="UTF-8">
     <title>Yes no No</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
@@ -185,6 +186,7 @@
     <script type="text/javascript">
         var socket = io.connect('http://192.168.100.2:5000');
         var msg;
+
         function handleImageClick(imageName) {
             // Example: Emit an event to the server
             socket.emit('image_clicked', {image: imageName});

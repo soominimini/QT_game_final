@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Cache-Control" content="max-age=31536000, immutable">
+
     <meta charset="UTF-8">
     <title>Emotion Game</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
@@ -13,9 +15,6 @@
 
             // sending a connect request to the server.
             // var socket = io.connect('http://192.168.0.14:5000');
-            socket.on('my response', function () {
-                //socket.emit('first event')
-            });
 
             $('input.sync').on('click', function (event) {
                 socket.emit('next button', {who: $(this).attr('id')});
@@ -23,13 +22,13 @@
                 $(this).css('background', 'rgb(255, 200, 150)'); // Example active color
                 $(this).css('color', 'rgb(255, 255, 255)'); //
 
-                 {#$(this).prop('disabled', true);#}
-                 // Revert the button color after a delay
-                 let button = $(this); // Save reference to the button
-                 setTimeout(function() {
-                     button.css('background', 'rgba(250, 231, 200, 0.6)'); // Original color
-                     button.css('color', 'rgb(0, 0, 0)'); // Original text color
-                 }, 300); // 300ms delay
+                {#$(this).prop('disabled', true);#}
+                // Revert the button color after a delay
+                let button = $(this); // Save reference to the button
+                setTimeout(function () {
+                    button.css('background', 'rgba(250, 231, 200, 0.6)'); // Original color
+                    button.css('color', 'rgb(0, 0, 0)'); // Original text color
+                }, 300); // 300ms delay
 
             });
 
@@ -55,16 +54,18 @@
 
             });
 
-
             socket.on('update image', function (msg) {
+                if (document.getElementById('img00').src !== msg.path[0]) {
+                    document.getElementById('img00').src = msg.path[0]
+                    document.getElementById('img00').style.border = "none"
+                }
+                if (document.getElementById('img01').src !== msg.path[1]) {
 
-                // console.log(msg.path[i])
-                document.getElementById('img00').src = msg.path[0]
-                document.getElementById('img00').style.border = "none"
-                document.getElementById('img01').src = msg.path[1]
-                document.getElementById('img01').style.border = "none"
-
+                    document.getElementById('img01').src = msg.path[1]
+                    document.getElementById('img01').style.border = "none"
+                }
             });
+
             var a = 0;
 
             $('img').click(function (event) {
@@ -79,7 +80,6 @@
             socket.on('redirect', function (data) {
                 console.log(data)
                 window.location = data.url;
-
             });
 
 
@@ -117,8 +117,11 @@
                     repeatSpeechButton.disabled = false;
                 }, 500); // 2000ms = 2 seconds
             });
+
+            socket.emit('repeat_speech', "Show me an emotion card");
         });
-function praise() {
+
+        function praise() {
             var praise1 = document.getElementById("praise1");
             var praise2 = document.getElementById("praise2");
             var praise3 = document.getElementById("praise3");
@@ -137,7 +140,7 @@ function praise() {
             var encour3 = document.getElementById("encour3");
             var encour4 = document.getElementById("encour4");
             // Toggle their visibility
-            var displayState = (encour1.style.display === "none" || encour2.style.display === "" || encour3.style.display === "" ) ? "block" : "none";
+            var displayState = (encour1.style.display === "none" || encour2.style.display === "" || encour3.style.display === "") ? "block" : "none";
             encour1.style.display = displayState;
             encour2.style.display = displayState;
             encour3.style.display = displayState;
@@ -188,6 +191,7 @@ function praise() {
     button:focus {
         outline: none;
     }
+
     .repeat button {
         position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
@@ -234,24 +238,25 @@ function praise() {
         color: rgb(255, 255, 255);
         cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
-            .other button {
-            font-size: 15px;
-            background: rgba(159, 243, 139, 0.6);
-            color: rgb(0, 0, 0);
-            width: 70px;
-            height: 40px;
-            cursor: pointer;
-            border: none;
-            border-radius: 30px; /* Rounded corners */
-            transition: all 0.3s ease; /* Smooth transition */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-        }
 
-        /* Next button active effect */
-        .other button:active {
-            background: rgb(41, 57, 104);
-            color: rgb(255, 255, 255);
-        }
+    .other button {
+        font-size: 15px;
+        background: rgba(159, 243, 139, 0.6);
+        color: rgb(0, 0, 0);
+        width: 70px;
+        height: 40px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    /* Next button active effect */
+    .other button:active {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+    }
 </style>
 
 
@@ -294,50 +299,50 @@ function praise() {
     <button id="stop-speech-btn"> STOP</button>
 </div>
 
-    <div class="other" style="position: fixed;  top: 280px; left: 30px">
-        <button onclick="praise()">Praise</button>
-    </div>
-    <div class="other" style="position: fixed;  top: 280px; right: 30px">
-        <button onclick="encour()">Encourage</button>
-    </div>
+<div class="other" style="position: fixed;  top: 280px; left: 30px">
+    <button onclick="praise()">Praise</button>
+</div>
+<div class="other" style="position: fixed;  top: 280px; right: 30px">
+    <button onclick="encour()">Encourage</button>
+</div>
 
 
-    <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+<div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 350px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Good Job')">Good job</button>
-    </div>
-    <div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+    <button onclick="speak('Good Job')">Good job</button>
+</div>
+<div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 400px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Well done')">Well done</button>
-    </div>
-    <div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+    <button onclick="speak('Well done')">Well done</button>
+</div>
+<div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('You did it')">You did it</button>
-    </div>
-    <div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+    <button onclick="speak('You did it')">You did it</button>
+</div>
+<div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 500px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Amazing')">Amazing</button>
-    </div>
+    <button onclick="speak('Amazing')">Amazing</button>
+</div>
 
 
-    <div id="encour1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+<div id="encour1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 350px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('You can do it!')">You can do it</button>
-    </div>
-    <div id="encour2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+    <button onclick="speak('You can do it!')">You can do it</button>
+</div>
+<div id="encour2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 400px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Keep trying!')">Keep trying</button>
-    </div>
-    <div id="encour3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+    <button onclick="speak('Keep trying!')">Keep trying</button>
+</div>
+<div id="encour3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Don’t give up!')">Don’t give up</button>
-    </div>
+    <button onclick="speak('Don’t give up!')">Don’t give up</button>
+</div>
 </body>
 </html>

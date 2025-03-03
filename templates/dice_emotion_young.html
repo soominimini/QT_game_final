@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -22,7 +23,8 @@
         height: 100%;
         background-color: #FFFCA3;
     }
-  #wrap {
+
+    #wrap {
         display: flex;
         width: 100%;
         height: 100%;
@@ -246,25 +248,25 @@
         cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
 
-        .other button {
+    .other button {
 
-            font-size: 15px;
-            background: rgba(159, 243, 139, 0.6);
-            color: rgb(0, 0, 0);
-            width: 70px;
-            height: 40px;
-            cursor: pointer;
-            border: none;
-            border-radius: 30px; /* Rounded corners */
-            transition: all 0.3s ease; /* Smooth transition */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-        }
+        font-size: 15px;
+        background: rgba(159, 243, 139, 0.6);
+        color: rgb(0, 0, 0);
+        width: 70px;
+        height: 40px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
 
-        /* Next button active effect */
-        .other button:active {
-            background: rgb(41, 57, 104);
-            color: rgb(255, 255, 255);
-        }
+    /* Next button active effect */
+    .other button:active {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+    }
 </style>
 
 <body>
@@ -358,6 +360,7 @@
     // Track visited faces
     var visitedFaces = new Set();
     var dice_face = "";
+
     function DiceResizing() {
         Array.prototype.forEach.call(face1, function (item) {
             item.style.transform = 'rotateY(0deg) translateZ(' + dice_width / 2 + 'px)';
@@ -470,34 +473,34 @@
         });
     });
 
-        function praise() {
-            var praise1 = document.getElementById("praise1");
-            var praise2 = document.getElementById("praise2");
-            var praise3 = document.getElementById("praise3");
-            var praise4 = document.getElementById("praise4");
-            // Toggle their visibility
-            var displayState = (praise1.style.display === "none" || praise2.style.display === "" || praise3.style.display === "" || praise4.style.display === "") ? "block" : "none";
-            praise1.style.display = displayState;
-            praise2.style.display = displayState;
-            praise3.style.display = displayState;
-            praise4.style.display = displayState;
-        }
+    function praise() {
+        var praise1 = document.getElementById("praise1");
+        var praise2 = document.getElementById("praise2");
+        var praise3 = document.getElementById("praise3");
+        var praise4 = document.getElementById("praise4");
+        // Toggle their visibility
+        var displayState = (praise1.style.display === "none" || praise2.style.display === "" || praise3.style.display === "" || praise4.style.display === "") ? "block" : "none";
+        praise1.style.display = displayState;
+        praise2.style.display = displayState;
+        praise3.style.display = displayState;
+        praise4.style.display = displayState;
+    }
 
-        function encour() {
-            var encour1 = document.getElementById("encour1");
-            var encour2 = document.getElementById("encour2");
-            var encour3 = document.getElementById("encour3");
-            var encour4 = document.getElementById("encour4");
-            // Toggle their visibility
-            var displayState = (encour1.style.display === "none" || encour2.style.display === "" || encour3.style.display === "" ) ? "block" : "none";
-            encour1.style.display = displayState;
-            encour2.style.display = displayState;
-            encour3.style.display = displayState;
-            encour4.style.display = displayState;
-        }
+    function encour() {
+        var encour1 = document.getElementById("encour1");
+        var encour2 = document.getElementById("encour2");
+        var encour3 = document.getElementById("encour3");
+        var encour4 = document.getElementById("encour4");
+        // Toggle their visibility
+        var displayState = (encour1.style.display === "none" || encour2.style.display === "" || encour3.style.display === "") ? "block" : "none";
+        encour1.style.display = displayState;
+        encour2.style.display = displayState;
+        encour3.style.display = displayState;
+        encour4.style.display = displayState;
+    }
 
-        function speak(msg) {
-            socket.emit('repeat_speech', msg)
-        }
+    function speak(msg) {
+        socket.emit('repeat_speech', msg)
+    }
 </script>
 </html>

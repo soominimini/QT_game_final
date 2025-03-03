@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate">
     <meta charset="UTF-8">
     <title>Yes no No</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
@@ -223,7 +224,7 @@
             {
                 text: "Do you wear a swimsuit at the beach?",
                 correctAnswer: "Yes",
-                image: "static/yes_no_old/beach.jpeg"
+                image: "static/yes_no_old/beach.jpg"
             },
             {
                 text: "Do crabs have wings?", correctAnswer: "No", image: "static/yes_no_old/crab.jpg"
@@ -249,7 +250,7 @@
                 text: "Is the sun hot?", correctAnswer: "Yes", image: "static/yes_no_old/sun.jpg"
             },
             {
-                text: "Do you drink juice?", correctAnswer: " ", image: "static/yes_no_old/juice.jpg"
+                text: "Do you drink juice?", correctAnswer: "Yes", image: "static/yes_no_old/juice.jpg"
             }
         ];
 
@@ -295,9 +296,11 @@
             } else {
                 if (answer === currentQuestion.correctAnswer) {
                     console.log("Correct answer");
+                    socket.emit('simple_correct');
                     setTimeout(loadQuestion, 1000); // Show the next question after a short delay
                 } else {
                     console.log("Wrong answer");
+                    socket.emit('simple_wrong');
                 }
             }
         }

@@ -191,7 +191,7 @@ def exit_main():
 def main():
     # rospy.init_node('my_tutorial_node')
     # threading.Thread(target=lambda:rospy.init_node('node1', disable_signals=True)).start()
-    rospy.loginfo("my_tutorial_node started!")
+    rospy.loginfo("emotion card1 started!")
     global t1 
     global sub
     t1 = time.time()

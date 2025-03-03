@@ -37,6 +37,12 @@ global gesturePlay_servc
 
 baby_chair_visit_check = False
 
+def get_short_idle_gesture():
+    gestures = ["idle_arms_up_1", "idle_arms_1", "idle_arms_2", "idle_left_arm_and_head", "idle_right_arm_and_head"]
+    print("Playing gesture!")
+
+    return random.choice(gestures)
+
 
 @socketio.on('start_talk')
 def first_talk_robot_interactive():
@@ -195,6 +201,10 @@ def baby_bed_func():
 @socketio.on('bear_1st')
 def bear_1st_func():
     talktext_pub.publish("As Goldilocks was sleeping, The Three Bears came home.")
+
+    gestureStop_servc()
+    gesturePlay_pub.publish(get_short_idle_gesture())
+
     porridge_visited[0] = False
     chair_visited[0] = False
     bed_visited[0] =False
@@ -209,6 +219,8 @@ def bear_2nd_func():
 @socketio.on('bear_3rd')
 def bear_3rd_func():
     talktext_pub.publish("Someone’s been eating my porridge, said Mummy Bear.")
+    gestureStop_servc()
+    gesturePlay_pub.publish(get_short_idle_gesture())
 
 @socketio.on('bear_4th')
 def bear_4th_func():
@@ -225,6 +237,8 @@ def bear_5th_func():
 @socketio.on('bear_6th')
 def bear_6th_func():
     talktext_pub.publish("Someone’s been sitting in my chair!” said Mummy Bear.")
+    gestureStop_servc()
+    gesturePlay_pub.publish(get_short_idle_gesture())
 
 @socketio.on('bear_7th')
 def bear_7th_func():
@@ -235,10 +249,14 @@ def bear_7th_func():
 @socketio.on('bear_8th')
 def bear_8th_func():
     talktext_pub.publish("When they got upstairs to the bedroom, Daddy Bear growled. Someone’s been sleeping on my bed.")
+    gestureStop_servc()
+    gesturePlay_pub.publish(get_short_idle_gesture())
 
 @socketio.on('bear_9th')
 def bear_9th_func():
     talktext_pub.publish("Someone’s been sleeping on my bed too, said the Mummy Bear")
+    gestureStop_servc()
+    gesturePlay_pub.publish(get_short_idle_gesture())
 
 @socketio.on('bear_10th')
 def bear_10th_func():
@@ -255,8 +273,8 @@ def bear_11th_func():
 @socketio.on('bear_12th')
 def bear_12th_func():
     talktext_pub.publish("Goldilocks ran down the stairs and into the forest. And she never went back into the woods again.")
-
-
+    gestureStop_servc()
+    gesturePlay_pub.publish(get_short_idle_gesture())
 
 def interact_main():
     # threading.Thread(target=lambda: rospy.init_node('interact2', disable_signals=True)).start()  # it helps to start the rospy and ends terminal
@@ -269,12 +287,15 @@ def interact_main():
     global audioPlay_pub
     global  audioPlay
     global gesturePlay_servc
+    global gestureStop_servc
     speechSay_pub = rospy.Publisher('/qt_robot/speech/say', String, queue_size=10)
     talktext_pub = rospy.Publisher('/qt_robot/behavior/talkText', String, queue_size=10)
     audioPlay_pub = rospy.Publisher('/qt_robot/audio/play', String, queue_size=10)
     emotionShow_pub = rospy.Publisher('/qt_robot/emotion/show', String, queue_size=10)
     gesturePlay_pub = rospy.Publisher('/qt_robot/gesture/play', String, queue_size=10)
     gesturePlay_servc = rospy.ServiceProxy('/qt_robot/gesture/play', gesture_play)
+    gestureStop_servc = rospy.ServiceProxy('/qt_robot/gesture/stop', gesture_stop)
+    rospy.wait_for_service('/qt_robot/gesture/stop')
     audioPlay = rospy.ServiceProxy('/qt_robot/audio/play', audio_play)
     speechSay = rospy.ServiceProxy('/qt_robot/speech/say', speech_say)
     emotionShow = rospy.ServiceProxy('/qt_robot/emotion/show', emotion_show)

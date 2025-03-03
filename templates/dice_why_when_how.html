@@ -352,10 +352,10 @@
                 <div class="dice_inner">
                     <div class="dice">
                         <div id="when" class="face1">When</div>
-                        <div id="where" class="face2">When</div>
+                        <div id="when" class="face2">When</div>
                         <div id="why" class="face3">Why</div>
-                        <div id="who" class="face4">Why</div>
-                        <div id="what" class="face5">How</div>
+                        <div id="why" class="face4">Why</div>
+                        <div id="how" class="face5">How</div>
                         <div id="how" class="face6">How</div>
                     </div>
                 </div>
@@ -509,10 +509,6 @@
     var btnDisplay = document.querySelector('#btnDisplay');
 
 
-    // Get the current face
-    let currentFace = dice[0].classList[1];
-    let questions = [];
-    let images = [];
     btnDisplay.onclick = function () {
         document.querySelector('.dice01').style.display = 'none';
         btnRolling.style.display = 'none';
@@ -520,8 +516,13 @@
         btnGoBack.style.display = 'block';
 
 
+        // Get the current face
+        let currentFace = dice[0].classList[1];
+        let questions = [];
+        let images = [];
+
         // Set questions and images based on the current face
-        if (currentFace == 'face1' || currentFace == 'face2') {
+        if (currentFace === 'face1' || currentFace === 'face2') {
             questions = [
                 'When do you wear sunglasses?',
                 'When do we go to school?',
@@ -546,7 +547,7 @@
                 '../static/dice/wh_images/when/new_year.jpg',
                 '../static/dice/wh_images/when/autumn-fall.jpg',
             ];
-        } else if (currentFace == 'face3' || currentFace == 'face4') {
+        } else if (currentFace === 'face3' || currentFace === 'face4') {
             questions = [
                 'Why do we wear sunscreen?',
                 'Why do we go to school?',
@@ -599,8 +600,9 @@
         }
         // Create image and text elements for questions
         for (let i = 0; i < 10; i++) {
+            console.log("currentFace: ", currentFace)
             let container = document.createElement('div');
-
+            console.log("questions: ", questions)
             let img = document.createElement('img');
             img.src = images[i]; // Path to the image
             img.alt = questions[i];
@@ -613,9 +615,12 @@
             questionText.style.marginTop = '10px';
             container.appendChild(questionText);
 
+            console.log("creating", i);
+
             // Add click event listener to the image
             img.addEventListener('click', function () {
-                speak(questions[i]); // Speak the related question when clicked
+                ask_question(questions[i]); // Speak the related question when clicked
+                value = questions[i];
             });
 
 
@@ -623,6 +628,10 @@
         }
 
     };
+
+    function ask_question(msg) {
+        socket.emit('dice_question', msg)
+    }
 
     function speak(msg) {
         socket.emit('repeat_speech', msg);

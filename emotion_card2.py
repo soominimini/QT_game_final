@@ -140,7 +140,6 @@ def emotion_card(id):
         emotionShow_pub.publish("QT/angry")
         rospy.sleep(3.0)
         gesturePlay_pub.publish("/QT/emotions/angry")
-        emotionShow_pub.publish("QT/angry")
         r1 = random.randint(0,len(angry)-1)
         print("r1" , r1 , "length" , len(angry))        
         # talktext_pub.publish(angry[r1])
@@ -158,7 +157,6 @@ def emotion_card(id):
         talktext_pub.publish("excited!")
         emotionShow_pub.publish("QT/happy_blinking")
         rospy.sleep(3.0)
-        emotionShow_pub.publish("QT/happy_blinking")
         gesturePlay_pub.publish("/QT/emotions/hoora")
         r3 = random.randint(0,len(excited)-1)
         print("r3" , r3 , "length" , len(excited))        
@@ -170,7 +168,6 @@ def emotion_card(id):
         rospy.sleep(3.0)
         emotionShow_pub.publish("QT/sad")
         gesturePlay_pub.publish("/QT/emotions/sad")
-        emotionShow_pub.publish("QT/sad")
         r4 = random.randint(0,len(sad)-1)
         print("r4" , r4 , "length" , len(sad))        
         # talktext_pub.publish(sad[r4])
@@ -190,7 +187,6 @@ def emotion_card(id):
         rospy.sleep(3.0)
         emotionShow_pub.publish("QT/shy")
         gesturePlay_pub.publish("/QT/emotions/shy")
-        emotionShow_pub.publish("QT/shy")
         r6 = random.randint(0,len(shy)-1)
         print("r6" , r6 , "length" , len(shy))
         # talktext_pub.publish(shy[r6])
@@ -219,13 +215,6 @@ def exit_main():
     cv2.destroyAllWindows()
     print("Exiting AR tag game")
 
-
-# def exit_main():
-#     rospy.Subscriber('/usb_cam/image_raw/', Image, closing)  # /camera/color/image_raw
-#     global sub
-#     sub.unregister()
-#     cv2.destroyAllWindows()
-#     exit()
 
 
 def img_callback(img):

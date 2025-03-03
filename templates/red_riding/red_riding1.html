@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Cache-Control" content="max-age=31536000, immutable">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -139,6 +140,33 @@
         background: rgb(41, 57, 104);
         color: rgb(255, 255, 255);
     }
+.button-option {
+    font-size: 20px;
+    background: rgba(250, 231, 200, 0.6);
+    color: rgb(0, 0, 0);
+    width: 150px;
+    height: 80px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin: 10px; /* Add space between buttons */
+}
+
+/* Style for buttons container */
+#buttons-container {
+    display: none; /* Initially hidden */
+    position: absolute;
+    bottom: 200px; /* Place above the Next button */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row; /* Arrange buttons in a row */
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 20px; /* Add spacing between buttons */
+    top: 350px;
+}
+
 </style>
 <script>
     var socket = io.connect('http://192.168.100.2:5000');
@@ -224,50 +252,121 @@
             {
                 image: "../static/story/red_images/red11.jpg",
                 text: "Little Red Riding Hood freed her grandmother from the closet, <br>and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again."
-            }
+            },
+            {
+                image: "",
+                option1: "Goldilocks",
+                option2: "red riding hood",
+                option3: "Alice",
+                text: "What is the name of a girl?"
+            },
+
+            {
+                image: "",
+                option1: "wolf",
+                option2: "bear",
+                option3: "crow",
+                text: "Who locked the grandmother?"
+            },
+
         ];
 
-        let currentIndex = 0; // Track the current step
+        let imageCache = {};  // Store preloaded images
+
+        function preloadImages(steps) {
+            steps.forEach(step => {
+                let img = new Image();
+                img.src = step.image;
+                img.onload = function () {
+                    imageCache[step.image] = img;
+                    console.log(`Preloaded: ${step.image}`);
+                };
+            });
+        }
+
+        // Preload all images
+        preloadImages(steps);
+
+        let currentIndex = 14; // Track the current step
 
         // Get DOM elements
         let imageElement = document.getElementById("story-image");
         let textElement = document.getElementById("story-text");
+        let questionElement = document.getElementById("question-text");
         let nextButton = document.getElementById("next-button");
 
-        // Function to update the content dynamically
+        let optionButtons = document.querySelectorAll(".button-option"); // Select all option buttons
+
+        let buttonsContainer = document.getElementById("buttons-container"); // Ensure this is inside the function
         function updateContent() {
-            console.log("currentIndex: ", currentIndex);
+            console.log("currentIndex:", currentIndex);
             if (currentIndex < steps.length) {
-                // Update UI
-                imageElement.src = steps[currentIndex].image;
-                // Ensure text updates correctly only if show_text is true
-                let textContainer = document.querySelector(".centered-text");
-                console.log("textContainer: ".textContainer);
-                if (textContainer) {
-                    textElement.innerHTML = steps[currentIndex].text;
-                    textContainer.style.display = "block";  // Make sure it's visible
+                let preloadedImage = imageCache[steps[currentIndex].image];
+                if (preloadedImage) {
+                    imageElement.src = preloadedImage.src;  // Use preloaded image
+                } else {
+                    imageElement.src = steps[currentIndex].image;  // Fallback if not preloaded
                 }
-                {#speech_text = steps[currentIndex].text;#}
-                // Prepare speech text by removing <br> tags
+
+                textElement.innerHTML = steps[currentIndex].text;
                 speech_text = steps[currentIndex].text.replace(/<br\s*\/?>/g, ' ');
                 let sound = ""
-                if (currentIndex == 12) {
+                if (currentIndex === 12) {
                     sound = 'QT/growl_3'
-                }
-                if (currentIndex == 0) {
+                } else if (currentIndex === 0) {
                     speech_text = "One day, she decided to go visit her dear grandmother, who lift deep in the woods.";
                 }
 
-                // Emit the storyline to backend
-                socket.emit('story_line', speech_text, sound);
-                console.log("Story image emitted:", steps[currentIndex].image);
-                console.log("Story line emitted:", steps[currentIndex].text);
+
+                // Check if currentIndex is between 15 and 20
+                if (currentIndex === 15) {
+                    buttonsContainer.style.display = "block"; // Show buttons
+                    questionElement.innerHTML = steps[currentIndex].text;
+
+
+                    // Update button texts dynamically
+                    optionButtons[0].innerText = steps[currentIndex].option1;
+                    optionButtons[1].innerText = steps[currentIndex].option2;
+                    optionButtons[2].innerText = steps[currentIndex].option3;
+
+                    // Update button onclick events
+                    optionButtons[0].setAttribute("onclick", `optionSelected('wrong')`);
+                    optionButtons[1].setAttribute("onclick", `optionSelected('correct')`);
+                    optionButtons[2].setAttribute("onclick", `optionSelected('wrong')`);
+
+                }
+                else if (currentIndex === 16) {
+                    buttonsContainer.style.display = "block"; // Show buttons
+                    questionElement.innerHTML = steps[currentIndex].text;
+
+
+                    // Update button texts dynamically
+                    optionButtons[0].innerText = steps[currentIndex].option1;
+                    optionButtons[1].innerText = steps[currentIndex].option2;
+                    optionButtons[2].innerText = steps[currentIndex].option3;
+
+                    // Update button onclick events
+                    optionButtons[0].setAttribute("onclick", `optionSelected('correct')`);
+                    optionButtons[1].setAttribute("onclick", `optionSelected('wrong')`);
+                    optionButtons[2].setAttribute("onclick", `optionSelected('wrong')`);
+
+                }
+                else {
+                    buttonsContainer.style.display = "none"; // Hide buttons
+                }
+
+                // The story_line function takes a while, so use setTimeout so that it runs after updateContent()
+                // (this function) is finished and updates the image
+                setTimeout(function () {
+                    // Emit the storyline to backend
+                    socket.emit('story_line', speech_text, sound);
+                }, 0);
+
 
                 currentIndex++;
-            } else {
-                {#location.href = "/red_riding_hood3"; // Redirect to the next page when finished#}
             }
         }
+
 
         // Add click event listener to the Next button
         nextButton.addEventListener("click", updateContent);
@@ -278,6 +377,15 @@
             location.href = "/story_game_old"; // Redirect to the first page
         });
     });
+
+    function optionSelected(choice) {
+        console.log("Selected:", choice);
+        if (choice === 'correct') {
+            socket.emit('simple_correct');
+        } else {
+            socket.emit('simple_wrong');
+        }
+    }
 
     $(document).ready(function () {
         // setTimeout(enabling, 7000);
@@ -335,6 +443,8 @@
         <div class="stop">
             <button id="stop-speech-btn"> STOP</button>
         </div>
+
+
     </div>
 
     <div class="centered-text" {% if not show_text %}style="display: none;"{% endif %}>
@@ -342,9 +452,16 @@
             cape
             wherever she went.</p>
     </div>
+    <div class="question-text"><p id="question-text" style="font-size: 35px; top: 10px;"></p></div>
 
 </div>
 
+        <!-- Buttons Section (Initially Hidden) -->
+        <div id="buttons-container" style="display: none; margin-top: 20px;">
+            <button class="other button-option">Option 1</button>
+            <button class="other button-option">Option 2</button>
+            <button class="other button-option">Option 3</button>
+        </div>
 <!-- Next Button -->
 <input
         type="button"

@@ -68,7 +68,7 @@
         const btn = document.getElementById("btn1");
         // Apply visual feedback for all clicks
         applyButtonClickEffect(btn);
-        socket.emit('init_after_category', "Let's go to play!")
+        socket.emit('init_after_category', "Let's go shopping!")
         location.href = '/first_page';
         value = "Let's go to play!"
 
@@ -83,72 +83,51 @@
         const btn = document.getElementById("btn2");
         // Apply visual feedback for all clicks
         applyButtonClickEffect(btn);
-        socket.emit('init_after_category', "Let's go to play!")
+        socket.emit('init_after_category', "Let's go to hospital!")
         location.href = '/hospital_first';
         value = "Let's go to play!"
+    }
 
-        {#if (arr[0] == true && arr[1] == false && arr[2] == false) {#}
-        {#    socket.emit('init_after_category', "Let's go to play!")#}
-        {#    location.href = '/hospital_first';#}
-        {#    value = "Let's go to play!"#}
-        {#} else
-            {#}
-                {#disabling(btn);#}
-                {#    socket.emit('block_page', "Please choose another building!") //emit the information of dragged item#}
-                {#    value = "Please choose another building!"#}
-                {#}#}
-                }
 
-                function park() {
+    function park() {
 
-                    const btn = document.getElementById("btn3");
-                    // Apply visual feedback for all clicks
-                    applyButtonClickEffect(btn);
-                    socket.emit('init_after_category', "Let's go to play!")
-                    location.href = '/park_first';
-                    value = "Let's go to play!"
+        const btn = document.getElementById("btn3");
+        // Apply visual feedback for all clicks
+        applyButtonClickEffect(btn);
+        socket.emit('init_after_category', "Let's go to play!")
+        location.href = '/park_first';
+        value = "Let's go to play!"
+    }
 
-                    {#if (arr[0] == true && arr[1] == true && arr[2] == false) {#}
-                    {#    socket.emit('init_after_category', "Let's go to play!")#}
-                    {#    location.href = '/park_first';#}
-                    {#    value = "Let's go to play!"#}
-                    {#} else
-                        {#}
-                            {#disabling(btn);#}
-                            {#    socket.emit('block_page', "Please choose another building!") //emit the information of dragged item#}
-                            {#    value = "Please choose another building!"#}
-                            {#}#}
-                            }
+    document.addEventListener("DOMContentLoaded", function () {
+        const stopSpeechButton = document.getElementById("stop-speech-btn");
+        const repeatSpeechButton = document.getElementById("repeat-speech-btn");
 
-                            document.addEventListener("DOMContentLoaded", function () {
-                                const stopSpeechButton = document.getElementById("stop-speech-btn");
-                                const repeatSpeechButton = document.getElementById("repeat-speech-btn");
+        stopSpeechButton.addEventListener("click", function () {
 
-                                stopSpeechButton.addEventListener("click", function () {
+            // Emit 'speech_stop' event to the backend
+            socket.emit('stop_trigger_force', {message: "Stop speech command sent"});
+            socket.emit('speech_stop', {message: "Stop speech command sent"});
+            console.log("Speech stop event emitted");
 
-                                    // Emit 'speech_stop' event to the backend
-                                    socket.emit('stop_trigger_force', {message: "Stop speech command sent"});
-                                    socket.emit('speech_stop', {message: "Stop speech command sent"});
-                                    console.log("Speech stop event emitted");
+            // Disable the button for 2 seconds
+            stopSpeechButton.disabled = true;
+            setTimeout(function () {
+                stopSpeechButton.disabled = false;
+            }, 500); // 2000ms = 2 seconds
 
-                                    // Disable the button for 2 seconds
-                                    stopSpeechButton.disabled = true;
-                                    setTimeout(function () {
-                                        stopSpeechButton.disabled = false;
-                                    }, 500); // 2000ms = 2 seconds
+        });
 
-                                });
+        repeatSpeechButton.addEventListener("click", function () {
+            socket.emit('repeat_speech', value);
 
-                                repeatSpeechButton.addEventListener("click", function () {
-                                    socket.emit('repeat_speech', value);
-
-                                    // Disable the button for 2 seconds
-                                    repeatSpeechButton.disabled = true;
-                                    setTimeout(function () {
-                                        repeatSpeechButton.disabled = false;
-                                    }, 500); // 2000ms = 2 seconds
-                                });
-                            });
+            // Disable the button for 2 seconds
+            repeatSpeechButton.disabled = true;
+            setTimeout(function () {
+                repeatSpeechButton.disabled = false;
+            }, 500); // 2000ms = 2 seconds
+        });
+    });
 
 </script>
 <style>

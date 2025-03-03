@@ -1,0 +1,43 @@
+Name: C
+login closed  Fri Feb 28 17:30:02 2025
+emotion_game_1
+Time: Fri Feb 28 17:32:39 2025
+Start Emotion games closed  Fri Feb 28 17:32:46 2025
+dice_5w1h
+Time: Fri Feb 28 17:33:49 2025
+dice_5w1h
+Time: Fri Feb 28 17:33:57 2025
+Main closed  Fri Feb 28 17:34:02 2025
+dice_5w1h
+Time: Fri Feb 28 17:34:04 2025
+Name: C
+login closed  Fri Feb 28 20:51:28 2025
+emotion_game3 closed  Fri Feb 28 20:51:29 2025
+emotion_game2
+Time: Fri Feb 28 20:51:30 2025
+Start Emotion games closed  Fri Feb 28 20:51:34 2025
+emotion_game3
+Time: Fri Feb 28 20:51:35 2025
+Start Emotion games closed  Fri Feb 28 20:51:35 2025
+Start Emotion games closed  Fri Feb 28 20:51:35 2025
+Start Emotion games closed  Fri Feb 28 20:51:43 2025
+emotion_game3 closed  Fri Feb 28 20:52:50 2025
+emotion_game3 closed  Fri Feb 28 20:53:12 2025
+emotion_game3 closed  Fri Feb 28 20:53:23 2025
+emotion_game3 closed  Fri Feb 28 20:53:39 2025
+emotion_game3 closed  Fri Feb 28 20:54:09 2025
+emotion_game3 closed  Fri Feb 28 20:54:33 2025
+emotion_game3 closed  Fri Feb 28 20:54:39 2025
+emotion_game3 closed  Fri Feb 28 20:56:31 2025
+emotion_game3 closed  Fri Feb 28 20:56:44 2025
+emotion_game3 closed  Fri Feb 28 20:57:29 2025
+emotion_game3 closed  Fri Feb 28 20:58:44 2025
+emotion_game3 closed  Fri Feb 28 20:59:49 2025
+emotion_game3 closed  Fri Feb 28 21:00:11 2025
+emotion_game3 closed  Fri Feb 28 21:00:56 2025
+break
+Time: Fri Feb 28 21:00:57 2025
+Start Emotion games closed  Fri Feb 28 21:00:58 2025
+at_talks
+Time: Fri Feb 28 21:01:03 2025
+Main closed  Fri Feb 28 21:04:51 2025

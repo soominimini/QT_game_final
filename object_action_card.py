@@ -141,7 +141,7 @@ def exit_main_action():
 def main_action():
     # rospy.init_node('my_tutorial_node')
     # threading.Thread(target=lambda:rospy.init_node('node4', disable_signals=True)).start()
-    rospy.loginfo("my_tutorial_node started!")
+    rospy.loginfo("action card node started!")
     global t1 
     t1 = time.time()
     global talktext_pub

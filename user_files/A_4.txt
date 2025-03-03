@@ -1,0 +1,101 @@
+Name: A
+login closed  Mon Mar  3 16:29:47 2025
+action_game
+Time: Mon Mar  3 16:29:57 2025
+action_game
+Time: Mon Mar  3 16:29:59 2025
+action_game
+Time: Mon Mar  3 16:30:16 2025
+action_game
+Time: Mon Mar  3 16:30:19 2025
+action_game
+Time: Mon Mar  3 16:30:21 2025
+action_game
+Time: Mon Mar  3 16:30:23 2025
+action_game
+Time: Mon Mar  3 16:30:30 2025
+Main closed  Mon Mar  3 16:30:34 2025
+action_game
+Time: Mon Mar  3 16:30:35 2025
+Start Emotion games closed  Mon Mar  3 16:30:46 2025
+emotion_game_1
+Time: Mon Mar  3 16:37:14 2025
+action_game closed  Mon Mar  3 16:37:14 2025
+Start Emotion games closed  Mon Mar  3 16:37:26 2025
+emotion_game3
+Time: Mon Mar  3 16:40:49 2025
+Start Emotion games closed  Mon Mar  3 16:40:49 2025
+emotion_game1 closed  Mon Mar  3 16:40:49 2025
+Start Emotion games closed  Mon Mar  3 16:40:56 2025
+emotion_game3 closed  Mon Mar  3 16:44:02 2025
+story_young_client
+Time: Mon Mar  3 16:44:12 2025
+Start Emotion games closed  Mon Mar  3 16:44:12 2025
+emotion_game3 closed  Mon Mar  3 16:44:12 2025
+Main closed  Mon Mar  3 16:53:28 2025
+story_young_client
+Time: Mon Mar  3 16:53:38 2025
+story_young_client
+Time: Mon Mar  3 16:53:38 2025
+story_young_client
+Time: Mon Mar  3 16:53:38 2025
+dice_action_young
+Time: Mon Mar  3 16:55:36 2025
+Main closed  Mon Mar  3 16:58:00 2025
+dice_emotion_young
+Time: Mon Mar  3 16:58:06 2025
+Main closed  Mon Mar  3 16:59:08 2025
+instructions_game_young
+Time: Mon Mar  3 16:59:11 2025
+nurse selected 
+nurse selected 
+band-aid selected 
+Taking Instruction supermarket1 closed  Mon Mar  3 17:00:22 2025
+mask selected 
+thermometer selected 
+ambulance selected 
+Taking Instruction supermarket1 closed  Mon Mar  3 17:01:03 2025
+stethoscope selected 
+injection selected 
+syrup selected 
+Taking Instruction supermarket1 closed  Mon Mar  3 17:01:49 2025
+cherries selected 
+apple selected 
+orange selected 
+cherries selected 
+Taking Instruction supermarket1 closed  Mon Mar  3 17:02:38 2025
+pencil selected 
+bag selected 
+book selected 
+bag selected 
+Taking Instruction supermarket1 closed  Mon Mar  3 17:03:23 2025
+instructions_game_young
+Time: Mon Mar  3 17:04:13 2025
+swing selected 
+slide selected 
+monkey selected 
+slide selected 
+Taking Instruction supermarket1 closed  Mon Mar  3 17:05:10 2025
+sandbox selected 
+seesaw selected 
+bikepath selected 
+sandbox selected 
+Taking Instruction supermarket1 closed  Mon Mar  3 17:05:49 2025
+sandbox selected 
+bench selected 
+frisbee selected 
+Taking Instruction supermarket1 closed  Mon Mar  3 17:06:26 2025
+Main closed  Mon Mar  3 17:07:09 2025
+yes_no_young
+Time: Mon Mar  3 17:07:12 2025
+Main closed  Mon Mar  3 17:08:55 2025
+instructions_game_young
+Time: Mon Mar  3 17:09:22 2025
+at_talks
+Time: Mon Mar  3 17:10:11 2025
+Main closed  Mon Mar  3 17:11:03 2025
+emotion_game2
+Time: Mon Mar  3 17:11:04 2025
+Start Emotion games closed  Mon Mar  3 17:11:09 2025
+emotion_game1 closed  Mon Mar  3 17:13:43 2025
+Main closed  Mon Mar  3 17:17:39 2025

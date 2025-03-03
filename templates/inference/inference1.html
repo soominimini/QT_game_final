@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate">
+
     <meta charset="UTF-8">
     <title>Inference</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
@@ -150,15 +152,41 @@
         }
 
 
+        /* Next button styling */
+        .next-button {
+            font-size: 35px;
+            background: rgba(250, 231, 200, 0.6);
+            color: rgb(0, 0, 0);
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 80px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Next button active effect */
+        .next-button:active {
+            background: rgb(255, 200, 150);
+            color: rgb(255, 255, 255);
+        }
+
+
     </style>
     <script type="text/javascript">
         var socket = io.connect('http://192.168.100.2:5000');
+        var currentPrompt
 
         function handleImageClick(imageName) {
             // Example: Emit an event to the server
             socket.emit('image_clicked', {image: imageName});
             console.log(`${imageName} image clicked`);
         }
+
 
         function handleButtonClick(button) {
             // Add the 'grey-out' class to the button
@@ -183,14 +211,11 @@
 
         function repeat_speech() {
             socket.emit('repeat_speech', currentPrompt);
-            setTimeout(() => {
-                socket.emit('repeat_speech', currentPrompt2);
-            }, 1000); // Delay for better UX
         }
 
         const questions = [
             {
-                text: "It’s a shape. It is symmetrical. You can see it in the sky at night",
+                text: "It’s a shape. It is symmetrical. You can see it in the sky at night. What am I?",
                 correctAnswer: "star",
                 image: "static/images/star.jpg",
                 options: ["star", "circle", "square"]
@@ -232,7 +257,7 @@
                 options: ["Shoes", "hat", "t-shirt"]
             },
             {
-                text: "It's yellow, and you must peel it to eat it.",
+                text: "It's yellow, and you must peel it to eat it. What is it?",
                 correctAnswer: "banana",
                 image: "static/images/banana.jpg",
                 options: ["banana", "strawberry", "grape"]
@@ -244,7 +269,7 @@
                 options: ["Pumpkin", "cucumber", "orange"]
             },
             {
-                text: "It's shaped like an oval. You crack it to open it. It comes from a chicken",
+                text: "It's shaped like an oval. You crack it to open it. It comes from a chicken. What is it?",
                 correctAnswer: "egg",
                 image: "static/images/egg.jpg",
                 options: ["egg", "cheese", "potato"]
@@ -268,13 +293,13 @@
                 options: ["teddybear", "keyboard", "bike"]
             },
             {
-                text: "I can be carried on your back or hand. You fill me with things you need. You take me to school. ",
+                text: "I can be carried on your back or hand. You fill me with things you need. You take me to school. What am I?",
                 correctAnswer: "Backpack",
                 image: "static/images/Backpack.jpg",
                 options: ["Backpack", "crayons", "pencil"]
             },
             {
-                text: "I am long and yellow. On one end I have an eraser. You use me to write or draw.",
+                text: "I am long. On one end I have an eraser. You use me to write or draw. What am I?",
                 correctAnswer: "pencil",
                 image: "static/images/pencil.jpg",
                 options: ["pencil", "backpack", "glue"]
@@ -296,14 +321,12 @@
         let currentQuestion;
         let displayedImage; // Track the currently displayed image
 
-        // Load a random question
-        // Load a random question
         function loadQuestion(time_para) {
             console.log("Received time:", time_para, "Type:", typeof time_para); // Debugging
 
             if (remainingQuestions.length === 0) {
                 document.getElementById('question-text').innerText = "Quiz complete!";
-                socket.emit('inference', "Its finished!. Lets play other games!", 1.0)
+                socket.emit('inference', "It's finished! Let's play other games!", 1.0);
                 return;
             }
 
@@ -311,26 +334,54 @@
             currentQuestion = remainingQuestions[randomIndex];
             remainingQuestions.splice(randomIndex, 1); // Remove the question to avoid duplication
 
-            console.log("currentQuestion.text:", currentQuestion.text)
-            socket.emit('inference', currentQuestion.text,2);
+            console.log("currentQuestion.text:", currentQuestion.text);
+
             let options = currentQuestion.options;
             shuffleArray(options);
 
-            document.getElementById('answer-buttons').innerHTML = options.map(option => `
-                <img src="/static/inference/${option.toLowerCase()}.jpg" alt="${option}" onclick="handleAnswer('${option}')">
-            `).join('');
+            // Create image elements and track their loading
+            let answerButtonsContainer = document.getElementById('answer-buttons');
+            answerButtonsContainer.innerHTML = ""; // Clear previous images
+
+            let imagesLoaded = 0;
+
+            options.forEach(option => {
+                let img = document.createElement("img");
+                img.src = `/static/inference/${option.toLowerCase()}.jpg`;
+                img.alt = option;
+                img.onclick = function () {
+                    handleAnswer(option);
+                };
+
+                // When an image loads, check if all are loaded
+                img.onload = function () {
+                    imagesLoaded++;
+                    if (imagesLoaded === options.length) {
+                        // Emit only after all images are loaded
+                        socket.emit('inference', currentQuestion.text, 1.5);
+                        currentPrompt = currentQuestion.text
+                    }
+                };
+
+                answerButtonsContainer.appendChild(img);
+            });
         }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+        var nextButton = document.getElementById("next-button");
+            nextButton.addEventListener("click", loadQuestion);
+        });
 
         // Handle user's answer
         function handleAnswer(answer) {
             if (currentQuestion.correctAnswer === " ") {
                 console.log("end");
-                loadQuestion();
             } else {
                 if (answer === currentQuestion.correctAnswer) {
                     console.log("Correct answer");
                     socket.emit('simple_correct');
-                    loadQuestion();
                 } else {
                     console.log("Wrong answer");
                     socket.emit('simple_wrong');
@@ -387,6 +438,12 @@
     <div class="stop">
         <button id="stop-speech-btn"> STOP</button>
     </div>
+    <!-- Next Button -->
+    <input
+            type="button"
+            value="Next"
+            id="next-button"
+            class="next-button">
 
     <div class="other" style="position: fixed;  top: 280px; left: 30px">
         <button onclick="praise()">Praise</button>

@@ -608,7 +608,7 @@
             container.appendChild(questionText);
             // Add click event listener to the image
             img.addEventListener('click', function () {
-                speak(questions[i]); // Speak the related question when clicked
+                ask_question(questions[i]); // Speak the related question when clicked
                 value = questions[i];
             });
 
@@ -685,6 +685,10 @@
         encour2.style.display = displayState;
         encour3.style.display = displayState;
         encour4.style.display = displayState;
+    }
+
+    function ask_question(msg) {
+        socket.emit('dice_question', msg)
     }
 
     function speak(msg) {
