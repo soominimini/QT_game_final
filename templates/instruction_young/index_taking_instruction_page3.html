@@ -30,7 +30,7 @@
     $(document).ready(function () {
         socket.emit('first_talk', 'I’m thirsty');
         value = 'I’m thirsty. Can I have some water, please'
-        socket.emit('giveme_talk', 'Can I have some water, please', 1.0);
+        socket.emit('giveme_talk', 'Can I have some water, please', 2.5);
         nonDragged();
 
     });
@@ -75,7 +75,7 @@
                 nonDragged(); //make items are not draggable
 
                 score += 1;
-
+                $('#' + dragged_item).hide();
                 $("#drop_cart").attr("src", img1.src); // Update the cart image
                 first_choice = true;
                 // Emit events with delay
@@ -85,7 +85,7 @@
 
                 setTimeout(() => {
 
-                    socket.emit('giveme_talk', 'Can you give me some milk, please?', 1.0);
+                    socket.emit('giveme_talk', 'Can you give me some milk, please?', 2.5);
 
                     value = 'Can you give me some milk, please?'
                 }, 1000); // 1-second delay after the first emit
@@ -106,10 +106,11 @@
                 nonDragged(); //make items are not draggable
 
                 score += 1;
+                $('#' + dragged_item).hide();
                 $("#drop_cart").attr("src", img2.src); // Update the cart image
                 second_choidce = true;
                 socket.emit('correct') //robot praise
-                socket.emit('giveme_talk', "May I have some orange juice, please?", 1.0);
+                socket.emit('giveme_talk', "May I have some orange juice, please?", 2.5);
                 value = "May I have some orange juice, please?"
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             } else {
@@ -125,6 +126,7 @@
                 nonDragged(); //make items are not draggable
 
                 score += 1;
+                $('#' + dragged_item).hide();
                 $("#drop_cart").attr("src", img3.src); // Update the cart image
 
 

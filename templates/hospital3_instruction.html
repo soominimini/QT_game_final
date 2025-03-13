@@ -20,13 +20,13 @@
 
     // Initialize the sentences and shuffle them
     const sentences = [
-        {text: "The ambulance is located on the left side of the building.", id: "ambulance", target: "drop_cart3"},
+        {text: "The ambulance, is located on the left side of the building.", id: "ambulance", target: "drop_cart3"},
         {
-            text: "A person is walking towards the emergency entrance on the right side.",
+            text: "A person, is walking towards, the emergency entrance on the right side.",
             id: "person",
             target: "drop_cart"
         },
-        {text: "The doctor is standing in front of the emergency entrance.", id: "doctor", target: "drop_cart2"}
+        {text: "The doctor, is standing in front of the emergency entrance.", id: "doctor", target: "drop_cart2"}
     ];
     let currentSentenceIndex = 0;
 
@@ -44,7 +44,7 @@
         // Emit the first sentence
         let selectedSentence = sentences[currentSentenceIndex++];
         value = selectedSentence.text;
-        socket.emit('giveme_talk', selectedSentence.text, 1.0);
+        socket.emit('giveme_talk', selectedSentence.text,2.5);
 
         nonDragged();
         document.getElementById("btn").disabled = false;
@@ -114,7 +114,7 @@
             if (currentSentenceIndex < sentences.length) {
                 let selectedSentence_ = sentences[currentSentenceIndex++];
                 value = selectedSentence_.text;
-                socket.emit('giveme_talk', selectedSentence_.text, 1.0);
+                socket.emit('giveme_talk', selectedSentence_.text, 2.5);
                 window.currentSentence = selectedSentence_;
             } else {
                 console.log("All sentences have been completed.");

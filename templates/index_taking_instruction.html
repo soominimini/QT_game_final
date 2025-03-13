@@ -20,9 +20,9 @@
 
     // Initialize the sentences and shuffle them
     const sentences = [
-        {text: "Kustomer is waiting at the end of the checkout counter", id: "customer", target: "drop_cart3"},
-        {text: "Casher is in front of checkout counter machine", id: "cashier", target: "drop_cart"},
-        {text: "Lets place the cart between the checkout counters", id: "shp_cart", target: "drop_cart2"}
+        {text: "Kustomer is waiting, at the end of the checkout counter", id: "customer", target: "drop_cart3"},
+        {text: "Casher, is in front of checkout counter", id: "cashier", target: "drop_cart"},
+        {text: "Lets place the cart, between the checkout counters", id: "shp_cart", target: "drop_cart2"}
     ];
     let currentSentenceIndex = 0;
 
@@ -110,7 +110,7 @@
             if (currentSentenceIndex < sentences.length) {
                 let selectedSentence_ = sentences[currentSentenceIndex++];
                 value = selectedSentence_.text;
-                socket.emit('giveme_talk', selectedSentence_.text, 1.0);
+                socket.emit('giveme_talk', selectedSentence_.text, 2.5);
                 window.currentSentence = selectedSentence_;
             } else {
                 console.log("All sentences have been completed.");
@@ -140,7 +140,7 @@
             if (currentSentenceIndex < sentences.length) {
                 let selectedSentence_ = sentences[currentSentenceIndex++];
                 value = selectedSentence_.text;
-                socket.emit('giveme_talk', selectedSentence_.text, 1.0);
+                socket.emit('giveme_talk', selectedSentence_.text, 2.5);
                 window.currentSentence = selectedSentence_;
             } else {
                 console.log("All sentences have been completed.");

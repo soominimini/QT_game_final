@@ -73,7 +73,7 @@ arucoParams.adaptiveThreshConstant = 7
 
 object_action_dictionary= {
     0: "eat", 1: "play" , 2: "wash", 3: "walk", 4: "draw",
-    5: "drink", 6: "sleep" , 7: "brush", 8: "bike", 9: "tidy"
+    5: "drink", 6: "sleep" , 7: "brush", 8: "ride", 9: "tidy"
 }  
 
 def send_post_request(action):
@@ -93,7 +93,7 @@ def img_callback(img):
 
     convertedImage = CvBridge().imgmsg_to_cv2(img, "bgr8")
     # bgr_image = cv2.cvtColor(convertedImage, cv2.COLOR_BayerBG2BGR)
-    # cv2.imshow("Image Window", bgr_image)
+    # cv2.imshow("Image Window", convertedImage)
     frame = imutils.resize(convertedImage, width=1280)
     (corners, ids, rejected) = cv2.aruco.detectMarkers(frame, arucoDict, parameters=arucoParams)
     if corners:
@@ -103,8 +103,7 @@ def img_callback(img):
         print(ids)
         t2 = time.time()
         if ((t2 - t1) > 2 and ids[0] < 10):
-        # if((t2- t1) >  4 and ids[0] < 10):
-            # object_card(ids[0][0])
+            print("str: ",str(object_action_dictionary[ids[0][0]]))
             send_post_request(str(object_action_dictionary[ids[0][0]]))
             t1 = time.time()
         # print("rejected" , rejected)

@@ -11,8 +11,7 @@
 </head>
 <style>
     body, html {
-        {#background-color: #C7E5FF; /* Light purple */#}
-        height: 100%;
+    {#background-color: #C7E5FF; /* Light purple */#} height: 100%;
         margin: 0;
         background: linear-gradient(to right, #FFFCA3 50%, #C7E5FF 50%);
     }
@@ -80,17 +79,21 @@
         var bye1 = document.getElementById("bye1");
         var bye2 = document.getElementById("bye2");
         var hello1 = document.getElementById("hello1");
+        var hello3 = document.getElementById("hello3");
         var hello2 = document.getElementById("hello2");
+        var hello4 = document.getElementById("hello4");
         var encrgmnt1 = document.getElementById("encrgmnt1");
-            // Toggle their visibility
-        var displayState = (schedule1.style.display === "none" || schedule1.style.display === ""|| praise1.style.display === ""|| praise2.style.display === ""|| bye1.style.display === ""|| bye2.style.display === ""|| hello1.style.display === ""|| hello2.style.display === ""|| encrgmnt1.style.display === "") ? "block" : "none";
+        // Toggle their visibility
+        var displayState = (schedule1.style.display === "none" || schedule1.style.display === "" || praise1.style.display === "" || praise2.style.display === "" || bye1.style.display === "" || bye2.style.display === "" || hello1.style.display === "" || hello2.style.display === "" || hello3.style.display === "" || hello4.style.display === "" || encrgmnt1.style.display === "") ? "block" : "none";
         schedule1.style.display = displayState;
         praise1.style.display = displayState;
         praise2.style.display = displayState;
         bye1.style.display = displayState;
         bye2.style.display = displayState;
         hello1.style.display = displayState;
+        hello3.style.display = displayState;
         hello2.style.display = displayState;
+        hello4.style.display = displayState;
         encrgmnt1.style.display = displayState;
     }
 
@@ -101,22 +104,35 @@
         var bye1 = document.getElementById("bye1_old");
         var bye2 = document.getElementById("bye2_old");
         var hello1 = document.getElementById("hello1_old");
+        var hello3 = document.getElementById("hello3_old");
         var hello2 = document.getElementById("hello2_old");
+        var hello4 = document.getElementById("hello4_old");
         var encrgmnt1 = document.getElementById("encrgmnt1_old");
         var encrgmnt2 = document.getElementById("encrgmnt2_old");
-        var displayState = (schedule2.style.display === "none" || schedule2.style.display === ""|| praise1.style.display === ""|| praise2.style.display === ""|| bye1.style.display === ""|| bye2.style.display === ""|| hello1.style.display === ""|| hello2.style.display === "" || encrgmnt1.style.display === ""|| encrgmnt2.style.display === "") ? "block" : "none";
+        var displayState = (schedule2.style.display === "none" || schedule2.style.display === "" || praise1.style.display === "" || praise2.style.display === "" || bye1.style.display === "" || bye2.style.display === "" || hello1.style.display === "" || hello2.style.display === "" || hello3.style.display === "" || hello4.style.display === "" || encrgmnt1.style.display === "" || encrgmnt2.style.display === "") ? "block" : "none";
         schedule2.style.display = displayState;
         praise1.style.display = displayState;
         praise2.style.display = displayState;
         bye1.style.display = displayState;
         bye2.style.display = displayState;
         hello1.style.display = displayState;
+        hello3.style.display = displayState;
         hello2.style.display = displayState;
+        hello4.style.display = displayState;
         encrgmnt1.style.display = displayState;
         encrgmnt2.style.display = displayState;
     }
 
     function speak(msg) {
+        if (msg == "Hello!") {
+
+            socket.emit('gesture_play', "/QT/hi", 2)
+        } else if (msg == "Good bye!" || msg == "See you later!") {
+            socket.emit('gesture_play', "/QT/bye", 2)
+        }else if (msg == "my name is QT!" ) {
+            socket.emit('gesture_play', "/QT/show_QT", 1.5)
+        }
+
         socket.emit('repeat_speech', msg)
     }
 </script>
@@ -158,7 +174,7 @@
 <div id="bye1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 230px; /* Distance from the top of the viewport */
         left: 170px; /* Distance from the left of the viewport */">
-    <button onclick="speak('good bye!')">Good bye</button>
+    <button onclick="speak('Good bye!')">Good bye</button>
 </div>
 
 <div id="bye2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
@@ -179,15 +195,22 @@
         left: 280px; /* Distance from the left of the viewport */">
     <button onclick="speak('How r you today?')">How are you</button>
 </div>
+<div id="hello3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 340px; /* Distance from the top of the viewport */
+        left: 390px; /* Distance from the left of the viewport */">
+    <button onclick="speak('my name is QT!')">My name is QT!</button>
+</div>
+<div id="hello4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 340px; /* Distance from the top of the viewport */
+        left: 510px; /* Distance from the left of the viewport */">
+    <button onclick="speak('Whats your name?')">What's your name?</button>
+</div>
 
 <div id="encrgmnt1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         left: 170px; /* Distance from the left of the viewport */">
     <button onclick="speak('Nice try!')">Nice try</button>
 </div>
-
-
-
 
 
 <div id="schedule2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
@@ -232,6 +255,20 @@
         top: 340px; /* Distance from the top of the viewport */
         left: 890px; /* Distance from the left of the viewport */">
     <button onclick="speak('How r you today?')">How are you</button>
+</div>
+
+
+<div id="hello3_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 340px; /* Distance from the top of the viewport */
+        left: 1010px; /* Distance from the left of the viewport */">
+    <button onclick="speak('my name is QT!')">My name is QT!</button>
+</div>
+
+
+<div id="hello4_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 340px; /* Distance from the top of the viewport */
+        left: 1120px; /* Distance from the left of the viewport */">
+    <button onclick="speak('Whats your name?')">What's your name?</button>
 </div>
 
 <div id="encrgmnt1_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */

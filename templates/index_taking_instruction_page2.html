@@ -20,13 +20,13 @@
 
     // Initialize the sentences and shuffle them
     const sentences = [
-        {text: "Lets place an apple on top of the red apple stack", id: "apple", target: "drop_cart3"},
+        {text: "Lets place an apple, on the apple stack", id: "apple", target: "drop_cart3"},
         {
-            text: "I want to place the orange on the orange colored fruits in the left corner",
+            text: "I want to place the orange, at the left corner",
             id: "orange",
             target: "drop_cart"
         },
-        {text: "Please place the price tag in the center of the image", id: "pricetag", target: "drop_cart2"}
+        {text: "Please place the price tag, under the apple", id: "pricetag", target: "drop_cart2"}
     ];
     let currentSentenceIndex = 0;
 
@@ -44,7 +44,7 @@
         // Emit the first sentence
         let selectedSentence = sentences[currentSentenceIndex++];
         value = selectedSentence.text;
-        socket.emit('giveme_talk', selectedSentence.text, 1.0);
+        socket.emit('giveme_talk', selectedSentence.text, 2.5);
 
         nonDragged();
         document.getElementById("btn").disabled = false;
@@ -144,7 +144,7 @@
             if (currentSentenceIndex < sentences.length) {
                 let selectedSentence_ = sentences[currentSentenceIndex++];
                 value = selectedSentence_.text;
-                socket.emit('giveme_talk', selectedSentence_.text, 1.0);
+                socket.emit('giveme_talk', selectedSentence_.text,  2.5);
                 window.currentSentence = selectedSentence_;
             } else {
                 console.log("All sentences have been completed.");
@@ -420,7 +420,7 @@
     <div class="drop-targets">
         <div class="cart" id="drop_cart" style="position: absolute; top:350px; left: 300px;"></div>
         <div class="cart" id="drop_cart2"
-             style="position: absolute; top: 280px; left: 500px;"></div>
+             style="position: absolute; top: 280px; right: 410px;"></div>
         <div class="cart" id="drop_cart3" style="position: absolute; top:150px; left: 750px;"></div>
     </div>
 

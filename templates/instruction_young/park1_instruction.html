@@ -30,7 +30,7 @@
     $(document).ready(function () {
         socket.emit('first_talk', "Let’s have a good time in the park!");
         value = "I feel like riding the swing!"
-        socket.emit('giveme_talk', "I feel like riding the swing!", 1.0);
+        socket.emit('giveme_talk', "I feel like riding the swing!", 2.5);
         nonDragged();
 
     });
@@ -87,7 +87,7 @@
 
                 setTimeout(() => {
 
-                    socket.emit('giveme_talk', "I want to play on the monkey bars. Let's go to the monkey bars.", 1.0);
+                    socket.emit('giveme_talk', "I want to play on the monkey bars. Let's go to the monkey bars.", 2.5);
 
                     value = "I want to play on the monkey bars. Let's go to the monkey bars."
                 }, 1000); // 1-second delay after the first emit
@@ -112,7 +112,7 @@
                 $("#drop_cart").attr("src", img2.src); // Update the cart image
                 second_choidce = true;
                 socket.emit('correct') //robot praise
-                socket.emit('giveme_talk', "I’d like to go down the slide!", 1.0);
+                socket.emit('giveme_talk', "I’d like to go down the slide!", 2.5);
                 value = "I’d like to go down the slide!"
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             } else {

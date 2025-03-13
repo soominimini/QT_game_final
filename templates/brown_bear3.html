@@ -207,7 +207,7 @@
             currentPrompt = "Green frog, green Frog. What do you see?";
             currentPrompt2 = "I see a, purple cat looking at me.";
             expectedAnswer = "cat";
-            socket.emit('brown_talk', currentPrompt, 3);
+            socket.emit('brown_talk', currentPrompt, 2.5);
             socket.emit('brown_talk', currentPrompt2, 4.5, true);
 
             // Function to handle button clicks and sequence
@@ -220,7 +220,7 @@
                     if (imageName === "cat") {
                         socket.emit('correct');
                         currentPrompt = "Purple cat, Purple cat. What do you see?";
-                        currentPrompt2 = "I see a, white dog looking at me.";
+                        currentPrompt2 = "I see a, White dog looking at me.";
                         expectedAnswer = "dog";
                         socket.emit('brown_talk', currentPrompt, 3);
                         socket.emit('brown_talk', currentPrompt2, 5, true);

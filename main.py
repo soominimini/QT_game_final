@@ -70,8 +70,7 @@ emotion_game3_failure = 0
 
 head_idle = []
 
-Idle_gestures = ["both_arms", "right_arm", "left_arm", "natural_arms_wide",
-                 "head_arm_natural"]
+Idle_gestures = ["both_arms", "right_arm", "left_arm", "natural_arms_wide", "head_arm_natural"]
 
 idle_arm_gestures = ["idle_arms_up_1"]
 emotion_dictionary = {0: "angry", 1: "happy", 2: "excited", 3: "sad", 4: "scared", 5: "shy"}
@@ -276,7 +275,6 @@ def first_talk_robot():
     # Say the selected sentence
     talktext_pub.publish(selected_sentence)
 
-    gestureStop_servc()
     gesturePlay_pub.publish(get_short_idle_gesture())
 
     # Update the global sentence
@@ -296,7 +294,6 @@ def first_talk_robot(msg):
     handle_speech_say(msg)
     # talktext_pub.publish(msg)
 
-    gestureStop_servc()
     gesturePlay_pub.publish(get_short_idle_gesture())
 
 
@@ -308,8 +305,6 @@ def giveme_talk_robot(msg, time_sleep):
     talktext_pub.publish(msg)
 
     rospy.sleep(2.5)
-    gestureStop_servc()
-    gesturePlay_pub.publish(get_short_idle_gesture())
 
 @socketio.on('object_list')
 def correct_answer(obj):
@@ -337,7 +332,6 @@ def correct_answer():
     global emotionShow_pub
     global gesturePlay_servc
     # emotionShow_pub.publish("QT/happy")
-    gestureStop_servc()
 
     rospy.sleep(1)
     if random_praise == 4:
@@ -412,8 +406,6 @@ def speak_repeat(msg):
     # talktext_pub.publish(str(msg))
     handle_speech_say(str(msg))
 
-    gestureStop_servc()
-    gesturePlay_pub.publish(get_short_idle_gesture())
 
 
 @socketio.on('block_page')
@@ -466,6 +458,7 @@ def user_confirm_func():
 
 @socketio.on('login')
 def logged_in(message):
+    global name
     name = message['name']
     global f
     global file_name
@@ -679,7 +672,7 @@ def taking_instruction1_young():
 
 @app.route('/emotion_games')
 def emotion_games_start():
-    rand_var = random.randint(0, 5)
+    rand_var = random.randint(0, 4)
     # gesturePlay_servc(Idle_gestures[rand_var], 1.5)
     gesturePlay_pub.publish(Idle_gestures[rand_var])
     return render_template('start_game.html')
@@ -687,7 +680,7 @@ def emotion_games_start():
 
 @app.route('/emotion_games2')
 def emotion_games_start_2():
-    rand_var = random.randint(0, 5)
+    rand_var = random.randint(0, 4)
     # gesturePlay_servc(Idle_gestures[rand_var], 1.5)
     gesturePlay_pub.publish(Idle_gestures[rand_var])
     return render_template('start_game2.html')
@@ -1328,9 +1321,6 @@ def dice_board(dice_face_str):
 
     rospy.sleep(1)
 
-    # talktext_pub.publish("Move your piece on the board by")
-    # gesturePlay_servc("idle_arms_up_1")
-    gestureStop_servc()
     gesturePlay_pub.publish("idle_arms_up_1")
 
     numbers = ["zero", "one", "two", "three", "four", "five", "six"]
@@ -1340,15 +1330,12 @@ def dice_board(dice_face_str):
     handle_speech_say(f"Move your piece on the board by {numbers[int(dice_face_str)]} step{s}!")
     rospy.sleep(1)
 
-    gestureStop_servc()
-    # gesturePlay_pub.publish("idle_head")
     gesturePlay_pub.publish("idle_test_1")
     rospy.sleep(1)
 
 @socketio.on('dice_question')
 def dice_ask_question(question):
     print(f"dice_question {question}")
-    gestureStop_servc()
     gesturePlay_pub.publish(get_short_idle_gesture())
 
     handle_speech_say(question)
@@ -1537,12 +1524,7 @@ def speech_brown_bear(text, sleep_time, wait=False):
     rospy.sleep(sleep_time)
     # talktext_pub.publish(text)
 
-    if wait:
-        # rospy.sleep(1)
-        gestureStop_servc()
-    else:
-        # gestureStop_servc()
-        gesturePlay_pub.publish(get_short_idle_gesture())
+    gesturePlay_pub.publish(get_short_idle_gesture())
 
     handle_speech_say(text)
 
@@ -1610,7 +1592,6 @@ def story_young_moon11():
 def speech_yes_or_no(text, sleep_time):
     print("speech_yes_or_no: ", text, sleep_time)
     rospy.sleep(sleep_time)
-    gestureStop_servc()
     gesturePlay_pub.publish(get_short_idle_gesture())
     talktext_pub.publish(text)
 
@@ -1815,7 +1796,6 @@ def baby_bed_func():
 def bear_1st_func():
     talktext_pub.publish("As Goldilocks was sleeping, The Three Bears came home.")
 
-    gestureStop_servc()
     gesturePlay_pub.publish(get_short_idle_gesture())
 
     porridge_visited[0] = False
@@ -1835,7 +1815,6 @@ def bear_2nd_func():
 def bear_3rd_func():
     talktext_pub.publish("Someone’s been eating my porridge, said Mummy Bear.")
 
-    gestureStop_servc()
     gesturePlay_pub.publish(get_short_idle_gesture())
 
 
@@ -1857,7 +1836,6 @@ def bear_5th_func():
 def bear_6th_func():
     talktext_pub.publish("Someone’s been sitting in my chair!” said Mummy Bear.")
 
-    gestureStop_servc()
     gesturePlay_pub.publish(get_short_idle_gesture())
 
 
@@ -1880,7 +1858,6 @@ def bear_8th_func():
 def bear_9th_func():
     talktext_pub.publish("Someone’s been sleeping on my bed too, said the Mummy Bear")
 
-    gestureStop_servc()
     gesturePlay_pub.publish(get_short_idle_gesture())
 
 @socketio.on('bear_10th')
@@ -1906,7 +1883,6 @@ def bear_12th_func():
     talktext_pub.publish(
         "Goldilocks ran down the stairs and into the forest. And she never went back into the woods again.")
 
-    gestureStop_servc()
     gesturePlay_pub.publish(get_short_idle_gesture())
 
 
@@ -1979,6 +1955,10 @@ emotion_dictionary = {0: "angry", 1: "happy", 2: "excited", 3: "sad", 4: "scared
 
 
 def object_card(id):
+    global action
+    if action =="tidy":
+        action = "tidy up"
+
     talktext_pub.publish(action)
     rospy.sleep(3)
     talktext_pub.publish("Look at the tablet, click on the picture")
@@ -2062,7 +2042,9 @@ def request_callback():
         global action
         action = request.form['action']
         global speech_flag
+
         if (not speech_flag):
+            print("'/request' action: ", action)
             socketio.emit('update image', {'path': [path + "/action_cards/" + action + ".png"]}, broadcast=True)
             object_card(action)
     return "pass"
@@ -2247,10 +2229,13 @@ def image_selected(message):
 
     if (game == "emotion_game1"):
         global speech_flag_emotion
+        global selected_emotion
         if not speech_flag_emotion:
             speech_flag_emotion = True
             print("emotion speak")
             rospy.sleep(1.0)
+            if selected_emotion =="sad":
+                selected_emotion = "saed"
             behaviorTalk_servc(selected_emotion)
             # rospy.sleep(1.0)
             behaviorTalk_servc(next_dialogue[random_number])
@@ -2278,7 +2263,7 @@ def image_selected(message):
             speech_flag = True
             talktext_pub.publish(action)
             rospy.sleep(1)
-            talktext_pub.publish(next_dialogue[random_number])
+            # talktext_pub.publish(next_dialogue[random_number])
             # rospy.sleep(1)
 
 

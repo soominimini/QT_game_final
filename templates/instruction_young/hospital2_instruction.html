@@ -84,7 +84,7 @@
 
                 setTimeout(() => {
 
-                    socket.emit('giveme_talk', "Let's measure body temperature. Could you give me a thermometer?", 1.0);
+                    socket.emit('giveme_talk', "Let's measure body temperature. Could you give me a thermometer?", 2.5);
 
                     value = "Let's measure body temperature. Could you give me a thermometer?"
                 }, 1000); // 1-second delay after the first emit
@@ -109,7 +109,7 @@
                 $("#drop_cart").attr("src", img2.src); // Update the cart image
                 second_choidce = true;
                 socket.emit('correct') //robot praise
-                socket.emit('giveme_talk', "Let's ride in an ambulance!. Please give me an ambulance", 1.0);
+                socket.emit('giveme_talk', "Let's ride in an ambulance!. Please give me an ambulance",2.5);
                 value = "Let's ride in an ambulance!. Please give me an ambulance"
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             } else {

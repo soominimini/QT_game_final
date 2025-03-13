@@ -28,7 +28,7 @@
     $(document).ready(function () {
         socket.emit('first_talk', 'I want fruits.');
         value = 'I want fruits. Can you give me one apple?'
-        socket.emit('giveme_talk', 'Can you give me one apple?', 1.0);
+        socket.emit('giveme_talk', 'Can you give me one apple?',2.5);
         nonDragged();
 
     });
@@ -116,7 +116,7 @@
 
                 setTimeout(() => {
 
-                    socket.emit('giveme_talk', 'Please give me an orange?', 1.0);
+                    socket.emit('giveme_talk', 'Please give me an orange?',2.5);
 
                     value = 'Please give me an orange?'
                 }, 2000); // 1-second delay after the first emit
@@ -142,7 +142,7 @@
                 $("#drop_cart").attr("src", img2.src); // Update the cart image
                 second_choidce = true;
                 socket.emit('correct') //robot praise
-                socket.emit('giveme_talk', 'Could you please give me two cherries?', 1.0);
+                socket.emit('giveme_talk', 'Could you please give me two cherries?', 2.5);
                 value = 'Could you please give me two cherries?'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             } else {
