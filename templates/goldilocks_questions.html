@@ -9,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 
-    <title>Red Riding Hood</title>
+    <title>Goldilocks follow-up questions</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
 
@@ -165,7 +165,7 @@
         flex-direction: row; /* Arrange buttons in a row */
         justify-content: center; /* Center the buttons horizontally */
         gap: 20px; /* Add spacing between buttons */
-    {#top: 350px;#}
+        {#top: 350px;#}
     }
 
 </style>
@@ -195,114 +195,75 @@
         // Image and text data for different steps
         let steps = [
             {
-                image: "../static/story/red_images/red1.jpg",
-                text: "One day, she decided to go visit her dear grandmother, who lived deep in the woods."
-            },
-            {
-                image: "../static/story/red_images/red2.jpg",
-                text: "When her mother packed a basket of treats,<br> she warned her not to talk to strangers along the way."
-            },
-            {
-                image: "../static/story/red_images/red3.jpg",
-                text: "As Little Red Riding Hood happily strolled through the woods, <br> she did not notice the sneaky wolf stalking her through the trees."
-            },
-            {
-                image: "../static/story/red_images/red4.jpg",
-                text: "The wolf, pretending to be lost, asked Little Red Riding Hood for directions."
-            },
-            {
-                image: "../static/story/red_images/red4.jpg",
-                text: "The wolf seemed harmless enough, so Little Red Riding Hood not only spoke to him. <br> She also revealed where she was going."
-            },
-            {
-                image: "../static/story/red_images/red5.jpg",
-                text: "The wolf rushed ahead to beat her to her grand mother’s house, <br> gaining entry by pretending to be her dear granddaughter. "
-            },
-            {
-                image: "../static/story/red_images/red6.jpg",
-                text: "Having locked her grandmother in the closet, <br>the wolf waited for Little Red Riding Hood to arrive."
-            },
-            {
-                image: "../static/story/red_images/red7.jpg",
-                text: "When she knocked on her grandmother’s door, she was greeted by a strange voice. <br>“Come in dear,” said the wolf. "
-            },
-            {
-                image: "../static/story/red_images/red8.jpg",
-                text: "As the wolf lay in bed, wearing one of her grandmother’s nightgowns,<br>Little Red Riding Hood thought her grandmother sounded and looked strange. "
-            },
-            {
-                image: "../static/story/red_images/red8.jpg",
-                text: "What big ears you have, she said. Better to hear you with my dear, replied the wolf. "
-            },
-            {
-                image: "../static/story/red_images/red8.jpg",
-                text: "“What big eyes you have,” said Little Red Riding Hood. <br>“Better to see you with my darling,” the wolf replied. "
-            },
-            {
-                image: "../static/story/red_images/red8.jpg",
-                text: "Your teeth, your teeth are large and as sharp as knives. <br>Little Red Riding Hood exclaimed."
-            },
-            {
-                image: "../static/story/red_images/red9.jpg",
-                text: "“The better to eat you with!” growled the wolf as he jumped up and lunged at the girl."
-            },
-            {
-                image: "../static/story/red_images/red10.jpg",
-                text: "Luckily Little Red Riding Hood had practiced self defense, and grabbed a broom to fend off the wolf. Surprised by the girl's bravery, the wolf ran off with his tail between his legs."
-            },
-            {
-                image: "../static/story/red_images/red11.jpg",
-                text: "Little Red Riding Hood freed her grandmother from the closet, <br>and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again."
-            },
-            {
                 image: "",
-                option1: "To the market",
-                option2: "To her grandmother’s house",
-                option3: "To her house",
-                text: "Where was Little Red Riding Hood going?"
+                option1: "A fox",
+                option2: "Goldilocks",
+                option3: "The bear",
+                text: "Who entered the house of the three bears?"
             },
 
             {
                 image: "",
-                option1: "Not to talk to strangers",
-                option2: "Not to walk fast",
-                option3: "To avoid singing",
-                text: "What did Little Red Riding Hood’s mother warn her about?"
+                option1: "4 bears",
+                option2: "2 bears",
+                option3: "3 bears",
+                text: "How many bears lived in the house?"
             },
             {
                 image: "",
-                option1: "A Deer",
-                option2: "A Wolf",
-                option3: "A Rabbit",
-                text: "Who did Little Red Riding Hood meet in the forest?"
+                option1: "Three bowls of porridge",
+                option2: "Three plates of cookies",
+                option3: "Three glasses of water",
+                text: "What did goldilocks find on the table when she went inside the house?"
             },
             {
                 image: "",
-                option1: "He went straight to her grandmother’s house",
-                option2: "He invited her to the den",
-                option3: "He took a nap",
-                text: "What did the wolf do after talking to Little Red Riding Hood?"
+                option1: "The Dad Bear’s porridge, because it was too salty.",
+                option2: "The Baby Bear’s porridge, because it was just right.",
+                option3: "The Mom Bear’s porridge, because it was too sweet.",
+                text: "Which porridge did Goldilocks like?"
             },
             {
                 image: "",
-                option1: "A basket of flowers",
-                option2: "A basket of treats",
-                option3: "A basket of fruits",
-                text: "What did Little Red Riding Hood bring for her grandmother?"
+                option1: "She cleaned the house",
+                option2: "She went outside to play",
+                option3: "She went to sit on a chair",
+                text: "What did Goldilocks do after she ate the porridge?"
             },
             {
                 image: "",
-                option1: "She had big eyes, ears and teeth",
-                option2: "She wasn’t speaking clearly",
-                option3: "She did not recognize Little Red Riding Hood",
-                text: "Why did Little Red Riding Hood feel something was strange with her grandmother?"
+                option1: "The Baby Bear’s chair",
+                option2: "The Mom Bear’s chair",
+                option3: "The Dad Bear’s chair",
+                text: "Which chair did Goldilocks like to sit in?"
             },
             {
                 image: "",
-                option1: "Be friendly to strangers",
-                option2: "Be adventurous",
-                option3: "Don’t talk to strangers",
-                text: "What can we learn from the story?"
+                option1: "The Big Bear’s Bed, because it was too hard",
+                option2: "The Medium Bear’s Bed, because it was too soft",
+                option3: "The Small Bear’s Bed, because it was just right",
+                text: "Which bed did Goldilocks like to sleep in?"
+            },
+            {
+                image: "",
+                option1: "She ran away",
+                option2: "She stayed asleep",
+                option3: "She woke up and greeted them",
+                text: "What happened when The Three Bears found Goldilocks in their bed?"
+            },
+            {
+                image: "",
+                option1: "They were calm and relaxed",
+                option2: "They were upset and surprised",
+                option3: "They were happy and excited",
+                text: "How did the Three Bears feel when they discovered someone has been in their house?"
+            },
+            {
+                image: "",
+                option1: "Always share your porridge",
+                option2: "Never go to someone’s house without permission",
+                option3: "It’s fun to try new things",
+                text: "What lesson can be learned from the Goldilocks story?"
             }
 
         ];
@@ -336,27 +297,13 @@
         let buttonsContainer = document.getElementById("buttons-container"); // Ensure this is inside the function
         function updateContent() {
             console.log("currentIndex:", currentIndex);
+            socket.emit('repeat_speech',steps[currentIndex].text);
             if (currentIndex < steps.length) {
-                let preloadedImage = imageCache[steps[currentIndex].image];
-                if (preloadedImage) {
-                    imageElement.src = preloadedImage.src;  // Use preloaded image
-                } else {
-                    imageElement.src = steps[currentIndex].image;  // Fallback if not preloaded
-                }
 
                 textElement.innerHTML = steps[currentIndex].text;
                 speech_text = steps[currentIndex].text.replace(/<br\s*\/?>/g, ' ');
-                let sound = ""
-                if (currentIndex === 12) {
-                    sound = 'QT/growl_3'
-                } else if (currentIndex === 0) {
-                    speech_text = "One day, she decided to go visit her dear grandmother, who lift deep in the woods.";
-                }
-
-
                 // Check if currentIndex is between 15 and 20
-                if (currentIndex === 15 || currentIndex === 17 || currentIndex === 19) {
-                    textElement.innerHTML = ""
+                if (currentIndex === 0 || currentIndex === 3 || currentIndex === 8|| currentIndex === 9) {
                     buttonsContainer.style.display = "block"; // Show buttons
                     questionElement.innerHTML = steps[currentIndex].text;
 
@@ -371,8 +318,7 @@
                     optionButtons[1].setAttribute("onclick", `optionSelected('correct')`);
                     optionButtons[2].setAttribute("onclick", `optionSelected('wrong')`);
 
-                } else if (currentIndex === 16 || currentIndex === 18 || currentIndex === 20) {
-                    textElement.innerHTML = ""
+                } else if (currentIndex === 2 || currentIndex === 5 || currentIndex === 7) {
                     buttonsContainer.style.display = "block"; // Show buttons
                     questionElement.innerHTML = steps[currentIndex].text;
 
@@ -387,8 +333,7 @@
                     optionButtons[1].setAttribute("onclick", `optionSelected('wrong')`);
                     optionButtons[2].setAttribute("onclick", `optionSelected('wrong')`);
 
-                } else if (currentIndex === 21) {
-                    textElement.innerHTML = ""
+                } else if (currentIndex === 1|| currentIndex ===4||currentIndex ===6) {
                     buttonsContainer.style.display = "block"; // Show buttons
                     questionElement.innerHTML = steps[currentIndex].text;
 
@@ -419,7 +364,7 @@
             }
         }
 
-
+        updateContent();
         // Add click event listener to the Next button
         nextButton.addEventListener("click", updateContent);
 
@@ -486,7 +431,7 @@
 <div class="container">
     <!-- Images Section -->
     <div class="object">
-        <img id="story-image" src="../static/story/red_images/red1.jpg" style="width: 31%; margin-top: -10%">
+        {#        <img id="story-image" src="../static/story/red_images/red1.jpg" style="width: 31%; margin-top: -10%">#}
         <div class="repeat">
             <button onclick="repeat_speech()"> Repeat</button>
         </div>
@@ -498,18 +443,15 @@
 
 
     </div>
-
     <div class="centered-text" {% if not show_text %}style="display: none;"{% endif %}>
-        <p id="story-text">There once was a girl known as Little Red Riding Hood, <br>and she always wore a red riding
-            cape
-            wherever she went.</p>
+        <p id="story-text"></p>
     </div>
     <div class="question-text"><p id="question-text" style="font-size: 35px; top: 10px;"></p></div>
 
 </div>
 
 <!-- Buttons Section (Initially Hidden) -->
-<div id="buttons-container" style="display: none; margin-top: 20px;">
+<div id="buttons-container" style="display: none;">
     <button class="other button-option">Option 1</button>
     <button class="other button-option">Option 2</button>
     <button class="other button-option">Option 3</button>
@@ -533,22 +475,22 @@
 <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 350px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Great!')">Great</button>
+    <button onclick="speak('Good Job')">Good job</button>
 </div>
 <div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 400px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Bravo!')">Bravo</button>
+    <button onclick="speak('Well done')">Well done</button>
 </div>
 <div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Wonderful!')">Wonderful</button>
+    <button onclick="speak('You did it')">You did it</button>
 </div>
 <div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 500px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Amazing!')">Amazing</button>
+    <button onclick="speak('Amazing')">Amazing</button>
 </div>
 
 

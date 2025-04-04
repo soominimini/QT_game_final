@@ -2,6 +2,7 @@ import os
 from datetime import datetime
 from http.cookiejar import debug
 from symbol import continue_stmt
+from xml.etree.ElementInclude import include
 
 from flask import Flask, render_template, redirect, url_for, session, request, send_from_directory, jsonify, send_file
 from flask_socketio import SocketIO, emit, join_room
@@ -104,6 +105,7 @@ def neutralize():
 # "idle_left_arm_and_head", "idle_right_arm_and_head",
 def get_short_idle_gesture():
     gestures = ["idle_arms_up_1", "idle_arms_1", "idle_arms_2", "head_arm_natural","natural_arms_wide","both_arms", "idle_test_1", "idle_test_arm"]
+    # gestures = ["idle_arms_up_1", "idle_arms_1", "idle_arms_2", "head_arm_natural", "natural_arms_wide", "both_arms", "idle_test_1", "idle_test_arm", "idle_left_arm_and_head", "idle_right_arm_and_head","idle_short_head_and_arms"]
     return random.choice(gestures)
 
 def text_split(text, num_chars=65):
@@ -317,7 +319,7 @@ def correct_answer(obj):
 @socketio.on('simple_correct')
 def simple_correct_answer_res():
     rospy.sleep(0.5)
-    talktext_pub.publish("That's correct")
+    talktext_pub.publish("Correct!")
 
 
 @socketio.on('simple_wrong')
@@ -338,7 +340,7 @@ def correct_answer():
         random_praise = 0
         random.shuffle(praise_order)  # shuffle again
     if praise_order[random_praise] == 0:
-        handle_speech_say("You’re doing so well!")
+        handle_speech_say("Perfect!")
         rospy.sleep(1)
         handle_emotion_play("QT/happy")
         handle_gesture_play("QT/happy", 2)
@@ -348,7 +350,7 @@ def correct_answer():
         # audioPlay_pub.publish("QT/good_job")
     elif praise_order[random_praise] == 1:
 
-        handle_speech_say("Well done!")
+        handle_speech_say("Hooray!")
         rospy.sleep(2)
         handle_emotion_play("QT/happy")
         handle_gesture_play("QT/happy", 2)
@@ -367,7 +369,7 @@ def correct_answer():
         random_praise += 1
         # audioPlay_pub.publish("QT/amazing")
     else:
-        handle_speech_say("Great job!")
+        handle_speech_say("Great!")
         rospy.sleep(1)
         handle_emotion_play("QT/happy")
         handle_gesture_play("QT/emotions/hoora", 2)
@@ -1427,9 +1429,14 @@ def story_speak(msg, sound):
     print("msg:", msg)
 
     # Split the text at punctuation marks into chunks
-    # chunks = text_split(msg)
+
     gesturePlay_pub.publish(get_short_idle_gesture())
     talktext_pub.publish(msg)
+    # cnt = msg.count('.') + msg.count(',')
+    # print("cnt: ",cnt)
+    # for i in range(cnt):
+    #     gesturePlay_servc(get_short_idle_gesture(), 1.0)
+
     if sound != "":
         rospy.sleep(1.5)
         audioPlay_pub.publish(sound)
@@ -1442,7 +1449,7 @@ def story_speak(msg, sound):
 @app.route('/break')
 def break_fucn():
     # talktext_pub.publish("Let's roll the dice")
-    handle_speech_say("Let's take a break")
+    handle_speech_say("Oh! Break Time!")
     # gesturePlay_servc("head_natural", 1.5)
     # gesturePlay_pub.publish("head_natural")
     return render_template('break.html')
@@ -1806,9 +1813,11 @@ def bear_1st_func():
 @socketio.on('bear_2nd')
 def bear_2nd_func():
     talktext_pub.publish("Someone’s been eating my porridge, growled Daddy Bear.")
-    rospy.sleep(4)
+
     # audioPlay_servc("QT/growl_3", "")
-    audioPlay_pub.publish('QT/growl_3')
+    # rospy.sleep(4)
+    # audioPlay_pub.publish('QT/growl_3')
+    talktext_pub.publish('#BEAR#')
 
 
 @socketio.on('bear_3rd')
@@ -1821,15 +1830,17 @@ def bear_3rd_func():
 @socketio.on('bear_4th')
 def bear_4th_func():
     talktext_pub.publish("Someone’s been eating my porridge and it’s all gone!. Cried Baby Bear")
-    rospy.sleep(4.0)
-    audioPlay_pub.publish('QT/cry2_increased')
+    # rospy.sleep(4.0)
+    # audioPlay_pub.publish('QT/cry2_increased')
+    talktext_pub.publish('#CRY03#')
 
 
 @socketio.on('bear_5th')
 def bear_5th_func():
     talktext_pub.publish("Someone’s been sitting in my chair!. Growled Daddy Bear.")
-    rospy.sleep(4.0)
-    audioPlay_pub.publish('QT/growl_3')
+    # rospy.sleep(4.0)
+    # audioPlay_pub.publish('QT/growl_3')
+    talktext_pub.publish('#BEAR#')
 
 
 @socketio.on('bear_6th')
@@ -1842,17 +1853,21 @@ def bear_6th_func():
 @socketio.on('bear_7th')
 def bear_7th_func():
     talktext_pub.publish("Someone’s been sitting in my chair and it’s broken!. Cried Baby Bear.")
-    rospy.sleep(3.5)
-    audioPlay_pub.publish('QT/cry2_increased')
+    # rospy.sleep(3.5)
+    # audioPlay_pub.publish('QT/cry2_increased')
+    talktext_pub.publish('#CRY04#')
 
 
 @socketio.on('bear_8th')
 def bear_8th_func():
-    talktext_pub.publish(
-        "When they got upstairs to the bedroom, Daddy Bear growled. Someone’s been sleeping on my bed.")
-    rospy.sleep(2.0)
-    audioPlay_pub.publish('QT/growl_3')
+    # talktext_pub.publish(
+    #     "When they got upstairs to the bedroom, Daddy Bear growled. Someone’s been sleeping on my bed.")
+    # rospy.sleep(2.0)
+    # audioPlay_pub.publish('QT/growl_3')
 
+    talktext_pub.publish("When they got upstairs to the bedroom, Daddy Bear growled.")
+    talktext_pub.publish('#BEAR#')
+    talktext_pub.publish("Someone’s been sleeping on my bed.")
 
 @socketio.on('bear_9th')
 def bear_9th_func():
@@ -1863,8 +1878,9 @@ def bear_9th_func():
 @socketio.on('bear_10th')
 def bear_10th_func():
     talktext_pub.publish("Someone’s been sleeping in my bed, and she’s still there!. Cried Baby Bear.")
-    rospy.sleep(3.5)
-    audioPlay_pub.publish('QT/cry2_increased')
+    # rospy.sleep(3.5)
+    # audioPlay_pub.publish('QT/cry2_increased')
+    talktext_pub.publish('#CRY03#')
 
 
 @socketio.on('bear_11th')
@@ -1884,6 +1900,12 @@ def bear_12th_func():
         "Goldilocks ran down the stairs and into the forest. And she never went back into the woods again.")
 
     gesturePlay_pub.publish(get_short_idle_gesture())
+
+
+@app.route('/girl/questions')
+def goldilocks_questions():
+
+    return render_template('goldilocks_questions.html')
 
 
 ######################################################################################### Negin     ############################################################################################

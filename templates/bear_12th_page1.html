@@ -54,6 +54,28 @@
     button:focus {
         outline: none;
     }
+     /* Next button styling */
+        .next-button {
+            font-size: 35px;
+            background: rgba(250, 231, 200, 0.6);
+            color: rgb(0, 0, 0);
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 80px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Next button active effect */
+        .next-button:active {
+            background: rgb(255, 200, 150);
+            color: rgb(255, 255, 255);
+        }
         .repeat button {
             position: fixed; /* Keeps it fixed relative to the viewport */
             top: 20px; /* Distance from the top of the viewport */
@@ -133,6 +155,10 @@
                 }, 500); // 2000ms = 2 seconds
             });
         });
+        function go_to_next_page() {
+            // socket.emit('sixth');
+            location.href = '/girl/questions';
+        }
 
         function repeat_speech() {
             socket.emit('repeat_speech', "Goldilocks ran down the stairs and into the forest. And she never went back into the woods again.")
@@ -238,6 +264,8 @@
         <button onclick="speak('Don’t give up!')">Don’t give up</button>
     </div>
 </div>
+<!-- Next button -->
+<input type="button" value="Next" onclick="go_to_next_page()" class="next-button">
 
 
 </body>
