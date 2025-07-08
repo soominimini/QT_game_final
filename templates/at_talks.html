@@ -25,7 +25,7 @@
         height: 60px;
         cursor: pointer;
         border: none;
-        border-radius: 30px; /* Rounded corners */
+        border-radius: 8px; /* Rectangle with slightly rounded corners */
         transition: all 0.3s ease; /* Smooth transition */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     }
@@ -47,7 +47,7 @@
         height: 60px;
         cursor: pointer;
         border: none;
-        border-radius: 30px; /* Rounded corners */
+        border-radius: 8px; /* Rectangle with slightly rounded corners */
         transition: all 0.3s ease; /* Smooth transition */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     }
@@ -56,6 +56,89 @@
         background: rgba(92, 43, 43, 0.6);
         color: rgb(255, 255, 255);
         cursor: not-allowed; /* Change cursor to indicate disabled state */
+    }
+        /* Bottom button container */
+    .bottom-section {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        display: flex;
+        justify-content: space-evenly;
+        padding: 20px 0; /* Increased padding for larger section */
+        min-height: 100px; /* Ensure minimum height for larger section */
+    }
+
+    /* Bottom section buttons styling */
+    .bottom-section button {
+        font-size: 22px; /* Increased font size */
+        background: rgba(255, 192, 203, 0.6); /* Pink background */
+        color: rgb(0, 0, 0);
+        width: 100px; /* Increased width */
+        height: 80px; /* Increased height */
+        cursor: pointer;
+        border: none;
+        border-radius: 10px; /* Slightly larger border radius for bigger buttons */
+        transition: all 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        margin: 0 8px; /* Increased margin for better spacing */
+        font-weight: 400; /* Slightly bolder text for better readability */
+    }
+
+    /* Bottom section button active effect */
+    .bottom-section button:active {
+        background: rgb(219, 112, 147); /* Darker pink on active */
+        color: rgb(255, 255, 255);
+    }
+
+    /* Older age group buttons styling */
+    .other button[onclick="agetoggle_old()"],
+    #schedule2 button,
+    #hello1_old button,
+    #hello2_old button,
+    #hello3_old button,
+    #fav1_old button,
+    #fav2_old button,
+    #fav3_old button,
+    #fav4_old button,
+    #fav5_old button,
+    #fav6_old button,
+    #casual1_old button,
+    #casual2_old button,
+    #casual3_old button,
+    #casual4_old button,
+    #casual5_old button,
+    #casual6_old button,
+    #casual7_old button,
+    #bye1_old button,
+    #bye2_old button {
+        background: rgba(255, 165, 0, 0.6) !important; /* Orange background */
+    }
+
+    /* Older age group buttons active effect */
+    .other button[onclick="agetoggle_old()"]:active,
+    #schedule2 button:active,
+    #hello1_old button:active,
+    #hello2_old button:active,
+    #hello3_old button:active,
+    #fav1_old button:active,
+    #fav2_old button:active,
+    #fav3_old button:active,
+    #fav4_old button:active,
+    #fav5_old button:active,
+    #fav6_old button:active,
+    #casual1_old button:active,
+    #casual2_old button:active,
+    #casual3_old button:active,
+    #casual4_old button:active,
+    #casual5_old button:active,
+    #casual6_old button:active,
+    #casual7_old button:active,
+    #bye1_old button:active,
+    #bye2_old button:active {
+        background: rgb(255, 140, 0) !important; /* Darker orange on active */
+        color: rgb(255, 255, 255);
     }
 </style>
 
@@ -198,6 +281,27 @@
 
         socket.emit('at_talk_speech', msg)
     }
+
+    function speakIdle(msg) {
+        setTimeout(1)
+        console.log("speakIdle function - first child_looking, then random idle motion")
+        
+        // First perform child_looking gesture
+        socket.emit('gesture_play_pub', "child_looking");
+        
+        // Then randomly choose among other idle gestures
+        const idleGestures = ["idle_arms_up_1", "idle1", "natural_arms_wide"];
+        const randomGesture = idleGestures[Math.floor(Math.random() * idleGestures.length)];
+        console.log("emitting idle gesture after child_looking:", randomGesture);
+        
+        // Delay the second gesture slightly to create a sequence
+        setTimeout(() => {
+            socket.emit('gesture_play_pub', randomGesture);
+        }, 3000); // 1 second delay
+        
+        socket.emit('at_talk_speech', msg)
+    }
+
 </script>
 <body>
 
@@ -442,6 +546,17 @@
         top: 420px; /* Distance from the top of the viewport */
         left: 890px; /* Distance from the left of the viewport */">
     <button onclick="speak('See you later!')">See you later</button>
+</div>
+<!-- Bottom buttons section -->
+<div class="bottom-section">
+     <button onclick="speakIdle('Wow! A nice name!')">Nice name</button>
+    <button onclick="speakIdle('That\'s a great answer!')">Great answer</button>
+    <button onclick="speakIdle('Thanks for letting me know!')">Thanks for letting</button>
+     <button onclick="speakIdle('That\'s good to know!')">Good to know</button>
+    <button onclick="speakIdle('Yeah! Good choice!')">Good choice</button>
+    <button onclick="speakIdle('Wonderful!')">Wonderful</button>
+    <button onclick="speakIdle('Amazing!')">Amazing</button>
+    <button onclick="speakIdle('#MMM01# Yummy!')">Yummy!</button>
 </div>
 
 
