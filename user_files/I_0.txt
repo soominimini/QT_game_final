@@ -1,0 +1,74 @@
+Name: I
+login closed  Tue Jul  8 19:50:10 2025
+at_talks
+Time: Tue Jul  8 19:50:17 2025
+[2025-07-08 19:50:20] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-08 19:50:20] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-08 19:50:31] ROBOT_SPEECH: My name is QT!
+[2025-07-08 19:50:31] ROBOT_SPEECH: My name is QT!
+[2025-07-08 19:50:35] ROBOT_SPEECH: What is your favourite movie?. What happens in it?
+[2025-07-08 19:50:35] ROBOT_SPEECH: What is your favourite movie?. What happens in it?
+[2025-07-08 19:50:42] ROBOT_SPEECH: That's a great answer!
+[2025-07-08 19:50:42] ROBOT_SPEECH: That's a great answer!
+Main closed  Tue Jul  8 19:50:49 2025
+yes_no_old
+Time: Tue Jul  8 19:50:54 2025
+[2025-07-08 19:50:57] ROBOT_SPEECH: Do you wear a swimsuit at the beach?
+[2025-07-08 19:51:01] ROBOT_SPEECH: Correct!
+[2025-07-08 19:51:02] ROBOT_SPEECH: Do you drink juice?
+[2025-07-08 19:51:06] ROBOT_SPEECH: Correct!
+[2025-07-08 19:51:07] ROBOT_SPEECH: Is the sun hot?
+[2025-07-08 19:51:10] ROBOT_SPEECH: That's not correct
+[2025-07-08 19:51:16] ROBOT_SPEECH: Correct!
+[2025-07-08 19:51:17] ROBOT_SPEECH: Does a boat fly in the sky?
+[2025-07-08 19:51:26] ROBOT_SPEECH: Correct!
+[2025-07-08 19:51:27] ROBOT_SPEECH: Can you build snowman at the beach?
+[2025-07-08 19:51:32] ROBOT_SPEECH: That's not correct
+[2025-07-08 19:51:38] ROBOT_SPEECH: Correct!
+[2025-07-08 19:51:39] ROBOT_SPEECH:   Do turtles have shells?
+Main closed  Tue Jul  8 19:51:43 2025
+inference_old
+Time: Tue Jul  8 19:51:47 2025
+[2025-07-08 19:51:48] ROBOT_SPEECH: Lets play inference games
+[2025-07-08 19:51:49] ROBOT_SPEECH: I can be carried on your back or hand. You fill me with things you need.
+[2025-07-08 19:51:57] ROBOT_SPEECH: You take me to school. What am I?
+[2025-07-08 19:52:01] ROBOT_SPEECH: That's not correct
+[2025-07-08 19:52:05] ROBOT_SPEECH: Correct!
+[2025-07-08 19:52:08] ROBOT_SPEECH: You wear me on your feet. You use me when you want to go outside. I come in different colors.
+[2025-07-08 19:52:17] ROBOT_SPEECH: I can have laces or straps. What am I?
+[2025-07-08 19:52:22] REPEAT BUTTON: You wear me on your feet. You use me when you want to go outside. I come in different colors. I can have laces or straps. What am I?
+[2025-07-08 19:52:22] ROBOT_SPEECH: You wear me on your feet. You use me when you want to go outside. I come in different colors. I can have laces or straps. What am I?
+[2025-07-08 19:52:35] ROBOT_SPEECH: Correct!
+[2025-07-08 19:52:39] ROBOT_SPEECH: It’s orange and round. You can carve it to make silly or scary faces.
+[2025-07-08 19:52:46] ROBOT_SPEECH: You can put a candle inside of it. You see it during Halloween. What am I?
+[2025-07-08 19:52:55] ROBOT_SPEECH: Correct!
+Main closed  Tue Jul  8 19:52:58 2025
+break
+Time: Tue Jul  8 19:53:07 2025
+[2025-07-08 19:53:07] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-08 19:53:10] REPEAT BUTTON: Lets sing a song
+[2025-07-08 19:53:10] ROBOT_SPEECH: Lets sing a song
+[2025-07-08 19:53:12] REPEAT BUTTON: Lets do the monkey jumps
+[2025-07-08 19:53:12] ROBOT_SPEECH: Lets do the monkey jumps
+story_young_client
+Time: Tue Jul  8 19:53:18 2025
+[2025-07-08 19:53:18] ROBOT_SPEECH: Lets choose a story
+[2025-07-08 19:53:22] ROBOT_SPEECH: I will tell you a story
+[2025-07-08 19:53:25] ROBOT_SPEECH: Brown Bear, Brown Bear, What do you see?
+[2025-07-08 19:53:30] ROBOT_SPEECH: I see a, red bird, looking at me.
+[2025-07-08 19:53:30] ROBOT_SPEECH: #BIRD#
+[2025-07-08 19:53:37] ROBOT_SPEECH: Perfect!
+[2025-07-08 19:53:42] ROBOT_SPEECH: Red bird, Red bird, What do you see?
+[2025-07-08 19:53:46] ROBOT_SPEECH: I see a yellow duck, looking at me.
+[2025-07-08 19:53:46] ROBOT_SPEECH: #DUCK#
+[2025-07-08 19:53:54] ROBOT_SPEECH: Great!
+[2025-07-08 19:53:59] ROBOT_SPEECH: Lets go to next page
+Name: I
+login closed  Tue Jul  8 19:55:46 2025
+break
+Time: Tue Jul  8 19:55:53 2025
+[2025-07-08 19:55:53] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-08 19:55:55] REPEAT BUTTON: Lets sing a song
+[2025-07-08 19:55:55] ROBOT_SPEECH: Lets sing a song
+[2025-07-08 19:56:06] Stop event triggered by user.
+[2025-07-08 19:56:06] ROBOT_SPEECH: all done

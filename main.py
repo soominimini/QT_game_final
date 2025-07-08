@@ -101,6 +101,56 @@ audio_stop_event = threading.Event()
 
 global_sentence = ''
 
+def log_speech(speech_text):
+    """Appends robot speech to the log file using the global file_name."""
+    global file_name
+    # This check is important. It won't try to log before a user has logged in.
+    if file_name:
+        try:
+            with open(file_name, "a") as f:
+                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                f.write(f"[{timestamp}] ROBOT_SPEECH: {speech_text}\n")
+        except Exception as e:
+            print(f"Error while trying to log speech: {e}")
+
+def setup_speech_logging():
+    """
+    Intercepts the original ROS speech functions and wraps them with logging.
+    This should be called ONCE after the ROS services/publishers are initialized.
+    """
+    print("Setting up speech logging...")
+
+    # --- Patch talktext_pub.publish ---
+    original_talktext_publish = talktext_pub.publish
+    def logged_talktext_publish(text):
+        log_speech(text)
+        original_talktext_publish(text)
+    talktext_pub.publish = logged_talktext_publish
+
+    def create_logged_service_call(service_proxy):
+        """A helper to create a robust wrapper for any ROS service call."""
+        original_service_call = service_proxy.call
+
+        def logged_call(request):
+            # This is the safeguard.
+            # It tries to log, but if it fails for any reason, it
+            # prints an error and continues on to make the robot speak.
+            try:
+                log_speech(str(request))
+            except Exception as e:
+                print(f"ROBOT SPEECH LOGGING FAILED: {e}")
+
+            # This line is outside the try block, so it ALWAYS runs,
+            # ensuring the robot speaks.
+            return original_service_call(request)
+
+        return logged_call
+
+    # --- Apply the robust patch to both ROS services ---
+    behaviorTalk_servc.call = create_logged_service_call(behaviorTalk_servc)
+    speechSay_servc.call = create_logged_service_call(speechSay_servc)
+
+    print("Speech logging is now active and robust.")
 
 def neutralize():
     gesturePlay_servc("QT/neutral", 0.5)
@@ -159,6 +209,17 @@ def execute_jumping_jacks():
 
 @socketio.on('speech_stop')
 def handle_speech_stop(data):
+    # --- Add this logging block ---
+    global file_name
+    if file_name: # Checks if the log file has been set up
+        try:
+            with open(file_name, "a") as f:
+                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                # Write the custom log entry for the stop event
+                f.write(f"[{timestamp}] Stop event triggered by user.\n")
+        except Exception as e:
+            print(f"Error logging stop event: {e}")
+    # --- End of logging block ---
     speech_stop_event.set()  # Signal to stop speech
     emotion_stop_event.set()
     gesture_stop_event.set()
@@ -232,7 +293,19 @@ def handle_repeat_speach(data):
         global global_sentence
         data = global_sentence
 
-    print("repeat_speech: ", data)
+    # --- Add this logging block ---
+    global file_name
+    if file_name: # Checks if the log file has been set up
+        try:
+            with open(file_name, "a") as f:
+                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                # Write the custom log entry for the button click
+                f.write(f"[{timestamp}] REPEAT BUTTON: {data}\n")
+        except Exception as e:
+            print(f"Error logging repeat button click: {e}")
+    # --- End of logging block ---
+
+
     gesturePlay_pub.publish("child_looking")
     def say_speech_repeat():
         speech_stop_event.clear()  # Reset stop signal before starting speech
@@ -248,13 +321,19 @@ def handle_repeat_speach(data):
 
 
 @socketio.on('at_talk_speech')
-def handle_repeat_speach(data):
+def handle_repeat_speach(data, log_message=None):
     def say_speech_repeat():
         speech_stop_event.clear()  # Reset stop signal before starting speech
 
         # behaviorTalk_servc(data)
         talktext_pub.publish(data)
         # Run speech processing in a separate thread
+
+    # Log the button information if provided
+    if log_message:
+        log_speech(log_message)
+    else:
+        log_speech(data)
 
     threading.Thread(target=say_speech_repeat).start()
     print("at_talk_speech received:", data)
@@ -2480,6 +2559,11 @@ if __name__ == '__main__':
     left_pub = rospy.Publisher('/qt_robot/left_arm_position/command', Float64MultiArray, queue_size=1)
     global f
     time_start = time.ctime()
+
+    # =======================================================
+    # === ADD THIS LINE TO ACTIVATE THE AUTOMATIC LOGGING ===
+    # =======================================================
+    setup_speech_logging()
 
     socketio.run(app, host='0.0.0.0', debug = True, use_reloader =False)  # connect to 192.168.100.2:5000 in web
     end = time.ctime()

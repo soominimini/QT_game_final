@@ -1,0 +1,86 @@
+Name: J
+login closed  Tue Jul  8 19:41:20 2025
+story_old_client
+Time: Tue Jul  8 19:41:27 2025
+[2025-07-08 19:41:27] ROBOT_SPEECH: Lets choose a story
+goldilocks
+Time: Tue Jul  8 19:41:28 2025
+[2025-07-08 19:41:30] ROBOT_SPEECH: Lets start the story!
+[2025-07-08 19:41:31] ROBOT_SPEECH: Once upon a time lived Goldilocks and The Three Bears.
+[2025-07-08 19:41:37] ROBOT_SPEECH: One day, Goldilocks went for a walk in the forest and found a house.
+[2025-07-08 19:41:44] ROBOT_SPEECH: She knocked, and when nobody answered, she decided to go inside.
+[2025-07-08 19:41:51] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-07-08 19:41:57] Repeat button: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-07-08 19:41:57] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-07-08 19:42:06] Repeat button: Great!
+[2025-07-08 19:42:06] ROBOT_SPEECH: Great!
+Main closed  Tue Jul  8 19:43:03 2025
+inference_old
+Time: Tue Jul  8 19:43:09 2025
+[2025-07-08 19:43:09] ROBOT_SPEECH: Lets play inference games
+[2025-07-08 19:43:10] ROBOT_SPEECH: I work at a hospital. I help you when you are sick. I wear a white coat or scrubs.
+[2025-07-08 19:43:19] ROBOT_SPEECH: Who am I?
+[2025-07-08 19:43:23] ROBOT_SPEECH: Correct!
+[2025-07-08 19:43:27] ROBOT_SPEECH: I am grey. I have big floppy ears and a long trunk. I love peanuts.
+[2025-07-08 19:43:36] ROBOT_SPEECH: What am I?
+[2025-07-08 19:43:39] ROBOT_SPEECH: Correct!
+[2025-07-08 19:43:45] ROBOT_SPEECH: I eat grass and live in a barn. I usually have black and white spots.
+[2025-07-08 19:43:52] ROBOT_SPEECH: I can give you milk. What am i?
+[2025-07-08 19:43:58] ROBOT_SPEECH: Correct!
+[2025-07-08 19:44:01] ROBOT_SPEECH: I am long. On one end I have an eraser. You use me to write or draw.
+[2025-07-08 19:44:08] ROBOT_SPEECH: What am I?
+[2025-07-08 19:44:10] Repeat button: I am long. On one end I have an eraser. You use me to write or draw. What am I?
+[2025-07-08 19:44:10] ROBOT_SPEECH: I am long. On one end I have an eraser. You use me to write or draw. What am I?
+Main closed  Tue Jul  8 19:44:20 2025
+emotion_game2
+Time: Tue Jul  8 19:44:26 2025
+[2025-07-08 19:44:29] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Tue Jul  8 19:44:31 2025
+[2025-07-08 19:44:32] Repeat button: Show me an emotion card
+[2025-07-08 19:44:32] ROBOT_SPEECH: Show me an emotion card
+[2025-07-08 19:44:33] ROBOT_SPEECH: angry!
+[2025-07-08 19:44:45] ROBOT_SPEECH: Look at the tablet, which one is  angry
+[2025-07-08 19:44:48] ROBOT_SPEECH: I feel angry when someone takes my toy without asking.
+[2025-07-08 19:45:00] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-08 19:45:08] ROBOT_SPEECH: happy!
+[2025-07-08 19:45:20] ROBOT_SPEECH: Look at the tablet, which one is  happy
+[2025-07-08 19:45:26] ROBOT_SPEECH: I like to cuddle and play with my pets when I'm happy
+emotion_game1 closed  Tue Jul  8 19:45:31 2025
+action_game
+Time: Tue Jul  8 19:45:33 2025
+[2025-07-08 19:45:35] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Tue Jul  8 19:45:38 2025
+Start Emotion games closed  Tue Jul  8 19:45:38 2025
+[2025-07-08 19:45:38] Repeat button: Show me an action card
+[2025-07-08 19:45:38] ROBOT_SPEECH: Show me an action card
+[2025-07-08 19:45:42] ROBOT_SPEECH: draw
+[2025-07-08 19:45:45] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-08 19:45:51] ROBOT_SPEECH: draw
+[2025-07-08 19:45:56] Repeat button: draw
+[2025-07-08 19:45:56] ROBOT_SPEECH: draw
+[2025-07-08 19:46:03] Repeat button: draw
+[2025-07-08 19:46:03] ROBOT_SPEECH: draw
+[2025-07-08 19:46:08] Repeat button: Great!
+[2025-07-08 19:46:08] ROBOT_SPEECH: Great!
+[2025-07-08 19:46:14] ROBOT_SPEECH: Show me another action card!
+action_game closed  Tue Jul  8 19:46:19 2025
+Main closed  Tue Jul  8 19:46:21 2025
+yes_no_young
+Time: Tue Jul  8 19:46:31 2025
+[2025-07-08 19:46:32] ROBOT_SPEECH: Is the boy sleeping?
+[2025-07-08 19:46:36] ROBOT_SPEECH: Correct!
+[2025-07-08 19:46:37] ROBOT_SPEECH: Is this a nose?
+[2025-07-08 19:46:40] Repeat button: Is this a nose?
+[2025-07-08 19:46:40] ROBOT_SPEECH: Is this a nose?
+[2025-07-08 19:46:43] ROBOT_SPEECH: Correct!
+[2025-07-08 19:46:44] ROBOT_SPEECH: Is this a car?
+[2025-07-08 19:46:49] ROBOT_SPEECH: Correct!
+[2025-07-08 19:46:50] ROBOT_SPEECH: Is the ball red?
+[2025-07-08 19:48:06] ROBOT_SPEECH: Correct!
+[2025-07-08 19:48:07] ROBOT_SPEECH: Is this a dog?
+[2025-07-08 19:48:11] ROBOT_SPEECH: Correct!
+[2025-07-08 19:48:12] ROBOT_SPEECH: Is this a balloon?
+[2025-07-08 19:48:22] ROBOT_SPEECH: Correct!
+[2025-07-08 19:48:23] ROBOT_SPEECH: Is the girl eating?
+[2025-07-08 19:48:29] ROBOT_SPEECH: Correct!
+[2025-07-08 19:48:30] ROBOT_SPEECH: Is this a mountain?
