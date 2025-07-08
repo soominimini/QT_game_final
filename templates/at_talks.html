@@ -65,8 +65,16 @@
     socket.emit('connect event', {data: 'User Connected'});
 
     $(document).ready(function () {
-
     });
+    const gestures = ["child_direct", "child_direct2", "child_looking2","idle_left_arm_and_head"];
+    let shuffledGestures = shuffleArray(gestures);
+    let gestureIndex = 0;
+
+    // Shuffle the array
+    function shuffleArray(arr) {
+        return [...arr].sort(() => Math.random() - 0.5);
+    }
+
 
     function repeat_speech(msg) {
         socket.emit('repeat_speech', msg)
@@ -94,15 +102,15 @@
         var casual7 = document.getElementById("casual7");
         // Toggle their visibility
         var displayState = (schedule1.style.display === "none" || schedule1.style.display === "" || bye1.style.display === "" || bye2.style.display === "" || hello1.style.display === "" || hello2.style.display === "" || hello3.style.display === "" ||
-        casual1.style.display === "" ||casual2.style.display === "" || casual3.style.display === "" || casual4.style.display === "" ||  casual5.style.display === "" ||casual6.style.display === "" || casual7.style.display === "" ||
-            fav1.style.display === "" || fav2.style.display === ""|| fav3.style.display === ""|| fav4.style.display === ""|| fav5.style.display === ""|| fav6.style.display === "" ) ? "block" : "none";
+            casual1.style.display === "" || casual2.style.display === "" || casual3.style.display === "" || casual4.style.display === "" || casual5.style.display === "" || casual6.style.display === "" || casual7.style.display === "" ||
+            fav1.style.display === "" || fav2.style.display === "" || fav3.style.display === "" || fav4.style.display === "" || fav5.style.display === "" || fav6.style.display === "") ? "block" : "none";
         schedule1.style.display = displayState;
         bye1.style.display = displayState;
         bye2.style.display = displayState;
         hello1.style.display = displayState;
         hello3.style.display = displayState;
         hello2.style.display = displayState;
-                casual1.style.display = displayState;
+        casual1.style.display = displayState;
         casual2.style.display = displayState;
         casual3.style.display = displayState;
         casual4.style.display = displayState;
@@ -139,8 +147,8 @@
         var casual6 = document.getElementById("casual6_old");
         var casual7 = document.getElementById("casual7_old");
         var displayState = (schedule2.style.display === "none" || schedule2.style.display === "" || bye1.style.display === "" || bye2.style.display === "" || hello1.style.display === "" || hello2.style.display === "" || hello3.style.display === "" ||
-            casual1.style.display === "" ||casual2.style.display === "" || casual3.style.display === "" || casual4.style.display === "" ||  casual5.style.display === "" ||casual6.style.display === "" || casual7.style.display === "" ||
-            fav1.style.display === "" || fav2.style.display === ""|| fav3.style.display === ""|| fav4.style.display === ""|| fav5.style.display === ""|| fav6.style.display === "") ? "block" : "none";
+            casual1.style.display === "" || casual2.style.display === "" || casual3.style.display === "" || casual4.style.display === "" || casual5.style.display === "" || casual6.style.display === "" || casual7.style.display === "" ||
+            fav1.style.display === "" || fav2.style.display === "" || fav3.style.display === "" || fav4.style.display === "" || fav5.style.display === "" || fav6.style.display === "") ? "block" : "none";
         schedule2.style.display = displayState;
         bye1.style.display = displayState;
         bye2.style.display = displayState;
@@ -164,15 +172,31 @@
     }
 
     function speak(msg) {
-    if (msg.includes("Hello")) {
-        socket.emit('gesture_play', "/QT/hi", 2);
-    } else if (msg == "Good bye!" || msg == "See you later!") {
-        socket.emit('gesture_play', "/QT/bye", 2);
-    } else if (msg == "my name is QT!") {
-        socket.emit('gesture_play', "/QT/show_QT", 1.5);
-    }
+        setTimeout(1)
+        let index = 0;
+        console.log("speak function")
+        if (msg.includes("Hello")) {
+            socket.emit('gesture_play', "hi_soomin", 1.5);
+        } else if (msg == "Goodbye!" || msg == "See you later!") {
+            socket.emit('gesture_play', "bye_soomin", 1.5);
+        } else if (msg == "My name is QT!") {
+            {#socket.emit('gesture_play_pub', "myname");#}
+            {#socket.emit('gesture_play', "myname", 2);#}
+            socket.emit('gesture_play', "/QT/show_QT", 1.5);
+        } else {
+            if (gestureIndex >= shuffledGestures.length) {
+                // Reshuffle and reset when all gestures are used
+                shuffledGestures = shuffleArray(gestures);
+                gestureIndex = 0;
+            }
 
-        socket.emit('repeat_speech', msg)
+            const gesture = shuffledGestures[gestureIndex];
+            console.log("emitting gesture:", gesture);
+            socket.emit('gesture_play_pub', gesture);
+            gestureIndex++;
+        }
+
+        socket.emit('at_talk_speech', msg)
     }
 </script>
 <body>
@@ -213,7 +237,7 @@
 <div id="hello3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
         left: 500px; /* Distance from the left of the viewport */">
-     <button onclick="speak('Whats your name?')">What's your name?</button>
+    <button onclick="speak('Whats your name?')">What's your name?</button>
 </div>
 
 
@@ -242,7 +266,8 @@
 <div id="fav5" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 180px; /* Distance from the top of the viewport */
         left: 170px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Whats your favourite subject in school, and Why do you like it?')">favourite subject?</button>
+    <button onclick="speak('Whats your favourite subject in school, and Why do you like it?')">favourite subject?
+    </button>
 </div>
 
 <div id="fav6" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
@@ -274,7 +299,7 @@
 <div id="casual5" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 340px; /* Distance from the top of the viewport */
         left: 170px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Do you prefer hot or cold weather?')">weather</button>
+   <button onclick="speak('How\'s the weather today?')">weather</button>
 </div>
 <div id="casual6" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 340px; /* Distance from the top of the viewport */
@@ -284,7 +309,8 @@
 <div id="casual7" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 340px; /* Distance from the top of the viewport */
         left: 390px; /* Distance from the left of the viewport */">
-    <button onclick="speak('If you could turn into any animal for a day, what animal would you be, and Why?')">animal</button>
+    <button onclick="speak('If you could turn into any animal for a day, what animal would you be, and Why?')">animal
+    </button>
 </div>
 
 
@@ -315,8 +341,6 @@
 </div>
 
 
-
-
 <div id="hello1_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
         left: 890px; /* Distance from the left of the viewport */">
@@ -333,10 +357,8 @@
 <div id="hello3_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 20px; /* Distance from the top of the viewport */
         left: 1110px; /* Distance from the left of the viewport */">
-     <button onclick="speak('Whats your name?')">What's your name?</button>
+    <button onclick="speak('Whats your name?')">What's your name?</button>
 </div>
-
-
 
 
 <div id="fav1_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
@@ -396,7 +418,7 @@
 <div id="casual5_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 340px; /* Distance from the top of the viewport */
         left: 780px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Do you prefer hot or cold weather?')">weather</button>
+    <button onclick="speak('How\'s the weather today?')">weather</button>
 </div>
 <div id="casual6_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 340px; /* Distance from the top of the viewport */
@@ -406,7 +428,8 @@
 <div id="casual7_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 340px; /* Distance from the top of the viewport */
         left: 1000px; /* Distance from the left of the viewport */">
-    <button onclick="speak('If you could turn into any animal for a day, what animal would you be? Why?')">animal</button>
+    <button onclick="speak('If you could turn into any animal for a day, what animal would you be? Why?')">animal
+    </button>
 </div>
 
 <div id="bye1_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
@@ -420,7 +443,6 @@
         left: 890px; /* Distance from the left of the viewport */">
     <button onclick="speak('See you later!')">See you later</button>
 </div>
-
 
 
 </body>

@@ -1,15 +1,20 @@
 Name: D
-login closed  Fri Mar  7 21:41:51 2025
-story_old_client
-Time: Fri Mar  7 21:41:53 2025
-story_old_client
-Time: Fri Mar  7 21:41:54 2025
-story_old_client
-Time: Fri Mar  7 21:41:55 2025
-story_old_client
-Time: Fri Mar  7 21:41:59 2025
-story_old_client
-Time: Fri Mar  7 21:42:03 2025
-goldilocks
-Time: Fri Mar  7 21:42:05 2025
-login closed  Fri Mar  7 21:43:23 2025
+login closed  Fri Jul  4 21:01:19 2025
+action_game
+Time: Fri Jul  4 21:01:28 2025
+Start Emotion games closed  Fri Jul  4 21:01:35 2025
+Main closed  Fri Jul  4 21:04:05 2025
+action_game
+Time: Fri Jul  4 21:04:12 2025
+action_game closed  Fri Jul  4 21:04:12 2025
+Start Emotion games closed  Fri Jul  4 21:06:27 2025
+Name: D
+login closed  Fri Jul  4 21:26:35 2025
+emotion_game_1
+Time: Fri Jul  4 21:26:40 2025
+Start Emotion games closed  Fri Jul  4 21:26:48 2025
+Main closed  Fri Jul  4 21:27:53 2025
+emotion_game_1
+Time: Fri Jul  4 21:27:57 2025
+emotion_game1 closed  Fri Jul  4 21:27:57 2025
+Start Emotion games closed  Fri Jul  4 21:28:04 2025

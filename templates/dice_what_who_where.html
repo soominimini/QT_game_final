@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-    <link rel="stylesheet" href="dice.css">
+    {#    <link rel="stylesheet" href="dice.css">#}
     <title>Dice Roll</title>
 </head>
 <style>
@@ -72,20 +72,6 @@
         box-sizing: border-box;
     }
 
-    {
-        # #diceBox > . dice_wrap > [class^=dice] . dice
-    {
-        width: 100%
-    ;
-        height: 100%
-    ;
-        transform-style: preserve-3d
-    ;
-        transition: 1s
-    ;
-    }
-        #
-    }
     #diceBox > .dice_wrap > [class^=dice] .dice {
         width: 100%;
         height: 100%;
@@ -255,7 +241,6 @@
         justify-content: center;
     {
         #gap: 10px; /* Adds spacing between items */
-        #
     }
     }
 
@@ -311,7 +296,6 @@
         transition: all 0.3s ease; /* Smooth transition */
     {
         #box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-        #
     }
     }
 
@@ -336,7 +320,6 @@
         transition: all 0.3s ease; /* Smooth transition */
     {
         #box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-        #
     }
     }
 
@@ -409,22 +392,22 @@
     <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 350px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Good Job')">Good job</button>
+        <button onclick="speak('Great!')">Great</button>
     </div>
     <div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 400px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Well done')">Well done</button>
+        <button onclick="speak('Bravo!')">Bravo</button>
     </div>
     <div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('You did it')">You did it</button>
+        <button onclick="speak('Wonderful!')">Wonderful</button>
     </div>
     <div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 500px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Amazing')">Amazing</button>
+        <button onclick="speak('Amazing!')">Amazing</button>
     </div>
 
 
@@ -609,6 +592,7 @@
             // Add click event listener to the image
             img.addEventListener('click', function () {
                 ask_question(questions[i]); // Speak the related question when clicked
+                question_gesture(questions[i]); // Speak the related question when clicked
                 value = questions[i];
             });
 
@@ -688,7 +672,33 @@
     }
 
     function ask_question(msg) {
-        socket.emit('dice_question', msg)
+
+        console.log("ask question")
+        socket.emit('dice_question', msg);
+    }
+
+    function question_gesture(msg) {
+        console.log("here question_gesture ")
+        if (msg.toLowerCase().includes("drive")) {
+            socket.emit('gesture_play_pub', 'drive');
+        } else if (msg.toLowerCase().includes("go")) {
+            console.log("here go ")
+            socket.emit('gesture_play_pub', 'go2');
+        } else if (msg.toLowerCase().includes("big") || msg.toLowerCase().includes("large")) {
+            const options = ['big', 'large'];
+            const chosen = options[Math.floor(Math.random() * options.length)];
+            socket.emit('gesture_play_pub', chosen);
+        } else if (msg.toLowerCase().includes("teeth") || msg.toLowerCase().includes("brush")) {
+            const options = ['brushing_teeth', 'brushing_teeth_form'];
+            const chosen = options[Math.floor(Math.random() * options.length)];
+
+            socket.emit('gesture_play_pub', 'brush2');
+            setTimeout(1000)
+            socket.emit('emotion_play', chosen);
+        } else if (msg.toLowerCase().includes("fall")) {
+            socket.emit('gesture_play_pub', 'fall2');
+        }
+
     }
 
     function speak(msg) {

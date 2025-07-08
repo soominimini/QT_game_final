@@ -1,15 +1,7 @@
 Name: B
-login closed  Tue Mar 18 18:46:19 2025
-Main closed  Tue Mar 18 18:46:22 2025
-Main closed  Tue Mar 18 18:46:22 2025
-Main closed  Tue Mar 18 18:46:24 2025
-story_old_client
-Time: Tue Mar 18 18:46:27 2025
-red_riding
-Time: Tue Mar 18 18:46:29 2025
-Main closed  Tue Mar 18 18:47:52 2025
-Main closed  Tue Mar 18 18:48:53 2025
-story_old_client
-Time: Tue Mar 18 18:48:56 2025
-red_riding
-Time: Tue Mar 18 18:48:58 2025
+login closed  Wed Apr 23 21:52:24 2025
+Main closed  Wed Apr 23 21:53:39 2025
+yes_no_old
+Time: Wed Apr 23 21:54:15 2025
+yes_no_old
+Time: Wed Apr 23 21:54:23 2025

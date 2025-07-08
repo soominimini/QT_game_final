@@ -135,9 +135,9 @@ def img_callback(img):
         global em
         # cv2.aruco.drawDetectedMarkers(frame, corners)  # Draw A square around the markers
         # print(corners)
-        print(ids)
+        print(ids[0][0])
         t2 = time.time()
-        if ((t2 - t1) > 3):
+        if ((t2 - t1) > 3 and ids[0][0] <10):
             # emotion_card(ids[0])
             print(ids)
             print("length of ids", len(ids))
@@ -178,5 +178,6 @@ def main_emotion_game3():
     emotionShow_pub = rospy.Publisher('/qt_robot/emotion/show', String, queue_size=10)
     talktext_pub = rospy.Publisher('/qt_robot/behavior/talkText', String, queue_size=10)
     gesturePlay_pub = rospy.Publisher('/qt_robot/gesture/play', String, queue_size=10)
-    rospy.Subscriber('/usb_cam/image_raw/', Image, img_callback)
+    # rospy.Subscriber('/usb_cam/image_raw/', Image, img_callback)
+    sub = rospy.Subscriber('/usb_cam/image_raw/', Image, img_callback)
 

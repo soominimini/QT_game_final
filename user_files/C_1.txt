@@ -1,3 +1,18 @@
 Name: C
-story_old_client
-Time: Thu Mar 13 17:36:52 2025
+login closed  Thu Jun 26 21:06:48 2025
+Main closed  Thu Jun 26 21:07:13 2025
+Name: C
+login closed  Thu Jun 26 21:07:26 2025
+action_game
+Time: Thu Jun 26 21:07:38 2025
+action_game
+Time: Thu Jun 26 21:07:42 2025
+action_game
+Time: Thu Jun 26 21:07:43 2025
+action_game
+Time: Thu Jun 26 21:08:15 2025
+Start Emotion games closed  Thu Jun 26 21:08:23 2025
+action_game
+Time: Thu Jun 26 21:24:16 2025
+action_game closed  Thu Jun 26 21:24:16 2025
+Start Emotion games closed  Thu Jun 26 21:24:20 2025

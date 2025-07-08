@@ -1,0 +1,22 @@
+Name: G
+login closed  Tue May 13 21:11:29 2025
+at_talks
+Time: Tue May 13 21:11:31 2025
+break
+Time: Tue May 13 21:11:57 2025
+break
+Time: Tue May 13 21:12:03 2025
+story_old_client
+Time: Tue May 13 21:12:13 2025
+emotion_game2
+Time: Tue May 13 21:12:17 2025
+Start Emotion games closed  Tue May 13 21:12:22 2025
+emotion_game1 closed  Tue May 13 21:12:59 2025
+instructions_game_young
+Time: Tue May 13 21:13:03 2025
+cherries selected 
+apple selected 
+orange selected 
+cherries selected 
+Main closed  Tue May 13 21:13:54 2025
+Taking Instruction supermarket1 closed  Tue May 13 21:13:54 2025

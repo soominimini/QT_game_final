@@ -377,22 +377,22 @@
     <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 350px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Good Job')">Good job</button>
+        <button onclick="speak('Great!')">Great</button>
     </div>
     <div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 400px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Well done')">Well done</button>
+        <button onclick="speak('Bravo!')">Bravo</button>
     </div>
     <div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('You did it')">You did it</button>
+        <button onclick="speak('Wonderful!')">Wonderful</button>
     </div>
     <div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 500px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Amazing')">Amazing</button>
+        <button onclick="speak('Amazing!')">Amazing</button>
     </div>
 
 
@@ -620,6 +620,7 @@
             // Add click event listener to the image
             img.addEventListener('click', function () {
                 ask_question(questions[i]); // Speak the related question when clicked
+                question_gesture(questions[i]); // Speak the related question when clicked
                 value = questions[i];
             });
 
@@ -631,6 +632,30 @@
 
     function ask_question(msg) {
         socket.emit('dice_question', msg)
+    }
+
+    function question_gesture(msg) {
+        console.log("here question_gesture ")
+        if (msg.toLowerCase().includes("drive")) {
+            socket.emit('gesture_play_pub', 'drive');
+        } else if (msg.toLowerCase().includes("go")) {
+            console.log("here go ")
+            socket.emit('gesture_play_pub', 'go2');
+        } else if (msg.toLowerCase().includes("big") || msg.toLowerCase().includes("large")) {
+            const options = ['big', 'large'];
+            const chosen = options[Math.floor(Math.random() * options.length)];
+            socket.emit('gesture_play_pub', chosen);
+        } else if (msg.toLowerCase().includes("teeth") || msg.toLowerCase().includes("brush")) {
+            const options = ['brushing_teeth', 'brushing_teeth_form'];
+            const chosen = options[Math.floor(Math.random() * options.length)];
+
+            socket.emit('gesture_play_pub', 'brush2');
+            setTimeout(1000)
+            socket.emit('emotion_play', chosen);
+        } else if (msg.toLowerCase().includes("fall")) {
+            socket.emit('gesture_play_pub', 'fall2');
+        }
+
     }
 
     function speak(msg) {

@@ -187,6 +187,10 @@
             {name: "frog", prompt: "We see a, green frog looking at us."},
             {name: "cat", prompt: "We see a, purple cat looking at us."}
         ];
+        const animal_sound = [
+            {name: "frog", prompt: "#FROG#"},
+            {name: "cat", prompt: "#CAT#"}
+        ];
         // Shuffle the animals array
         animals.sort(() => Math.random() - 0.5);
 
@@ -210,6 +214,7 @@
 
             socket.emit('brown_talk', `Children, Children. What do you see?`, 2);
             socket.emit('brown_talk', animals[currentAnimalIndex].prompt, 4, true);
+            socket.emit('brown_talk',animal_sound[currentAnimalIndex].prompt, 0);
 
             console.log("Speech emitted: Children, Children. What do you see?");
             console.log("Speech emitted:", animals[currentAnimalIndex].prompt);
@@ -227,6 +232,7 @@
 
                         socket.emit('brown_talk', `Children, Children. What do you see?`, 3);
                         socket.emit('brown_talk', animals[currentAnimalIndex].prompt, 4.5, true);
+                        socket.emit('brown_talk',animal_sound[currentAnimalIndex].prompt, 4.1);
 
                         console.log("Speech emitted: Children, Children. What do you see?");
                         console.log("Speech emitted:", animals[currentAnimalIndex].prompt);
@@ -331,27 +337,26 @@
         <button onclick="encour()">Encourage</button>
     </div>
 
-
-    <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+<div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 350px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Good Job')">Good job</button>
-    </div>
-    <div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+    <button onclick="speak('Great!')">Great</button>
+</div>
+<div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 400px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Well done')">Well done</button>
-    </div>
-    <div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+    <button onclick="speak('Bravo!')">Bravo</button>
+</div>
+<div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('You did it')">You did it</button>
-    </div>
-    <div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+    <button onclick="speak('Wonderful!')">Wonderful</button>
+</div>
+<div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 500px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Amazing')">Amazing</button>
-    </div>
+    <button onclick="speak('Amazing!')">Amazing</button>
+</div>
 
 
     <div id="encour1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */

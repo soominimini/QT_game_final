@@ -71,7 +71,9 @@ emotion_game3_failure = 0
 
 head_idle = []
 
-Idle_gestures = ["both_arms", "right_arm", "left_arm", "natural_arms_wide", "head_arm_natural"]
+Idle_gestures = ["both_arms", "right_arm", "left_arm", "natural_arms_wide", "idle_left_arm_and_head","idle_right_arm_and_head", "idle1"]
+
+deictic_gestures = ["child_direct", "child_direct2", "child_direct3"]
 
 idle_arm_gestures = ["idle_arms_up_1"]
 emotion_dictionary = {0: "angry", 1: "happy", 2: "excited", 3: "sad", 4: "scared", 5: "shy"}
@@ -104,7 +106,7 @@ def neutralize():
     gesturePlay_servc("QT/neutral", 0.5)
 # "idle_left_arm_and_head", "idle_right_arm_and_head",
 def get_short_idle_gesture():
-    gestures = ["idle_arms_up_1", "idle_arms_1", "idle_arms_2", "head_arm_natural","natural_arms_wide","both_arms", "idle_test_1", "idle_test_arm"]
+    gestures = ["head_arm_natural", "idle_left_arm_and_head", "idle_right_arm_and_head","natural_arms_wide","idle_short_head_and_arms", "idle_test_1", "idle_test_arm", "idle2"]
     # gestures = ["idle_arms_up_1", "idle_arms_1", "idle_arms_2", "head_arm_natural", "natural_arms_wide", "both_arms", "idle_test_1", "idle_test_arm", "idle_left_arm_and_head", "idle_right_arm_and_head","idle_short_head_and_arms"]
     return random.choice(gestures)
 
@@ -207,7 +209,6 @@ def handle_gesture_play(data, speed):
     threading.Thread(target=play_gesture).start()
     print("Gesture play event received:", data)
 
-
 @socketio.on('gesture_play_pub')
 def handle_gesture_play_pub(data):
     gesturePlay_pub.publish(data)
@@ -232,7 +233,7 @@ def handle_repeat_speach(data):
         data = global_sentence
 
     print("repeat_speech: ", data)
-
+    gesturePlay_pub.publish("child_looking")
     def say_speech_repeat():
         speech_stop_event.clear()  # Reset stop signal before starting speech
         # speechSay_pub.publish(data)  # Publish speech
@@ -244,6 +245,20 @@ def handle_repeat_speach(data):
 
     threading.Thread(target=say_speech_repeat).start()
     print("Speech say event received:", data)
+
+
+@socketio.on('at_talk_speech')
+def handle_repeat_speach(data):
+    def say_speech_repeat():
+        speech_stop_event.clear()  # Reset stop signal before starting speech
+
+        # behaviorTalk_servc(data)
+        talktext_pub.publish(data)
+        # Run speech processing in a separate thread
+
+    threading.Thread(target=say_speech_repeat).start()
+    print("at_talk_speech received:", data)
+
 
 #     #     #     #     #     #     #     #     #     #     #     # #     #     #    STOP functions  #     #     #     #     #     #     #     #     #     #     #     #     #     #
 @socketio.on('story_text')
@@ -296,7 +311,7 @@ def first_talk_robot(msg):
     handle_speech_say(msg)
     # talktext_pub.publish(msg)
 
-    gesturePlay_pub.publish(get_short_idle_gesture())
+    gesturePlay_pub.publish("child_looking")
 
 
 @socketio.on('giveme_talk')
@@ -306,7 +321,8 @@ def giveme_talk_robot(msg, time_sleep):
     rospy.sleep(time_sleep)
     talktext_pub.publish(msg)
 
-    rospy.sleep(2.5)
+    # rospy.sleep(2.5)
+    gesturePlay_pub.publish("child_looking")
 
 @socketio.on('object_list')
 def correct_answer(obj):
@@ -318,13 +334,15 @@ def correct_answer(obj):
 
 @socketio.on('simple_correct')
 def simple_correct_answer_res():
-    rospy.sleep(0.5)
+    rospy.sleep(1.0)
+    # gesturePlay_pub.publish("child_looking")
     talktext_pub.publish("Correct!")
 
 
 @socketio.on('simple_wrong')
 def simple_wrong_answer_res():
     rospy.sleep(0.5)
+    # gesturePlay_pub.publish("child_looking")
     talktext_pub.publish("That's not correct")
 
 
@@ -379,6 +397,7 @@ def correct_answer():
         # audioPlay_pub.publish("QT/amazing")
 
     rospy.sleep(1)
+    # gesturePlay_servc("neutral_low", 0.9)
     global success_record
     success_record += 1
 
@@ -610,6 +629,7 @@ def main_page():
     # gesturePlay_servc("head_natural", 1.5)
     # gesturePlay_pub.publish("head_natural")
     # gesturePlay_pub.publish("natural_arms_wide")
+    neutralize()
 
     return render_template('main.html')
 
@@ -635,6 +655,7 @@ def disconnect_details(data):
         exit_main_action()
     elif (data['data'] == "emotion_game3"):
         exit_main_game()
+        
 
 
 @app.route('/taking_instruction_main')
@@ -1338,27 +1359,31 @@ def dice_board(dice_face_str):
 @socketio.on('dice_question')
 def dice_ask_question(question):
     print(f"dice_question {question}")
-    gesturePlay_pub.publish(get_short_idle_gesture())
+    # gesturePlay_pub.publish(get_short_idle_gesture())
 
     handle_speech_say(question)
 
 
 @app.route('/dice_action_young_start')
 def dice_action_young_start():
-    # talktext_pub.publish("Let's roll the dice")
+    gesturePlay_pub.publish(random.choice(deictic_gestures))
+    rospy.sleep(1)
     handle_speech_say("Let's roll the dice")
     return render_template('dice_action_young.html')
 
 
 @app.route('/dice_emotion_young_start')
 def dice_emotion_young_start():
-    # talktext_pub.publish("Let's roll the dice")
+    gesturePlay_pub.publish(random.choice(deictic_gestures))
+    rospy.sleep(1)
     handle_speech_say("Let's roll the dice")
     return render_template('dice_emotion_young.html')
 
 
 @app.route('/dice_emotion_old_start')
 def dice_emotion_old_start():
+    gesturePlay_pub.publish(random.choice(deictic_gestures))
+    rospy.sleep(1)
     # talktext_pub.publish("Let's roll the dice")
     handle_speech_say("Let's roll the dice")
     return render_template('dice_emotion_old.html')
@@ -1373,6 +1398,8 @@ def dice_5w1h():
 
 @app.route('/dice_5w1h_1')
 def dice_5w1h_1():
+    gesturePlay_pub.publish(random.choice(deictic_gestures))
+    rospy.sleep(1)
     # talktext_pub.publish("Let's roll the dice")
     handle_speech_say("Let's roll the dice")
     return render_template('dice_why_when_how.html')
@@ -1380,6 +1407,8 @@ def dice_5w1h_1():
 
 @app.route('/dice_5w1h_2')
 def dice_5w1h_2():
+    gesturePlay_pub.publish(random.choice(deictic_gestures))
+    rospy.sleep(1)
     # talktext_pub.publish("Let's roll the dice")
     handle_speech_say("Let's roll the dice")
     return render_template('dice_what_who_where.html')
@@ -1387,6 +1416,8 @@ def dice_5w1h_2():
 
 @app.route('/dice_board')
 def dice_board():
+    gesturePlay_pub.publish(random.choice(deictic_gestures))
+    rospy.sleep(1)
     # talktext_pub.publish("Let's roll the dice")
     handle_speech_say("Let's roll the dice")
     return render_template('dice_board_game.html')
@@ -1430,13 +1461,19 @@ def story_speak(msg, sound):
 
     # Split the text at punctuation marks into chunks
 
-    gesturePlay_pub.publish(get_short_idle_gesture())
-    talktext_pub.publish(msg)
-    # cnt = msg.count('.') + msg.count(',')
-    # print("cnt: ",cnt)
-    # for i in range(cnt):
-    #     gesturePlay_servc(get_short_idle_gesture(), 1.0)
 
+    # Check if specific keyword is in the text
+    if 'stroll' in msg.lower() or 'rush' in msg.lower():
+        gesture = 'go2'
+    elif 'knock' in msg.lower():
+        gesture = 'knock'
+    elif 'big' in msg.lower():
+        gesture = random.choice(['large', 'big'])
+    else:
+        gesture = get_short_idle_gesture()
+
+    gesturePlay_pub.publish(gesture)
+    talktext_pub.publish(msg)
     if sound != "":
         rospy.sleep(1.5)
         audioPlay_pub.publish(sound)
@@ -1450,6 +1487,7 @@ def story_speak(msg, sound):
 def break_fucn():
     # talktext_pub.publish("Let's roll the dice")
     handle_speech_say("Oh! Break Time!")
+    gesturePlay_pub.publish("child_idle_head1")
     # gesturePlay_servc("head_natural", 1.5)
     # gesturePlay_pub.publish("head_natural")
     return render_template('break.html')
@@ -1457,8 +1495,8 @@ def break_fucn():
 
 @app.route('/at_talks')
 def at_talks_func():
-    # talktext_pub.publish("Let's roll the dice")
-    # handle_speech_say("Let's roll the dice")
+    # gesturePlay_pub.publish("child_looking")
+
     return render_template('at_talks.html')
 
 
@@ -1473,7 +1511,10 @@ def story_young_main():
 
 @app.route('/brown_bear')
 def story_young():
+    gesturePlay_pub.publish("child_looking")
     talktext_pub.publish("I will tell you a story")
+    rospy.sleep(1.0)
+    gesturePlay_pub.publish("neutral")
     return render_template('brown_bear.html')
 
 
@@ -1529,9 +1570,16 @@ def story_young10():
 def speech_brown_bear(text, sleep_time, wait=False):
     print("brown_talk: ", text, sleep_time)
     rospy.sleep(sleep_time)
-    # talktext_pub.publish(text)
 
-    gesturePlay_pub.publish(get_short_idle_gesture())
+    if 'balloon' in text.lower() or 'moon' in text.lower():
+        gesture = 'ball'
+    elif 'picture' in text.lower():
+        gesture = 'picture'
+    elif 'comb' in text.lower():
+        gesture = 'comb'
+    else:
+        gesture = get_short_idle_gesture()
+    gesturePlay_pub.publish(gesture)
 
     handle_speech_say(text)
 
@@ -1540,6 +1588,7 @@ def speech_brown_bear(text, sleep_time, wait=False):
 @app.route('/goodnight')
 def story_young_moon():
     # talktext_pub.publish("I will tell you a story")
+    gesturePlay_pub.publish(random.choice(deictic_gestures))
     return render_template('/goodnight/goodnight_moon.html')
 
 
@@ -1599,18 +1648,26 @@ def story_young_moon11():
 def speech_yes_or_no(text, sleep_time):
     print("speech_yes_or_no: ", text, sleep_time)
     rospy.sleep(sleep_time)
-    gesturePlay_pub.publish(get_short_idle_gesture())
+    # Check if specific keyword is in the text
+    print("text.lower(): ",text.lower())
+    if 'balloon' in text.lower():
+        gesture = 'ball'
+    elif 'fly' in text.lower() or 'wing' in text.lower():
+        gesture = 'fly2'
+    else:
+        gesture = get_short_idle_gesture()
+
+    print("gesture: ",gesture)
+    gesturePlay_pub.publish(gesture)
     talktext_pub.publish(text)
 
 @app.route('/yes_no_young')
 def yes_no_young():
-    # talktext_pub.publish("I will tell you a story")
     return render_template('yes_no_young.html')
 
 
 @app.route('/yes_no_old')
 def yes_no_old():
-    # talktext_pub.publish("I will tell you a story")
     return render_template('yes_no_old.html')
 
 
@@ -1634,16 +1691,31 @@ def speech_inference(text, sleep_time):
     # gesturePlay_pub.publish(get_short_idle_gesture())
     # behaviorTalk_servc(text)
 
-    # Split the text at punctuation marks into chunks\
+    # Split the text into chunks
     chunks = text_split(text)
 
     for chunk in chunks:
         gestureStop_servc()
-        gesturePlay_pub.publish(get_short_idle_gesture())
+
+        # Convert to lowercase for case-insensitive matching
+        lower_chunk = chunk.lower()
+
+        # Choose gesture based on keywords
+        # if 'big' in lower_chunk:
+        #     gesture = 'big'
+        # elif 'hug' in lower_chunk:
+        #     gesture = 'warm'
+        # elif 'round' in lower_chunk:
+        #     gesture = 'round'
+        # elif 'long' in lower_chunk:
+        #     gesture = 'long'
+        # else:
+        #     gesture = get_short_idle_gesture()
+
+        gesture = get_short_idle_gesture()
+
+        gesturePlay_pub.publish(gesture)
         behaviorTalk_servc(chunk)
-
-#
-
 
 @socketio.on('start_talk')
 def first_talk_robot_interactive():
@@ -1658,17 +1730,22 @@ def first_talk_robot_interactive():
 def second():
     # global talktext_pub
     # rospy.sleep(2.0)
+    gesturePlay_pub.publish(get_short_idle_gesture())
     talktext_pub.publish("Once upon a time lived Goldilocks and The Three Bears.")
+    gesturePlay_servc("QT/neutral", 2)
 
 
 @socketio.on('girl_lodge')
 def third_girl():
     # global talktext_pub
+    gesturePlay_pub.publish(get_short_idle_gesture())
     talktext_pub.publish("One day, Goldilocks went for a walk in the forest and found a house.")
     rospy.sleep(5.0)
     audioPlay_pub.publish('QT/knock')
     rospy.sleep(1.5)
+    gesturePlay_pub.publish(get_short_idle_gesture())
     behaviorTalk_servc("She knocked, and when nobody answered, she decided to go inside.")
+    gesturePlay_servc("QT/neutral", 2)
 
 
 @socketio.on('girl_table')
@@ -1683,7 +1760,9 @@ def table_main(msg):
     if (porridge_visited[0] == False and selected_lodge != " "):
         # If this is the first visit on this page, robot speaks to choose one bowl
         rospy.sleep(2.0)
+        gesturePlay_pub.publish(get_short_idle_gesture())
         talktext_pub.publish("At the table, there were three bowls of porridge. Goldilocks was hungry.")
+        gesturePlay_servc("QT/neutral", 2)
 
 
 @socketio.on('dad_porridge')
@@ -1718,6 +1797,7 @@ def chair_main():
     print("chair_visit: ", chair_visit)
     socketio.emit('number', chair_visit, broadcast=True)
     if (chair_visited[0] == False):
+        gesturePlay_pub.publish(get_short_idle_gesture())
         talktext_pub.publish("Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.")
 
 
@@ -1761,6 +1841,12 @@ def baby_chair():
 def baby_chair2():
     talktext_pub.publish("Just as Goldilocks settled down into the chair to rest, it broke into pieces!")
 
+    talktext_pub.publish("Oh!")
+    rospy.sleep(5.0)
+    gesturePlay_pub.publish("oh")
+    rospy.sleep(2.0)
+    emotionShow_pub.publish("QT/surprise")
+
 
 @socketio.on('bed')
 def bed_main():
@@ -1769,6 +1855,7 @@ def bed_main():
     if (bed_visited[0] == False):
         # If this is the first visit on this page, robot speaks to choose one bowl
         print("bed enter")
+        gesturePlay_pub.publish(get_short_idle_gesture())
         talktext_pub.publish("By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom.")
 
 
@@ -1984,7 +2071,9 @@ def object_card(id):
     talktext_pub.publish(action)
     rospy.sleep(3)
     talktext_pub.publish("Look at the tablet, click on the picture")
-
+    rospy.sleep(1.0)
+    # gesturePlay_pub.publish("child_direct")
+    gesturePlay_pub.publish(random.choice(deictic_gestures))
 
 def young_emotion_card(id):
     print(id)
@@ -2034,6 +2123,9 @@ def young_emotion_card(id):
 
     rospy.sleep(3.0)
     talktext_pub.publish("Look at the tablet, click on the picture")
+    rospy.sleep(1.0)
+    # gesturePlay_pub.publish("child_direct")
+    gesturePlay_pub.publish(random.choice(deictic_gestures))
 
 
 @app.route('/request', methods=['POST'])
@@ -2231,10 +2323,13 @@ def start_game(message):
         print("{'url': url_for('first_view')}")
         if (game == "emotion_game1" or game == "emotion_game2"):
             behaviorTalk_servc("Let's play a game")
+            gesturePlay_pub.publish("child_looking")
         elif (game == "emotion_game3"):
             behaviorTalk_servc("Let's play a game, show me two emotion cards")
+            gesturePlay_pub.publish("child_looking")
         elif (game == "action_game"):
             behaviorTalk_servc("Let's play a game")
+            gesturePlay_pub.publish("child_looking")
         rospy.sleep(1)
 
 
@@ -2260,7 +2355,10 @@ def image_selected(message):
                 selected_emotion = "saed"
             behaviorTalk_servc(selected_emotion)
             # rospy.sleep(1.0)
+
+            gesturePlay_pub.publish(random.choice(deictic_gestures))
             behaviorTalk_servc(next_dialogue[random_number])
+
     elif (game == "emotion_game2"):
         global var
         if (selected == 0):
@@ -2296,6 +2394,9 @@ def next_button(message):
     global speech_flag, speech_flag_emotion
     if (game == "emotion_game1"):
         rospy.sleep(2)
+        # gesturePlay_pub.publish("child_direct")
+        gesturePlay_pub.publish(random.choice(deictic_gestures))
+        rospy.sleep(1)
         talktext_pub.publish("Show me another emotion card!")
         global speech_flag_emotion
         if (speech_flag_emotion == True):
@@ -2305,6 +2406,9 @@ def next_button(message):
 
     elif (game == "emotion_game2"):
         rospy.sleep(2)
+        # gesturePlay_pub.publish("child_direct")
+        gesturePlay_pub.publish(random.choice(deictic_gestures))
+        rospy.sleep(1)
         talktext_pub.publish("Show me another emotion card!")
         rospy.sleep(1.5)
         if (selected == 1):
@@ -2315,6 +2419,9 @@ def next_button(message):
 
     elif (game == "action_game"):
         rospy.sleep(2)
+        # gesturePlay_pub.publish("child_direct")
+        gesturePlay_pub.publish(random.choice(deictic_gestures))
+        rospy.sleep(1)
         talktext_pub.publish("Show me another action card!")
         global speech_flag
         if (speech_flag == True):
