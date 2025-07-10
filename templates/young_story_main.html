@@ -49,6 +49,13 @@
             document.getElementById("info-popup").style.display = "none";
     }
 
+    function praise_speak(msg) {
+        socket.emit('praise', msg)
+    }
+    function encour_speak(msg) {
+        socket.emit('encourage', msg)
+    }
+
 
     // Function to handle game button clicks
     function handleGameClick(gameId) {
@@ -226,6 +233,43 @@
 
     <div class="stop">
         <button id="stop-speech-btn">STOP</button>
+    </div>
+
+    <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 350px; /* Distance from the top of the viewport */
+        left: 30px; /* Distance from the left of the viewport */">
+    <button onclick="praise_speak('Great!')">Great</button>
+</div>
+<div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 400px; /* Distance from the top of the viewport */
+        left: 30px; /* Distance from the left of the viewport */">
+    <button onclick="praise_speak('Bravo!')">Bravo</button>
+</div>
+<div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        left: 30px; /* Distance from the left of the viewport */">
+    <button onclick="praise_speak('Wonderful!')">Wonderful</button>
+</div>
+<div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 500px; /* Distance from the top of the viewport */
+        left: 30px; /* Distance from the left of the viewport */">
+    <button onclick="praise_speak('Amazing!')">Amazing</button>
+</div>
+
+    <div id="encour1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 350px; /* Distance from the top of the viewport */
+        right: 30px; /* Distance from the left of the viewport */">
+        <button onclick="encour_speak('You can do it!')">You can do it</button>
+    </div>
+    <div id="encour2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 400px; /* Distance from the top of the viewport */
+        right: 30px; /* Distance from the left of the viewport */">
+        <button onclick="encour_speak('Keep trying!')">Keep trying</button>
+    </div>
+    <div id="encour3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 450px; /* Distance from the top of the viewport */
+        right: 30px; /* Distance from the left of the viewport */">
+        <button onclick="encour_speak('Don’t give up!')">Don’t give up</button>
     </div>
 
     <div id="dice-buttons"

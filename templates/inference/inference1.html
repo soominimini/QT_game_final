@@ -215,43 +215,45 @@
 
         const questions = [
             {
-                text: "It’s a shape. It is symmetrical. You can see it in the sky at night. What am I?",
+                {#text: "It’s a shape. It is symmetrical. You can see it in the sky at night. What am I?",#}
+                text: "\ rspd=70\ It’s a shape. It is symmetrical. You can see it in the sky at night. \ rspd=80\What am I?",
                 correctAnswer: "star",
                 image: "static/images/star.jpg",
                 options: ["star", "circle", "square"]
             },
             {
-                text: "I play in the mud, I am usually pink. What am i?",
+                {#text: "I play in the mud, I am usually pink. What am i?",#}
+                text: "I play in  \ rspd=60\ the mud \ rspd=80\, I am \ rspd=60\ usually pink\ rspd=80\. What am i?",
                 correctAnswer: "pig",
                 image: "static/images/pig.jpg",
                 options: ["pig", "horse", "cow"]
             },
             {
-                text: "I eat grass and live in a barn. I usually have black and white spots. I can give you milk. What am i?",
+                text: "I eat grass \pau=200\ and live in a barn. I usually have black and white spots. I can give you milk. What am i?",
                 correctAnswer: "Cow",
                 image: "static/images/Cow.jpg",
                 options: ["Cow", "sheep", "chicken"]
             },
             {
-                text: "I have a long neck so I can eat leaves high up in the tree. I am yellow and have brown spots all over me. What am I?",
+                text:  "I have a \pau=200\ long neck, so I can eat leaves high up \ rspd=60\ in the tree\ rspd=80\. I am \pau=200\  \ rspd=60\ yellow and have brown spots  \ rspd=80\ all over me. What am I?",
                 correctAnswer: "Giraffe",
                 image: "static/images/Giraffe.jpg",
                 options: ["Giraffe", "lion", "zebra"]
             },
             {
-                text: "I am grey. I have big floppy ears and a long trunk. I love peanuts. What am I?",
+                text: "I am grey. I have \ rspd=60\ big floppy ears and a long trunk.\ rspd=80\ I love peanuts. What am I?",
                 correctAnswer: "Elephant",
                 image: "static/images/Elephant.jpg",
                 options: ["Elephant", "monkey", "toucan"]
             },
             {
-                text: "You wear me when you are cold to keep you warm. I have a zipper and pockets. What am I?",
+                text: "You wear me \ rspd=60\ when you are cold to keep you warm.\ rspd=80\ I have a zipper and pockets. What am I?",
                 correctAnswer: "jacket",
                 image: "static/images/jacket.jpg",
                 options: ["jacket", "scarf", "hat"]
             },
             {
-                text: "You wear me on your feet. You use me when you want to go outside. I come in different colors. I can have laces or straps. What am I?",
+                text: "You wear me \ rspd=60\ on your feet. \ rspd=80\ You use me when you want to go outside. I come in different colors. I can have \ rspd=60\ straps.\ rspd=80\ What am I?",
                 correctAnswer: "Shoes",
                 image: "static/images/Shoes.jpg",
                 options: ["Shoes", "hat", "t-shirt"]
@@ -263,13 +265,13 @@
                 options: ["banana", "strawberry", "grape"]
             },
             {
-                text: "It’s orange and round. You can carve it to make silly or scary faces. You can put a candle inside of it. You see it during Halloween. What am I?",
+                text: "It’s \ rmw=1\ orange and round. \ rmw=0\ You can carve it to \ rspd=60\ make silly or scary faces.\ rspd=80\ You can put a candle inside of it. You see it  \ rspd=70\ during Halloween.\ rspd=80\ What am I?",
                 correctAnswer: "Pumpkin",
                 image: "static/images/pumpkin.jpg",
                 options: ["Pumpkin", "cucumber", "orange"]
             },
             {
-                text: "It's shaped like an oval. You crack it to open it. It comes from a chicken. What is it?",
+                text: "It\'s shaped \ rspd=60\ like an oval. \ rspd=80\ You crack it to open it. It comes from \ rmw=1\ a chicken.\ rmw=0\  What is it?",
                 correctAnswer: "egg",
                 image: "static/images/egg.jpg",
                 options: ["egg", "cheese", "potato"]
@@ -281,7 +283,7 @@
                 options: ["ball", "blocks", "car"]
             },
             {
-                text: "I am a toy. I have small pieces to put together to make a picture. What am i?",
+                text: "I am a toy. I have small pieces to put together \ rspd=60\ to make a picture. \ rspd=80\  What am i?,
                 correctAnswer: "puzzle",
                 image: "static/images/puzzle.jpg",
                 options: ["dinosaur", "puzzle", "doll"]
@@ -293,13 +295,13 @@
                 options: ["teddybear", "keyboard", "bike"]
             },
             {
-                text: "I can be carried on your back or hand. You fill me with things you need. You take me to school. What am I?",
+                text:  "I can be carried on your \ rmw=1\ back or hand. \ rmw=0\ You fill me with things you need. You take me to school. What am I?",
                 correctAnswer: "Backpack",
                 image: "static/images/Backpack.jpg",
                 options: ["Backpack", "crayons", "pencil"]
             },
             {
-                text: "I am long. On one end I have an eraser. You use me to write or draw. What am I?",
+                text: "I am \ pau=200\ \ rspd=60\ long. \ rspd=80\ On one end, I have an eraser. You use me \ rmw=1\ \ pau=200\ to write or draw \ rmw=0\  . What am I?",
                 correctAnswer: "pencil",
                 image: "static/images/pencil.jpg",
                 options: ["pencil", "backpack", "glue"]
@@ -311,7 +313,7 @@
                 options: ["doctor", "firefighter", "police"]
             },
             {
-                text: "I work at a school. I teach many subjects. I help students learn how to read and write. Who am I?",
+                text: "I work at a school. I teach many subjects. I help students learn how to \pau=200\ \ rspd=60\ read and write.\ rspd=80\  Who am I?",
                 correctAnswer: "teacher",
                 image: "static/images/teacher.jpg",
                 options: ["teacher", "mailman", "police"]
@@ -419,8 +421,12 @@
             encour4.style.display = displayState;
         }
 
-        function speak(msg) {
-            socket.emit('repeat_speech', msg)
+        function praise_speak(msg) {
+            socket.emit('praise', msg)
+        }
+
+        function encour_speak(msg) {
+            socket.emit('encourage', msg)
         }
     </script>
 
@@ -453,43 +459,43 @@
     </div>
 
 
-<div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+    <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 350px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Great!')">Great</button>
-</div>
-<div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        <button onclick="praise_speak('Great!')">Great</button>
+    </div>
+    <div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 400px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Bravo!')">Bravo</button>
-</div>
-<div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        <button onclick="praise_speak('Bravo!')">Bravo</button>
+    </div>
+    <div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Wonderful!')">Wonderful</button>
-</div>
-<div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        <button onclick="praise_speak('Wonderful!')">Wonderful</button>
+    </div>
+    <div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 500px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Amazing!')">Amazing</button>
-</div>
+        <button onclick="praise_speak('Amazing!')">Amazing</button>
+    </div>
+
 
     <div id="encour1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 350px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('You can do it!')">You can do it</button>
+        <button onclick="encour_speak('You can do it!')">You can do it</button>
     </div>
     <div id="encour2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 400px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Keep trying!')">Keep trying</button>
+        <button onclick="encour_speak('Keep trying!')">Keep trying</button>
     </div>
     <div id="encour3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Don’t give up!')">Don’t give up</button>
+        <button onclick="encour_speak('Don’t give up!')">Don’t give up</button>
     </div>
-
 
 </div>
 

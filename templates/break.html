@@ -132,7 +132,7 @@
     }
 
     function speak(msg) {
-        socket.emit('repeat_speech', msg);
+        socket.emit('break_speech', msg);
         if (msg.includes('highfive')) {
             // Do something
             socket.emit('gesture_play_pub', "high_five");

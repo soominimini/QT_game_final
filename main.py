@@ -154,7 +154,10 @@ def setup_speech_logging():
 
 def neutralize():
     gesturePlay_servc("QT/neutral", 0.5)
-# "idle_left_arm_and_head", "idle_right_arm_and_head",
+
+def neutralize_slow():
+    gesturePlay_servc("QT/neutral", 0.4)
+
 def get_short_idle_gesture():
     gestures = ["head_arm_natural", "idle_left_arm_and_head", "idle_right_arm_and_head","natural_arms_wide","idle_short_head_and_arms", "idle_test_1", "idle_test_arm", "idle2"]
     # gestures = ["idle_arms_up_1", "idle_arms_1", "idle_arms_2", "head_arm_natural", "natural_arms_wide", "both_arms", "idle_test_1", "idle_test_arm", "idle_left_arm_and_head", "idle_right_arm_and_head","idle_short_head_and_arms"]
@@ -300,7 +303,7 @@ def handle_repeat_speach(data):
             with open(file_name, "a") as f:
                 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 # Write the custom log entry for the button click
-                f.write(f"[{timestamp}] REPEAT BUTTON: {data}\n")
+                f.write(f"[{timestamp}] REPEAT BUTTON Clicked: ")
         except Exception as e:
             print(f"Error logging repeat button click: {e}")
     # --- End of logging block ---
@@ -324,19 +327,66 @@ def handle_repeat_speach(data):
 def handle_repeat_speach(data, log_message=None):
     def say_speech_repeat():
         speech_stop_event.clear()  # Reset stop signal before starting speech
-
-        # behaviorTalk_servc(data)
         talktext_pub.publish(data)
-        # Run speech processing in a separate thread
-
-    # Log the button information if provided
-    if log_message:
-        log_speech(log_message)
-    else:
-        log_speech(data)
-
     threading.Thread(target=say_speech_repeat).start()
     print("at_talk_speech received:", data)
+
+
+@socketio.on('break_speech')
+def handle_repeat_speach(data, log_message=None):
+    gesturePlay_pub.publish("child_looking")
+    def say_speech_repeat():
+        speech_stop_event.clear()  # Reset stop signal before starting speech
+        talktext_pub.publish(data)
+    threading.Thread(target=say_speech_repeat).start()
+    print("at_talk_speech received:", data)
+
+
+@socketio.on('praise')
+def handle_praise_speach(data):
+    # --- Add this logging block ---
+    global file_name
+    if file_name: # Checks if the log file has been set up
+        try:
+            with open(file_name, "a") as f:
+                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                # Write the custom log entry for the button click
+                f.write(f"[{timestamp}] Praise BUTTON Clicked: ")
+        except Exception as e:
+            print(f"Error logging repeat button click: {e}")
+    # --- End of logging block ---
+
+    gesturePlay_pub.publish("child_looking1")
+    def say_speech_repeat():
+        speech_stop_event.clear()  # Reset stop signal before starting speech
+        behaviorTalk_servc(data)
+        # Run speech processing in a separate thread
+
+    threading.Thread(target=say_speech_repeat).start()
+
+@socketio.on('encourage')
+def handle_encourage_speach(data):
+    # --- Add this logging block ---
+    global file_name
+    if file_name: # Checks if the log file has been set up
+        try:
+            with open(file_name, "a") as f:
+                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                # Write the custom log entry for the button click
+                f.write(f"[{timestamp}] Encourage BUTTON Clicked: ")
+        except Exception as e:
+            print(f"Error logging repeat button click: {e}")
+    # --- End of logging block ---
+
+    gesturePlay_pub.publish("child_looking1")
+    def say_speech_repeat():
+        speech_stop_event.clear()  # Reset stop signal before starting speech
+        behaviorTalk_servc(data)
+        # Run speech processing in a separate thread
+
+    threading.Thread(target=say_speech_repeat).start()
+
+
 
 
 #     #     #     #     #     #     #     #     #     #     #     # #     #     #    STOP functions  #     #     #     #     #     #     #     #     #     #     #     #     #     #
@@ -596,7 +646,7 @@ def logged_in(message):
 
     # Open file in append mode and write user information
     with open(file_name, "a") as f:
-        f.write(f"Name: {name}\n")
+        f.write(f"CLIENT NAME: {name}\n")
 
     print(f"File saved as: {file_name}")
 
@@ -625,7 +675,7 @@ def main_menu(message):
     game = ""
     with open(file_name, 'a+') as f:
         start = time.ctime()
-        f.write(message["who"] + "\n")
+        f.write("GAME: " + message["who"] + "\n")
         f.write("Time: " + time.ctime() + "\n")
 
         # Prevent multiple redirects
@@ -1188,7 +1238,6 @@ def dice_face_in_young_action(dice_face_str):
         # talktext_pub.publish("Let's sing a song!")
         music = ["spider", "ABC", "mcdonald", "twinkle", "wheels"]
         random_song = random.choice(music)
-        random_song = "wheels"
         print("random_song: " + random_song)
         if str(random_song) == "spider":
             # talktext_pub.publish("Let's sing Incy Wincy Spider")
@@ -1767,34 +1816,50 @@ def speech_inference(text, sleep_time):
     """
     print("speech_inference: ", text, sleep_time)
     rospy.sleep(sleep_time)
-    # gesturePlay_pub.publish(get_short_idle_gesture())
-    # behaviorTalk_servc(text)
 
-    # Split the text into chunks
-    chunks = text_split(text)
+    gestureStop_servc()
 
-    for chunk in chunks:
-        gestureStop_servc()
+    lower_text = text.lower()
 
-        # Convert to lowercase for case-insensitive matching
-        lower_chunk = chunk.lower()
-
-        # Choose gesture based on keywords
-        # if 'big' in lower_chunk:
-        #     gesture = 'big'
-        # elif 'hug' in lower_chunk:
-        #     gesture = 'warm'
-        # elif 'round' in lower_chunk:
-        #     gesture = 'round'
-        # elif 'long' in lower_chunk:
-        #     gesture = 'long'
-        # else:
-        #     gesture = get_short_idle_gesture()
-
+    if 'big' in lower_text:
+        gesture = 'big'
+    elif 'hug' in lower_text:
+        gesture = 'warm'
+    elif 'round' in lower_text:
+        gesture = 'round'
+    elif 'long' in lower_text:
+        gesture = 'long'
+    else:
         gesture = get_short_idle_gesture()
 
-        gesturePlay_pub.publish(gesture)
-        behaviorTalk_servc(chunk)
+    gesturePlay_pub.publish(gesture)
+    behaviorTalk_servc(text)
+
+    # # Split the text into chunks
+    # chunks = text_split(text)
+    #
+    # for chunk in chunks:
+    #     gestureStop_servc()
+    #
+    #     # Convert to lowercase for case-insensitive matching
+    #     lower_chunk = chunk.lower()
+    #
+    #     # Choose gesture based on keywords
+    #     # if 'big' in lower_chunk:
+    #     #     gesture = 'big'
+    #     # elif 'hug' in lower_chunk:
+    #     #     gesture = 'warm'
+    #     # elif 'round' in lower_chunk:
+    #     #     gesture = 'round'
+    #     # elif 'long' in lower_chunk:
+    #     #     gesture = 'long'
+    #     # else:
+    #     #     gesture = get_short_idle_gesture()
+    #
+    #     gesture = get_short_idle_gesture()
+    #
+    #     gesturePlay_pub.publish(gesture)
+    #     behaviorTalk_servc(chunk)
 
 @socketio.on('start_talk')
 def first_talk_robot_interactive():

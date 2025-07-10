@@ -3945,3 +3945,101 @@ Time: Tue Jul  8 19:55:32 2025
 [2025-07-08 19:55:34] ROBOT_SPEECH: Lets sing a song
 Main closed  Tue Jul  8 19:55:43 2025
 login closed  Tue Jul  8 19:55:45 2025
+login closed  Wed Jul  9 17:11:08 2025
+login closed  Wed Jul  9 17:15:50 2025
+login closed  Wed Jul  9 18:00:39 2025
+login closed  Wed Jul  9 18:00:42 2025
+login closed  Wed Jul  9 18:06:42 2025
+login closed  Wed Jul  9 18:12:53 2025
+login closed  Wed Jul  9 19:04:00 2025
+Main closed  Wed Jul  9 19:13:58 2025
+story_old_client
+Time: Wed Jul  9 19:14:03 2025
+[2025-07-09 19:14:03] ROBOT_SPEECH: Lets choose a story
+red_riding
+Time: Wed Jul  9 19:14:05 2025
+[2025-07-09 19:14:07] ROBOT_SPEECH: Lets start the story!
+[2025-07-09 19:14:13] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-07-09 19:14:25] Praise BUTTON Clicked: [2025-07-09 19:14:25] ROBOT_SPEECH: Bravo!
+Main closed  Wed Jul  9 19:14:33 2025
+login closed  Wed Jul  9 19:14:34 2025
+login closed  Wed Jul  9 19:14:37 2025
+login closed  Wed Jul  9 19:42:06 2025
+login closed  Wed Jul  9 19:42:07 2025
+login closed  Wed Jul  9 19:42:17 2025
+login closed  Wed Jul  9 20:24:46 2025
+login closed  Wed Jul  9 20:24:47 2025
+login closed  Wed Jul  9 20:25:03 2025
+login closed  Wed Jul  9 20:25:05 2025
+login closed  Wed Jul  9 20:44:49 2025
+login closed  Wed Jul  9 20:44:50 2025
+login closed  Wed Jul  9 20:44:53 2025
+login closed  Wed Jul  9 20:54:59 2025
+login closed  Wed Jul  9 21:09:41 2025
+login closed  Thu Jul 10 18:47:10 2025
+login closed  Thu Jul 10 18:47:13 2025
+login closed  Thu Jul 10 18:55:54 2025
+Main closed  Thu Jul 10 18:56:41 2025
+login closed  Thu Jul 10 18:56:42 2025
+login closed  Thu Jul 10 18:56:42 2025
+login closed  Thu Jul 10 18:56:45 2025
+login closed  Thu Jul 10 13:07:03 2025
+login closed  Thu Jul 10 13:07:05 2025
+login closed  Thu Jul 10 13:07:34 2025
+Main closed  Thu Jul 10 13:12:20 2025
+login closed  Thu Jul 10 13:12:21 2025
+login closed  Thu Jul 10 13:12:24 2025
+login closed  Thu Jul 10 13:12:26 2025
+[2025-07-10 13:17:56] ROBOT_SPEECH: Let's roll the dice
+[2025-07-10 13:18:01] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-07-10 13:18:06] ROBOT_SPEECH: 1
+[2025-07-10 13:18:09] ROBOT_SPEECH: 2
+[2025-07-10 13:18:12] ROBOT_SPEECH: 3
+[2025-07-10 13:18:15] ROBOT_SPEECH: 4
+[2025-07-10 13:18:18] Stop event triggered by user.
+[2025-07-10 13:18:18] ROBOT_SPEECH: 5
+[2025-07-10 13:18:18] ROBOT_SPEECH: all done
+[2025-07-10 13:18:24] Stop event triggered by user.
+[2025-07-10 13:18:25] ROBOT_SPEECH: all done
+[2025-07-10 13:18:29] ROBOT_SPEECH: Let's have a high five!
+[2025-07-10 13:18:40] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-10 13:18:42] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-10 13:18:52] ROBOT_SPEECH: Let's have a bear hug!
+[2025-07-10 13:18:54] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-10 13:19:05] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-10 13:19:07] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-10 13:19:12] Stop event triggered by user.
+[2025-07-10 13:19:12] ROBOT_SPEECH: all done
+[2025-07-10 13:24:37] ROBOT_SPEECH: Let's roll the dice
+[2025-07-10 13:24:45] ROBOT_SPEECH: Let's sing a song
+[2025-07-10 13:24:56] Stop event triggered by user.
+[2025-07-10 13:24:56] ROBOT_SPEECH: all done
+[2025-07-10 13:25:08] ROBOT_SPEECH: Let's roll the dice
+[2025-07-10 13:25:15] ROBOT_SPEECH: Let's sing a song
+[2025-07-10 13:25:26] Stop event triggered by user.
+[2025-07-10 13:25:26] ROBOT_SPEECH: all done
+[2025-07-10 13:25:38] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-10 13:25:40] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-10 13:25:43] ROBOT_SPEECH: Let's have a high five!
+[2025-07-10 13:26:08] ROBOT_SPEECH: Let's roll the dice
+[2025-07-10 13:26:14] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-10 13:26:16] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-10 13:26:25] ROBOT_SPEECH: Let's have a bear hug!
+[2025-07-10 13:26:27] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-10 13:26:37] ROBOT_SPEECH: Let's sing a song
+[2025-07-10 13:26:45] Stop event triggered by user.
+[2025-07-10 13:26:45] ROBOT_SPEECH: all done
+[2025-07-10 13:26:50] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-10 13:26:52] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-10 13:27:00] Stop event triggered by user.
+[2025-07-10 13:27:00] ROBOT_SPEECH: all done
+[2025-07-10 13:27:45] ROBOT_SPEECH: Let's roll the dice
+[2025-07-10 13:27:50] ROBOT_SPEECH: Let's sing a song
+[2025-07-10 13:27:58] Stop event triggered by user.
+[2025-07-10 13:27:58] ROBOT_SPEECH: all done
+[2025-07-10 13:28:05] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-10 13:28:07] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-10 13:28:15] Stop event triggered by user.
+[2025-07-10 13:28:15] ROBOT_SPEECH: all done
+[2025-07-10 13:28:21] ROBOT_SPEECH: Let's have a bear hug!
+[2025-07-10 13:28:23] ROBOT_SPEECH: 1, 2, 3, 4, 5

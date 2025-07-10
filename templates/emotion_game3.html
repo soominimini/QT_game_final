@@ -67,6 +67,13 @@
             encour4.style.display = displayState;
         }
 
+        function praise_speak(msg) {
+            socket.emit('praise', msg)
+        }
+        function encour_speak(msg) {
+            socket.emit('encourage', msg)
+        }
+        
         function speak(msg) {
             socket.emit('repeat_speech', msg)
         }
@@ -76,17 +83,17 @@
 
 <style>
     body {
-    {#background-image: url("{{ url_for('static', filename='images/back.jpg') }}");#} background-color: #FFFCA3; /* Light yellow */
+
+        background-color: #FFFCA3; /* Light yellow */
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
         width: 1000px;
         height: 800px;
-
+        overflow: hidden; /* Prevent scrolling */
     }
 
     img {
-
         border: none;
     }
 
@@ -94,7 +101,62 @@
         font-size: 40px;
         width: 200px;
         height: 70px;
+    }
 
+    /* Next button active effect */
+    .sync:active {
+        background: rgb(255, 200, 150);
+        color: rgb(255, 255, 255);
+    }
+
+    /* Remove outline for all buttons */
+    button:focus {
+        outline: none;
+    }
+
+    .repeat button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        left: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(128, 168, 255, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+    }
+
+    /* Next button active effect */
+    .repeat button:disabled {
+        background: rgb(41, 57, 104);
+        color: rgb(255, 255, 255);
+        border: none;
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
+
+    }
+
+    .stop button {
+        position: fixed; /* Keeps it fixed relative to the viewport */
+        top: 20px; /* Distance from the top of the viewport */
+        right: 20px; /* Distance from the left of the viewport */
+        font-size: 20px;
+        background: rgba(255, 0, 0, 0.6);
+        color: rgb(0, 0, 0);
+        width: 100px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        border-radius: 30px; /* Rounded corners */
+        transition: all 0.3s ease; /* Smooth transition */
+    }
+
+    .stop button:disabled {
+        background: rgba(92, 43, 43, 0.6);
+        color: rgb(255, 255, 255);
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
     }
 
     .other button {
@@ -116,11 +178,6 @@
         color: rgb(255, 255, 255);
     }
 
-    /* Remove outline for all buttons */
-    button:focus {
-        outline: none;
-    }
-
 </style>
 
 <body>
@@ -131,17 +188,20 @@
           color: rgb(0,0,0);
           font-size: 30px;
           left: 50%;
-          top: 50%;
+          top: 60%;
           transform: translate(-50%, -50%);
           text-align: center;">
         {{ value }} <br> This game does not require the tablet.
     </p>
 </form>
 
-{#<p style = "position:absolute; font-weight:bold;left:80px; top:8px; color:rgb(243, 240, 240); font-size:30px"  > {{value}} </p>#}
-{##}
-{#<p style = "position:absolute; font-weight:bold;left:140px; top:140px; color:rgb(243, 240, 240); font-size:30px"  > This game does not require the tablet. </p>#}
+<div class="repeat">
+    <button id="repeat-speech-btn"> Repeat</button>
+</div>
 
+<div class="stop">
+    <button id="stop-speech-btn"> STOP</button>
+</div>
 
 <div class="other" style="position: fixed;  top: 280px; left: 30px">
     <button onclick="praise()">Praise</button>
@@ -150,49 +210,42 @@
     <button onclick="encour()">Encourage</button>
 </div>
 
-
 <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 350px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Great!')">Great</button>
+    <button onclick="praise_speak('Great!')">Great</button>
 </div>
 <div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 400px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Bravo!')">Bravo</button>
+    <button onclick="praise_speak('Bravo!')">Bravo</button>
 </div>
 <div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Wonderful!')">Wonderful</button>
+    <button onclick="praise_speak('Wonderful!')">Wonderful</button>
 </div>
 <div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 500px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Amazing!')">Amazing</button>
+    <button onclick="praise_speak('Amazing!')">Amazing</button>
 </div>
 
 
 <div id="encour1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 350px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('You can do it!')">You can do it</button>
+    <button onclick="encour_speak('You can do it!')">You can do it</button>
 </div>
 <div id="encour2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 400px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Keep on trying!')">Keep trying</button>
+    <button onclick="encour_speak('Keep trying!')">Keep trying</button>
 </div>
 <div id="encour3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Don’t give up!')">Don’t give up</button>
-</div>
-<div id="encour4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
-        top: 500px; /* Distance from the top of the viewport */
-        right: 30px; /* Distance from the left of the viewport */">
-    <button onclick="speak('your almost there')">Almost there</button>
+    <button onclick="encour_speak('Don’t give up!')">Don’t give up</button>
 </div>
 </body>
-
 </html>
