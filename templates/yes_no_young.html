@@ -220,7 +220,7 @@
         const questions = [
             {
                 text: "Is this a dog?",
-                correctImage: "static/yes_no_young/dog.png",
+                correctImage: "static/yes_no_young/dog.jpg",
                 distractorImage: "static/yes_no_young/cat.jpg"
             },
             {
@@ -276,9 +276,10 @@
 
         // Load a random question
         function loadQuestion() {
+             document.getElementById("next-btn").style.display = "none"; // Hide next button
             if (remainingQuestions.length === 0) {
                 document.getElementById('question-text').innerText = "Quiz complete!";
-                socket.emit('yes_or_no', "Finished!. Lets play other games!", 1.0)
+                socket.emit('yes_or_no', "Yahoo!. All done!", 1.0)
                 // document.getElementById('image-display').src = "";
                 return;
             }
@@ -315,19 +316,22 @@
             socket.emit('yes_or_no', currentQuestion.text, 1.0)
         }
 
-        // Handle user's answer
+
         function handleAnswer(answer) {
             const correctAnswer = (displayedImage === currentQuestion.correctImage) ? "Yes" : "No";
 
             if (answer === correctAnswer) {
                 console.log("Correct answer");
                 socket.emit('simple_correct');
-                setTimeout(loadQuestion, 1000); // Show the next question after a short delay
+
+                // Show the 'Next' button
+                document.getElementById("next-btn").style.display = "block";
             } else {
                 console.log("Wrong answer");
-                socket.emit('simple_wrong')
+                socket.emit('simple_wrong');
             }
         }
+
 
         // Initialize the first question
         window.onload = loadQuestion;
@@ -381,6 +385,7 @@
         function praise_speak(msg) {
             socket.emit('praise', msg)
         }
+
         function encour_speak(msg) {
             socket.emit('encourage', msg)
         }
@@ -391,6 +396,9 @@
     <div class="object" style="background-color: white; width: 900px; height: 500px; margin-top: -15%;">
         <p id="question-text" class="question"> Yes or No Question</p>
         <img id="image-display" src="" alt="Question Image" style="width: 500px;">
+        <input type="button" id="next-btn" value="Next" class="next-button" style="display: none;"
+               onclick="loadQuestion()">
+
     </div>
 
 
@@ -415,27 +423,26 @@
         <button onclick="encour()">Encourage</button>
     </div>
 
-<div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+    <div id="praise1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 350px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="praise_speak('Great!')">Great</button>
-</div>
-<div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        <button onclick="praise_speak('Great!')">Great</button>
+    </div>
+    <div id="praise2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 400px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="praise_speak('Bravo!')">Bravo</button>
-</div>
-<div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        <button onclick="praise_speak('Bravo!')">Bravo</button>
+    </div>
+    <div id="praise3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="praise_speak('Wonderful!')">Wonderful</button>
-</div>
-<div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
+        <button onclick="praise_speak('Wonderful!')">Wonderful</button>
+    </div>
+    <div id="praise4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 500px; /* Distance from the top of the viewport */
         left: 30px; /* Distance from the left of the viewport */">
-    <button onclick="praise_speak('Amazing!')">Amazing</button>
-</div>
-
+        <button onclick="praise_speak('Amazing!')">Amazing</button>
+    </div>
 
 
     <div id="encour1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */

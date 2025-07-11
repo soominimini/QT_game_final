@@ -1,0 +1,475 @@
+CLIENT NAME: H
+login closed  Fri Jul 11 09:28:20 2025
+GAME: action_game
+Time: Fri Jul 11 09:37:16 2025
+[2025-07-11 09:38:18] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Fri Jul 11 09:38:21 2025
+[2025-07-11 09:38:21] REPEAT BUTTON Clicked: [2025-07-11 09:38:21] ROBOT_SPEECH: Show me an action card
+[2025-07-11 09:38:39] ROBOT_SPEECH: tidy up
+[2025-07-11 09:38:42] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-11 09:38:48] ROBOT_SPEECH: tidy up
+[2025-07-11 09:38:59] ROBOT_SPEECH: Show me another action card!
+[2025-07-11 09:39:09] ROBOT_SPEECH: walk
+[2025-07-11 09:39:12] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-11 09:39:19] ROBOT_SPEECH: walk
+[2025-07-11 09:39:24] Praise BUTTON Clicked: [2025-07-11 09:39:24] ROBOT_SPEECH: Wonderful!
+[2025-07-11 09:39:33] ROBOT_SPEECH: Show me another action card!
+action_game closed  Fri Jul 11 09:40:22 2025
+[2025-07-11 09:40:22] REPEAT BUTTON Clicked: [2025-07-11 09:40:22] ROBOT_SPEECH: Show me an action card
+GAME: action_game
+Time: Fri Jul 11 09:41:21 2025
+action_game closed  Fri Jul 11 09:41:21 2025
+GAME: yes_no_young
+Time: Fri Jul 11 09:41:28 2025
+Start Emotion games closed  Fri Jul 11 09:41:28 2025
+[2025-07-11 09:41:30] ROBOT_SPEECH: Is the girl eating?
+[2025-07-11 09:43:25] REPEAT BUTTON Clicked: [2025-07-11 09:43:25] ROBOT_SPEECH: Is the girl eating?
+[2025-07-11 09:43:28] REPEAT BUTTON Clicked: [2025-07-11 09:43:28] ROBOT_SPEECH: Is the girl eating?
+[2025-07-11 09:43:34] ROBOT_SPEECH: Correct!
+[2025-07-11 09:43:35] ROBOT_SPEECH: Is this a mountain?
+[2025-07-11 09:43:50] ROBOT_SPEECH: Correct!
+[2025-07-11 09:43:51] ROBOT_SPEECH: Is this a dog?
+[2025-07-11 09:44:05] REPEAT BUTTON Clicked: [2025-07-11 09:44:05] ROBOT_SPEECH: Is this a dog?
+[2025-07-11 09:45:36] ROBOT_SPEECH: Correct!
+[2025-07-11 09:45:37] ROBOT_SPEECH: Is the boy sleeping?
+[2025-07-11 09:46:36] REPEAT BUTTON Clicked: [2025-07-11 09:46:36] ROBOT_SPEECH: Is the boy sleeping?
+[2025-07-11 09:46:39] ROBOT_SPEECH: Correct!
+[2025-07-11 09:46:40] ROBOT_SPEECH: Is this a nose?
+[2025-07-11 09:47:30] ROBOT_SPEECH: Correct!
+[2025-07-11 09:47:31] ROBOT_SPEECH: Is the boy happy?
+[2025-07-11 09:47:35] ROBOT_SPEECH: Correct!
+[2025-07-11 09:47:36] ROBOT_SPEECH: Is this an apple?
+[2025-07-11 09:47:40] ROBOT_SPEECH: Correct!
+[2025-07-11 09:47:41] ROBOT_SPEECH: Is this a balloon?
+[2025-07-11 09:47:44] ROBOT_SPEECH: Correct!
+[2025-07-11 09:47:45] ROBOT_SPEECH: Is this a car?
+[2025-07-11 09:49:16] REPEAT BUTTON Clicked: [2025-07-11 09:49:16] ROBOT_SPEECH: Is this a car?
+[2025-07-11 09:49:20] ROBOT_SPEECH: Correct!
+[2025-07-11 09:49:21] ROBOT_SPEECH: Is the ball red?
+[2025-07-11 09:49:42] Praise BUTTON Clicked: [2025-07-11 09:49:42] ROBOT_SPEECH: Great!
+[2025-07-11 09:50:31] REPEAT BUTTON Clicked: [2025-07-11 09:50:31] ROBOT_SPEECH: Is the ball red?
+[2025-07-11 09:50:34] ROBOT_SPEECH: Correct!
+[2025-07-11 09:50:35] ROBOT_SPEECH: Finished!. Lets play other games!
+Main closed  Fri Jul 11 09:53:06 2025
+GAME: action_game
+Time: Fri Jul 11 09:53:33 2025
+[2025-07-11 09:53:35] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Fri Jul 11 09:53:38 2025
+[2025-07-11 09:53:38] REPEAT BUTTON Clicked: [2025-07-11 09:53:38] ROBOT_SPEECH: Show me an action card
+[2025-07-11 09:53:40] ROBOT_SPEECH: walk
+[2025-07-11 09:53:43] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-11 09:54:17] ROBOT_SPEECH: walk
+[2025-07-11 09:54:20] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-11 09:55:00] ROBOT_SPEECH: Show me another action card!
+Main closed  Fri Jul 11 09:55:06 2025
+GAME: emotion_game3
+Time: Fri Jul 11 09:55:22 2025
+[2025-07-11 09:55:24] ROBOT_SPEECH: Let's play a game, show me two emotion cards
+Start Emotion games closed  Fri Jul 11 09:55:30 2025
+Main closed  Fri Jul 11 09:57:46 2025
+GAME: story_young_client
+Time: Fri Jul 11 09:58:28 2025
+[2025-07-11 09:58:28] ROBOT_SPEECH: Lets choose a story
+[2025-07-11 09:58:37] ROBOT_SPEECH: I will tell you a story
+[2025-07-11 09:58:40] ROBOT_SPEECH: Brown Bear, Brown Bear, What do you see?
+[2025-07-11 09:58:44] ROBOT_SPEECH: I see a, red bird, looking at me.
+[2025-07-11 09:58:44] ROBOT_SPEECH: #BIRD#
+[2025-07-11 09:58:58] ROBOT_SPEECH: Amazing!
+[2025-07-11 09:59:04] ROBOT_SPEECH: Red bird, Red bird, What do you see?
+[2025-07-11 09:59:08] ROBOT_SPEECH: I see a yellow duck, looking at me.
+[2025-07-11 09:59:08] ROBOT_SPEECH: #DUCK#
+[2025-07-11 09:59:08] Praise BUTTON Clicked: [2025-07-11 09:59:08] ROBOT_SPEECH: Bravo!
+[2025-07-11 09:59:25] Praise BUTTON Clicked: [2025-07-11 09:59:25] ROBOT_SPEECH: Great!
+[2025-07-11 09:59:26] Praise BUTTON Clicked: [2025-07-11 09:59:26] ROBOT_SPEECH: Great!
+[2025-07-11 09:59:26] Praise BUTTON Clicked: [2025-07-11 09:59:26] ROBOT_SPEECH: Great!
+[2025-07-11 09:59:26] Praise BUTTON Clicked: [2025-07-11 09:59:26] ROBOT_SPEECH: Great!
+[2025-07-11 09:59:26] Praise BUTTON Clicked: [2025-07-11 09:59:26] ROBOT_SPEECH: Great!
+[2025-07-11 09:59:26] Praise BUTTON Clicked: [2025-07-11 09:59:26] ROBOT_SPEECH: Great!
+[2025-07-11 09:59:57] REPEAT BUTTON Clicked: [2025-07-11 09:59:57] ROBOT_SPEECH: Red bird, Red bird, What do you see?
+[2025-07-11 09:59:58] REPEAT BUTTON Clicked: [2025-07-11 09:59:58] ROBOT_SPEECH: I see a yellow duck, looking at me.
+[2025-07-11 10:00:18] ROBOT_SPEECH: Perfect!
+[2025-07-11 10:00:23] ROBOT_SPEECH: Lets go to next page
+[2025-07-11 10:00:34] Praise BUTTON Clicked: [2025-07-11 10:00:34] ROBOT_SPEECH: Great!
+[2025-07-11 10:00:40] ROBOT_SPEECH: Yellow duck, Yellow Duck, What do you see?
+[2025-07-11 10:00:44] ROBOT_SPEECH: I see a, blue horse, looking at me.
+[2025-07-11 10:00:44] ROBOT_SPEECH: #HORSE#
+[2025-07-11 10:00:51] ROBOT_SPEECH: Hooray!
+[2025-07-11 10:00:57] ROBOT_SPEECH: Blue horse, blue horse, What do you see?
+[2025-07-11 10:01:01] ROBOT_SPEECH: I see a green frog looking at me.
+[2025-07-11 10:01:01] ROBOT_SPEECH: #FROG#
+[2025-07-11 10:01:08] ROBOT_SPEECH: Great!
+[2025-07-11 10:01:11] ROBOT_SPEECH: Perfect!
+[2025-07-11 10:01:16] ROBOT_SPEECH: Lets go to next page
+Main closed  Fri Jul 11 10:01:22 2025
+GAME: story_young_client
+Time: Fri Jul 11 10:01:30 2025
+[2025-07-11 10:01:30] ROBOT_SPEECH: Lets choose a story
+[2025-07-11 10:01:35] ROBOT_SPEECH: In the great green room, there was a telefone.
+[2025-07-11 10:01:39] ROBOT_SPEECH: Where is the telefone?
+[2025-07-11 10:01:46] ROBOT_SPEECH: Great!
+[2025-07-11 10:01:51] ROBOT_SPEECH: and a red balloon.
+[2025-07-11 10:01:56] ROBOT_SPEECH: Where is the red balloon?
+[2025-07-11 10:02:18] ROBOT_SPEECH: Hooray!
+[2025-07-11 10:02:24] ROBOT_SPEECH: and a picture of the cow jumping over the moon
+[2025-07-11 10:02:28] ROBOT_SPEECH: Where is the picture of the cow jumping over the moon
+[2025-07-11 10:02:37] ROBOT_SPEECH: Lets go to next page
+[2025-07-11 10:02:43] Praise BUTTON Clicked: [2025-07-11 10:02:43] ROBOT_SPEECH: Wonderful!
+[2025-07-11 10:02:57] ROBOT_SPEECH: And there were three little bears sitting on chairs
+[2025-07-11 10:03:01] ROBOT_SPEECH: Where is the three little bears?.
+[2025-07-11 10:03:17] ROBOT_SPEECH: Amazing!
+[2025-07-11 10:03:22] ROBOT_SPEECH: And two little kittens
+[2025-07-11 10:03:27] ROBOT_SPEECH: Where are two kittens?
+[2025-07-11 10:03:31] ROBOT_SPEECH: Perfect!
+[2025-07-11 10:03:36] ROBOT_SPEECH: And a pair of mittens
+[2025-07-11 10:03:40] ROBOT_SPEECH: Where is the pair of mittens?
+[2025-07-11 10:03:41] ROBOT_SPEECH: Hooray!
+[2025-07-11 10:03:47] ROBOT_SPEECH: Lets go to next page
+[2025-07-11 10:03:58] Praise BUTTON Clicked: [2025-07-11 10:03:58] ROBOT_SPEECH: Wonderful!
+Main closed  Fri Jul 11 10:04:05 2025
+GAME: dice_action_young
+Time: Fri Jul 11 10:04:24 2025
+GAME: dice_action_young
+Time: Fri Jul 11 10:04:28 2025
+GAME: dice_action_young
+Time: Fri Jul 11 10:04:39 2025
+[2025-07-11 10:04:40] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 10:04:47] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-11 10:04:49] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-11 10:05:05] REPEAT BUTTON Clicked: [2025-07-11 10:05:05] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-11 10:05:25] REPEAT BUTTON Clicked: [2025-07-11 10:05:25] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-11 10:05:55] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 10:06:58] Stop event triggered by user.
+[2025-07-11 10:06:59] ROBOT_SPEECH: all done
+[2025-07-11 10:07:16] REPEAT BUTTON Clicked: [2025-07-11 10:07:16] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 10:07:40] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-07-11 10:07:54] Stop event triggered by user.
+[2025-07-11 10:07:54] ROBOT_SPEECH: all done
+[2025-07-11 10:08:05] ROBOT_SPEECH: Let's have a bear hug!
+[2025-07-11 10:08:07] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-11 10:08:26] ROBOT_SPEECH: Let's have a high five!
+[2025-07-11 10:08:36] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-11 10:08:38] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-11 10:08:49] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-11 10:08:51] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-11 10:08:53] Stop event triggered by user.
+[2025-07-11 10:08:53] ROBOT_SPEECH: all done
+[2025-07-11 10:08:57] ROBOT_SPEECH: Let's have a high five!
+[2025-07-11 10:09:06] ROBOT_SPEECH: Let's have a bear hug!
+[2025-07-11 10:09:08] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-11 10:09:15] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-11 10:09:17] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-11 10:09:26] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 10:09:31] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-07-11 10:09:36] ROBOT_SPEECH: 1
+[2025-07-11 10:09:39] ROBOT_SPEECH: 2
+[2025-07-11 10:09:42] ROBOT_SPEECH: 3
+[2025-07-11 10:09:45] ROBOT_SPEECH: 4
+[2025-07-11 10:09:48] ROBOT_SPEECH: 5
+[2025-07-11 10:09:51] ROBOT_SPEECH: 6
+[2025-07-11 10:09:54] ROBOT_SPEECH: 7
+[2025-07-11 10:09:57] ROBOT_SPEECH: 8
+[2025-07-11 10:10:00] ROBOT_SPEECH: 9
+[2025-07-11 10:10:03] ROBOT_SPEECH: 10
+[2025-07-11 10:10:05] Stop event triggered by user.
+[2025-07-11 10:10:05] ROBOT_SPEECH: all done
+[2025-07-11 10:10:48] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-11 10:10:50] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-11 10:10:52] Stop event triggered by user.
+[2025-07-11 10:10:53] ROBOT_SPEECH: all done
+[2025-07-11 10:10:56] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-07-11 10:11:16] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 10:11:25] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-11 10:11:27] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-11 10:11:30] Stop event triggered by user.
+[2025-07-11 10:11:30] ROBOT_SPEECH: all done
+[2025-07-11 10:11:35] ROBOT_SPEECH: Let's have a high five!
+[2025-07-11 10:11:52] ROBOT_SPEECH: Let's have a bear hug!
+[2025-07-11 10:11:54] ROBOT_SPEECH: 1, 2, 3, 4, 5
+GAME: instructions_game_young
+Time: Fri Jul 11 10:12:06 2025
+[2025-07-11 10:12:07] ROBOT_SPEECH: Where do you want to go?
+[2025-07-11 10:12:08] ROBOT_SPEECH: What place do you wanna go to?
+Main closed  Fri Jul 11 10:12:35 2025
+GAME: instructions_game_young
+Time: Fri Jul 11 10:12:44 2025
+[2025-07-11 10:12:46] ROBOT_SPEECH: Where do you want to go?
+GAME: instructions_game_young
+Time: Fri Jul 11 10:12:54 2025
+[2025-07-11 10:12:55] ROBOT_SPEECH: Where do you feel like going?
+[2025-07-11 10:12:59] ROBOT_SPEECH: Let's go shopping!
+[2025-07-11 10:13:01] ROBOT_SPEECH: I want fruits.
+[2025-07-11 10:13:04] ROBOT_SPEECH: Can you give me one apple?
+[2025-07-11 10:13:32] REPEAT BUTTON Clicked: [2025-07-11 10:13:32] ROBOT_SPEECH: I want fruits. Can you give me one apple?
+[2025-07-11 10:13:40] ROBOT_SPEECH: Great!
+apple selected 
+[2025-07-11 10:13:45] ROBOT_SPEECH: Please give me an orange?
+[2025-07-11 10:16:15] REPEAT BUTTON Clicked: [2025-07-11 10:16:15] ROBOT_SPEECH: Please give me an orange?
+[2025-07-11 10:16:21] ROBOT_SPEECH: Amazing!
+[2025-07-11 10:16:26] ROBOT_SPEECH: Could you please give me two cherries?
+orange selected 
+[2025-07-11 10:16:32] ROBOT_SPEECH: Hooray!
+cherries selected 
+[2025-07-11 10:16:37] ROBOT_SPEECH: Let's go to the next page!
+Taking Instruction supermarket1 closed  Fri Jul 11 10:16:49 2025
+[2025-07-11 10:16:52] ROBOT_SPEECH: I want a school item.
+[2025-07-11 10:16:54] ROBOT_SPEECH:  Could you please give me a pencil?
+GAME: dice_emotion_young
+Time: Fri Jul 11 10:17:25 2025
+[2025-07-11 10:17:26] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 10:17:30] ROBOT_SPEECH: happy
+[2025-07-11 10:17:45] ROBOT_SPEECH: surprised
+Main closed  Fri Jul 11 10:18:26 2025
+GAME: instructions_game
+Time: Fri Jul 11 10:18:34 2025
+[2025-07-11 10:18:35] ROBOT_SPEECH: Where do you feel like going?
+[2025-07-11 10:18:36] ROBOT_SPEECH: Let's go shopping!
+[2025-07-11 10:18:38] ROBOT_SPEECH: Kustomer is waiting, at the end of the checkout counter
+[2025-07-11 10:18:45] REPEAT BUTTON Clicked: [2025-07-11 10:18:45] ROBOT_SPEECH: Kustomer is waiting, at the end of the checkout counter
+[2025-07-11 10:19:12] ROBOT_SPEECH: Perfect!
+[2025-07-11 10:19:17] ROBOT_SPEECH: Lets place the cart, between the checkout counters
+[2025-07-11 10:19:58] ROBOT_SPEECH: Amazing!
+[2025-07-11 10:20:03] ROBOT_SPEECH: Casher, is in front of checkout counter
+[2025-07-11 10:20:33] REPEAT BUTTON Clicked: [2025-07-11 10:20:33] ROBOT_SPEECH: Casher, is in front of checkout counter
+Taking Instruction supermarket1 closed  Fri Jul 11 10:20:49 2025
+[2025-07-11 10:20:50] ROBOT_SPEECH: What place do you wanna go to?
+[2025-07-11 10:20:51] ROBOT_SPEECH: Let's go shopping!
+[2025-07-11 10:20:53] ROBOT_SPEECH: Casher, is in front of checkout counter
+GAME: instructions_game
+Time: Fri Jul 11 10:22:47 2025
+[2025-07-11 10:22:48] ROBOT_SPEECH: Where do you want to go?
+[2025-07-11 10:22:54] ROBOT_SPEECH: Let's go to hospital!
+[2025-07-11 10:22:58] ROBOT_SPEECH: The doctor, is next to the sink.
+[2025-07-11 10:23:05] ROBOT_SPEECH: Great!
+[2025-07-11 10:23:10] ROBOT_SPEECH: The patient, is waiting on the bed.
+[2025-07-11 10:23:16] ROBOT_SPEECH: Perfect!
+[2025-07-11 10:23:20] ROBOT_SPEECH: Lets put the injection, on the stand.
+[2025-07-11 10:23:26] ROBOT_SPEECH: Amazing!
+Taking Instruction hospital1 closed  Fri Jul 11 10:23:33 2025
+[2025-07-11 10:23:37] ROBOT_SPEECH: The medical cart, is in the middle of the hallway
+[2025-07-11 10:23:49] REPEAT BUTTON Clicked: [2025-07-11 10:23:49] ROBOT_SPEECH: The medical cart, is in the middle of the hallway
+[2025-07-11 10:23:56] ROBOT_SPEECH: Great!
+[2025-07-11 10:24:00] ROBOT_SPEECH: A patient, is sitting on a chair
+[2025-07-11 10:24:19] REPEAT BUTTON Clicked: [2025-07-11 10:24:19] ROBOT_SPEECH: A patient, is sitting on a chair
+[2025-07-11 10:24:37] ROBOT_SPEECH: Hooray!
+[2025-07-11 10:24:42] ROBOT_SPEECH: The nurse, is waiting beside the left door
+[2025-07-11 10:25:01] ROBOT_SPEECH: Amazing!
+Taking Instruction hospital2 closed  Fri Jul 11 10:25:11 2025
+[2025-07-11 10:25:15] ROBOT_SPEECH: The ambulance, is located on the left side of the building.
+[2025-07-11 10:25:23] ROBOT_SPEECH: Great!
+[2025-07-11 10:25:28] ROBOT_SPEECH: The doctor, is standing in front of the emergency entrance.
+[2025-07-11 10:25:35] ROBOT_SPEECH: Perfect!
+[2025-07-11 10:25:40] ROBOT_SPEECH: A person, is walking towards, the emergency entrance on the right side.
+[2025-07-11 10:25:45] ROBOT_SPEECH: Hooray!
+Taking Instruction hospital3 closed  Fri Jul 11 10:25:54 2025
+[2025-07-11 10:25:55] ROBOT_SPEECH: What place do you wanna go to?
+[2025-07-11 10:26:09] ROBOT_SPEECH: Let's go shopping!
+[2025-07-11 10:26:12] ROBOT_SPEECH: Casher, is in front of checkout counter
+Taking Instruction supermarket1 closed  Fri Jul 11 10:26:16 2025
+[2025-07-11 10:26:21] ROBOT_SPEECH: I want to place the orange, at the left corner
+[2025-07-11 10:26:27] ROBOT_SPEECH: Perfect!
+[2025-07-11 10:26:31] ROBOT_SPEECH: Lets place an apple, on the apple stack
+[2025-07-11 10:26:36] ROBOT_SPEECH: Great!
+[2025-07-11 10:26:41] ROBOT_SPEECH: Please place the price tag, under the apple
+[2025-07-11 10:26:47] ROBOT_SPEECH: Hooray!
+Taking Instruction supermarket2 closed  Fri Jul 11 10:26:58 2025
+[2025-07-11 10:27:02] ROBOT_SPEECH: I want to put the orange juice, on the top shelf
+[2025-07-11 10:27:11] ROBOT_SPEECH: Amazing!
+[2025-07-11 10:27:16] ROBOT_SPEECH: Cherries are in the fruit section, next to the cashier.
+[2025-07-11 10:27:24] REPEAT BUTTON Clicked: [2025-07-11 10:27:24] ROBOT_SPEECH: Cherries are in the fruit section, next to the cashier.
+[2025-07-11 10:27:30] REPEAT BUTTON Clicked: [2025-07-11 10:27:30] ROBOT_SPEECH: Cherries are in the fruit section, next to the cashier.
+[2025-07-11 10:27:43] REPEAT BUTTON Clicked: [2025-07-11 10:27:43] ROBOT_SPEECH: Cherries are in the fruit section, next to the cashier.
+[2025-07-11 10:28:08] REPEAT BUTTON Clicked: [2025-07-11 10:28:08] ROBOT_SPEECH: Cherries are in the fruit section, next to the cashier.
+[2025-07-11 10:28:21] REPEAT BUTTON Clicked: [2025-07-11 10:28:21] ROBOT_SPEECH: Cherries are in the fruit section, next to the cashier.
+[2025-07-11 10:28:41] ROBOT_SPEECH: Great!
+[2025-07-11 10:28:46] ROBOT_SPEECH: Lets place the milk, on the counter.
+[2025-07-11 10:30:29] ROBOT_SPEECH: Amazing!
+Taking Instruction supermarket3 closed  Fri Jul 11 10:30:40 2025
+[2025-07-11 10:30:42] ROBOT_SPEECH: Where do you want to go?
+[2025-07-11 10:30:44] ROBOT_SPEECH: Let's go to play!
+[2025-07-11 10:30:48] ROBOT_SPEECH: A sandbox, is placed on the right side in the park
+[2025-07-11 10:30:59] REPEAT BUTTON Clicked: [2025-07-11 10:30:59] ROBOT_SPEECH: A sandbox, is placed on the right side in the park
+[2025-07-11 10:31:07] ROBOT_SPEECH: Perfect!
+[2025-07-11 10:31:12] ROBOT_SPEECH: A red monkey bar, is on the middle of the park
+[2025-07-11 10:31:19] ROBOT_SPEECH: Hooray!
+[2025-07-11 10:31:25] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+[2025-07-11 10:31:32] ROBOT_SPEECH: Hooray!
+Taking Instruction park1 closed  Fri Jul 11 10:31:42 2025
+[2025-07-11 10:31:46] ROBOT_SPEECH: A man, is running along on the right side
+[2025-07-11 10:31:55] ROBOT_SPEECH: Perfect!
+[2025-07-11 10:31:59] ROBOT_SPEECH: a person, is riding a bike, along the bike path
+[2025-07-11 10:32:07] ROBOT_SPEECH: Great!
+[2025-07-11 10:32:11] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-07-11 10:32:16] ROBOT_SPEECH: Amazing!
+Taking Instruction park2 closed  Fri Jul 11 10:32:25 2025
+[2025-07-11 10:32:29] ROBOT_SPEECH: Lets place the swing, on the right side of the bench
+[2025-07-11 10:32:43] REPEAT BUTTON Clicked: [2025-07-11 10:32:43] ROBOT_SPEECH: Lets place the swing, on the right side of the bench
+[2025-07-11 10:32:49] ROBOT_SPEECH: Hooray!
+[2025-07-11 10:32:54] ROBOT_SPEECH: There is a slide, under the tall tree.
+[2025-07-11 10:32:59] ROBOT_SPEECH: Perfect!
+[2025-07-11 10:33:04] ROBOT_SPEECH: People, are sitting on a bench, next to the big tree
+[2025-07-11 10:33:15] ROBOT_SPEECH: Great!
+Taking Instruction park3 closed  Fri Jul 11 10:33:25 2025
+[2025-07-11 10:33:26] ROBOT_SPEECH: What place do you wanna go to?
+[2025-07-11 10:33:32] REPEAT BUTTON Clicked: [2025-07-11 10:33:32] ROBOT_SPEECH: What place do you wanna go to?
+GAME: story_old_client
+Time: Fri Jul 11 10:33:46 2025
+[2025-07-11 10:33:46] ROBOT_SPEECH: Lets choose a story
+GAME: goldilocks
+Time: Fri Jul 11 10:33:49 2025
+[2025-07-11 10:33:50] ROBOT_SPEECH: Lets start the story!
+[2025-07-11 10:34:07] ROBOT_SPEECH: Once upon a time lived Goldilocks and The Three Bears.
+[2025-07-11 10:34:20] ROBOT_SPEECH: One day, Goldilocks went for a walk in the forest and found a house.
+[2025-07-11 10:34:26] ROBOT_SPEECH: She knocked, and when nobody answered, she decided to go inside.
+[2025-07-11 10:34:50] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-07-11 10:35:06] ROBOT_SPEECH: Goldilocks tasted the porridge from the large bowl. This porridge is too salty
+[2025-07-11 10:35:24] ROBOT_SPEECH: Goldilocks tasted the porridge from the medium sized bowl. “This porridge is too sweet!
+[2025-07-11 10:35:37] ROBOT_SPEECH: Goldilocks tasted the porridge from the small bowl. “This porridge is just right,” Goldilocks said and ate it all up.
+[2025-07-11 10:35:50] ROBOT_SPEECH: Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.
+[2025-07-11 10:35:59] ROBOT_SPEECH: Goldilocks sat in the large chair to rest her feet. “This chair is too big!
+[2025-07-11 10:36:00] ROBOT_SPEECH: Goldilocks sat in the large chair to rest her feet. “This chair is too big!
+[2025-07-11 10:36:22] ROBOT_SPEECH: Goldilocks sat in the medium sized chair. This chair is too big, too!
+[2025-07-11 10:36:35] ROBOT_SPEECH: Goldilocks sat in the small chair. “This chair is just right
+[2025-07-11 10:36:44] ROBOT_SPEECH: Just as Goldilocks settled down into the chair to rest, it broke into pieces!
+[2025-07-11 10:36:44] ROBOT_SPEECH: Oh!
+[2025-07-11 10:37:24] ROBOT_SPEECH: By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom.
+[2025-07-11 10:37:31] ROBOT_SPEECH: Goldilocks lay down on the large bed. “This bed is too hard!” 
+[2025-07-11 10:37:49] ROBOT_SPEECH: Goldilocks lay down on the medium sized bed. This bed is too soft!
+[2025-07-11 10:38:02] ROBOT_SPEECH: Goldilocks lay down on the small bed. This bed is just right. Goldilocks curled up and fell asleep.
+[2025-07-11 10:38:17] ROBOT_SPEECH: As Goldilocks was sleeping, The Three Bears came home.
+[2025-07-11 10:38:23] ROBOT_SPEECH: Someone’s been eating my porridge, growled Daddy Bear.
+[2025-07-11 10:38:23] ROBOT_SPEECH: #BEAR#
+[2025-07-11 10:38:31] ROBOT_SPEECH: Someone’s been eating my porridge, said Mummy Bear.
+[2025-07-11 10:38:39] ROBOT_SPEECH: Someone’s been eating my porridge and it’s all gone!. Cried Baby Bear
+[2025-07-11 10:38:39] ROBOT_SPEECH: #CRY03#
+[2025-07-11 10:38:51] ROBOT_SPEECH: Someone’s been sitting in my chair!. Growled Daddy Bear.
+[2025-07-11 10:38:51] ROBOT_SPEECH: #BEAR#
+[2025-07-11 10:38:59] ROBOT_SPEECH: Someone’s been sitting in my chair!” said Mummy Bear.
+[2025-07-11 10:39:06] ROBOT_SPEECH: Someone’s been sitting in my chair and it’s broken!. Cried Baby Bear.
+[2025-07-11 10:39:06] ROBOT_SPEECH: #CRY04#
+[2025-07-11 10:39:17] ROBOT_SPEECH: When they got upstairs to the bedroom, Daddy Bear growled.
+[2025-07-11 10:39:17] ROBOT_SPEECH: #BEAR#
+[2025-07-11 10:39:17] ROBOT_SPEECH: Someone’s been sleeping on my bed.
+[2025-07-11 10:39:28] ROBOT_SPEECH: Someone’s been sleeping on my bed too, said the Mummy Bear
+[2025-07-11 10:39:35] ROBOT_SPEECH: Someone’s been sleeping in my bed, and she’s still there!. Cried Baby Bear.
+[2025-07-11 10:39:35] ROBOT_SPEECH: #CRY03#
+[2025-07-11 10:39:47] ROBOT_SPEECH: Just then Goldilocks woke up and saw The Three Bears.
+[2025-07-11 10:39:50] ROBOT_SPEECH: She screamed.
+[2025-07-11 10:39:55] ROBOT_SPEECH: Goldilocks ran down the stairs and into the forest. And she never went back into the woods again.
+[2025-07-11 10:40:06] REPEAT BUTTON Clicked: [2025-07-11 10:40:06] ROBOT_SPEECH: Who entered the house of the three bears?
+[2025-07-11 10:40:17] ROBOT_SPEECH: Correct!
+[2025-07-11 10:40:24] Praise BUTTON Clicked: [2025-07-11 10:40:24] ROBOT_SPEECH: Amazing!
+[2025-07-11 10:40:26] REPEAT BUTTON Clicked: [2025-07-11 10:40:26] ROBOT_SPEECH: How many bears lived in the house?
+[2025-07-11 10:40:32] ROBOT_SPEECH: Correct!
+[2025-07-11 10:40:36] REPEAT BUTTON Clicked: [2025-07-11 10:40:36] ROBOT_SPEECH: What did goldilocks find on the table when she went inside the house?
+[2025-07-11 10:41:55] ROBOT_SPEECH: Correct!
+[2025-07-11 10:42:01] ROBOT_SPEECH: Lets choose a story
+GAME: red_riding
+Time: Fri Jul 11 10:42:45 2025
+Main closed  Fri Jul 11 10:42:50 2025
+GAME: story_old_client
+Time: Fri Jul 11 10:42:56 2025
+[2025-07-11 10:42:56] ROBOT_SPEECH: Lets choose a story
+GAME: red_riding
+Time: Fri Jul 11 10:42:58 2025
+[2025-07-11 10:42:59] ROBOT_SPEECH: Lets start the story!
+[2025-07-11 10:43:05] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-07-11 10:43:17] ROBOT_SPEECH: One day, she decided to go visit her dear grandmother, who lift deep in the woods.
+[2025-07-11 10:43:31] Stop event triggered by user.
+[2025-07-11 10:43:32] ROBOT_SPEECH: all done
+Main closed  Fri Jul 11 10:43:37 2025
+GAME: inference_old
+Time: Fri Jul 11 10:43:50 2025
+[2025-07-11 10:43:50] ROBOT_SPEECH: Lets play inference games
+[2025-07-11 10:43:58] ROBOT_SPEECH: Lets play inference games
+[2025-07-11 10:44:04] ROBOT_SPEECH: Lets play inference games
+Main closed  Fri Jul 11 10:44:06 2025
+GAME: inference_old
+Time: Fri Jul 11 10:44:12 2025
+[2025-07-11 10:44:12] ROBOT_SPEECH: Lets play inference games
+GAME: inference_old
+Time: Fri Jul 11 10:44:24 2025
+[2025-07-11 10:44:24] ROBOT_SPEECH: Lets play inference games
+Main closed  Fri Jul 11 10:44:31 2025
+GAME: dice_5w1h
+Time: Fri Jul 11 10:44:42 2025
+[2025-07-11 10:44:43] ROBOT_SPEECH: Lets play around with wh questions
+[2025-07-11 10:44:46] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 10:44:50] ROBOT_SPEECH: Who
+[2025-07-11 10:44:59] ROBOT_SPEECH: Who brings us the mail?
+[2025-07-11 10:45:10] Praise BUTTON Clicked: [2025-07-11 10:45:10] ROBOT_SPEECH: Bravo!
+Main closed  Fri Jul 11 10:46:08 2025
+GAME: dice_5w1h
+Time: Fri Jul 11 10:46:13 2025
+[2025-07-11 10:46:13] ROBOT_SPEECH: Lets play around with wh questions
+[2025-07-11 10:46:15] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 10:46:18] ROBOT_SPEECH: when
+[2025-07-11 10:46:24] ROBOT_SPEECH: When do we go to school?
+Main closed  Fri Jul 11 10:46:46 2025
+GAME: dice_board
+Time: Fri Jul 11 10:46:51 2025
+[2025-07-11 10:46:52] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 10:46:56] ROBOT_SPEECH: Move your piece on the board by two steps!
+[2025-07-11 10:47:06] ROBOT_SPEECH: Move your piece on the board by three steps!
+GAME: yes_no_old
+Time: Fri Jul 11 10:47:12 2025
+[2025-07-11 10:47:14] ROBOT_SPEECH: Is ice cream sweet?
+[2025-07-11 10:47:17] ROBOT_SPEECH: That's not correct
+[2025-07-11 10:47:26] ROBOT_SPEECH: Correct!
+[2025-07-11 10:47:27] ROBOT_SPEECH:   Do turtles have shells?
+[2025-07-11 10:47:31] ROBOT_SPEECH: That's not correct
+[2025-07-11 10:47:34] ROBOT_SPEECH: Correct!
+[2025-07-11 10:47:35] ROBOT_SPEECH: Do dogs say, #COW#
+[2025-07-11 10:47:42] ROBOT_SPEECH: Correct!
+[2025-07-11 10:47:43] ROBOT_SPEECH: Do crabs have wings?
+[2025-07-11 10:47:51] ROBOT_SPEECH: Correct!
+[2025-07-11 10:47:52] ROBOT_SPEECH: Do you wear a swimsuit at the beach?
+[2025-07-11 10:47:56] ROBOT_SPEECH: Correct!
+[2025-07-11 10:47:57] ROBOT_SPEECH: Do you wear sunglasses on your feet?
+[2025-07-11 10:48:01] ROBOT_SPEECH: Correct!
+[2025-07-11 10:48:02] ROBOT_SPEECH: Can you build snowman at the beach?
+[2025-07-11 10:48:19] ROBOT_SPEECH: Correct!
+[2025-07-11 10:48:20] ROBOT_SPEECH: Do you drink juice?
+[2025-07-11 10:48:24] ROBOT_SPEECH: Correct!
+[2025-07-11 10:48:25] ROBOT_SPEECH: Is the sun hot?
+[2025-07-11 10:48:31] ROBOT_SPEECH: Correct!
+[2025-07-11 10:48:32] ROBOT_SPEECH: Does a boat fly in the sky?
+[2025-07-11 10:48:38] ROBOT_SPEECH: Correct!
+[2025-07-11 10:48:39] ROBOT_SPEECH: Finished!. Lets play other games!
+GAME: at_talks
+Time: Fri Jul 11 10:48:48 2025
+[2025-07-11 10:48:54] ROBOT_SPEECH: lets look at the visual schedule
+[2025-07-11 10:49:03] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-11 10:49:13] ROBOT_SPEECH: My name is QT!
+[2025-07-11 10:49:17] ROBOT_SPEECH: Whats your name?
+[2025-07-11 10:49:24] ROBOT_SPEECH: Wow! nice name!
+[2025-07-11 10:49:31] ROBOT_SPEECH: What is your favourite colour?
+[2025-07-11 10:49:35] ROBOT_SPEECH: That's good to know!
+[2025-07-11 10:49:46] ROBOT_SPEECH: See you later!
+[2025-07-11 10:49:56] ROBOT_SPEECH: If you could turn into any animal for a day, what animal would you be? Why?
+[2025-07-11 10:50:01] ROBOT_SPEECH: Amazing!
+[2025-07-11 10:50:11] ROBOT_SPEECH: Whats your favourite holiday, and How do you celebrate it?
+GAME: break
+Time: Fri Jul 11 10:50:23 2025
+[2025-07-11 10:50:23] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-11 10:50:27] ROBOT_SPEECH: Lets spin the wheel
+[2025-07-11 10:50:37] ROBOT_SPEECH: Lets sing a song
+Main closed  Fri Jul 11 10:51:00 2025
+GAME: dice_5w1h
+Time: Fri Jul 11 10:51:08 2025
+[2025-07-11 10:51:09] ROBOT_SPEECH: Lets play around with wh questions
+[2025-07-11 10:51:13] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 10:51:16] ROBOT_SPEECH: how
+[2025-07-11 10:51:19] ROBOT_SPEECH: How do you brush your teeth?
+[2025-07-11 10:51:31] Praise BUTTON Clicked: [2025-07-11 10:51:31] ROBOT_SPEECH: Wonderful!
+Main closed  Fri Jul 11 10:53:07 2025
+Main closed  Fri Jul 11 10:54:23 2025
+GAME: inference_old
+Time: Fri Jul 11 10:54:26 2025
+GAME: inference_old
+Time: Fri Jul 11 10:54:28 2025
+GAME: inference_old
+Time: Fri Jul 11 10:54:29 2025
+GAME: inference_old
+Time: Fri Jul 11 10:54:35 2025
+[2025-07-11 10:54:35] ROBOT_SPEECH: Lets play inference games
+login closed  Fri Jul 11 10:54:47 2025

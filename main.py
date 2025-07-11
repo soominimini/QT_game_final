@@ -193,6 +193,10 @@ def handle_speech_stop_force(data):
     stop_triggered_flag = True
     print("Speech stop event triggered.")
 
+@socketio.on('jumping_jack_repeat')
+def repeat_jumping_jacks():
+    threading.Thread(target=execute_jumping_jacks).start()
+
 
 def execute_jumping_jacks():
     global stop_triggered_flag
@@ -273,6 +277,17 @@ def handle_gesture_play(data, speed):
     threading.Thread(target=play_gesture).start()
     print("Gesture play event received:", data)
 
+
+@socketio.on('gesture_play_brain_break')
+def handle_gesture_play_brain_break():
+    global gesture_for_song
+    def play_gesture():
+        gesture_stop_event.clear()  # Reset stop signal before starting speech
+        gesturePlay_servc(gesture_for_song, 1)
+
+    # Run speech processing in a separate thread
+    threading.Thread(target=play_gesture).start()
+
 @socketio.on('gesture_play_pub')
 def handle_gesture_play_pub(data):
     gesturePlay_pub.publish(data)
@@ -289,6 +304,45 @@ def handle_audio_play(data):
     threading.Thread(target=play_audio).start()
     print("Audio play event received:", data)
 
+@socketio.on('audio_replay_brain_break')
+def handle_audio_play_brain_break():
+    global random_song
+    print("random_song: ",random_song)
+    def play_audio():
+        audio_stop_event.clear()  # Reset stop signal before starting speech
+        audioPlay_pub.publish(random_song)
+
+    # Run speech processing in a separate thread
+    threading.Thread(target=play_audio).start()
+    print("Audio play event received:", random_song)
+
+
+
+@socketio.on('repeat_for_brain_break')
+def handle_repeat_speach(data):
+    if data == '':
+        global global_sentence
+        data = global_sentence
+
+    # --- Add this logging block ---
+    global file_name
+    if file_name: # Checks if the log file has been set up
+        try:
+            with open(file_name, "a") as f:
+                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                # Write the custom log entry for the button click
+                f.write(f"[{timestamp}] REPEAT BUTTON Clicked: ")
+        except Exception as e:
+            print(f"Error logging repeat button click: {e}")
+    # --- End of logging block ---
+
+    def say_speech_repeat():
+        speech_stop_event.clear()
+        behaviorTalk_servc(data)
+        # Run speech processing in a separate thread
+
+    threading.Thread(target=say_speech_repeat).start()
+    print("Speech say event received:", data)
 
 @socketio.on('repeat_speech')
 def handle_repeat_speach(data):
@@ -355,8 +409,7 @@ def handle_praise_speach(data):
         except Exception as e:
             print(f"Error logging repeat button click: {e}")
     # --- End of logging block ---
-
-    gesturePlay_pub.publish("child_looking1")
+    handle_gesture_play("QT/happy", 2)
     def say_speech_repeat():
         speech_stop_event.clear()  # Reset stop signal before starting speech
         behaviorTalk_servc(data)
@@ -1237,14 +1290,15 @@ def dice_face_in_young_action(dice_face_str):
     elif dice_face_str == 'Sing a Song':
         # talktext_pub.publish("Let's sing a song!")
         music = ["spider", "ABC", "mcdonald", "twinkle", "wheels"]
+        global random_song
+        global gesture_for_song
         random_song = random.choice(music)
         print("random_song: " + random_song)
         if str(random_song) == "spider":
-            # talktext_pub.publish("Let's sing Incy Wincy Spider")
-            # handle_speech_say("Let's sing Incy Wincy Spider")
             handle_speech_say("Let's sing a song")
             rospy.sleep(2)
             # gesturePlay_pub.publish("IncyWincySpider")
+            gesture_for_song = "IncyWincySpider"
             handle_gesture_play("IncyWincySpider", 1)
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
@@ -1255,6 +1309,7 @@ def dice_face_in_young_action(dice_face_str):
             handle_speech_say("Let's sing a song")
             rospy.sleep(2)
             # gesturePlay_pub.publish("ABCsong")
+            gesture_for_song = "ABCsong"
             handle_gesture_play("ABCsong", 1)
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
@@ -1264,7 +1319,7 @@ def dice_face_in_young_action(dice_face_str):
             # handle_speech_say("Let's sing Old MacDonald")
             handle_speech_say("Let's sing a song")
             rospy.sleep(2)
-            # gesturePlay_pub.publish("Old_MacDonald")
+            gesture_for_song = "Old_MacDonald"
             handle_gesture_play("Old_MacDonald", 1)
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
@@ -1274,7 +1329,7 @@ def dice_face_in_young_action(dice_face_str):
             # handle_speech_say("Let's sing twinkle twinkle")
             handle_speech_say("Let's sing a song")
             rospy.sleep(2)
-            # gesturePlay_pub.publish("twinkletwinklelittlestar")
+            gesture_for_song = "twinkletwinklelittlestar"
             handle_gesture_play("twinkletwinklelittlestar", 1)
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
@@ -1284,7 +1339,7 @@ def dice_face_in_young_action(dice_face_str):
             # handle_speech_say("Let's sing Wheels on the bus")
             handle_speech_say("Let's sing a song")
             rospy.sleep(2)
-            # gesturePlay_pub.publish("Wheels_bus")
+            gesture_for_song = "Wheels_bus"
             handle_gesture_play("Wheels_bus", 1)
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)

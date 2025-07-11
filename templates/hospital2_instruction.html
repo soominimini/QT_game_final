@@ -22,7 +22,7 @@
     const sentences = [
         {text: "A patient, is sitting on a chair", id: "patient", target: "drop_cart3"},
         {text: "The medical cart, is in the middle of the hallway", id: "hcart", target: "drop_cart"},
-        {text: "The nurse, is waiting beside the left door", id: "nurse", target: "drop_cart2"}
+        {text: "The nurse, is waiting beside the right door", id: "nurse", target: "drop_cart2"}
     ];
     let currentSentenceIndex = 0;
 
@@ -419,7 +419,7 @@
         <div class="cart" id="drop_cart"
              style="position: absolute; top: 300px; left: 600px; width: 150px; height: 150px;"></div>
         <div class="cart" id="drop_cart2"
-             style="position: absolute; top: 190px; left: 500px; height: 25%;"></div>
+             style="position: absolute; top: 300px; right: 300px; height: 25%;"></div>
         <div class="cart" id="drop_cart3"
              style="position: absolute; top:300px; left: 360px; width: 120px; height: 25%"></div>
     </div>

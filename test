@@ -4043,3 +4043,337 @@ login closed  Thu Jul 10 13:12:26 2025
 [2025-07-10 13:28:15] ROBOT_SPEECH: all done
 [2025-07-10 13:28:21] ROBOT_SPEECH: Let's have a bear hug!
 [2025-07-10 13:28:23] ROBOT_SPEECH: 1, 2, 3, 4, 5
+login closed  Fri Jul 11 08:20:53 2025
+login closed  Fri Jul 11 09:27:11 2025
+[2025-07-11 10:55:53] ROBOT_SPEECH: Lets play inference games
+Main closed  Fri Jul 11 10:55:58 2025
+GAME: inference_old
+Time: Fri Jul 11 10:56:10 2025
+[2025-07-11 10:56:10] ROBOT_SPEECH: Lets play inference games
+[2025-07-11 10:56:10] ROBOT_SPEECH: Lets play inference games
+[2025-07-11 10:56:10] ROBOT_SPEECH: Lets play inference games
+[2025-07-11 10:57:52] ROBOT_SPEECH: Lets play inference games
+[2025-07-11 10:57:53] ROBOT_SPEECH: I am grey. I have  rspd=60 big floppy ears and a long trunk. rspd=80 I love peanuts. What am I?
+Main closed  Fri Jul 11 10:58:08 2025
+Main closed  Fri Jul 11 10:58:08 2025
+Main closed  Fri Jul 11 10:59:45 2025
+GAME: inference_old
+Time: Fri Jul 11 10:59:51 2025
+[2025-07-11 10:59:51] ROBOT_SPEECH: Lets play inference games
+[2025-07-11 10:59:53] ROBOT_SPEECH: I work at a school. I teach many subjects. I help students learn how to pau=200  rspd=60 read and write. rspd=80  Who am I?
+login closed  Fri Jul 11 11:30:37 2025
+[2025-07-11 11:34:21] ROBOT_SPEECH: What place do you wanna go to?
+[2025-07-11 11:34:34] ROBOT_SPEECH: Let's go to hospital!
+[2025-07-11 11:34:37] ROBOT_SPEECH: The doctor, is next to the sink.
+Taking Instruction hospital1 closed  Fri Jul 11 11:34:41 2025
+[2025-07-11 11:34:45] ROBOT_SPEECH: The medical cart, is in the middle of the hallway
+[2025-07-11 11:34:58] ROBOT_SPEECH: Great!
+[2025-07-11 11:35:03] ROBOT_SPEECH: The nurse, is waiting beside the right door
+[2025-07-11 11:35:08] REPEAT BUTTON Clicked: [2025-07-11 11:35:08] ROBOT_SPEECH: The nurse, is waiting beside the right door
+[2025-07-11 11:35:21] ROBOT_SPEECH: Amazing!
+[2025-07-11 11:35:26] ROBOT_SPEECH: A patient, is sitting on a chair
+Taking Instruction hospital2 closed  Fri Jul 11 11:35:27 2025
+GAME: instructions_game
+Time: Fri Jul 11 11:35:29 2025
+[2025-07-11 11:35:31] ROBOT_SPEECH: Where do you feel like going?
+[2025-07-11 11:35:32] ROBOT_SPEECH: Where do you want to go?
+[2025-07-11 11:35:34] ROBOT_SPEECH: Where do you feel like going?
+[2025-07-11 11:35:35] ROBOT_SPEECH: Lets place the cart, between the checkout counters
+Taking Instruction supermarket1 closed  Fri Jul 11 11:35:42 2025
+[2025-07-11 11:35:46] ROBOT_SPEECH: I want to place the orange, at the left corner
+Taking Instruction supermarket2 closed  Fri Jul 11 11:35:50 2025
+[2025-07-11 11:35:54] ROBOT_SPEECH: I want to put the orange juice, on the top shelf
+[2025-07-11 11:36:03] ROBOT_SPEECH: Perfect!
+[2025-07-11 11:36:07] ROBOT_SPEECH: Let's put something we can eat to the right side of the kashier
+[2025-07-11 11:36:12] REPEAT BUTTON Clicked: [2025-07-11 11:36:12] ROBOT_SPEECH: Let's put something we can eat to the right side of the kashier
+Taking Instruction supermarket3 closed  Fri Jul 11 11:37:02 2025
+Main closed  Fri Jul 11 11:37:03 2025
+GAME: dice_action_young
+Time: Fri Jul 11 11:37:09 2025
+[2025-07-11 11:37:10] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 11:37:13] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-11 11:37:15] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-11 11:37:26] REPEAT BUTTON Clicked: [2025-07-11 11:37:26] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-11 11:37:34] REPEAT BUTTON Clicked: [2025-07-11 11:37:34] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-11 11:37:40] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-11 11:37:42] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-11 11:37:50] REPEAT BUTTON Clicked: [2025-07-11 11:37:50] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-11 11:39:36] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 11:39:39] ROBOT_SPEECH: Let's have a high five!
+[2025-07-11 11:39:44] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 11:39:52] Stop event triggered by user.
+[2025-07-11 11:39:53] ROBOT_SPEECH: all done
+[2025-07-11 11:39:55] REPEAT BUTTON Clicked: [2025-07-11 11:39:55] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 11:39:55] REPEAT BUTTON Clicked: [2025-07-11 11:39:55] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 11:39:59] ROBOT_SPEECH: Let's have a bear hug!
+[2025-07-11 11:40:01] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-11 11:40:11] REPEAT BUTTON Clicked: [2025-07-11 11:40:11] ROBOT_SPEECH: Let's have a bear hug!
+[2025-07-11 11:41:44] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-11 11:41:46] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-11 11:41:49] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-07-11 11:41:53] Stop event triggered by user.
+[2025-07-11 11:41:54] ROBOT_SPEECH: all done
+[2025-07-11 11:41:54] ROBOT_SPEECH: 1
+[2025-07-11 11:43:20] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 11:43:24] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-11 11:43:26] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-11 11:43:36] REPEAT BUTTON Clicked: [2025-07-11 11:43:36] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-11 11:43:57] ROBOT_SPEECH: Let's have a high five!
+[2025-07-11 11:44:07] REPEAT BUTTON Clicked: [2025-07-11 11:44:07] ROBOT_SPEECH: Let's have a high five!
+[2025-07-11 11:44:17] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-11 11:44:19] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-11 11:44:24] Stop event triggered by user.
+[2025-07-11 11:44:25] ROBOT_SPEECH: all done
+[2025-07-11 11:44:30] REPEAT BUTTON Clicked: [2025-07-11 11:44:30] ROBOT_SPEECH: Let's wiggle our body for ten seconds!. 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-11 11:44:49] ROBOT_SPEECH: Let's have a bear hug!
+[2025-07-11 11:44:51] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-11 11:45:05] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 11:45:47] Stop event triggered by user.
+[2025-07-11 11:45:48] ROBOT_SPEECH: all done
+login closed  Fri Jul 11 11:45:58 2025
+[2025-07-11 11:49:57] ROBOT_SPEECH: Lets play inference games
+[2025-07-11 11:49:59] ROBOT_SPEECH: I am a toy. I have small pieces to put together to make a picture. What am i?
+[2025-07-11 11:50:17] ROBOT_SPEECH: Correct!
+[2025-07-11 11:50:25] ROBOT_SPEECH: You wear me when you are cold to keep you warm. I have a zipper and pockets. What am I?
+[2025-07-11 11:50:37] ROBOT_SPEECH: Correct!
+[2025-07-11 11:50:46] ROBOT_SPEECH: I am grey. I have big floppy ears and a long trunk. I love peanuts. What am I?
+[2025-07-11 11:50:59] ROBOT_SPEECH: Correct!
+[2025-07-11 11:52:37] ROBOT_SPEECH: It’s a shape. It is symmetrical. You can see it in the sky at night. What am I?
+[2025-07-11 11:55:38] ROBOT_SPEECH: Correct!
+[2025-07-11 11:55:46] ROBOT_SPEECH: I work at a school. I teach many subjects. I help students learn how to read and write. Who am I?
+[2025-07-11 11:55:58] ROBOT_SPEECH: Correct!
+[2025-07-11 11:56:04] ROBOT_SPEECH: I am soft. You hug me when you sleep. I am an animal with brown fur. What am i?
+[2025-07-11 11:56:16] ROBOT_SPEECH: Correct!
+[2025-07-11 11:56:21] ROBOT_SPEECH: I play in the mud, I am usually pink. What am i?
+[2025-07-11 11:56:29] REPEAT BUTTON Clicked: [2025-07-11 11:56:29] ROBOT_SPEECH: I play in the mud, I am usually pink. What am i?
+[2025-07-11 11:56:36] ROBOT_SPEECH: Correct!
+[2025-07-11 11:56:42] ROBOT_SPEECH: I can be carried on your back or hand. You fill me with things you need. You take me to school. What am I?
+[2025-07-11 11:56:53] ROBOT_SPEECH: Correct!
+[2025-07-11 11:57:00] ROBOT_SPEECH: It's yellow, and you must peel it to eat it. What is it?
+[2025-07-11 11:57:07] ROBOT_SPEECH: Correct!
+[2025-07-11 11:57:13] ROBOT_SPEECH: You wear me on your feet. You use me when you want to go outside. I come in different colors. I can have straps. What am I?
+[2025-07-11 11:57:27] ROBOT_SPEECH: Correct!
+[2025-07-11 11:57:33] ROBOT_SPEECH: I am long. On one end, I have an eraser. You use me to write or draw. What am I?
+[2025-07-11 11:57:43] REPEAT BUTTON Clicked: [2025-07-11 11:57:43] ROBOT_SPEECH: I am long. On one end, I have an eraser. You use me to write or draw. What am I?
+[2025-07-11 11:57:57] ROBOT_SPEECH: Correct!
+[2025-07-11 11:58:03] ROBOT_SPEECH: It's shaped like an oval. You crack it to open it. It comes from a chicken. What is it?
+[2025-07-11 11:58:13] ROBOT_SPEECH: Correct!
+[2025-07-11 11:58:17] ROBOT_SPEECH: I have a long neck, so I can eat leaves high up in the tree. I am yellow and have brown spots all over me. What am I?
+[2025-07-11 11:58:28] ROBOT_SPEECH: Correct!
+[2025-07-11 11:58:35] ROBOT_SPEECH: I eat grass and live in a barn. I usually have black and white spots. I can give you milk. What am i?
+[2025-07-11 11:58:48] ROBOT_SPEECH: Correct!
+[2025-07-11 11:58:51] ROBOT_SPEECH: I am round. You can throw me and bounce on the ground. What am i?
+[2025-07-11 11:59:01] REPEAT BUTTON Clicked: [2025-07-11 11:59:01] ROBOT_SPEECH: I am round. You can throw me and bounce on the ground. What am i?
+[2025-07-11 11:59:11] REPEAT BUTTON Clicked: [2025-07-11 11:59:11] ROBOT_SPEECH: I am round. You can throw me and bounce on the ground. What am i?
+[2025-07-11 11:59:22] ROBOT_SPEECH: Correct!
+[2025-07-11 11:59:27] ROBOT_SPEECH: It’s orange and round. You can carve it to make silly or scary faces. You can put a candle inside of it. You see it  during Halloween.What am I?
+[2025-07-11 11:59:43] ROBOT_SPEECH: Correct!
+[2025-07-11 11:59:48] ROBOT_SPEECH: I work at a hospital. I help you when you are sick. I wear a white coat or scrubs. Who am I? 
+[2025-07-11 11:59:59] ROBOT_SPEECH: Correct!
+[2025-07-11 12:00:02] ROBOT_SPEECH: It's finished! Let's play other games!
+[2025-07-11 12:00:23] ROBOT_SPEECH: Correct!
+[2025-07-11 12:00:29] ROBOT_SPEECH: It's finished! Let's play other games!
+GAME: dice_action_young
+Time: Fri Jul 11 12:01:41 2025
+[2025-07-11 12:01:42] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 12:01:44] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 12:01:45] ROBOT_SPEECH: Let's roll the dice
+Main closed  Fri Jul 11 12:01:51 2025
+GAME: dice_action_young
+Time: Fri Jul 11 12:01:56 2025
+[2025-07-11 12:01:58] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 12:02:05] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-11 12:02:07] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-11 12:02:20] REPEAT BUTTON Clicked: [2025-07-11 12:02:20] ROBOT_SPEECH: Let's wiggle our body for ten seconds!. 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-11 12:02:40] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-11 12:02:42] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-11 12:02:52] REPEAT BUTTON Clicked: [2025-07-11 12:02:52] ROBOT_SPEECH: Let's deep breathe for five seconds.  1, 2, 3, 4, 5
+[2025-07-11 12:03:05] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-07-11 12:03:10] ROBOT_SPEECH: 1
+[2025-07-11 12:03:13] ROBOT_SPEECH: 2
+[2025-07-11 12:03:16] ROBOT_SPEECH: 3
+[2025-07-11 12:03:19] ROBOT_SPEECH: 4
+[2025-07-11 12:03:22] ROBOT_SPEECH: 5
+[2025-07-11 12:03:25] ROBOT_SPEECH: 6
+[2025-07-11 12:03:28] ROBOT_SPEECH: 7
+[2025-07-11 12:03:31] ROBOT_SPEECH: 8
+[2025-07-11 12:03:34] ROBOT_SPEECH: 9
+[2025-07-11 12:03:37] ROBOT_SPEECH: 10
+[2025-07-11 12:03:44] REPEAT BUTTON Clicked: [2025-07-11 12:03:44] ROBOT_SPEECH: Let's do ten jumping jacks
+[2025-07-11 12:03:56] ROBOT_SPEECH: Let's have a bear hug!
+[2025-07-11 12:03:58] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-11 12:04:08] REPEAT BUTTON Clicked: [2025-07-11 12:04:08] ROBOT_SPEECH: Let's have a bear hug!, 1, 2, 3, 4, 5
+[2025-07-11 12:04:21] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:05:48] Stop event triggered by user.
+[2025-07-11 12:05:49] ROBOT_SPEECH: all done
+[2025-07-11 12:06:27] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 12:06:32] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:06:43] Stop event triggered by user.
+[2025-07-11 12:06:44] ROBOT_SPEECH: all done
+[2025-07-11 12:06:48] REPEAT BUTTON Clicked: [2025-07-11 12:06:48] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:08:10] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 12:08:14] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:09:03] Stop event triggered by user.
+[2025-07-11 12:09:03] ROBOT_SPEECH: all done
+[2025-07-11 12:09:05] Stop event triggered by user.
+[2025-07-11 12:09:05] ROBOT_SPEECH: all done
+[2025-07-11 12:09:14] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 12:09:17] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:09:30] Stop event triggered by user.
+[2025-07-11 12:09:30] ROBOT_SPEECH: all done
+[2025-07-11 12:09:33] REPEAT BUTTON Clicked: [2025-07-11 12:09:33] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:09:41] Stop event triggered by user.
+[2025-07-11 12:09:42] ROBOT_SPEECH: all done
+[2025-07-11 12:09:45] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:10:17] Stop event triggered by user.
+[2025-07-11 12:10:17] ROBOT_SPEECH: all done
+[2025-07-11 12:10:19] REPEAT BUTTON Clicked: [2025-07-11 12:10:19] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:10:24] Stop event triggered by user.
+[2025-07-11 12:10:24] ROBOT_SPEECH: all done
+[2025-07-11 12:14:37] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 12:14:41] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:14:52] Stop event triggered by user.
+[2025-07-11 12:14:52] ROBOT_SPEECH: all done
+[2025-07-11 12:14:55] REPEAT BUTTON Clicked: [2025-07-11 12:14:55] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:15:07] Stop event triggered by user.
+[2025-07-11 12:15:07] ROBOT_SPEECH: all done
+[2025-07-11 12:16:35] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 12:16:38] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-07-11 12:16:43] ROBOT_SPEECH: 1
+[2025-07-11 12:16:46] ROBOT_SPEECH: 2
+[2025-07-11 12:16:49] ROBOT_SPEECH: 3
+[2025-07-11 12:16:52] ROBOT_SPEECH: 4
+[2025-07-11 12:16:54] Stop event triggered by user.
+[2025-07-11 12:16:55] ROBOT_SPEECH: all done
+[2025-07-11 12:16:55] ROBOT_SPEECH: 5
+[2025-07-11 12:16:59] REPEAT BUTTON Clicked: [2025-07-11 12:16:59] ROBOT_SPEECH: Let's do ten jumping jacks
+[2025-07-11 12:17:02] ROBOT_SPEECH: 1
+[2025-07-11 12:17:05] ROBOT_SPEECH: 2
+[2025-07-11 12:17:08] ROBOT_SPEECH: 3
+[2025-07-11 12:17:11] ROBOT_SPEECH: 4
+[2025-07-11 12:17:14] ROBOT_SPEECH: 5
+[2025-07-11 12:17:17] ROBOT_SPEECH: 6
+[2025-07-11 12:17:20] ROBOT_SPEECH: 7
+[2025-07-11 12:17:23] ROBOT_SPEECH: 8
+[2025-07-11 12:17:26] ROBOT_SPEECH: 9
+[2025-07-11 12:17:29] ROBOT_SPEECH: 10
+[2025-07-11 12:17:29] Stop event triggered by user.
+[2025-07-11 12:17:29] ROBOT_SPEECH: all done
+[2025-07-11 12:17:31] Stop event triggered by user.
+[2025-07-11 12:17:31] ROBOT_SPEECH: all done
+[2025-07-11 12:17:33] Stop event triggered by user.
+[2025-07-11 12:17:34] ROBOT_SPEECH: all done
+[2025-07-11 12:18:08] REPEAT BUTTON Clicked: [2025-07-11 12:18:08] ROBOT_SPEECH: Let's do ten jumping jacks
+[2025-07-11 12:18:20] REPEAT BUTTON Clicked: [2025-07-11 12:18:20] ROBOT_SPEECH: Let's do ten jumping jacks
+[2025-07-11 12:18:23] ROBOT_SPEECH: 1
+[2025-07-11 12:18:26] ROBOT_SPEECH: 2
+[2025-07-11 12:18:29] ROBOT_SPEECH: 3
+[2025-07-11 12:18:32] ROBOT_SPEECH: 4
+[2025-07-11 12:18:35] ROBOT_SPEECH: 5
+[2025-07-11 12:18:38] ROBOT_SPEECH: 6
+[2025-07-11 12:18:41] ROBOT_SPEECH: 7
+[2025-07-11 12:18:44] ROBOT_SPEECH: 8
+[2025-07-11 12:18:47] ROBOT_SPEECH: 9
+[2025-07-11 12:18:50] ROBOT_SPEECH: 10
+[2025-07-11 12:20:06] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 12:20:09] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:20:15] Stop event triggered by user.
+[2025-07-11 12:20:15] ROBOT_SPEECH: all done
+[2025-07-11 12:20:18] REPEAT BUTTON Clicked: [2025-07-11 12:20:18] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:20:50] Stop event triggered by user.
+[2025-07-11 12:20:50] ROBOT_SPEECH: all done
+[2025-07-11 12:20:53] REPEAT BUTTON Clicked: [2025-07-11 12:20:53] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:21:16] Stop event triggered by user.
+[2025-07-11 12:21:16] ROBOT_SPEECH: all done
+[2025-07-11 12:21:20] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 12:21:26] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-07-11 12:21:35] REPEAT BUTTON Clicked: [2025-07-11 12:21:35] ROBOT_SPEECH: Let's do ten jumping jacks
+[2025-07-11 12:21:38] ROBOT_SPEECH: 1
+[2025-07-11 12:21:41] ROBOT_SPEECH: 2
+[2025-07-11 12:21:43] Stop event triggered by user.
+[2025-07-11 12:21:43] ROBOT_SPEECH: all done
+[2025-07-11 12:21:44] ROBOT_SPEECH: 3
+[2025-07-11 12:21:49] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-07-11 12:21:54] ROBOT_SPEECH: 1
+[2025-07-11 12:21:57] ROBOT_SPEECH: 2
+[2025-07-11 12:21:57] Stop event triggered by user.
+[2025-07-11 12:21:57] ROBOT_SPEECH: all done
+[2025-07-11 12:22:00] ROBOT_SPEECH: 3
+[2025-07-11 12:22:12] ROBOT_SPEECH: Let's roll the dice
+[2025-07-11 12:22:16] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-07-11 12:22:21] ROBOT_SPEECH: 1
+[2025-07-11 12:22:24] ROBOT_SPEECH: 2
+[2025-07-11 12:22:27] ROBOT_SPEECH: 3
+[2025-07-11 12:22:28] Stop event triggered by user.
+[2025-07-11 12:22:29] ROBOT_SPEECH: all done
+[2025-07-11 12:22:30] ROBOT_SPEECH: 4
+[2025-07-11 12:22:31] REPEAT BUTTON Clicked: [2025-07-11 12:22:31] ROBOT_SPEECH: Let's do ten jumping jacks
+[2025-07-11 12:22:34] ROBOT_SPEECH: 1
+[2025-07-11 12:22:37] ROBOT_SPEECH: 2
+[2025-07-11 12:22:40] Stop event triggered by user.
+[2025-07-11 12:22:40] ROBOT_SPEECH: all done
+[2025-07-11 12:22:40] ROBOT_SPEECH: 3
+[2025-07-11 12:22:44] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:22:51] Stop event triggered by user.
+[2025-07-11 12:22:52] ROBOT_SPEECH: all done
+[2025-07-11 12:22:54] REPEAT BUTTON Clicked: [2025-07-11 12:22:54] ROBOT_SPEECH: Let's sing a song
+[2025-07-11 12:23:00] Stop event triggered by user.
+[2025-07-11 12:23:00] ROBOT_SPEECH: all done
+[2025-07-11 12:23:04] ROBOT_SPEECH: Let's have a high five!
+Main closed  Fri Jul 11 12:23:11 2025
+Main closed  Fri Jul 11 12:29:25 2025
+GAME: yes_no_young
+Time: Fri Jul 11 12:29:33 2025
+[2025-07-11 12:29:35] ROBOT_SPEECH: Is the boy sleeping?
+[2025-07-11 12:29:38] ROBOT_SPEECH: Correct!
+[2025-07-11 12:29:39] ROBOT_SPEECH: Is this a mountain?
+[2025-07-11 12:29:44] ROBOT_SPEECH: Correct!
+[2025-07-11 12:29:45] ROBOT_SPEECH: Is this a dog?
+[2025-07-11 12:30:04] ROBOT_SPEECH: Correct!
+[2025-07-11 12:30:05] ROBOT_SPEECH: Is this an apple?
+[2025-07-11 12:30:09] ROBOT_SPEECH: Correct!
+[2025-07-11 12:30:10] ROBOT_SPEECH: Is the ball red?
+[2025-07-11 12:30:13] ROBOT_SPEECH: Correct!
+[2025-07-11 12:30:14] ROBOT_SPEECH: Is the girl eating?
+[2025-07-11 12:30:18] ROBOT_SPEECH: Correct!
+[2025-07-11 12:30:19] ROBOT_SPEECH: Is this a nose?
+[2025-07-11 12:30:22] ROBOT_SPEECH: Correct!
+[2025-07-11 12:30:23] ROBOT_SPEECH: Is the boy happy?
+[2025-07-11 12:30:26] ROBOT_SPEECH: Correct!
+[2025-07-11 12:30:27] ROBOT_SPEECH: Is this a balloon?
+[2025-07-11 12:30:30] ROBOT_SPEECH: Correct!
+[2025-07-11 12:30:31] ROBOT_SPEECH: Is this a car?
+[2025-07-11 12:30:37] ROBOT_SPEECH: Correct!
+[2025-07-11 12:30:38] ROBOT_SPEECH: Yahoo!. All done!
+[2025-07-11 12:30:43] ROBOT_SPEECH: Is the girl eating?
+[2025-07-11 12:30:48] ROBOT_SPEECH: Correct!
+[2025-07-11 12:30:49] ROBOT_SPEECH: Is the ball red?
+[2025-07-11 12:30:53] ROBOT_SPEECH: Correct!
+[2025-07-11 12:30:54] ROBOT_SPEECH: Is this an apple?
+[2025-07-11 12:30:57] ROBOT_SPEECH: Correct!
+[2025-07-11 12:30:58] ROBOT_SPEECH: Is this a balloon?
+[2025-07-11 12:31:02] ROBOT_SPEECH: Correct!
+[2025-07-11 12:31:03] ROBOT_SPEECH: Is this a dog?
+[2025-07-11 12:31:06] ROBOT_SPEECH: Correct!
+[2025-07-11 12:31:07] ROBOT_SPEECH: Is the boy sleeping?
+[2025-07-11 12:32:14] ROBOT_SPEECH: Is this a nose?
+[2025-07-11 12:32:18] ROBOT_SPEECH: Correct!
+[2025-07-11 12:32:19] ROBOT_SPEECH: Is this a mountain?
+[2025-07-11 12:32:21] Praise BUTTON Clicked: [2025-07-11 12:32:21] ROBOT_SPEECH: Great!
+[2025-07-11 12:32:40] Praise BUTTON Clicked: [2025-07-11 12:32:40] ROBOT_SPEECH: Bravo!
+[2025-07-11 12:32:45] Praise BUTTON Clicked: [2025-07-11 12:32:45] ROBOT_SPEECH: Amazing!
+[2025-07-11 12:32:51] ROBOT_SPEECH: Correct!
+[2025-07-11 12:32:52] ROBOT_SPEECH: Is this a dog?
+[2025-07-11 12:33:01] Praise BUTTON Clicked: [2025-07-11 12:33:01] ROBOT_SPEECH: Amazing!
+login closed  Fri Jul 11 12:35:09 2025
+[2025-07-11 12:37:19] ROBOT_SPEECH: Is this a balloon?
+[2025-07-11 12:37:23] ROBOT_SPEECH: That's not correct
+[2025-07-11 12:37:28] ROBOT_SPEECH: Correct!
+[2025-07-11 12:37:31] ROBOT_SPEECH: Is the ball red?
+[2025-07-11 12:37:43] ROBOT_SPEECH: Correct!
+[2025-07-11 12:37:47] Praise BUTTON Clicked: [2025-07-11 12:37:47] ROBOT_SPEECH: Wonderful!
+[2025-07-11 12:37:53] ROBOT_SPEECH: Is this a dog?
+[2025-07-11 12:37:59] ROBOT_SPEECH: Correct!
+[2025-07-11 12:38:01] Praise BUTTON Clicked: [2025-07-11 12:38:01] ROBOT_SPEECH: Great!
+[2025-07-11 12:38:05] ROBOT_SPEECH: Is this a car?
+[2025-07-11 12:38:10] ROBOT_SPEECH: That's not correct
