@@ -1,0 +1,96 @@
+CLIENT NAME: Arleen
+login closed  Thu Aug 14 10:08:34 2025
+GAME: at_talks
+Time: Thu Aug 14 10:09:01 2025
+GAME: at_talks
+Time: Thu Aug 14 10:09:33 2025
+GAME: at_talks
+Time: Thu Aug 14 10:10:07 2025
+[2025-08-14 10:10:31] ROBOT_SPEECH: Hello! How r you today?
+[2025-08-14 10:10:40] ROBOT_SPEECH: Thanks for letting me know!
+[2025-08-14 10:10:49] ROBOT_SPEECH: What is your favourite season?
+[2025-08-14 10:12:32] ROBOT_SPEECH: lets look at the visual schedule
+GAME: emotion_game2
+Time: Thu Aug 14 10:18:10 2025
+GAME: emotion_game2
+Time: Thu Aug 14 10:18:16 2025
+GAME: emotion_game2
+Time: Thu Aug 14 10:18:22 2025
+GAME: emotion_game2
+Time: Thu Aug 14 10:18:29 2025
+GAME: emotion_game2
+Time: Thu Aug 14 10:18:32 2025
+GAME: emotion_game2
+Time: Thu Aug 14 10:18:43 2025
+GAME: emotion_game2
+Time: Thu Aug 14 10:18:52 2025
+GAME: emotion_game2
+Time: Thu Aug 14 10:19:01 2025
+GAME: emotion_game2
+Time: Thu Aug 14 10:19:02 2025
+GAME: emotion_game2
+Time: Thu Aug 14 10:19:11 2025
+GAME: emotion_game2
+Time: Thu Aug 14 10:19:20 2025
+GAME: emotion_game2
+Time: Thu Aug 14 10:19:22 2025
+GAME: emotion_game_1
+Time: Thu Aug 14 10:19:38 2025
+GAME: emotion_game_1
+Time: Thu Aug 14 10:19:40 2025
+GAME: emotion_game_1
+Time: Thu Aug 14 10:19:42 2025
+GAME: emotion_game2
+Time: Thu Aug 14 10:19:50 2025
+[2025-08-14 10:20:56] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Aug 14 10:20:59 2025
+[2025-08-14 10:21:00] REPEAT BUTTON Clicked: [2025-08-14 10:21:00] ROBOT_SPEECH: Show me an emotion card
+[2025-08-14 10:21:07] ROBOT_SPEECH: sheye
+[2025-08-14 10:21:19] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-08-14 10:21:39] ROBOT_SPEECH: I get shy when I meet new people.
+[2025-08-14 10:21:46] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-14 10:23:27] ROBOT_SPEECH: angry!
+[2025-08-14 10:23:39] ROBOT_SPEECH: Look at the tablet, which one is  angry
+[2025-08-14 10:24:15] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-14 10:24:19] ROBOT_SPEECH: excited!
+[2025-08-14 10:24:31] ROBOT_SPEECH: Look at the tablet, which one is  excited
+Main closed  Thu Aug 14 10:41:53 2025
+GAME: emotion_game2
+Time: Thu Aug 14 10:42:13 2025
+[2025-08-14 10:42:15] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Aug 14 10:42:17 2025
+[2025-08-14 10:42:18] REPEAT BUTTON Clicked: [2025-08-14 10:42:18] ROBOT_SPEECH: Show me an emotion card
+[2025-08-14 10:42:27] ROBOT_SPEECH: saed
+[2025-08-14 10:42:39] ROBOT_SPEECH: Look at the tablet, which one is  sad
+[2025-08-14 10:43:03] ROBOT_SPEECH: I feel sad when I miss my family.
+[2025-08-14 10:43:10] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-14 10:43:28] ROBOT_SPEECH: scared!
+[2025-08-14 10:43:40] ROBOT_SPEECH: Look at the tablet, which one is  scared
+[2025-08-14 10:43:56] ROBOT_SPEECH: I feel scared when it’s dark outside.
+[2025-08-14 10:44:03] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-14 10:44:48] ROBOT_SPEECH: Show me another emotion card!
+Main closed  Thu Aug 14 10:50:19 2025
+GAME: dice_emotion_old
+Time: Thu Aug 14 10:50:25 2025
+emotion_game1 closed  Thu Aug 14 10:50:25 2025
+[2025-08-14 10:50:26] ROBOT_SPEECH: Let's roll the dice
+[2025-08-14 10:50:27] ROBOT_SPEECH: Let's roll the dice
+[2025-08-14 10:50:32] ROBOT_SPEECH: confused
+[2025-08-14 10:50:35] ROBOT_SPEECH: What makes you feel confused?
+[2025-08-14 10:51:00] ROBOT_SPEECH: curious
+[2025-08-14 10:51:05] ROBOT_SPEECH: what makes you curious?
+[2025-08-14 10:51:43] REPEAT BUTTON Clicked: [2025-08-14 10:51:43] ROBOT_SPEECH: curious. what makes you curious?
+[2025-08-14 10:52:30] ROBOT_SPEECH: tired
+[2025-08-14 10:52:36] ROBOT_SPEECH: When do you feel tired?
+[2025-08-14 10:53:04] ROBOT_SPEECH: silly
+[2025-08-14 10:53:10] ROBOT_SPEECH: when do you feel silly?
+[2025-08-14 10:53:36] ROBOT_SPEECH: frustrated
+[2025-08-14 10:53:42] ROBOT_SPEECH: When do you feel frustrated?
+[2025-08-14 10:55:18] ROBOT_SPEECH: excited
+[2025-08-14 10:55:25] ROBOT_SPEECH: Who makes you feel excited?
+[2025-08-14 10:55:49] ROBOT_SPEECH: confused
+[2025-08-14 10:55:52] ROBOT_SPEECH: What makes you feel confused?
+Main closed  Thu Aug 14 10:56:29 2025
+GAME: at_talks
+Time: Thu Aug 14 11:05:31 2025
+[2025-08-14 11:05:34] ROBOT_SPEECH: Goodbye!

@@ -1,0 +1,206 @@
+CLIENT NAME: Arleen
+login closed  Thu Aug  7 10:03:27 2025
+GAME: at_talks
+Time: Thu Aug  7 10:03:33 2025
+GAME: at_talks
+Time: Thu Aug  7 10:03:39 2025
+GAME: at_talks
+Time: Thu Aug  7 10:10:33 2025
+GAME: at_talks
+Time: Thu Aug  7 10:10:52 2025
+[2025-08-07 10:11:01] ROBOT_SPEECH: Hello! How r you today?
+[2025-08-07 10:11:27] ROBOT_SPEECH: How's the weather today?
+[2025-08-07 10:21:41] ROBOT_SPEECH: lets look at the visual schedule
+GAME: instructions_game
+Time: Thu Aug  7 10:24:25 2025
+[2025-08-07 10:24:27] ROBOT_SPEECH: Where shall we go?
+[2025-08-07 10:24:34] ROBOT_SPEECH: Let's go shopping!
+[2025-08-07 10:24:37] ROBOT_SPEECH: Casher, is in front of checkout counter
+[2025-08-07 10:24:43] ROBOT_SPEECH: Perfect!
+[2025-08-07 10:24:48] ROBOT_SPEECH: Kustomer is waiting, at the end of the checkout counter
+[2025-08-07 10:24:56] ROBOT_SPEECH: Amazing!
+[2025-08-07 10:25:01] ROBOT_SPEECH: Lets place the cart, between the checkout counters
+[2025-08-07 10:25:06] ROBOT_SPEECH: Hooray!
+Taking Instruction supermarket1 closed  Thu Aug  7 10:25:19 2025
+[2025-08-07 10:25:24] ROBOT_SPEECH: Please place the price tag, under the apple
+[2025-08-07 10:25:33] ROBOT_SPEECH: Great!
+[2025-08-07 10:25:37] ROBOT_SPEECH: I want to place the orange, at the left corner
+[2025-08-07 10:25:43] ROBOT_SPEECH: Amazing!
+[2025-08-07 10:25:48] ROBOT_SPEECH: Lets place an apple, on the apple stack
+[2025-08-07 10:25:52] ROBOT_SPEECH: Perfect!
+Taking Instruction supermarket2 closed  Thu Aug  7 10:26:02 2025
+[2025-08-07 10:26:06] ROBOT_SPEECH: Let's put something we can eat to the right side of the casher
+[2025-08-07 10:26:14] REPEAT BUTTON Clicked: [2025-08-07 10:26:14] ROBOT_SPEECH: Let's put something we can eat to the right side of the casher
+[2025-08-07 10:26:22] REPEAT BUTTON Clicked: [2025-08-07 10:26:22] ROBOT_SPEECH: Let's put something we can eat to the right side of the casher
+[2025-08-07 10:26:32] REPEAT BUTTON Clicked: [2025-08-07 10:26:32] ROBOT_SPEECH: Let's put something we can eat to the right side of the casher
+[2025-08-07 10:26:46] REPEAT BUTTON Clicked: [2025-08-07 10:26:46] ROBOT_SPEECH: Let's put something we can eat to the right side of the casher
+[2025-08-07 10:26:52] ROBOT_SPEECH: Hooray!
+[2025-08-07 10:26:57] ROBOT_SPEECH: Lets place the milk, on the counter.
+[2025-08-07 10:27:06] ROBOT_SPEECH: Great!
+[2025-08-07 10:27:11] ROBOT_SPEECH: I want to put the orange juice, on the top shelf
+[2025-08-07 10:27:12] ROBOT_SPEECH: Perfect!
+[2025-08-07 10:27:41] Stop event triggered by user.
+[2025-08-07 10:27:42] ROBOT_SPEECH: all done
+Main closed  Thu Aug  7 10:27:44 2025
+GAME: emotion_game2
+Time: Thu Aug  7 10:28:15 2025
+[2025-08-07 10:30:46] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Aug  7 10:30:49 2025
+[2025-08-07 10:30:49] REPEAT BUTTON Clicked: [2025-08-07 10:30:49] ROBOT_SPEECH: Show me an emotion card
+[2025-08-07 10:30:53] ROBOT_SPEECH: saed
+[2025-08-07 10:31:05] ROBOT_SPEECH: Look at the tablet, which one is  sad
+[2025-08-07 10:31:11] ROBOT_SPEECH: I feel sad when I miss my family.
+[2025-08-07 10:32:16] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-07 10:32:46] ROBOT_SPEECH: sheye
+[2025-08-07 10:32:58] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-08-07 10:33:02] ROBOT_SPEECH: I get shy when I meet new people.
+[2025-08-07 10:33:25] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-07 10:33:30] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-07 10:33:47] ROBOT_SPEECH: scared!
+[2025-08-07 10:33:59] ROBOT_SPEECH: Look at the tablet, which one is  scared
+[2025-08-07 10:34:13] REPEAT BUTTON Clicked: [2025-08-07 10:34:13] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-07 10:34:22] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-07 10:34:28] ROBOT_SPEECH: happy!
+[2025-08-07 10:34:40] ROBOT_SPEECH: Look at the tablet, which one is  happy
+[2025-08-07 10:34:44] ROBOT_SPEECH: I like to cuddle and play with my pets when I'm happy
+[2025-08-07 10:35:24] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-07 10:35:38] ROBOT_SPEECH: angry!
+[2025-08-07 10:35:50] ROBOT_SPEECH: Look at the tablet, which one is  angry
+[2025-08-07 10:37:25] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-07 10:37:39] ROBOT_SPEECH: excited!
+[2025-08-07 10:37:51] ROBOT_SPEECH: Look at the tablet, which one is  excited
+[2025-08-07 10:37:55] ROBOT_SPEECH: I feel excited when I am going on vacation with my family.
+[2025-08-07 10:38:28] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-07 10:38:33] ROBOT_SPEECH: excited!
+[2025-08-07 10:38:45] ROBOT_SPEECH: Look at the tablet, which one is  excited
+[2025-08-07 10:38:51] ROBOT_SPEECH: I feel excited going to an amusement park
+[2025-08-07 10:39:39] Stop event triggered by user.
+[2025-08-07 10:39:39] ROBOT_SPEECH: all done
+Main closed  Thu Aug  7 10:39:44 2025
+GAME: story_old_client
+Time: Thu Aug  7 10:39:50 2025
+[2025-08-07 10:39:50] ROBOT_SPEECH: Lets choose a story
+Main closed  Thu Aug  7 10:40:30 2025
+GAME: inference_old
+Time: Thu Aug  7 10:40:36 2025
+[2025-08-07 10:40:36] ROBOT_SPEECH: Lets play inference games
+[2025-08-07 10:40:39] ROBOT_SPEECH: I can be carried on your back, or hand. You fill me with things you need. You take me to school. What am I?
+[2025-08-07 10:40:51] ROBOT_SPEECH: Correct!
+[2025-08-07 10:40:52] ROBOT_SPEECH: I am long. On one end, I have an eraser. You use me \rmw=1\ to write or draw. \rmw=0\ What am I?
+[2025-08-07 10:41:04] ROBOT_SPEECH: Correct!
+[2025-08-07 10:41:05] ROBOT_SPEECH: I am a toy. I have small pieces to put together to make a picture. What am i?
+[2025-08-07 10:41:14] ROBOT_SPEECH: Correct!
+[2025-08-07 10:41:19] ROBOT_SPEECH: I am round. You can throw me, and bounce on the ground. What am i?
+[2025-08-07 10:41:28] ROBOT_SPEECH: Correct!
+[2025-08-07 10:41:34] ROBOT_SPEECH: It's shaped like an \ pau=300\ oval. You crack it to open it. It comes from a chicken. What is it?
+[2025-08-07 10:41:44] ROBOT_SPEECH: Correct!
+[2025-08-07 10:41:48] ROBOT_SPEECH: I work at a hospital. I help you, when you are sick. I wear a white coat or scrubs. Who am I? 
+[2025-08-07 10:41:59] ROBOT_SPEECH: Correct!
+[2025-08-07 10:42:07] ROBOT_SPEECH: I eat grass, and live in a barn. I usually have black and white spots. I can give you milk. What am i?
+[2025-08-07 10:42:19] ROBOT_SPEECH: Correct!
+[2025-08-07 10:42:23] ROBOT_SPEECH: \spd=75\ You wear me when you are cold, to keep you warm. I have a \emph=1\ zipper, and \emph=1\ pockets. \spd=75\ What am I?
+[2025-08-07 10:42:33] ROBOT_SPEECH: Correct!
+[2025-08-07 10:42:35] ROBOT_SPEECH: It’s \rmw=1\ orange and round. \rmw=0\ You can carve it to make \rmw=1\ silly or scary faces.\rmw=0\You can put a candle inside of it. You see it  during Halloween.What am I?
+[2025-08-07 10:42:52] ROBOT_SPEECH: Correct!
+[2025-08-07 10:42:53] ROBOT_SPEECH: I have a long neck, so I can eat \emph=1\ leaves high up in the tree. \spd=75\ I am yellow and have brown spots all over me. What am I?
+[2025-08-07 10:43:04] ROBOT_SPEECH: That's not correct
+[2025-08-07 10:43:06] ROBOT_SPEECH: Correct!
+[2025-08-07 10:43:09] ROBOT_SPEECH: It's yellow, and you must peel it to eat it. What is it?
+[2025-08-07 10:43:16] ROBOT_SPEECH: Correct!
+[2025-08-07 10:43:22] ROBOT_SPEECH: I am grey. I have big floppy ears and a long trunk. I love peanuts. What am I?
+[2025-08-07 10:43:34] ROBOT_SPEECH: Correct!
+[2025-08-07 10:43:35] ROBOT_SPEECH: I am soft. You hug me when you sleep. I am an animal \pau=300\ with brown fur. What am i?
+[2025-08-07 10:43:46] ROBOT_SPEECH: Correct!
+[2025-08-07 10:43:49] ROBOT_SPEECH: It’s a shape. I have five points. You can see it in the sky at night. What am I?
+[2025-08-07 10:44:00] ROBOT_SPEECH: Correct!
+[2025-08-07 10:44:05] ROBOT_SPEECH: I work at a school. I teach many subjects. I help students learn how to read and write. Who am I?
+[2025-08-07 10:44:17] ROBOT_SPEECH: Correct!
+[2025-08-07 10:44:20] ROBOT_SPEECH: You wear me on your feet. You use me  when you want to go outside. I come in different colors. I can have straps. What am I?
+[2025-08-07 10:44:40] REPEAT BUTTON Clicked: [2025-08-07 10:44:40] ROBOT_SPEECH: You wear me on your feet. You use me  when you want to go outside. I come in different colors. I can have straps. What am I?
+[2025-08-07 10:44:45] ROBOT_SPEECH: Correct!
+[2025-08-07 10:45:14] ROBOT_SPEECH: I play in the mud, \pau=300\ I am usually pink. What am i?
+[2025-08-07 10:45:20] ROBOT_SPEECH: Correct!
+[2025-08-07 10:45:24] ROBOT_SPEECH: It's finished! Let's play other games!
+Main closed  Thu Aug  7 10:45:31 2025
+GAME: dice_action_young
+Time: Thu Aug  7 10:50:53 2025
+[2025-08-07 10:50:54] ROBOT_SPEECH: Let's roll the dice
+[2025-08-07 10:51:08] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-08-07 10:51:10] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-08-07 10:51:55] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-08-07 10:52:00] ROBOT_SPEECH: 1
+[2025-08-07 10:52:03] ROBOT_SPEECH: 2
+[2025-08-07 10:52:06] ROBOT_SPEECH: 3
+[2025-08-07 10:52:09] ROBOT_SPEECH: 4
+[2025-08-07 10:52:12] ROBOT_SPEECH: 5
+[2025-08-07 10:52:15] ROBOT_SPEECH: 6
+[2025-08-07 10:52:18] ROBOT_SPEECH: 7
+[2025-08-07 10:52:21] ROBOT_SPEECH: 8
+[2025-08-07 10:52:24] ROBOT_SPEECH: 9
+[2025-08-07 10:52:27] ROBOT_SPEECH: 10
+Main closed  Thu Aug  7 10:52:36 2025
+Main closed  Thu Aug  7 10:52:44 2025
+GAME: at_talks
+Time: Thu Aug  7 10:53:59 2025
+[2025-08-07 10:54:07] ROBOT_SPEECH: What do you like to do on the weekend?
+[2025-08-07 10:54:44] ROBOT_SPEECH: That's good to know!
+[2025-08-07 10:54:46] ROBOT_SPEECH: Talk about a game you like to play. How do you play it?
+[2025-08-07 10:56:06] ROBOT_SPEECH: #LAUGH02# That's silly!
+login closed  Thu Aug  7 10:56:27 2025
+CLIENT NAME: Arleen
+login closed  Thu Aug  7 10:56:35 2025
+GAME: at_talks
+Time: Thu Aug  7 10:56:41 2025
+Main closed  Thu Aug  7 10:56:46 2025
+GAME: at_talks
+Time: Thu Aug  7 10:56:50 2025
+[2025-08-07 10:57:18] Praise BUTTON Clicked: [2025-08-07 10:57:18] ROBOT_SPEECH: Wonderful!
+[2025-08-07 10:57:41] ROBOT_SPEECH: #AARGH01# Keep trying! 
+[2025-08-07 10:59:15] Praise BUTTON Clicked: [2025-08-07 10:59:15] ROBOT_SPEECH: Great!
+[2025-08-07 11:03:03] ROBOT_SPEECH: That's good to know!
+Main closed  Thu Aug  7 11:03:49 2025
+GAME: at_talks
+Time: Thu Aug  7 11:05:30 2025
+[2025-08-07 12:06:44] ROBOT_SPEECH: Hello! How r you today?
+GAME: dice_action_young
+Time: Thu Aug  7 12:11:06 2025
+[2025-08-07 12:11:07] ROBOT_SPEECH: Let's roll the dice
+[2025-08-07 12:18:17] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-08-07 12:18:19] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-08-07 12:18:22] Stop event triggered by user.
+[2025-08-07 12:18:22] ROBOT_SPEECH: all done
+[2025-08-07 12:18:25] ROBOT_SPEECH: Let's have a bear hug!
+[2025-08-07 12:18:27] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-08-07 12:18:30] Stop event triggered by user.
+[2025-08-07 12:18:31] ROBOT_SPEECH: all done
+[2025-08-07 12:18:33] Stop event triggered by user.
+[2025-08-07 12:18:33] ROBOT_SPEECH: all done
+[2025-08-07 12:18:36] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-08-07 12:18:41] ROBOT_SPEECH: Let's sing a song
+[2025-08-07 12:24:04] ROBOT_SPEECH: Let's have a high five!
+[2025-08-07 12:24:14] REPEAT BUTTON Clicked: [2025-08-07 12:24:14] ROBOT_SPEECH: Let's have a high five!
+[2025-08-07 12:24:33] REPEAT BUTTON Clicked: [2025-08-07 12:24:33] ROBOT_SPEECH: Let's have a high five!
+[2025-08-07 12:24:49] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-08-07 12:24:51] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-08-07 12:24:53] Stop event triggered by user.
+[2025-08-07 12:24:53] ROBOT_SPEECH: all done
+[2025-08-07 12:24:56] ROBOT_SPEECH: Let's sing a song
+[2025-08-07 12:26:46] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-08-07 12:26:51] ROBOT_SPEECH: 1
+[2025-08-07 12:26:54] ROBOT_SPEECH: 2
+[2025-08-07 12:26:57] ROBOT_SPEECH: 3
+[2025-08-07 12:27:00] ROBOT_SPEECH: 4
+[2025-08-07 12:27:03] ROBOT_SPEECH: 5
+[2025-08-07 12:27:06] ROBOT_SPEECH: 6
+[2025-08-07 12:27:09] ROBOT_SPEECH: 7
+[2025-08-07 12:27:12] ROBOT_SPEECH: 8
+[2025-08-07 12:27:15] ROBOT_SPEECH: 9
+[2025-08-07 12:27:18] ROBOT_SPEECH: 10
+GAME: break
+Time: Thu Aug  7 12:32:06 2025
+[2025-08-07 12:32:06] ROBOT_SPEECH: Oh! Break Time!
+[2025-08-07 12:32:08] ROBOT_SPEECH: Lets sing a song
+Main closed  Thu Aug  7 12:55:27 2025
+GAME: at_talks
+Time: Thu Aug  7 12:55:31 2025
+[2025-08-07 12:55:33] ROBOT_SPEECH: Goodbye!

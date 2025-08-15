@@ -1,0 +1,137 @@
+CLIENT NAME: Arleen
+login closed  Thu Jul 24 09:37:03 2025
+GAME: emotion_game2
+Time: Thu Jul 24 09:37:20 2025
+Main closed  Thu Jul 24 09:37:27 2025
+GAME: dice_emotion_old
+Time: Thu Jul 24 09:37:32 2025
+Start Emotion games closed  Thu Jul 24 09:37:32 2025
+[2025-07-24 09:37:33] ROBOT_SPEECH: Let's roll the dice
+[2025-07-24 09:37:34] ROBOT_SPEECH: Let's roll the dice
+[2025-07-24 09:37:44] ROBOT_SPEECH: tired
+[2025-07-24 09:37:50] ROBOT_SPEECH: When do you feel tired?
+[2025-07-24 09:37:53] Stop event triggered by user.
+[2025-07-24 09:37:53] ROBOT_SPEECH: all done
+Main closed  Thu Jul 24 09:37:56 2025
+GAME: break
+Time: Thu Jul 24 09:38:00 2025
+[2025-07-24 09:38:00] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-24 09:38:15] ROBOT_SPEECH: Lets highfive your teacher
+[2025-07-24 09:38:19] ROBOT_SPEECH: Lets do the monkey jumps
+[2025-07-24 09:38:29] ROBOT_SPEECH: Lets spin the wheel
+GAME: dice_board
+Time: Thu Jul 24 09:38:50 2025
+[2025-07-24 09:38:51] ROBOT_SPEECH: Let's roll the dice
+GAME: inference_old
+Time: Thu Jul 24 09:39:15 2025
+[2025-07-24 09:39:16] ROBOT_SPEECH: Lets play inference games
+[2025-07-24 09:39:17] ROBOT_SPEECH: I work at a hospital. I help you, when you are sick. I wear a white coat or scrubs. Who am I? 
+GAME: at_talks
+Time: Thu Jul 24 09:40:05 2025
+Main closed  Thu Jul 24 10:03:17 2025
+GAME: at_talks
+Time: Thu Jul 24 10:03:24 2025
+[2025-07-24 10:03:27] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-24 10:03:35] ROBOT_SPEECH: Whats your name?
+[2025-07-24 10:03:40] ROBOT_SPEECH: Wow! nice name!
+[2025-07-24 10:03:48] ROBOT_SPEECH: My name is QT!
+[2025-07-24 10:04:00] ROBOT_SPEECH: lets look at the visual schedule
+[2025-07-24 10:06:51] ROBOT_SPEECH: Thanks for letting me know!
+[2025-07-24 10:10:35] ROBOT_SPEECH: Yeah! Good choice!
+[2025-07-24 10:11:01] ROBOT_SPEECH: Yeah! Good choice!
+[2025-07-24 10:16:17] Praise BUTTON Clicked: [2025-07-24 10:16:17] ROBOT_SPEECH: Great!
+[2025-07-24 10:20:59] Praise BUTTON Clicked: [2025-07-24 10:20:59] ROBOT_SPEECH: Wonderful!
+[2025-07-24 10:27:07] Praise BUTTON Clicked: [2025-07-24 10:27:07] ROBOT_SPEECH: Great!
+[2025-07-24 10:35:03] ROBOT_SPEECH: #LAUGH02# That's silly!
+GAME: instructions_game
+Time: Thu Jul 24 10:40:27 2025
+[2025-07-24 10:40:29] ROBOT_SPEECH: Where do you feel like going?
+[2025-07-24 10:40:30] ROBOT_SPEECH: Where do you feel like going?
+Main closed  Thu Jul 24 10:40:38 2025
+GAME: instructions_game
+Time: Thu Jul 24 10:40:46 2025
+[2025-07-24 10:40:47] ROBOT_SPEECH: Where do you wanna go?
+[2025-07-24 10:41:10] ROBOT_SPEECH: Let's go to play!
+[2025-07-24 10:41:14] ROBOT_SPEECH: A red monkey bar, is on the middle of the park
+[2025-07-24 10:41:22] ROBOT_SPEECH: Hooray!
+[2025-07-24 10:41:28] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+[2025-07-24 10:41:35] ROBOT_SPEECH: Amazing!
+[2025-07-24 10:41:40] ROBOT_SPEECH: A sandbox, \spd=70\ is placed on the right side, in the park
+[2025-07-24 10:41:45] ROBOT_SPEECH: Perfect!
+Taking Instruction park1 closed  Thu Jul 24 10:41:53 2025
+[2025-07-24 10:41:57] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-07-24 10:42:05] ROBOT_SPEECH: Great!
+[2025-07-24 10:42:10] ROBOT_SPEECH: A man, is running along on the right side
+[2025-07-24 10:42:18] REPEAT BUTTON Clicked: [2025-07-24 10:42:18] ROBOT_SPEECH: A man, is running along on the right side
+[2025-07-24 10:42:26] ROBOT_SPEECH: Amazing!
+[2025-07-24 10:42:31] ROBOT_SPEECH: a person, is riding a bike, along the bike path
+[2025-07-24 10:42:32] ROBOT_SPEECH: Hooray!
+[2025-07-24 10:42:42] Stop event triggered by user.
+[2025-07-24 10:42:42] ROBOT_SPEECH: all done
+GAME: at_talks
+Time: Thu Jul 24 10:42:55 2025
+[2025-07-24 10:43:18] ROBOT_SPEECH: What is your favourite hobby?
+[2025-07-24 10:43:33] ROBOT_SPEECH: That's good to know!
+[2025-07-24 10:43:39] ROBOT_SPEECH: Talk about a game you like to play. How do you play it?
+[2025-07-24 10:44:56] ROBOT_SPEECH: Yeah! Good choice!
+Main closed  Thu Jul 24 10:50:35 2025
+Main closed  Thu Jul 24 10:51:21 2025
+GAME: emotion_game2
+Time: Thu Jul 24 10:51:27 2025
+[2025-07-24 10:51:29] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Jul 24 10:51:32 2025
+[2025-07-24 10:51:32] REPEAT BUTTON Clicked: [2025-07-24 10:51:32] ROBOT_SPEECH: Show me an emotion card
+[2025-07-24 10:51:34] ROBOT_SPEECH: excited!
+[2025-07-24 10:51:46] ROBOT_SPEECH: Look at the tablet, which one is  excited
+[2025-07-24 10:51:48] Stop event triggered by user.
+[2025-07-24 10:51:48] ROBOT_SPEECH: all done
+GAME: emotion_game2
+Time: Thu Jul 24 10:52:51 2025
+[2025-07-24 10:52:55] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Jul 24 10:52:58 2025
+[2025-07-24 10:52:58] REPEAT BUTTON Clicked: [2025-07-24 10:52:58] ROBOT_SPEECH: Show me an emotion card
+[2025-07-24 10:53:01] ROBOT_SPEECH: saed
+[2025-07-24 10:53:13] ROBOT_SPEECH: Look at the tablet, which one is  sad
+[2025-07-24 10:53:19] Stop event triggered by user.
+[2025-07-24 10:53:20] ROBOT_SPEECH: all done
+[2025-07-24 10:53:35] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-24 10:53:37] ROBOT_SPEECH: sheye
+[2025-07-24 10:53:49] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-07-24 10:53:56] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-24 10:53:59] Stop event triggered by user.
+[2025-07-24 10:53:59] ROBOT_SPEECH: all done
+Main closed  Thu Jul 24 10:54:04 2025
+Main closed  Thu Jul 24 10:54:07 2025
+GAME: at_talks
+Time: Thu Jul 24 10:56:36 2025
+[2025-07-24 10:56:41] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-24 10:56:50] ROBOT_SPEECH: Whats your name?
+[2025-07-24 10:56:53] ROBOT_SPEECH: Wow! nice name!
+[2025-07-24 10:57:01] ROBOT_SPEECH: My name is QT!
+Main closed  Thu Jul 24 10:57:49 2025
+GAME: at_talks
+Time: Thu Jul 24 11:00:41 2025
+[2025-07-24 11:00:45] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-24 11:01:07] ROBOT_SPEECH: Whats your name?
+[2025-07-24 11:01:15] ROBOT_SPEECH: Wow! nice name!
+[2025-07-24 11:02:10] ROBOT_SPEECH: My name is QT!
+[2025-07-24 11:02:37] ROBOT_SPEECH: How's the weather today?
+[2025-07-24 11:02:45] ROBOT_SPEECH: That's a great answer!
+Main closed  Thu Jul 24 11:03:06 2025
+GAME: instructions_game
+Time: Thu Jul 24 11:03:14 2025
+[2025-07-24 11:03:16] ROBOT_SPEECH: Where do you feel like going?
+[2025-07-24 11:03:36] ROBOT_SPEECH: Let's go to play!
+[2025-07-24 11:03:40] ROBOT_SPEECH: A red monkey bar, is on the middle of the park
+Taking Instruction park1 closed  Thu Jul 24 11:04:00 2025
+[2025-07-24 11:04:01] ROBOT_SPEECH: Where shall we go?
+[2025-07-24 11:04:04] ROBOT_SPEECH: Let's go to play!
+[2025-07-24 11:04:07] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+[2025-07-24 11:04:52] ROBOT_SPEECH: Perfect!
+[2025-07-24 11:04:57] ROBOT_SPEECH: A sandbox, \spd=70\ is placed on the right side, in the park
+Taking Instruction park1 closed  Thu Jul 24 11:05:19 2025
+[2025-07-24 11:05:20] ROBOT_SPEECH: Where do you want to go?
+[2025-07-24 11:05:23] ROBOT_SPEECH: Let's go to play!
+[2025-07-24 11:05:26] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+Main closed  Thu Jul 24 11:05:28 2025
+login closed  Thu Jul 24 11:05:48 2025

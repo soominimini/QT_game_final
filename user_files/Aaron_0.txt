@@ -1,0 +1,227 @@
+CLIENT NAME: Aaron
+login closed  Thu Jul 31 11:39:46 2025
+GAME: at_talks
+Time: Thu Jul 31 11:39:51 2025
+[2025-07-31 11:41:54] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-31 11:42:42] ROBOT_SPEECH: What do you like to do on the weekend?
+[2025-07-31 11:42:49] ROBOT_SPEECH: What do you like to do on the weekend?
+[2025-07-31 11:43:01] ROBOT_SPEECH: That's good to know!
+[2025-07-31 11:43:06] ROBOT_SPEECH: That's good to know!
+Main closed  Thu Jul 31 11:43:13 2025
+GAME: dice_emotion_old
+Time: Thu Jul 31 11:43:57 2025
+[2025-07-31 11:43:59] ROBOT_SPEECH: Let's roll the dice
+[2025-07-31 11:44:04] ROBOT_SPEECH: silly
+[2025-07-31 11:44:10] ROBOT_SPEECH: when do you feel silly?
+[2025-07-31 11:44:15] ROBOT_SPEECH: confused
+[2025-07-31 11:44:18] ROBOT_SPEECH: What makes you feel confused?
+[2025-07-31 11:44:25] ROBOT_SPEECH: curious
+[2025-07-31 11:44:30] ROBOT_SPEECH: what makes you curious?
+[2025-07-31 11:44:36] ROBOT_SPEECH: frustrated
+[2025-07-31 11:44:42] ROBOT_SPEECH: When do you feel frustrated?
+[2025-07-31 11:44:51] ROBOT_SPEECH: tired
+[2025-07-31 11:44:57] ROBOT_SPEECH: When do you feel tired?
+[2025-07-31 11:45:03] ROBOT_SPEECH: excited
+[2025-07-31 11:45:11] ROBOT_SPEECH: Who makes you feel excited?
+[2025-07-31 11:45:15] ROBOT_SPEECH: curious
+[2025-07-31 11:45:20] ROBOT_SPEECH: what makes you curious?
+[2025-07-31 11:45:25] Stop event triggered by user.
+[2025-07-31 11:45:25] ROBOT_SPEECH: all done
+Main closed  Thu Jul 31 11:45:27 2025
+GAME: emotion_game_1
+Time: Thu Jul 31 11:45:37 2025
+[2025-07-31 11:45:39] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Jul 31 11:45:42 2025
+[2025-07-31 11:45:42] REPEAT BUTTON Clicked: [2025-07-31 11:45:42] ROBOT_SPEECH: Show me an emotion card
+[2025-07-31 11:45:43] ROBOT_SPEECH: sheye
+[2025-07-31 11:45:49] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-31 11:45:59] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-31 11:46:00] ROBOT_SPEECH: sheye
+[2025-07-31 11:46:06] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-31 11:46:20] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-31 11:46:23] ROBOT_SPEECH: sheye
+[2025-07-31 11:46:29] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-31 11:46:41] ROBOT_SPEECH: saed
+[2025-07-31 11:46:47] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-31 11:46:55] ROBOT_SPEECH: saed
+[2025-07-31 11:46:56] ROBOT_SPEECH: You can click next.
+[2025-07-31 11:47:02] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-31 11:47:07] ROBOT_SPEECH: saed
+[2025-07-31 11:47:13] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-31 11:47:18] ROBOT_SPEECH: saed
+[2025-07-31 11:47:20] ROBOT_SPEECH: Let's go to next
+[2025-07-31 11:47:25] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-31 11:47:33] ROBOT_SPEECH: happy!
+[2025-07-31 11:47:39] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-31 11:47:46] ROBOT_SPEECH: Show me another emotion card!
+Main closed  Thu Jul 31 11:47:57 2025
+GAME: dice_action_young
+Time: Thu Jul 31 11:48:22 2025
+[2025-07-31 11:48:23] ROBOT_SPEECH: Let's roll the dice
+[2025-07-31 11:48:28] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-31 11:48:30] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-31 11:48:44] ROBOT_SPEECH: Let's sing a song
+[2025-07-31 11:50:37] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-07-31 11:50:42] ROBOT_SPEECH: 1
+[2025-07-31 11:50:45] ROBOT_SPEECH: 2
+[2025-07-31 11:50:48] ROBOT_SPEECH: 3
+[2025-07-31 11:50:51] ROBOT_SPEECH: 4
+[2025-07-31 11:50:54] ROBOT_SPEECH: 5
+[2025-07-31 11:50:57] ROBOT_SPEECH: 6
+[2025-07-31 11:51:00] ROBOT_SPEECH: 7
+[2025-07-31 11:51:03] ROBOT_SPEECH: 8
+[2025-07-31 11:51:06] ROBOT_SPEECH: 9
+[2025-07-31 11:51:09] ROBOT_SPEECH: 10
+[2025-07-31 11:51:21] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-31 11:51:23] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-31 11:51:41] ROBOT_SPEECH: Let's have a bear hug!
+[2025-07-31 11:51:43] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-31 11:51:57] ROBOT_SPEECH: Let's have a high five!
+[2025-07-31 11:52:08] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-31 11:52:10] ROBOT_SPEECH: 1, 2, 3, 4, 5
+Main closed  Thu Jul 31 11:52:28 2025
+GAME: dice_emotion_young
+Time: Thu Jul 31 11:52:34 2025
+[2025-07-31 11:52:35] ROBOT_SPEECH: Let's roll the dice
+[2025-07-31 11:52:39] ROBOT_SPEECH: feeling sick
+[2025-07-31 11:52:49] ROBOT_SPEECH: scared
+[2025-07-31 11:52:58] ROBOT_SPEECH: happy
+[2025-07-31 11:53:08] ROBOT_SPEECH: sad
+GAME: at_talks
+Time: Thu Jul 31 12:05:00 2025
+[2025-07-31 12:05:02] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-31 12:05:46] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-31 12:06:05] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-31 12:15:29] ROBOT_SPEECH: Hello! How r you today?
+GAME: dice_action_young
+Time: Thu Jul 31 12:15:47 2025
+[2025-07-31 12:15:48] ROBOT_SPEECH: Let's roll the dice
+[2025-07-31 12:16:02] ROBOT_SPEECH: Let's have a high five!
+[2025-07-31 12:16:16] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-31 12:16:18] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-31 12:16:38] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-07-31 12:16:43] ROBOT_SPEECH: 1
+[2025-07-31 12:16:46] ROBOT_SPEECH: 2
+[2025-07-31 12:16:49] ROBOT_SPEECH: 3
+[2025-07-31 12:16:52] ROBOT_SPEECH: 4
+[2025-07-31 12:16:55] ROBOT_SPEECH: 5
+[2025-07-31 12:16:58] ROBOT_SPEECH: 6
+[2025-07-31 12:17:01] ROBOT_SPEECH: 7
+[2025-07-31 12:17:04] ROBOT_SPEECH: 8
+[2025-07-31 12:17:07] ROBOT_SPEECH: 9
+[2025-07-31 12:17:10] ROBOT_SPEECH: 10
+[2025-07-31 12:17:19] ROBOT_SPEECH: Let's have a bear hug!
+[2025-07-31 12:17:21] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-31 12:17:43] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-31 12:17:45] ROBOT_SPEECH: 1, 2, 3, 4, 5
+Main closed  Thu Jul 31 12:18:00 2025
+GAME: at_talks
+Time: Thu Jul 31 12:18:03 2025
+Main closed  Thu Jul 31 12:20:57 2025
+GAME: dice_action_young
+Time: Thu Jul 31 12:21:01 2025
+[2025-07-31 12:21:03] ROBOT_SPEECH: Let's roll the dice
+[2025-07-31 12:21:35] ROBOT_SPEECH: Let's sing a song
+[2025-07-31 12:22:58] ROBOT_SPEECH: Let's have a high five!
+[2025-07-31 12:23:35] Encourage BUTTON Clicked: [2025-07-31 12:23:35] ROBOT_SPEECH: Keep trying!
+[2025-07-31 12:23:49] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-31 12:23:51] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+GAME: at_talks
+Time: Thu Jul 31 12:30:17 2025
+[2025-07-31 12:30:26] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-31 12:30:41] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-31 12:38:43] ROBOT_SPEECH: Hello! How r you today?
+Main closed  Thu Jul 31 12:39:17 2025
+GAME: dice_emotion_young
+Time: Thu Jul 31 12:39:22 2025
+[2025-07-31 12:39:23] ROBOT_SPEECH: Let's roll the dice
+[2025-07-31 12:39:26] ROBOT_SPEECH: sad
+[2025-07-31 12:39:44] ROBOT_SPEECH: scared
+Main closed  Thu Jul 31 12:40:25 2025
+GAME: break
+Time: Thu Jul 31 12:40:30 2025
+[2025-07-31 12:40:31] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-31 12:40:32] ROBOT_SPEECH: Lets sing a song
+Main closed  Thu Jul 31 12:42:37 2025
+GAME: dice_action_young
+Time: Thu Jul 31 12:42:41 2025
+[2025-07-31 12:42:42] ROBOT_SPEECH: Let's roll the dice
+[2025-07-31 12:42:45] ROBOT_SPEECH: Let's have a high five!
+[2025-07-31 12:42:55] REPEAT BUTTON Clicked: [2025-07-31 12:42:55] ROBOT_SPEECH: Let's have a high five!
+[2025-07-31 12:43:09] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-07-31 12:43:11] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-07-31 12:43:16] Stop event triggered by user.
+[2025-07-31 12:43:16] ROBOT_SPEECH: all done
+[2025-07-31 12:43:19] ROBOT_SPEECH: Let's sing a song
+[2025-07-31 12:45:06] REPEAT BUTTON Clicked: [2025-07-31 12:45:06] ROBOT_SPEECH: Let's sing a song
+[2025-07-31 12:46:36] Stop event triggered by user.
+[2025-07-31 12:46:37] ROBOT_SPEECH: all done
+[2025-07-31 12:46:40] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-07-31 12:46:42] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-31 12:46:45] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-07-31 12:46:50] ROBOT_SPEECH: 1
+[2025-07-31 12:46:53] ROBOT_SPEECH: 2
+[2025-07-31 12:46:56] ROBOT_SPEECH: 3
+[2025-07-31 12:46:59] ROBOT_SPEECH: 4
+[2025-07-31 12:47:02] ROBOT_SPEECH: 5
+[2025-07-31 12:47:05] ROBOT_SPEECH: 6
+[2025-07-31 12:47:08] ROBOT_SPEECH: 7
+[2025-07-31 12:47:11] ROBOT_SPEECH: 8
+[2025-07-31 12:47:15] ROBOT_SPEECH: 9
+[2025-07-31 12:47:18] ROBOT_SPEECH: 10
+[2025-07-31 12:47:29] REPEAT BUTTON Clicked: [2025-07-31 12:47:29] ROBOT_SPEECH: Let's do ten jumping jacks
+[2025-07-31 12:47:32] ROBOT_SPEECH: 1
+[2025-07-31 12:47:35] ROBOT_SPEECH: 2
+[2025-07-31 12:47:38] ROBOT_SPEECH: 3
+[2025-07-31 12:47:41] ROBOT_SPEECH: 4
+[2025-07-31 12:47:44] ROBOT_SPEECH: 5
+[2025-07-31 12:47:47] ROBOT_SPEECH: 6
+[2025-07-31 12:47:50] ROBOT_SPEECH: 7
+[2025-07-31 12:47:53] ROBOT_SPEECH: 8
+[2025-07-31 12:47:56] ROBOT_SPEECH: 9
+[2025-07-31 12:47:59] ROBOT_SPEECH: 10
+[2025-07-31 12:52:51] REPEAT BUTTON Clicked: [2025-07-31 12:52:51] ROBOT_SPEECH: Let's do ten jumping jacks
+[2025-07-31 12:52:53] ROBOT_SPEECH: Let's have a bear hug!
+[2025-07-31 12:52:54] ROBOT_SPEECH: 1
+[2025-07-31 12:52:55] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-07-31 12:52:57] ROBOT_SPEECH: 2
+[2025-07-31 12:53:00] ROBOT_SPEECH: 3
+[2025-07-31 12:53:03] ROBOT_SPEECH: 4
+[2025-07-31 12:53:06] ROBOT_SPEECH: 5
+[2025-07-31 12:53:09] ROBOT_SPEECH: 6
+[2025-07-31 12:53:12] ROBOT_SPEECH: 7
+[2025-07-31 12:53:15] ROBOT_SPEECH: 8
+[2025-07-31 12:53:18] ROBOT_SPEECH: 9
+[2025-07-31 12:53:21] ROBOT_SPEECH: 10
+Main closed  Thu Jul 31 12:53:56 2025
+GAME: dice_emotion_young
+Time: Thu Jul 31 12:54:02 2025
+[2025-07-31 12:54:03] ROBOT_SPEECH: Let's roll the dice
+[2025-07-31 12:54:10] ROBOT_SPEECH: feeling sick
+[2025-07-31 12:54:17] ROBOT_SPEECH: happy
+[2025-07-31 12:54:34] REPEAT BUTTON Clicked: [2025-07-31 12:54:34] ROBOT_SPEECH: Happy
+[2025-07-31 12:54:40] ROBOT_SPEECH: anger
+[2025-07-31 12:54:55] ROBOT_SPEECH: sad
+[2025-07-31 12:55:19] ROBOT_SPEECH: surprised
+[2025-07-31 12:55:25] ROBOT_SPEECH: scared
+[2025-07-31 12:55:57] ROBOT_SPEECH: feeling sick
+[2025-07-31 12:56:00] ROBOT_SPEECH: scared
+Main closed  Thu Jul 31 12:56:21 2025
+GAME: at_talks
+Time: Thu Jul 31 12:56:24 2025
+[2025-07-31 12:56:27] ROBOT_SPEECH: Goodbye!
+[2025-07-31 12:56:45] ROBOT_SPEECH: Goodbye!
+[2025-07-31 12:57:24] ROBOT_SPEECH: Goodbye!
+Main closed  Thu Jul 31 12:57:59 2025
+GAME: dice_emotion_young
+Time: Thu Jul 31 12:58:19 2025
+[2025-07-31 12:58:20] ROBOT_SPEECH: Let's roll the dice
+[2025-07-31 12:58:26] ROBOT_SPEECH: happy
+Main closed  Thu Jul 31 12:59:45 2025
+GAME: dice_emotion_young
+Time: Thu Jul 31 13:00:07 2025
+[2025-07-31 13:00:09] ROBOT_SPEECH: Let's roll the dice
+Main closed  Thu Jul 31 13:00:16 2025
+GAME: dice_emotion_young
+Time: Thu Jul 31 13:00:58 2025
+[2025-07-31 13:00:59] ROBOT_SPEECH: Let's roll the dice

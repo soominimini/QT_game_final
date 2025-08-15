@@ -1,0 +1,12 @@
+CLIENT NAME: None
+login closed  Wed Jul 23 09:05:15 2025
+GAME: at_talks
+Time: Wed Jul 23 09:05:22 2025
+[2025-07-23 09:05:25] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-23 09:05:33] ROBOT_SPEECH: My name is QT!
+[2025-07-23 09:05:36] ROBOT_SPEECH: Whats your name?
+Main closed  Wed Jul 23 09:05:52 2025
+Main closed  Wed Jul 23 09:09:25 2025
+login closed  Wed Jul 23 09:09:26 2025
+login closed  Wed Jul 23 09:09:26 2025
+login closed  Wed Jul 23 10:00:43 2025

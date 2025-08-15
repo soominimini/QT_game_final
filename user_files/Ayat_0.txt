@@ -1,0 +1,111 @@
+CLIENT NAME: Ayat
+login closed  Wed Jul 23 12:09:12 2025
+GAME: at_talks
+Time: Wed Jul 23 12:09:18 2025
+[2025-07-23 12:09:20] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-23 12:09:36] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-23 12:10:05] Praise BUTTON Clicked: [2025-07-23 12:10:05] ROBOT_SPEECH: Wonderful!
+[2025-07-23 12:10:20] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-23 12:10:46] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-23 12:10:56] ROBOT_SPEECH: Whats your name?
+[2025-07-23 12:11:34] Praise BUTTON Clicked: [2025-07-23 12:11:34] ROBOT_SPEECH: Great!
+GAME: break
+Time: Wed Jul 23 12:15:35 2025
+[2025-07-23 12:15:36] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-23 12:15:36] ROBOT_SPEECH: Oh! Break Time!
+Main closed  Wed Jul 23 12:15:41 2025
+GAME: break
+Time: Wed Jul 23 12:15:43 2025
+[2025-07-23 12:15:43] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-23 12:15:45] ROBOT_SPEECH: Lets sing a song
+[2025-07-23 12:22:27] Stop event triggered by user.
+[2025-07-23 12:22:27] ROBOT_SPEECH: all done
+GAME: at_talks
+Time: Wed Jul 23 12:26:47 2025
+[2025-07-23 12:26:50] Praise BUTTON Clicked: [2025-07-23 12:26:50] ROBOT_SPEECH: Wonderful!
+[2025-07-23 12:26:55] Praise BUTTON Clicked: [2025-07-23 12:26:55] ROBOT_SPEECH: Victory!
+Main closed  Wed Jul 23 12:28:25 2025
+GAME: action_game
+Time: Wed Jul 23 12:28:32 2025
+[2025-07-23 12:28:33] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Wed Jul 23 12:28:36 2025
+[2025-07-23 12:28:36] REPEAT BUTTON Clicked: [2025-07-23 12:28:36] ROBOT_SPEECH: Show me an action card
+[2025-07-23 12:28:40] ROBOT_SPEECH: walk
+[2025-07-23 12:28:43] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-23 12:28:48] ROBOT_SPEECH: walk
+[2025-07-23 12:28:51] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-23 12:30:15] ROBOT_SPEECH: walk
+[2025-07-23 12:30:18] Praise BUTTON Clicked: [2025-07-23 12:30:18] ROBOT_SPEECH: Great!
+[2025-07-23 12:30:25] Praise BUTTON Clicked: [2025-07-23 12:30:25] ROBOT_SPEECH: Great!
+[2025-07-23 12:30:32] Praise BUTTON Clicked: [2025-07-23 12:30:32] ROBOT_SPEECH: Great!
+[2025-07-23 12:32:24] Praise BUTTON Clicked: [2025-07-23 12:32:24] ROBOT_SPEECH: Great!
+[2025-07-23 12:33:25] Praise BUTTON Clicked: [2025-07-23 12:33:25] ROBOT_SPEECH: Wonderful!
+[2025-07-23 12:33:33] Stop event triggered by user.
+[2025-07-23 12:33:33] ROBOT_SPEECH: all done
+GAME: instructions_game_young
+Time: Wed Jul 23 12:33:39 2025
+action_game closed  Wed Jul 23 12:33:39 2025
+[2025-07-23 12:33:40] ROBOT_SPEECH: Where do you want to go?
+[2025-07-23 12:33:41] ROBOT_SPEECH: Where do you wanna go?
+Main closed  Wed Jul 23 12:33:44 2025
+GAME: instructions_game_young
+Time: Wed Jul 23 12:33:50 2025
+[2025-07-23 12:33:52] ROBOT_SPEECH: Where shall we go?
+[2025-07-23 12:33:53] ROBOT_SPEECH: Let's go to play!
+[2025-07-23 12:33:55] ROBOT_SPEECH: Let’s have a good time in the park!
+[2025-07-23 12:33:58] ROBOT_SPEECH: I feel like riding the swing!
+GAME: emotion_game_1
+Time: Wed Jul 23 12:38:05 2025
+GAME: emotion_game_1
+Time: Wed Jul 23 12:38:07 2025
+Main closed  Wed Jul 23 12:38:12 2025
+GAME: emotion_game_1
+Time: Wed Jul 23 12:38:20 2025
+Start Emotion games closed  Wed Jul 23 12:38:20 2025
+Start Emotion games closed  Wed Jul 23 12:38:20 2025
+Start Emotion games closed  Wed Jul 23 12:38:20 2025
+Start Emotion games closed  Wed Jul 23 12:38:20 2025
+[2025-07-23 12:38:24] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Wed Jul 23 12:38:27 2025
+[2025-07-23 12:38:27] REPEAT BUTTON Clicked: [2025-07-23 12:38:27] ROBOT_SPEECH: Show me an emotion card
+[2025-07-23 12:38:28] ROBOT_SPEECH: angry!
+[2025-07-23 12:38:34] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-23 12:38:42] REPEAT BUTTON Clicked: [2025-07-23 12:38:42] ROBOT_SPEECH: angry
+[2025-07-23 12:38:59] ROBOT_SPEECH: angry!
+[2025-07-23 12:39:05] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-23 12:39:17] Stop event triggered by user.
+[2025-07-23 12:39:18] ROBOT_SPEECH: all done
+GAME: emotion_game_1
+Time: Wed Jul 23 12:39:21 2025
+emotion_game1 closed  Wed Jul 23 12:39:21 2025
+Main closed  Wed Jul 23 12:39:40 2025
+GAME: action_game
+Time: Wed Jul 23 12:39:46 2025
+Start Emotion games closed  Wed Jul 23 12:39:46 2025
+[2025-07-23 12:39:48] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Wed Jul 23 12:39:51 2025
+[2025-07-23 12:39:51] REPEAT BUTTON Clicked: [2025-07-23 12:39:51] ROBOT_SPEECH: Show me an action card
+[2025-07-23 12:39:53] ROBOT_SPEECH: draw
+[2025-07-23 12:39:56] ROBOT_SPEECH: Look at the tablet, click on the picture
+Main closed  Wed Jul 23 12:40:40 2025
+[2025-07-23 12:45:37] ROBOT_SPEECH: drink
+[2025-07-23 12:45:40] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-23 12:46:15] ROBOT_SPEECH: brush
+[2025-07-23 12:46:18] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-23 12:46:41] ROBOT_SPEECH: eat
+[2025-07-23 12:46:44] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-23 12:47:09] ROBOT_SPEECH: play
+[2025-07-23 12:47:12] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-23 12:48:01] ROBOT_SPEECH: draw
+[2025-07-23 12:48:04] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-23 12:48:09] ROBOT_SPEECH: draw
+[2025-07-23 12:48:12] ROBOT_SPEECH: Look at the tablet, click on the picture
+Main closed  Wed Jul 23 12:57:33 2025
+GAME: at_talks
+Time: Wed Jul 23 12:57:37 2025
+[2025-07-23 12:57:44] ROBOT_SPEECH: Goodbye!
+[2025-07-23 12:57:53] ROBOT_SPEECH: Goodbye!
+[2025-07-23 12:58:03] ROBOT_SPEECH: Goodbye!
+[2025-07-23 12:58:11] ROBOT_SPEECH: See you later!
+[2025-07-23 12:58:25] ROBOT_SPEECH: Goodbye!
+login closed  Wed Jul 23 13:05:05 2025

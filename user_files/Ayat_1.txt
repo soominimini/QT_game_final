@@ -1,0 +1,74 @@
+CLIENT NAME: Ayat
+login closed  Wed Aug  6 12:06:37 2025
+GAME: at_talks
+Time: Wed Aug  6 12:06:45 2025
+[2025-08-06 12:07:33] ROBOT_SPEECH: Hello! How r you today?
+Main closed  Wed Aug  6 12:12:58 2025
+GAME: dice_action_young
+Time: Wed Aug  6 12:13:08 2025
+[2025-08-06 12:13:09] ROBOT_SPEECH: Let's roll the dice
+[2025-08-06 12:13:21] ROBOT_SPEECH: Let's roll the dice
+[2025-08-06 12:13:22] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-08-06 12:13:24] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+Main closed  Wed Aug  6 12:13:26 2025
+GAME: dice_action_young
+Time: Wed Aug  6 12:13:38 2025
+[2025-08-06 12:13:39] ROBOT_SPEECH: Let's roll the dice
+[2025-08-06 12:13:45] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-08-06 12:13:50] ROBOT_SPEECH: 1
+[2025-08-06 12:13:53] ROBOT_SPEECH: 2
+[2025-08-06 12:13:56] ROBOT_SPEECH: 3
+[2025-08-06 12:13:59] ROBOT_SPEECH: 4
+[2025-08-06 12:14:02] ROBOT_SPEECH: 5
+[2025-08-06 12:14:05] ROBOT_SPEECH: 6
+[2025-08-06 12:14:08] ROBOT_SPEECH: 7
+[2025-08-06 12:14:11] ROBOT_SPEECH: 8
+[2025-08-06 12:14:14] ROBOT_SPEECH: 9
+[2025-08-06 12:14:17] ROBOT_SPEECH: 10
+GAME: at_talks
+Time: Wed Aug  6 12:30:08 2025
+[2025-08-06 12:30:11] Praise BUTTON Clicked: [2025-08-06 12:30:11] ROBOT_SPEECH: Victory!
+[2025-08-06 12:31:32] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-06 12:33:10] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-06 12:33:27] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-06 12:34:20] ROBOT_SPEECH: Whoa!
+[2025-08-06 12:34:25] ROBOT_SPEECH: Uh oh!
+[2025-08-06 12:37:23] Praise BUTTON Clicked: [2025-08-06 12:37:23] ROBOT_SPEECH: Wonderful!
+GAME: dice_action_young
+Time: Wed Aug  6 12:51:10 2025
+[2025-08-06 12:51:11] ROBOT_SPEECH: Let's roll the dice
+[2025-08-06 12:51:15] ROBOT_SPEECH: Let's have a high five!
+[2025-08-06 12:51:27] ROBOT_SPEECH: Let's sing a song
+[2025-08-06 12:52:17] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-08-06 12:52:19] ROBOT_SPEECH: 1, 2, 3, 4, 5
+Main closed  Wed Aug  6 12:53:08 2025
+CLIENT NAME: Ayat
+login closed  Wed Aug  6 12:53:12 2025
+GAME: emotion_game_1
+Time: Wed Aug  6 13:03:40 2025
+Main closed  Wed Aug  6 13:03:42 2025
+GAME: emotion_game_1
+Time: Wed Aug  6 13:03:46 2025
+Start Emotion games closed  Wed Aug  6 13:03:46 2025
+Start Emotion games closed  Wed Aug  6 13:03:46 2025
+[2025-08-06 13:03:47] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Wed Aug  6 13:03:50 2025
+[2025-08-06 13:03:50] REPEAT BUTTON Clicked: [2025-08-06 13:03:50] ROBOT_SPEECH: Show me an emotion card
+[2025-08-06 13:03:52] ROBOT_SPEECH: saed
+[2025-08-06 13:03:58] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-08-06 13:04:11] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-06 13:04:13] ROBOT_SPEECH: saed
+[2025-08-06 13:04:19] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-08-06 13:04:36] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-06 13:04:39] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-06 13:04:39] ROBOT_SPEECH: excited!
+[2025-08-06 13:04:45] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-08-06 13:06:17] REPEAT BUTTON Clicked: [2025-08-06 13:06:17] ROBOT_SPEECH: excited
+GAME: at_talks
+Time: Wed Aug  6 13:06:47 2025
+emotion_game1 closed  Wed Aug  6 13:06:48 2025
+[2025-08-06 13:06:50] ROBOT_SPEECH: Goodbye!
+[2025-08-06 13:07:03] ROBOT_SPEECH: See you later!
+[2025-08-06 13:07:34] ROBOT_SPEECH: Goodbye!
+Main closed  Wed Aug  6 13:29:33 2025
+login closed  Wed Aug  6 16:05:54 2025

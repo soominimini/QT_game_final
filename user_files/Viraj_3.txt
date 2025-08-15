@@ -1,0 +1,45 @@
+CLIENT NAME: Viraj
+login closed  Wed Aug 13 09:14:57 2025
+GAME: at_talks
+Time: Wed Aug 13 09:15:16 2025
+GAME: at_talks
+Time: Wed Aug 13 09:15:23 2025
+GAME: at_talks
+Time: Wed Aug 13 09:15:29 2025
+GAME: at_talks
+Time: Wed Aug 13 09:16:22 2025
+GAME: at_talks
+Time: Wed Aug 13 09:17:34 2025
+[2025-08-13 09:17:38] ROBOT_SPEECH: Hello! How r you today?
+[2025-08-13 09:22:21] Praise BUTTON Clicked: [2025-08-13 09:22:21] ROBOT_SPEECH: Wonderful!
+[2025-08-13 09:23:32] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-13 09:24:17] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-13 09:24:55] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-13 09:25:27] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-13 09:27:08] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-13 09:34:11] Praise BUTTON Clicked: [2025-08-13 09:34:11] ROBOT_SPEECH: Wonderful!
+[2025-08-13 09:34:34] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-13 09:35:52] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-13 09:36:01] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-13 09:46:34] ROBOT_SPEECH: How's the weather today?
+Main closed  Wed Aug 13 09:47:06 2025
+GAME: dice_action_young
+Time: Wed Aug 13 09:47:16 2025
+[2025-08-13 09:47:17] ROBOT_SPEECH: Let's roll the dice
+[2025-08-13 09:47:27] ROBOT_SPEECH: Let's sing a song
+[2025-08-13 09:49:26] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-08-13 09:49:28] ROBOT_SPEECH: 1, 2, 3, 4, 5
+GAME: dice_action_young
+Time: Wed Aug 13 09:49:30 2025
+[2025-08-13 09:49:31] ROBOT_SPEECH: Let's roll the dice
+[2025-08-13 09:49:39] ROBOT_SPEECH: Let's have a high five!
+[2025-08-13 09:49:50] REPEAT BUTTON Clicked: [2025-08-13 09:49:50] ROBOT_SPEECH: Let's have a high five!
+[2025-08-13 09:50:05] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-08-13 09:50:07] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-08-13 09:50:09] Stop event triggered by user.
+[2025-08-13 09:50:10] ROBOT_SPEECH: all done
+[2025-08-13 09:50:13] ROBOT_SPEECH: Let's have a bear hug!
+[2025-08-13 09:50:15] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-08-13 09:50:18] Stop event triggered by user.
+[2025-08-13 09:50:18] ROBOT_SPEECH: all done
+Main closed  Wed Aug 13 10:34:20 2025

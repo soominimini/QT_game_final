@@ -1,0 +1,215 @@
+CLIENT NAME: Kreesh
+login closed  Fri Aug  1 17:06:01 2025
+GAME: instructions_game
+Time: Fri Aug  1 17:06:08 2025
+[2025-08-01 17:06:09] ROBOT_SPEECH: Where do you want to go?
+[2025-08-01 17:06:16] ROBOT_SPEECH: Let's go to hospital!
+[2025-08-01 17:06:20] ROBOT_SPEECH: The patient, is waiting on the bed.
+[2025-08-01 17:06:34] REPEAT BUTTON Clicked: [2025-08-01 17:06:34] ROBOT_SPEECH: The patient, is waiting on the bed.
+[2025-08-01 17:06:43] ROBOT_SPEECH: Perfect!
+[2025-08-01 17:06:48] ROBOT_SPEECH: The doctor, is next to the sink.
+[2025-08-01 17:06:55] ROBOT_SPEECH: Amazing!
+[2025-08-01 17:07:00] ROBOT_SPEECH: Lets put the injection, on the stand.
+[2025-08-01 17:07:05] ROBOT_SPEECH: Great!
+Taking Instruction hospital1 closed  Fri Aug  1 17:07:14 2025
+[2025-08-01 17:07:18] ROBOT_SPEECH: A patient, is sitting on a chair
+[2025-08-01 17:07:24] ROBOT_SPEECH: Great!
+[2025-08-01 17:07:28] ROBOT_SPEECH: The nurse, is waiting beside the right door
+[2025-08-01 17:07:40] ROBOT_SPEECH: Perfect!
+[2025-08-01 17:07:44] ROBOT_SPEECH: The medical cart, is in the middle of the hallway
+[2025-08-01 17:07:45] ROBOT_SPEECH: Hooray!
+Taking Instruction hospital2 closed  Fri Aug  1 17:07:54 2025
+[2025-08-01 17:07:58] ROBOT_SPEECH: A person, is walking towards, the emergency entrance on the right side.
+[2025-08-01 17:08:13] ROBOT_SPEECH: Amazing!
+[2025-08-01 17:08:18] ROBOT_SPEECH: The ambulance, is located on the left side of the building.
+[2025-08-01 17:08:20] ROBOT_SPEECH: Great!
+[2025-08-01 17:08:25] ROBOT_SPEECH: The doctor, is standing in front of the emergency entrance.
+[2025-08-01 17:08:31] ROBOT_SPEECH: Perfect!
+Taking Instruction hospital3 closed  Fri Aug  1 17:08:40 2025
+[2025-08-01 17:08:41] ROBOT_SPEECH: Where do you want to go?
+[2025-08-01 17:08:55] ROBOT_SPEECH: Let's go shopping!
+[2025-08-01 17:08:58] ROBOT_SPEECH: Let's go shopping!
+[2025-08-01 17:08:59] ROBOT_SPEECH: Lets place the cart, between the checkout counters
+[2025-08-01 17:09:47] REPEAT BUTTON Clicked: [2025-08-01 17:09:47] ROBOT_SPEECH: Lets place the cart, between the checkout counters
+[2025-08-01 17:10:01] ROBOT_SPEECH: Hooray!
+[2025-08-01 17:10:06] ROBOT_SPEECH: Casher, is in front of checkout counter
+[2025-08-01 17:10:37] ROBOT_SPEECH: Amazing!
+[2025-08-01 17:10:42] ROBOT_SPEECH: Kustomer is waiting, at the end of the checkout counter
+[2025-08-01 17:10:49] ROBOT_SPEECH: Perfect!
+Taking Instruction supermarket1 closed  Fri Aug  1 17:11:42 2025
+[2025-08-01 17:11:46] ROBOT_SPEECH: I want to place the orange, at the left corner
+[2025-08-01 17:11:57] ROBOT_SPEECH: Amazing!
+[2025-08-01 17:12:02] ROBOT_SPEECH: Lets place an apple, on the apple stack
+[2025-08-01 17:12:07] ROBOT_SPEECH: Hooray!
+[2025-08-01 17:12:13] ROBOT_SPEECH: Please place the price tag, under the apple
+[2025-08-01 17:12:17] ROBOT_SPEECH: Great!
+Taking Instruction supermarket2 closed  Fri Aug  1 17:12:50 2025
+[2025-08-01 17:12:54] ROBOT_SPEECH: I want to put the orange juice, on the top shelf
+[2025-08-01 17:13:10] ROBOT_SPEECH: Great!
+[2025-08-01 17:13:15] ROBOT_SPEECH: Let's put something we can eat to the right side of the casher
+[2025-08-01 17:13:22] ROBOT_SPEECH: Amazing!
+[2025-08-01 17:13:27] ROBOT_SPEECH: Lets place the milk, on the counter.
+[2025-08-01 17:13:34] ROBOT_SPEECH: Perfect!
+Main closed  Fri Aug  1 17:13:45 2025
+GAME: dice_5w1h
+Time: Fri Aug  1 17:14:31 2025
+[2025-08-01 17:14:31] ROBOT_SPEECH: Lets play around with wh questions
+[2025-08-01 17:14:45] ROBOT_SPEECH: Let's roll the dice
+Main closed  Fri Aug  1 17:14:55 2025
+GAME: dice_5w1h
+Time: Fri Aug  1 17:15:00 2025
+[2025-08-01 17:15:01] ROBOT_SPEECH: Lets play around with wh questions
+[2025-08-01 17:15:05] ROBOT_SPEECH: Let's roll the dice
+[2025-08-01 17:15:11] ROBOT_SPEECH: Who
+[2025-08-01 17:15:23] ROBOT_SPEECH: Who drives a school bus?
+[2025-08-01 17:15:47] ROBOT_SPEECH: Where
+[2025-08-01 17:16:01] ROBOT_SPEECH: Where do we go to learn?
+[2025-08-01 17:16:20] ROBOT_SPEECH: what
+[2025-08-01 17:16:27] ROBOT_SPEECH: What do we write with?
+[2025-08-01 17:16:36] ROBOT_SPEECH: What do we write with?
+[2025-08-01 17:16:37] ROBOT_SPEECH: What do we write with?
+[2025-08-01 17:16:48] Praise BUTTON Clicked: [2025-08-01 17:16:48] ROBOT_SPEECH: Bravo!
+[2025-08-01 17:16:55] ROBOT_SPEECH: Where
+[2025-08-01 17:17:09] ROBOT_SPEECH: Where are the clouds?
+[2025-08-01 17:17:16] Praise BUTTON Clicked: [2025-08-01 17:17:16] ROBOT_SPEECH: Wonderful!
+[2025-08-01 17:17:24] ROBOT_SPEECH: Who
+[2025-08-01 17:17:32] ROBOT_SPEECH: Who teaches at school?
+[2025-08-01 17:17:32] ROBOT_SPEECH: Who teaches at school?
+[2025-08-01 17:17:32] ROBOT_SPEECH: Who teaches at school?
+[2025-08-01 17:17:59] Praise BUTTON Clicked: [2025-08-01 17:17:59] ROBOT_SPEECH: Great!
+[2025-08-01 17:18:07] ROBOT_SPEECH: what
+[2025-08-01 17:18:20] ROBOT_SPEECH: What do we eat soup with?
+[2025-08-01 17:19:06] Praise BUTTON Clicked: [2025-08-01 17:19:06] ROBOT_SPEECH: Bravo!
+[2025-08-01 17:19:25] ROBOT_SPEECH: Where
+[2025-08-01 17:19:35] ROBOT_SPEECH: Where do we play on slides and swings?
+[2025-08-01 17:19:53] Praise BUTTON Clicked: [2025-08-01 17:19:53] ROBOT_SPEECH: Amazing!
+[2025-08-01 17:19:55] ROBOT_SPEECH: Where are the clouds?
+[2025-08-01 17:20:04] ROBOT_SPEECH: Who
+[2025-08-01 17:20:55] ROBOT_SPEECH: what
+[2025-08-01 17:21:16] ROBOT_SPEECH: What do we use to clean our teeth?
+[2025-08-01 17:21:45] Praise BUTTON Clicked: [2025-08-01 17:21:45] ROBOT_SPEECH: Wonderful!
+Main closed  Fri Aug  1 17:22:13 2025
+GAME: yes_no_old
+Time: Fri Aug  1 17:22:29 2025
+[2025-08-01 17:22:30] ROBOT_SPEECH: Do you drink juice?
+[2025-08-01 17:22:37] ROBOT_SPEECH: Correct!
+[2025-08-01 17:22:43] ROBOT_SPEECH: Is the sun hot?
+[2025-08-01 17:22:44] ROBOT_SPEECH: Do crabs have wings?
+[2025-08-01 17:22:49] ROBOT_SPEECH: Correct!
+[2025-08-01 17:22:54] ROBOT_SPEECH: Can you build snowman at the beach?
+[2025-08-01 17:23:03] ROBOT_SPEECH: Correct!
+[2025-08-01 17:23:06] ROBOT_SPEECH: Is ice cream sweet?
+[2025-08-01 17:23:13] ROBOT_SPEECH: Correct!
+[2025-08-01 17:23:17] ROBOT_SPEECH: Do you wear sunglasses on your feet?
+[2025-08-01 17:23:49] ROBOT_SPEECH: Correct!
+[2025-08-01 17:24:09] ROBOT_SPEECH: Do you wear a swimsuit at the beach?
+[2025-08-01 17:24:29] ROBOT_SPEECH: Correct!
+[2025-08-01 17:24:31] Praise BUTTON Clicked: [2025-08-01 17:24:31] ROBOT_SPEECH: Great!
+[2025-08-01 17:24:36] ROBOT_SPEECH: Does a boat fly in the sky?
+[2025-08-01 17:24:44] ROBOT_SPEECH: Correct!
+[2025-08-01 17:24:47] ROBOT_SPEECH: Do dogs say, #COW#
+[2025-08-01 17:24:52] ROBOT_SPEECH: That's not correct
+[2025-08-01 17:25:28] ROBOT_SPEECH: Correct!
+[2025-08-01 17:25:29] ROBOT_SPEECH: Correct!
+[2025-08-01 17:25:30] ROBOT_SPEECH: Correct!
+[2025-08-01 17:25:36] ROBOT_SPEECH:   Do turtles have shells?
+[2025-08-01 17:25:42] ROBOT_SPEECH: That's not correct
+[2025-08-01 17:25:43] ROBOT_SPEECH: That's not correct
+[2025-08-01 17:26:05] ROBOT_SPEECH: Correct!
+[2025-08-01 17:26:08] ROBOT_SPEECH: Finished!. Lets play other games!
+Main closed  Fri Aug  1 17:26:27 2025
+GAME: dice_action_young
+Time: Fri Aug  1 17:26:39 2025
+[2025-08-01 17:26:40] ROBOT_SPEECH: Let's roll the dice
+[2025-08-01 17:26:46] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-08-01 17:26:48] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-08-01 17:27:06] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-08-01 17:27:11] ROBOT_SPEECH: 1
+[2025-08-01 17:27:14] ROBOT_SPEECH: 2
+[2025-08-01 17:27:17] ROBOT_SPEECH: 3
+[2025-08-01 17:27:20] ROBOT_SPEECH: 4
+[2025-08-01 17:27:23] ROBOT_SPEECH: 5
+[2025-08-01 17:27:26] ROBOT_SPEECH: 6
+[2025-08-01 17:27:29] ROBOT_SPEECH: 7
+[2025-08-01 17:27:32] ROBOT_SPEECH: 8
+[2025-08-01 17:27:35] ROBOT_SPEECH: 9
+[2025-08-01 17:27:38] ROBOT_SPEECH: 10
+[2025-08-01 17:27:59] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-08-01 17:28:01] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-08-01 17:28:30] ROBOT_SPEECH: Let's have a bear hug!
+[2025-08-01 17:28:32] ROBOT_SPEECH: 1, 2, 3, 4, 5
+Main closed  Fri Aug  1 17:29:08 2025
+GAME: dice_action_young
+Time: Fri Aug  1 17:29:27 2025
+[2025-08-01 17:29:28] ROBOT_SPEECH: Let's roll the dice
+[2025-08-01 17:29:34] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-08-01 17:29:36] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-08-01 17:29:51] ROBOT_SPEECH: Let's sing a song
+[2025-08-01 17:32:05] ROBOT_SPEECH: Let's have a high five!
+[2025-08-01 17:32:10] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-08-01 17:32:15] ROBOT_SPEECH: 1
+[2025-08-01 17:32:18] ROBOT_SPEECH: 2
+[2025-08-01 17:32:21] ROBOT_SPEECH: 3
+[2025-08-01 17:32:24] ROBOT_SPEECH: 4
+[2025-08-01 17:32:27] ROBOT_SPEECH: 5
+[2025-08-01 17:32:30] ROBOT_SPEECH: 6
+[2025-08-01 17:32:33] ROBOT_SPEECH: 7
+[2025-08-01 17:32:36] ROBOT_SPEECH: 8
+[2025-08-01 17:32:39] ROBOT_SPEECH: 9
+[2025-08-01 17:32:42] ROBOT_SPEECH: 10
+Main closed  Fri Aug  1 17:32:52 2025
+GAME: at_talks
+Time: Fri Aug  1 17:35:52 2025
+[2025-08-01 17:38:29] Praise BUTTON Clicked: [2025-08-01 17:38:29] ROBOT_SPEECH: Bravo!
+[2025-08-01 17:41:04] Praise BUTTON Clicked: [2025-08-01 17:41:04] ROBOT_SPEECH: Wonderful!
+[2025-08-01 17:47:07] Praise BUTTON Clicked: [2025-08-01 17:47:07] ROBOT_SPEECH: Victory!
+[2025-08-01 17:48:53] Praise BUTTON Clicked: [2025-08-01 17:48:53] ROBOT_SPEECH: Victory!
+GAME: at_talks
+Time: Fri Aug  1 17:50:02 2025
+[2025-08-01 17:50:06] ROBOT_SPEECH: Hello! How r you today?
+Main closed  Fri Aug  1 17:50:21 2025
+GAME: dice_action_young
+Time: Fri Aug  1 17:50:37 2025
+[2025-08-01 17:50:38] ROBOT_SPEECH: Let's roll the dice
+[2025-08-01 17:50:47] ROBOT_SPEECH: Let's have a bear hug!
+[2025-08-01 17:50:49] ROBOT_SPEECH: 1, 2, 3, 4, 5
+Main closed  Fri Aug  1 17:51:13 2025
+GAME: at_talks
+Time: Fri Aug  1 17:51:17 2025
+[2025-08-01 17:51:21] ROBOT_SPEECH: #MMM01# Yummy!
+Main closed  Fri Aug  1 17:51:29 2025
+GAME: dice_action_young
+Time: Fri Aug  1 17:51:36 2025
+[2025-08-01 17:51:37] ROBOT_SPEECH: Let's roll the dice
+[2025-08-01 17:51:43] ROBOT_SPEECH: Let's have a high five!
+[2025-08-01 17:51:55] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-08-01 17:51:57] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-08-01 17:53:46] ROBOT_SPEECH: Let's have a bear hug!
+[2025-08-01 17:53:48] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-08-01 17:53:58] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-08-01 17:54:03] ROBOT_SPEECH: 1
+[2025-08-01 17:54:06] ROBOT_SPEECH: 2
+[2025-08-01 17:54:09] ROBOT_SPEECH: 3
+[2025-08-01 17:54:12] ROBOT_SPEECH: 4
+[2025-08-01 17:54:15] ROBOT_SPEECH: 5
+[2025-08-01 17:54:18] ROBOT_SPEECH: 6
+[2025-08-01 17:54:21] ROBOT_SPEECH: 7
+[2025-08-01 17:54:24] ROBOT_SPEECH: 8
+[2025-08-01 17:54:27] ROBOT_SPEECH: 9
+[2025-08-01 17:54:30] ROBOT_SPEECH: 10
+Main closed  Fri Aug  1 17:54:46 2025
+GAME: dice_5w1h
+Time: Fri Aug  1 17:55:02 2025
+[2025-08-01 17:55:02] ROBOT_SPEECH: Lets play around with wh questions
+[2025-08-01 17:55:05] ROBOT_SPEECH: Let's roll the dice
+[2025-08-01 17:55:09] ROBOT_SPEECH: Who
+[2025-08-01 17:55:16] ROBOT_SPEECH: Who drives a school bus?
+[2025-08-01 17:56:06] ROBOT_SPEECH: what
+[2025-08-01 17:56:10] ROBOT_SPEECH: What do we use to clean our teeth?
+[2025-08-01 17:57:23] ROBOT_SPEECH: Where
+[2025-08-01 17:57:29] ROBOT_SPEECH: Where do we play on slides and swings?
+[2025-08-01 17:57:43] Praise BUTTON Clicked: [2025-08-01 17:57:43] ROBOT_SPEECH: Great!
+GAME: at_talks
+Time: Fri Aug  1 17:57:59 2025
+[2025-08-01 17:58:03] ROBOT_SPEECH: Goodbye!
+[2025-08-01 17:58:08] ROBOT_SPEECH: See you later!

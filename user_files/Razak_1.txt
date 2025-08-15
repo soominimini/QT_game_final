@@ -1,0 +1,116 @@
+CLIENT NAME: Razak
+login closed  Thu Jul 31 09:54:33 2025
+GAME: at_talks
+Time: Thu Jul 31 09:54:44 2025
+GAME: at_talks
+Time: Thu Jul 31 09:55:34 2025
+GAME: at_talks
+Time: Thu Jul 31 09:55:45 2025
+[2025-07-31 09:55:56] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-31 10:05:20] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-31 10:05:39] ROBOT_SPEECH: I'm fine!
+[2025-07-31 10:05:55] ROBOT_SPEECH: lets look at the visual schedule
+Main closed  Thu Jul 31 10:08:58 2025
+GAME: dice_emotion_old
+Time: Thu Jul 31 10:17:34 2025
+[2025-07-31 10:17:35] ROBOT_SPEECH: Let's roll the dice
+[2025-07-31 10:17:46] ROBOT_SPEECH: excited
+[2025-07-31 10:17:53] ROBOT_SPEECH: Who makes you feel excited?
+[2025-07-31 10:17:58] REPEAT BUTTON Clicked: [2025-07-31 10:17:58] ROBOT_SPEECH: Excited. What makes you feel excited?
+[2025-07-31 10:23:14] ROBOT_SPEECH: silly
+[2025-07-31 10:23:20] ROBOT_SPEECH: when do you feel silly?
+[2025-07-31 10:23:24] REPEAT BUTTON Clicked: [2025-07-31 10:23:24] ROBOT_SPEECH: Silly. when do you feel silly?
+[2025-07-31 10:26:13] ROBOT_SPEECH: frustrated
+[2025-07-31 10:26:19] ROBOT_SPEECH: When do you feel frustrated?
+[2025-07-31 10:27:47] ROBOT_SPEECH: curious
+[2025-07-31 10:27:52] ROBOT_SPEECH: what makes you curious?
+[2025-07-31 10:28:05] REPEAT BUTTON Clicked: [2025-07-31 10:28:05] ROBOT_SPEECH: curious. what makes you curious?
+[2025-07-31 10:29:25] ROBOT_SPEECH: confused
+[2025-07-31 10:29:28] ROBOT_SPEECH: What makes you feel confused?
+[2025-07-31 10:29:46] ROBOT_SPEECH: tired
+[2025-07-31 10:29:52] ROBOT_SPEECH: When do you feel tired?
+[2025-07-31 10:30:35] REPEAT BUTTON Clicked: [2025-07-31 10:30:35] ROBOT_SPEECH: Tired. When do you feel tired?
+[2025-07-31 10:30:56] ROBOT_SPEECH: tired
+[2025-07-31 10:31:02] ROBOT_SPEECH: When do you feel tired?
+[2025-07-31 10:31:03] ROBOT_SPEECH: excited
+[2025-07-31 10:31:10] ROBOT_SPEECH: Who makes you feel excited?
+[2025-07-31 10:31:20] Stop event triggered by user.
+[2025-07-31 10:31:20] ROBOT_SPEECH: all done
+GAME: instructions_game
+Time: Thu Jul 31 10:31:24 2025
+[2025-07-31 10:31:26] ROBOT_SPEECH: Where do you want to go?
+[2025-07-31 10:31:27] ROBOT_SPEECH: Where shall we go?
+Main closed  Thu Jul 31 10:31:28 2025
+GAME: instructions_game
+Time: Thu Jul 31 10:31:31 2025
+[2025-07-31 10:31:33] ROBOT_SPEECH: What place do you wanna go to?
+[2025-07-31 10:31:37] REPEAT BUTTON Clicked: [2025-07-31 10:31:37] ROBOT_SPEECH: What place do you wanna go to?
+[2025-07-31 10:31:59] ROBOT_SPEECH: Let's go to play!
+[2025-07-31 10:32:03] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+[2025-07-31 10:32:12] REPEAT BUTTON Clicked: [2025-07-31 10:32:12] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+[2025-07-31 10:32:19] ROBOT_SPEECH: Great!
+[2025-07-31 10:32:24] ROBOT_SPEECH: A sandbox, \spd=70\ is placed on the right side, in the park
+[2025-07-31 10:32:29] ROBOT_SPEECH: Hooray!
+[2025-07-31 10:32:34] ROBOT_SPEECH: A red monkey bar, is on the middle of the park
+[2025-07-31 10:32:40] ROBOT_SPEECH: Perfect!
+Taking Instruction park1 closed  Thu Jul 31 10:32:48 2025
+[2025-07-31 10:32:52] ROBOT_SPEECH: a person, is riding a bike, along the bike path
+[2025-07-31 10:33:02] ROBOT_SPEECH: Amazing!
+[2025-07-31 10:33:07] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-07-31 10:33:12] ROBOT_SPEECH: Perfect!
+[2025-07-31 10:33:17] ROBOT_SPEECH: A man, is running along on the right side
+[2025-07-31 10:33:21] ROBOT_SPEECH: Amazing!
+Taking Instruction park2 closed  Thu Jul 31 10:33:31 2025
+[2025-07-31 10:33:35] ROBOT_SPEECH: Lets place the swing, on the right side of the bench
+[2025-07-31 10:34:10] REPEAT BUTTON Clicked: [2025-07-31 10:34:10] ROBOT_SPEECH: Lets place the swing, on the right side of the bench
+[2025-07-31 10:34:26] ROBOT_SPEECH: Great!
+[2025-07-31 10:34:31] ROBOT_SPEECH: There is a slide, under the tall tree.
+[2025-07-31 10:34:36] ROBOT_SPEECH: Hooray!
+[2025-07-31 10:34:41] ROBOT_SPEECH: People, are sitting on a bench, next to the big tree
+[2025-07-31 10:34:48] ROBOT_SPEECH: Perfect!
+[2025-07-31 10:34:58] Stop event triggered by user.
+[2025-07-31 10:34:58] ROBOT_SPEECH: all done
+Main closed  Thu Jul 31 10:35:01 2025
+GAME: at_talks
+Time: Thu Jul 31 10:39:57 2025
+[2025-07-31 10:42:32] ROBOT_SPEECH: #AARGH01# Keep trying! 
+[2025-07-31 10:43:23] Praise BUTTON Clicked: [2025-07-31 10:43:23] ROBOT_SPEECH: Great!
+[2025-07-31 10:44:59] ROBOT_SPEECH: That's good to know!
+[2025-07-31 10:48:12] ROBOT_SPEECH: Oh no!
+[2025-07-31 10:50:02] Praise BUTTON Clicked: [2025-07-31 10:50:02] ROBOT_SPEECH: Great!
+[2025-07-31 10:56:38] Praise BUTTON Clicked: [2025-07-31 10:56:38] ROBOT_SPEECH: Great!
+[2025-07-31 10:58:30] Praise BUTTON Clicked: [2025-07-31 10:58:30] ROBOT_SPEECH: Victory!
+GAME: dice_emotion_old
+Time: Thu Jul 31 10:58:53 2025
+[2025-07-31 10:58:54] ROBOT_SPEECH: Let's roll the dice
+[2025-07-31 10:58:55] ROBOT_SPEECH: Let's roll the dice
+Main closed  Thu Jul 31 10:58:57 2025
+GAME: dice_emotion_old
+Time: Thu Jul 31 10:59:11 2025
+[2025-07-31 10:59:12] ROBOT_SPEECH: Let's roll the dice
+[2025-07-31 10:59:17] ROBOT_SPEECH: silly
+[2025-07-31 10:59:23] ROBOT_SPEECH: when do you feel silly?
+[2025-07-31 10:59:51] Stop event triggered by user.
+[2025-07-31 10:59:51] ROBOT_SPEECH: all done
+Main closed  Thu Jul 31 10:59:55 2025
+GAME: emotion_game2
+Time: Thu Jul 31 11:01:30 2025
+[2025-07-31 11:01:47] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Jul 31 11:01:50 2025
+[2025-07-31 11:01:50] REPEAT BUTTON Clicked: [2025-07-31 11:01:50] ROBOT_SPEECH: Show me an emotion card
+[2025-07-31 11:02:01] ROBOT_SPEECH: sheye
+[2025-07-31 11:02:13] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-07-31 11:02:22] ROBOT_SPEECH: I get shy when I meet new people.
+[2025-07-31 11:02:49] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-31 11:02:51] ROBOT_SPEECH: happy!
+[2025-07-31 11:03:03] ROBOT_SPEECH: Look at the tablet, which one is  happy
+[2025-07-31 11:03:10] ROBOT_SPEECH: happy!
+[2025-07-31 11:03:22] ROBOT_SPEECH: Look at the tablet, which one is  happy
+[2025-07-31 11:03:22] ROBOT_SPEECH: Going to the park makes me happy.
+[2025-07-31 11:03:57] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-31 11:03:59] ROBOT_SPEECH: angry!
+[2025-07-31 11:04:11] ROBOT_SPEECH: Look at the tablet, which one is  angry
+[2025-07-31 11:04:17] ROBOT_SPEECH: angry!
+[2025-07-31 11:04:29] ROBOT_SPEECH: Look at the tablet, which one is  angry
+[2025-07-31 11:04:32] ROBOT_SPEECH: I feel angry when I don’t get a turn playing a game.
+login closed  Thu Jul 31 11:39:45 2025

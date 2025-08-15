@@ -1,0 +1,159 @@
+CLIENT NAME: Viraj
+login closed  Wed Jul 30 08:59:22 2025
+GAME: emotion_game_1
+Time: Wed Jul 30 08:59:37 2025
+GAME: emotion_game_1
+Time: Wed Jul 30 08:59:43 2025
+GAME: emotion_game_1
+Time: Wed Jul 30 09:00:11 2025
+GAME: emotion_game_1
+Time: Wed Jul 30 09:00:21 2025
+GAME: emotion_game_1
+Time: Wed Jul 30 09:00:33 2025
+[2025-07-30 09:00:39] ROBOT_SPEECH: Let's play a game
+[2025-07-30 09:00:42] ROBOT_SPEECH: sheye
+[2025-07-30 09:00:48] ROBOT_SPEECH: Look at the tablet, click on the picture
+Start Emotion games closed  Wed Jul 30 09:00:49 2025
+[2025-07-30 09:00:50] REPEAT BUTTON Clicked: [2025-07-30 09:00:50] ROBOT_SPEECH: Show me an emotion card
+[2025-07-30 09:00:59] ROBOT_SPEECH: saed
+[2025-07-30 09:01:05] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-30 09:01:10] ROBOT_SPEECH: saed
+[2025-07-30 09:01:11] ROBOT_SPEECH: Let's go to next
+[2025-07-30 09:01:20] ROBOT_SPEECH: happy!
+[2025-07-30 09:01:26] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-30 09:02:05] ROBOT_SPEECH: Show me another emotion card!
+Main closed  Wed Jul 30 09:02:32 2025
+GAME: emotion_game_1
+Time: Wed Jul 30 09:02:37 2025
+emotion_game1 closed  Wed Jul 30 09:02:37 2025
+GAME: at_talks
+Time: Wed Jul 30 09:02:43 2025
+GAME: at_talks
+Time: Wed Jul 30 09:02:54 2025
+Main closed  Wed Jul 30 09:03:00 2025
+GAME: at_talks
+Time: Wed Jul 30 09:04:01 2025
+GAME: at_talks
+Time: Wed Jul 30 09:04:31 2025
+GAME: at_talks
+Time: Wed Jul 30 09:04:40 2025
+GAME: at_talks
+Time: Wed Jul 30 09:05:21 2025
+GAME: at_talks
+Time: Wed Jul 30 09:05:29 2025
+GAME: at_talks
+Time: Wed Jul 30 09:05:40 2025
+[2025-07-30 09:05:45] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-30 09:06:47] ROBOT_SPEECH: I'm fine!
+[2025-07-30 09:07:34] ROBOT_SPEECH: Whats your name?
+[2025-07-30 09:07:55] ROBOT_SPEECH: Whats your name?
+Main closed  Wed Jul 30 09:08:32 2025
+GAME: break
+Time: Wed Jul 30 09:08:39 2025
+[2025-07-30 09:08:39] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-30 09:09:28] ROBOT_SPEECH: Lets sing a song
+GAME: at_talks
+Time: Wed Jul 30 09:15:13 2025
+[2025-07-30 09:15:16] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 09:16:26] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 09:19:06] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 09:21:15] ROBOT_SPEECH: #MMM01# Yummy!
+GAME: action_game
+Time: Wed Jul 30 09:23:55 2025
+[2025-07-30 09:23:56] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Wed Jul 30 09:23:59 2025
+[2025-07-30 09:24:00] REPEAT BUTTON Clicked: [2025-07-30 09:24:00] ROBOT_SPEECH: Show me an action card
+[2025-07-30 09:24:04] ROBOT_SPEECH: eat
+[2025-07-30 09:24:07] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-07-30 09:28:44] ROBOT_SPEECH: eat
+[2025-07-30 09:28:56] Stop event triggered by user.
+[2025-07-30 09:28:56] ROBOT_SPEECH: all done
+Main closed  Wed Jul 30 09:28:59 2025
+GAME: at_talks
+Time: Wed Jul 30 09:35:14 2025
+[2025-07-30 09:35:24] Praise BUTTON Clicked: [2025-07-30 09:35:24] ROBOT_SPEECH: Wonderful!
+[2025-07-30 09:36:54] Praise BUTTON Clicked: [2025-07-30 09:36:54] ROBOT_SPEECH: Wonderful!
+[2025-07-30 09:41:11] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-30 09:51:14] ROBOT_SPEECH: Goodbye!
+[2025-07-30 09:51:36] ROBOT_SPEECH: Goodbye!
+[2025-07-30 09:52:31] ROBOT_SPEECH: Goodbye!
+[2025-07-30 09:53:07] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-30 09:53:55] ROBOT_SPEECH: See you later!
+[2025-07-30 09:54:15] Praise BUTTON Clicked: [2025-07-30 09:54:15] ROBOT_SPEECH: Wonderful!
+[2025-07-30 09:54:24] ROBOT_SPEECH: Goodbye!
+[2025-07-30 09:54:41] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-30 09:55:07] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-30 09:55:31] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-30 09:56:02] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-30 09:56:19] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-30 09:56:55] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-30 09:57:49] Praise BUTTON Clicked: [2025-07-30 09:57:49] ROBOT_SPEECH: Wonderful!
+Main closed  Wed Jul 30 12:05:03 2025
+GAME: at_talks
+Time: Wed Jul 30 12:05:17 2025
+[2025-07-30 12:05:22] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-30 12:05:46] ROBOT_SPEECH: Hello! How r you today?
+Main closed  Wed Jul 30 12:06:16 2025
+GAME: at_talks
+Time: Wed Jul 30 12:08:03 2025
+[2025-07-30 12:08:05] Praise BUTTON Clicked: [2025-07-30 12:08:05] ROBOT_SPEECH: Wonderful!
+[2025-07-30 12:08:10] Praise BUTTON Clicked: [2025-07-30 12:08:10] ROBOT_SPEECH: Wonderful!
+[2025-07-30 12:09:57] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-30 12:10:32] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-30 12:12:03] Praise BUTTON Clicked: [2025-07-30 12:12:03] ROBOT_SPEECH: Wonderful!
+[2025-07-30 12:12:18] Praise BUTTON Clicked: [2025-07-30 12:12:18] ROBOT_SPEECH: Wonderful!
+[2025-07-30 12:14:16] Praise BUTTON Clicked: [2025-07-30 12:14:16] ROBOT_SPEECH: Bravo!
+[2025-07-30 12:16:02] Praise BUTTON Clicked: [2025-07-30 12:16:02] ROBOT_SPEECH: Bravo!
+[2025-07-30 12:16:20] Praise BUTTON Clicked: [2025-07-30 12:16:20] ROBOT_SPEECH: Bravo!
+[2025-07-30 12:16:49] Praise BUTTON Clicked: [2025-07-30 12:16:49] ROBOT_SPEECH: Bravo!
+[2025-07-30 12:16:58] Praise BUTTON Clicked: [2025-07-30 12:16:58] ROBOT_SPEECH: Bravo!
+[2025-07-30 12:17:21] Praise BUTTON Clicked: [2025-07-30 12:17:21] ROBOT_SPEECH: Great!
+GAME: break
+Time: Wed Jul 30 12:20:34 2025
+[2025-07-30 12:20:34] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-30 12:20:37] ROBOT_SPEECH: Lets sing a song
+GAME: at_talks
+Time: Wed Jul 30 12:28:16 2025
+[2025-07-30 12:28:25] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 12:28:30] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 12:28:42] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 12:28:50] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 12:29:05] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 12:33:09] ROBOT_SPEECH: Uh oh!
+[2025-07-30 12:33:40] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 12:34:39] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 12:34:47] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 12:34:56] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 12:45:45] Praise BUTTON Clicked: [2025-07-30 12:45:45] ROBOT_SPEECH: Victory!
+Main closed  Wed Jul 30 12:46:40 2025
+GAME: dice_action_young
+Time: Wed Jul 30 12:46:50 2025
+[2025-07-30 12:46:51] ROBOT_SPEECH: Let's roll the dice
+Main closed  Wed Jul 30 12:46:56 2025
+Main closed  Wed Jul 30 12:47:10 2025
+Main closed  Wed Jul 30 12:47:48 2025
+GAME: instructions_game_young
+Time: Wed Jul 30 12:48:03 2025
+[2025-07-30 12:48:05] ROBOT_SPEECH: Where do you wanna go?
+Main closed  Wed Jul 30 12:54:10 2025
+GAME: at_talks
+Time: Wed Jul 30 12:54:14 2025
+[2025-07-30 12:54:16] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 12:54:25] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 12:54:25] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-07-30 12:56:28] ROBOT_SPEECH: Goodbye!
+Main closed  Wed Jul 30 12:56:53 2025
+GAME: break
+Time: Wed Jul 30 12:56:58 2025
+[2025-07-30 12:56:58] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-30 12:56:59] ROBOT_SPEECH: Lets sing a song
+Main closed  Wed Jul 30 12:57:46 2025
+GAME: at_talks
+Time: Wed Jul 30 12:57:49 2025
+[2025-07-30 12:57:51] ROBOT_SPEECH: Goodbye!
+[2025-07-30 12:58:12] ROBOT_SPEECH: Goodbye!
+[2025-07-30 12:58:21] ROBOT_SPEECH: See you later!
+[2025-07-30 12:58:54] ROBOT_SPEECH: Goodbye!
+[2025-07-30 12:59:04] ROBOT_SPEECH: See you later!
+[2025-07-30 13:00:20] ROBOT_SPEECH: Goodbye!
+Main closed  Wed Jul 30 13:08:51 2025

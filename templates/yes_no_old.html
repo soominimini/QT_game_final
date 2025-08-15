@@ -236,7 +236,6 @@
                 text: "Does a boat fly in the sky?", correctAnswer: "No", image: "static/yes_no_old/boat.jpg"
             },
             {
-                {#text: "Do dogs say moooh ?", correctAnswer: "No", image: "static/yes_no_old/dog.jpg"#}
                 text: "Do dogs say, #COW#", correctAnswer: "No", image: "static/yes_no_old/dog.jpg"
 
             },
@@ -294,12 +293,13 @@
         function handleAnswer(answer) {
             if (currentQuestion.correctAnswer === " ") {
                 console.log("Correct answer");
-                setTimeout(loadQuestion, 1000); // Show the next question after a short delay
+                document.getElementById("next-btn").style.display = "block";
             } else {
                 if (answer === currentQuestion.correctAnswer) {
                     console.log("Correct answer");
                     socket.emit('simple_correct');
-                    setTimeout(loadQuestion, 1000); // Show the next question after a short delay
+                     document.getElementById("next-btn").style.display = "block";
+                    // setTimeout(loadQuestion, 1000); // Show the next question after a short delay
                 } else {
                     console.log("Wrong answer");
                     socket.emit('simple_wrong');
@@ -370,6 +370,8 @@
     <div class="object" style="background-color: white; width: 900px; height: 500px;  margin-top: -15%;">
         <p id="question-text" class="question"> Yes or No Question</p>
         <img id="image-display" src="" alt="Question Image" style="width: 500px;">
+                <input type="button" id="next-btn" value="Next" class="next-button" style="display: none;"
+               onclick="loadQuestion()">
     </div>
 
 
@@ -379,6 +381,7 @@
     <!-- Yes and No Buttons -->
     <input type="button" value="Yes" onclick="handleAnswer('Yes')" class="next-button yes">
     <input type="button" value="No" onclick="handleAnswer('No')" class="next-button no">
+
     <div class="repeat">
         <button onclick="repeat_speech()"> Repeat</button>
     </div>

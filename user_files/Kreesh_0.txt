@@ -1,0 +1,302 @@
+CLIENT NAME: Kreesh
+login closed  Thu Jul 24 11:05:53 2025
+GAME: instructions_game
+Time: Thu Jul 24 11:06:02 2025
+[2025-07-24 11:06:03] ROBOT_SPEECH: Where do you want to go?
+[2025-07-24 11:06:06] ROBOT_SPEECH: Let's go to play!
+[2025-07-24 11:06:11] ROBOT_SPEECH: A red monkey bar, is on the middle of the park
+[2025-07-24 11:06:18] ROBOT_SPEECH: Great!
+[2025-07-24 11:06:23] ROBOT_SPEECH: A sandbox, \spd=70\ is placed on the right side, in the park
+[2025-07-24 11:06:30] ROBOT_SPEECH: Perfect!
+[2025-07-24 11:06:34] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+[2025-07-24 11:06:45] ROBOT_SPEECH: Hooray!
+Taking Instruction park1 closed  Thu Jul 24 11:06:56 2025
+[2025-07-24 11:07:00] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-07-24 11:07:14] ROBOT_SPEECH: Amazing!
+[2025-07-24 11:07:19] ROBOT_SPEECH: a person, is riding a bike, along the bike path
+[2025-07-24 11:07:27] ROBOT_SPEECH: Great!
+[2025-07-24 11:07:31] ROBOT_SPEECH: A man, is running along on the right side
+[2025-07-24 11:07:39] ROBOT_SPEECH: Perfect!
+Taking Instruction park2 closed  Thu Jul 24 11:08:14 2025
+[2025-07-24 11:08:18] ROBOT_SPEECH: Lets place the swing, on the right side of the bench
+[2025-07-24 11:08:25] REPEAT BUTTON Clicked: [2025-07-24 11:08:25] ROBOT_SPEECH: Lets place the swing, on the right side of the bench
+[2025-07-24 11:08:34] ROBOT_SPEECH: Amazing!
+[2025-07-24 11:08:39] ROBOT_SPEECH: There is a slide, under the tall tree.
+[2025-07-24 11:08:43] ROBOT_SPEECH: Hooray!
+[2025-07-24 11:08:49] ROBOT_SPEECH: People, are sitting on a bench, next to the big tree
+[2025-07-24 11:08:55] ROBOT_SPEECH: Great!
+[2025-07-24 11:10:08] Stop event triggered by user.
+[2025-07-24 11:10:08] ROBOT_SPEECH: all done
+Main closed  Thu Jul 24 11:10:12 2025
+GAME: at_talks
+Time: Thu Jul 24 11:10:22 2025
+[2025-07-24 11:10:26] ROBOT_SPEECH: What is your favourite season?
+[2025-07-24 11:10:33] ROBOT_SPEECH: That's a great answer!
+[2025-07-24 11:10:44] ROBOT_SPEECH: What is your favourite hobby?
+GAME: at_talks
+Time: Thu Jul 24 11:12:30 2025
+[2025-07-24 11:12:32] ROBOT_SPEECH:  Let's talk later!
+Main closed  Thu Jul 24 11:15:07 2025
+GAME: dice_emotion_old
+Time: Thu Jul 24 11:15:17 2025
+[2025-07-24 11:15:18] ROBOT_SPEECH: Let's roll the dice
+Main closed  Thu Jul 24 11:15:22 2025
+GAME: dice_board
+Time: Thu Jul 24 11:15:25 2025
+[2025-07-24 11:15:26] ROBOT_SPEECH: Let's roll the dice
+[2025-07-24 11:15:38] ROBOT_SPEECH: Move your piece on the board by four steps!
+[2025-07-24 11:16:59] ROBOT_SPEECH: Move your piece on the board by two steps!
+[2025-07-24 11:17:54] ROBOT_SPEECH: Move your piece on the board by three steps!
+[2025-07-24 11:19:01] ROBOT_SPEECH: Move your piece on the board by five steps!
+[2025-07-24 11:20:16] ROBOT_SPEECH: Move your piece on the board by one step!
+[2025-07-24 11:21:07] ROBOT_SPEECH: Move your piece on the board by six steps!
+[2025-07-24 11:21:39] ROBOT_SPEECH: Move your piece on the board by one step!
+[2025-07-24 11:21:42] ROBOT_SPEECH: Move your piece on the board by five steps!
+[2025-07-24 11:21:48] ROBOT_SPEECH: Move your piece on the board by three steps!
+[2025-07-24 11:23:02] ROBOT_SPEECH: Move your piece on the board by six steps!
+[2025-07-24 11:23:16] Praise BUTTON Clicked: [2025-07-24 11:23:16] ROBOT_SPEECH: Wonderful!
+[2025-07-24 11:24:29] ROBOT_SPEECH: Move your piece on the board by four steps!
+[2025-07-24 11:25:07] ROBOT_SPEECH: Move your piece on the board by two steps!
+[2025-07-24 11:25:57] ROBOT_SPEECH: Move your piece on the board by one step!
+[2025-07-24 11:26:34] ROBOT_SPEECH: Move your piece on the board by six steps!
+[2025-07-24 11:27:33] Praise BUTTON Clicked: [2025-07-24 11:27:33] ROBOT_SPEECH: Wonderful!
+[2025-07-24 11:27:37] Stop event triggered by user.
+[2025-07-24 11:27:37] ROBOT_SPEECH: all done
+GAME: at_talks
+Time: Thu Jul 24 11:27:41 2025
+Main closed  Thu Jul 24 11:27:44 2025
+GAME: at_talks
+Time: Thu Jul 24 11:27:47 2025
+[2025-07-24 11:27:49] Praise BUTTON Clicked: [2025-07-24 11:27:49] ROBOT_SPEECH: Victory!
+[2025-07-24 11:29:42] ROBOT_SPEECH: Uh oh!
+Main closed  Thu Jul 24 11:30:01 2025
+GAME: yes_no_old
+Time: Thu Jul 24 11:30:32 2025
+[2025-07-24 11:30:33] ROBOT_SPEECH: Do you wear sunglasses on your feet?
+[2025-07-24 11:30:42] ROBOT_SPEECH: That's not correct
+[2025-07-24 11:30:45] ROBOT_SPEECH: Correct!
+[2025-07-24 11:30:48] ROBOT_SPEECH: Is ice cream sweet?
+[2025-07-24 11:30:54] ROBOT_SPEECH: That's not correct
+[2025-07-24 11:30:56] ROBOT_SPEECH: Correct!
+[2025-07-24 11:30:57] ROBOT_SPEECH: Correct!
+[2025-07-24 11:30:58] ROBOT_SPEECH: Correct!
+[2025-07-24 11:30:59] ROBOT_SPEECH: Correct!
+[2025-07-24 11:31:05] ROBOT_SPEECH: Do you wear a swimsuit at the beach?
+[2025-07-24 11:31:16] ROBOT_SPEECH: Correct!
+[2025-07-24 11:31:20] ROBOT_SPEECH: Can you build snowman at the beach?
+[2025-07-24 11:31:33] ROBOT_SPEECH: That's not correct
+[2025-07-24 11:31:36] ROBOT_SPEECH: Correct!
+[2025-07-24 11:31:37] ROBOT_SPEECH: Correct!
+[2025-07-24 11:31:38] ROBOT_SPEECH: Correct!
+[2025-07-24 11:31:39] ROBOT_SPEECH: Correct!
+[2025-07-24 11:31:40] ROBOT_SPEECH: Correct!
+[2025-07-24 11:31:41] ROBOT_SPEECH: Correct!
+[2025-07-24 11:31:42] ROBOT_SPEECH: Correct!
+[2025-07-24 11:31:52] ROBOT_SPEECH: Do crabs have wings?
+[2025-07-24 11:32:09] ROBOT_SPEECH: That's not correct
+[2025-07-24 11:32:12] ROBOT_SPEECH: Correct!
+[2025-07-24 11:32:13] ROBOT_SPEECH: Correct!
+[2025-07-24 11:32:14] ROBOT_SPEECH: Correct!
+[2025-07-24 11:32:15] ROBOT_SPEECH: Correct!
+[2025-07-24 11:32:16] ROBOT_SPEECH: Correct!
+[2025-07-24 11:32:21] Stop event triggered by user.
+[2025-07-24 11:32:21] ROBOT_SPEECH: all done
+Main closed  Thu Jul 24 11:32:33 2025
+GAME: yes_no_old
+Time: Thu Jul 24 11:32:40 2025
+[2025-07-24 11:32:41] ROBOT_SPEECH: Do you drink juice?
+[2025-07-24 11:32:48] ROBOT_SPEECH: That's not correct
+[2025-07-24 11:32:51] ROBOT_SPEECH: Correct!
+[2025-07-24 11:33:07] ROBOT_SPEECH: Does a boat fly in the sky?
+[2025-07-24 11:33:12] ROBOT_SPEECH: Correct!
+[2025-07-24 11:33:15] ROBOT_SPEECH: Is the sun hot?
+[2025-07-24 11:33:19] ROBOT_SPEECH: That's not correct
+[2025-07-24 11:33:19] ROBOT_SPEECH: That's not correct
+[2025-07-24 11:33:23] ROBOT_SPEECH: Correct!
+[2025-07-24 11:33:24] ROBOT_SPEECH: Correct!
+[2025-07-24 11:33:25] ROBOT_SPEECH: Correct!
+[2025-07-24 11:33:26] ROBOT_SPEECH: Correct!
+[2025-07-24 11:33:35] ROBOT_SPEECH: Is ice cream sweet?
+[2025-07-24 11:33:42] ROBOT_SPEECH: Correct!
+[2025-07-24 11:33:46] Praise BUTTON Clicked: [2025-07-24 11:33:46] ROBOT_SPEECH: Great!
+[2025-07-24 11:33:52] ROBOT_SPEECH:   Do turtles have shells?
+[2025-07-24 11:34:02] ROBOT_SPEECH: Correct!
+[2025-07-24 11:34:06] Praise BUTTON Clicked: [2025-07-24 11:34:06] ROBOT_SPEECH: Wonderful!
+[2025-07-24 11:34:11] ROBOT_SPEECH: Can you build snowman at the beach?
+[2025-07-24 11:34:46] ROBOT_SPEECH: Correct!
+[2025-07-24 11:34:52] Stop event triggered by user.
+[2025-07-24 11:34:52] ROBOT_SPEECH: all done
+Main closed  Thu Jul 24 11:34:55 2025
+GAME: emotion_game2
+Time: Thu Jul 24 11:35:39 2025
+[2025-07-24 11:35:42] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Jul 24 11:35:45 2025
+[2025-07-24 11:35:45] REPEAT BUTTON Clicked: [2025-07-24 11:35:45] ROBOT_SPEECH: Show me an emotion card
+[2025-07-24 11:35:47] ROBOT_SPEECH: excited!
+[2025-07-24 11:35:59] ROBOT_SPEECH: Look at the tablet, which one is  excited
+[2025-07-24 11:36:11] ROBOT_SPEECH: I feel excited going to an amusement park
+[2025-07-24 11:36:47] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-24 11:36:53] ROBOT_SPEECH: saed
+[2025-07-24 11:37:05] ROBOT_SPEECH: Look at the tablet, which one is  sad
+[2025-07-24 11:37:23] REPEAT BUTTON Clicked: [2025-07-24 11:37:23] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-24 11:37:27] ROBOT_SPEECH: saed
+[2025-07-24 11:37:39] ROBOT_SPEECH: Look at the tablet, which one is  sad
+[2025-07-24 11:37:48] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-24 11:37:58] ROBOT_SPEECH: angry!
+[2025-07-24 11:38:10] ROBOT_SPEECH: Look at the tablet, which one is  angry
+[2025-07-24 11:38:21] ROBOT_SPEECH: I feel angry when someone takes my toy without asking.
+[2025-07-24 11:39:57] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-24 11:40:00] ROBOT_SPEECH: sheye
+[2025-07-24 11:40:12] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-07-24 11:40:29] ROBOT_SPEECH: I get shy when I have to read in front of my class.
+[2025-07-24 11:41:07] Stop event triggered by user.
+[2025-07-24 11:41:07] ROBOT_SPEECH: all done
+GAME: dice_emotion_old
+Time: Thu Jul 24 11:41:57 2025
+[2025-07-24 11:41:58] ROBOT_SPEECH: Let's roll the dice
+[2025-07-24 11:41:59] ROBOT_SPEECH: Let's roll the dice
+Main closed  Thu Jul 24 11:42:05 2025
+GAME: emotion_game2
+Time: Thu Jul 24 11:42:13 2025
+[2025-07-24 11:42:15] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Jul 24 11:42:18 2025
+[2025-07-24 11:42:18] REPEAT BUTTON Clicked: [2025-07-24 11:42:18] ROBOT_SPEECH: Show me an emotion card
+[2025-07-24 11:42:23] ROBOT_SPEECH: angry!
+[2025-07-24 11:42:35] ROBOT_SPEECH: Look at the tablet, which one is  angry
+[2025-07-24 11:43:01] ROBOT_SPEECH: I feel angry when I don’t get a turn playing a game.
+[2025-07-24 11:43:16] REPEAT BUTTON Clicked: [2025-07-24 11:43:16] ROBOT_SPEECH: I feel angry when I don’t get a turn playing a game.
+[2025-07-24 11:43:25] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-24 11:43:37] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-24 11:43:38] ROBOT_SPEECH: sheye
+[2025-07-24 11:43:50] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-07-24 11:44:02] ROBOT_SPEECH: I feel shy when I am asked to answer a question in school.
+[2025-07-24 11:44:12] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-24 11:44:15] ROBOT_SPEECH: sheye
+[2025-07-24 11:44:27] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-07-24 11:44:35] ROBOT_SPEECH: I feel shy when I have to perform on stage in front of everyone.
+[2025-07-24 11:45:20] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-24 11:45:23] ROBOT_SPEECH: excited!
+[2025-07-24 11:45:35] ROBOT_SPEECH: Look at the tablet, which one is  excited
+[2025-07-24 11:45:43] ROBOT_SPEECH: I feel excited when I go to the beach and build sandcastles
+[2025-07-24 11:46:14] ROBOT_SPEECH: Show me another emotion card!
+[2025-07-24 11:46:35] ROBOT_SPEECH: happy!
+[2025-07-24 11:46:47] ROBOT_SPEECH: Look at the tablet, which one is  happy
+emotion_game1 closed  Thu Jul 24 11:46:54 2025
+[2025-07-24 11:46:54] REPEAT BUTTON Clicked: [2025-07-24 11:46:54] ROBOT_SPEECH: Show me an emotion card
+[2025-07-24 11:47:01] ROBOT_SPEECH: happy!
+[2025-07-24 11:47:13] ROBOT_SPEECH: Look at the tablet, which one is  happy
+[2025-07-24 11:47:24] ROBOT_SPEECH: Going to the park makes me happy.
+[2025-07-24 11:47:44] Stop event triggered by user.
+[2025-07-24 11:47:45] ROBOT_SPEECH: all done
+GAME: at_talks
+Time: Thu Jul 24 11:47:53 2025
+emotion_game1 closed  Thu Jul 24 11:47:53 2025
+Main closed  Thu Jul 24 11:48:03 2025
+GAME: at_talks
+Time: Thu Jul 24 11:48:11 2025
+[2025-07-24 11:48:14] Praise BUTTON Clicked: [2025-07-24 11:48:14] ROBOT_SPEECH: Wonderful!
+Main closed  Thu Jul 24 11:48:22 2025
+Main closed  Thu Jul 24 11:48:31 2025
+GAME: story_young_client
+Time: Thu Jul 24 11:48:37 2025
+[2025-07-24 11:48:37] ROBOT_SPEECH: Lets choose a story
+[2025-07-24 11:48:57] ROBOT_SPEECH: In the great green room, there was a telefone.
+[2025-07-24 11:49:01] ROBOT_SPEECH: Where is the telefone?
+[2025-07-24 11:49:05] ROBOT_SPEECH: Perfect!
+[2025-07-24 11:49:10] ROBOT_SPEECH: and a red balloon.
+[2025-07-24 11:49:14] ROBOT_SPEECH: Where is the red balloon?
+[2025-07-24 11:49:15] ROBOT_SPEECH: Great!
+[2025-07-24 11:49:20] ROBOT_SPEECH: and a picture of the cow jumping over the moon
+[2025-07-24 11:49:25] ROBOT_SPEECH: Where is the picture of the cow jumping over the moon
+[2025-07-24 11:49:28] ROBOT_SPEECH: Lets go to next page
+[2025-07-24 11:49:34] ROBOT_SPEECH: And there were three little bears sitting on chairs
+[2025-07-24 11:49:38] ROBOT_SPEECH: Where is the three little bears?.
+[2025-07-24 11:49:40] ROBOT_SPEECH: Amazing!
+[2025-07-24 11:49:45] ROBOT_SPEECH: And two little kittens
+[2025-07-24 11:49:50] ROBOT_SPEECH: Where are two kittens?
+[2025-07-24 11:49:50] REPEAT BUTTON Clicked: [2025-07-24 11:49:50] ROBOT_SPEECH: And two little kittens
+[2025-07-24 11:49:50] REPEAT BUTTON Clicked: [2025-07-24 11:49:50] ROBOT_SPEECH: Where are two kittens?
+[2025-07-24 11:49:54] ROBOT_SPEECH: Hooray!
+[2025-07-24 11:50:00] ROBOT_SPEECH: And a pair of mittens
+[2025-07-24 11:50:05] ROBOT_SPEECH: Where is the pair of mittens?
+[2025-07-24 11:50:09] ROBOT_SPEECH: Hooray!
+[2025-07-24 11:50:15] ROBOT_SPEECH: Lets go to next page
+[2025-07-24 11:50:21] ROBOT_SPEECH: And a little toy house 
+[2025-07-24 11:50:25] ROBOT_SPEECH: Where is the little toy house?
+[2025-07-24 11:50:27] ROBOT_SPEECH: Great!
+[2025-07-24 11:50:32] ROBOT_SPEECH: And a young mouse
+[2025-07-24 11:50:36] ROBOT_SPEECH: Where is the young mouse?
+[2025-07-24 11:50:37] ROBOT_SPEECH: Perfect!
+[2025-07-24 11:50:42] ROBOT_SPEECH: Lets go to next page
+[2025-07-24 11:50:43] ROBOT_SPEECH: Amazing!
+[2025-07-24 11:50:49] ROBOT_SPEECH: Lets go to next page
+[2025-07-24 11:50:51] ROBOT_SPEECH: Goodnight room,  Goodnight moon
+[2025-07-24 11:50:55] ROBOT_SPEECH: Where is the moon?
+[2025-07-24 11:50:58] ROBOT_SPEECH: Goodnight light,  and the red balloon
+[2025-07-24 11:51:02] ROBOT_SPEECH: Where are they?
+[2025-07-24 11:51:02] Stop event triggered by user.
+[2025-07-24 11:51:02] ROBOT_SPEECH: all done
+Main closed  Thu Jul 24 11:51:07 2025
+GAME: story_young_client
+Time: Thu Jul 24 11:51:11 2025
+[2025-07-24 11:51:12] ROBOT_SPEECH: Lets choose a story
+[2025-07-24 11:51:15] ROBOT_SPEECH: In the great green room, there was a telefone.
+[2025-07-24 11:51:20] ROBOT_SPEECH: Where is the telefone?
+[2025-07-24 11:51:24] ROBOT_SPEECH: And there were three little bears sitting on chairs
+[2025-07-24 11:51:28] ROBOT_SPEECH: Where is the three little bears?.
+[2025-07-24 11:51:33] ROBOT_SPEECH: And a little toy house 
+[2025-07-24 11:51:37] ROBOT_SPEECH: Where is the little toy house?
+[2025-07-24 11:51:39] ROBOT_SPEECH: And a comb, and a brush, and a bowl full of mush
+[2025-07-24 11:51:43] ROBOT_SPEECH: Where are a comb, a brush, and a bowl of mush?
+[2025-07-24 11:51:51] Stop event triggered by user.
+[2025-07-24 11:51:51] ROBOT_SPEECH: all done
+Main closed  Thu Jul 24 11:51:55 2025
+Main closed  Thu Jul 24 11:53:36 2025
+GAME: at_talks
+Time: Thu Jul 24 11:53:40 2025
+[2025-07-24 11:53:43] ROBOT_SPEECH: Goodbye!
+[2025-07-24 11:53:52] ROBOT_SPEECH: See you later!
+Main closed  Thu Jul 24 11:54:07 2025
+GAME: at_talks
+Time: Thu Jul 24 11:54:37 2025
+[2025-07-24 11:54:44] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-24 11:54:53] ROBOT_SPEECH: Whats your name?
+[2025-07-24 11:54:58] ROBOT_SPEECH: Wow! nice name!
+[2025-07-24 11:55:08] Praise BUTTON Clicked: [2025-07-24 11:55:08] ROBOT_SPEECH: Wonderful!
+Main closed  Thu Jul 24 12:04:04 2025
+GAME: at_talks
+Time: Thu Jul 24 12:04:08 2025
+[2025-07-24 12:04:11] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-24 12:04:46] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-24 12:05:09] ROBOT_SPEECH: Whats your name?
+[2025-07-24 12:06:35] ROBOT_SPEECH: Whats your name?
+[2025-07-24 12:06:42] ROBOT_SPEECH: Hello! How r you today?
+Main closed  Thu Jul 24 12:07:20 2025
+GAME: break
+Time: Thu Jul 24 12:07:42 2025
+[2025-07-24 12:07:42] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-24 12:07:44] ROBOT_SPEECH: Lets sing a song
+Main closed  Thu Jul 24 12:11:19 2025
+GAME: at_talks
+Time: Thu Jul 24 12:11:22 2025
+[2025-07-24 12:11:26] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-24 12:13:09] Praise BUTTON Clicked: [2025-07-24 12:13:09] ROBOT_SPEECH: Wonderful!
+[2025-07-24 12:13:19] Praise BUTTON Clicked: [2025-07-24 12:13:19] ROBOT_SPEECH: Wonderful!
+[2025-07-24 12:14:47] Praise BUTTON Clicked: [2025-07-24 12:14:47] ROBOT_SPEECH: Wonderful!
+Main closed  Thu Jul 24 12:16:05 2025
+GAME: break
+Time: Thu Jul 24 12:16:08 2025
+[2025-07-24 12:16:08] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-24 12:16:10] ROBOT_SPEECH: Lets sing a song
+[2025-07-24 12:17:39] Stop event triggered by user.
+[2025-07-24 12:17:40] ROBOT_SPEECH: all done
+Main closed  Thu Jul 24 12:17:48 2025
+GAME: break
+Time: Thu Jul 24 12:21:43 2025
+[2025-07-24 12:21:43] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-24 12:21:45] ROBOT_SPEECH: Lets sing a song
+GAME: at_talks
+Time: Thu Jul 24 12:57:06 2025
+[2025-07-24 12:57:11] ROBOT_SPEECH: Goodbye!
+[2025-07-24 12:57:41] ROBOT_SPEECH: Goodbye!
+[2025-07-24 12:57:50] ROBOT_SPEECH: See you later!

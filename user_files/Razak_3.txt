@@ -1,0 +1,97 @@
+CLIENT NAME: Razak
+login closed  Wed Aug  6 16:05:55 2025
+GAME: at_talks
+Time: Wed Aug  6 16:06:04 2025
+[2025-08-06 16:06:08] ROBOT_SPEECH: Hello! How r you today?
+[2025-08-06 16:07:54] ROBOT_SPEECH: Uh oh!
+[2025-08-06 16:08:03] ROBOT_SPEECH: Hello! How r you today?
+Main closed  Wed Aug  6 16:08:27 2025
+GAME: dice_action_young
+Time: Wed Aug  6 16:08:33 2025
+[2025-08-06 16:08:34] ROBOT_SPEECH: Let's roll the dice
+[2025-08-06 16:10:08] ROBOT_SPEECH: Let's have a bear hug!
+[2025-08-06 16:10:10] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-08-06 16:10:42] ROBOT_SPEECH: Let's have a high five!
+[2025-08-06 16:11:16] REPEAT BUTTON Clicked: [2025-08-06 16:11:16] ROBOT_SPEECH: Let's have a high five!
+[2025-08-06 16:11:32] REPEAT BUTTON Clicked: [2025-08-06 16:11:32] ROBOT_SPEECH: Let's have a high five!
+[2025-08-06 16:11:56] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-08-06 16:11:58] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-08-06 16:12:25] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-08-06 16:12:27] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-08-06 16:13:16] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-08-06 16:13:21] ROBOT_SPEECH: 1
+[2025-08-06 16:13:24] ROBOT_SPEECH: 2
+[2025-08-06 16:13:27] ROBOT_SPEECH: 3
+[2025-08-06 16:13:30] ROBOT_SPEECH: 4
+[2025-08-06 16:13:33] ROBOT_SPEECH: 5
+[2025-08-06 16:13:36] ROBOT_SPEECH: 6
+[2025-08-06 16:13:39] ROBOT_SPEECH: 7
+[2025-08-06 16:13:42] ROBOT_SPEECH: 8
+[2025-08-06 16:13:45] ROBOT_SPEECH: 9
+[2025-08-06 16:13:48] ROBOT_SPEECH: 10
+[2025-08-06 16:13:54] REPEAT BUTTON Clicked: [2025-08-06 16:13:54] ROBOT_SPEECH: Let's do ten jumping jacks
+[2025-08-06 16:13:57] ROBOT_SPEECH: 1
+[2025-08-06 16:14:00] ROBOT_SPEECH: 2
+[2025-08-06 16:14:03] ROBOT_SPEECH: 3
+[2025-08-06 16:14:06] ROBOT_SPEECH: 4
+[2025-08-06 16:14:09] ROBOT_SPEECH: 5
+[2025-08-06 16:14:12] ROBOT_SPEECH: 6
+[2025-08-06 16:14:15] ROBOT_SPEECH: 7
+[2025-08-06 16:14:18] ROBOT_SPEECH: 8
+[2025-08-06 16:14:21] ROBOT_SPEECH: 9
+[2025-08-06 16:14:24] ROBOT_SPEECH: 10
+GAME: instructions_game
+Time: Wed Aug  6 16:16:00 2025
+[2025-08-06 16:16:01] ROBOT_SPEECH: Where do you feel like going?
+[2025-08-06 16:16:39] ROBOT_SPEECH: Let's go shopping!
+[2025-08-06 16:16:41] ROBOT_SPEECH: Let's go shopping!
+[2025-08-06 16:16:45] ROBOT_SPEECH: Let's go shopping!
+[2025-08-06 16:16:45] ROBOT_SPEECH: Let's go shopping!
+[2025-08-06 16:16:46] ROBOT_SPEECH: Let's go shopping!
+[2025-08-06 16:16:46] ROBOT_SPEECH: Let's go shopping!
+[2025-08-06 16:16:47] ROBOT_SPEECH: Casher, is in front of checkout counter
+[2025-08-06 16:17:23] ROBOT_SPEECH: Great!
+[2025-08-06 16:17:27] ROBOT_SPEECH: Lets place the cart, between the checkout counters
+[2025-08-06 16:17:41] ROBOT_SPEECH: Perfect!
+[2025-08-06 16:17:46] ROBOT_SPEECH: Kustomer is waiting, at the end of the checkout counter
+[2025-08-06 16:17:47] ROBOT_SPEECH: Hooray!
+Taking Instruction supermarket1 closed  Wed Aug  6 16:18:01 2025
+[2025-08-06 16:18:05] ROBOT_SPEECH: Please place the price tag, under the apple
+[2025-08-06 16:20:00] ROBOT_SPEECH: Amazing!
+[2025-08-06 16:20:05] ROBOT_SPEECH: Lets place an apple, on the apple stack
+[2025-08-06 16:20:35] ROBOT_SPEECH: Amazing!
+[2025-08-06 16:20:40] ROBOT_SPEECH: I want to place the orange, at the left corner
+[2025-08-06 16:21:14] ROBOT_SPEECH: Great!
+Taking Instruction supermarket2 closed  Wed Aug  6 16:23:02 2025
+[2025-08-06 16:23:06] ROBOT_SPEECH: Lets place the milk, on the counter.
+[2025-08-06 16:24:06] ROBOT_SPEECH: Hooray!
+[2025-08-06 16:24:11] ROBOT_SPEECH: I want to put the orange juice, on the top shelf
+[2025-08-06 16:24:33] ROBOT_SPEECH: Perfect!
+[2025-08-06 16:24:38] ROBOT_SPEECH: Let's put something we can eat to the right side of the casher
+[2025-08-06 16:24:54] ROBOT_SPEECH: Amazing!
+[2025-08-06 16:25:04] Praise BUTTON Clicked: [2025-08-06 16:25:04] ROBOT_SPEECH: Wonderful!
+GAME: dice_emotion_old
+Time: Wed Aug  6 16:25:23 2025
+[2025-08-06 16:25:24] ROBOT_SPEECH: Let's roll the dice
+Main closed  Wed Aug  6 16:25:38 2025
+GAME: instructions_game
+Time: Wed Aug  6 16:54:17 2025
+[2025-08-06 16:54:19] ROBOT_SPEECH: Where do you wanna go?
+[2025-08-06 16:54:23] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+[2025-08-06 16:54:47] ROBOT_SPEECH: Great!
+[2025-08-06 16:54:52] ROBOT_SPEECH: A red monkey bar, is on the middle of the park
+[2025-08-06 16:54:56] ROBOT_SPEECH: Hooray!
+[2025-08-06 16:55:02] ROBOT_SPEECH: A sandbox, \spd=70\ is placed on the right side, in the park
+[2025-08-06 16:55:03] ROBOT_SPEECH: Perfect!
+Taking Instruction park1 closed  Wed Aug  6 16:55:06 2025
+[2025-08-06 16:55:09] ROBOT_SPEECH: A man, is running along on the right side
+[2025-08-06 16:55:35] ROBOT_SPEECH: Amazing!
+[2025-08-06 16:55:40] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-08-06 16:55:54] ROBOT_SPEECH: Great!
+[2025-08-06 16:55:59] ROBOT_SPEECH: a person, is riding a bike, along the bike path
+[2025-08-06 16:56:30] ROBOT_SPEECH: Hooray!
+[2025-08-06 17:00:37] Stop event triggered by user.
+[2025-08-06 17:00:38] ROBOT_SPEECH: all done
+GAME: at_talks
+Time: Wed Aug  6 17:00:45 2025
+[2025-08-06 17:00:49] ROBOT_SPEECH: Goodbye!

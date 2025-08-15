@@ -1,0 +1,57 @@
+CLIENT NAME: Ayat
+login closed  Wed Aug 13 13:22:57 2025
+GAME: at_talks
+Time: Wed Aug 13 13:23:04 2025
+GAME: at_talks
+Time: Wed Aug 13 13:23:12 2025
+GAME: at_talks
+Time: Wed Aug 13 13:31:48 2025
+GAME: at_talks
+Time: Wed Aug 13 13:36:11 2025
+GAME: at_talks
+Time: Wed Aug 13 13:41:17 2025
+GAME: at_talks
+Time: Wed Aug 13 13:42:22 2025
+[2025-08-13 13:42:25] ROBOT_SPEECH: Hello! How r you today?
+[2025-08-13 13:46:48] ROBOT_SPEECH: #MMM01# Yummy!
+GAME: story_young_client
+Time: Wed Aug 13 14:08:43 2025
+[2025-08-13 14:08:43] ROBOT_SPEECH: Lets choose a story
+[2025-08-13 14:08:49] ROBOT_SPEECH: I will tell you a story
+[2025-08-13 14:08:52] ROBOT_SPEECH: Brown Bear, Brown Bear, What do you see?
+[2025-08-13 14:08:56] ROBOT_SPEECH: #BIRD#
+[2025-08-13 14:08:56] ROBOT_SPEECH: I see a, red bird, looking at me.
+[2025-08-13 14:09:13] ROBOT_SPEECH: Perfect!
+[2025-08-13 14:09:18] ROBOT_SPEECH: Red bird, Red bird, What do you see?
+[2025-08-13 14:09:23] ROBOT_SPEECH: I see a yellow duck, looking at me.
+[2025-08-13 14:09:23] ROBOT_SPEECH: #DUCK#
+[2025-08-13 14:09:24] ROBOT_SPEECH: Amazing!
+[2025-08-13 14:09:29] ROBOT_SPEECH: Lets go to next page
+Main closed  Wed Aug 13 14:09:56 2025
+GAME: dice_action_young
+Time: Wed Aug 13 14:09:58 2025
+[2025-08-13 14:10:00] ROBOT_SPEECH: Let's roll the dice
+[2025-08-13 14:10:09] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-08-13 14:10:11] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-08-13 14:10:25] ROBOT_SPEECH: Let's sing a song
+[2025-08-13 14:11:25] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-08-13 14:11:27] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-08-13 14:11:46] ROBOT_SPEECH: Let's have a high five!
+[2025-08-13 14:11:56] REPEAT BUTTON Clicked: [2025-08-13 14:11:56] ROBOT_SPEECH: Let's have a high five!
+[2025-08-13 14:15:42] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-08-13 14:15:47] ROBOT_SPEECH: 1
+[2025-08-13 14:15:47] ROBOT_SPEECH: Let's have a bear hug!
+[2025-08-13 14:15:49] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-08-13 14:15:50] ROBOT_SPEECH: 2
+[2025-08-13 14:15:53] ROBOT_SPEECH: 3
+[2025-08-13 14:15:56] ROBOT_SPEECH: 4
+[2025-08-13 14:15:59] ROBOT_SPEECH: 5
+[2025-08-13 14:16:02] ROBOT_SPEECH: 6
+[2025-08-13 14:16:05] ROBOT_SPEECH: 7
+[2025-08-13 14:16:08] ROBOT_SPEECH: 8
+[2025-08-13 14:16:11] ROBOT_SPEECH: 9
+[2025-08-13 14:16:14] ROBOT_SPEECH: 10
+GAME: at_talks
+Time: Wed Aug 13 14:16:56 2025
+[2025-08-13 14:16:58] ROBOT_SPEECH: Goodbye!
+[2025-08-13 14:17:06] ROBOT_SPEECH: See you later!

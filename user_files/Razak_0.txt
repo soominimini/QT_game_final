@@ -1,0 +1,112 @@
+CLIENT NAME: Razak
+login closed  Wed Jul 23 13:05:10 2025
+GAME: at_talks
+Time: Wed Jul 23 13:05:14 2025
+GAME: at_talks
+Time: Wed Jul 23 13:05:18 2025
+GAME: at_talks
+Time: Wed Jul 23 13:05:31 2025
+GAME: at_talks
+Time: Wed Jul 23 13:05:35 2025
+GAME: at_talks
+Time: Wed Jul 23 13:05:41 2025
+[2025-07-23 13:05:44] ROBOT_SPEECH: Hello! How r you today?
+[2025-07-23 13:07:47] ROBOT_SPEECH: That's good to know!
+[2025-07-23 13:07:52] ROBOT_SPEECH: Whats your name?
+[2025-07-23 13:08:19] ROBOT_SPEECH: Whats your name?
+[2025-07-23 13:08:32] ROBOT_SPEECH: Whats your name?
+[2025-07-23 13:09:27] ROBOT_SPEECH: My name is QT!
+[2025-07-23 13:09:49] ROBOT_SPEECH: My name is QT!
+[2025-07-23 13:09:58] ROBOT_SPEECH: Uh oh!
+Main closed  Wed Jul 23 13:10:09 2025
+GAME: yes_no_old
+Time: Wed Jul 23 13:10:17 2025
+[2025-07-23 13:10:19] ROBOT_SPEECH: Do crabs have wings?
+[2025-07-23 13:10:27] REPEAT BUTTON Clicked: [2025-07-23 13:10:27] ROBOT_SPEECH: Do crabs have wings?
+[2025-07-23 13:10:41] REPEAT BUTTON Clicked: [2025-07-23 13:10:41] ROBOT_SPEECH: Do crabs have wings?
+[2025-07-23 13:10:57] ROBOT_SPEECH: Correct!
+[2025-07-23 13:11:00] Praise BUTTON Clicked: [2025-07-23 13:11:00] ROBOT_SPEECH: Great!
+[2025-07-23 13:11:07] ROBOT_SPEECH: Does a boat fly in the sky?
+[2025-07-23 13:11:27] REPEAT BUTTON Clicked: [2025-07-23 13:11:27] ROBOT_SPEECH: Does a boat fly in the sky?
+[2025-07-23 13:11:57] REPEAT BUTTON Clicked: [2025-07-23 13:11:57] ROBOT_SPEECH: Does a boat fly in the sky?
+[2025-07-23 13:12:05] ROBOT_SPEECH: Correct!
+[2025-07-23 13:12:08] Praise BUTTON Clicked: [2025-07-23 13:12:08] ROBOT_SPEECH: Great!
+[2025-07-23 13:12:14] ROBOT_SPEECH: Do you wear a swimsuit at the beach?
+[2025-07-23 13:12:28] REPEAT BUTTON Clicked: [2025-07-23 13:12:28] ROBOT_SPEECH: Do you wear a swimsuit at the beach?
+[2025-07-23 13:13:21] REPEAT BUTTON Clicked: [2025-07-23 13:13:21] ROBOT_SPEECH: Do you wear a swimsuit at the beach?
+[2025-07-23 13:14:42] ROBOT_SPEECH: Correct!
+[2025-07-23 13:14:50] ROBOT_SPEECH:   Do turtles have shells?
+[2025-07-23 13:15:56] ROBOT_SPEECH: Correct!
+[2025-07-23 13:16:16] Praise BUTTON Clicked: [2025-07-23 13:16:16] ROBOT_SPEECH: Great!
+[2025-07-23 13:16:23] Praise BUTTON Clicked: [2025-07-23 13:16:23] ROBOT_SPEECH: Great!
+[2025-07-23 13:16:28] Praise BUTTON Clicked: [2025-07-23 13:16:28] ROBOT_SPEECH: Wonderful!
+[2025-07-23 13:16:33] ROBOT_SPEECH: Do you drink juice?
+[2025-07-23 13:18:26] ROBOT_SPEECH: Correct!
+[2025-07-23 13:18:35] Praise BUTTON Clicked: [2025-07-23 13:18:35] ROBOT_SPEECH: Wonderful!
+[2025-07-23 13:18:46] Stop event triggered by user.
+[2025-07-23 13:18:47] ROBOT_SPEECH: all done
+GAME: break
+Time: Wed Jul 23 13:19:59 2025
+[2025-07-23 13:20:00] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-23 13:20:00] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-23 13:20:04] ROBOT_SPEECH: Oh! Break Time!
+[2025-07-23 13:20:06] ROBOT_SPEECH: Lets sing a song
+[2025-07-23 13:21:00] Stop event triggered by user.
+[2025-07-23 13:21:00] ROBOT_SPEECH: all done
+GAME: at_talks
+Time: Wed Jul 23 13:21:30 2025
+Main closed  Wed Jul 23 13:21:45 2025
+GAME: instructions_game
+Time: Wed Jul 23 13:21:57 2025
+[2025-07-23 13:21:58] ROBOT_SPEECH: Where do you want to go?
+[2025-07-23 13:22:10] ROBOT_SPEECH: Let's go to play!
+[2025-07-23 13:22:14] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+[2025-07-23 13:22:42] ROBOT_SPEECH: Amazing!
+[2025-07-23 13:22:47] ROBOT_SPEECH: A red monkey bar, is on the middle of the park
+[2025-07-23 13:23:11] ROBOT_SPEECH: Great!
+[2025-07-23 13:23:15] ROBOT_SPEECH: A sandbox, \spd=70\ is placed on the right side, in the park
+[2025-07-23 13:23:50] ROBOT_SPEECH: Perfect!
+[2025-07-23 13:23:55] Praise BUTTON Clicked: [2025-07-23 13:23:55] ROBOT_SPEECH: Wonderful!
+Taking Instruction park1 closed  Wed Jul 23 13:24:01 2025
+[2025-07-23 13:24:05] ROBOT_SPEECH: a person, is riding a bike, along the bike path
+[2025-07-23 13:24:33] ROBOT_SPEECH: Hooray!
+[2025-07-23 13:24:39] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-07-23 13:24:46] REPEAT BUTTON Clicked: [2025-07-23 13:24:46] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-07-23 13:28:03] REPEAT BUTTON Clicked: [2025-07-23 13:28:03] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-07-23 13:28:26] ROBOT_SPEECH: Amazing!
+[2025-07-23 13:28:31] ROBOT_SPEECH: A man, is running along on the right side
+[2025-07-23 13:28:42] ROBOT_SPEECH: Perfect!
+Taking Instruction park2 closed  Wed Jul 23 13:28:51 2025
+[2025-07-23 13:28:55] ROBOT_SPEECH: Lets place the swing, on the right side of the bench
+[2025-07-23 13:29:31] ROBOT_SPEECH: Hooray!
+[2025-07-23 13:29:37] ROBOT_SPEECH: People, are sitting on a bench, next to the big tree
+[2025-07-23 13:30:10] ROBOT_SPEECH: Great!
+[2025-07-23 13:30:14] ROBOT_SPEECH: There is a slide, under the tall tree.
+[2025-07-23 13:30:40] ROBOT_SPEECH: Great!
+[2025-07-23 13:30:47] Praise BUTTON Clicked: [2025-07-23 13:30:47] ROBOT_SPEECH: Wonderful!
+[2025-07-23 13:30:52] Praise BUTTON Clicked: [2025-07-23 13:30:52] ROBOT_SPEECH: Wonderful!
+[2025-07-23 13:30:58] Stop event triggered by user.
+[2025-07-23 13:30:58] ROBOT_SPEECH: all done
+GAME: dice_5w1h
+Time: Wed Jul 23 13:31:11 2025
+[2025-07-23 13:31:11] ROBOT_SPEECH: Lets play around with wh questions
+[2025-07-23 13:31:11] ROBOT_SPEECH: Lets play around with wh questions
+Main closed  Wed Jul 23 13:31:15 2025
+GAME: dice_5w1h
+Time: Wed Jul 23 13:31:20 2025
+[2025-07-23 13:31:20] ROBOT_SPEECH: Lets play around with wh questions
+[2025-07-23 13:31:27] ROBOT_SPEECH: Let's roll the dice
+GAME: at_talks
+Time: Wed Jul 23 13:32:13 2025
+[2025-07-23 13:34:33] Praise BUTTON Clicked: [2025-07-23 13:34:33] ROBOT_SPEECH: Great!
+[2025-07-23 13:34:42] Praise BUTTON Clicked: [2025-07-23 13:34:42] ROBOT_SPEECH: Bravo!
+[2025-07-23 13:34:49] Praise BUTTON Clicked: [2025-07-23 13:34:49] ROBOT_SPEECH: Great!
+[2025-07-23 13:35:07] Praise BUTTON Clicked: [2025-07-23 13:35:07] ROBOT_SPEECH: Great!
+[2025-07-23 13:35:32] ROBOT_SPEECH: Whoops!
+[2025-07-23 13:41:14] Praise BUTTON Clicked: [2025-07-23 13:41:14] ROBOT_SPEECH: Wonderful!
+[2025-07-23 13:42:03] Praise BUTTON Clicked: [2025-07-23 13:42:03] ROBOT_SPEECH: Great!
+[2025-07-23 13:43:39] Praise BUTTON Clicked: [2025-07-23 13:43:39] ROBOT_SPEECH: Wonderful!
+[2025-07-23 13:46:25] Praise BUTTON Clicked: [2025-07-23 13:46:25] ROBOT_SPEECH: Victory!
+[2025-07-23 13:46:33] Praise BUTTON Clicked: [2025-07-23 13:46:33] ROBOT_SPEECH: Victory!
+Main closed  Wed Jul 23 13:59:45 2025
+login closed  Wed Jul 23 14:00:57 2025
