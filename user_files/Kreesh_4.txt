@@ -1,0 +1,170 @@
+CLIENT NAME: Kreesh
+login closed  Thu Aug 28 17:13:20 2025
+GAME: at_talks
+Time: Thu Aug 28 17:13:30 2025
+[2025-08-28 17:13:33] ROBOT_SPEECH: Hello! How r you today?
+[2025-08-28 17:13:43] ROBOT_SPEECH: I'm fine!
+[2025-08-28 17:13:47] ROBOT_SPEECH: I'm fine!
+[2025-08-28 17:13:53] ROBOT_SPEECH: Whats your name?
+[2025-08-28 17:16:33] ROBOT_SPEECH: Hello! How r you today?
+[2025-08-28 17:16:45] ROBOT_SPEECH: Whats your name?
+[2025-08-28 17:16:58] ROBOT_SPEECH: My name is QT!
+[2025-08-28 17:17:11] ROBOT_SPEECH: Thanks for letting me know!
+Main closed  Thu Aug 28 17:17:47 2025
+GAME: story_old_client
+Time: Thu Aug 28 17:18:11 2025
+[2025-08-28 17:18:12] ROBOT_SPEECH: Lets choose a story
+GAME: goldilocks
+Time: Thu Aug 28 17:18:14 2025
+[2025-08-28 17:18:15] ROBOT_SPEECH: Lets start the story!
+[2025-08-28 17:18:19] ROBOT_SPEECH: Once upon a time lived Goldilocks and The Three Bears.
+[2025-08-28 17:18:41] ROBOT_SPEECH: One day, Goldilocks went for a walk in the forest and found a house.
+[2025-08-28 17:18:48] ROBOT_SPEECH: She knocked, and when nobody answered, she decided to go inside.
+[2025-08-28 17:18:56] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-08-28 17:19:22] ROBOT_SPEECH: Goldilocks tasted the porridge from the large bowl. This porridge is too salty
+[2025-08-28 17:19:52] ROBOT_SPEECH: Goldilocks tasted the porridge from the medium sized bowl. “This porridge is too sweet!
+[2025-08-28 17:20:15] ROBOT_SPEECH: Goldilocks tasted the porridge from the small bowl. “This porridge is just right,” Goldilocks said and ate it all up.
+[2025-08-28 17:21:19] ROBOT_SPEECH: Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.
+[2025-08-28 17:21:26] ROBOT_SPEECH: Goldilocks sat in the large chair to rest her feet. “This chair is too big!
+[2025-08-28 17:21:27] ROBOT_SPEECH: Goldilocks sat in the large chair to rest her feet. “This chair is too big!
+[2025-08-28 17:22:01] ROBOT_SPEECH: Goldilocks sat in the medium sized chair. This chair is too big, too!
+[2025-08-28 17:22:41] ROBOT_SPEECH: Goldilocks sat in the small chair. “This chair is just right
+[2025-08-28 17:23:20] ROBOT_SPEECH: By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom.
+[2025-08-28 17:23:29] ROBOT_SPEECH: Goldilocks lay down on the large bed. “This bed is too hard!” 
+[2025-08-28 17:24:00] ROBOT_SPEECH: Goldilocks lay down on the medium sized bed. This bed is too soft!
+[2025-08-28 17:24:53] ROBOT_SPEECH: Goldilocks lay down on the small bed. This bed is just right. Goldilocks curled up and fell asleep.
+[2025-08-28 17:25:15] ROBOT_SPEECH: As Goldilocks was sleeping, The Three Bears came home.
+[2025-08-28 17:25:23] ROBOT_SPEECH: Someone’s been eating my porridge, growled Daddy Bear.
+[2025-08-28 17:25:23] ROBOT_SPEECH: #BEAR#
+[2025-08-28 17:25:47] ROBOT_SPEECH: Someone’s been eating my porridge, said Mummy Bear.
+[2025-08-28 17:26:28] ROBOT_SPEECH: Someone’s been eating my porridge and it’s all gone!. Cried Baby Bear
+[2025-08-28 17:26:28] ROBOT_SPEECH: #CRY03#
+[2025-08-28 17:26:49] ROBOT_SPEECH: Someone’s been sitting in my chair!. Growled Daddy Bear.
+[2025-08-28 17:26:49] ROBOT_SPEECH: #BEAR#
+[2025-08-28 17:27:23] ROBOT_SPEECH: Someone’s been sitting in my chair!” said Mummy Bear.
+[2025-08-28 17:27:40] ROBOT_SPEECH: Someone’s been sitting in my chair and it’s broken!. Cried Baby Bear.
+[2025-08-28 17:27:40] ROBOT_SPEECH: #CRY04#
+[2025-08-28 17:28:04] ROBOT_SPEECH: When they got upstairs to the bedroom, Daddy Bear growled.
+[2025-08-28 17:28:04] ROBOT_SPEECH: #BEAR#
+[2025-08-28 17:28:04] ROBOT_SPEECH: Someone’s been sleeping on my bed.
+[2025-08-28 17:28:16] ROBOT_SPEECH: Someone’s been sleeping on my bed too, said the Mummy Bear
+[2025-08-28 17:28:23] ROBOT_SPEECH: Someone’s been sleeping in my bed, and she’s still there!. Cried Baby Bear.
+[2025-08-28 17:28:23] ROBOT_SPEECH: #CRY03#
+[2025-08-28 17:28:34] ROBOT_SPEECH: Just then Goldilocks woke up and saw The Three Bears.
+[2025-08-28 17:28:38] ROBOT_SPEECH: She screamed.
+[2025-08-28 17:29:05] ROBOT_SPEECH: Goldilocks ran down the stairs and into the forest. And she never went back into the woods again.
+[2025-08-28 17:29:05] REPEAT BUTTON Clicked: [2025-08-28 17:29:05] ROBOT_SPEECH: Who entered the house of the three bears?
+[2025-08-28 17:29:12] ROBOT_SPEECH: Correct!
+[2025-08-28 17:29:17] REPEAT BUTTON Clicked: [2025-08-28 17:29:17] ROBOT_SPEECH: How many bears lived in the house?
+[2025-08-28 17:29:21] ROBOT_SPEECH: Correct!
+[2025-08-28 17:29:22] REPEAT BUTTON Clicked: [2025-08-28 17:29:22] ROBOT_SPEECH: What did goldilocks find on the table when she went inside the house?
+[2025-08-28 17:29:25] ROBOT_SPEECH: Correct!
+[2025-08-28 17:29:26] ROBOT_SPEECH: Correct!
+[2025-08-28 17:29:27] ROBOT_SPEECH: Correct!
+[2025-08-28 17:29:28] ROBOT_SPEECH: Correct!
+[2025-08-28 17:29:28] REPEAT BUTTON Clicked: [2025-08-28 17:29:28] ROBOT_SPEECH: Which porridge did Goldilocks like?
+[2025-08-28 17:29:36] ROBOT_SPEECH: Correct!
+[2025-08-28 17:29:38] REPEAT BUTTON Clicked: [2025-08-28 17:29:38] ROBOT_SPEECH: What did Goldilocks do after she ate the porridge?
+[2025-08-28 17:30:11] REPEAT BUTTON Clicked: [2025-08-28 17:30:11] ROBOT_SPEECH: What did Goldilocks do after she ate the porridge?
+[2025-08-28 17:30:21] ROBOT_SPEECH: Correct!
+[2025-08-28 17:30:24] REPEAT BUTTON Clicked: [2025-08-28 17:30:24] ROBOT_SPEECH: Which chair did Goldilocks like to sit in?
+[2025-08-28 17:30:27] ROBOT_SPEECH: Correct!
+[2025-08-28 17:30:29] REPEAT BUTTON Clicked: [2025-08-28 17:30:29] ROBOT_SPEECH: Which bed did Goldilocks like to sleep in?
+[2025-08-28 17:30:33] ROBOT_SPEECH: Correct!
+[2025-08-28 17:30:35] REPEAT BUTTON Clicked: [2025-08-28 17:30:35] ROBOT_SPEECH: What happened when The Three Bears found Goldilocks in their bed?
+[2025-08-28 17:30:44] ROBOT_SPEECH: Correct!
+[2025-08-28 17:30:47] REPEAT BUTTON Clicked: [2025-08-28 17:30:47] ROBOT_SPEECH: How did the Three Bears feel when they discovered someone has been in their house?
+[2025-08-28 17:30:54] ROBOT_SPEECH: That's not correct
+[2025-08-28 17:30:56] ROBOT_SPEECH: Correct!
+[2025-08-28 17:30:57] ROBOT_SPEECH: Correct!
+[2025-08-28 17:30:58] ROBOT_SPEECH: Correct!
+[2025-08-28 17:30:59] ROBOT_SPEECH: Correct!
+[2025-08-28 17:31:15] REPEAT BUTTON Clicked: [2025-08-28 17:31:15] ROBOT_SPEECH: What lesson can be learned from the Goldilocks story?
+[2025-08-28 17:31:43] ROBOT_SPEECH: Correct!
+[2025-08-28 17:31:44] ROBOT_SPEECH: Correct!
+[2025-08-28 17:31:45] ROBOT_SPEECH: Correct!
+[2025-08-28 17:31:46] ROBOT_SPEECH: Correct!
+[2025-08-28 17:31:47] ROBOT_SPEECH: Correct!
+Main closed  Thu Aug 28 17:32:05 2025
+Main closed  Thu Aug 28 17:38:48 2025
+Main closed  Thu Aug 28 17:44:23 2025
+GAME: dice_emotion_old
+Time: Thu Aug 28 17:46:14 2025
+[2025-08-28 17:46:15] ROBOT_SPEECH: Let's roll the dice
+Main closed  Thu Aug 28 17:46:19 2025
+GAME: dice_5w1h
+Time: Thu Aug 28 17:46:23 2025
+[2025-08-28 17:46:23] ROBOT_SPEECH: Lets play around with wh questions
+[2025-08-28 17:46:29] ROBOT_SPEECH: Let's roll the dice
+[2025-08-28 17:46:32] ROBOT_SPEECH: Who
+[2025-08-28 17:46:33] ROBOT_SPEECH: Who drives a school bus?
+[2025-08-28 17:46:35] ROBOT_SPEECH: Who drives a school bus?
+[2025-08-28 17:46:36] ROBOT_SPEECH: Who drives a school bus?
+[2025-08-28 17:46:36] ROBOT_SPEECH: Who drives a school bus?
+[2025-08-28 17:46:36] ROBOT_SPEECH: Who drives a school bus?
+Main closed  Thu Aug 28 17:47:17 2025
+GAME: emotion_game2
+Time: Thu Aug 28 17:47:25 2025
+[2025-08-28 17:48:04] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Aug 28 17:48:07 2025
+[2025-08-28 17:48:07] REPEAT BUTTON Clicked: [2025-08-28 17:48:07] ROBOT_SPEECH: Show me an emotion card
+[2025-08-28 17:48:17] ROBOT_SPEECH: angry!
+[2025-08-28 17:48:29] ROBOT_SPEECH: Look at the tablet, which one is  angry
+[2025-08-28 17:48:46] ROBOT_SPEECH: I feel angry when someone takes my toy without asking.
+[2025-08-28 17:49:15] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-28 17:49:17] ROBOT_SPEECH: happy!
+[2025-08-28 17:49:29] ROBOT_SPEECH: Look at the tablet, which one is  happy
+emotion_game1 closed  Thu Aug 28 17:49:42 2025
+[2025-08-28 17:49:42] REPEAT BUTTON Clicked: [2025-08-28 17:49:42] ROBOT_SPEECH: Show me an emotion card
+[2025-08-28 17:49:47] ROBOT_SPEECH: happy!
+[2025-08-28 17:49:59] ROBOT_SPEECH: Look at the tablet, which one is  happy
+[2025-08-28 17:50:11] ROBOT_SPEECH: Going to the park makes me happy.
+[2025-08-28 17:50:27] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-28 17:50:33] ROBOT_SPEECH: scared!
+[2025-08-28 17:50:45] ROBOT_SPEECH: Look at the tablet, which one is  scared
+[2025-08-28 17:50:56] ROBOT_SPEECH: I feel scared when it’s dark outside.
+[2025-08-28 17:51:09] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-28 17:51:13] ROBOT_SPEECH: excited!
+[2025-08-28 17:51:25] ROBOT_SPEECH: Look at the tablet, which one is  excited
+[2025-08-28 17:51:41] ROBOT_SPEECH: I feel excited when I am going on vacation with my family.
+[2025-08-28 17:51:54] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-28 17:52:30] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-28 17:52:33] ROBOT_SPEECH: saed
+[2025-08-28 17:52:45] ROBOT_SPEECH: Look at the tablet, which one is  sad
+[2025-08-28 17:53:02] ROBOT_SPEECH: I feel sad when I miss my family.
+[2025-08-28 17:53:24] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-28 17:53:26] ROBOT_SPEECH: sheye
+[2025-08-28 17:53:38] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-08-28 17:53:45] ROBOT_SPEECH: sheye
+[2025-08-28 17:53:57] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-08-28 17:53:57] ROBOT_SPEECH: I get shy when I have to read in front of my class.
+[2025-08-28 17:54:15] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-28 17:54:38] Stop event triggered by user.
+[2025-08-28 17:54:39] ROBOT_SPEECH: all done
+Main closed  Thu Aug 28 17:54:51 2025
+GAME: dice_emotion_old
+Time: Thu Aug 28 17:55:00 2025
+[2025-08-28 17:55:01] ROBOT_SPEECH: Let's roll the dice
+[2025-08-28 17:55:06] ROBOT_SPEECH: silly
+[2025-08-28 17:55:12] ROBOT_SPEECH: when do you feel silly?
+[2025-08-28 17:55:24] ROBOT_SPEECH: frustrated
+[2025-08-28 17:55:30] ROBOT_SPEECH: When do you feel frustrated?
+[2025-08-28 17:56:10] ROBOT_SPEECH: excited
+[2025-08-28 17:56:17] ROBOT_SPEECH: Who makes you feel excited?
+[2025-08-28 17:56:45] ROBOT_SPEECH: tired
+[2025-08-28 17:56:51] ROBOT_SPEECH: When do you feel tired?
+[2025-08-28 17:57:16] ROBOT_SPEECH: curious
+[2025-08-28 17:57:21] ROBOT_SPEECH: what makes you curious?
+[2025-08-28 17:58:00] Stop event triggered by user.
+[2025-08-28 17:58:00] ROBOT_SPEECH: all done
+Main closed  Thu Aug 28 17:58:05 2025
+GAME: inference_old
+Time: Thu Aug 28 17:58:09 2025
+[2025-08-28 17:58:09] ROBOT_SPEECH: Lets play inference games
+[2025-08-28 17:58:11] ROBOT_SPEECH: I am a toy. I have small pieces to put together to make a picture. What am i?
+Main closed  Thu Aug 28 17:58:40 2025
+GAME: at_talks
+Time: Thu Aug 28 17:58:59 2025
+[2025-08-28 17:59:02] ROBOT_SPEECH: Goodbye!
+[2025-08-28 17:59:10] ROBOT_SPEECH: See you later!
+Main closed  Thu Aug 28 18:42:06 2025

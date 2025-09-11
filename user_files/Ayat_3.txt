@@ -1,0 +1,83 @@
+CLIENT NAME: Ayat
+login closed  Thu Sep  4 11:08:37 2025
+GAME: at_talks
+Time: Thu Sep  4 11:11:19 2025
+[2025-09-04 11:11:23] ROBOT_SPEECH: Hello! How r you today?
+[2025-09-04 11:11:53] ROBOT_SPEECH: Hello! How r you today?
+Main closed  Thu Sep  4 11:12:08 2025
+GAME: emotion_game_1
+Time: Thu Sep  4 11:13:21 2025
+[2025-09-04 11:13:39] ROBOT_SPEECH: Let's play a game
+[2025-09-04 11:13:42] ROBOT_SPEECH: saed
+[2025-09-04 11:13:48] ROBOT_SPEECH: Look at the tablet, click on the picture
+Start Emotion games closed  Thu Sep  4 11:13:49 2025
+[2025-09-04 11:13:49] REPEAT BUTTON Clicked: [2025-09-04 11:13:49] ROBOT_SPEECH: Show me an emotion card
+[2025-09-04 11:13:55] ROBOT_SPEECH: saed
+[2025-09-04 11:14:01] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-09-04 11:14:02] REPEAT BUTTON Clicked: [2025-09-04 11:14:02] ROBOT_SPEECH: show me an emotion card
+[2025-09-04 11:14:29] ROBOT_SPEECH: Show me another emotion card!
+[2025-09-04 11:14:40] ROBOT_SPEECH: excited!
+[2025-09-04 11:14:46] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-09-04 11:15:20] ROBOT_SPEECH: excited!
+[2025-09-04 11:15:26] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-09-04 11:15:44] ROBOT_SPEECH: excited
+[2025-09-04 11:15:46] ROBOT_SPEECH: You can click next.
+[2025-09-04 11:15:51] ROBOT_SPEECH: Show me another emotion card!
+Main closed  Thu Sep  4 11:15:58 2025
+GAME: action_game
+Time: Thu Sep  4 11:16:01 2025
+emotion_game1 closed  Thu Sep  4 11:16:01 2025
+[2025-09-04 11:16:06] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Sep  4 11:16:08 2025
+[2025-09-04 11:16:09] REPEAT BUTTON Clicked: [2025-09-04 11:16:09] ROBOT_SPEECH: Show me an action card
+[2025-09-04 11:32:47] ROBOT_SPEECH: Show me another action card!
+[2025-09-04 11:32:58] ROBOT_SPEECH: drink
+[2025-09-04 11:33:01] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-09-04 11:33:37] ROBOT_SPEECH: walk
+[2025-09-04 11:33:40] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-09-04 11:36:16] ROBOT_SPEECH: Show me another action card!
+[2025-09-04 11:36:18] ROBOT_SPEECH: eat
+[2025-09-04 11:36:21] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-09-04 11:36:46] ROBOT_SPEECH: Show me another action card!
+login closed  Thu Sep  4 11:37:10 2025
+CLIENT NAME: Ayat
+login closed  Thu Sep  4 11:37:11 2025
+GAME: emotion_game_1
+Time: Thu Sep  4 11:37:17 2025
+GAME: emotion_game_1
+Time: Thu Sep  4 11:37:22 2025
+GAME: emotion_game_1
+Time: Thu Sep  4 11:37:32 2025
+GAME: emotion_game_1
+Time: Thu Sep  4 11:37:37 2025
+[2025-09-04 11:37:38] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Sep  4 11:37:41 2025
+[2025-09-04 11:37:42] REPEAT BUTTON Clicked: [2025-09-04 11:37:42] ROBOT_SPEECH: Show me an emotion card
+[2025-09-04 11:37:45] ROBOT_SPEECH: excited!
+[2025-09-04 11:37:51] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-09-04 11:38:00] ROBOT_SPEECH: Show me another emotion card!
+[2025-09-04 11:38:00] ROBOT_SPEECH: excited!
+[2025-09-04 11:38:06] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-09-04 11:38:14] REPEAT BUTTON Clicked: [2025-09-04 11:38:14] ROBOT_SPEECH: excited
+emotion_game1 closed  Thu Sep  4 11:38:21 2025
+[2025-09-04 11:38:21] REPEAT BUTTON Clicked: [2025-09-04 11:38:21] ROBOT_SPEECH: Show me an emotion card
+[2025-09-04 11:38:23] ROBOT_SPEECH: excited!
+[2025-09-04 11:38:29] ROBOT_SPEECH: Look at the tablet, click on the picture
+emotion_game1 closed  Thu Sep  4 11:38:56 2025
+[2025-09-04 11:38:56] REPEAT BUTTON Clicked: [2025-09-04 11:38:56] ROBOT_SPEECH: Show me an emotion card
+[2025-09-04 11:38:57] ROBOT_SPEECH: saed
+[2025-09-04 11:39:03] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-09-04 11:39:10] REPEAT BUTTON Clicked: [2025-09-04 11:39:10] ROBOT_SPEECH: sad
+[2025-09-04 11:39:11] ROBOT_SPEECH: saed
+[2025-09-04 11:39:17] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-09-04 11:39:31] ROBOT_SPEECH: saed
+[2025-09-04 11:39:32] ROBOT_SPEECH: Let's go to next
+[2025-09-04 11:39:38] ROBOT_SPEECH: Show me another emotion card!
+[2025-09-04 11:59:53] Praise BUTTON Clicked: [2025-09-04 11:59:53] ROBOT_SPEECH: Wonderful!
+Main closed  Thu Sep  4 12:00:43 2025
+GAME: at_talks
+Time: Thu Sep  4 12:00:48 2025
+emotion_game1 closed  Thu Sep  4 12:00:48 2025
+[2025-09-04 12:00:53] ROBOT_SPEECH: Goodbye!
+[2025-09-04 12:01:12] ROBOT_SPEECH: Goodbye!
+login closed  Thu Sep  4 12:03:42 2025

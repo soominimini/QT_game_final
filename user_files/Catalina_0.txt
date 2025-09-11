@@ -1,0 +1,59 @@
+CLIENT NAME: Catalina
+login closed  Thu Aug 21 10:00:39 2025
+GAME: at_talks
+Time: Thu Aug 21 10:00:50 2025
+[2025-08-21 10:01:17] ROBOT_SPEECH: Hello! How r you today?
+[2025-08-21 10:09:05] ROBOT_SPEECH: Hello! How r you today?
+[2025-08-21 10:09:16] ROBOT_SPEECH: What is your favourite holiday? How do you celebrate it?
+Main closed  Thu Aug 21 10:13:13 2025
+GAME: emotion_game2
+Time: Thu Aug 21 10:14:03 2025
+GAME: emotion_game2
+Time: Thu Aug 21 10:14:07 2025
+GAME: emotion_game2
+Time: Thu Aug 21 10:14:14 2025
+GAME: emotion_game2
+Time: Thu Aug 21 10:14:19 2025
+GAME: emotion_game2
+Time: Thu Aug 21 10:14:27 2025
+[2025-08-21 10:14:45] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Aug 21 10:14:47 2025
+[2025-08-21 10:14:48] REPEAT BUTTON Clicked: [2025-08-21 10:14:48] ROBOT_SPEECH: Show me an emotion card
+[2025-08-21 10:15:41] ROBOT_SPEECH: sheye
+[2025-08-21 10:15:53] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-08-21 10:16:08] ROBOT_SPEECH: I get shy when I meet new people.
+[2025-08-21 10:16:27] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-21 10:16:31] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-21 10:17:23] ROBOT_SPEECH: excited!
+[2025-08-21 10:17:35] ROBOT_SPEECH: Look at the tablet, which one is  excited
+emotion_game1 closed  Thu Aug 21 10:17:48 2025
+[2025-08-21 10:17:48] REPEAT BUTTON Clicked: [2025-08-21 10:17:48] ROBOT_SPEECH: Show me an emotion card
+[2025-08-21 10:17:57] ROBOT_SPEECH: excited!
+[2025-08-21 10:18:09] ROBOT_SPEECH: Look at the tablet, which one is  excited
+[2025-08-21 10:18:12] ROBOT_SPEECH: I feel excited going to an amusement park
+[2025-08-21 10:18:41] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-21 10:19:10] ROBOT_SPEECH: scared!
+[2025-08-21 10:19:22] ROBOT_SPEECH: Look at the tablet, which one is  scared
+[2025-08-21 10:19:28] ROBOT_SPEECH: I feel scared when it’s dark outside.
+[2025-08-21 10:20:57] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-21 10:21:07] ROBOT_SPEECH: angry!
+[2025-08-21 10:21:19] ROBOT_SPEECH: Look at the tablet, which one is  angry
+emotion_game1 closed  Thu Aug 21 10:21:33 2025
+[2025-08-21 10:21:33] REPEAT BUTTON Clicked: [2025-08-21 10:21:33] ROBOT_SPEECH: Show me an emotion card
+[2025-08-21 10:21:39] ROBOT_SPEECH: angry!
+[2025-08-21 10:21:51] ROBOT_SPEECH: Look at the tablet, which one is  angry
+[2025-08-21 10:22:12] ROBOT_SPEECH: I feel angry when I don’t get a turn playing a game.
+[2025-08-21 10:23:41] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-21 10:24:11] ROBOT_SPEECH: happy!
+[2025-08-21 10:24:23] ROBOT_SPEECH: Look at the tablet, which one is  happy
+[2025-08-21 10:24:38] ROBOT_SPEECH: saed
+[2025-08-21 10:24:50] ROBOT_SPEECH: Look at the tablet, which one is  sad
+[2025-08-21 10:26:57] Stop event triggered by user.
+[2025-08-21 10:26:57] ROBOT_SPEECH: all done
+[2025-08-21 11:59:38] ROBOT_SPEECH: sheye
+[2025-08-21 11:59:50] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-08-21 12:00:12] ROBOT_SPEECH: saed
+[2025-08-21 12:00:24] ROBOT_SPEECH: Look at the tablet, which one is  sad
+GAME: at_talks
+Time: Thu Aug 21 12:00:31 2025
+login closed  Thu Aug 21 12:10:07 2025

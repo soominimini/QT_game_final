@@ -1,0 +1,69 @@
+CLIENT NAME: None
+login closed  Thu Aug 21 18:15:41 2025
+GAME: instructions_game
+Time: Thu Aug 21 18:15:50 2025
+[2025-08-21 18:15:52] ROBOT_SPEECH: Where do you want to go?
+Main closed  Thu Aug 21 18:15:53 2025
+GAME: dice_5w1h
+Time: Thu Aug 21 18:16:01 2025
+[2025-08-21 18:16:01] ROBOT_SPEECH: Lets play around with wh questions
+[2025-08-21 18:16:03] ROBOT_SPEECH: Let's roll the dice
+[2025-08-21 18:16:06] ROBOT_SPEECH: Where
+[2025-08-21 18:16:22] ROBOT_SPEECH: Where
+[2025-08-21 18:16:32] ROBOT_SPEECH: Who
+[2025-08-21 18:16:41] ROBOT_SPEECH: what
+[2025-08-21 18:16:50] ROBOT_SPEECH: Let's roll the dice
+[2025-08-21 18:16:56] ROBOT_SPEECH: when
+[2025-08-21 18:17:10] ROBOT_SPEECH: how
+[2025-08-21 18:17:18] ROBOT_SPEECH: how
+[2025-08-21 18:17:20] ROBOT_SPEECH: when
+[2025-08-21 18:17:35] ROBOT_SPEECH: why
+GAME: inference_old
+Time: Thu Aug 21 18:17:57 2025
+[2025-08-21 18:17:58] ROBOT_SPEECH: Lets play inference games
+[2025-08-21 18:17:59] ROBOT_SPEECH: I am soft. You hug me when you sleep. I am an animal \pau=300\ with brown fur. What am i?
+Main closed  Thu Aug 21 18:18:12 2025
+GAME: story_old_client
+Time: Thu Aug 21 18:18:17 2025
+[2025-08-21 18:18:17] ROBOT_SPEECH: Lets choose a story
+GAME: goldilocks
+Time: Thu Aug 21 18:18:18 2025
+[2025-08-21 18:18:19] ROBOT_SPEECH: Lets start the story!
+[2025-08-21 18:19:58] ROBOT_SPEECH: Once upon a time lived Goldilocks and The Three Bears.
+[2025-08-21 18:21:11] ROBOT_SPEECH: One day, Goldilocks went for a walk in the forest and found a house.
+[2025-08-21 18:21:17] ROBOT_SPEECH: She knocked, and when nobody answered, she decided to go inside.
+[2025-08-21 18:21:31] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-08-21 18:21:33] ROBOT_SPEECH: Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.
+[2025-08-21 18:21:34] ROBOT_SPEECH: By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom.
+[2025-08-21 18:21:35] ROBOT_SPEECH: As Goldilocks was sleeping, The Three Bears came home.
+[2025-08-21 18:21:43] ROBOT_SPEECH: Someone’s been eating my porridge, growled Daddy Bear.
+[2025-08-21 18:21:43] ROBOT_SPEECH: #BEAR#
+[2025-08-21 18:21:44] ROBOT_SPEECH: Someone’s been eating my porridge, said Mummy Bear.
+[2025-08-21 18:21:46] ROBOT_SPEECH: Someone’s been eating my porridge and it’s all gone!. Cried Baby Bear
+[2025-08-21 18:21:46] ROBOT_SPEECH: #CRY03#
+[2025-08-21 18:22:16] ROBOT_SPEECH: Someone’s been sitting in my chair!. Growled Daddy Bear.
+[2025-08-21 18:22:16] ROBOT_SPEECH: #BEAR#
+[2025-08-21 18:22:20] ROBOT_SPEECH: Someone’s been sitting in my chair!” said Mummy Bear.
+[2025-08-21 18:22:21] ROBOT_SPEECH: Someone’s been sitting in my chair and it’s broken!. Cried Baby Bear.
+[2025-08-21 18:22:21] ROBOT_SPEECH: #CRY04#
+[2025-08-21 18:22:38] ROBOT_SPEECH: When they got upstairs to the bedroom, Daddy Bear growled.
+[2025-08-21 18:22:38] ROBOT_SPEECH: #BEAR#
+[2025-08-21 18:22:38] ROBOT_SPEECH: Someone’s been sleeping on my bed.
+[2025-08-21 18:22:41] ROBOT_SPEECH: Someone’s been sleeping on my bed too, said the Mummy Bear
+[2025-08-21 18:22:42] ROBOT_SPEECH: Someone’s been sleeping in my bed, and she’s still there!. Cried Baby Bear.
+[2025-08-21 18:22:42] ROBOT_SPEECH: #CRY03#
+[2025-08-21 18:22:56] ROBOT_SPEECH: Just then Goldilocks woke up and saw The Three Bears.
+[2025-08-21 18:23:00] ROBOT_SPEECH: She screamed.
+[2025-08-21 18:23:09] ROBOT_SPEECH: Goldilocks ran down the stairs and into the forest. And she never went back into the woods again.
+[2025-08-21 18:23:11] REPEAT BUTTON Clicked: [2025-08-21 18:23:11] ROBOT_SPEECH: Who entered the house of the three bears?
+[2025-08-21 18:23:19] REPEAT BUTTON Clicked: [2025-08-21 18:23:19] ROBOT_SPEECH: How many bears lived in the house?
+[2025-08-21 18:23:24] REPEAT BUTTON Clicked: [2025-08-21 18:23:24] ROBOT_SPEECH: What did goldilocks find on the table when she went inside the house?
+[2025-08-21 18:23:29] REPEAT BUTTON Clicked: [2025-08-21 18:23:29] ROBOT_SPEECH: Which porridge did Goldilocks like?
+[2025-08-21 18:23:33] REPEAT BUTTON Clicked: [2025-08-21 18:23:33] ROBOT_SPEECH: What did Goldilocks do after she ate the porridge?
+[2025-08-21 18:23:37] REPEAT BUTTON Clicked: [2025-08-21 18:23:37] ROBOT_SPEECH: Which chair did Goldilocks like to sit in?
+[2025-08-21 18:23:40] REPEAT BUTTON Clicked: [2025-08-21 18:23:40] ROBOT_SPEECH: Which bed did Goldilocks like to sleep in?
+[2025-08-21 18:23:43] REPEAT BUTTON Clicked: [2025-08-21 18:23:43] ROBOT_SPEECH: What happened when The Three Bears found Goldilocks in their bed?
+[2025-08-21 18:23:58] REPEAT BUTTON Clicked: [2025-08-21 18:23:58] ROBOT_SPEECH: How did the Three Bears feel when they discovered someone has been in their house?
+[2025-08-21 18:24:05] ROBOT_SPEECH: That's not correct
+[2025-08-21 18:24:09] ROBOT_SPEECH: That's not correct
+[2025-08-21 18:24:11] REPEAT BUTTON Clicked: [2025-08-21 18:24:11] ROBOT_SPEECH: What lesson can be learned from the Goldilocks story?

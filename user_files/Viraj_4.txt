@@ -1,0 +1,88 @@
+CLIENT NAME: Viraj
+login closed  Wed Aug 27 09:01:05 2025
+GAME: at_talks
+Time: Wed Aug 27 09:10:18 2025
+[2025-08-27 09:10:26] ROBOT_SPEECH: Hello! How r you today?
+Main closed  Wed Aug 27 09:11:01 2025
+GAME: emotion_game_1
+Time: Wed Aug 27 09:11:17 2025
+[2025-08-27 09:11:19] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Wed Aug 27 09:11:22 2025
+[2025-08-27 09:11:22] REPEAT BUTTON Clicked: [2025-08-27 09:11:22] ROBOT_SPEECH: Show me an emotion card
+[2025-08-27 09:11:23] ROBOT_SPEECH: excited!
+[2025-08-27 09:11:29] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-08-27 09:12:08] ROBOT_SPEECH: excited
+[2025-08-27 09:12:09] ROBOT_SPEECH: Please press the next
+[2025-08-27 09:12:12] Stop event triggered by user.
+[2025-08-27 09:12:12] ROBOT_SPEECH: all done
+GAME: at_talks
+Time: Wed Aug 27 09:12:15 2025
+emotion_game1 closed  Wed Aug 27 09:12:15 2025
+[2025-08-27 09:12:17] ROBOT_SPEECH: Hello! How r you today?
+Main closed  Wed Aug 27 09:12:57 2025
+GAME: emotion_game_1
+Time: Wed Aug 27 09:13:08 2025
+[2025-08-27 09:13:09] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Wed Aug 27 09:13:12 2025
+[2025-08-27 09:13:13] REPEAT BUTTON Clicked: [2025-08-27 09:13:13] ROBOT_SPEECH: Show me an emotion card
+[2025-08-27 09:13:14] ROBOT_SPEECH: saed
+[2025-08-27 09:13:20] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-08-27 09:13:30] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-27 09:13:30] ROBOT_SPEECH: saed
+[2025-08-27 09:13:36] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-08-27 09:14:05] ROBOT_SPEECH: saed
+[2025-08-27 09:14:06] ROBOT_SPEECH: You can click next.
+[2025-08-27 09:14:11] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-27 09:14:16] ROBOT_SPEECH: scared!
+[2025-08-27 09:14:22] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-08-27 09:14:41] ROBOT_SPEECH: scared
+[2025-08-27 09:14:42] ROBOT_SPEECH: Please press the next
+[2025-08-27 09:14:49] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-27 09:14:52] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-27 09:14:53] ROBOT_SPEECH: scared
+[2025-08-27 09:14:56] ROBOT_SPEECH: Please press the next
+[2025-08-27 09:14:58] ROBOT_SPEECH: sheye
+[2025-08-27 09:15:04] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-08-27 09:15:08] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-27 09:15:18] ROBOT_SPEECH: Show me another emotion card!
+[2025-08-27 09:15:18] Stop event triggered by user.
+[2025-08-27 09:15:18] ROBOT_SPEECH: all done
+Main closed  Wed Aug 27 09:15:23 2025
+GAME: dice_action_young
+Time: Wed Aug 27 09:15:29 2025
+[2025-08-27 09:15:31] ROBOT_SPEECH: Let's roll the dice
+[2025-08-27 09:15:36] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-08-27 09:15:38] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-08-27 09:15:41] ROBOT_SPEECH: Let's have a high five!
+[2025-08-27 09:15:51] REPEAT BUTTON Clicked: [2025-08-27 09:15:51] ROBOT_SPEECH: Let's have a high five!
+[2025-08-27 09:15:59] REPEAT BUTTON Clicked: [2025-08-27 09:15:59] ROBOT_SPEECH: Let's have a high five!
+[2025-08-27 09:16:07] REPEAT BUTTON Clicked: [2025-08-27 09:16:07] ROBOT_SPEECH: Let's have a high five!
+[2025-08-27 09:16:24] ROBOT_SPEECH: Let's have a bear hug!
+[2025-08-27 09:16:26] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-08-27 09:16:47] ROBOT_SPEECH: Let's sing a song
+[2025-08-27 09:17:48] REPEAT BUTTON Clicked: [2025-08-27 09:17:48] ROBOT_SPEECH: Let's sing a song
+[2025-08-27 09:18:45] Stop event triggered by user.
+[2025-08-27 09:18:45] ROBOT_SPEECH: all done
+Main closed  Wed Aug 27 09:18:48 2025
+Main closed  Wed Aug 27 09:26:52 2025
+GAME: instructions_game_young
+Time: Wed Aug 27 09:27:30 2025
+[2025-08-27 09:27:32] ROBOT_SPEECH: Where do you feel like going?
+[2025-08-27 09:27:36] ROBOT_SPEECH: Let's go to play!
+[2025-08-27 09:27:39] ROBOT_SPEECH: Let’s have a good time in the park!
+[2025-08-27 09:27:41] ROBOT_SPEECH: I feel like riding the swing!
+[2025-08-27 09:27:50] REPEAT BUTTON Clicked: [2025-08-27 09:27:50] ROBOT_SPEECH: I feel like riding the swing!
+[2025-08-27 09:28:13] Praise BUTTON Clicked: [2025-08-27 09:28:13] ROBOT_SPEECH: Wonderful!
+Main closed  Wed Aug 27 09:28:32 2025
+GAME: at_talks
+Time: Wed Aug 27 09:28:37 2025
+[2025-08-27 09:28:39] ROBOT_SPEECH: Hello! How r you today?
+[2025-08-27 09:28:54] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-27 09:29:04] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-27 09:29:20] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-27 09:30:36] ROBOT_SPEECH: Whoa!
+[2025-08-27 09:36:48] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-27 09:37:45] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-27 09:38:37] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-08-27 09:59:10] ROBOT_SPEECH: Goodbye!
+login closed  Wed Aug 27 10:06:53 2025
