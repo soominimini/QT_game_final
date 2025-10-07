@@ -26,12 +26,12 @@ This is a Flask-based web application for the QT Robot includes educational game
 ### ROS Packages (Mock Implementation)
 This application is designed to run on a QT Robot with ROS (Robot Operating System). For Windows development, **mock packages** have been created in the project root:
 
-- `rospy/` - Mock ROS Python client library
-- `std_msgs/` - Mock ROS standard messages
-- `sensor_msgs/` - Mock ROS sensor messages
-- `cv_bridge/` - Mock OpenCV-ROS bridge
-- `qt_robot_interface/` - Mock QT Robot interface services
-- `qt_gesture_controller/` - Mock QT Robot gesture controller
+- `rospy/` - ROS Python client library
+- `std_msgs/` - ROS standard messages
+- `sensor_msgs/` - ROS sensor messages
+- `cv_bridge/` - OpenCV-ROS bridge
+- `qt_robot_interface/` - QT Robot interface services
+- `qt_gesture_controller/` - QT Robot gesture controller
 
 These mock packages allow the code to import and run without errors, but **robot functionality will not work** on Windows. They are only for testing the Flask web interface.
 
@@ -55,12 +55,9 @@ On the actual QT Robot (Linux with ROS):
 - `templates/` - HTML templates
 - `static/` - Static assets (images, CSS, JS)
 - `user_files/` - User session data
-- Mock ROS packages (for Windows dev only)
+-  ROS packages (for Windows dev only)
 
 ## Troubleshooting
-
-### Import Errors
-If you get `ModuleNotFoundError` for ROS packages, ensure the mock packages are in the project root and Python can find them.
 
 ### Port Already in Use
 If port 5000 is in use, modify the port in `main.py` at the bottom where Flask runs.
