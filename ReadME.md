@@ -23,8 +23,8 @@ This is a Flask-based web application for the QT Robot includes educational game
 
 ## Important Notes for Windows Development
 
-### ROS Packages (Mock Implementation)
-This application is designed to run on a QT Robot with ROS (Robot Operating System). For Windows development, **mock packages** have been created in the project root:
+### ROS Packages (Implementation)
+This application is designed to run on a QT Robot(Linux) with ROS (Robot Operating System).
 
 - `rospy/` - ROS Python client library
 - `std_msgs/` - ROS standard messages
