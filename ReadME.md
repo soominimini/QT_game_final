@@ -1,7 +1,7 @@
 # QT Robot Game - Development Setup Guide
 
 ## Overview
-This is a Flask-based web application for the QT Robot that includes educational games and interactive storytelling features.
+This is a Flask-based web application for the QT Robot includes educational games and interactive storytelling features.
 
 ## Windows Development Setup
 
@@ -35,14 +35,6 @@ This application is designed to run on a QT Robot with ROS (Robot Operating Syst
 
 These mock packages allow the code to import and run without errors, but **robot functionality will not work** on Windows. They are only for testing the Flask web interface.
 
-### MySQL Database (Optional)
-The application is configured for MySQL but the connection is now **optional**. If MySQL is not running, the app will start with a warning but continue to function.
-
-**To use MySQL (optional):**
-1. Install MySQL Server for Windows
-2. Create a database called `USERS`
-3. Update credentials in `main.py` if needed (default: user='root', password='root')
-
 ### Running the Application
 
 ```bash
@@ -51,21 +43,11 @@ python main.py
 
 The Flask web server will start, typically on `http://localhost:5000`
 
-### Expected Warnings
-When running on Windows, you'll see mock messages like:
-- `[Mock ROS] Initialized node: app`
-- `[Mock ROS] Created publisher: /qt_robot/speech/say`
-- `[WARNING] MySQL connection failed: ...`
-
-These are **normal** and expected for Windows development.
-
 ## Production Deployment (QT Robot)
 
 On the actual QT Robot (Linux with ROS):
-1. Remove or ignore the mock packages in the project root
-2. Ensure ROS is properly installed and configured
-3. Ensure MySQL is running if database features are needed
-4. The real ROS packages will be used automatically
+1. Ensure ROS is properly installed and configured
+2. The real ROS packages will be used automatically
 
 ## Project Structure
 
