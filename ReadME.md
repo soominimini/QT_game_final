@@ -7,7 +7,6 @@ This is a Flask-based web application for the QT Robot includes educational game
 
 ### Prerequisites
 - Python 3.13.5 (installed)
-- Virtual environment (`.QTvenv`)
 
 ### Installation Steps
 
@@ -33,7 +32,7 @@ This application is designed to run on a QT Robot(Linux) with ROS (Robot Operati
 - `qt_robot_interface/` - QT Robot interface services
 - `qt_gesture_controller/` - QT Robot gesture controller
 
-These mock packages allow the code to import and run without errors, but **robot functionality will not work** on Windows. They are only for testing the Flask web interface.
+These packages allow the code to import and run without errors, but **robot functionality will not work** on Windows. They are only for testing the Flask web interface.
 
 ### Running the Application
 
