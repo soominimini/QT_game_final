@@ -1,0 +1,124 @@
+CLIENT NAME: Kreesh
+login closed  Thu Sep 11 17:14:18 2025
+GAME: at_talks
+Time: Thu Sep 11 17:14:32 2025
+[2025-09-11 17:15:06] ROBOT_SPEECH: Hello! How r you today?
+[2025-09-11 17:15:25] ROBOT_SPEECH: I'm fine!
+[2025-09-11 17:15:35] ROBOT_SPEECH: Whats your name?
+[2025-09-11 17:15:41] ROBOT_SPEECH: That's good to know!
+[2025-09-11 17:15:46] ROBOT_SPEECH: What is your favourite colour?
+[2025-09-11 17:15:54] ROBOT_SPEECH: That's a great answer!
+[2025-09-11 17:16:00] ROBOT_SPEECH: What is your favourite season?
+[2025-09-11 17:16:08] ROBOT_SPEECH: What is your favourite season?
+[2025-09-11 17:16:19] ROBOT_SPEECH: What is your favourite season?
+Main closed  Thu Sep 11 17:16:34 2025
+GAME: story_old_client
+Time: Thu Sep 11 17:17:23 2025
+[2025-09-11 17:17:23] ROBOT_SPEECH: Lets choose a story
+GAME: goldilocks
+Time: Thu Sep 11 17:17:25 2025
+[2025-09-11 17:17:27] ROBOT_SPEECH: Lets start the story!
+[2025-09-11 17:17:45] ROBOT_SPEECH: Once upon a time lived Goldilocks and The Three Bears.
+[2025-09-11 17:17:59] ROBOT_SPEECH: One day, Goldilocks went for a walk in the forest and found a house.
+[2025-09-11 17:18:05] ROBOT_SPEECH: She knocked, and when nobody answered, she decided to go inside.
+[2025-09-11 17:18:57] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-09-11 17:18:59] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-09-11 17:19:01] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-09-11 17:19:40] ROBOT_SPEECH: Goldilocks tasted the porridge from the large bowl. This porridge is too salty
+[2025-09-11 17:20:45] Stop event triggered by user.
+[2025-09-11 17:20:45] ROBOT_SPEECH: all done
+[2025-09-11 17:20:48] Stop event triggered by user.
+[2025-09-11 17:20:48] ROBOT_SPEECH: all done
+[2025-09-11 17:21:11] ROBOT_SPEECH: Goldilocks tasted the porridge from the medium sized bowl. “This porridge is too sweet!
+[2025-09-11 17:21:48] ROBOT_SPEECH: Goldilocks tasted the porridge from the small bowl. “This porridge is just right,” Goldilocks said and ate it all up.
+[2025-09-11 17:22:45] ROBOT_SPEECH: Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.
+[2025-09-11 17:23:12] ROBOT_SPEECH: Goldilocks sat in the large chair to rest her feet. “This chair is too big!
+[2025-09-11 17:23:12] ROBOT_SPEECH: Goldilocks sat in the large chair to rest her feet. “This chair is too big!
+[2025-09-11 17:23:41] ROBOT_SPEECH: Goldilocks sat in the medium sized chair. This chair is too big, too!
+[2025-09-11 17:24:08] ROBOT_SPEECH: Goldilocks sat in the small chair. “This chair is just right
+[2025-09-11 17:24:52] ROBOT_SPEECH: By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom.
+[2025-09-11 17:25:46] ROBOT_SPEECH: Goldilocks lay down on the large bed. “This bed is too hard!” 
+[2025-09-11 17:26:20] ROBOT_SPEECH: Goldilocks lay down on the medium sized bed. This bed is too soft!
+[2025-09-11 17:27:05] ROBOT_SPEECH: Goldilocks lay down on the small bed. This bed is just right. Goldilocks curled up and fell asleep.
+[2025-09-11 17:27:41] ROBOT_SPEECH: As Goldilocks was sleeping, The Three Bears came home.
+[2025-09-11 17:27:56] ROBOT_SPEECH: Someone’s been eating my porridge, growled Daddy Bear.
+[2025-09-11 17:27:56] ROBOT_SPEECH: #BEAR#
+[2025-09-11 17:28:49] ROBOT_SPEECH: Someone’s been eating my porridge, said Mummy Bear.
+[2025-09-11 17:29:01] ROBOT_SPEECH: Someone’s been eating my porridge and it’s all gone!. Cried Baby Bear
+[2025-09-11 17:29:01] ROBOT_SPEECH: #CRY03#
+[2025-09-11 17:29:31] ROBOT_SPEECH: Someone’s been sitting in my chair!. Growled Daddy Bear.
+[2025-09-11 17:29:31] ROBOT_SPEECH: #BEAR#
+[2025-09-11 17:29:50] ROBOT_SPEECH: Someone’s been sitting in my chair!” said Mummy Bear.
+[2025-09-11 17:30:05] ROBOT_SPEECH: Someone’s been sitting in my chair and it’s broken!. Cried Baby Bear.
+[2025-09-11 17:30:05] ROBOT_SPEECH: #CRY04#
+[2025-09-11 17:30:23] ROBOT_SPEECH: When they got upstairs to the bedroom, Daddy Bear growled.
+[2025-09-11 17:30:23] ROBOT_SPEECH: #BEAR#
+[2025-09-11 17:30:23] ROBOT_SPEECH: Someone’s been sleeping on my bed.
+[2025-09-11 17:30:55] ROBOT_SPEECH: Someone’s been sleeping on my bed too, said the Mummy Bear
+[2025-09-11 17:31:06] ROBOT_SPEECH: Someone’s been sleeping in my bed, and she’s still there!. Cried Baby Bear.
+[2025-09-11 17:31:06] ROBOT_SPEECH: #CRY03#
+[2025-09-11 17:31:33] ROBOT_SPEECH: Just then Goldilocks woke up and saw The Three Bears.
+[2025-09-11 17:31:36] ROBOT_SPEECH: She screamed.
+[2025-09-11 17:32:09] ROBOT_SPEECH: Goldilocks ran down the stairs and into the forest. And she never went back into the woods again.
+[2025-09-11 17:33:05] REPEAT BUTTON Clicked: [2025-09-11 17:33:05] ROBOT_SPEECH: Who entered the house of the three bears?
+[2025-09-11 17:33:13] ROBOT_SPEECH: Correct!
+[2025-09-11 17:33:17] REPEAT BUTTON Clicked: [2025-09-11 17:33:17] ROBOT_SPEECH: How many bears lived in the house?
+[2025-09-11 17:33:20] ROBOT_SPEECH: Correct!
+[2025-09-11 17:33:21] ROBOT_SPEECH: Correct!
+[2025-09-11 17:33:24] REPEAT BUTTON Clicked: [2025-09-11 17:33:24] ROBOT_SPEECH: What did goldilocks find on the table when she went inside the house?
+[2025-09-11 17:33:31] ROBOT_SPEECH: Correct!
+[2025-09-11 17:33:33] REPEAT BUTTON Clicked: [2025-09-11 17:33:33] ROBOT_SPEECH: Which porridge did Goldilocks like?
+[2025-09-11 17:33:38] ROBOT_SPEECH: Correct!
+[2025-09-11 17:33:38] REPEAT BUTTON Clicked: [2025-09-11 17:33:38] ROBOT_SPEECH: What did Goldilocks do after she ate the porridge?
+[2025-09-11 17:34:28] Stop event triggered by user.
+[2025-09-11 17:34:28] ROBOT_SPEECH: all done
+Main closed  Thu Sep 11 17:34:37 2025
+GAME: dice_emotion_old
+Time: Thu Sep 11 17:35:04 2025
+[2025-09-11 17:35:05] ROBOT_SPEECH: Let's roll the dice
+[2025-09-11 17:35:11] ROBOT_SPEECH: silly
+[2025-09-11 17:35:17] ROBOT_SPEECH: when do you feel silly?
+[2025-09-11 17:35:39] ROBOT_SPEECH: excited
+[2025-09-11 17:35:46] ROBOT_SPEECH: Who makes you feel excited?
+[2025-09-11 17:36:38] ROBOT_SPEECH: frustrated
+[2025-09-11 17:36:44] ROBOT_SPEECH: When do you feel frustrated?
+[2025-09-11 17:37:18] ROBOT_SPEECH: curious
+[2025-09-11 17:37:23] ROBOT_SPEECH: what makes you curious?
+[2025-09-11 17:38:11] ROBOT_SPEECH: tired
+[2025-09-11 17:38:17] ROBOT_SPEECH: When do you feel tired?
+[2025-09-11 17:40:18] ROBOT_SPEECH: confused
+[2025-09-11 17:40:21] ROBOT_SPEECH: What makes you feel confused?
+[2025-09-11 17:41:27] ROBOT_SPEECH: curious
+[2025-09-11 17:41:32] ROBOT_SPEECH: what makes you curious?
+[2025-09-11 17:41:43] Stop event triggered by user.
+[2025-09-11 17:41:44] ROBOT_SPEECH: all done
+GAME: dice_action_young
+Time: Thu Sep 11 17:42:06 2025
+[2025-09-11 17:42:08] ROBOT_SPEECH: Let's roll the dice
+[2025-09-11 17:42:12] ROBOT_SPEECH: Let's have a high five!
+[2025-09-11 17:42:21] REPEAT BUTTON Clicked: [2025-09-11 17:42:21] ROBOT_SPEECH: Let's have a high five!
+[2025-09-11 17:42:30] ROBOT_SPEECH: Let's sing a song
+[2025-09-11 17:42:35] ROBOT_SPEECH: Let's have a bear hug!
+[2025-09-11 17:42:37] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-09-11 17:43:23] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-09-11 17:43:25] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-09-11 17:43:38] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-09-11 17:43:40] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-09-11 17:43:51] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-09-11 17:43:56] ROBOT_SPEECH: 1
+[2025-09-11 17:43:59] ROBOT_SPEECH: 2
+[2025-09-11 17:44:02] ROBOT_SPEECH: 3
+[2025-09-11 17:44:05] ROBOT_SPEECH: 4
+[2025-09-11 17:44:08] ROBOT_SPEECH: 5
+[2025-09-11 17:44:11] ROBOT_SPEECH: 6
+[2025-09-11 17:44:14] ROBOT_SPEECH: 7
+[2025-09-11 17:44:17] ROBOT_SPEECH: 8
+[2025-09-11 17:44:20] ROBOT_SPEECH: 9
+[2025-09-11 17:44:23] ROBOT_SPEECH: 10
+[2025-09-11 17:44:36] ROBOT_SPEECH: Let's have a high five!
+[2025-09-11 17:44:47] Stop event triggered by user.
+[2025-09-11 17:44:47] ROBOT_SPEECH: all done
+Main closed  Thu Sep 11 17:44:51 2025
+GAME: story_old_client
+Time: Thu Sep 11 17:55:16 2025
+[2025-09-11 17:55:16] ROBOT_SPEECH: Lets choose a story

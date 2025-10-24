@@ -1,0 +1,65 @@
+CLIENT NAME: None
+login closed  Fri Oct 24 13:31:28 2025
+GAME: at_talks
+Time: Fri Oct 24 13:31:33 2025
+GAME: emotion_game2
+Time: Fri Oct 24 13:31:42 2025
+[2025-10-24 13:31:43] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Fri Oct 24 13:31:46 2025
+[2025-10-24 13:31:46] REPEAT BUTTON Clicked: [2025-10-24 13:31:46] ROBOT_SPEECH: Show me an emotion card
+emotion_game1 closed  Fri Oct 24 13:31:55 2025
+CLIENT NAME: None
+login closed  Fri Oct 24 13:47:16 2025
+GAME: at_talks
+Time: Fri Oct 24 13:47:20 2025
+[2025-10-24 13:47:25] ROBOT_SPEECH: Eat!
+[2025-10-24 13:47:29] ROBOT_SPEECH: More!
+[2025-10-24 13:47:34] ROBOT_SPEECH: Gimme!
+[2025-10-24 13:47:36] ROBOT_SPEECH: Gimme!
+[2025-10-24 13:47:38] ROBOT_SPEECH: Cookie!
+[2025-10-24 13:47:39] ROBOT_SPEECH: Spin!
+[2025-10-24 13:47:47] ROBOT_SPEECH: All done!
+[2025-10-24 13:50:51] ROBOT_SPEECH: Look!
+[2025-10-24 13:51:11] ROBOT_SPEECH: Hey!
+[2025-10-24 13:51:34] ROBOT_SPEECH: Come here!
+[2025-10-24 13:51:43] ROBOT_SPEECH: Cookie!
+[2025-10-24 13:51:45] ROBOT_SPEECH: Come!
+[2025-10-24 13:53:25] ROBOT_SPEECH: Let's do /emph=0/ more!
+[2025-10-24 13:53:48] ROBOT_SPEECH: Let's do  emph=0 more!
+[2025-10-24 13:54:32] ROBOT_SPEECH: Let's do  emph = more more!
+[2025-10-24 13:54:41] ROBOT_SPEECH: Let's do emph = more more!
+[2025-10-24 13:59:16] ROBOT_SPEECH: Let's do  <emphasis level='strong'>more</emphasis> 
+[2025-10-24 14:00:13] ROBOT_SPEECH: Let's do \\\\emph\\\\ more
+[2025-10-24 14:00:54] ROBOT_SPEECH: Let's do \emph\ more
+[2025-10-24 14:01:18] ROBOT_SPEECH: \emph\More!
+[2025-10-24 14:01:28] ROBOT_SPEECH: \emph\Eat!
+[2025-10-24 14:01:34] ROBOT_SPEECH: Eat!
+[2025-10-24 14:01:45] ROBOT_SPEECH: \emph\Give me!
+[2025-10-24 14:01:53] ROBOT_SPEECH: Give me!
+[2025-10-24 14:01:59] ROBOT_SPEECH: Give \emph\me!
+[2025-10-24 14:02:13] ROBOT_SPEECH: Let's do \emph\more
+[2025-10-24 14:02:19] ROBOT_SPEECH: Whats your name?
+[2025-10-24 14:02:26] ROBOT_SPEECH: \emph\Spin!
+[2025-10-24 14:02:32] ROBOT_SPEECH: \emph\Spin!
+[2025-10-24 14:02:35] ROBOT_SPEECH: \emph\Cookie!
+[2025-10-24 14:02:39] ROBOT_SPEECH: Look!
+[2025-10-24 14:02:42] ROBOT_SPEECH: Hey!
+[2025-10-24 14:02:45] ROBOT_SPEECH: Come!
+[2025-10-24 14:02:54] ROBOT_SPEECH: Yeah! Good choice!
+[2025-10-24 14:03:32] ROBOT_SPEECH: Look here!
+[2025-10-24 14:03:40] ROBOT_SPEECH: Look! here!
+[2025-10-24 14:03:47] ROBOT_SPEECH: Look \emph\here!
+[2025-10-24 14:05:12] ROBOT_SPEECH: Look \emph\here!
+[2025-10-24 14:05:18] ROBOT_SPEECH: \emph\Spin!
+[2025-10-24 14:07:23] ROBOT_SPEECH: If you could turn into any animal for a day. \rmw=1\ what animal   \rmw=0\  would you be? Why?
+[2025-10-24 14:07:35] ROBOT_SPEECH: If you could have any superpower, what power would you want to have?
+[2025-10-24 14:07:42] ROBOT_SPEECH: How's the weather today?
+[2025-10-24 14:07:44] ROBOT_SPEECH: What is something \pau=300\ that you are good at
+GAME: dice_5w1h
+Time: Fri Oct 24 14:07:59 2025
+[2025-10-24 14:07:59] ROBOT_SPEECH: Lets play around with wh questions
+[2025-10-24 14:08:04] ROBOT_SPEECH: Let's roll the dice
+[2025-10-24 14:08:06] ROBOT_SPEECH: when
+[2025-10-24 14:08:10] ROBOT_SPEECH: When do we eat breakfast?
+[2025-10-24 14:08:13] ROBOT_SPEECH: When do you wear sunglasses?
+[2025-10-24 14:08:15] ROBOT_SPEECH: When is your birthday?

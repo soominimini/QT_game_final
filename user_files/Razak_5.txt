@@ -1,0 +1,77 @@
+CLIENT NAME: Razak
+login closed  Fri Sep 26 11:25:39 2025
+GAME: at_talks
+Time: Fri Sep 26 11:31:15 2025
+[2025-09-26 11:31:18] ROBOT_SPEECH: Hello! How r you today?
+Main closed  Fri Sep 26 11:32:44 2025
+GAME: instructions_game
+Time: Fri Sep 26 11:32:58 2025
+GAME: instructions_game
+Time: Fri Sep 26 11:33:00 2025
+[2025-09-26 11:33:04] ROBOT_SPEECH: What place do you wanna go to?
+[2025-09-26 11:33:05] ROBOT_SPEECH: Where do you wanna go?
+[2025-09-26 11:33:46] ROBOT_SPEECH: Let's go shopping!
+[2025-09-26 11:33:49] ROBOT_SPEECH: Casher, is in front of checkout counter
+[2025-09-26 11:34:08] ROBOT_SPEECH: Hooray!
+[2025-09-26 11:34:13] ROBOT_SPEECH: Kustomer is waiting, at the end of the checkout counter
+[2025-09-26 11:34:24] REPEAT BUTTON Clicked: [2025-09-26 11:34:24] ROBOT_SPEECH: Kustomer is waiting, at the end of the checkout counter
+Taking Instruction supermarket1 closed  Fri Sep 26 11:35:03 2025
+[2025-09-26 11:35:04] ROBOT_SPEECH: Where do you feel like going?
+Main closed  Fri Sep 26 11:35:27 2025
+login closed  Fri Sep 26 11:39:40 2025
+CLIENT NAME: Razak
+login closed  Fri Sep 26 11:39:41 2025
+Main closed  Fri Sep 26 11:39:45 2025
+GAME: instructions_game
+Time: Fri Sep 26 11:39:53 2025
+[2025-09-26 11:39:55] ROBOT_SPEECH: Where do you feel like going?
+[2025-09-26 11:39:57] ROBOT_SPEECH: Casher, is in front of checkout counter
+[2025-09-26 11:40:10] ROBOT_SPEECH: Amazing!
+[2025-09-26 11:40:15] ROBOT_SPEECH: Kustomer is waiting, at the end of the checkout counter
+[2025-09-26 11:41:02] ROBOT_SPEECH: Perfect!
+[2025-09-26 11:41:07] ROBOT_SPEECH: Lets place the cart, between the checkout counters
+[2025-09-26 11:41:08] ROBOT_SPEECH: Great!
+Taking Instruction supermarket1 closed  Fri Sep 26 11:41:33 2025
+[2025-09-26 11:41:38] ROBOT_SPEECH: Please place the price tag, under the apple
+[2025-09-26 11:41:46] ROBOT_SPEECH: Great!
+[2025-09-26 11:41:50] ROBOT_SPEECH: Lets place an apple, on the apple stack
+[2025-09-26 11:42:01] REPEAT BUTTON Clicked: [2025-09-26 11:42:01] ROBOT_SPEECH: Lets place an apple, on the apple stack
+[2025-09-26 11:42:40] ROBOT_SPEECH: Perfect!
+[2025-09-26 11:42:45] ROBOT_SPEECH: I want to place the orange, at the left corner
+[2025-09-26 11:42:46] ROBOT_SPEECH: Hooray!
+Taking Instruction supermarket2 closed  Fri Sep 26 11:43:01 2025
+[2025-09-26 11:43:05] ROBOT_SPEECH: Lets place the milk, on the counter.
+[2025-09-26 11:44:28] ROBOT_SPEECH: Amazing!
+[2025-09-26 11:44:33] ROBOT_SPEECH: Let's put something we can eat to the right side of the casher
+[2025-09-26 11:44:42] ROBOT_SPEECH: Amazing!
+[2025-09-26 11:44:47] ROBOT_SPEECH: I want to put the orange juice, on the top shelf
+[2025-09-26 11:44:48] ROBOT_SPEECH: Great!
+Main closed  Fri Sep 26 11:45:27 2025
+GAME: yes_no_old
+Time: Fri Sep 26 11:45:39 2025
+[2025-09-26 11:45:41] ROBOT_SPEECH: Does a boat fly in the sky?
+[2025-09-26 11:46:09] ROBOT_SPEECH: That's not correct
+[2025-09-26 11:46:12] ROBOT_SPEECH: Correct!
+[2025-09-26 11:46:13] ROBOT_SPEECH: Correct!
+[2025-09-26 11:46:14] ROBOT_SPEECH: Do crabs have wings?
+Main closed  Fri Sep 26 11:46:50 2025
+GAME: action_game
+Time: Fri Sep 26 11:48:36 2025
+Main closed  Fri Sep 26 11:48:44 2025
+GAME: story_old_client
+Time: Fri Sep 26 11:48:50 2025
+[2025-09-26 11:48:50] ROBOT_SPEECH: Lets choose a story
+GAME: goldilocks
+Time: Fri Sep 26 11:48:51 2025
+[2025-09-26 11:48:53] ROBOT_SPEECH: Lets start the story!
+[2025-09-26 11:48:58] ROBOT_SPEECH: Once upon a time lived Goldilocks and The Three Bears.
+[2025-09-26 11:49:05] ROBOT_SPEECH: One day, Goldilocks went for a walk in the forest and found a house.
+[2025-09-26 11:49:12] ROBOT_SPEECH: She knocked, and when nobody answered, she decided to go inside.
+[2025-09-26 11:49:45] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-09-26 11:49:47] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+GAME: at_talks
+Time: Fri Sep 26 12:03:02 2025
+[2025-09-26 12:03:05] ROBOT_SPEECH: Hello! How r you today?
+[2025-09-26 12:03:16] ROBOT_SPEECH: Hello! How r you today?
+[2025-09-26 12:03:49] ROBOT_SPEECH: Goodbye!
+[2025-09-26 12:03:54] ROBOT_SPEECH: See you later!

@@ -62,6 +62,75 @@
         margin-top: 130px;
         margin-left: 20%;
     }
+
+    #addUserBtn {
+        font-size: 20px;
+        height: 50px;
+        width: 50%;
+        margin-top: 20px;
+        margin-left: 25%;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #addUserBtn:hover {
+        background-color: #45a049;
+    }
+
+    /* Modal styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 30px;
+        border: 1px solid #888;
+        border-radius: 10px;
+        width: 400px;
+        text-align: center;
+    }
+
+    .modal-content input {
+        width: 80%;
+        margin: 20px 0;
+        font-size: 20px;
+    }
+
+    .modal-buttons {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .modal-buttons button {
+        font-size: 18px;
+        padding: 10px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .modal-buttons .confirm-btn {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .modal-buttons .cancel-btn {
+        background-color: #f44336;
+        color: white;
+    }
 </style>
 <div class="form-container">
     <form action="" method="POST">
@@ -69,17 +138,26 @@
             <label for="username">Child Name:</label>
             <select id="username" class="username">
                 <option value="" disabled selected>Select Name</option>
-                <option value="Viraj">Viraj</option>
-                <option value="Aaron">Aaron</option>
-                <option value="Ayat">Ayat</option>
-                <option value="Catalina">Catalina</option>
-                <option value="Razak">Raza</option>
-                <option value="Arleen">Arleen</option>
-                <option value="Kreesh">Krishna Ansh</option>
+                {% for user in user_names %}
+                <option value="{{ user }}">{{ user }}</option>
+                {% endfor %}
             </select>
         </div>
         <input id="btn" class="sync" type="button" value="Continue" required />
+        <input id="addUserBtn" type="button" value="Create New User" />
     </form>
+</div>
+
+<!-- Modal for adding new user -->
+<div id="addUserModal" class="modal">
+    <div class="modal-content">
+        <h2>Create New User</h2>
+        <input type="text" id="newUserName" placeholder="Enter child's name" />
+        <div class="modal-buttons">
+            <button class="confirm-btn" id="confirmAddUser">Create</button>
+            <button class="cancel-btn" id="cancelAddUser">Cancel</button>
+        </div>
+    </div>
 </div>
 
 <!-- jQuery -->
@@ -95,14 +173,82 @@
         });
 
         $('input.sync').on('click', function (event) {
-            if ($('select.username').val() === "None") {
+            if ($('select.username').val() === "None" || $('select.username').val() === null) {
                 alert("Please fill out all information.");
             } else {
                 socket.emit('user_confirming', {
                     name: $('select.username').val()
                 });
-                      window.location.href = '/user_confirm';
+                window.location.href = '/user_confirm';
             }
+        });
+
+        // Add User Button - Open Modal
+        $('#addUserBtn').on('click', function (event) {
+            event.preventDefault();
+            $('#addUserModal').show();
+        });
+
+        // Cancel Button - Close Modal
+        $('#cancelAddUser').on('click', function (event) {
+            event.preventDefault();
+            $('#addUserModal').hide();
+            $('#newUserName').val('');
+        });
+
+        // Confirm Button - Create New User
+        $('#confirmAddUser').on('click', function (event) {
+            event.preventDefault();
+            var newName = $('#newUserName').val().trim();
+            
+            if (newName === '') {
+                alert('Please enter a valid name.');
+                return;
+            }
+
+            // Check if name already exists
+            var exists = false;
+            $('#username option').each(function() {
+                if ($(this).val() === newName) {
+                    exists = true;
+                }
+            });
+
+            if (exists) {
+                alert('This name already exists. Please choose a different name.');
+                return;
+            }
+
+            // Add new option to the dropdown
+            $('#username').append(new Option(newName, newName));
+            
+            // Select the newly added user
+            $('#username').val(newName);
+
+            // Emit socket event to create user files on the backend
+            socket.emit('create_new_user', {
+                name: newName
+            });
+
+            // Close modal and clear input
+            $('#addUserModal').hide();
+            $('#newUserName').val('');
+
+            // Show confirmation message
+            alert('User "' + newName + '" has been created successfully!');
+        });
+
+        // Close modal when clicking outside of it
+        $(window).on('click', function(event) {
+            if (event.target.id === 'addUserModal') {
+                $('#addUserModal').hide();
+                $('#newUserName').val('');
+            }
+        });
+
+        // Listen for user creation confirmation from backend
+        socket.on('user_created', function(data) {
+            console.log('User files created for: ' + data.name);
         });
 
         socket.on('redirect', function (data) {

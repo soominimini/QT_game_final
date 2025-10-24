@@ -1,0 +1,23 @@
+CLIENT NAME: Razak
+login closed  Fri Oct  3 11:16:23 2025
+GAME: at_talks
+Time: Fri Oct  3 11:16:46 2025
+[2025-10-03 11:16:48] ROBOT_SPEECH: Hello! How r you today?
+[2025-10-03 11:30:06] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-10-03 11:32:01] Praise BUTTON Clicked: [2025-10-03 11:32:01] ROBOT_SPEECH: Wonderful!
+[2025-10-03 11:32:32] Praise BUTTON Clicked: [2025-10-03 11:32:32] ROBOT_SPEECH: Wonderful!
+GAME: instructions_game
+Time: Fri Oct  3 11:37:42 2025
+[2025-10-03 11:37:44] ROBOT_SPEECH: Where do you wanna go?
+[2025-10-03 11:39:06] ROBOT_SPEECH: Let's go shopping!
+[2025-10-03 11:39:09] ROBOT_SPEECH: Kustomer is waiting, at the end of the checkout counter
+[2025-10-03 11:40:13] ROBOT_SPEECH: Perfect!
+[2025-10-03 11:40:17] ROBOT_SPEECH: Lets place the cart, between the checkout counters
+[2025-10-03 11:41:30] ROBOT_SPEECH: Amazing!
+[2025-10-03 11:41:35] ROBOT_SPEECH: Casher, is in front of checkout counter
+[2025-10-03 11:41:36] ROBOT_SPEECH: Hooray!
+Main closed  Fri Oct  3 11:42:00 2025
+GAME: at_talks
+Time: Fri Oct  3 11:53:05 2025
+[2025-10-03 11:53:06] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-10-03 12:00:40] ROBOT_SPEECH: Goodbye!

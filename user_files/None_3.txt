@@ -6,3 +6,29 @@ Time: Thu Sep 11 12:17:10 2025
 GAME: at_talks
 Time: Thu Sep 11 12:17:23 2025
 [2025-09-11 12:17:27] ROBOT_SPEECH: Hello! How r you today?
+CLIENT NAME: None
+login closed  Thu Sep 11 12:21:07 2025
+GAME: break
+Time: Thu Sep 11 12:21:14 2025
+[2025-09-11 12:21:14] ROBOT_SPEECH: Oh! Break Time!
+[2025-09-11 12:21:19] ROBOT_SPEECH: Lets do the monkey jumps
+GAME: at_talks
+Time: Thu Sep 11 12:21:23 2025
+GAME: story_old_client
+Time: Thu Sep 11 12:21:26 2025
+[2025-09-11 12:21:26] ROBOT_SPEECH: Lets choose a story
+GAME: story_young_client
+Time: Thu Sep 11 12:21:30 2025
+[2025-09-11 12:21:30] ROBOT_SPEECH: Lets choose a story
+GAME: yes_no_young
+Time: Thu Sep 11 12:21:33 2025
+[2025-09-11 12:21:34] ROBOT_SPEECH: Is the boy happy?
+[2025-09-11 12:21:42] ROBOT_SPEECH: Correct!
+[2025-09-11 12:21:45] ROBOT_SPEECH: Is this a balloon?
+[2025-09-11 12:21:49] ROBOT_SPEECH: Correct!
+[2025-09-11 12:21:54] ROBOT_SPEECH: Is the boy sleeping?
+[2025-09-11 12:21:59] ROBOT_SPEECH: That's not correct
+[2025-09-11 12:22:06] ROBOT_SPEECH: That's not correct
+[2025-09-11 12:22:10] ROBOT_SPEECH: Correct!
+[2025-09-11 12:22:15] ROBOT_SPEECH: Is this a mountain?
+[2025-09-11 12:22:20] ROBOT_SPEECH: That's not correct

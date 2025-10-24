@@ -1,0 +1,21 @@
+CLIENT NAME: Soomin
+Created on: 2025-10-24 14:38:53
+User created via login page
+--------------------------------------------------
+Name: Soomin
+login closed  Fri Oct 24 14:38:55 2025
+at_talks
+Time: Fri Oct 24 14:39:06 2025
+[2025-10-24 14:39:08] ROBOT_SPEECH: What is your favourite holiday? How do you celebrate it?
+Main closed  Fri Oct 24 14:39:22 2025
+login closed  Fri Oct 24 14:39:23 2025
+Name: Soomin
+login closed  Fri Oct 24 14:39:29 2025
+break
+Time: Fri Oct 24 14:39:33 2025
+[2025-10-24 14:39:33] ROBOT_SPEECH: Oh! Break Time!
+yes_no_young
+Time: Fri Oct 24 14:39:39 2025
+[2025-10-24 14:39:41] ROBOT_SPEECH: Is this a car?
+[2025-10-24 14:39:44] ROBOT_SPEECH: Correct!
+Main closed  Fri Oct 24 14:40:05 2025

@@ -1,0 +1,178 @@
+CLIENT NAME: Kreesh
+login closed  Thu Sep 18 16:52:45 2025
+GAME: inference_old
+Time: Thu Sep 18 16:52:54 2025
+[2025-09-18 16:52:55] ROBOT_SPEECH: Lets play inference games
+[2025-09-18 16:52:57] ROBOT_SPEECH: I work at a school. I teach many subjects. I help students learn how to read and write. Who am I?
+Main closed  Thu Sep 18 16:57:05 2025
+GAME: at_talks
+Time: Thu Sep 18 16:59:45 2025
+[2025-09-18 16:59:55] ROBOT_SPEECH: Hello! How r you today?
+[2025-09-18 17:00:15] ROBOT_SPEECH: I'm fine!
+[2025-09-18 17:00:20] ROBOT_SPEECH: Whats your name?
+[2025-09-18 17:00:23] ROBOT_SPEECH: Wow! nice name!
+[2025-09-18 17:00:50] ROBOT_SPEECH: My name is QT!
+[2025-09-18 17:00:50] ROBOT_SPEECH: My name is QT!
+GAME: story_old_client
+Time: Thu Sep 18 17:01:10 2025
+[2025-09-18 17:01:11] ROBOT_SPEECH: Lets choose a story
+GAME: goldilocks
+Time: Thu Sep 18 17:01:17 2025
+[2025-09-18 17:01:18] ROBOT_SPEECH: Lets start the story!
+Main closed  Thu Sep 18 17:01:43 2025
+GAME: story_old_client
+Time: Thu Sep 18 17:01:47 2025
+[2025-09-18 17:01:48] ROBOT_SPEECH: Lets choose a story
+GAME: goldilocks
+Time: Thu Sep 18 17:01:55 2025
+[2025-09-18 17:01:56] ROBOT_SPEECH: Lets start the story!
+[2025-09-18 17:02:06] ROBOT_SPEECH: Once upon a time lived Goldilocks and The Three Bears.
+[2025-09-18 17:03:13] ROBOT_SPEECH: One day, Goldilocks went for a walk in the forest and found a house.
+[2025-09-18 17:03:20] ROBOT_SPEECH: She knocked, and when nobody answered, she decided to go inside.
+[2025-09-18 17:03:49] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-09-18 17:04:24] ROBOT_SPEECH: Goldilocks tasted the porridge from the large bowl. This porridge is too salty
+[2025-09-18 17:05:16] ROBOT_SPEECH: Goldilocks tasted the porridge from the medium sized bowl. “This porridge is too sweet!
+[2025-09-18 17:06:06] ROBOT_SPEECH: Goldilocks tasted the porridge from the small bowl. “This porridge is just right,” Goldilocks said and ate it all up.
+[2025-09-18 17:06:53] ROBOT_SPEECH: Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.
+[2025-09-18 17:07:30] ROBOT_SPEECH: Goldilocks sat in the large chair to rest her feet. “This chair is too big!
+[2025-09-18 17:07:31] ROBOT_SPEECH: Goldilocks sat in the large chair to rest her feet. “This chair is too big!
+[2025-09-18 17:08:14] ROBOT_SPEECH: Goldilocks sat in the medium sized chair. This chair is too big, too!
+[2025-09-18 17:08:54] ROBOT_SPEECH: Goldilocks sat in the small chair. “This chair is just right
+[2025-09-18 17:09:21] ROBOT_SPEECH: By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom.
+[2025-09-18 17:10:01] ROBOT_SPEECH: Goldilocks lay down on the large bed. “This bed is too hard!” 
+[2025-09-18 17:10:47] ROBOT_SPEECH: Goldilocks lay down on the medium sized bed. This bed is too soft!
+[2025-09-18 17:11:19] ROBOT_SPEECH: Goldilocks lay down on the small bed. This bed is just right. Goldilocks curled up and fell asleep.
+[2025-09-18 17:12:01] ROBOT_SPEECH: As Goldilocks was sleeping, The Three Bears came home.
+[2025-09-18 17:12:19] ROBOT_SPEECH: Someone’s been eating my porridge, growled Daddy Bear.
+[2025-09-18 17:12:19] ROBOT_SPEECH: #BEAR#
+[2025-09-18 17:13:07] ROBOT_SPEECH: As Goldilocks was sleeping, The Three Bears came home.
+[2025-09-18 17:13:12] ROBOT_SPEECH: Someone’s been eating my porridge, growled Daddy Bear.
+[2025-09-18 17:13:12] ROBOT_SPEECH: #BEAR#
+[2025-09-18 17:13:16] ROBOT_SPEECH: Someone’s been eating my porridge, said Mummy Bear.
+[2025-09-18 17:13:40] ROBOT_SPEECH: Someone’s been eating my porridge and it’s all gone!. Cried Baby Bear
+[2025-09-18 17:13:40] ROBOT_SPEECH: #CRY03#
+[2025-09-18 17:14:05] ROBOT_SPEECH: Someone’s been sitting in my chair!. Growled Daddy Bear.
+[2025-09-18 17:14:05] ROBOT_SPEECH: #BEAR#
+[2025-09-18 17:14:25] ROBOT_SPEECH: Someone’s been sitting in my chair!” said Mummy Bear.
+[2025-09-18 17:14:54] ROBOT_SPEECH: Someone’s been sitting in my chair and it’s broken!. Cried Baby Bear.
+[2025-09-18 17:14:54] ROBOT_SPEECH: #CRY04#
+[2025-09-18 17:18:52] ROBOT_SPEECH: When they got upstairs to the bedroom, Daddy Bear growled.
+[2025-09-18 17:18:52] ROBOT_SPEECH: #BEAR#
+[2025-09-18 17:18:52] ROBOT_SPEECH: Someone’s been sleeping on my bed.
+[2025-09-18 17:19:31] ROBOT_SPEECH: Someone’s been sleeping on my bed too, said the Mummy Bear
+[2025-09-18 17:19:49] ROBOT_SPEECH: Someone’s been sleeping in my bed, and she’s still there!. Cried Baby Bear.
+[2025-09-18 17:19:49] ROBOT_SPEECH: #CRY03#
+[2025-09-18 17:20:49] ROBOT_SPEECH: Just then Goldilocks woke up and saw The Three Bears.
+[2025-09-18 17:20:52] ROBOT_SPEECH: She screamed.
+[2025-09-18 17:21:29] ROBOT_SPEECH: Goldilocks ran down the stairs and into the forest. And she never went back into the woods again.
+[2025-09-18 17:22:21] REPEAT BUTTON Clicked: [2025-09-18 17:22:21] ROBOT_SPEECH: Who entered the house of the three bears?
+[2025-09-18 17:22:25] ROBOT_SPEECH: Correct!
+[2025-09-18 17:22:28] REPEAT BUTTON Clicked: [2025-09-18 17:22:28] ROBOT_SPEECH: How many bears lived in the house?
+[2025-09-18 17:22:31] ROBOT_SPEECH: Correct!
+[2025-09-18 17:22:40] REPEAT BUTTON Clicked: [2025-09-18 17:22:40] ROBOT_SPEECH: What did goldilocks find on the table when she went inside the house?
+[2025-09-18 17:22:48] ROBOT_SPEECH: Correct!
+[2025-09-18 17:22:48] REPEAT BUTTON Clicked: [2025-09-18 17:22:48] ROBOT_SPEECH: Which porridge did Goldilocks like?
+[2025-09-18 17:22:57] ROBOT_SPEECH: Correct!
+[2025-09-18 17:22:57] REPEAT BUTTON Clicked: [2025-09-18 17:22:57] ROBOT_SPEECH: What did Goldilocks do after she ate the porridge?
+[2025-09-18 17:23:40] ROBOT_SPEECH: Correct!
+[2025-09-18 17:23:50] Stop event triggered by user.
+[2025-09-18 17:23:50] ROBOT_SPEECH: all done
+GAME: dice_emotion_old
+Time: Thu Sep 18 17:24:12 2025
+[2025-09-18 17:24:13] ROBOT_SPEECH: Let's roll the dice
+[2025-09-18 17:24:14] ROBOT_SPEECH: Let's roll the dice
+Main closed  Thu Sep 18 17:24:19 2025
+GAME: dice_emotion_old
+Time: Thu Sep 18 17:24:28 2025
+[2025-09-18 17:24:29] ROBOT_SPEECH: Let's roll the dice
+[2025-09-18 17:24:42] ROBOT_SPEECH: frustrated
+[2025-09-18 17:24:48] ROBOT_SPEECH: When do you feel frustrated?
+[2025-09-18 17:25:36] ROBOT_SPEECH: confused
+[2025-09-18 17:25:39] ROBOT_SPEECH: What makes you feel confused?
+[2025-09-18 17:26:24] ROBOT_SPEECH: silly
+[2025-09-18 17:26:30] ROBOT_SPEECH: when do you feel silly?
+[2025-09-18 17:27:10] ROBOT_SPEECH: excited
+[2025-09-18 17:27:17] ROBOT_SPEECH: Who makes you feel excited?
+[2025-09-18 17:27:47] ROBOT_SPEECH: tired
+[2025-09-18 17:27:53] ROBOT_SPEECH: When do you feel tired?
+[2025-09-18 17:28:37] Stop event triggered by user.
+[2025-09-18 17:28:37] ROBOT_SPEECH: all done
+Main closed  Thu Sep 18 17:28:46 2025
+GAME: story_old_client
+Time: Thu Sep 18 17:29:04 2025
+[2025-09-18 17:29:05] ROBOT_SPEECH: Lets choose a story
+GAME: red_riding
+Time: Thu Sep 18 17:29:06 2025
+[2025-09-18 17:29:07] ROBOT_SPEECH: Lets start the story!
+Main closed  Thu Sep 18 17:29:11 2025
+GAME: story_old_client
+Time: Thu Sep 18 17:29:16 2025
+[2025-09-18 17:29:16] ROBOT_SPEECH: Lets choose a story
+GAME: red_riding
+Time: Thu Sep 18 17:29:24 2025
+[2025-09-18 17:29:25] ROBOT_SPEECH: Lets start the story!
+[2025-09-18 17:29:35] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-09-18 17:30:01] ROBOT_SPEECH: One day, she decided to go visit her dear grandmother, who lift deep in the woods.
+[2025-09-18 17:30:36] ROBOT_SPEECH: When her mother packed a basket of treats,  she warned her not to talk to strangers along the way.
+[2025-09-18 17:31:33] ROBOT_SPEECH: As Little Red Riding Hood happily strolled through the woods,   she did not notice the sneaky wolf stalking her through the trees.
+[2025-09-18 17:32:55] ROBOT_SPEECH: The wolf, pretending to be lost, asked Little Red Riding Hood for directions.
+[2025-09-18 17:33:38] ROBOT_SPEECH: The wolf seemed harmless enough, so Little Red Riding Hood not only spoke to him.   She also revealed where she was going.
+[2025-09-18 17:34:40] ROBOT_SPEECH: The wolf rushed ahead to beat her to her grand mother’s house,   gaining entry by pretending to be her dear granddaughter. 
+[2025-09-18 17:35:22] ROBOT_SPEECH: Having locked her grandmother in the closet,  the wolf waited for Little Red Riding Hood to arrive.
+[2025-09-18 17:36:21] ROBOT_SPEECH: When she knocked on her grandmother’s door, she was greeted by a strange voice.  “Come in dear,” said the wolf. 
+[2025-09-18 17:36:56] ROBOT_SPEECH: As the wolf lay in bed, wearing one of her grandmother’s nightgowns, Little Red Riding Hood thought her grandmother sounded and looked strange. 
+[2025-09-18 17:37:46] ROBOT_SPEECH: What big ears you have, she said. Better to hear you with my dear, replied the wolf. 
+[2025-09-18 17:38:31] ROBOT_SPEECH: “What big eyes you have,” said Little Red Riding Hood.  “Better to see you with my darling,” the wolf replied. 
+[2025-09-18 17:38:32] ROBOT_SPEECH: Your teeth, your teeth are large and as sharp as knives.  Little Red Riding Hood exclaimed.
+[2025-09-18 17:38:48] ROBOT_SPEECH: Lets choose a story
+GAME: red_riding
+Time: Thu Sep 18 17:38:51 2025
+Main closed  Thu Sep 18 17:38:52 2025
+GAME: story_old_client
+Time: Thu Sep 18 17:38:57 2025
+[2025-09-18 17:38:57] ROBOT_SPEECH: Lets choose a story
+GAME: red_riding
+Time: Thu Sep 18 17:38:58 2025
+[2025-09-18 17:38:59] ROBOT_SPEECH: Lets start the story!
+[2025-09-18 17:39:06] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-09-18 17:39:15] ROBOT_SPEECH: One day, she decided to go visit her dear grandmother, who lift deep in the woods.
+[2025-09-18 17:39:22] ROBOT_SPEECH: When her mother packed a basket of treats,  she warned her not to talk to strangers along the way.
+[2025-09-18 17:39:34] ROBOT_SPEECH: As Little Red Riding Hood happily strolled through the woods,   she did not notice the sneaky wolf stalking her through the trees.
+[2025-09-18 17:39:45] ROBOT_SPEECH: The wolf, pretending to be lost, asked Little Red Riding Hood for directions.
+[2025-09-18 17:39:53] ROBOT_SPEECH: The wolf seemed harmless enough, so Little Red Riding Hood not only spoke to him.   She also revealed where she was going.
+[2025-09-18 17:40:03] ROBOT_SPEECH: The wolf rushed ahead to beat her to her grand mother’s house,   gaining entry by pretending to be her dear granddaughter. 
+[2025-09-18 17:40:13] ROBOT_SPEECH: Having locked her grandmother in the closet,  the wolf waited for Little Red Riding Hood to arrive.
+[2025-09-18 17:40:20] ROBOT_SPEECH: When she knocked on her grandmother’s door, she was greeted by a strange voice.  “Come in dear,” said the wolf. 
+[2025-09-18 17:40:30] ROBOT_SPEECH: As the wolf lay in bed, wearing one of her grandmother’s nightgowns, Little Red Riding Hood thought her grandmother sounded and looked strange. 
+[2025-09-18 17:40:41] ROBOT_SPEECH: What big ears you have, she said. Better to hear you with my dear, replied the wolf. 
+[2025-09-18 17:41:10] ROBOT_SPEECH: “What big eyes you have,” said Little Red Riding Hood.  “Better to see you with my darling,” the wolf replied. 
+[2025-09-18 17:41:55] ROBOT_SPEECH: Your teeth, your teeth are large and as sharp as knives.  Little Red Riding Hood exclaimed.
+[2025-09-18 17:42:42] ROBOT_SPEECH: “The better to eat you with!” growled the wolf as he jumped up and lunged at the girl.
+[2025-09-18 17:43:32] ROBOT_SPEECH: Luckily Little Red Riding Hood had practiced self defense, and grabbed a broom to fend off the wolf. Surprised by the girl's bravery, the wolf ran off with his tail between his legs.
+[2025-09-18 17:45:26] ROBOT_SPEECH: Little Red Riding Hood freed her grandmother from the closet,  and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again.
+[2025-09-18 17:46:50] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-09-18 17:47:06] ROBOT_SPEECH: Correct!
+[2025-09-18 17:47:09] ROBOT_SPEECH: What did Little Red Riding Hood’s mother warn her about?
+[2025-09-18 17:49:24] Stop event triggered by user.
+[2025-09-18 17:49:24] ROBOT_SPEECH: all done
+GAME: story_old_client
+Time: Thu Sep 18 17:52:32 2025
+GAME: story_old_client
+Time: Thu Sep 18 17:53:17 2025
+[2025-09-18 17:53:17] ROBOT_SPEECH: Lets choose a story
+GAME: goldilocks
+Time: Thu Sep 18 17:57:01 2025
+[2025-09-18 17:57:02] ROBOT_SPEECH: Lets start the story!
+[2025-09-18 17:57:09] ROBOT_SPEECH: Once upon a time lived Goldilocks and The Three Bears.
+[2025-09-18 17:57:39] ROBOT_SPEECH: One day, Goldilocks went for a walk in the forest and found a house.
+[2025-09-18 17:57:45] ROBOT_SPEECH: She knocked, and when nobody answered, she decided to go inside.
+[2025-09-18 17:58:45] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-09-18 17:58:48] ROBOT_SPEECH: One day, Goldilocks went for a walk in the forest and found a house.
+[2025-09-18 17:58:54] ROBOT_SPEECH: She knocked, and when nobody answered, she decided to go inside.
+[2025-09-18 17:59:06] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-09-18 17:59:08] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-09-18 17:59:10] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-09-18 17:59:13] ROBOT_SPEECH: Goldilocks tasted the porridge from the small bowl. “This porridge is just right,” Goldilocks said and ate it all up.
+[2025-09-18 18:00:02] ROBOT_SPEECH: Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.
+[2025-09-18 18:00:09] ROBOT_SPEECH: By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom.
+Main closed  Thu Sep 18 18:02:09 2025

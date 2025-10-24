@@ -21,15 +21,15 @@
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
     const img1 = new Image();
-    img1.src = "../static/instruction/young/basket_tree.png";
+    img1.src = "../static/instruction/young/basket_maple.png";
     const img2 = new Image();
-    img2.src = "../static/instruction/young/basket_tree_bench.png";
+    img2.src = "../static/instruction/young/basket_maple_flower.png";
     const img3 = new Image();
-    img3.src = "../static/instruction/young/basket_tree_bench_frisbee.png";
+    img3.src = "../static/instruction/young/basket_maple_flower_water.png";
 
     $(document).ready(function () {
-        socket.emit('first_talk', "Can we play hide n seek? Let’s run to the tree!");
-        value = "Can we play hide n seek? Let’s run to the tree!"
+        socket.emit('first_talk', "Look! A maple leaf! Give it to me!");
+        value = "Look! A maple leaf! Give it to me!"
         nonDragged();
 
     });
@@ -85,9 +85,9 @@
 
                 setTimeout(() => {
 
-                    socket.emit('giveme_talk', "I want to sit on a bench. Let’s find one!",2.5);
+                    socket.emit('giveme_talk', "Pretty \\emph\\ flowers! I want them!",2.5);
 
-                    value = "I want to sit on a bench. Let’s find one!"
+                    value = "Pretty \\emph\\ flowers! I want them!"
                 }, 1000); // 1-second delay after the first emit
 
                 setTimeout(() => {
@@ -97,8 +97,8 @@
                 nonDragged();
                 score -= 1;
                 socket.emit('wrong') //robot encourage
-                socket.emit('wrong_repeat', "Let's go to near the tree") //robot repeats what it asked
-                value = 'I want to play frisbee'
+                socket.emit('wrong_repeat', "I want a maple leaf") //robot repeats what it asked
+                value = 'I want a maple leaf'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         } else if (first_choice == true && second_choidce == false && third_choidce == false) {
@@ -110,15 +110,15 @@
                 $("#drop_cart").attr("src", img2.src); // Update the cart image
                 second_choidce = true;
                 socket.emit('correct') //robot praise
-                socket.emit('giveme_talk', "Let’s play with the frisbee!", 2.5);
-                value = "Let’s play with the frisbee!"
+                socket.emit('giveme_talk', "Cool water! I \\emph\\ want it!", 2.5);
+                value = "Cool water! I \\emph\\ want it!"
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             } else {
                 nonDragged();
                 score -= 1;
                 socket.emit('wrong') //robot encourage
-                socket.emit('wrong_repeat', 'I want to sit down on a bench.') //robot repeats what it asked
-                value = 'I want to sit down on a bench.'
+                socket.emit('wrong_repeat', 'I want pretty flowers') //robot repeats what it asked
+                value = 'I want pretty flowers'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         } else {
@@ -141,8 +141,8 @@
                 score -= 1;
                 socket.emit('wrong') //robot encourage
 
-                socket.emit('wrong_repeat', "I want to play catch with the frisbee!") //robot repeats what it asked
-                value = "I want to play catch with the frisbee!"
+                socket.emit('wrong_repeat', "I want cool water") //robot repeats what it asked
+                value = "I want cool water"
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         }
@@ -334,13 +334,13 @@
     </div>
     <div class="object" style="margin-top: -3%; width: 40%">
         <div class="item">
-            <img id="bench" data-source-id="second_answer" src="../static/instruction/bench.png">
+            <img id="flower" data-source-id="second_answer" src="../static/instruction/flower.png">
         </div>
         <div class="item">
-            <img id="sandbox" data-source-id="first_answer" src="../static/instruction/tree.png">
+            <img id="maple" data-source-id="first_answer" src="../static/instruction/maple.png">
         </div>
         <div class="item">
-            <img id="frisbee" data-source-id="third_answer" src="../static/instruction/frisbee.png">
+            <img id="water" data-source-id="third_answer" src="../static/instruction/water.png" style="width:60%; height: auto;">
         </div>
     </div>
     <div class="other" style="position: fixed;  top: 280px; left: 30px">

@@ -24,6 +24,7 @@ from emotion_card2 import *
 from emotion_card3 import *
 from flask_mysqldb import MySQL
 import mysql.connector as sql
+import json
 
 # from interact_story import *
 
@@ -154,10 +155,7 @@ def setup_speech_logging():
 
 def neutralize():
     gesturePlay_servc("QT/neutral", 0.5)
-
-def neutralize_slow():
-    gesturePlay_servc("QT/neutral", 0.4)
-
+# "idle_left_arm_and_head", "idle_right_arm_and_head",
 def get_short_idle_gesture():
     gestures = ["head_arm_natural", "idle_left_arm_and_head", "idle_right_arm_and_head","natural_arms_wide","idle_short_head_and_arms", "idle_test_1", "idle_test_arm", "idle2"]
     # gestures = ["idle_arms_up_1", "idle_arms_1", "idle_arms_2", "head_arm_natural", "natural_arms_wide", "both_arms", "idle_test_1", "idle_test_arm", "idle_left_arm_and_head", "idle_right_arm_and_head","idle_short_head_and_arms"]
@@ -193,10 +191,6 @@ def handle_speech_stop_force(data):
     stop_triggered_flag = True
     print("Speech stop event triggered.")
 
-@socketio.on('jumping_jack_repeat')
-def repeat_jumping_jacks():
-    threading.Thread(target=execute_jumping_jacks).start()
-
 
 def execute_jumping_jacks():
     global stop_triggered_flag
@@ -216,17 +210,6 @@ def execute_jumping_jacks():
 
 @socketio.on('speech_stop')
 def handle_speech_stop(data):
-    # --- Add this logging block ---
-    global file_name
-    if file_name: # Checks if the log file has been set up
-        try:
-            with open(file_name, "a") as f:
-                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                # Write the custom log entry for the stop event
-                f.write(f"[{timestamp}] Stop event triggered by user.\n")
-        except Exception as e:
-            print(f"Error logging stop event: {e}")
-    # --- End of logging block ---
     speech_stop_event.set()  # Signal to stop speech
     emotion_stop_event.set()
     gesture_stop_event.set()
@@ -277,17 +260,6 @@ def handle_gesture_play(data, speed):
     threading.Thread(target=play_gesture).start()
     print("Gesture play event received:", data)
 
-
-@socketio.on('gesture_play_brain_break')
-def handle_gesture_play_brain_break():
-    global gesture_for_song
-    def play_gesture():
-        gesture_stop_event.clear()  # Reset stop signal before starting speech
-        gesturePlay_servc(gesture_for_song, 1)
-
-    # Run speech processing in a separate thread
-    threading.Thread(target=play_gesture).start()
-
 @socketio.on('gesture_play_pub')
 def handle_gesture_play_pub(data):
     gesturePlay_pub.publish(data)
@@ -304,45 +276,6 @@ def handle_audio_play(data):
     threading.Thread(target=play_audio).start()
     print("Audio play event received:", data)
 
-@socketio.on('audio_replay_brain_break')
-def handle_audio_play_brain_break():
-    global random_song
-    print("random_song: ",random_song)
-    def play_audio():
-        audio_stop_event.clear()  # Reset stop signal before starting speech
-        audioPlay_pub.publish(random_song)
-
-    # Run speech processing in a separate thread
-    threading.Thread(target=play_audio).start()
-    print("Audio play event received:", random_song)
-
-
-
-@socketio.on('repeat_for_brain_break')
-def handle_repeat_speach(data):
-    if data == '':
-        global global_sentence
-        data = global_sentence
-
-    # --- Add this logging block ---
-    global file_name
-    if file_name: # Checks if the log file has been set up
-        try:
-            with open(file_name, "a") as f:
-                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                # Write the custom log entry for the button click
-                f.write(f"[{timestamp}] REPEAT BUTTON Clicked: ")
-        except Exception as e:
-            print(f"Error logging repeat button click: {e}")
-    # --- End of logging block ---
-
-    def say_speech_repeat():
-        speech_stop_event.clear()
-        behaviorTalk_servc(data)
-        # Run speech processing in a separate thread
-
-    threading.Thread(target=say_speech_repeat).start()
-    print("Speech say event received:", data)
 
 @socketio.on('repeat_speech')
 def handle_repeat_speach(data):
@@ -350,19 +283,7 @@ def handle_repeat_speach(data):
         global global_sentence
         data = global_sentence
 
-    # --- Add this logging block ---
-    global file_name
-    if file_name: # Checks if the log file has been set up
-        try:
-            with open(file_name, "a") as f:
-                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                # Write the custom log entry for the button click
-                f.write(f"[{timestamp}] REPEAT BUTTON Clicked: ")
-        except Exception as e:
-            print(f"Error logging repeat button click: {e}")
-    # --- End of logging block ---
-
-
+    print("repeat_speech: ", data)
     gesturePlay_pub.publish("child_looking")
     def say_speech_repeat():
         speech_stop_event.clear()  # Reset stop signal before starting speech
@@ -378,68 +299,16 @@ def handle_repeat_speach(data):
 
 
 @socketio.on('at_talk_speech')
-def handle_repeat_speach(data, log_message=None):
+def handle_repeat_speach(data):
     def say_speech_repeat():
         speech_stop_event.clear()  # Reset stop signal before starting speech
+
+        # behaviorTalk_servc(data)
         talktext_pub.publish(data)
-    threading.Thread(target=say_speech_repeat).start()
-    print("at_talk_speech received:", data)
-
-
-@socketio.on('break_speech')
-def handle_repeat_speach(data, log_message=None):
-    gesturePlay_pub.publish("child_looking")
-    def say_speech_repeat():
-        speech_stop_event.clear()  # Reset stop signal before starting speech
-        talktext_pub.publish(data)
-    threading.Thread(target=say_speech_repeat).start()
-    print("at_talk_speech received:", data)
-
-
-@socketio.on('praise')
-def handle_praise_speach(data):
-    # --- Add this logging block ---
-    global file_name
-    if file_name: # Checks if the log file has been set up
-        try:
-            with open(file_name, "a") as f:
-                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                # Write the custom log entry for the button click
-                f.write(f"[{timestamp}] Praise BUTTON Clicked: ")
-        except Exception as e:
-            print(f"Error logging repeat button click: {e}")
-    # --- End of logging block ---
-    handle_gesture_play("QT/happy", 2)
-    def say_speech_repeat():
-        speech_stop_event.clear()  # Reset stop signal before starting speech
-        behaviorTalk_servc(data)
         # Run speech processing in a separate thread
 
     threading.Thread(target=say_speech_repeat).start()
-
-@socketio.on('encourage')
-def handle_encourage_speach(data):
-    # --- Add this logging block ---
-    global file_name
-    if file_name: # Checks if the log file has been set up
-        try:
-            with open(file_name, "a") as f:
-                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                # Write the custom log entry for the button click
-                f.write(f"[{timestamp}] Encourage BUTTON Clicked: ")
-        except Exception as e:
-            print(f"Error logging repeat button click: {e}")
-    # --- End of logging block ---
-
-    gesturePlay_pub.publish("child_looking1")
-    def say_speech_repeat():
-        speech_stop_event.clear()  # Reset stop signal before starting speech
-        behaviorTalk_servc(data)
-        # Run speech processing in a separate thread
-
-    threading.Thread(target=say_speech_repeat).start()
-
-
+    print("at_talk_speech received:", data)
 
 
 #     #     #     #     #     #     #     #     #     #     #     # #     #     #    STOP functions  #     #     #     #     #     #     #     #     #     #     #     #     #     #
@@ -648,9 +517,39 @@ def reload():
     print("page reload in main")
 
 
+def load_user_names():
+    """Load user names from JSON file"""
+    user_file = 'user_names.json'
+    try:
+        if os.path.exists(user_file):
+            with open(user_file, 'r') as f:
+                data = json.load(f)
+                return data.get('users', [])
+        else:
+            # Create default file if it doesn't exist
+            default_users = [ ]
+            save_user_names(default_users)
+            return default_users
+    except Exception as e:
+        print(f"Error loading user names: {e}")
+        return [ ]
+
+
+def save_user_names(users):
+    """Save user names to JSON file"""
+    user_file = 'user_names.json'
+    try:
+        with open(user_file, 'w') as f:
+            json.dump({'users': users}, f, indent=4)
+        print(f"User names saved successfully")
+    except Exception as e:
+        print(f"Error saving user names: {e}")
+
+
 @app.route('/')
 def login():
-    return render_template('login.html')
+    users = load_user_names()
+    return render_template('login.html', user_names=users)
 
 
 @app.route('/user_confirm')
@@ -667,7 +566,7 @@ def logged_in(message):
     global file_name
 
     # Directory where files will be saved
-    save_directory = "user_files"
+    save_directory = "user_files/2nd_phase"
     os.makedirs(save_directory, exist_ok=True)  # Ensure the directory exists
 
     # Get today's date in YYYY-MM-DD format
@@ -699,7 +598,7 @@ def logged_in(message):
 
     # Open file in append mode and write user information
     with open(file_name, "a") as f:
-        f.write(f"CLIENT NAME: {name}\n")
+        f.write(f"Name: {name}\n")
 
     print(f"File saved as: {file_name}")
 
@@ -716,6 +615,52 @@ def user_confirming_func(message):
     # socketio.emit('redirect', {'url': url_for('main_page')})
 
 
+@socketio.on('create_new_user')
+def create_new_user(message):
+    """
+    Creates user files in the 2nd_phase directory when a new user is added.
+    Also saves the username permanently to the user list.
+    """
+    new_user_name = message['name']
+    
+    # Load existing users and add new one
+    users = load_user_names()
+    if new_user_name not in users:
+        users.append(new_user_name)
+        save_user_names(users)
+        print(f"Added '{new_user_name}' to permanent user list")
+    
+    # Directory where 2nd_phase files will be saved
+    phase2_directory = "user_files/2nd_phase"
+    os.makedirs(phase2_directory, exist_ok=True)  # Ensure the directory exists
+    
+    # Get today's date and timestamp
+    today_date = datetime.now().strftime("%Y-%m-%d")
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    # Create initial file for the new user in 2nd_phase
+    base_file_name = f"{new_user_name}_"
+    counter = 0
+    file_path = os.path.join(phase2_directory, f"{base_file_name}{counter}.txt")
+    
+    # Find next available file number
+    while os.path.exists(file_path):
+        counter += 1
+        file_path = os.path.join(phase2_directory, f"{base_file_name}{counter}.txt")
+    
+    # Create the file with initial user information
+    with open(file_path, "w") as f:
+        f.write(f"CLIENT NAME: {new_user_name}\n")
+        f.write(f"Created on: {timestamp}\n")
+        f.write(f"User created via login page\n")
+        f.write("-" * 50 + "\n")
+    
+    print(f"New user '{new_user_name}' created. File saved as: {file_path}")
+    
+    # Send confirmation back to client
+    socketio.emit('user_created', {'name': new_user_name, 'file': file_path})
+
+
 @socketio.on('click_main')
 def main_menu(message):
     global is_redirecting, current_game
@@ -728,7 +673,7 @@ def main_menu(message):
     game = ""
     with open(file_name, 'a+') as f:
         start = time.ctime()
-        f.write("GAME: " + message["who"] + "\n")
+        f.write(message["who"] + "\n")
         f.write("Time: " + time.ctime() + "\n")
 
         # Prevent multiple redirects
@@ -1290,15 +1235,15 @@ def dice_face_in_young_action(dice_face_str):
     elif dice_face_str == 'Sing a Song':
         # talktext_pub.publish("Let's sing a song!")
         music = ["spider", "ABC", "mcdonald", "twinkle", "wheels"]
-        global random_song
-        global gesture_for_song
         random_song = random.choice(music)
+        random_song = "wheels"
         print("random_song: " + random_song)
         if str(random_song) == "spider":
+            # talktext_pub.publish("Let's sing Incy Wincy Spider")
+            # handle_speech_say("Let's sing Incy Wincy Spider")
             handle_speech_say("Let's sing a song")
             rospy.sleep(2)
             # gesturePlay_pub.publish("IncyWincySpider")
-            gesture_for_song = "IncyWincySpider"
             handle_gesture_play("IncyWincySpider", 1)
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
@@ -1309,7 +1254,6 @@ def dice_face_in_young_action(dice_face_str):
             handle_speech_say("Let's sing a song")
             rospy.sleep(2)
             # gesturePlay_pub.publish("ABCsong")
-            gesture_for_song = "ABCsong"
             handle_gesture_play("ABCsong", 1)
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
@@ -1319,7 +1263,7 @@ def dice_face_in_young_action(dice_face_str):
             # handle_speech_say("Let's sing Old MacDonald")
             handle_speech_say("Let's sing a song")
             rospy.sleep(2)
-            gesture_for_song = "Old_MacDonald"
+            # gesturePlay_pub.publish("Old_MacDonald")
             handle_gesture_play("Old_MacDonald", 1)
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
@@ -1329,7 +1273,7 @@ def dice_face_in_young_action(dice_face_str):
             # handle_speech_say("Let's sing twinkle twinkle")
             handle_speech_say("Let's sing a song")
             rospy.sleep(2)
-            gesture_for_song = "twinkletwinklelittlestar"
+            # gesturePlay_pub.publish("twinkletwinklelittlestar")
             handle_gesture_play("twinkletwinklelittlestar", 1)
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
@@ -1339,7 +1283,7 @@ def dice_face_in_young_action(dice_face_str):
             # handle_speech_say("Let's sing Wheels on the bus")
             handle_speech_say("Let's sing a song")
             rospy.sleep(2)
-            gesture_for_song = "Wheels_bus"
+            # gesturePlay_pub.publish("Wheels_bus")
             handle_gesture_play("Wheels_bus", 1)
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
@@ -1871,50 +1815,34 @@ def speech_inference(text, sleep_time):
     """
     print("speech_inference: ", text, sleep_time)
     rospy.sleep(sleep_time)
+    # gesturePlay_pub.publish(get_short_idle_gesture())
+    # behaviorTalk_servc(text)
 
-    gestureStop_servc()
+    # Split the text into chunks
+    chunks = text_split(text)
 
-    lower_text = text.lower()
+    for chunk in chunks:
+        gestureStop_servc()
 
-    if 'big' in lower_text:
-        gesture = 'big'
-    elif 'hug' in lower_text:
-        gesture = 'warm'
-    elif 'round' in lower_text:
-        gesture = 'round'
-    elif 'long' in lower_text:
-        gesture = 'long'
-    else:
+        # Convert to lowercase for case-insensitive matching
+        lower_chunk = chunk.lower()
+
+        # Choose gesture based on keywords
+        # if 'big' in lower_chunk:
+        #     gesture = 'big'
+        # elif 'hug' in lower_chunk:
+        #     gesture = 'warm'
+        # elif 'round' in lower_chunk:
+        #     gesture = 'round'
+        # elif 'long' in lower_chunk:
+        #     gesture = 'long'
+        # else:
+        #     gesture = get_short_idle_gesture()
+
         gesture = get_short_idle_gesture()
 
-    gesturePlay_pub.publish(gesture)
-    behaviorTalk_servc(text)
-
-    # # Split the text into chunks
-    # chunks = text_split(text)
-    #
-    # for chunk in chunks:
-    #     gestureStop_servc()
-    #
-    #     # Convert to lowercase for case-insensitive matching
-    #     lower_chunk = chunk.lower()
-    #
-    #     # Choose gesture based on keywords
-    #     # if 'big' in lower_chunk:
-    #     #     gesture = 'big'
-    #     # elif 'hug' in lower_chunk:
-    #     #     gesture = 'warm'
-    #     # elif 'round' in lower_chunk:
-    #     #     gesture = 'round'
-    #     # elif 'long' in lower_chunk:
-    #     #     gesture = 'long'
-    #     # else:
-    #     #     gesture = get_short_idle_gesture()
-    #
-    #     gesture = get_short_idle_gesture()
-    #
-    #     gesturePlay_pub.publish(gesture)
-    #     behaviorTalk_servc(chunk)
+        gesturePlay_pub.publish(gesture)
+        behaviorTalk_servc(chunk)
 
 @socketio.on('start_talk')
 def first_talk_robot_interactive():

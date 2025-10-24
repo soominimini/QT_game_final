@@ -1,0 +1,39 @@
+CLIENT NAME: Razak
+login closed  Wed Sep 17 12:08:27 2025
+GAME: at_talks
+Time: Wed Sep 17 12:08:55 2025
+[2025-09-17 12:08:59] ROBOT_SPEECH: Hello! How r you today?
+[2025-09-17 12:09:10] ROBOT_SPEECH: I'm fine!
+GAME: instructions_game
+Time: Wed Sep 17 12:15:26 2025
+[2025-09-17 12:15:28] ROBOT_SPEECH: Where do you wanna go?
+[2025-09-17 12:15:52] ROBOT_SPEECH: Let's go shopping!
+[2025-09-17 12:15:54] ROBOT_SPEECH: Let's go shopping!
+[2025-09-17 12:15:56] ROBOT_SPEECH: Let's go shopping!
+[2025-09-17 12:15:57] ROBOT_SPEECH: Casher, is in front of checkout counter
+[2025-09-17 12:16:34] ROBOT_SPEECH: Amazing!
+[2025-09-17 12:16:39] ROBOT_SPEECH: Kustomer is waiting, at the end of the checkout counter
+[2025-09-17 12:16:43] REPEAT BUTTON Clicked: [2025-09-17 12:16:43] ROBOT_SPEECH: Kustomer is waiting, at the end of the checkout counter
+[2025-09-17 12:16:58] ROBOT_SPEECH: Great!
+[2025-09-17 12:17:03] ROBOT_SPEECH: Lets place the cart, between the checkout counters
+[2025-09-17 12:17:21] ROBOT_SPEECH: Perfect!
+Taking Instruction supermarket1 closed  Wed Sep 17 12:17:32 2025
+[2025-09-17 12:17:36] ROBOT_SPEECH: I want to place the orange, at the left corner
+[2025-09-17 12:17:57] ROBOT_SPEECH: Hooray!
+[2025-09-17 12:18:02] ROBOT_SPEECH: Please place the price tag, under the apple
+[2025-09-17 12:18:15] ROBOT_SPEECH: Great!
+[2025-09-17 12:18:19] ROBOT_SPEECH: Lets place an apple, on the apple stack
+[2025-09-17 12:18:48] ROBOT_SPEECH: Perfect!
+GAME: story_old_client
+Time: Wed Sep 17 12:28:03 2025
+[2025-09-17 12:28:03] ROBOT_SPEECH: Lets choose a story
+GAME: goldilocks
+Time: Wed Sep 17 12:28:05 2025
+[2025-09-17 12:28:06] ROBOT_SPEECH: Lets start the story!
+[2025-09-17 12:28:24] ROBOT_SPEECH: Once upon a time lived Goldilocks and The Three Bears.
+[2025-09-17 12:28:30] ROBOT_SPEECH: One day, Goldilocks went for a walk in the forest and found a house.
+[2025-09-17 12:28:37] ROBOT_SPEECH: She knocked, and when nobody answered, she decided to go inside.
+[2025-09-17 12:28:55] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-09-17 12:29:12] ROBOT_SPEECH: Goldilocks tasted the porridge from the large bowl. This porridge is too salty
+[2025-09-17 12:29:43] ROBOT_SPEECH: Goldilocks tasted the porridge from the medium sized bowl. “This porridge is too sweet!
+Main closed  Wed Sep 17 12:31:18 2025

@@ -1,0 +1,207 @@
+CLIENT NAME: Soomin
+Created on: 2025-10-24 14:47:33
+User created via login page
+--------------------------------------------------
+Name: Soomin
+login closed  Fri Oct 24 14:47:46 2025
+login closed  Fri Oct 24 14:47:51 2025
+at_talks
+Time: Fri Oct 24 14:47:55 2025
+at_talks
+Time: Fri Oct 24 14:48:02 2025
+at_talks
+Time: Fri Oct 24 14:48:16 2025
+[2025-10-24 14:48:27] ROBOT_SPEECH: Uh oh!
+[2025-10-24 14:48:37] ROBOT_SPEECH: Look \emph\here!
+Main closed  Fri Oct 24 14:49:01 2025
+login closed  Fri Oct 24 14:49:13 2025
+Name: Soomin
+login closed  Fri Oct 24 14:49:26 2025
+Name: Soomin
+login closed  Fri Oct 24 14:58:15 2025
+instructions_game_young
+Time: Fri Oct 24 14:58:23 2025
+[2025-10-24 14:58:25] ROBOT_SPEECH: Where shall we go?
+[2025-10-24 14:58:28] ROBOT_SPEECH: Let's go to play!
+[2025-10-24 14:58:32] ROBOT_SPEECH: Let’s have a good time in the park!
+[2025-10-24 14:58:35] ROBOT_SPEECH: Protect your skin from the sun! Give me a sunscreen.
+[2025-10-24 14:58:41] ROBOT_SPEECH: Protect your skin from the sun! Give me a sunscreen.
+[2025-10-24 14:58:49] ROBOT_SPEECH: Hooray!
+[2025-10-24 14:58:54] ROBOT_SPEECH: I am thirsty. Give me a coke.
+sunscreen selected 
+[2025-10-24 14:59:02] ROBOT_SPEECH: I want a coke
+soccer selected 
+[2025-10-24 14:59:06] ROBOT_SPEECH: Amazing!
+[2025-10-24 14:59:11] ROBOT_SPEECH: I love playing soccer. Let's bring a soccer ball.
+coke selected 
+[2025-10-24 14:59:18] ROBOT_SPEECH: Great!
+soccer selected 
+[2025-10-24 14:59:22] ROBOT_SPEECH: Let's go to the next page!
+Taking Instruction supermarket1 closed  Fri Oct 24 14:59:26 2025
+[2025-10-24 14:59:28] ROBOT_SPEECH: The sun is too bright! Give me a pair of sunglasses.
+[2025-10-24 14:59:35] ROBOT_SPEECH: The sun is too bright! Give me a pair of sunglasses.
+[2025-10-24 14:59:46] ROBOT_SPEECH: Perfect!
+[2025-10-24 14:59:50] ROBOT_SPEECH: Let's bring a lunch to the park.
+sunglass selected 
+[2025-10-24 14:59:57] ROBOT_SPEECH: Let's bring a lunch to the park.
+[2025-10-24 15:00:02] ROBOT_SPEECH: Amazing!
+[2025-10-24 15:00:07] ROBOT_SPEECH: It is cold outside. Let's bring a jacket.
+lunch selected 
+[2025-10-24 15:00:15] ROBOT_SPEECH: Perfect!
+jacket selected 
+[2025-10-24 15:00:19] ROBOT_SPEECH: Let's go to the next page!
+Taking Instruction supermarket1 closed  Fri Oct 24 15:00:21 2025
+[2025-10-24 15:00:24] ROBOT_SPEECH: Look! A maple leaf! Give it to me!
+[2025-10-24 15:00:32] ROBOT_SPEECH: Hooray!
+[2025-10-24 15:00:38] ROBOT_SPEECH: Pretty flowers! I want them!
+maple selected 
+[2025-10-24 15:00:47] ROBOT_SPEECH: Great!
+[2025-10-24 15:00:51] ROBOT_SPEECH: Cool water! I want it!
+flower selected 
+[2025-10-24 15:00:55] ROBOT_SPEECH: Cool water! I want it!
+Taking Instruction supermarket1 closed  Fri Oct 24 15:01:46 2025
+[2025-10-24 15:01:48] ROBOT_SPEECH: Where shall we go?
+[2025-10-24 15:01:50] ROBOT_SPEECH: Let’s have a good time in the park!
+[2025-10-24 15:01:54] ROBOT_SPEECH: Protect your skin from the sun! Give me a sunscreen.
+[2025-10-24 15:01:56] ROBOT_SPEECH: The sun is too bright! Give me a pair of sunglasses.
+Taking Instruction supermarket1 closed  Fri Oct 24 15:01:58 2025
+[2025-10-24 15:02:00] ROBOT_SPEECH: Look! A maple leaf! Give it to me!
+[2025-10-24 15:02:11] ROBOT_SPEECH: Amazing!
+[2025-10-24 15:02:16] ROBOT_SPEECH: Pretty flowers! I want them!
+maple selected 
+[2025-10-24 15:02:28] ROBOT_SPEECH: Great!
+[2025-10-24 15:02:33] ROBOT_SPEECH: Cool water! I \emph\ want it!
+flower selected 
+[2025-10-24 15:02:38] ROBOT_SPEECH: Cool water! I want it!
+Taking Instruction supermarket1 closed  Fri Oct 24 15:03:30 2025
+[2025-10-24 15:03:31] ROBOT_SPEECH: Where do you wanna go?
+[2025-10-24 15:03:32] ROBOT_SPEECH: Let's go to play!
+[2025-10-24 15:03:37] ROBOT_SPEECH: Let’s have a good time in the park!
+[2025-10-24 15:03:40] ROBOT_SPEECH: Protect your skin from the sun! Give me a sunscreen.
+Taking Instruction supermarket1 closed  Fri Oct 24 15:03:45 2025
+[2025-10-24 15:03:48] ROBOT_SPEECH: The sun is too bright! Give me a pair of sunglasses.
+[2025-10-24 15:03:57] ROBOT_SPEECH: Perfect!
+[2025-10-24 15:04:01] ROBOT_SPEECH: Let's bring a \emph\ lunch to the park.
+sunglass selected 
+[2025-10-24 15:04:05] ROBOT_SPEECH: Let's bring a \emph\ lunch to the park.
+[2025-10-24 15:04:13] ROBOT_SPEECH: Hooray!
+[2025-10-24 15:04:19] ROBOT_SPEECH: It is \emph\ cold outside. Let's bring a \emph\jacket.
+lunch selected 
+[2025-10-24 15:04:24] ROBOT_SPEECH: It is \emph\cold outside. Let's bring a \emph\jacket.
+[2025-10-24 15:04:34] ROBOT_SPEECH: Perfect!
+jacket selected 
+[2025-10-24 15:04:38] ROBOT_SPEECH: Let's go to the next page!
+Taking Instruction supermarket1 closed  Fri Oct 24 15:04:41 2025
+[2025-10-24 15:04:44] ROBOT_SPEECH: Look! A maple leaf! Give it to me!
+[2025-10-24 15:04:52] ROBOT_SPEECH: Amazing!
+[2025-10-24 15:04:57] ROBOT_SPEECH: Pretty \emph\ flowers! I want them!
+maple selected 
+[2025-10-24 15:05:02] ROBOT_SPEECH: Hooray!
+[2025-10-24 15:05:08] ROBOT_SPEECH: Cool water! I \emph\ want it!
+flower selected 
+[2025-10-24 15:05:12] ROBOT_SPEECH: Cool water! I \emph\ want it!
+[2025-10-24 15:05:18] ROBOT_SPEECH: Great!
+water selected 
+[2025-10-24 15:05:22] ROBOT_SPEECH: Let's go to the next page!
+Taking Instruction supermarket1 closed  Fri Oct 24 15:05:24 2025
+[2025-10-24 15:05:25] ROBOT_SPEECH: Where do you feel like going?
+[2025-10-24 15:05:28] ROBOT_SPEECH: Let's go to hospital!
+[2025-10-24 15:05:31] ROBOT_SPEECH: I need to take medicine. Can you give me a pill?
+[2025-10-24 15:05:39] ROBOT_SPEECH: Great!
+[2025-10-24 15:05:44] ROBOT_SPEECH: Let's Keep my hands clean. Can you give me medical gloves?
+pill selected 
+[2025-10-24 15:05:55] ROBOT_SPEECH: I want medical gloves
+sanitizer selected 
+[2025-10-24 15:05:59] ROBOT_SPEECH: Hooray!
+[2025-10-24 15:06:04] ROBOT_SPEECH: I need to clean my hands. Can you give me sanitizer?
+med_glove selected 
+Taking Instruction supermarket1 closed  Fri Oct 24 15:06:28 2025
+[2025-10-24 15:06:29] ROBOT_SPEECH: What place do you wanna go to?
+[2025-10-24 15:06:33] ROBOT_SPEECH: Let's go to hospital!
+[2025-10-24 15:06:35] ROBOT_SPEECH: I need to take medicine. Can you give me a pill?
+Taking Instruction supermarket1 closed  Fri Oct 24 15:06:50 2025
+[2025-10-24 15:06:51] ROBOT_SPEECH: Where do you wanna go?
+[2025-10-24 15:06:54] ROBOT_SPEECH: I need to take \emph\ medicine. Can you give me a pill?
+Taking Instruction supermarket1 closed  Fri Oct 24 15:07:05 2025
+[2025-10-24 15:07:07] ROBOT_SPEECH: Where do you feel like going?
+[2025-10-24 15:07:10] ROBOT_SPEECH: Let's go to hospital!
+[2025-10-24 15:07:12] ROBOT_SPEECH: I need to take \emph\ medicine. Can you give me a \emph\ pill?
+[2025-10-24 15:07:19] ROBOT_SPEECH: I need to take \emph\ medicine. Can you give me a \emph\ pill?
+[2025-10-24 15:07:28] ROBOT_SPEECH: I want a pill
+sanitizer selected 
+[2025-10-24 15:07:33] ROBOT_SPEECH: Perfect!
+[2025-10-24 15:07:38] ROBOT_SPEECH: Let's Keep my hands clean. Can you give me medical gloves?
+pill selected 
+sanitizer selected 
+[2025-10-24 15:07:48] ROBOT_SPEECH: I want medical gloves
+[2025-10-24 15:07:51] ROBOT_SPEECH: Amazing!
+[2025-10-24 15:07:56] ROBOT_SPEECH: I need to clean my hands. Can you give me \emph\ sanitizer?
+med_glove selected 
+[2025-10-24 15:08:03] ROBOT_SPEECH: I need to clean my hands. Can you give me \emph\ sanitizer?
+[2025-10-24 15:08:11] ROBOT_SPEECH: Hooray!
+sanitizer selected 
+[2025-10-24 15:08:16] ROBOT_SPEECH: Let's go to the next page!
+Taking Instruction supermarket1 closed  Fri Oct 24 15:08:21 2025
+[2025-10-24 15:08:23] ROBOT_SPEECH: I am coughing. Please give me a mask
+[2025-10-24 15:08:32] ROBOT_SPEECH: Great!
+[2025-10-24 15:08:36] ROBOT_SPEECH: Let's measure body temperature. Could you give me a thermometer?
+mask selected 
+[2025-10-24 15:08:44] ROBOT_SPEECH: Amazing!
+[2025-10-24 15:08:49] ROBOT_SPEECH: Let's put a band-aid on!. Please give me a band-aid
+thermometer selected 
+Taking Instruction supermarket1 closed  Fri Oct 24 15:08:57 2025
+[2025-10-24 15:08:59] ROBOT_SPEECH: Let's hear the heart sounds. Can you find the stethoscope?
+[2025-10-24 15:09:07] ROBOT_SPEECH: Perfect!
+[2025-10-24 15:09:12] ROBOT_SPEECH: I need the injection. Can you find it for me?
+stethoscope selected 
+[2025-10-24 15:09:18] ROBOT_SPEECH: Great!
+[2025-10-24 15:09:22] ROBOT_SPEECH: Can I have the bottle of syrup, please?
+injection selected 
+[2025-10-24 15:09:28] ROBOT_SPEECH: Hooray!
+syrup selected 
+[2025-10-24 15:09:33] ROBOT_SPEECH: Let's go to the next page!
+[2025-10-24 15:09:36] ROBOT_SPEECH: I need the syrup.
+injection selected 
+Taking Instruction supermarket1 closed  Fri Oct 24 15:09:36 2025
+[2025-10-24 15:09:37] ROBOT_SPEECH: Where do you want to go?
+[2025-10-24 15:09:42] ROBOT_SPEECH: Let's go to hospital!
+[2025-10-24 15:09:44] ROBOT_SPEECH: I need to take \emph\ medicine. Can you give me a \emph\ pill?
+Taking Instruction supermarket1 closed  Fri Oct 24 15:09:46 2025
+[2025-10-24 15:09:50] ROBOT_SPEECH: I am coughing. Please give me a mask
+[2025-10-24 15:09:52] ROBOT_SPEECH: Let's hear the heart sounds. Can you find the stethoscope?
+[2025-10-24 15:10:17] ROBOT_SPEECH: Amazing!
+[2025-10-24 15:10:22] ROBOT_SPEECH: I need the injection. Can you find it for me?
+stethoscope selected 
+[2025-10-24 15:10:53] ROBOT_SPEECH: Perfect!
+[2025-10-24 15:10:58] ROBOT_SPEECH: Can I have the bottle of syrup, please?
+injection selected 
+Taking Instruction supermarket1 closed  Fri Oct 24 15:10:58 2025
+[2025-10-24 15:10:59] ROBOT_SPEECH: Where shall we go?
+[2025-10-24 15:11:10] ROBOT_SPEECH: Let's go to hospital!
+[2025-10-24 15:11:11] ROBOT_SPEECH: I need to take \emph\ medicine. Can you give me a \emph\ pill?
+Taking Instruction supermarket1 closed  Fri Oct 24 15:11:15 2025
+[2025-10-24 15:11:19] ROBOT_SPEECH: I am coughing. Please give me a mask
+Taking Instruction supermarket1 closed  Fri Oct 24 15:11:20 2025
+[2025-10-24 15:11:22] ROBOT_SPEECH: Let's hear the heart sounds. Can you find the stethoscope?
+[2025-10-24 15:11:32] ROBOT_SPEECH: Great!
+[2025-10-24 15:11:36] ROBOT_SPEECH: I need the injection. Can you find it for me?
+stethoscope selected 
+[2025-10-24 15:11:42] ROBOT_SPEECH: Amazing!
+[2025-10-24 15:11:47] ROBOT_SPEECH: Can I have the bottle of syrup, please?
+injection selected 
+[2025-10-24 15:11:51] ROBOT_SPEECH: Hooray!
+syrup selected 
+[2025-10-24 15:11:56] ROBOT_SPEECH: Let's go to the next page!
+Main closed  Fri Oct 24 15:12:03 2025
+at_talks
+Time: Fri Oct 24 15:12:07 2025
+[2025-10-24 15:12:12] ROBOT_SPEECH: \emph\Spin!
+[2025-10-24 15:12:47] ROBOT_SPEECH: #MMM01# Yummy!
+[2025-10-24 15:13:08] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-10-24 15:13:32] ROBOT_SPEECH: If you could turn into any animal for a day. \rmw=1\ what animal   \rmw=0\  would you be? Why?
+[2025-10-24 15:13:55] ROBOT_SPEECH: If you could turn into any animal for a day. what \emph\ animal would you be? \emph\Why?
+[2025-10-24 15:14:10] ROBOT_SPEECH: What is something \pau=300\ that you are good at
+[2025-10-24 15:14:23] ROBOT_SPEECH: What is your favourite movie?
+[2025-10-24 15:14:33] ROBOT_SPEECH:  Let's talk later!
+[2025-10-24 15:14:43] ROBOT_SPEECH: Wow! nice name!
+[2025-10-24 15:15:15] ROBOT_SPEECH: Ouch!

@@ -4417,3 +4417,43 @@ login closed  Wed Sep 10 11:15:36 2025
 login closed  Thu Sep 11 12:16:47 2025
 login closed  Thu Sep 11 12:16:50 2025
 login closed  Thu Sep 11 12:17:03 2025
+login closed  Thu Sep 11 12:21:06 2025
+login closed  Thu Sep 11 17:14:17 2025
+login closed  Wed Sep 17 11:14:17 2025
+login closed  Thu Sep 18 13:03:43 2025
+login closed  Thu Sep 18 16:52:43 2025
+login closed  Fri Sep 26 11:25:36 2025
+login closed  Fri Oct  3 09:54:02 2025
+[2025-10-03 10:48:45] ROBOT_SPEECH: Where do you want to go?
+[2025-10-03 10:48:46] ROBOT_SPEECH: Where shall we go?
+GAME: instructions_game_young
+Time: Fri Oct  3 10:48:56 2025
+Taking Instruction supermarket1 closed  Fri Oct  3 10:51:40 2025
+[2025-10-03 10:51:49] ROBOT_SPEECH: Can we play hide n seek? Let’s run to the tree!
+Taking Instruction supermarket1 closed  Fri Oct  3 10:51:56 2025
+[2025-10-03 10:51:57] ROBOT_SPEECH: What place do you wanna go to?
+GAME: at_talks
+Time: Fri Oct  3 10:53:13 2025
+GAME: inference_old
+Time: Fri Oct  3 11:01:50 2025
+[2025-10-03 11:01:50] ROBOT_SPEECH: Lets play inference games
+[2025-10-03 11:01:50] ROBOT_SPEECH: Lets play inference games
+[2025-10-03 11:01:52] ROBOT_SPEECH: I am round. You can throw me, and bounce on the ground. What am i?
+Main closed  Fri Oct  3 11:02:07 2025
+login closed  Fri Oct  3 11:05:19 2025
+login closed  Fri Oct  3 11:05:49 2025
+login closed  Fri Oct  3 11:05:49 2025
+Main closed  Fri Oct 24 14:32:10 2025
+login closed  Fri Oct 24 14:32:21 2025
+login closed  Fri Oct 24 14:41:16 2025
+login closed  Fri Oct 24 14:41:17 2025
+login closed  Fri Oct 24 14:41:17 2025
+login closed  Fri Oct 24 14:41:18 2025
+login closed  Fri Oct 24 14:41:20 2025
+login closed  Fri Oct 24 14:41:21 2025
+login closed  Fri Oct 24 14:42:11 2025
+login closed  Fri Oct 24 14:43:10 2025
+Main closed  Fri Oct 24 14:47:06 2025
+login closed  Fri Oct 24 14:47:38 2025
+login closed  Fri Oct 24 14:58:09 2025
+login closed  Fri Oct 24 14:58:11 2025

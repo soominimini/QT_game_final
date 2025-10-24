@@ -1,0 +1,46 @@
+CLIENT NAME: None
+login closed  Fri Oct  3 09:54:11 2025
+Main closed  Fri Oct  3 09:54:33 2025
+GAME: emotion_game2
+Time: Fri Oct  3 09:54:59 2025
+[2025-10-03 09:55:03] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Fri Oct  3 09:55:06 2025
+[2025-10-03 09:55:06] REPEAT BUTTON Clicked: [2025-10-03 09:55:06] ROBOT_SPEECH: Show me an emotion card
+Main closed  Fri Oct  3 09:55:14 2025
+GAME: instructions_game_young
+Time: Fri Oct  3 10:48:43 2025
+Main closed  Fri Oct  3 10:48:50 2025
+[2025-10-03 10:48:58] ROBOT_SPEECH: Where do you want to go?
+[2025-10-03 10:48:59] ROBOT_SPEECH: Let's go shopping!
+Taking Instruction supermarket1 closed  Fri Oct  3 10:49:11 2025
+[2025-10-03 10:51:43] ROBOT_SPEECH: Let's go and play on the seesaw.
+Taking Instruction supermarket1 closed  Fri Oct  3 10:51:47 2025
+[2025-10-03 10:51:58] ROBOT_SPEECH: Where do you wanna go?
+[2025-10-03 10:52:01] ROBOT_SPEECH: Let's go to hospital!
+GAME: dice_5w1h
+Time: Fri Oct  3 11:02:28 2025
+login closed  Fri Oct  3 11:03:11 2025
+CLIENT NAME: None
+login closed  Fri Oct  3 11:03:13 2025
+CLIENT NAME: None
+login closed  Fri Oct  3 11:03:42 2025
+CLIENT NAME: None
+login closed  Fri Oct  3 11:05:53 2025
+GAME: dice_5w1h
+Time: Fri Oct  3 11:05:58 2025
+[2025-10-03 11:05:59] ROBOT_SPEECH: Lets play around with wh questions
+[2025-10-03 11:06:04] ROBOT_SPEECH: Let's roll the dice
+[2025-10-03 11:06:09] ROBOT_SPEECH: how
+[2025-10-03 11:06:10] ROBOT_SPEECH: How do you go for "trick-or-treating"?
+[2025-10-03 11:06:14] ROBOT_SPEECH: How do you go for "trick-or-treating"?
+Main closed  Fri Oct  3 11:07:56 2025
+Main closed  Fri Oct  3 11:08:03 2025
+login closed  Fri Oct  3 11:08:04 2025
+login closed  Fri Oct  3 11:08:06 2025
+login closed  Fri Oct  3 11:08:07 2025
+CLIENT NAME: None
+login closed  Fri Oct  3 11:08:08 2025
+Main closed  Fri Oct  3 11:08:12 2025
+login closed  Fri Oct  3 11:08:12 2025
+login closed  Fri Oct  3 11:08:14 2025
+login closed  Fri Oct  3 11:10:20 2025

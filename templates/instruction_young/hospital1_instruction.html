@@ -21,15 +21,15 @@
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
     const img1 = new Image();
-    img1.src = "../static/instruction/young/hcart_doctor.png";
+    img1.src = "../static/instruction/young/hcart_pill.png";
     const img2 = new Image();
-    img2.src = "../static/instruction/young/hcart_doctor_nurse.png";
+    img2.src = "../static/instruction/young/hcart_pill_glove.png";
     const img3 = new Image();
-    img3.src = "../static/instruction/young/hcart_doctor_nurse_band.png";
+    img3.src = "../static/instruction/young/hcart_pill_glove_sani.png";
 
     $(document).ready(function () {
-        socket.emit('first_talk', "Let’s go see the doctor. Do you know who a doctor is?");
-        value = "Let’s go see the doctor. Do you know who a doctor is?"
+        socket.emit('first_talk', "I need to take \\emph\\ medicine. Can you give me a \\emph\\ pill?");
+        value = "I need to take \\emph\\ medicine. Can you give me a \\emph\\ pill?"
         nonDragged();
     });
 
@@ -84,9 +84,9 @@
 
                 setTimeout(() => {
 
-                    socket.emit('giveme_talk', "We’re going to meet the nurse. Do you know what they do?", 2.5);
+                    socket.emit('giveme_talk', "Let's Keep my hands clean. Can you give me medical gloves?", 2.5);
 
-                    value = "We’re going to meet the nurse. Do you know what they do?"
+                    value = "Let's Keep my hands clean. Can you give me medical gloves?"
                 }, 1000); // 1-second delay after the first emit
 
                 setTimeout(() => {
@@ -96,8 +96,8 @@
                 nonDragged();
                 score -= 1;
                 socket.emit('wrong') //robot encourage
-                socket.emit('wrong_repeat', 'I want to meet the doctor') //robot repeats what it asked
-                value = 'I want to meet the doctor'
+                socket.emit('wrong_repeat', 'I want a pill') //robot repeats what it asked
+                value = 'I want a pill'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         } else if (first_choice == true && second_choidce == false && third_choidce == false) {
@@ -109,15 +109,15 @@
                 $("#drop_cart").attr("src", img2.src); // Update the cart image
                 second_choidce = true;
                 socket.emit('correct') //robot praise
-                socket.emit('giveme_talk', "I need a band-aid for my ouchie. Can you give me one?", 2.5);
-                value = "I need a band-aid for my ouchie. Can you give me one?"
+                socket.emit('giveme_talk', "I need to clean my hands. Can you give me \\emph\\ sanitizer?", 2.5);
+                value = "I need to clean my hands. Can you give me \\emph\\ sanitizer?"
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             } else {
                 nonDragged();
                 score -= 1;
                 socket.emit('wrong') //robot encourage
-                socket.emit('wrong_repeat', 'I want to visit the nurse') //robot repeats what it asked
-                value = 'I want to visit the nurse'
+                socket.emit('wrong_repeat', 'I want medical gloves') //robot repeats what it asked
+                value = 'I want medical gloves'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         } else {
@@ -140,8 +140,8 @@
                 score -= 1;
                 socket.emit('wrong') //robot encourage
 
-                socket.emit('wrong_repeat', "I need the band-aid!") //robot repeats what it asked
-                value = "I need the band-aid!"
+                socket.emit('wrong_repeat', "I need \\emph\\sanitizer!") //robot repeats what it asked
+                value = "I need \\emph\\sanitizer!"
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         }
@@ -333,13 +333,13 @@
     </div>
     <div class="object" style="margin-top: -3%">
         <div class="item" style="width: 130px">
-            <img id="band-aid" data-source-id="third_answer" src="../static/instruction/band-aid.png">
+            <img id="sanitizer" data-source-id="third_answer" src="../static/instruction/sanitizer.png">
         </div>
-        <div class="item" style="width: 100px">
-            <img id="doctor" data-source-id="first_answer" src="../static/instruction/doctor.png">
+        <div class="item" >
+            <img id="pill" data-source-id="first_answer" src="../static/instruction/pill.png">
         </div>
-        <div class="item" style="width: 75px">
-            <img id="nurse" data-source-id="second_answer" src="../static/instruction/nurse.png">
+        <div class="item">
+            <img id="med_glove" data-source-id="second_answer" src="../static/instruction/med_glove.png">
         </div>
     </div>
     <div class="other" style="position: fixed;  top: 280px; left: 30px">

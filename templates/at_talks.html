@@ -11,7 +11,7 @@
 </head>
 <style>
     body, html {
-    {#background-color: #C7E5FF; /* Light purple */#} height: 100%;
+        height: 100%;
         margin: 0;
         background: linear-gradient(to right, #FFFCA3 50%, #C7E5FF 50%);
     }
@@ -219,12 +219,12 @@
         var casual2 = document.getElementById("casual2");
         var casual3 = document.getElementById("casual3");
         var casual4 = document.getElementById("casual4");
-        var casual5 = document.getElementById("casual5");
-        var casual6 = document.getElementById("casual6");
-        var casual7 = document.getElementById("casual7");
+        // var casual5 = document.getElementById("casual5");
+        // var casual6 = document.getElementById("casual6");
+        // var casual7 = document.getElementById("casual7");
         // Toggle their visibility
         var displayState = (schedule1.style.display === "none" || schedule1.style.display === "" || bye1.style.display === "" || bye2.style.display === "" || hello1.style.display === "" || hello2.style.display === "" || hello3.style.display === "" ||
-            casual1.style.display === "" || casual2.style.display === "" || casual3.style.display === "" || casual4.style.display === "" || casual5.style.display === "" || casual6.style.display === "" || casual7.style.display === "" ||
+            casual1.style.display === "" || casual2.style.display === "" || casual3.style.display === "" || casual4.style.display === "" ||
             fav1.style.display === "" || fav2.style.display === "" || fav3.style.display === "" || fav4.style.display === "" || fav5.style.display === "" || fav6.style.display === "") ? "block" : "none";
         schedule1.style.display = displayState;
         bye1.style.display = displayState;
@@ -236,9 +236,6 @@
         casual2.style.display = displayState;
         casual3.style.display = displayState;
         casual4.style.display = displayState;
-        casual5.style.display = displayState;
-        casual6.style.display = displayState;
-        casual7.style.display = displayState;
         fav1.style.display = displayState;
         fav2.style.display = displayState;
         fav3.style.display = displayState;
@@ -254,7 +251,6 @@
         var hello1 = document.getElementById("hello1_old");
         var hello3 = document.getElementById("hello3_old");
         var hello2 = document.getElementById("hello2_old");
-        {#var hello4 = document.getElementById("hello4_old");#}
         var fav1 = document.getElementById("fav1_old");
         var fav2 = document.getElementById("fav2_old");
         var fav3 = document.getElementById("fav3_old");
@@ -277,7 +273,6 @@
         hello1.style.display = displayState;
         hello3.style.display = displayState;
         hello2.style.display = displayState;
-        {#hello4.style.display = displayState;#}
         casual1.style.display = displayState;
         casual2.style.display = displayState;
         casual3.style.display = displayState;
@@ -302,8 +297,6 @@
         } else if (msg == "Goodbye!" || msg == "See you later!") {
             socket.emit('gesture_play', "bye_soomin", 1.5);
         } else if (msg == "My name is QT!") {
-            {#socket.emit('gesture_play_pub', "myname");#}
-            {#socket.emit('gesture_play', "myname", 2);#}
             socket.emit('gesture_play', "/QT/show_QT", 1.5);
         } else {
             if (gestureIndex >= shuffledGestures.length) {
@@ -418,87 +411,71 @@
 <div id="fav1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 100px; /* Distance from the top of the viewport */
         left: 170px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Whats your favourite colour?')">favourite colour?</button>
+    <button onclick="speak('Let\'s do \\emph\\more')">Let's do more</button>
 </div>
 
 <div id="fav2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 100px; /* Distance from the top of the viewport */
         left: 280px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Whats your favourite season, and Why?')">favourite season?</button>
+    <button onclick="speak('\\emph\\More!')">More!</button>
 </div>
 <div id="fav3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 100px; /* Distance from the top of the viewport */
         left: 390px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Whats your favourite hobby?')">favourite hobby?</button>
+    <button onclick="speak('\\emph\\Eat!')">Eat</button>
 </div>
 <div id="fav4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 100px; /* Distance from the top of the viewport */
         left: 500px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Whats your favourite movie, and What happens in it?')">favourite movie?</button>
+    <button onclick="speak('\\emph\\Give me!')">Give me</button>
 </div>
 
 <div id="fav5" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 180px; /* Distance from the top of the viewport */
         left: 170px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Whats your favourite subject in school, and Why do you like it?')">favourite subject?
+    <button onclick="speak('\\emph\\Spin!')">Spin
     </button>
 </div>
 
 <div id="fav6" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 180px; /* Distance from the top of the viewport */
         left: 280px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Whats your favourite holiday, and How do you celebrate it?')">favourite holiday?</button>
+    <button onclick="speak('\\emph\\Cookie!')">Cookie</button>
 </div>
 <div id="casual1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 260px; /* Distance from the top of the viewport */
         left: 170px; /* Distance from the left of the viewport */">
-    <button onclick="speak('If you could have any superpower, what power would you want to have?')">Superpower</button>
+    <button onclick="speak('Look!')">Look!</button>
 </div>
 <div id="casual2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 260px; /* Distance from the top of the viewport */
         left: 280px; /* Distance from the left of the viewport */">
-    <button onclick="speak('Talk about a game you like to play. How do you play it?')"> a game you like to play</button>
+    <button onclick="speak('Hey!')"> Hey!</button>
 </div>
 <div id="casual3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 260px; /* Distance from the top of the viewport */
         left: 390px; /* Distance from the left of the viewport */">
-    <button onclick="speak('What do you like to do on the weekend?')">plan on weekend</button>
+    <button onclick="speak('Come!')">Come!</button>
 </div>
 <div id="casual4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 260px; /* Distance from the top of the viewport */
         left: 500px; /* Distance from the left of the viewport */">
-    <button onclick="speak('If you could go anywhere on vacation, where would you go?')">vacation</button>
+    <button onclick="speak('Look \\emph\\here!')">Look here!</button>
 </div>
-
-<div id="casual5" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
-        top: 340px; /* Distance from the top of the viewport */
-        left: 170px; /* Distance from the left of the viewport */">
-   <button onclick="speak('How\'s the weather today?')">weather</button>
-</div>
-<div id="casual6" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
-        top: 340px; /* Distance from the top of the viewport */
-        left: 280px; /* Distance from the left of the viewport */">
-    <button onclick="speak('What is something that you are good at?')">what are you good at?</button>
-</div>
-<div id="casual7" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
-        top: 340px; /* Distance from the top of the viewport */
-        left: 390px; /* Distance from the left of the viewport */">
-    <button onclick="speak('If you could turn into any animal for a day, what animal would you be, and Why?')">animal
-    </button>
-</div>
-
 
 <div id="bye1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
-        top: 420px; /* Distance from the top of the viewport */
+top: 340px; /* Distance from the top of the viewport */
         left: 170px; /* Distance from the left of the viewport */">
     <button onclick="speak('Goodbye!')">Good bye</button>
 </div>
 
 <div id="bye2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
-        top: 420px; /* Distance from the top of the viewport */
+        top: 340px; /* Distance from the top of the viewport */
         left: 280px; /* Distance from the left of the viewport */">
     <button onclick="speak('See you later!')">See you later</button>
 </div>
+
+
 
 
 <div id="encrgmnt1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
@@ -602,7 +579,7 @@
 <div id="casual7_old" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 340px; /* Distance from the top of the viewport */
         left: 1000px; /* Distance from the left of the viewport */">
-    <button onclick="speak('If you could turn into any animal for a day. \\rmw=1\\ what animal   \\rmw=0\\  would you be? Why?')">animal
+    <button onclick="speak('If you could turn into any animal for a day. what \\emph\\ animal would you be? \\emph\\Why?')">animal
     </button>
 </div>
 
@@ -627,8 +604,10 @@
     <button onclick="speakIdle('Yeah! Good choice!')">Good choice</button>
     <button onclick="speakIdle('Whoa!')">Whoa!</button>
     <button onclick="speakIdle('Uh oh!')">Uh oh</button>
-    <button onclick="speakIdle('#MMM01# Yummy!')">Yummy!</button>
+    <button onclick="speakIdle('#MMM01# \\emph\\ Yummy!')">Yummy!</button>
     <button onclick="speakIdle(' Let\'s talk later!')"> Let's talk later</button>
+    <button onclick="speakIdle('All done!')">All done</button>
+     <button onclick="speakIdle('Ouch!')">Ouch</button>
 
 </div>
  <div class="other" style="position: fixed;  top: 200px; left: 30px">

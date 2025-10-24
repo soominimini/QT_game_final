@@ -334,6 +334,69 @@
         background: rgb(41, 57, 104);
         color: rgb(255, 255, 255);
     }
+
+    /* Modal styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: white;
+        padding: 40px 60px;
+        border-radius: 20px;
+        text-align: center;
+        max-width: 80%;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .modal-text {
+        font-size: 36px;
+        font-weight: bold;
+        color: #333;
+        margin: 20px 0;
+        line-height: 1.4;
+    }
+
+    .close-modal {
+        margin-top: 30px;
+        padding: 15px 40px;
+        font-size: 24px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .close-modal:hover {
+        background-color: #2980b9;
+    }
+
+    .close-modal:active {
+        background-color: #1f6391;
+    }
 </style>
 
 <body>
@@ -409,7 +472,15 @@
     <div id="encour3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-        <button onclick="encour_speak('Don’t give up!')">Don’t give up</button>
+        <button onclick="encour_speak('Don't give up!')">Don't give up</button>
+    </div>
+
+    <!-- Modal for displaying question text -->
+    <div id="questionModal" class="modal">
+        <div class="modal-content">
+            <p id="modalQuestionText" class="modal-text"></p>
+            <button class="close-modal" onclick="closeModal()">OK</button>
+        </div>
     </div>
 </div>
 </body>
@@ -619,6 +690,7 @@
 
             // Add click event listener to the image
             img.addEventListener('click', function () {
+                showModal(questions[i]); // Show the modal with the question
                 ask_question(questions[i]); // Speak the related question when clicked
                 question_gesture(questions[i]); // Speak the related question when clicked
                 value = questions[i];
@@ -736,6 +808,27 @@
 
     function speak(msg) {
         socket.emit('repeat_speech', msg)
+    }
+
+    // Modal functions
+    function showModal(questionText) {
+        const modal = document.getElementById('questionModal');
+        const modalText = document.getElementById('modalQuestionText');
+        modalText.innerText = questionText;
+        modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('questionModal');
+        modal.style.display = 'none';
+    }
+
+    // Close modal when clicking outside the modal content
+    window.onclick = function(event) {
+        const modal = document.getElementById('questionModal');
+        if (event.target === modal) {
+            closeModal();
+        }
     }
 </script>
 </html>

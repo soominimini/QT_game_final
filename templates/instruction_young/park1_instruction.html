@@ -21,16 +21,16 @@
     console.log("first socket:", socket);
     socket.emit('connect event', {data: 'User Connected'});
     const img1 = new Image();
-    img1.src = "../static/instruction/young/basket_swing.png";
+    img1.src = "../static/instruction/young/basket_sunscreen.png";
     const img2 = new Image();
-    img2.src = "../static/instruction/young/basket_swing_monkey.png";
+    img2.src = "../static/instruction/young/basket_sunscreen_coke.png";
     const img3 = new Image();
-    img3.src = "../static/instruction/young/basket_swing_monkey_slide.png";
+    img3.src = "../static/instruction/young/basket_sunscreen_coke_soccer.png";
 
     $(document).ready(function () {
         socket.emit('first_talk', "Let’s have a good time in the park!");
-        value = "I feel like riding the swing!"
-        socket.emit('giveme_talk', "I feel like riding the swing!", 2.5);
+        value = "Protect your skin from the sun! Give me a sunscreen."
+        socket.emit('giveme_talk', "Protect your skin from the sun! Give me a sunscreen.", 2.5);
         nonDragged();
 
     });
@@ -87,9 +87,9 @@
 
                 setTimeout(() => {
 
-                    socket.emit('giveme_talk', "I want to play on the monkey bars. Let's go to the monkey bars.", 2.5);
+                    socket.emit('giveme_talk', "I am thirsty. Give me a coke.", 2.5);
 
-                    value = "I want to play on the monkey bars. Let's go to the monkey bars."
+                    value = "I am thirsty. Give me a coke."
                 }, 1000); // 1-second delay after the first emit
 
                 setTimeout(() => {
@@ -99,8 +99,8 @@
                 nonDragged();
                 score -= 1;
                 socket.emit('wrong') //robot encourage
-                socket.emit('wrong_repeat', 'I want to ride the swing!') //robot repeats what it asked
-                value = 'I want to ride the swing!'
+                socket.emit('wrong_repeat', 'I want a sunscreen') //robot repeats what it asked
+                value = 'I want a sunscreen'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         } else if (first_choice == true && second_choidce == false && third_choidce == false) {
@@ -112,15 +112,15 @@
                 $("#drop_cart").attr("src", img2.src); // Update the cart image
                 second_choidce = true;
                 socket.emit('correct') //robot praise
-                socket.emit('giveme_talk', "I’d like to go down the slide!", 2.5);
-                value = "I’d like to go down the slide!"
+                socket.emit('giveme_talk', "I love playing soccer. Let's bring a soccer ball.", 2.5);
+                value = "I love playing soccer. Let's bring a soccer ball."
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             } else {
                 nonDragged();
                 score -= 1;
                 socket.emit('wrong') //robot encourage
-                socket.emit('wrong_repeat', 'I want to play on the monkey bars') //robot repeats what it asked
-                value = 'I want to play on the monkey bars'
+                socket.emit('wrong_repeat', 'I want a coke') //robot repeats what it asked
+                value = 'I want a coke'
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         } else {
@@ -143,8 +143,8 @@
                 score -= 1;
                 socket.emit('wrong') //robot encourage
 
-                socket.emit('wrong_repeat', "I want to go play on the slide!") //robot repeats what it asked
-                value = "I want to go play on the slide!"
+                socket.emit('wrong_repeat', "I want a soccer ball") //robot repeats what it asked
+                value = "I want a soccer ball"
                 socket.emit('object_list', {data: dragged_item}); //emit the information of dragged item
             }
         }
@@ -335,13 +335,13 @@
     </div>
     <div class="object" style="margin-top: -3%">
         <div class="item">
-            <img id="swing" data-source-id="first_answer" src="../static/instruction/swing.png">
+            <img id="sunscreen" data-source-id="first_answer" src="../static/instruction/sunscreen.png">
         </div>
         <div class="item">
-            <img id="slide" data-source-id="third_answer" src="../static/instruction/slider.png">
+            <img id="soccer" data-source-id="third_answer" src="../static/instruction/soccer.png">
         </div>
         <div class="item">
-            <img id="monkey" data-source-id="second_answer" src="../static/instruction/monkey.png">
+            <img id="coke" data-source-id="second_answer" src="../static/instruction/coke.png">
         </div>
     </div>
     <div class="other" style="position: fixed;  top: 280px; left: 30px">
