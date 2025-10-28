@@ -6,6 +6,16 @@ A comprehensive Flask-based web application designed for the QT Robot that provi
 
 This project creates an interactive educational platform where the QT Robot can engage with children through various games, stories, and activities. The system uses computer vision (ArUco markers), real-time communication (WebSocket), and robot control interfaces to create immersive learning experiences.
 
+
+## 📝 Notes
+
+- The application is specifically designed for the QT Robot platform
+- ROS integration is essential for full functionality
+- Web interface works independently for testing
+- User data is stored locally in text files
+- All robot interactions are logged for analysis
+
+
 ## 🏗️ Project Structure
 
 ### Core Application Files
@@ -156,55 +166,5 @@ The system automatically logs user interactions:
 
 Logs are stored in `user_files/` with format: `{username}_{session_number}.txt`
 
-## 🎯 Target Audience
 
-### Young Children (Ages 3-6)
-- Basic emotion recognition
-- Simple action games
-- Interactive stories with visual elements
-- Physical activities (dice games)
 
-### Older Children (Ages 7-12)
-- Advanced emotion scenarios
-- Complex reasoning games
-- Interactive storytelling with choices
-- Educational question-answer activities
-
-## 🔧 Customization
-
-### Adding New Games
-1. Create game logic in a new Python module
-2. Add corresponding HTML template
-3. Implement Socket.IO handlers in `main.py`
-4. Add game assets to `static/images/`
-
-### Modifying Robot Behavior
-- Adjust gesture timing in game modules
-- Modify speech patterns in Socket.IO handlers
-- Update emotion expressions in robot control functions
-
-### Adding New Stories
-1. Create story pages in `templates/`
-2. Implement story logic with character interactions
-3. Add story assets to `static/images/story/`
-4. Update story selection interface
-
-## 📝 Notes
-
-- The application is designed for the QT Robot platform
-- ROS integration is essential for full functionality
-- Web interface works independently for testing
-- User data is stored locally in text files
-- All robot interactions are logged for analysis
-
-## 🤝 Contributing
-
-When contributing to this project:
-1. Follow the existing code structure and naming conventions
-2. Test both web interface and robot functionality
-3. Update documentation for new features
-4. Ensure compatibility with the QT Robot platform
-
-## 📄 License
-
-This project is designed for educational and research purposes with the QT Robot platform.
