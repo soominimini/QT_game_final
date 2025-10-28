@@ -13,7 +13,7 @@ This project creates an interactive educational platform where the QT Robot can 
 - **`emotion_card.py`** - Emotion recognition game module using ArUco markers
 - **`emotion_card2.py`** - Advanced emotion game for older children
 - **`emotion_card3.py`** - Multi-emotion comparison game
-- **`object_action_card.py`** - Action/object recognition game module
+- **`object_action_card.py`** - Action card recognition game module
 - **`interact_story.py`** - Interactive storytelling functionality
 - **`red_riding_hood.py`** - Red Riding Hood story implementation
 - **`dice_rolling.py`** - Dice-based game mechanics
