@@ -15,8 +15,6 @@ This project creates an interactive educational platform where the QT Robot can 
 - **`emotion_card3.py`** - Multi-emotion comparison game
 - **`object_action_card.py`** - Action card recognition game module
 - **`interact_story.py`** - Interactive storytelling functionality
-- **`red_riding_hood.py`** - Red Riding Hood story implementation
-- **`dice_rolling.py`** - Dice-based game mechanics
 
 ### Web Interface (`templates/`)
 The web interface is organized by functionality:
