@@ -1,0 +1,90 @@
+Name: Waris Johal
+login closed  Thu Dec 11 10:36:30 2025
+Main closed  Thu Dec 11 10:37:19 2025
+Main closed  Thu Dec 11 10:37:57 2025
+at_talks
+Time: Thu Dec 11 10:39:00 2025
+[2025-12-11 10:39:03] ROBOT_SPEECH: Hello! How r you today?
+[2025-12-11 10:39:16] ROBOT_SPEECH: Hello! How r you today?
+[2025-12-11 10:39:27] ROBOT_SPEECH: I'm fine!
+[2025-12-11 10:39:35] ROBOT_SPEECH: What do you like to do on the weekend?
+[2025-12-11 10:39:41] ROBOT_SPEECH: What do you like to do on the weekend?
+instructions_game
+Time: Thu Dec 11 10:40:44 2025
+[2025-12-11 10:40:46] ROBOT_SPEECH: What place do you wanna go to?
+[2025-12-11 10:40:56] ROBOT_SPEECH: Let's go to play!
+[2025-12-11 10:41:00] ROBOT_SPEECH: A red monkey bar, is on the middle of the park
+[2025-12-11 10:41:12] ROBOT_SPEECH: A red monkey bar, is on the middle of the park
+[2025-12-11 10:41:21] ROBOT_SPEECH: Great!
+[2025-12-11 10:41:25] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+[2025-12-11 10:41:42] ROBOT_SPEECH: Hooray!
+[2025-12-11 10:41:48] ROBOT_SPEECH: A sandbox, \spd=70\ is placed on the right side, in the park
+[2025-12-11 10:42:01] ROBOT_SPEECH: Amazing!
+Taking Instruction park1 closed  Thu Dec 11 10:42:10 2025
+[2025-12-11 10:42:14] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-12-11 10:42:33] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-12-11 10:42:44] ROBOT_SPEECH: Perfect!
+[2025-12-11 10:42:49] ROBOT_SPEECH: A man, is running along on the right side
+[2025-12-11 10:42:53] ROBOT_SPEECH: A man, is running along on the right side
+[2025-12-11 10:43:26] ROBOT_SPEECH: Perfect!
+[2025-12-11 10:43:31] ROBOT_SPEECH: a person, is riding a bike, along the bike path
+[2025-12-11 10:43:34] ROBOT_SPEECH: Hooray!
+[2025-12-11 10:43:52] ROBOT_SPEECH: all done
+Main closed  Thu Dec 11 10:43:59 2025
+dice_5w1h
+Time: Thu Dec 11 10:44:04 2025
+[2025-12-11 10:44:04] ROBOT_SPEECH: Lets play around with wh questions
+[2025-12-11 10:44:10] ROBOT_SPEECH: Let's roll the dice
+[2025-12-11 10:44:16] ROBOT_SPEECH: why
+[2025-12-11 10:44:21] ROBOT_SPEECH: Why do we wear a jacket?
+[2025-12-11 10:44:41] ROBOT_SPEECH: how
+[2025-12-11 10:44:45] ROBOT_SPEECH: why
+[2025-12-11 10:44:52] ROBOT_SPEECH: Why do we brush our teeth?
+[2025-12-11 10:45:20] ROBOT_SPEECH: when
+[2025-12-11 10:45:27] ROBOT_SPEECH: When do we eat breakfast?
+[2025-12-11 10:45:53] ROBOT_SPEECH: how
+[2025-12-11 10:45:56] ROBOT_SPEECH: when
+[2025-12-11 10:46:00] ROBOT_SPEECH: When do we eat lunch?
+[2025-12-11 10:46:22] ROBOT_SPEECH: why
+[2025-12-11 10:46:27] ROBOT_SPEECH: Why do we turn on the lights?
+[2025-12-11 10:46:43] ROBOT_SPEECH: Amazing!
+[2025-12-11 10:46:55] ROBOT_SPEECH: all done
+inference_old
+Time: Thu Dec 11 10:47:23 2025
+[2025-12-11 10:47:23] ROBOT_SPEECH: Lets play inference games
+[2025-12-11 10:47:25] ROBOT_SPEECH: I work at a school. I teach many subjects. I help students learn how to read and write.
+[2025-12-11 10:47:35] ROBOT_SPEECH: Who am I?
+[2025-12-11 10:47:37] ROBOT_SPEECH: Correct!
+[2025-12-11 10:47:46] ROBOT_SPEECH: I can be carried on your back, or hand. You fill me with things you need.
+[2025-12-11 10:47:53] ROBOT_SPEECH: You take me to school. What am I?
+[2025-12-11 10:48:04] ROBOT_SPEECH: I can be carried on your back, or hand. You fill me with things you need. You take me to school. What am I?
+[2025-12-11 10:48:11] ROBOT_SPEECH: Correct!
+[2025-12-11 10:48:19] ROBOT_SPEECH: I am round. You can throw me, and bounce on the ground. What am i?
+[2025-12-11 10:48:27] ROBOT_SPEECH: That's not correct
+[2025-12-11 10:48:39] ROBOT_SPEECH: I am round. You can throw me, and bounce on the ground. What am i?
+[2025-12-11 10:49:01] ROBOT_SPEECH: That's not correct
+[2025-12-11 10:49:11] ROBOT_SPEECH: Correct!
+[2025-12-11 10:49:42] ROBOT_SPEECH: I am grey. I have big floppy ears and a long trunk. I love peanuts.
+[2025-12-11 10:49:50] ROBOT_SPEECH: What am I?
+[2025-12-11 10:50:41] ROBOT_SPEECH: Correct!
+[2025-12-11 10:50:42] ROBOT_SPEECH: Correct!
+[2025-12-11 10:50:49] ROBOT_SPEECH: I have a long neck, so I can eat \emph=1\ leaves high up in the tree.
+[2025-12-11 10:50:53] ROBOT_SPEECH: \spd=75\ I am yellow and have brown spots all over me. What am I?
+[2025-12-11 10:51:01] ROBOT_SPEECH: I have a long neck, so I can eat \emph=1\ leaves high up in the tree. \spd=75\ I am yellow and have brown spots all over me. What am I?
+[2025-12-11 10:51:33] ROBOT_SPEECH: That's not correct
+[2025-12-11 10:51:41] ROBOT_SPEECH: Correct!
+[2025-12-11 10:51:52] ROBOT_SPEECH: Lets play inference games
+[2025-12-11 10:51:54] ROBOT_SPEECH: I eat grass, and live in a barn. I usually have black and white spots.
+[2025-12-11 10:52:02] ROBOT_SPEECH: I can give you milk. What am i?
+Main closed  Thu Dec 11 10:52:23 2025
+Main closed  Thu Dec 11 10:54:12 2025
+dice_board
+Time: Thu Dec 11 10:54:17 2025
+[2025-12-11 10:54:18] ROBOT_SPEECH: Let's roll the dice
+[2025-12-11 10:54:22] ROBOT_SPEECH: Move your piece on the board by five steps!
+[2025-12-11 10:54:59] ROBOT_SPEECH: Move your piece on the board by two steps!
+[2025-12-11 10:55:49] ROBOT_SPEECH: Move your piece on the board by six steps!
+[2025-12-11 10:56:27] ROBOT_SPEECH: Move your piece on the board by three steps!
+[2025-12-11 10:56:33] ROBOT_SPEECH: Move your piece on the board by four steps!
+[2025-12-11 10:57:57] ROBOT_SPEECH: Move your piece on the board by one step!
+[2025-12-11 10:58:25] ROBOT_SPEECH: Move your piece on the board by five steps!

@@ -1,0 +1,130 @@
+Name: Aasiya Kashif
+login closed  Fri Dec  5 14:44:11 2025
+at_talks
+Time: Fri Dec  5 14:44:33 2025
+at_talks
+Time: Fri Dec  5 14:44:38 2025
+[2025-12-05 14:44:43] ROBOT_SPEECH: Hello! How r you today?
+[2025-12-05 14:44:59] ROBOT_SPEECH: Hello! How r you today?
+[2025-12-05 14:45:12] ROBOT_SPEECH: I'm fine!
+[2025-12-05 14:45:21] ROBOT_SPEECH: What is your favourite subject in school? Why do you like it?
+Main closed  Fri Dec  5 14:45:56 2025
+dice_5w1h
+Time: Fri Dec  5 14:46:38 2025
+[2025-12-05 14:46:38] ROBOT_SPEECH: Lets play around with wh questions
+[2025-12-05 14:46:43] ROBOT_SPEECH: Let's roll the dice
+[2025-12-05 14:46:47] ROBOT_SPEECH: how
+[2025-12-05 14:47:08] ROBOT_SPEECH: How do you get to school?
+[2025-12-05 14:47:47] ROBOT_SPEECH: why
+[2025-12-05 14:47:50] ROBOT_SPEECH: Why do we wear a jacket?
+[2025-12-05 14:48:09] ROBOT_SPEECH: Why do we go to school?
+[2025-12-05 14:48:33] ROBOT_SPEECH: how
+[2025-12-05 14:49:08] ROBOT_SPEECH: How do you clean your room?
+[2025-12-05 14:50:04] ROBOT_SPEECH: How do you clean your room?
+[2025-12-05 14:50:32] ROBOT_SPEECH: when
+[2025-12-05 14:50:45] ROBOT_SPEECH: When is New Year's Day?
+[2025-12-05 14:51:36] ROBOT_SPEECH: why
+[2025-12-05 14:52:41] ROBOT_SPEECH: Why do we wear sunscreen?
+[2025-12-05 14:52:55] ROBOT_SPEECH: when
+[2025-12-05 14:53:08] ROBOT_SPEECH: When do leaves fall down from trees?
+[2025-12-05 14:53:29] ROBOT_SPEECH: why
+[2025-12-05 14:55:37] ROBOT_SPEECH: when
+[2025-12-05 14:55:52] ROBOT_SPEECH: When do you wear sunglasses?
+[2025-12-05 14:56:19] ROBOT_SPEECH: all done
+yes_no_old
+Time: Fri Dec  5 14:56:26 2025
+[2025-12-05 14:56:28] ROBOT_SPEECH: Do crabs have wings?
+[2025-12-05 14:56:29] ROBOT_SPEECH: Do you wear sunglasses on your feet?
+Main closed  Fri Dec  5 14:56:33 2025
+dice_emotion_old
+Time: Fri Dec  5 14:56:45 2025
+[2025-12-05 14:56:47] ROBOT_SPEECH: Let's roll the dice
+[2025-12-05 14:56:53] ROBOT_SPEECH: excited
+[2025-12-05 14:57:00] ROBOT_SPEECH: Who makes you feel excited?
+[2025-12-05 14:57:13] ROBOT_SPEECH: Excited. What makes you feel excited?
+[2025-12-05 14:57:30] ROBOT_SPEECH: curious
+[2025-12-05 14:57:35] ROBOT_SPEECH: what makes you curious?
+[2025-12-05 14:58:59] ROBOT_SPEECH: silly
+[2025-12-05 14:59:05] ROBOT_SPEECH: when do you feel silly?
+[2025-12-05 14:59:16] ROBOT_SPEECH: frustrated
+[2025-12-05 14:59:22] ROBOT_SPEECH: When do you feel frustrated?
+[2025-12-05 15:01:16] ROBOT_SPEECH: confused
+[2025-12-05 15:01:19] ROBOT_SPEECH: What makes you feel confused?
+[2025-12-05 15:02:16] ROBOT_SPEECH: tired
+[2025-12-05 15:02:22] ROBOT_SPEECH: When do you feel tired?
+[2025-12-05 15:03:00] ROBOT_SPEECH: all done
+story_old_client
+Time: Fri Dec  5 15:03:19 2025
+[2025-12-05 15:03:19] ROBOT_SPEECH: Lets choose a story
+red_riding
+Time: Fri Dec  5 15:03:31 2025
+[2025-12-05 15:03:33] ROBOT_SPEECH: Lets start the story!
+[2025-12-05 15:04:00] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-12-05 15:04:40] ROBOT_SPEECH: One day, she decided to go visit her dear grandmother, who lift deep in the woods.
+[2025-12-05 15:05:10] ROBOT_SPEECH: When her mother packed a basket of treats,  she warned her not to talk to strangers along the way.
+[2025-12-05 15:05:41] ROBOT_SPEECH: As Little Red Riding Hood happily strolled through the woods,   she did not notice the sneaky wolf stalking her through the trees.
+[2025-12-05 15:06:19] ROBOT_SPEECH: The wolf, pretending to be lost, asked Little Red Riding Hood for directions.
+[2025-12-05 15:06:38] ROBOT_SPEECH: The wolf seemed harmless enough, so Little Red Riding Hood not only spoke to him.   She also revealed where she was going.
+[2025-12-05 15:07:12] ROBOT_SPEECH: The wolf rushed ahead to beat her to her grand mother’s house,   gaining entry by pretending to be her dear granddaughter. 
+[2025-12-05 15:13:00] ROBOT_SPEECH: Having locked her grandmother in the closet,  the wolf waited for Little Red Riding Hood to arrive.
+[2025-12-05 15:13:41] ROBOT_SPEECH: When she knocked on her grandmother’s door, she was greeted by a strange voice.  “Come in dear,” said the wolf. 
+[2025-12-05 15:14:20] ROBOT_SPEECH: As the wolf lay in bed, wearing one of her grandmother’s nightgowns, Little Red Riding Hood thought her grandmother sounded and looked strange. 
+[2025-12-05 15:15:10] ROBOT_SPEECH: What big ears you have, she said. Better to hear you with my dear, replied the wolf. 
+[2025-12-05 15:15:42] ROBOT_SPEECH: “What big eyes you have,” said Little Red Riding Hood.  “Better to see you with my darling,” the wolf replied. 
+[2025-12-05 15:17:20] ROBOT_SPEECH: Your teeth, your teeth are large and as sharp as knives.  Little Red Riding Hood exclaimed.
+[2025-12-05 15:18:07] ROBOT_SPEECH: “The better to eat you with!” growled the wolf as he jumped up and lunged at the girl.
+[2025-12-05 15:18:17] ROBOT_SPEECH: Luckily Little Red Riding Hood had practiced self defense, and grabbed a broom to fend off the wolf. Surprised by the girl's bravery, the wolf ran off with his tail between his legs.
+[2025-12-05 15:18:47] ROBOT_SPEECH: Little Red Riding Hood freed her grandmother from the closet,  and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again.
+[2025-12-05 15:18:59] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-12-05 15:19:09] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-12-05 15:19:18] ROBOT_SPEECH: Great!
+[2025-12-05 15:19:20] ROBOT_SPEECH: What did Little Red Riding Hood’s mother warn her about?
+[2025-12-05 15:19:28] ROBOT_SPEECH: Bravo!
+[2025-12-05 15:19:32] ROBOT_SPEECH: Who did Little Red Riding Hood meet in the forest?
+[2025-12-05 15:19:44] ROBOT_SPEECH: Who did Little Red Riding Hood meet in the forest?
+[2025-12-05 15:19:51] ROBOT_SPEECH: Bravo!
+[2025-12-05 15:19:53] ROBOT_SPEECH: Correct!
+[2025-12-05 15:19:56] ROBOT_SPEECH: What did the wolf do after talking to Little Red Riding Hood?
+[2025-12-05 15:20:08] ROBOT_SPEECH: What did the wolf do after talking to Little Red Riding Hood?
+[2025-12-05 15:20:29] ROBOT_SPEECH: Wonderful!
+[2025-12-05 15:20:31] ROBOT_SPEECH: What did Little Red Riding Hood bring for her grandmother?
+[2025-12-05 15:21:07] ROBOT_SPEECH: Keep trying!
+[2025-12-05 15:21:11] ROBOT_SPEECH: Why did Little Red Riding Hood feel something was strange with her grandmother?
+[2025-12-05 15:21:47] ROBOT_SPEECH: Amazing!
+[2025-12-05 15:21:53] ROBOT_SPEECH: What can we learn from the story?
+[2025-12-05 15:21:59] ROBOT_SPEECH: Wonderful!
+dice_board
+Time: Fri Dec  5 15:22:16 2025
+[2025-12-05 15:22:17] ROBOT_SPEECH: Let's roll the dice
+[2025-12-05 15:22:19] ROBOT_SPEECH: Let's roll the dice
+Main closed  Fri Dec  5 15:22:23 2025
+dice_board
+Time: Fri Dec  5 15:22:30 2025
+[2025-12-05 15:22:31] ROBOT_SPEECH: Let's roll the dice
+[2025-12-05 15:25:04] ROBOT_SPEECH: Move your piece on the board by three steps!
+[2025-12-05 15:28:54] ROBOT_SPEECH: Move your piece on the board by two steps!
+[2025-12-05 15:29:37] ROBOT_SPEECH: Move your piece on the board by six steps!
+[2025-12-05 15:32:30] ROBOT_SPEECH: Move your piece on the board by four steps!
+[2025-12-05 15:33:40] ROBOT_SPEECH: Move your piece on the board by five steps!
+[2025-12-05 15:36:14] ROBOT_SPEECH: Move your piece on the board by one step!
+[2025-12-05 15:36:56] ROBOT_SPEECH: Move your piece on the board by one step!
+[2025-12-05 15:37:08] ROBOT_SPEECH: Move your piece on the board by five steps!
+[2025-12-05 15:37:19] ROBOT_SPEECH: Move your piece on the board by six steps!
+[2025-12-05 15:37:25] ROBOT_SPEECH: Move your piece on the board by two steps!
+[2025-12-05 15:37:59] ROBOT_SPEECH: all done
+dice_action_young
+Time: Fri Dec  5 15:39:15 2025
+[2025-12-05 15:39:16] ROBOT_SPEECH: Let's roll the dice
+[2025-12-05 15:39:18] ROBOT_SPEECH: Let's roll the dice
+Main closed  Fri Dec  5 15:39:27 2025
+story_old_client
+Time: Fri Dec  5 15:39:45 2025
+[2025-12-05 15:39:46] ROBOT_SPEECH: Lets choose a story
+Main closed  Fri Dec  5 15:39:51 2025
+dice_action_young
+Time: Fri Dec  5 15:45:16 2025
+[2025-12-05 15:45:17] ROBOT_SPEECH: Let's roll the dice
+[2025-12-05 15:45:28] ROBOT_SPEECH: Let's have a bear hug!
+[2025-12-05 15:45:30] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-12-05 15:46:01] ROBOT_SPEECH: Let's sing a song
+[2025-12-05 15:46:47] ROBOT_SPEECH: all done

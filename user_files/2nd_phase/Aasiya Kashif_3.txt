@@ -1,0 +1,258 @@
+Name: Aasiya Kashif
+login closed  Fri Nov 28 14:15:44 2025
+at_talks
+Time: Fri Nov 28 14:18:00 2025
+[2025-11-28 14:18:09] ROBOT_SPEECH: Hello! How r you today?
+[2025-11-28 14:18:28] ROBOT_SPEECH: What is your favourite season?
+[2025-11-28 14:19:39] ROBOT_SPEECH: What is your favourite colour?
+Main closed  Fri Nov 28 14:20:03 2025
+dice_5w1h
+Time: Fri Nov 28 14:20:27 2025
+dice_5w1h
+Time: Fri Nov 28 14:20:41 2025
+dice_5w1h
+Time: Fri Nov 28 14:20:44 2025
+dice_5w1h
+Time: Fri Nov 28 14:20:46 2025
+dice_5w1h
+Time: Fri Nov 28 14:20:53 2025
+dice_5w1h
+Time: Fri Nov 28 14:20:55 2025
+dice_5w1h
+Time: Fri Nov 28 14:20:56 2025
+dice_5w1h
+Time: Fri Nov 28 14:20:57 2025
+dice_5w1h
+Time: Fri Nov 28 14:20:59 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:06 2025
+instructions_game
+Time: Fri Nov 28 14:21:08 2025
+emotion_game2
+Time: Fri Nov 28 14:21:10 2025
+inference_old
+Time: Fri Nov 28 14:21:11 2025
+login closed  Fri Nov 28 14:21:30 2025
+Name: Aasiya Kashif
+login closed  Fri Nov 28 14:21:31 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:37 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:38 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:39 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:39 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:40 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:40 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:40 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:40 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:40 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:40 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:41 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:41 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:41 2025
+dice_board
+Time: Fri Nov 28 14:21:42 2025
+yes_no_old
+Time: Fri Nov 28 14:21:43 2025
+story_old_client
+Time: Fri Nov 28 14:21:44 2025
+emotion_game2
+Time: Fri Nov 28 14:21:45 2025
+dice_emotion_old
+Time: Fri Nov 28 14:21:46 2025
+inference_old
+Time: Fri Nov 28 14:21:46 2025
+emotion_game2
+Time: Fri Nov 28 14:21:47 2025
+emotion_game2
+Time: Fri Nov 28 14:21:49 2025
+instructions_game
+Time: Fri Nov 28 14:21:50 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:50 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:51 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:51 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:51 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:51 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:52 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:52 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:54 2025
+dice_5w1h
+Time: Fri Nov 28 14:21:55 2025
+dice_5w1h
+Time: Fri Nov 28 14:22:05 2025
+[2025-11-28 14:22:05] ROBOT_SPEECH: Lets play around with wh questions
+[2025-11-28 14:22:11] ROBOT_SPEECH: Let's roll the dice
+[2025-11-28 14:22:16] ROBOT_SPEECH: how
+[2025-11-28 14:22:33] ROBOT_SPEECH: How do you buy something at the store?
+[2025-11-28 14:23:06] ROBOT_SPEECH: how
+[2025-11-28 14:23:15] ROBOT_SPEECH: How do you go for "trick-or-treating"?
+[2025-11-28 14:24:27] ROBOT_SPEECH: when
+[2025-11-28 14:24:31] ROBOT_SPEECH: why
+[2025-11-28 14:24:50] ROBOT_SPEECH: Why do we drive cars?
+[2025-11-28 14:25:05] ROBOT_SPEECH: when
+[2025-11-28 14:25:19] ROBOT_SPEECH: When do leaves fall down from trees?
+[2025-11-28 14:25:52] ROBOT_SPEECH: why
+[2025-11-28 14:26:08] ROBOT_SPEECH: Why do we turn on the lights?
+[2025-11-28 14:26:21] ROBOT_SPEECH: when
+[2025-11-28 14:26:30] ROBOT_SPEECH: When do we eat lunch?
+[2025-11-28 14:26:45] ROBOT_SPEECH: how
+[2025-11-28 14:26:50] ROBOT_SPEECH: why
+[2025-11-28 14:27:00] ROBOT_SPEECH: Why do we wear a jacket?
+[2025-11-28 14:27:28] ROBOT_SPEECH: why
+[2025-11-28 14:27:34] ROBOT_SPEECH: Why do we go to the dentist's office?
+[2025-11-28 14:27:58] ROBOT_SPEECH: how
+[2025-11-28 14:28:19] ROBOT_SPEECH: How do you wrap a present?
+[2025-11-28 14:29:17] ROBOT_SPEECH: when
+[2025-11-28 14:29:42] ROBOT_SPEECH: When is your birthday?
+[2025-11-28 14:30:01] ROBOT_SPEECH: how
+[2025-11-28 14:30:09] ROBOT_SPEECH: why
+[2025-11-28 14:30:24] ROBOT_SPEECH: when
+[2025-11-28 14:30:27] ROBOT_SPEECH: why
+[2025-11-28 14:30:29] ROBOT_SPEECH: when
+[2025-11-28 14:30:51] ROBOT_SPEECH: When do we go to school?
+Main closed  Fri Nov 28 14:31:30 2025
+yes_no_old
+Time: Fri Nov 28 14:31:36 2025
+[2025-11-28 14:31:38] ROBOT_SPEECH: Do you wear a swimsuit at the beach?
+[2025-11-28 14:31:43] ROBOT_SPEECH: Correct!
+[2025-11-28 14:31:44] ROBOT_SPEECH: Does a boat fly in the sky?
+[2025-11-28 14:31:49] ROBOT_SPEECH: Does a boat fly in the sky?
+[2025-11-28 14:31:54] ROBOT_SPEECH: Correct!
+[2025-11-28 14:31:55] ROBOT_SPEECH:   Do turtles have shells?
+[2025-11-28 14:32:00] ROBOT_SPEECH: Correct!
+[2025-11-28 14:32:01] ROBOT_SPEECH: Is ice cream sweet?
+[2025-11-28 14:32:05] ROBOT_SPEECH: Correct!
+[2025-11-28 14:32:06] ROBOT_SPEECH: Do you drink juice with a straw?
+[2025-11-28 14:32:11] ROBOT_SPEECH: Correct!
+[2025-11-28 14:32:12] ROBOT_SPEECH: Do you wear sunglasses on your feet?
+[2025-11-28 14:32:17] ROBOT_SPEECH: Correct!
+[2025-11-28 14:32:18] ROBOT_SPEECH: Do dogs say, #COW#
+[2025-11-28 14:32:25] ROBOT_SPEECH: Correct!
+[2025-11-28 14:32:26] ROBOT_SPEECH: Do crabs have wings?
+[2025-11-28 14:32:31] ROBOT_SPEECH: Correct!
+[2025-11-28 14:32:32] ROBOT_SPEECH: Is the sun hot?
+[2025-11-28 14:32:36] ROBOT_SPEECH: Correct!
+[2025-11-28 14:32:37] ROBOT_SPEECH: Can you build snowman at the beach?
+[2025-11-28 14:32:42] ROBOT_SPEECH: Correct!
+Main closed  Fri Nov 28 14:32:55 2025
+emotion_game2
+Time: Fri Nov 28 14:33:06 2025
+dice_emotion_old
+Time: Fri Nov 28 14:33:27 2025
+[2025-11-28 14:33:28] ROBOT_SPEECH: Let's roll the dice
+[2025-11-28 14:33:34] ROBOT_SPEECH: excited
+[2025-11-28 14:33:41] ROBOT_SPEECH: Who makes you feel excited?
+[2025-11-28 14:34:04] ROBOT_SPEECH: frustrated
+[2025-11-28 14:34:10] ROBOT_SPEECH: When do you feel frustrated?
+[2025-11-28 14:34:25] ROBOT_SPEECH: confused
+[2025-11-28 14:34:28] ROBOT_SPEECH: What makes you feel confused?
+[2025-11-28 14:35:10] ROBOT_SPEECH: tired
+[2025-11-28 14:35:16] ROBOT_SPEECH: When do you feel tired?
+[2025-11-28 14:35:50] ROBOT_SPEECH: curious
+[2025-11-28 14:35:55] ROBOT_SPEECH: what makes you curious?
+[2025-11-28 14:35:59] ROBOT_SPEECH: curious. what makes you curious?
+[2025-11-28 14:37:18] ROBOT_SPEECH: silly
+[2025-11-28 14:37:24] ROBOT_SPEECH: when do you feel silly?
+[2025-11-28 14:38:40] ROBOT_SPEECH: silly
+[2025-11-28 14:38:46] ROBOT_SPEECH: when do you feel silly?
+[2025-11-28 14:38:47] ROBOT_SPEECH: excited
+[2025-11-28 14:38:54] ROBOT_SPEECH: Who makes you feel excited?
+[2025-11-28 14:39:02] ROBOT_SPEECH: curious
+[2025-11-28 14:39:07] ROBOT_SPEECH: what makes you curious?
+[2025-11-28 14:39:08] ROBOT_SPEECH: frustrated
+[2025-11-28 14:39:14] ROBOT_SPEECH: When do you feel frustrated?
+[2025-11-28 14:39:30] ROBOT_SPEECH: tired
+[2025-11-28 14:39:36] ROBOT_SPEECH: When do you feel tired?
+story_old_client
+Time: Fri Nov 28 14:40:00 2025
+[2025-11-28 14:40:00] ROBOT_SPEECH: Lets choose a story
+[2025-11-28 14:40:00] ROBOT_SPEECH: Lets choose a story
+Main closed  Fri Nov 28 14:40:04 2025
+story_old_client
+Time: Fri Nov 28 14:40:10 2025
+[2025-11-28 14:40:10] ROBOT_SPEECH: Lets choose a story
+goldilocks
+Time: Fri Nov 28 14:40:21 2025
+[2025-11-28 14:40:22] ROBOT_SPEECH: Lets start the story!
+[2025-11-28 14:40:36] ROBOT_SPEECH: Once upon a time lived Goldilocks and The Three Bears.
+[2025-11-28 14:40:51] ROBOT_SPEECH: One day, Goldilocks went for a walk in the forest and found a house.
+[2025-11-28 14:40:57] ROBOT_SPEECH: She knocked, and when nobody answered, she decided to go inside.
+[2025-11-28 14:41:18] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-11-28 14:42:53] ROBOT_SPEECH: Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.
+[2025-11-28 14:43:15] ROBOT_SPEECH: Goldilocks tasted the porridge from the large bowl. This porridge is too salty
+[2025-11-28 14:43:28] ROBOT_SPEECH: Goldilocks tasted the porridge from the medium sized bowl. “This porridge is too sweet!
+[2025-11-28 14:43:39] ROBOT_SPEECH: Goldilocks tasted the porridge from the small bowl. “This porridge is just right,” Goldilocks said and ate it all up.
+[2025-11-28 14:43:54] ROBOT_SPEECH: Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.
+[2025-11-28 14:45:07] ROBOT_SPEECH: By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom.
+[2025-11-28 14:45:12] ROBOT_SPEECH: Goldilocks felt tired, so Goldilocks walked into the living room and saw three chairs.
+[2025-11-28 14:45:21] ROBOT_SPEECH: Goldilocks sat in the large chair to rest her feet. “This chair is too big!
+[2025-11-28 14:45:22] ROBOT_SPEECH: Goldilocks sat in the large chair to rest her feet. “This chair is too big!
+[2025-11-28 14:45:55] ROBOT_SPEECH: Goldilocks sat in the medium sized chair. This chair is too big, too!
+[2025-11-28 14:46:20] ROBOT_SPEECH: Goldilocks sat in the small chair. “This chair is just right
+[2025-11-28 14:46:32] ROBOT_SPEECH: By now, Goldilocks was very tired, Goldilocks went upstairs to the bedroom.
+[2025-11-28 14:46:48] ROBOT_SPEECH: As Goldilocks was sleeping, The Three Bears came home.
+[2025-11-28 14:46:55] ROBOT_SPEECH: Goldilocks lay down on the large bed. “This bed is too hard!” 
+[2025-11-28 14:47:05] ROBOT_SPEECH: Goldilocks lay down on the medium sized bed. This bed is too soft!
+[2025-11-28 14:47:31] ROBOT_SPEECH: Goldilocks lay down on the small bed. This bed is just right. Goldilocks curled up and fell asleep.
+[2025-11-28 14:47:52] ROBOT_SPEECH: As Goldilocks was sleeping, The Three Bears came home.
+[2025-11-28 14:47:59] ROBOT_SPEECH: Someone’s been eating my porridge, growled Daddy Bear.
+[2025-11-28 14:47:59] ROBOT_SPEECH: #BEAR#
+[2025-11-28 14:48:07] ROBOT_SPEECH: Someone’s been eating my porridge, said Mummy Bear.
+[2025-11-28 14:48:13] ROBOT_SPEECH: Someone’s been eating my porridge and it’s all gone!. Cried Baby Bear
+[2025-11-28 14:48:13] ROBOT_SPEECH: #CRY03#
+[2025-11-28 14:48:26] ROBOT_SPEECH: Someone’s been sitting in my chair!. Growled Daddy Bear.
+[2025-11-28 14:48:26] ROBOT_SPEECH: #BEAR#
+[2025-11-28 14:48:34] ROBOT_SPEECH: Someone’s been sitting in my chair!” said Mummy Bear.
+[2025-11-28 14:48:42] ROBOT_SPEECH: Someone’s been sitting in my chair and it’s broken!. Cried Baby Bear.
+[2025-11-28 14:48:42] ROBOT_SPEECH: #CRY04#
+[2025-11-28 14:48:51] ROBOT_SPEECH: When they got upstairs to the bedroom, Daddy Bear growled.
+[2025-11-28 14:48:51] ROBOT_SPEECH: #BEAR#
+[2025-11-28 14:48:51] ROBOT_SPEECH: Someone’s been sleeping on my bed.
+[2025-11-28 14:49:01] ROBOT_SPEECH: Someone’s been sleeping on my bed too, said the Mummy Bear
+[2025-11-28 14:49:09] ROBOT_SPEECH: Someone’s been sleeping in my bed, and she’s still there!. Cried Baby Bear.
+[2025-11-28 14:49:09] ROBOT_SPEECH: #CRY03#
+[2025-11-28 14:51:33] ROBOT_SPEECH: Just then Goldilocks woke up and saw The Three Bears.
+[2025-11-28 14:51:37] ROBOT_SPEECH: She screamed.
+[2025-11-28 14:52:04] ROBOT_SPEECH: Goldilocks ran down the stairs and into the forest. And she never went back into the woods again.
+[2025-11-28 14:52:28] ROBOT_SPEECH: Who entered the house of the three bears?
+[2025-11-28 14:52:35] ROBOT_SPEECH: Correct!
+[2025-11-28 14:52:37] ROBOT_SPEECH: How many bears lived in the house?
+[2025-11-28 14:52:41] ROBOT_SPEECH: Correct!
+[2025-11-28 14:52:41] ROBOT_SPEECH: What did goldilocks find on the table when she went inside the house?
+[2025-11-28 14:53:29] ROBOT_SPEECH: Correct!
+[2025-11-28 14:53:30] ROBOT_SPEECH: Which porridge did Goldilocks like?
+[2025-11-28 14:53:40] ROBOT_SPEECH: Correct!
+[2025-11-28 14:53:41] ROBOT_SPEECH: What did Goldilocks do after she ate the porridge?
+[2025-11-28 14:54:00] ROBOT_SPEECH: Correct!
+[2025-11-28 14:54:02] ROBOT_SPEECH: Which chair did Goldilocks like to sit in?
+[2025-11-28 14:54:09] ROBOT_SPEECH: Correct!
+[2025-11-28 14:54:20] ROBOT_SPEECH: Correct!
+[2025-11-28 14:54:27] ROBOT_SPEECH: Which bed did Goldilocks like to sleep in?
+[2025-11-28 14:54:39] ROBOT_SPEECH: Correct!
+[2025-11-28 14:54:45] ROBOT_SPEECH: What happened when The Three Bears found Goldilocks in their bed?
+[2025-11-28 14:54:50] ROBOT_SPEECH: That's not correct
+[2025-11-28 14:54:57] ROBOT_SPEECH: What happened when The Three Bears found Goldilocks in their bed?
+[2025-11-28 14:55:54] ROBOT_SPEECH: Correct!
+[2025-11-28 14:56:00] ROBOT_SPEECH: How did the Three Bears feel when they discovered someone has been in their house?
+[2025-11-28 14:56:29] ROBOT_SPEECH: Correct!
+[2025-11-28 14:56:29] ROBOT_SPEECH: What lesson can be learned from the Goldilocks story?
+[2025-11-28 14:56:40] ROBOT_SPEECH: Correct!

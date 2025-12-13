@@ -1,0 +1,100 @@
+Name: Waris Johal
+login closed  Wed Nov  5 10:08:58 2025
+at_talks
+Time: Wed Nov  5 10:09:50 2025
+at_talks
+Time: Wed Nov  5 10:09:56 2025
+at_talks
+Time: Wed Nov  5 10:10:00 2025
+at_talks
+Time: Wed Nov  5 10:10:03 2025
+at_talks
+Time: Wed Nov  5 10:10:09 2025
+[2025-11-05 10:10:12] ROBOT_SPEECH: Hello! How r you today?
+[2025-11-05 10:10:25] ROBOT_SPEECH: Whats your name?
+[2025-11-05 10:10:32] ROBOT_SPEECH: Whats your name?
+[2025-11-05 10:10:42] ROBOT_SPEECH: Wow! nice name!
+[2025-11-05 10:11:06] ROBOT_SPEECH: What is your favourite colour?
+[2025-11-05 10:11:14] ROBOT_SPEECH: That's good to know!
+Main closed  Wed Nov  5 10:11:31 2025
+at_talks
+Time: Wed Nov  5 10:12:12 2025
+instructions_game
+Time: Wed Nov  5 10:26:31 2025
+[2025-11-05 10:26:33] ROBOT_SPEECH: What place do you wanna go to?
+[2025-11-05 10:26:45] ROBOT_SPEECH: Let's go to play!
+[2025-11-05 10:26:49] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+[2025-11-05 10:27:20] ROBOT_SPEECH: Great!
+[2025-11-05 10:27:25] ROBOT_SPEECH: A red monkey bar, is on the middle of the park
+[2025-11-05 10:27:38] ROBOT_SPEECH: Perfect!
+[2025-11-05 10:27:43] ROBOT_SPEECH: A sandbox, \spd=70\ is placed on the right side, in the park
+[2025-11-05 10:27:44] ROBOT_SPEECH: Hooray!
+Taking Instruction park1 closed  Wed Nov  5 10:27:57 2025
+[2025-11-05 10:27:59] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-11-05 10:28:22] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-11-05 10:28:41] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-11-05 10:28:54] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-11-05 10:29:03] ROBOT_SPEECH: Amazing!
+[2025-11-05 10:29:08] ROBOT_SPEECH: A man, is running along on the right side
+[2025-11-05 10:29:18] ROBOT_SPEECH: Perfect!
+[2025-11-05 10:29:23] ROBOT_SPEECH: a person, is riding a bike, along the bike path
+[2025-11-05 10:29:29] ROBOT_SPEECH: Great!
+Taking Instruction park2 closed  Wed Nov  5 10:29:36 2025
+[2025-11-05 10:29:40] ROBOT_SPEECH: Lets place the swing, on the right side of the bench
+[2025-11-05 10:29:49] ROBOT_SPEECH: Lets place the swing, on the right side of the bench
+[2025-11-05 10:29:57] ROBOT_SPEECH: Amazing!
+[2025-11-05 10:30:02] ROBOT_SPEECH: There is a slide, under the tall tree.
+[2025-11-05 10:30:09] ROBOT_SPEECH: There is a slide, under the tall tree.
+[2025-11-05 10:30:20] ROBOT_SPEECH: Hooray!
+[2025-11-05 10:30:25] ROBOT_SPEECH: People, are sitting on a bench, next to the big tree
+[2025-11-05 10:30:26] ROBOT_SPEECH: Hooray!
+Main closed  Wed Nov  5 10:30:44 2025
+instructions_game
+Time: Wed Nov  5 10:30:51 2025
+[2025-11-05 10:30:54] ROBOT_SPEECH: What place do you wanna go to?
+[2025-11-05 10:31:11] ROBOT_SPEECH: Let's go to hospital!
+[2025-11-05 10:31:14] ROBOT_SPEECH: Lets put the injection, on the stand.
+[2025-11-05 10:31:25] ROBOT_SPEECH: Lets put the injection, on the stand.
+[2025-11-05 10:32:16] ROBOT_SPEECH: Perfect!
+[2025-11-05 10:32:21] ROBOT_SPEECH: The patient, is waiting on the bed.
+[2025-11-05 10:32:28] ROBOT_SPEECH: Great!
+[2025-11-05 10:32:32] ROBOT_SPEECH: The doctor, is next to the sink.
+[2025-11-05 10:32:37] ROBOT_SPEECH: Amazing!
+Taking Instruction hospital1 closed  Wed Nov  5 10:32:44 2025
+[2025-11-05 10:32:50] ROBOT_SPEECH: The medical cart, is in the middle of the hallway
+[2025-11-05 10:33:23] ROBOT_SPEECH: The medical cart, is in the middle of the hallway
+[2025-11-05 10:33:52] ROBOT_SPEECH: Hooray!
+[2025-11-05 10:33:58] ROBOT_SPEECH: The nurse, is waiting beside the right door
+[2025-11-05 10:34:18] ROBOT_SPEECH: Perfect!
+[2025-11-05 10:34:22] ROBOT_SPEECH: A patient, is sitting on a chair
+[2025-11-05 10:34:25] ROBOT_SPEECH: Great!
+Taking Instruction hospital2 closed  Wed Nov  5 10:34:34 2025
+[2025-11-05 10:34:37] ROBOT_SPEECH: A person, is walking towards, the emergency entrance on the right side.
+[2025-11-05 10:35:04] ROBOT_SPEECH: A person, is walking towards, the emergency entrance on the right side.
+[2025-11-05 10:35:43] ROBOT_SPEECH: Amazing!
+[2025-11-05 10:35:48] ROBOT_SPEECH: The ambulance, is located on the left side of the building.
+[2025-11-05 10:36:02] ROBOT_SPEECH: The ambulance, is located on the left side of the building.
+[2025-11-05 10:36:15] ROBOT_SPEECH: The ambulance, is located on the left side of the building.
+[2025-11-05 10:36:25] ROBOT_SPEECH: Great!
+[2025-11-05 10:36:29] ROBOT_SPEECH: The doctor, is standing in front of the emergency entrance.
+[2025-11-05 10:36:33] ROBOT_SPEECH: Hooray!
+Main closed  Wed Nov  5 10:36:50 2025
+story_old_client
+Time: Wed Nov  5 10:37:03 2025
+[2025-11-05 10:37:04] ROBOT_SPEECH: Lets choose a story
+goldilocks
+Time: Wed Nov  5 10:37:49 2025
+[2025-11-05 10:37:50] ROBOT_SPEECH: Lets start the story!
+[2025-11-05 10:37:58] ROBOT_SPEECH: Once upon a time lived Goldilocks and The Three Bears.
+[2025-11-05 10:38:28] ROBOT_SPEECH: One day, Goldilocks went for a walk in the forest and found a house.
+[2025-11-05 10:38:35] ROBOT_SPEECH: She knocked, and when nobody answered, she decided to go inside.
+[2025-11-05 10:39:09] ROBOT_SPEECH: At the table, there were three bowls of porridge. Goldilocks was hungry.
+[2025-11-05 10:39:37] ROBOT_SPEECH: Goldilocks tasted the porridge from the large bowl. This porridge is too salty
+[2025-11-05 10:40:05] ROBOT_SPEECH: Goldilocks tasted the porridge from the medium sized bowl. “This porridge is too sweet!
+[2025-11-05 10:40:55] ROBOT_SPEECH: Goldilocks tasted the porridge from the medium sized bowl. “This porridge is too sweet!
+[2025-11-05 10:41:14] ROBOT_SPEECH: Goldilocks tasted the porridge from the small bowl. “This porridge is just right,” Goldilocks said and ate it all up.
+at_talks
+Time: Wed Nov  5 10:43:41 2025
+[2025-11-05 11:00:32] ROBOT_SPEECH: #AARGH01# Keep trying! 
+[2025-11-05 11:01:55] ROBOT_SPEECH: Goodbye!
+[2025-11-05 11:02:02] ROBOT_SPEECH: See you later!

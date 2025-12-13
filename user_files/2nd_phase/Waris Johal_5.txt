@@ -1,0 +1,86 @@
+Name: Waris Johal
+login closed  Wed Dec  3 10:10:57 2025
+login closed  Wed Dec  3 10:11:13 2025
+Name: Waris Johal
+login closed  Wed Dec  3 10:11:15 2025
+Name: Waris Johal
+login closed  Wed Dec  3 10:11:34 2025
+dice_5w1h
+Time: Wed Dec  3 10:13:56 2025
+Main closed  Wed Dec  3 10:14:13 2025
+dice_5w1h
+Time: Wed Dec  3 10:14:21 2025
+dice_5w1h
+Time: Wed Dec  3 10:14:37 2025
+dice_5w1h
+Time: Wed Dec  3 10:14:37 2025
+Name: Waris Johal
+login closed  Wed Dec  3 10:14:55 2025
+dice_5w1h
+Time: Wed Dec  3 10:15:01 2025
+dice_5w1h
+Time: Wed Dec  3 10:15:06 2025
+Main closed  Wed Dec  3 10:15:19 2025
+login closed  Wed Dec  3 10:16:56 2025
+Name: Waris Johal
+login closed  Wed Dec  3 10:16:58 2025
+dice_5w1h
+Time: Wed Dec  3 10:17:07 2025
+dice_5w1h
+Time: Wed Dec  3 10:17:07 2025
+dice_5w1h
+Time: Wed Dec  3 10:17:07 2025
+Main closed  Wed Dec  3 10:33:04 2025
+emotion_game2
+Time: Wed Dec  3 10:39:45 2025
+Name: Waris Johal
+login closed  Wed Dec  3 10:43:57 2025
+Name: Waris Johal
+login closed  Wed Dec  3 10:46:53 2025
+dice_5w1h
+Time: Wed Dec  3 10:46:58 2025
+[2025-12-03 10:46:58] ROBOT_SPEECH: Lets play around with wh questions
+[2025-12-03 10:47:15] ROBOT_SPEECH: Let's roll the dice
+[2025-12-03 10:47:20] ROBOT_SPEECH: Who
+[2025-12-03 10:47:32] ROBOT_SPEECH: Who saves people from a fire?
+[2025-12-03 10:48:00] ROBOT_SPEECH: Who
+[2025-12-03 10:48:09] ROBOT_SPEECH: Who drives a school bus?
+[2025-12-03 10:48:25] ROBOT_SPEECH: Where
+[2025-12-03 10:48:29] ROBOT_SPEECH: Where can we borrow books?
+[2025-12-03 10:48:36] ROBOT_SPEECH: Where do we play on slides and swings?
+[2025-12-03 10:48:47] ROBOT_SPEECH: what
+[2025-12-03 10:49:00] ROBOT_SPEECH: What do we use to tell the time?
+[2025-12-03 10:49:29] ROBOT_SPEECH: what
+[2025-12-03 10:49:35] ROBOT_SPEECH: What do we eat soup with?
+[2025-12-03 10:50:05] ROBOT_SPEECH: Where
+[2025-12-03 10:50:15] ROBOT_SPEECH: Where can we borrow books?
+[2025-12-03 10:50:24] ROBOT_SPEECH: Where are the clouds?
+[2025-12-03 10:50:42] ROBOT_SPEECH: Who
+[2025-12-03 10:50:48] ROBOT_SPEECH: Who helps you when you are sick?
+[2025-12-03 10:51:14] ROBOT_SPEECH: what
+[2025-12-03 10:51:21] ROBOT_SPEECH: What do we use to clean our teeth?
+[2025-12-03 10:51:43] ROBOT_SPEECH: Where
+[2025-12-03 10:51:45] ROBOT_SPEECH: Where can we borrow books?
+[2025-12-03 10:52:08] ROBOT_SPEECH: all done
+Main closed  Wed Dec  3 10:52:12 2025
+emotion_game2
+Time: Wed Dec  3 10:52:29 2025
+[2025-12-03 10:52:30] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Wed Dec  3 10:52:33 2025
+[2025-12-03 10:52:33] ROBOT_SPEECH: Show me an emotion card
+[2025-12-03 10:52:52] ROBOT_SPEECH: happy!
+[2025-12-03 10:53:04] ROBOT_SPEECH: Look at the tablet, which one is  happy
+emotion_game1 closed  Wed Dec  3 10:53:22 2025
+[2025-12-03 10:53:22] ROBOT_SPEECH: Show me an emotion card
+[2025-12-03 10:53:25] ROBOT_SPEECH: happy!
+[2025-12-03 10:53:37] ROBOT_SPEECH: Look at the tablet, which one is  happy
+[2025-12-03 10:54:04] ROBOT_SPEECH: Going to the park makes me happy.
+[2025-12-03 10:54:28] ROBOT_SPEECH: Show me another emotion card!
+[2025-12-03 10:54:34] ROBOT_SPEECH: saed
+[2025-12-03 10:54:46] ROBOT_SPEECH: Look at the tablet, which one is  sad
+emotion_game1 closed  Wed Dec  3 10:54:56 2025
+[2025-12-03 10:54:57] ROBOT_SPEECH: Show me an emotion card
+[2025-12-03 10:55:00] ROBOT_SPEECH: saed
+[2025-12-03 10:55:12] ROBOT_SPEECH: Look at the tablet, which one is  sad
+[2025-12-03 10:55:35] ROBOT_SPEECH: I feel sad when my friends don't share their toys with me.
+[2025-12-03 10:57:02] ROBOT_SPEECH: all done

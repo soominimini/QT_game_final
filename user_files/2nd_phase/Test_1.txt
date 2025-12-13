@@ -1,0 +1,390 @@
+Name: Test
+login closed  Thu Nov 20 15:09:51 2025
+at_talks
+Time: Thu Nov 20 15:09:58 2025
+action_game
+Time: Thu Nov 20 15:10:17 2025
+[2025-11-20 15:10:18] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Nov 20 15:10:22 2025
+[2025-11-20 15:10:24] ROBOT_SPEECH: Show me an action card
+dice_action_young
+Time: Thu Nov 20 15:10:38 2025
+[2025-11-20 15:10:39] ROBOT_SPEECH: Let's roll the dice
+action_game closed  Thu Nov 20 15:10:39 2025
+[2025-11-20 15:10:44] ROBOT_SPEECH: Let's have a high five!
+[2025-11-20 15:10:54] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-11-20 15:10:56] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+Name: Test
+login closed  Thu Nov 20 15:11:40 2025
+at_talks
+Time: Thu Nov 20 15:11:45 2025
+Name: Test
+login closed  Thu Nov 20 15:16:46 2025
+at_talks
+Time: Thu Nov 20 15:16:50 2025
+[2025-11-20 15:16:53] ROBOT_SPEECH: lets look at the visual schedule
+[2025-11-20 15:16:59] ROBOT_SPEECH: Bravo!
+break
+Time: Thu Nov 20 15:17:13 2025
+[2025-11-20 15:17:13] ROBOT_SPEECH: Oh! Break Time!
+instructions_game
+Time: Thu Nov 20 15:18:15 2025
+[2025-11-20 15:18:21] ROBOT_SPEECH: Where shall we go?
+[2025-11-20 15:18:22] ROBOT_SPEECH: Lets place the cart, between the checkout counters
+[2025-11-20 15:19:07] ROBOT_SPEECH: Great!
+Main closed  Thu Nov 20 15:19:13 2025
+emotion_game2
+Time: Thu Nov 20 15:19:33 2025
+[2025-11-20 15:19:35] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Thu Nov 20 15:19:38 2025
+[2025-11-20 15:19:39] ROBOT_SPEECH: Show me an emotion card
+[2025-11-20 15:19:44] ROBOT_SPEECH: sheye
+[2025-11-20 15:19:56] ROBOT_SPEECH: Look at the tablet, which one is  shy
+emotion_game1 closed  Thu Nov 20 15:20:32 2025
+[2025-11-20 15:20:32] ROBOT_SPEECH: Show me an emotion card
+inference_old
+Time: Thu Nov 20 15:21:05 2025
+[2025-11-20 15:21:05] ROBOT_SPEECH: Lets play inference games
+emotion_game1 closed  Thu Nov 20 15:21:05 2025
+[2025-11-20 15:21:08] ROBOT_SPEECH: I am grey. I have big floppy ears and a long trunk. I love peanuts.
+[2025-11-20 15:21:16] ROBOT_SPEECH: What am I?
+Main closed  Thu Nov 20 15:21:29 2025
+yes_no_old
+Time: Thu Nov 20 15:21:38 2025
+[2025-11-20 15:21:39] ROBOT_SPEECH: Is the sun hot?
+[2025-11-20 15:21:42] ROBOT_SPEECH: Correct!
+[2025-11-20 15:21:45] ROBOT_SPEECH: Can you build snowman at the beach?
+[2025-11-20 15:21:50] ROBOT_SPEECH: Do you drink juice?
+[2025-11-20 15:22:01] ROBOT_SPEECH: Do you drink juice?
+story_old_client
+Time: Thu Nov 20 15:23:53 2025
+[2025-11-20 15:23:54] ROBOT_SPEECH: Lets choose a story
+red_riding
+Time: Thu Nov 20 15:23:56 2025
+[2025-11-20 15:23:57] ROBOT_SPEECH: Lets start the story!
+[2025-11-20 15:24:09] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:24:14] ROBOT_SPEECH: One day, she decided to go visit her dear grandmother, who lift deep in the woods.
+[2025-11-20 15:24:23] ROBOT_SPEECH: When her mother packed a basket of treats,  she warned her not to talk to strangers along the way.
+[2025-11-20 15:24:24] ROBOT_SPEECH: As Little Red Riding Hood happily strolled through the woods,   she did not notice the sneaky wolf stalking her through the trees.
+[2025-11-20 15:24:25] ROBOT_SPEECH: The wolf, pretending to be lost, asked Little Red Riding Hood for directions.
+[2025-11-20 15:24:26] ROBOT_SPEECH: The wolf seemed harmless enough, so Little Red Riding Hood not only spoke to him.   She also revealed where she was going.
+[2025-11-20 15:24:27] ROBOT_SPEECH: The wolf rushed ahead to beat her to her grand mother’s house,   gaining entry by pretending to be her dear granddaughter. 
+[2025-11-20 15:24:28] ROBOT_SPEECH: Having locked her grandmother in the closet,  the wolf waited for Little Red Riding Hood to arrive.
+[2025-11-20 15:24:29] ROBOT_SPEECH: When she knocked on her grandmother’s door, she was greeted by a strange voice.  “Come in dear,” said the wolf. 
+[2025-11-20 15:24:30] ROBOT_SPEECH: As the wolf lay in bed, wearing one of her grandmother’s nightgowns, Little Red Riding Hood thought her grandmother sounded and looked strange. 
+[2025-11-20 15:24:38] ROBOT_SPEECH: all done
+[2025-11-20 15:26:01] ROBOT_SPEECH: What big ears you have, she said. Better to hear you with my dear, replied the wolf. 
+[2025-11-20 15:26:25] ROBOT_SPEECH: “What big eyes you have,” said Little Red Riding Hood.  “Better to see you with my darling,” the wolf replied. 
+[2025-11-20 15:26:28] ROBOT_SPEECH: Your teeth, your teeth are large and as sharp as knives.  Little Red Riding Hood exclaimed.
+[2025-11-20 15:26:30] ROBOT_SPEECH: “The better to eat you with!” growled the wolf as he jumped up and lunged at the girl.
+[2025-11-20 15:26:33] ROBOT_SPEECH: Luckily Little Red Riding Hood had practiced self defense, and grabbed a broom to fend off the wolf. Surprised by the girl's bravery, the wolf ran off with his tail between his legs.
+[2025-11-20 15:26:34] ROBOT_SPEECH: Little Red Riding Hood freed her grandmother from the closet,  and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again.
+[2025-11-20 15:26:35] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-11-20 15:27:20] ROBOT_SPEECH: What did Little Red Riding Hood’s mother warn her about?
+[2025-11-20 15:27:25] ROBOT_SPEECH: Who did Little Red Riding Hood meet in the forest?
+[2025-11-20 15:27:29] ROBOT_SPEECH: What did the wolf do after talking to Little Red Riding Hood?
+[2025-11-20 15:27:38] ROBOT_SPEECH: What did Little Red Riding Hood bring for her grandmother?
+[2025-11-20 15:27:43] ROBOT_SPEECH: Why did Little Red Riding Hood feel something was strange with her grandmother?
+[2025-11-20 15:27:49] ROBOT_SPEECH: What can we learn from the story?
+Name: Test
+login closed  Thu Nov 20 15:29:42 2025
+break
+Time: Thu Nov 20 15:29:50 2025
+[2025-11-20 15:29:50] ROBOT_SPEECH: Oh! Break Time!
+Name: Test
+login closed  Thu Nov 20 15:42:56 2025
+Main closed  Thu Nov 20 15:43:03 2025
+story_old_client
+Time: Thu Nov 20 15:43:04 2025
+[2025-11-20 15:43:04] ROBOT_SPEECH: Lets choose a story
+red_riding
+Time: Thu Nov 20 15:43:06 2025
+[2025-11-20 15:43:07] ROBOT_SPEECH: Lets start the story!
+[2025-11-20 15:43:13] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:43:44] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:44:39] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:44:46] ROBOT_SPEECH: all done
+Name: Test
+login closed  Thu Nov 20 15:44:58 2025
+story_old_client
+Time: Thu Nov 20 15:45:02 2025
+[2025-11-20 15:45:02] ROBOT_SPEECH: Lets choose a story
+red_riding
+Time: Thu Nov 20 15:45:03 2025
+[2025-11-20 15:45:05] ROBOT_SPEECH: Lets start the story!
+[2025-11-20 15:45:06] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:45:20] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:46:01] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:46:03] ROBOT_SPEECH: all done
+[2025-11-20 15:46:07] ROBOT_SPEECH: One day, she decided to go visit her dear grandmother, who lift deep in the woods.
+Main closed  Thu Nov 20 15:46:11 2025
+[2025-11-20 15:46:19] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:46:21] ROBOT_SPEECH: all done
+[2025-11-20 15:46:25] ROBOT_SPEECH: One day, she decided to go visit her dear grandmother, who lift deep in the woods.
+[2025-11-20 15:46:26] ROBOT_SPEECH: all done
+[2025-11-20 15:46:29] ROBOT_SPEECH: When her mother packed a basket of treats,  she warned her not to talk to strangers along the way.
+[2025-11-20 15:46:32] ROBOT_SPEECH: all done
+[2025-11-20 15:46:35] ROBOT_SPEECH: As Little Red Riding Hood happily strolled through the woods,   she did not notice the sneaky wolf stalking her through the trees.
+[2025-11-20 15:46:36] ROBOT_SPEECH: all done
+[2025-11-20 15:46:39] ROBOT_SPEECH: The wolf, pretending to be lost, asked Little Red Riding Hood for directions.
+[2025-11-20 15:46:40] ROBOT_SPEECH: The wolf seemed harmless enough, so Little Red Riding Hood not only spoke to him.   She also revealed where she was going.
+[2025-11-20 15:46:41] ROBOT_SPEECH: The wolf rushed ahead to beat her to her grand mother’s house,   gaining entry by pretending to be her dear granddaughter. 
+[2025-11-20 15:46:42] ROBOT_SPEECH: Having locked her grandmother in the closet,  the wolf waited for Little Red Riding Hood to arrive.
+[2025-11-20 15:46:43] ROBOT_SPEECH: When she knocked on her grandmother’s door, she was greeted by a strange voice.  “Come in dear,” said the wolf. 
+[2025-11-20 15:46:44] ROBOT_SPEECH: As the wolf lay in bed, wearing one of her grandmother’s nightgowns, Little Red Riding Hood thought her grandmother sounded and looked strange. 
+[2025-11-20 15:46:45] ROBOT_SPEECH: What big ears you have, she said. Better to hear you with my dear, replied the wolf. 
+[2025-11-20 15:46:46] ROBOT_SPEECH: “What big eyes you have,” said Little Red Riding Hood.  “Better to see you with my darling,” the wolf replied. 
+[2025-11-20 15:46:47] ROBOT_SPEECH: Your teeth, your teeth are large and as sharp as knives.  Little Red Riding Hood exclaimed.
+[2025-11-20 15:46:49] ROBOT_SPEECH: “The better to eat you with!” growled the wolf as he jumped up and lunged at the girl.
+[2025-11-20 15:46:51] ROBOT_SPEECH: Luckily Little Red Riding Hood had practiced self defense, and grabbed a broom to fend off the wolf. Surprised by the girl's bravery, the wolf ran off with his tail between his legs.
+[2025-11-20 15:46:51] ROBOT_SPEECH: all done
+[2025-11-20 15:46:55] ROBOT_SPEECH: Little Red Riding Hood freed her grandmother from the closet,  and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again.
+[2025-11-20 15:47:39] ROBOT_SPEECH: Lets choose a story
+red_riding
+Time: Thu Nov 20 15:47:40 2025
+story_old_client
+Time: Thu Nov 20 15:47:47 2025
+[2025-11-20 15:47:48] ROBOT_SPEECH: Lets choose a story
+[2025-11-20 15:47:48] ROBOT_SPEECH: Lets choose a story
+red_riding
+Time: Thu Nov 20 15:47:49 2025
+[2025-11-20 15:47:50] ROBOT_SPEECH: Lets start the story!
+[2025-11-20 15:47:51] ROBOT_SPEECH: Lets start the story!
+[2025-11-20 15:47:59] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:48:01] ROBOT_SPEECH: all done
+[2025-11-20 15:48:04] ROBOT_SPEECH: all done
+[2025-11-20 15:48:07] ROBOT_SPEECH: all done
+[2025-11-20 15:48:10] ROBOT_SPEECH: all done
+[2025-11-20 15:48:13] ROBOT_SPEECH: all done
+[2025-11-20 15:48:16] ROBOT_SPEECH: all done
+[2025-11-20 15:48:20] ROBOT_SPEECH: One day, she decided to go visit her dear grandmother, who lift deep in the woods.
+[2025-11-20 15:48:23] ROBOT_SPEECH: all done
+[2025-11-20 15:48:26] ROBOT_SPEECH: When her mother packed a basket of treats,  she warned her not to talk to strangers along the way.
+[2025-11-20 15:48:26] ROBOT_SPEECH: all done
+[2025-11-20 15:48:29] ROBOT_SPEECH: As Little Red Riding Hood happily strolled through the woods,   she did not notice the sneaky wolf stalking her through the trees.
+[2025-11-20 15:48:29] ROBOT_SPEECH: all done
+[2025-11-20 15:48:33] ROBOT_SPEECH: The wolf, pretending to be lost, asked Little Red Riding Hood for directions.
+[2025-11-20 15:48:36] ROBOT_SPEECH: The wolf seemed harmless enough, so Little Red Riding Hood not only spoke to him.   She also revealed where she was going.
+[2025-11-20 15:48:36] ROBOT_SPEECH: all done
+[2025-11-20 15:48:41] ROBOT_SPEECH: all done
+[2025-11-20 15:48:44] ROBOT_SPEECH: The wolf rushed ahead to beat her to her grand mother’s house,   gaining entry by pretending to be her dear granddaughter. 
+[2025-11-20 15:48:45] ROBOT_SPEECH: Having locked her grandmother in the closet,  the wolf waited for Little Red Riding Hood to arrive.
+[2025-11-20 15:48:46] ROBOT_SPEECH: When she knocked on her grandmother’s door, she was greeted by a strange voice.  “Come in dear,” said the wolf. 
+[2025-11-20 15:48:47] ROBOT_SPEECH: As the wolf lay in bed, wearing one of her grandmother’s nightgowns, Little Red Riding Hood thought her grandmother sounded and looked strange. 
+[2025-11-20 15:48:48] ROBOT_SPEECH: What big ears you have, she said. Better to hear you with my dear, replied the wolf. 
+[2025-11-20 15:48:49] ROBOT_SPEECH: “What big eyes you have,” said Little Red Riding Hood.  “Better to see you with my darling,” the wolf replied. 
+[2025-11-20 15:48:50] ROBOT_SPEECH: Your teeth, your teeth are large and as sharp as knives.  Little Red Riding Hood exclaimed.
+[2025-11-20 15:48:51] ROBOT_SPEECH: “The better to eat you with!” growled the wolf as he jumped up and lunged at the girl.
+[2025-11-20 15:48:53] ROBOT_SPEECH: Luckily Little Red Riding Hood had practiced self defense, and grabbed a broom to fend off the wolf. Surprised by the girl's bravery, the wolf ran off with his tail between his legs.
+[2025-11-20 15:48:54] ROBOT_SPEECH: Little Red Riding Hood freed her grandmother from the closet,  and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again.
+[2025-11-20 15:48:55] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-11-20 15:49:02] ROBOT_SPEECH: What did Little Red Riding Hood’s mother warn her about?
+[2025-11-20 15:49:03] ROBOT_SPEECH: Who did Little Red Riding Hood meet in the forest?
+[2025-11-20 15:49:04] ROBOT_SPEECH: What did the wolf do after talking to Little Red Riding Hood?
+[2025-11-20 15:49:05] ROBOT_SPEECH: What did Little Red Riding Hood bring for her grandmother?
+[2025-11-20 15:49:06] ROBOT_SPEECH: Why did Little Red Riding Hood feel something was strange with her grandmother?
+[2025-11-20 15:49:07] ROBOT_SPEECH: What can we learn from the story?
+[2025-11-20 15:49:49] ROBOT_SPEECH: all done
+[2025-11-20 15:49:52] ROBOT_SPEECH: all done
+[2025-11-20 15:49:55] ROBOT_SPEECH: all done
+[2025-11-20 15:49:58] ROBOT_SPEECH: all done
+[2025-11-20 15:50:06] ROBOT_SPEECH: all done
+[2025-11-20 15:50:10] ROBOT_SPEECH: all done
+[2025-11-20 15:50:14] ROBOT_SPEECH: all done
+Main closed  Thu Nov 20 15:50:17 2025
+story_old_client
+Time: Thu Nov 20 15:50:24 2025
+[2025-11-20 15:50:24] ROBOT_SPEECH: Lets choose a story
+red_riding
+Time: Thu Nov 20 15:50:25 2025
+[2025-11-20 15:50:26] ROBOT_SPEECH: Lets start the story!
+[2025-11-20 15:50:28] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:50:58] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:51:05] ROBOT_SPEECH: all done
+[2025-11-20 15:51:09] ROBOT_SPEECH: One day, she decided to go visit her dear grandmother, who lift deep in the woods.
+[2025-11-20 15:51:12] ROBOT_SPEECH: all done
+[2025-11-20 15:51:17] ROBOT_SPEECH: When her mother packed a basket of treats,  she warned her not to talk to strangers along the way.
+[2025-11-20 15:51:19] ROBOT_SPEECH: all done
+[2025-11-20 15:51:23] ROBOT_SPEECH: As Little Red Riding Hood happily strolled through the woods,   she did not notice the sneaky wolf stalking her through the trees.
+[2025-11-20 15:51:25] ROBOT_SPEECH: all done
+[2025-11-20 15:51:28] ROBOT_SPEECH: The wolf, pretending to be lost, asked Little Red Riding Hood for directions.
+[2025-11-20 15:51:29] ROBOT_SPEECH: all done
+[2025-11-20 15:51:32] ROBOT_SPEECH: The wolf seemed harmless enough, so Little Red Riding Hood not only spoke to him.   She also revealed where she was going.
+[2025-11-20 15:51:34] ROBOT_SPEECH: all done
+[2025-11-20 15:51:38] ROBOT_SPEECH: The wolf rushed ahead to beat her to her grand mother’s house,   gaining entry by pretending to be her dear granddaughter. 
+[2025-11-20 15:51:41] ROBOT_SPEECH: all done
+[2025-11-20 15:51:44] ROBOT_SPEECH: Having locked her grandmother in the closet,  the wolf waited for Little Red Riding Hood to arrive.
+[2025-11-20 15:51:45] ROBOT_SPEECH: When she knocked on her grandmother’s door, she was greeted by a strange voice.  “Come in dear,” said the wolf. 
+[2025-11-20 15:51:46] ROBOT_SPEECH: As the wolf lay in bed, wearing one of her grandmother’s nightgowns, Little Red Riding Hood thought her grandmother sounded and looked strange. 
+[2025-11-20 15:51:47] ROBOT_SPEECH: What big ears you have, she said. Better to hear you with my dear, replied the wolf. 
+[2025-11-20 15:51:48] ROBOT_SPEECH: “What big eyes you have,” said Little Red Riding Hood.  “Better to see you with my darling,” the wolf replied. 
+[2025-11-20 15:51:49] ROBOT_SPEECH: Your teeth, your teeth are large and as sharp as knives.  Little Red Riding Hood exclaimed.
+[2025-11-20 15:51:50] ROBOT_SPEECH: “The better to eat you with!” growled the wolf as he jumped up and lunged at the girl.
+[2025-11-20 15:51:52] ROBOT_SPEECH: Luckily Little Red Riding Hood had practiced self defense, and grabbed a broom to fend off the wolf. Surprised by the girl's bravery, the wolf ran off with his tail between his legs.
+[2025-11-20 15:51:53] ROBOT_SPEECH: Little Red Riding Hood freed her grandmother from the closet,  and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again.
+[2025-11-20 15:51:54] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-11-20 15:51:55] ROBOT_SPEECH: What did Little Red Riding Hood’s mother warn her about?
+[2025-11-20 15:51:56] ROBOT_SPEECH: Who did Little Red Riding Hood meet in the forest?
+[2025-11-20 15:51:57] ROBOT_SPEECH: What did the wolf do after talking to Little Red Riding Hood?
+[2025-11-20 15:51:58] ROBOT_SPEECH: What did Little Red Riding Hood bring for her grandmother?
+[2025-11-20 15:51:59] ROBOT_SPEECH: Why did Little Red Riding Hood feel something was strange with her grandmother?
+[2025-11-20 15:52:46] ROBOT_SPEECH: What can we learn from the story?
+[2025-11-20 15:52:52] ROBOT_SPEECH: all done
+Main closed  Thu Nov 20 15:52:56 2025
+story_old_client
+Time: Thu Nov 20 15:53:02 2025
+[2025-11-20 15:53:02] ROBOT_SPEECH: Lets choose a story
+red_riding
+Time: Thu Nov 20 15:53:05 2025
+login closed  Thu Nov 20 15:53:05 2025
+[2025-11-20 15:53:07] ROBOT_SPEECH: Lets start the story!
+[2025-11-20 15:53:08] ROBOT_SPEECH: Lets start the story!
+[2025-11-20 15:53:14] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:53:16] ROBOT_SPEECH: all done
+[2025-11-20 15:53:25] ROBOT_SPEECH: all done
+[2025-11-20 15:53:29] ROBOT_SPEECH: all done
+[2025-11-20 15:53:31] ROBOT_SPEECH: all done
+[2025-11-20 15:53:34] ROBOT_SPEECH: One day, she decided to go visit her dear grandmother, who lift deep in the woods.
+[2025-11-20 15:53:35] ROBOT_SPEECH: all done
+[2025-11-20 15:53:38] ROBOT_SPEECH: When her mother packed a basket of treats,  she warned her not to talk to strangers along the way.
+[2025-11-20 15:53:40] ROBOT_SPEECH: all done
+[2025-11-20 15:53:43] ROBOT_SPEECH: all done
+[2025-11-20 15:53:46] ROBOT_SPEECH: As Little Red Riding Hood happily strolled through the woods,   she did not notice the sneaky wolf stalking her through the trees.
+[2025-11-20 15:53:47] ROBOT_SPEECH: all done
+[2025-11-20 15:53:51] ROBOT_SPEECH: The wolf, pretending to be lost, asked Little Red Riding Hood for directions.
+[2025-11-20 15:53:53] ROBOT_SPEECH: all done
+[2025-11-20 15:53:57] ROBOT_SPEECH: The wolf seemed harmless enough, so Little Red Riding Hood not only spoke to him.   She also revealed where she was going.
+[2025-11-20 15:53:58] ROBOT_SPEECH: all done
+[2025-11-20 15:54:01] ROBOT_SPEECH: The wolf rushed ahead to beat her to her grand mother’s house,   gaining entry by pretending to be her dear granddaughter. 
+[2025-11-20 15:54:02] ROBOT_SPEECH: Having locked her grandmother in the closet,  the wolf waited for Little Red Riding Hood to arrive.
+[2025-11-20 15:54:03] ROBOT_SPEECH: When she knocked on her grandmother’s door, she was greeted by a strange voice.  “Come in dear,” said the wolf. 
+[2025-11-20 15:54:04] ROBOT_SPEECH: As the wolf lay in bed, wearing one of her grandmother’s nightgowns, Little Red Riding Hood thought her grandmother sounded and looked strange. 
+[2025-11-20 15:54:05] ROBOT_SPEECH: What big ears you have, she said. Better to hear you with my dear, replied the wolf. 
+[2025-11-20 15:54:06] ROBOT_SPEECH: “What big eyes you have,” said Little Red Riding Hood.  “Better to see you with my darling,” the wolf replied. 
+[2025-11-20 15:54:07] ROBOT_SPEECH: Your teeth, your teeth are large and as sharp as knives.  Little Red Riding Hood exclaimed.
+[2025-11-20 15:54:07] ROBOT_SPEECH: all done
+[2025-11-20 15:54:11] ROBOT_SPEECH: “The better to eat you with!” growled the wolf as he jumped up and lunged at the girl.
+[2025-11-20 15:54:13] ROBOT_SPEECH: Luckily Little Red Riding Hood had practiced self defense, and grabbed a broom to fend off the wolf. Surprised by the girl's bravery, the wolf ran off with his tail between his legs.
+[2025-11-20 15:54:14] ROBOT_SPEECH: Little Red Riding Hood freed her grandmother from the closet,  and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again.
+[2025-11-20 15:54:15] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-11-20 15:55:26] ROBOT_SPEECH: all done
+[2025-11-20 15:55:42] ROBOT_SPEECH: Correct!
+[2025-11-20 15:55:44] ROBOT_SPEECH: What did Little Red Riding Hood’s mother warn her about?
+[2025-11-20 15:56:35] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:56:38] ROBOT_SPEECH: all done
+[2025-11-20 15:56:52] ROBOT_SPEECH: Lets start the story!
+[2025-11-20 15:56:53] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:56:55] ROBOT_SPEECH: all done
+[2025-11-20 15:57:05] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:57:09] ROBOT_SPEECH: all done
+[2025-11-20 15:57:13] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-11-20 15:57:40] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:57:41] ROBOT_SPEECH: all done
+[2025-11-20 15:57:45] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+Name: Test
+login closed  Thu Nov 20 15:58:23 2025
+story_old_client
+Time: Thu Nov 20 15:58:27 2025
+[2025-11-20 15:58:27] ROBOT_SPEECH: Lets choose a story
+red_riding
+Time: Thu Nov 20 15:58:28 2025
+[2025-11-20 15:58:29] ROBOT_SPEECH: Lets start the story!
+[2025-11-20 15:58:31] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:58:36] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-11-20 15:58:50] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:58:53] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-11-20 15:58:57] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 15:58:58] ROBOT_SPEECH: all done
+[2025-11-20 15:59:02] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-11-20 16:00:35] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 16:00:41] ROBOT_SPEECH: all done
+[2025-11-20 16:00:45] ROBOT_SPEECH: Little Red Riding Hood freed her grandmother from the closet,  and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again.
+[2025-11-20 16:00:46] ROBOT_SPEECH: all done
+[2025-11-20 16:00:49] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-11-20 16:00:51] ROBOT_SPEECH: What did Little Red Riding Hood’s mother warn her about?
+[2025-11-20 16:00:52] ROBOT_SPEECH: Who did Little Red Riding Hood meet in the forest?
+[2025-11-20 16:00:53] ROBOT_SPEECH: What did the wolf do after talking to Little Red Riding Hood?
+[2025-11-20 16:00:54] ROBOT_SPEECH: What did Little Red Riding Hood bring for her grandmother?
+[2025-11-20 16:00:55] ROBOT_SPEECH: Why did Little Red Riding Hood feel something was strange with her grandmother?
+[2025-11-20 16:00:56] ROBOT_SPEECH: What can we learn from the story?
+[2025-11-20 16:00:59] ROBOT_SPEECH: all done
+[2025-11-20 16:01:09] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 16:01:12] ROBOT_SPEECH: Little Red Riding Hood freed her grandmother from the closet,  and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again.
+[2025-11-20 16:01:13] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-11-20 16:01:14] ROBOT_SPEECH: What did Little Red Riding Hood’s mother warn her about?
+[2025-11-20 16:01:15] ROBOT_SPEECH: Who did Little Red Riding Hood meet in the forest?
+[2025-11-20 16:01:16] ROBOT_SPEECH: What did the wolf do after talking to Little Red Riding Hood?
+[2025-11-20 16:02:34] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 16:02:35] ROBOT_SPEECH: all done
+[2025-11-20 16:02:39] ROBOT_SPEECH: Little Red Riding Hood freed her grandmother from the closet,  and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again.
+[2025-11-20 16:02:40] ROBOT_SPEECH: all done
+[2025-11-20 16:02:43] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-11-20 16:02:44] ROBOT_SPEECH: What did Little Red Riding Hood’s mother warn her about?
+[2025-11-20 16:02:45] ROBOT_SPEECH: Who did Little Red Riding Hood meet in the forest?
+[2025-11-20 16:02:46] ROBOT_SPEECH: What did the wolf do after talking to Little Red Riding Hood?
+[2025-11-20 16:02:47] ROBOT_SPEECH: What did Little Red Riding Hood bring for her grandmother?
+[2025-11-20 16:02:48] ROBOT_SPEECH: Why did Little Red Riding Hood feel something was strange with her grandmother?
+[2025-11-20 16:02:49] ROBOT_SPEECH: What can we learn from the story?
+[2025-11-20 16:02:57] ROBOT_SPEECH: all done
+[2025-11-20 16:03:00] ROBOT_SPEECH: all done
+[2025-11-20 16:03:03] ROBOT_SPEECH: all done
+Main closed  Thu Nov 20 16:03:05 2025
+break
+Time: Thu Nov 20 16:03:10 2025
+[2025-11-20 16:03:10] ROBOT_SPEECH: Oh! Break Time!
+[2025-11-20 16:03:10] ROBOT_SPEECH: Oh! Break Time!
+[2025-11-20 16:03:16] ROBOT_SPEECH: Lets spin the wheel
+[2025-11-20 16:03:18] ROBOT_SPEECH: Lets sing a song
+[2025-11-20 16:03:20] ROBOT_SPEECH: all done
+at_talks
+Time: Thu Nov 20 16:03:39 2025
+[2025-11-20 16:03:42] ROBOT_SPEECH:  Let's talk later!
+[2025-11-20 16:03:45] ROBOT_SPEECH: Hello! How r you today?
+[2025-11-20 16:03:48] ROBOT_SPEECH: Goodbye!
+[2025-11-20 16:03:52] ROBOT_SPEECH: #LAUGH01# That is so funny!
+[2025-11-20 16:03:56] ROBOT_SPEECH: Bravo!
+break
+Time: Thu Nov 20 16:04:00 2025
+[2025-11-20 16:04:00] ROBOT_SPEECH: Oh! Break Time!
+[2025-11-20 16:04:00] ROBOT_SPEECH: Oh! Break Time!
+[2025-11-20 16:04:02] ROBOT_SPEECH: Lets highfive your teacher
+[2025-11-20 16:04:15] ROBOT_SPEECH: Lets highfive your teacher
+Main closed  Thu Nov 20 16:04:24 2025
+break
+Time: Thu Nov 20 16:04:28 2025
+[2025-11-20 16:04:28] ROBOT_SPEECH: Oh! Break Time!
+[2025-11-20 16:04:28] ROBOT_SPEECH: Oh! Break Time!
+[2025-11-20 16:04:31] ROBOT_SPEECH: Lets highfive your teacher
+[2025-11-20 16:04:40] ROBOT_SPEECH: Lets highfive your teacher
+Main closed  Thu Nov 20 16:04:53 2025
+story_old_client
+Time: Thu Nov 20 16:05:45 2025
+[2025-11-20 16:05:45] ROBOT_SPEECH: Lets choose a story
+red_riding
+Time: Thu Nov 20 16:05:47 2025
+[2025-11-20 16:05:48] ROBOT_SPEECH: Lets start the story!
+[2025-11-20 16:05:49] ROBOT_SPEECH: Lets start the story!
+[2025-11-20 16:05:51] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-20 16:06:02] ROBOT_SPEECH: all done
+[2025-11-20 16:06:11] ROBOT_SPEECH: Little Red Riding Hood freed her grandmother from the closet,  and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again.
+[2025-11-20 16:06:16] ROBOT_SPEECH: all done
+[2025-11-20 16:06:19] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-11-20 16:06:25] ROBOT_SPEECH: What did Little Red Riding Hood’s mother warn her about?
+[2025-11-20 16:06:26] ROBOT_SPEECH: Who did Little Red Riding Hood meet in the forest?
+[2025-11-20 16:06:27] ROBOT_SPEECH: What did the wolf do after talking to Little Red Riding Hood?
+Main closed  Thu Nov 20 16:06:38 2025
+dice_5w1h
+Time: Thu Nov 20 16:06:49 2025
+[2025-11-20 16:06:50] ROBOT_SPEECH: Lets play around with wh questions
+[2025-11-20 16:06:52] ROBOT_SPEECH: Let's roll the dice
+[2025-11-20 16:06:54] ROBOT_SPEECH: what
+[2025-11-20 16:06:58] ROBOT_SPEECH: what do bees make?
+Name: Test
+login closed  Thu Nov 20 16:42:02 2025
+Main closed  Thu Nov 20 16:42:16 2025
+login closed  Thu Nov 20 16:42:19 2025
+Name: Test
+login closed  Thu Nov 20 16:42:20 2025
+at_talks
+Time: Thu Nov 20 16:42:25 2025
+[2025-11-20 16:42:27] ROBOT_SPEECH: lets look at the visual schedule

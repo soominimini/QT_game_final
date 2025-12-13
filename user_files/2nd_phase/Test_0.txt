@@ -1,0 +1,95 @@
+CLIENT NAME: Test
+Created on: 2025-11-07 12:23:55
+User created via login page
+--------------------------------------------------
+Name: Test
+login closed  Fri Nov  7 12:24:02 2025
+dice_5w1h
+Time: Fri Nov  7 12:24:19 2025
+[2025-11-07 12:24:20] ROBOT_SPEECH: Lets play around with wh questions
+[2025-11-07 12:24:23] ROBOT_SPEECH: Let's roll the dice
+[2025-11-07 12:25:02] ROBOT_SPEECH: Let's roll the dice
+[2025-11-07 12:25:48] ROBOT_SPEECH: 
+[2025-11-07 12:26:51] ROBOT_SPEECH: Let's roll the dice
+[2025-11-07 12:26:53] ROBOT_SPEECH: what
+[2025-11-07 12:27:01] ROBOT_SPEECH: what
+[2025-11-07 12:27:06] ROBOT_SPEECH: What do we use to clean our teeth?
+Name: Test
+login closed  Fri Nov  7 12:46:56 2025
+at_talks
+Time: Fri Nov  7 12:47:31 2025
+[2025-11-07 12:47:41] ROBOT_SPEECH: #LAUGH02# That's silly!
+[2025-11-07 12:47:45] ROBOT_SPEECH: #AARGH01# Keep trying! 
+[2025-11-07 12:47:48] ROBOT_SPEECH: Wonderful!
+[2025-11-07 12:47:51] ROBOT_SPEECH: Oh no!
+Name: Test
+login closed  Fri Nov  7 13:05:40 2025
+inference_old
+Time: Fri Nov  7 13:05:54 2025
+[2025-11-07 13:05:54] ROBOT_SPEECH: Lets play inference games
+[2025-11-07 13:05:56] ROBOT_SPEECH: I am long. On one end, I have an eraser. You use me \rmw=1\ to write or draw.
+[2025-11-07 13:06:06] ROBOT_SPEECH: \rmw=0\ What am I?
+[2025-11-07 13:06:11] ROBOT_SPEECH: Bravo!
+[2025-11-07 13:06:13] ROBOT_SPEECH: I am long. On one end, I have an eraser. You use me \rmw=1\ to write or draw. \rmw=0\ What am I?
+Main closed  Fri Nov  7 13:06:20 2025
+yes_no_old
+Time: Fri Nov  7 13:06:25 2025
+[2025-11-07 13:06:32] ROBOT_SPEECH: Do you wear a swimsuit at the beach?
+[2025-11-07 13:06:32] ROBOT_SPEECH: all done
+[2025-11-07 13:06:36] ROBOT_SPEECH: all done
+inference_old
+Time: Fri Nov  7 13:06:40 2025
+inference_old
+Time: Fri Nov  7 13:06:40 2025
+inference_old
+Time: Fri Nov  7 13:06:40 2025
+inference_old
+Time: Fri Nov  7 13:06:40 2025
+inference_old
+Time: Fri Nov  7 13:06:40 2025
+inference_old
+Time: Fri Nov  7 13:06:40 2025
+inference_old
+Time: Fri Nov  7 13:06:40 2025
+[2025-11-07 13:06:40] ROBOT_SPEECH: Lets play inference games
+[2025-11-07 13:06:41] ROBOT_SPEECH: Lets play inference games
+[2025-11-07 13:06:41] ROBOT_SPEECH: Lets play inference games
+[2025-11-07 13:06:41] ROBOT_SPEECH: Lets play inference games
+[2025-11-07 13:06:41] ROBOT_SPEECH: Lets play inference games
+[2025-11-07 13:06:41] ROBOT_SPEECH: Lets play inference games
+[2025-11-07 13:06:41] ROBOT_SPEECH: Lets play inference games
+[2025-11-07 13:06:43] ROBOT_SPEECH: I work at a school. I teach many subjects. I help students learn how to read and write.
+Name: Test
+login closed  Fri Nov  7 13:09:18 2025
+break
+Time: Fri Nov  7 13:09:23 2025
+[2025-11-07 13:09:23] ROBOT_SPEECH: Oh! Break Time!
+Name: Test
+login closed  Fri Nov  7 13:11:11 2025
+Name: Test
+login closed  Fri Nov  7 14:03:22 2025
+break
+Time: Fri Nov  7 14:03:27 2025
+[2025-11-07 14:03:27] ROBOT_SPEECH: Oh! Break Time!
+at_talks
+Time: Fri Nov  7 14:03:31 2025
+[2025-11-07 14:03:34] ROBOT_SPEECH: Great!
+dice_5w1h
+Time: Fri Nov  7 14:04:13 2025
+[2025-11-07 14:04:13] ROBOT_SPEECH: Lets play around with wh questions
+[2025-11-07 14:04:16] ROBOT_SPEECH: Let's roll the dice
+[2025-11-07 14:04:18] ROBOT_SPEECH: how
+[2025-11-07 14:04:20] ROBOT_SPEECH: How do you ride a bike?
+[2025-11-07 14:04:24] ROBOT_SPEECH: How do you ride a bike?
+[2025-11-07 14:04:27] ROBOT_SPEECH: How do you ride a bike?
+[2025-11-07 14:04:34] ROBOT_SPEECH: How do you clean your room?
+[2025-11-07 14:04:40] ROBOT_SPEECH: Bravo!
+Main closed  Fri Nov  7 14:04:58 2025
+login closed  Fri Nov  7 14:04:59 2025
+login closed  Fri Nov  7 14:05:00 2025
+Name: Test
+login closed  Fri Nov  7 14:24:49 2025
+Main closed  Fri Nov  7 14:24:55 2025
+login closed  Fri Nov  7 14:25:09 2025
+Name: Test
+login closed  Fri Nov  7 15:14:57 2025

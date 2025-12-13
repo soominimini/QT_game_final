@@ -1,0 +1,110 @@
+Name: Aasiya Kashif
+login closed  Fri Nov 14 14:24:40 2025
+emotion_game2
+Time: Fri Nov 14 14:25:33 2025
+[2025-11-14 14:25:37] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Fri Nov 14 14:25:40 2025
+[2025-11-14 14:25:40] ROBOT_SPEECH: Show me an emotion card
+[2025-11-14 14:25:48] ROBOT_SPEECH: excited!
+[2025-11-14 14:26:00] ROBOT_SPEECH: Look at the tablet, which one is  excited
+[2025-11-14 14:26:04] ROBOT_SPEECH: I feel excited when I go to a birthday party
+[2025-11-14 14:26:46] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-14 14:26:50] ROBOT_SPEECH: saed
+[2025-11-14 14:27:02] ROBOT_SPEECH: Look at the tablet, which one is  sad
+[2025-11-14 14:27:09] ROBOT_SPEECH: I feel sad when I lose a game.
+[2025-11-14 14:28:20] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-14 14:28:25] ROBOT_SPEECH: happy!
+[2025-11-14 14:28:37] ROBOT_SPEECH: Look at the tablet, which one is  happy
+[2025-11-14 14:28:42] ROBOT_SPEECH: I like to cuddle and play with my pets when I'm happy
+[2025-11-14 14:29:25] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-14 14:29:27] ROBOT_SPEECH: sheye
+[2025-11-14 14:29:39] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-11-14 14:29:50] ROBOT_SPEECH: I get shy when I meet new people.
+[2025-11-14 14:30:55] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-14 14:31:06] ROBOT_SPEECH: sheye
+[2025-11-14 14:31:18] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-11-14 14:31:26] ROBOT_SPEECH: I get shy when I have to read in front of my class.
+[2025-11-14 14:33:17] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-14 14:33:23] ROBOT_SPEECH: scared!
+[2025-11-14 14:33:35] ROBOT_SPEECH: Look at the tablet, which one is  scared
+emotion_game1 closed  Fri Nov 14 14:33:54 2025
+[2025-11-14 14:33:55] ROBOT_SPEECH: Show me an emotion card
+[2025-11-14 14:34:00] ROBOT_SPEECH: scared!
+[2025-11-14 14:34:12] ROBOT_SPEECH: Look at the tablet, which one is  scared
+[2025-11-14 14:34:18] ROBOT_SPEECH: I feel scared when I get lost.
+[2025-11-14 14:34:41] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-14 14:34:48] ROBOT_SPEECH: angry!
+[2025-11-14 14:35:00] ROBOT_SPEECH: Look at the tablet, which one is  angry
+[2025-11-14 14:35:11] ROBOT_SPEECH: I feel angry when someone takes my toy without asking.
+[2025-11-14 14:36:24] ROBOT_SPEECH: Show me another emotion card!
+Main closed  Fri Nov 14 14:36:34 2025
+story_old_client
+Time: Fri Nov 14 14:38:17 2025
+[2025-11-14 14:38:17] ROBOT_SPEECH: Lets choose a story
+red_riding
+Time: Fri Nov 14 14:38:21 2025
+[2025-11-14 14:38:22] ROBOT_SPEECH: Lets start the story!
+[2025-11-14 14:38:30] ROBOT_SPEECH: There once was a girl known as Little Red Riding Hood. and she always wore a red riding cape wherever she went.
+[2025-11-14 14:38:55] ROBOT_SPEECH: One day, she decided to go visit her dear grandmother, who lift deep in the woods.
+[2025-11-14 14:39:18] ROBOT_SPEECH: When her mother packed a basket of treats,  she warned her not to talk to strangers along the way.
+[2025-11-14 14:39:33] ROBOT_SPEECH: As Little Red Riding Hood happily strolled through the woods,   she did not notice the sneaky wolf stalking her through the trees.
+[2025-11-14 14:40:23] ROBOT_SPEECH: The wolf, pretending to be lost, asked Little Red Riding Hood for directions.
+[2025-11-14 14:40:34] ROBOT_SPEECH: The wolf seemed harmless enough, so Little Red Riding Hood not only spoke to him.   She also revealed where she was going.
+[2025-11-14 14:41:30] ROBOT_SPEECH: The wolf rushed ahead to beat her to her grand mother’s house,   gaining entry by pretending to be her dear granddaughter. 
+[2025-11-14 14:41:59] ROBOT_SPEECH: Having locked her grandmother in the closet,  the wolf waited for Little Red Riding Hood to arrive.
+[2025-11-14 14:42:28] ROBOT_SPEECH: When she knocked on her grandmother’s door, she was greeted by a strange voice.  “Come in dear,” said the wolf. 
+[2025-11-14 14:43:02] ROBOT_SPEECH: As the wolf lay in bed, wearing one of her grandmother’s nightgowns, Little Red Riding Hood thought her grandmother sounded and looked strange. 
+[2025-11-14 14:43:19] ROBOT_SPEECH: What big ears you have, she said. Better to hear you with my dear, replied the wolf. 
+[2025-11-14 14:43:35] ROBOT_SPEECH: “What big eyes you have,” said Little Red Riding Hood.  “Better to see you with my darling,” the wolf replied. 
+[2025-11-14 14:43:46] ROBOT_SPEECH: Your teeth, your teeth are large and as sharp as knives.  Little Red Riding Hood exclaimed.
+[2025-11-14 14:44:09] ROBOT_SPEECH: “The better to eat you with!” growled the wolf as he jumped up and lunged at the girl.
+[2025-11-14 14:44:20] ROBOT_SPEECH: Luckily Little Red Riding Hood had practiced self defense, and grabbed a broom to fend off the wolf. Surprised by the girl's bravery, the wolf ran off with his tail between his legs.
+[2025-11-14 14:44:45] ROBOT_SPEECH: Little Red Riding Hood freed her grandmother from the closet,  and her grandmother made Little Red Riding Hood promise not to talk to strangers ever again.
+[2025-11-14 14:45:48] ROBOT_SPEECH: Where was Little Red Riding Hood going?
+[2025-11-14 14:45:54] ROBOT_SPEECH: Correct!
+[2025-11-14 14:45:57] ROBOT_SPEECH: What did Little Red Riding Hood’s mother warn her about?
+[2025-11-14 14:46:05] ROBOT_SPEECH: Correct!
+[2025-11-14 14:46:13] ROBOT_SPEECH: Who did Little Red Riding Hood meet in the forest?
+[2025-11-14 14:46:18] ROBOT_SPEECH: Correct!
+[2025-11-14 14:46:21] ROBOT_SPEECH: What did the wolf do after talking to Little Red Riding Hood?
+[2025-11-14 14:46:28] ROBOT_SPEECH: Correct!
+[2025-11-14 14:46:32] ROBOT_SPEECH: What did Little Red Riding Hood bring for her grandmother?
+[2025-11-14 14:46:40] ROBOT_SPEECH: That's not correct
+[2025-11-14 14:46:54] ROBOT_SPEECH: Correct!
+[2025-11-14 14:46:57] ROBOT_SPEECH: Why did Little Red Riding Hood feel something was strange with her grandmother?
+[2025-11-14 14:48:58] ROBOT_SPEECH: Correct!
+[2025-11-14 14:49:02] ROBOT_SPEECH: What can we learn from the story?
+[2025-11-14 14:49:11] ROBOT_SPEECH: Correct!
+[2025-11-14 14:49:28] ROBOT_SPEECH: Wonderful!
+Main closed  Fri Nov 14 14:49:33 2025
+dice_5w1h
+Time: Fri Nov 14 14:49:56 2025
+[2025-11-14 14:49:56] ROBOT_SPEECH: Lets play around with wh questions
+[2025-11-14 14:50:01] ROBOT_SPEECH: Let's roll the dice
+[2025-11-14 14:50:05] ROBOT_SPEECH: when
+[2025-11-14 14:50:13] ROBOT_SPEECH: how
+[2025-11-14 14:50:30] ROBOT_SPEECH: How do you get dressed in the morning?
+[2025-11-14 14:52:10] ROBOT_SPEECH: how
+[2025-11-14 14:52:20] ROBOT_SPEECH: why
+[2025-11-14 14:52:32] ROBOT_SPEECH: Why do we wear a helmet when riding a bike?
+[2025-11-14 14:52:59] ROBOT_SPEECH: why
+[2025-11-14 14:53:07] ROBOT_SPEECH: Why do we use umbrellas?
+[2025-11-14 14:53:17] ROBOT_SPEECH: when
+[2025-11-14 14:53:19] ROBOT_SPEECH: when
+[2025-11-14 14:53:21] ROBOT_SPEECH: when
+[2025-11-14 14:53:23] ROBOT_SPEECH: how
+[2025-11-14 14:53:31] ROBOT_SPEECH: How do you go for "trick-or-treating"?
+[2025-11-14 14:54:08] ROBOT_SPEECH: why
+[2025-11-14 14:54:19] ROBOT_SPEECH: Why do we wear sunscreen?
+[2025-11-14 14:54:31] ROBOT_SPEECH: how
+[2025-11-14 14:54:40] ROBOT_SPEECH: How do you build a snowman? 
+[2025-11-14 14:55:53] ROBOT_SPEECH: why
+[2025-11-14 14:55:57] ROBOT_SPEECH: why
+[2025-11-14 14:56:04] ROBOT_SPEECH: Why do we wear a seat belt in the car?
+[2025-11-14 14:56:14] ROBOT_SPEECH: when
+[2025-11-14 14:56:16] ROBOT_SPEECH: how
+[2025-11-14 14:56:28] ROBOT_SPEECH: How do you clean your room?
+[2025-11-14 14:58:09] ROBOT_SPEECH: why
+[2025-11-14 14:58:16] ROBOT_SPEECH: when
+[2025-11-14 14:58:21] ROBOT_SPEECH: how
+[2025-11-14 14:58:31] ROBOT_SPEECH: How do you brush your teeth?

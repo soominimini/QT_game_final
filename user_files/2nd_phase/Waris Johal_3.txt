@@ -1,0 +1,100 @@
+Name: Waris Johal
+login closed  Wed Nov 19 10:06:57 2025
+Main closed  Wed Nov 19 10:07:02 2025
+break
+Time: Wed Nov 19 10:07:06 2025
+[2025-11-19 10:07:07] ROBOT_SPEECH: Oh! Break Time!
+[2025-11-19 10:08:29] ROBOT_SPEECH: Oh! Break Time!
+Main closed  Wed Nov 19 10:08:51 2025
+instructions_game
+Time: Wed Nov 19 10:08:59 2025
+[2025-11-19 10:09:00] ROBOT_SPEECH: Where do you feel like going?
+[2025-11-19 10:09:22] ROBOT_SPEECH: Where do you feel like going?
+Main closed  Wed Nov 19 10:09:53 2025
+dice_5w1h
+Time: Wed Nov 19 10:09:58 2025
+[2025-11-19 10:09:59] ROBOT_SPEECH: Lets play around with wh questions
+[2025-11-19 10:10:06] ROBOT_SPEECH: Let's roll the dice
+[2025-11-19 10:10:12] ROBOT_SPEECH: what
+[2025-11-19 10:10:20] ROBOT_SPEECH: What do we write with?
+[2025-11-19 10:10:41] ROBOT_SPEECH: Who
+[2025-11-19 10:10:46] ROBOT_SPEECH: Who takes care of our teeth?
+[2025-11-19 10:11:27] ROBOT_SPEECH: Who
+[2025-11-19 10:11:32] ROBOT_SPEECH: Who drives a school bus?
+[2025-11-19 10:11:47] ROBOT_SPEECH: Where
+[2025-11-19 10:11:57] ROBOT_SPEECH: Where are the clouds?
+[2025-11-19 10:12:09] ROBOT_SPEECH: what
+[2025-11-19 10:12:17] ROBOT_SPEECH: What do we use to clean our teeth?
+[2025-11-19 10:12:42] ROBOT_SPEECH: Where
+[2025-11-19 10:13:13] ROBOT_SPEECH: Where can we borrow books?
+[2025-11-19 10:13:34] ROBOT_SPEECH: what
+[2025-11-19 10:13:40] ROBOT_SPEECH: What keeps our food cold?
+[2025-11-19 10:14:24] ROBOT_SPEECH: Where
+[2025-11-19 10:14:31] ROBOT_SPEECH: Where do we go to learn?
+[2025-11-19 10:14:51] ROBOT_SPEECH: what
+[2025-11-19 10:14:57] ROBOT_SPEECH: What do we wear on our feet?
+[2025-11-19 10:15:09] ROBOT_SPEECH: Wonderful!
+Main closed  Wed Nov 19 10:15:41 2025
+yes_no_old
+Time: Wed Nov 19 10:15:58 2025
+[2025-11-19 10:16:00] ROBOT_SPEECH:   Do turtles have shells?
+[2025-11-19 10:16:07] ROBOT_SPEECH: That's not correct
+[2025-11-19 10:17:06] ROBOT_SPEECH: Correct!
+[2025-11-19 10:17:09] ROBOT_SPEECH: Wonderful!
+[2025-11-19 10:17:14] ROBOT_SPEECH: Is the sun hot?
+[2025-11-19 10:17:33] ROBOT_SPEECH: Correct!
+[2025-11-19 10:17:34] ROBOT_SPEECH: That's not correct
+[2025-11-19 10:17:38] ROBOT_SPEECH: Do you drink juice?
+[2025-11-19 10:17:52] ROBOT_SPEECH: Do crabs have wings?
+[2025-11-19 10:17:59] ROBOT_SPEECH: Do crabs have wings?
+[2025-11-19 10:18:23] ROBOT_SPEECH: Correct!
+[2025-11-19 10:18:38] ROBOT_SPEECH: Do dogs say, #COW#
+[2025-11-19 10:22:52] ROBOT_SPEECH: Do dogs say, #COW#
+[2025-11-19 10:23:05] ROBOT_SPEECH: Correct!
+[2025-11-19 10:23:10] ROBOT_SPEECH: Does a boat fly in the sky?
+[2025-11-19 10:23:18] ROBOT_SPEECH: Do you wear a swimsuit at the beach?
+[2025-11-19 10:23:28] ROBOT_SPEECH: Correct!
+[2025-11-19 10:23:34] ROBOT_SPEECH: Can you build snowman at the beach?
+[2025-11-19 10:23:41] ROBOT_SPEECH: Can you build snowman at the beach?
+[2025-11-19 10:24:16] ROBOT_SPEECH: Correct!
+[2025-11-19 10:24:21] ROBOT_SPEECH: Do you wear sunglasses on your feet?
+[2025-11-19 10:24:45] ROBOT_SPEECH: Do you wear sunglasses on your feet?
+[2025-11-19 10:24:58] ROBOT_SPEECH: Is ice cream sweet?
+[2025-11-19 10:25:16] ROBOT_SPEECH: Is ice cream sweet?
+[2025-11-19 10:25:31] ROBOT_SPEECH: Finished!. Lets play other games!
+[2025-11-19 10:25:36] ROBOT_SPEECH: Great!
+[2025-11-19 10:25:39] ROBOT_SPEECH: Amazing!
+Main closed  Wed Nov 19 10:25:44 2025
+emotion_game2
+Time: Wed Nov 19 10:26:36 2025
+[2025-11-19 10:26:37] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Wed Nov 19 10:26:40 2025
+[2025-11-19 10:26:40] ROBOT_SPEECH: Show me an emotion card
+[2025-11-19 10:27:43] ROBOT_SPEECH: excited!
+[2025-11-19 10:27:55] ROBOT_SPEECH: Look at the tablet, which one is  excited
+[2025-11-19 10:27:55] ROBOT_SPEECH: show me an emotion card
+[2025-11-19 10:28:04] ROBOT_SPEECH: I feel excited when I am going on vacation with my family.
+[2025-11-19 10:29:23] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-19 10:29:36] ROBOT_SPEECH: angry!
+[2025-11-19 10:29:48] ROBOT_SPEECH: Look at the tablet, which one is  angry
+[2025-11-19 10:30:23] ROBOT_SPEECH: I feel angry when someone takes my toy without asking.
+[2025-11-19 10:32:31] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-19 10:32:47] ROBOT_SPEECH: saed
+[2025-11-19 10:32:59] ROBOT_SPEECH: Look at the tablet, which one is  sad
+[2025-11-19 10:33:30] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-19 10:33:49] ROBOT_SPEECH: I feel sad when I miss my family.
+[2025-11-19 10:34:08] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-19 10:34:18] ROBOT_SPEECH: scared!
+[2025-11-19 10:34:30] ROBOT_SPEECH: Look at the tablet, which one is  scared
+[2025-11-19 10:34:42] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-19 10:34:52] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-19 10:34:53] ROBOT_SPEECH: I feel scared when it’s dark outside.
+[2025-11-19 10:35:26] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-19 10:36:03] ROBOT_SPEECH: happy!
+[2025-11-19 10:36:15] ROBOT_SPEECH: Look at the tablet, which one is  happy
+[2025-11-19 10:36:35] ROBOT_SPEECH: I like to cuddle and play with my pets when I'm happy
+[2025-11-19 10:37:37] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-19 10:37:43] ROBOT_SPEECH: sheye
+[2025-11-19 10:37:55] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-11-19 10:38:06] ROBOT_SPEECH: I get shy when I meet new people.
+[2025-11-19 10:38:43] ROBOT_SPEECH: Show me another emotion card!

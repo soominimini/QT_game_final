@@ -1,0 +1,213 @@
+Name: Aasiya Kashif
+login closed  Fri Nov  7 14:25:10 2025
+at_talks
+Time: Fri Nov  7 14:25:18 2025
+[2025-11-07 14:25:33] ROBOT_SPEECH: Great!
+Main closed  Fri Nov  7 14:25:52 2025
+at_talks
+Time: Fri Nov  7 14:25:55 2025
+login closed  Fri Nov  7 14:26:13 2025
+Name: Aasiya Kashif
+login closed  Fri Nov  7 14:26:14 2025
+at_talks
+Time: Fri Nov  7 14:26:18 2025
+Main closed  Fri Nov  7 14:26:42 2025
+instructions_game
+Time: Fri Nov  7 14:26:49 2025
+[2025-11-07 14:26:51] ROBOT_SPEECH: Where do you wanna go?
+[2025-11-07 14:26:57] ROBOT_SPEECH: Let's go to hospital!
+[2025-11-07 14:27:01] ROBOT_SPEECH: Lets put the injection, on the stand.
+[2025-11-07 14:27:08] ROBOT_SPEECH: Great!
+[2025-11-07 14:27:13] ROBOT_SPEECH: The doctor, is next to the sink.
+[2025-11-07 14:27:21] ROBOT_SPEECH: Amazing!
+[2025-11-07 14:27:26] ROBOT_SPEECH: The patient, is waiting on the bed.
+[2025-11-07 14:27:27] ROBOT_SPEECH: Hooray!
+Taking Instruction hospital1 closed  Fri Nov  7 14:27:33 2025
+[2025-11-07 14:27:37] ROBOT_SPEECH: The medical cart, is in the middle of the hallway
+[2025-11-07 14:27:43] ROBOT_SPEECH: Perfect!
+[2025-11-07 14:27:48] ROBOT_SPEECH: A patient, is sitting on a chair
+[2025-11-07 14:27:53] ROBOT_SPEECH: Amazing!
+[2025-11-07 14:27:58] ROBOT_SPEECH: The nurse, is waiting beside the right door
+[2025-11-07 14:28:00] ROBOT_SPEECH: Hooray!
+Taking Instruction hospital2 closed  Fri Nov  7 14:28:05 2025
+[2025-11-07 14:28:09] ROBOT_SPEECH: A person, is walking towards, the emergency entrance on the right side.
+[2025-11-07 14:28:23] ROBOT_SPEECH: A person, is walking towards, the emergency entrance on the right side.
+[2025-11-07 14:28:43] ROBOT_SPEECH: Great!
+[2025-11-07 14:28:47] ROBOT_SPEECH: The doctor, is standing in front of the emergency entrance.
+[2025-11-07 14:28:52] ROBOT_SPEECH: Perfect!
+[2025-11-07 14:28:56] ROBOT_SPEECH: The ambulance, is located on the left side of the building.
+[2025-11-07 14:29:01] ROBOT_SPEECH: Perfect!
+Taking Instruction hospital3 closed  Fri Nov  7 14:29:48 2025
+[2025-11-07 14:29:50] ROBOT_SPEECH: What place do you wanna go to?
+[2025-11-07 14:30:01] ROBOT_SPEECH: Let's go to play!
+[2025-11-07 14:30:05] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+[2025-11-07 14:30:13] ROBOT_SPEECH: Great!
+[2025-11-07 14:30:18] ROBOT_SPEECH: A sandbox, \spd=70\ is placed on the right side, in the park
+[2025-11-07 14:30:26] ROBOT_SPEECH: Amazing!
+[2025-11-07 14:30:31] ROBOT_SPEECH: A red monkey bar, is on the middle of the park
+[2025-11-07 14:30:34] ROBOT_SPEECH: Hooray!
+Taking Instruction park1 closed  Fri Nov  7 14:31:04 2025
+[2025-11-07 14:31:08] ROBOT_SPEECH: a person, is riding a bike, along the bike path
+[2025-11-07 14:31:33] ROBOT_SPEECH: a person, is riding a bike, along the bike path
+[2025-11-07 14:31:40] ROBOT_SPEECH: Perfect!
+[2025-11-07 14:31:45] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-11-07 14:31:52] ROBOT_SPEECH: Great!
+[2025-11-07 14:31:57] ROBOT_SPEECH: A man, is running along on the right side
+[2025-11-07 14:32:03] ROBOT_SPEECH: Amazing!
+Taking Instruction park2 closed  Fri Nov  7 14:32:43 2025
+Taking Instruction park2 closed  Fri Nov  7 14:32:47 2025
+Taking Instruction park2 closed  Fri Nov  7 14:32:47 2025
+Taking Instruction park2 closed  Fri Nov  7 14:32:47 2025
+[2025-11-07 14:32:50] ROBOT_SPEECH: People, are sitting on a bench, next to the big tree
+[2025-11-07 14:32:55] ROBOT_SPEECH: People, are sitting on a bench, next to the big tree
+[2025-11-07 14:33:03] ROBOT_SPEECH: People, are sitting on a bench, next to the big tree
+[2025-11-07 14:33:45] ROBOT_SPEECH: People, are sitting on a bench, next to the big tree
+[2025-11-07 14:34:07] ROBOT_SPEECH: Hooray!
+[2025-11-07 14:34:12] ROBOT_SPEECH: Lets place the swing, on the right side of the bench
+[2025-11-07 14:34:18] ROBOT_SPEECH: Lets place the swing, on the right side of the bench
+[2025-11-07 14:34:31] ROBOT_SPEECH: Hooray!
+[2025-11-07 14:34:37] ROBOT_SPEECH: There is a slide, under the tall tree.
+[2025-11-07 14:34:41] ROBOT_SPEECH: Amazing!
+Taking Instruction park3 closed  Fri Nov  7 14:34:44 2025
+[2025-11-07 14:34:45] ROBOT_SPEECH: Where do you feel like going?
+[2025-11-07 14:34:53] ROBOT_SPEECH: Let's go shopping!
+[2025-11-07 14:34:55] ROBOT_SPEECH: Lets place the cart, between the checkout counters
+[2025-11-07 14:35:16] ROBOT_SPEECH: Perfect!
+[2025-11-07 14:35:20] ROBOT_SPEECH: Kustomer is waiting, at the end of the checkout counter
+[2025-11-07 14:35:27] ROBOT_SPEECH: Great!
+[2025-11-07 14:35:32] ROBOT_SPEECH: Casher, is in front of checkout counter
+[2025-11-07 14:35:35] ROBOT_SPEECH: Perfect!
+[2025-11-07 14:36:13] ROBOT_SPEECH: Casher, is in front of checkout counter
+Taking Instruction supermarket1 closed  Fri Nov  7 14:36:37 2025
+[2025-11-07 14:36:41] ROBOT_SPEECH: I want to place the orange, at the left corner
+[2025-11-07 14:36:52] ROBOT_SPEECH: Amazing!
+[2025-11-07 14:36:57] ROBOT_SPEECH: Please place the price tag, under the apple
+[2025-11-07 14:37:03] ROBOT_SPEECH: Hooray!
+[2025-11-07 14:37:08] ROBOT_SPEECH: Lets place an apple, on the apple stack
+[2025-11-07 14:37:13] ROBOT_SPEECH: Great!
+Taking Instruction supermarket2 closed  Fri Nov  7 14:38:06 2025
+[2025-11-07 14:38:10] ROBOT_SPEECH: I want to put the orange juice, on the top shelf
+[2025-11-07 14:38:20] ROBOT_SPEECH: Hooray!
+[2025-11-07 14:38:26] ROBOT_SPEECH: Let's put something we can eat to the right side of the casher
+[2025-11-07 14:38:32] ROBOT_SPEECH: Let's put something we can eat to the right side of the casher
+[2025-11-07 14:38:49] ROBOT_SPEECH: Great!
+[2025-11-07 14:38:54] ROBOT_SPEECH: Lets place the milk, on the counter.
+[2025-11-07 14:38:58] ROBOT_SPEECH: Perfect!
+[2025-11-07 14:39:13] ROBOT_SPEECH: Lets place the milk, on the counter.
+Taking Instruction supermarket3 closed  Fri Nov  7 14:39:29 2025
+[2025-11-07 14:39:31] ROBOT_SPEECH: Where do you feel like going?
+Main closed  Fri Nov  7 14:39:34 2025
+emotion_game2
+Time: Fri Nov  7 14:39:41 2025
+[2025-11-07 14:41:34] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Fri Nov  7 14:41:37 2025
+[2025-11-07 14:41:37] ROBOT_SPEECH: Show me an emotion card
+[2025-11-07 14:41:54] ROBOT_SPEECH: scared!
+[2025-11-07 14:42:06] ROBOT_SPEECH: Look at the tablet, which one is  scared
+[2025-11-07 14:42:14] ROBOT_SPEECH: I feel scared when it’s dark outside.
+[2025-11-07 14:42:30] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-07 14:42:32] ROBOT_SPEECH: scared!
+[2025-11-07 14:42:44] ROBOT_SPEECH: Look at the tablet, which one is  scared
+[2025-11-07 14:42:51] ROBOT_SPEECH: I feel scared when I have to go to the doctor.
+[2025-11-07 14:43:06] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-07 14:43:13] ROBOT_SPEECH: excited!
+[2025-11-07 14:43:25] ROBOT_SPEECH: Look at the tablet, which one is  excited
+[2025-11-07 14:43:31] ROBOT_SPEECH: I feel excited when I am going on vacation with my family.
+[2025-11-07 14:43:55] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-07 14:44:10] ROBOT_SPEECH: saed
+[2025-11-07 14:44:22] ROBOT_SPEECH: Look at the tablet, which one is  sad
+emotion_game1 closed  Fri Nov  7 14:44:44 2025
+[2025-11-07 14:44:44] ROBOT_SPEECH: Show me an emotion card
+[2025-11-07 14:44:48] ROBOT_SPEECH: saed
+[2025-11-07 14:45:00] ROBOT_SPEECH: Look at the tablet, which one is  sad
+[2025-11-07 14:45:07] ROBOT_SPEECH: I feel sad when my friends don't share their toys with me.
+[2025-11-07 14:46:39] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-07 14:46:47] ROBOT_SPEECH: happy!
+[2025-11-07 14:46:59] ROBOT_SPEECH: Look at the tablet, which one is  happy
+emotion_game1 closed  Fri Nov  7 14:47:33 2025
+[2025-11-07 14:47:33] ROBOT_SPEECH: Show me an emotion card
+[2025-11-07 14:47:36] ROBOT_SPEECH: happy!
+[2025-11-07 14:47:48] ROBOT_SPEECH: Look at the tablet, which one is  happy
+[2025-11-07 14:47:55] ROBOT_SPEECH: Going to the park makes me happy.
+[2025-11-07 14:48:17] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-07 14:48:21] ROBOT_SPEECH: sheye
+[2025-11-07 14:48:33] ROBOT_SPEECH: Look at the tablet, which one is  shy
+emotion_game2
+Time: Fri Nov  7 14:48:55 2025
+emotion_game1 closed  Fri Nov  7 14:48:55 2025
+[2025-11-07 14:48:57] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Fri Nov  7 14:49:00 2025
+[2025-11-07 14:49:00] ROBOT_SPEECH: Show me an emotion card
+[2025-11-07 14:49:06] ROBOT_SPEECH: sheye
+[2025-11-07 14:49:18] ROBOT_SPEECH: Look at the tablet, which one is  shy
+[2025-11-07 14:49:23] ROBOT_SPEECH: I get shy when I have to read in front of my class.
+[2025-11-07 14:49:46] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-07 14:50:19] ROBOT_SPEECH: angry!
+[2025-11-07 14:50:31] ROBOT_SPEECH: Look at the tablet, which one is  angry
+emotion_game1 closed  Fri Nov  7 14:50:49 2025
+[2025-11-07 14:50:49] ROBOT_SPEECH: Show me an emotion card
+[2025-11-07 14:50:51] ROBOT_SPEECH: angry!
+[2025-11-07 14:51:03] ROBOT_SPEECH: Look at the tablet, which one is  angry
+emotion_game1 closed  Fri Nov  7 14:51:19 2025
+[2025-11-07 14:51:19] ROBOT_SPEECH: Show me an emotion card
+[2025-11-07 14:51:22] ROBOT_SPEECH: angry!
+[2025-11-07 14:51:34] ROBOT_SPEECH: Look at the tablet, which one is  angry
+[2025-11-07 14:51:38] ROBOT_SPEECH: I feel angry when people aren’t listening to me.
+[2025-11-07 14:52:47] ROBOT_SPEECH: I feel angry when people aren’t listening to me.
+[2025-11-07 14:53:14] ROBOT_SPEECH: Show me another emotion card!
+yes_no_old
+Time: Fri Nov  7 14:53:53 2025
+emotion_game1 closed  Fri Nov  7 14:53:53 2025
+[2025-11-07 14:53:55] ROBOT_SPEECH: Can you build snowman at the beach?
+[2025-11-07 14:54:02] ROBOT_SPEECH: Correct!
+[2025-11-07 14:54:04] ROBOT_SPEECH: Do you wear a swimsuit at the beach?
+[2025-11-07 14:54:12] ROBOT_SPEECH: Correct!
+[2025-11-07 14:54:15] ROBOT_SPEECH: Do you drink juice?
+[2025-11-07 14:54:28] ROBOT_SPEECH: Correct!
+[2025-11-07 14:54:32] ROBOT_SPEECH:   Do turtles have shells?
+[2025-11-07 14:54:38] ROBOT_SPEECH: Correct!
+[2025-11-07 14:54:41] ROBOT_SPEECH: Do you wear sunglasses on your feet?
+[2025-11-07 14:54:46] ROBOT_SPEECH: Correct!
+[2025-11-07 14:54:49] ROBOT_SPEECH: Does a boat fly in the sky?
+[2025-11-07 14:54:53] ROBOT_SPEECH: Correct!
+[2025-11-07 14:54:56] ROBOT_SPEECH: Is the sun hot?
+[2025-11-07 14:55:01] ROBOT_SPEECH: Correct!
+[2025-11-07 14:55:03] ROBOT_SPEECH: Do crabs have wings?
+[2025-11-07 14:55:09] ROBOT_SPEECH: Correct!
+[2025-11-07 14:55:11] ROBOT_SPEECH: Do dogs say, #COW#
+[2025-11-07 14:55:20] ROBOT_SPEECH: Correct!
+[2025-11-07 14:55:23] ROBOT_SPEECH: Is ice cream sweet?
+[2025-11-07 14:55:27] ROBOT_SPEECH: Correct!
+[2025-11-07 14:55:30] ROBOT_SPEECH: Finished!. Lets play other games!
+Main closed  Fri Nov  7 14:55:37 2025
+dice_5w1h
+Time: Fri Nov  7 14:55:43 2025
+[2025-11-07 14:55:43] ROBOT_SPEECH: Lets play around with wh questions
+[2025-11-07 14:55:47] ROBOT_SPEECH: Let's roll the dice
+[2025-11-07 14:55:51] ROBOT_SPEECH: how
+[2025-11-07 14:56:04] ROBOT_SPEECH: How do you brush your teeth?
+[2025-11-07 14:57:11] ROBOT_SPEECH: why
+[2025-11-07 14:57:18] ROBOT_SPEECH: why
+[2025-11-07 14:57:31] ROBOT_SPEECH: Why do we go to the dentist's office?
+[2025-11-07 14:58:04] ROBOT_SPEECH: when
+[2025-11-07 14:58:14] ROBOT_SPEECH: When is your birthday?
+[2025-11-07 14:58:27] ROBOT_SPEECH: how
+[2025-11-07 14:58:33] ROBOT_SPEECH: How do you make a sandwich?
+[2025-11-07 15:00:08] ROBOT_SPEECH: when
+[2025-11-07 15:00:19] ROBOT_SPEECH: When do we eat lunch?
+[2025-11-07 15:01:12] ROBOT_SPEECH: when
+[2025-11-07 15:01:23] ROBOT_SPEECH: how
+[2025-11-07 15:01:39] ROBOT_SPEECH: How do you go for "trick-or-treating"?
+[2025-11-07 15:04:39] ROBOT_SPEECH: why
+[2025-11-07 15:04:49] ROBOT_SPEECH: Why do we wear a seat belt in the car?
+[2025-11-07 15:05:02] ROBOT_SPEECH: how
+[2025-11-07 15:05:12] ROBOT_SPEECH: How do you wrap a present?
+[2025-11-07 15:06:19] ROBOT_SPEECH: why
+[2025-11-07 15:06:23] ROBOT_SPEECH: when
+[2025-11-07 15:06:26] ROBOT_SPEECH: how
+[2025-11-07 15:06:51] ROBOT_SPEECH: How do you brush your teeth?
+[2025-11-07 15:07:03] ROBOT_SPEECH: How do you brush your teeth?
+[2025-11-07 15:07:14] ROBOT_SPEECH: How do you buy something at the store?
+[2025-11-07 15:07:49] ROBOT_SPEECH: Wonderful!
+Main closed  Fri Nov  7 15:07:57 2025
+login closed  Fri Nov  7 15:14:56 2025

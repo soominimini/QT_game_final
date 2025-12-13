@@ -1,0 +1,193 @@
+CLIENT NAME: Fatheh
+Created on: 2025-12-05 17:03:20
+User created via login page
+--------------------------------------------------
+Name: Fatheh
+login closed  Fri Dec  5 17:03:39 2025
+at_talks
+Time: Fri Dec  5 17:03:43 2025
+[2025-12-05 17:03:45] ROBOT_SPEECH: Hello! How r you today?
+[2025-12-05 17:04:24] ROBOT_SPEECH: Hello! How r you today?
+Main closed  Fri Dec  5 17:04:47 2025
+instructions_game_young
+Time: Fri Dec  5 17:04:52 2025
+[2025-12-05 17:04:54] ROBOT_SPEECH: Where do you wanna go?
+[2025-12-05 17:05:27] ROBOT_SPEECH: Let's go shopping!
+[2025-12-05 17:05:29] ROBOT_SPEECH: I want fruits.
+[2025-12-05 17:05:32] ROBOT_SPEECH: Can you give me one apple?
+[2025-12-05 17:05:53] ROBOT_SPEECH: Great!
+apple selected 
+[2025-12-05 17:05:58] ROBOT_SPEECH: Please give me an orange?
+[2025-12-05 17:06:07] ROBOT_SPEECH: Amazing!
+[2025-12-05 17:06:12] ROBOT_SPEECH: Could you please give me two cherries?
+orange selected 
+[2025-12-05 17:06:19] ROBOT_SPEECH: Perfect!
+cherries selected 
+[2025-12-05 17:06:23] ROBOT_SPEECH: Let's go to the next page!
+Taking Instruction supermarket1 closed  Fri Dec  5 17:06:29 2025
+[2025-12-05 17:06:32] ROBOT_SPEECH: I want a school item.
+[2025-12-05 17:06:34] ROBOT_SPEECH:  Could you please give me a pencil?
+[2025-12-05 17:06:42] ROBOT_SPEECH: Hooray!
+[2025-12-05 17:06:47] ROBOT_SPEECH: Please give me a book
+pencil selected 
+bag selected 
+[2025-12-05 17:06:58] ROBOT_SPEECH: I want a book
+[2025-12-05 17:06:58] ROBOT_SPEECH: I want a book
+[2025-12-05 17:07:06] ROBOT_SPEECH: I want a book
+bag selected 
+[2025-12-05 17:07:18] ROBOT_SPEECH: Hooray!
+[2025-12-05 17:07:23] ROBOT_SPEECH: Can you give me a backpack?
+book selected 
+[2025-12-05 17:07:49] ROBOT_SPEECH: Great!
+bag selected 
+[2025-12-05 17:07:53] ROBOT_SPEECH: Let's go to the next page!
+Taking Instruction supermarket1 closed  Fri Dec  5 17:07:59 2025
+[2025-12-05 17:08:01] ROBOT_SPEECH: I’m thirsty
+[2025-12-05 17:08:04] ROBOT_SPEECH: Can I have some water, please
+[2025-12-05 17:08:19] ROBOT_SPEECH: Perfect!
+[2025-12-05 17:08:24] ROBOT_SPEECH: Can you give me some milk, please?
+water selected 
+[2025-12-05 17:08:34] ROBOT_SPEECH: Amazing!
+[2025-12-05 17:08:39] ROBOT_SPEECH: May I have some orange juice, please?
+milk selected 
+[2025-12-05 17:08:51] ROBOT_SPEECH: Amazing!
+juice selected 
+[2025-12-05 17:08:55] ROBOT_SPEECH: Let's go to the next page!
+Taking Instruction supermarket1 closed  Fri Dec  5 17:09:02 2025
+[2025-12-05 17:09:04] ROBOT_SPEECH: What place do you wanna go to?
+[2025-12-05 17:09:08] ROBOT_SPEECH: Let's go to hospital!
+[2025-12-05 17:09:10] ROBOT_SPEECH: I need to take \emph\ medicine. Can you give me a \emph\ pill?
+[2025-12-05 17:09:23] ROBOT_SPEECH: I want a pill
+sanitizer selected 
+med_glove selected 
+[2025-12-05 17:09:32] ROBOT_SPEECH: I want a pill
+[2025-12-05 17:09:42] ROBOT_SPEECH: Hooray!
+[2025-12-05 17:09:47] ROBOT_SPEECH: Let's Keep my hands clean. Can you give me medical gloves?
+pill selected 
+[2025-12-05 17:10:11] ROBOT_SPEECH: Great!
+[2025-12-05 17:10:16] ROBOT_SPEECH: I need to clean my hands. Can you give me \emph\ sanitizer?
+med_glove selected 
+[2025-12-05 17:10:39] ROBOT_SPEECH: Perfect!
+sanitizer selected 
+[2025-12-05 17:10:43] ROBOT_SPEECH: Let's go to the next page!
+[2025-12-05 17:10:58] ROBOT_SPEECH: all done
+dice_action_young
+Time: Fri Dec  5 17:11:06 2025
+[2025-12-05 17:11:07] ROBOT_SPEECH: Let's roll the dice
+[2025-12-05 17:11:16] ROBOT_SPEECH: Let's wiggle our body for ten seconds!
+[2025-12-05 17:11:18] ROBOT_SPEECH: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+[2025-12-05 17:11:21] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-12-05 17:11:23] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-12-05 17:11:39] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-12-05 17:11:44] ROBOT_SPEECH: 1
+[2025-12-05 17:11:47] ROBOT_SPEECH: 2
+[2025-12-05 17:11:50] ROBOT_SPEECH: 3
+[2025-12-05 17:11:53] ROBOT_SPEECH: 4
+[2025-12-05 17:11:56] ROBOT_SPEECH: 5
+[2025-12-05 17:11:59] ROBOT_SPEECH: 6
+[2025-12-05 17:12:02] ROBOT_SPEECH: 7
+[2025-12-05 17:12:05] ROBOT_SPEECH: 8
+[2025-12-05 17:12:08] ROBOT_SPEECH: 9
+[2025-12-05 17:12:11] ROBOT_SPEECH: 10
+Main closed  Fri Dec  5 17:12:26 2025
+at_talks
+Time: Fri Dec  5 17:12:33 2025
+[2025-12-05 17:13:16] ROBOT_SPEECH: \emph\Give me!
+[2025-12-05 17:13:17] ROBOT_SPEECH: \emph\Cookie!
+[2025-12-05 17:13:27] ROBOT_SPEECH: \emph\Give me!
+[2025-12-05 17:13:28] ROBOT_SPEECH: \emph\Cookie!
+[2025-12-05 17:13:42] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 17:14:00] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 17:14:55] ROBOT_SPEECH: \emph\Give me!
+[2025-12-05 17:14:59] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 17:15:17] ROBOT_SPEECH: \emph\Give me!
+[2025-12-05 17:15:19] ROBOT_SPEECH: \emph\Cookie!
+[2025-12-05 17:15:25] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 17:16:45] ROBOT_SPEECH: \emph\Give me!
+[2025-12-05 17:16:46] ROBOT_SPEECH: \emph\Cookie!
+[2025-12-05 17:16:50] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 17:17:37] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 17:18:25] ROBOT_SPEECH: \emph\More!
+[2025-12-05 17:18:25] ROBOT_SPEECH: \emph\Eat!
+[2025-12-05 17:18:28] ROBOT_SPEECH: \emph\More!
+[2025-12-05 17:18:29] ROBOT_SPEECH: \emph\Eat!
+[2025-12-05 17:18:48] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 17:19:00] ROBOT_SPEECH: \emph\More!
+[2025-12-05 17:19:02] ROBOT_SPEECH: \emph\More!
+[2025-12-05 17:19:03] ROBOT_SPEECH: \emph\Cookie!
+[2025-12-05 17:20:10] ROBOT_SPEECH: \emph\More!
+[2025-12-05 17:20:12] ROBOT_SPEECH: \emph\Cookie!
+[2025-12-05 17:20:22] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 17:20:42] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 17:23:30] ROBOT_SPEECH: Wonderful!
+at_talks
+Time: Fri Dec  5 17:24:42 2025
+[2025-12-05 17:24:48] ROBOT_SPEECH: Yeah! Good choice!
+emotion_game_1
+Time: Fri Dec  5 17:29:11 2025
+[2025-12-05 17:29:58] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Fri Dec  5 17:30:01 2025
+[2025-12-05 17:30:01] ROBOT_SPEECH: Show me an emotion card
+[2025-12-05 17:30:13] ROBOT_SPEECH: happy!
+[2025-12-05 17:30:19] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-12-05 17:30:27] ROBOT_SPEECH: happy
+[2025-12-05 17:30:28] ROBOT_SPEECH: Please press the next
+[2025-12-05 17:30:49] ROBOT_SPEECH: Show me another emotion card!
+[2025-12-05 17:31:09] ROBOT_SPEECH: saed
+[2025-12-05 17:31:15] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-12-05 17:31:41] ROBOT_SPEECH: saed
+[2025-12-05 17:31:43] ROBOT_SPEECH: You can click next.
+[2025-12-05 17:31:48] ROBOT_SPEECH: Show me another emotion card!
+[2025-12-05 17:31:57] ROBOT_SPEECH: scared!
+[2025-12-05 17:32:03] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-12-05 17:32:06] ROBOT_SPEECH: scared
+emotion_game1 closed  Fri Dec  5 17:32:12 2025
+[2025-12-05 17:32:12] ROBOT_SPEECH: Show me an emotion card
+[2025-12-05 17:32:13] ROBOT_SPEECH: scared!
+[2025-12-05 17:32:19] ROBOT_SPEECH: Look at the tablet, click on the picture
+Main closed  Fri Dec  5 17:32:25 2025
+emotion_game_1
+Time: Fri Dec  5 17:32:27 2025
+emotion_game1 closed  Fri Dec  5 17:32:27 2025
+[2025-12-05 17:32:28] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Fri Dec  5 17:32:31 2025
+[2025-12-05 17:32:31] ROBOT_SPEECH: Show me an emotion card
+[2025-12-05 17:32:33] ROBOT_SPEECH: scared!
+[2025-12-05 17:32:39] ROBOT_SPEECH: Look at the tablet, click on the picture
+[2025-12-05 17:32:45] ROBOT_SPEECH: scared
+[2025-12-05 17:32:47] ROBOT_SPEECH: You can click next.
+[2025-12-05 17:32:54] ROBOT_SPEECH: Show me another emotion card!
+Main closed  Fri Dec  5 17:32:54 2025
+dice_action_young
+Time: Fri Dec  5 17:33:02 2025
+emotion_game1 closed  Fri Dec  5 17:33:02 2025
+[2025-12-05 17:33:03] ROBOT_SPEECH: Let's roll the dice
+[2025-12-05 17:33:04] ROBOT_SPEECH: Let's roll the dice
+[2025-12-05 17:33:14] ROBOT_SPEECH: Let's deep breathe for five seconds
+[2025-12-05 17:33:16] ROBOT_SPEECH: 1, 2, 3, 4, 5
+[2025-12-05 17:33:19] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-12-05 17:33:24] ROBOT_SPEECH: 1
+[2025-12-05 17:33:27] ROBOT_SPEECH: 2
+[2025-12-05 17:33:30] ROBOT_SPEECH: 3
+[2025-12-05 17:33:33] ROBOT_SPEECH: 4
+[2025-12-05 17:33:36] ROBOT_SPEECH: 5
+[2025-12-05 17:33:39] ROBOT_SPEECH: 6
+[2025-12-05 17:33:42] ROBOT_SPEECH: 7
+[2025-12-05 17:33:45] ROBOT_SPEECH: 8
+[2025-12-05 17:33:48] ROBOT_SPEECH: 9
+[2025-12-05 17:33:51] ROBOT_SPEECH: 10
+Main closed  Fri Dec  5 17:34:03 2025
+Main closed  Fri Dec  5 17:39:42 2025
+at_talks
+Time: Fri Dec  5 17:39:45 2025
+[2025-12-05 17:39:48] ROBOT_SPEECH: \emph\Give me!
+[2025-12-05 17:40:07] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 17:40:10] ROBOT_SPEECH: \emph\More!
+[2025-12-05 17:40:18] ROBOT_SPEECH: \emph\More!
+[2025-12-05 17:40:22] ROBOT_SPEECH: \emph\More!
+[2025-12-05 17:40:24] ROBOT_SPEECH: \emph\More!
+[2025-12-05 17:40:33] ROBOT_SPEECH: \emph\More!
+[2025-12-05 17:40:54] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 17:40:58] ROBOT_SPEECH: All done!
+[2025-12-05 18:05:10] ROBOT_SPEECH: Goodbye!
+[2025-12-05 18:05:20] ROBOT_SPEECH: Goodbye!

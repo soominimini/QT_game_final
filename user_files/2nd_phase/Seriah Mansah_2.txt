@@ -1,0 +1,67 @@
+Name: Seriah Mansah
+login closed  Fri Nov 14 11:11:48 2025
+at_talks
+Time: Fri Nov 14 11:11:56 2025
+Main closed  Fri Nov 14 11:12:08 2025
+break
+Time: Fri Nov 14 11:12:14 2025
+[2025-11-14 11:12:14] ROBOT_SPEECH: Oh! Break Time!
+Main closed  Fri Nov 14 11:12:28 2025
+instructions_game
+Time: Fri Nov 14 11:13:27 2025
+[2025-11-14 11:13:28] ROBOT_SPEECH: Where do you wanna go?
+[2025-11-14 11:14:04] ROBOT_SPEECH: Let's go to hospital!
+[2025-11-14 11:14:08] ROBOT_SPEECH: The patient, is waiting on the bed.
+Taking Instruction hospital1 closed  Fri Nov 14 11:14:36 2025
+Main closed  Fri Nov 14 11:14:39 2025
+instructions_game
+Time: Fri Nov 14 11:14:43 2025
+[2025-11-14 11:14:46] ROBOT_SPEECH: Where do you want to go?
+[2025-11-14 11:14:50] ROBOT_SPEECH: The doctor, is next to the sink.
+at_talks
+Time: Fri Nov 14 11:20:42 2025
+Main closed  Fri Nov 14 11:21:40 2025
+Main closed  Fri Nov 14 11:22:52 2025
+emotion_game2
+Time: Fri Nov 14 11:22:59 2025
+[2025-11-14 11:23:03] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Fri Nov 14 11:23:06 2025
+[2025-11-14 11:23:07] ROBOT_SPEECH: Show me an emotion card
+[2025-11-14 11:23:16] ROBOT_SPEECH: excited!
+[2025-11-14 11:23:28] ROBOT_SPEECH: Look at the tablet, which one is  excited
+[2025-11-14 11:25:29] ROBOT_SPEECH: Keep trying!
+break
+Time: Fri Nov 14 11:26:44 2025
+emotion_game1 closed  Fri Nov 14 11:26:44 2025
+[2025-11-14 11:26:44] ROBOT_SPEECH: Oh! Break Time!
+[2025-11-14 11:26:44] ROBOT_SPEECH: Oh! Break Time!
+emotion_game2
+Time: Fri Nov 14 11:40:09 2025
+Main closed  Fri Nov 14 11:40:15 2025
+emotion_game2
+Time: Fri Nov 14 11:40:20 2025
+Start Emotion games closed  Fri Nov 14 11:40:20 2025
+Start Emotion games closed  Fri Nov 14 11:40:20 2025
+[2025-11-14 11:40:21] ROBOT_SPEECH: Let's play a game
+Start Emotion games closed  Fri Nov 14 11:40:24 2025
+[2025-11-14 11:40:24] ROBOT_SPEECH: Show me an emotion card
+[2025-11-14 11:40:28] ROBOT_SPEECH: scared!
+[2025-11-14 11:40:40] ROBOT_SPEECH: Look at the tablet, which one is  scared
+[2025-11-14 11:41:12] ROBOT_SPEECH: I feel scared when it’s dark outside.
+[2025-11-14 11:42:24] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-14 11:42:27] ROBOT_SPEECH: excited!
+[2025-11-14 11:42:40] ROBOT_SPEECH: Look at the tablet, which one is  excited
+emotion_game1 closed  Fri Nov 14 11:42:56 2025
+[2025-11-14 11:42:56] ROBOT_SPEECH: Show me an emotion card
+[2025-11-14 11:43:00] ROBOT_SPEECH: excited!
+[2025-11-14 11:43:12] ROBOT_SPEECH: Look at the tablet, which one is  excited
+[2025-11-14 11:43:20] ROBOT_SPEECH: I feel excited when I go to the beach and build sandcastles
+[2025-11-14 11:46:00] ROBOT_SPEECH: Show me another emotion card!
+[2025-11-14 11:46:16] ROBOT_SPEECH: saed
+[2025-11-14 11:46:28] ROBOT_SPEECH: Look at the tablet, which one is  sad
+emotion_game1 closed  Fri Nov 14 11:46:44 2025
+[2025-11-14 11:46:45] ROBOT_SPEECH: Show me an emotion card
+[2025-11-14 11:46:51] ROBOT_SPEECH: saed
+[2025-11-14 11:47:03] ROBOT_SPEECH: Look at the tablet, which one is  sad
+[2025-11-14 11:47:38] ROBOT_SPEECH: I feel sad when my friends don't share their toys with me.
+login closed  Fri Nov 14 14:24:38 2025

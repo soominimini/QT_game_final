@@ -1,0 +1,58 @@
+Name: Seriah Mansah
+login closed  Fri Dec  5 11:14:33 2025
+at_talks
+Time: Fri Dec  5 11:19:37 2025
+at_talks
+Time: Fri Dec  5 11:19:41 2025
+at_talks
+Time: Fri Dec  5 11:19:49 2025
+[2025-12-05 11:19:51] ROBOT_SPEECH: Hello! How r you today?
+[2025-12-05 11:20:13] ROBOT_SPEECH: Hello! How r you today?
+[2025-12-05 11:20:55] ROBOT_SPEECH: Hello! How r you today?
+[2025-12-05 11:21:07] ROBOT_SPEECH: Hello! How r you today?
+[2025-12-05 11:21:18] ROBOT_SPEECH: I'm fine!
+[2025-12-05 11:21:23] ROBOT_SPEECH: Whats your name?
+[2025-12-05 11:21:36] ROBOT_SPEECH: My name is QT!
+[2025-12-05 11:21:49] ROBOT_SPEECH: That's good to know!
+instructions_game
+Time: Fri Dec  5 11:21:55 2025
+[2025-12-05 11:21:57] ROBOT_SPEECH: Where do you want to go?
+[2025-12-05 11:21:58] ROBOT_SPEECH: Where do you wanna go?
+[2025-12-05 11:22:01] ROBOT_SPEECH: Let's go to hospital!
+[2025-12-05 11:22:05] ROBOT_SPEECH: The patient, is waiting on the bed.
+[2025-12-05 11:22:24] ROBOT_SPEECH: Great!
+[2025-12-05 11:22:28] ROBOT_SPEECH: Lets put the injection, on the stand.
+[2025-12-05 11:22:28] ROBOT_SPEECH: Bravo!
+[2025-12-05 11:23:12] ROBOT_SPEECH: Hooray!
+[2025-12-05 11:23:17] ROBOT_SPEECH: The doctor, is next to the sink.
+[2025-12-05 11:23:35] ROBOT_SPEECH: Amazing!
+Taking Instruction hospital1 closed  Fri Dec  5 11:26:58 2025
+Taking Instruction hospital1 closed  Fri Dec  5 11:27:01 2025
+Taking Instruction hospital1 closed  Fri Dec  5 11:27:01 2025
+[2025-12-05 11:27:04] ROBOT_SPEECH: The nurse, is waiting beside the right door
+at_talks
+Time: Fri Dec  5 11:27:21 2025
+[2025-12-05 11:27:25] ROBOT_SPEECH: Uh oh!
+[2025-12-05 11:27:34] ROBOT_SPEECH: Uh oh!
+[2025-12-05 11:27:35] ROBOT_SPEECH: Whoa!
+[2025-12-05 11:27:43] ROBOT_SPEECH: Ouch!
+[2025-12-05 11:27:48] ROBOT_SPEECH: Ouch!
+[2025-12-05 11:28:14] ROBOT_SPEECH: Oh no!
+[2025-12-05 11:28:31] ROBOT_SPEECH: Whoops!
+[2025-12-05 11:28:53] ROBOT_SPEECH: The nurse, is waiting beside the right door
+[2025-12-05 11:29:18] ROBOT_SPEECH: Perfect!
+[2025-12-05 11:29:23] ROBOT_SPEECH: The medical cart, is in the middle of the hallway
+[2025-12-05 11:37:12] ROBOT_SPEECH: Wonderful!
+[2025-12-05 11:41:31] ROBOT_SPEECH: Amazing!
+[2025-12-05 11:41:36] ROBOT_SPEECH: A patient, is sitting on a chair
+[2025-12-05 11:45:07] ROBOT_SPEECH: Amazing!
+[2025-12-05 11:50:25] ROBOT_SPEECH: Great!
+Main closed  Fri Dec  5 11:50:30 2025
+at_talks
+Time: Fri Dec  5 12:12:11 2025
+[2025-12-05 12:12:15] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 12:12:27] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 12:12:54] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 12:13:39] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-05 12:13:54] ROBOT_SPEECH: Goodbye!
+[2025-12-05 12:13:59] ROBOT_SPEECH: See you later!
