@@ -369,7 +369,16 @@
             opacity: 1;
         }
     }
-
+    .modal-image {
+        max-width: 400px;
+        max-height: 300px;
+        width: auto;
+        height: auto;
+        margin: 0 auto 20px;
+        display: block;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
     .modal-text {
         font-size: 36px;
         font-weight: bold;
@@ -472,12 +481,13 @@
     <div id="encour3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-        <button onclick="encour_speak('Don't give up!')">Don't give up</button>
+        <button onclick="encour_speak('Don\'t give up!')">Don't give up</button>
     </div>
 
     <!-- Modal for displaying question text -->
     <div id="questionModal" class="modal">
         <div class="modal-content">
+            <img id="modalQuestionImage" class="modal-image" src="" alt="" style="display: none;">
             <p id="modalQuestionText" class="modal-text"></p>
             <button class="close-modal" onclick="closeModal()">OK</button>
         </div>
@@ -561,37 +571,13 @@
         return 'face' + dice_face;
     };
 
-    function rolling() {
-        // Remove existing face classes to ensure it always rolls
-        dice[0].classList.remove('face1', 'face2', 'face3', 'face4', 'face5', 'face6');
+    // Image cache to store preloaded images
+    let imageCache = {};
 
-        setTimeout(() => {
-            dice[0].classList.add(RandomNumber());
-            btnRolling.disabled = false;
-        }, 100);  // Short delay to ensure face is removed before adding a new one
-    }
-
-    var btnRolling = document.querySelector('#btnRolling');
-    btnRolling.onclick = function () {
-        btnRolling.disabled = true;  // Disable button to prevent multiple clicks during roll
-        rolling();
-    };
-
-    var btnDisplay = document.querySelector('#btnDisplay');
-
-
-    btnDisplay.onclick = function () {
-        document.querySelector('.dice01').style.display = 'none';
-        btnRolling.style.display = 'none';
-        btnDisplay.style.display = 'none';
-        btnGoBack.style.display = 'block';
-
-
-        // Get the current face
-        let currentFace = dice[0].classList[1];
+    // Function to get questions and images arrays based on dice face
+    function getQuestionsAndImagesForFace(currentFace) {
         let questions = [];
         let images = [];
-
         // Set questions and images based on the current face
         if (currentFace === 'face1' || currentFace === 'face2') {
             questions = [
@@ -669,13 +655,81 @@
                 '../static/dice/wh_images/how/snowman.jpg',
             ];
         }
+        return { questions, images };
+    }
+
+    // Function to get images array based on dice face (for preloading)
+    function getImagesForFace(currentFace) {
+        const { images } = getQuestionsAndImagesForFace(currentFace);
+        return images;
+    }
+
+    // Function to preload images progressively
+    function preloadImages(imageUrls) {
+        imageUrls.forEach((url, index) => {
+            // Create image object to preload
+            const img = new Image();
+            img.onload = function() {
+                // Cache the loaded image
+                imageCache[url] = img;
+                console.log(`Preloaded image ${index + 1}/10: ${url}`);
+            };
+            img.onerror = function() {
+                console.error(`Failed to load image: ${url}`);
+            };
+            // Start loading (add small delay between each to avoid overwhelming)
+            setTimeout(() => {
+                img.src = url;
+            }, index * 50); // 50ms delay between each image (staggered loading)
+        });
+    }
+
+    function rolling() {
+        // Remove existing face classes to ensure it always rolls
+        dice[0].classList.remove('face1', 'face2', 'face3', 'face4', 'face5', 'face6');
+
+        setTimeout(() => {
+            const newFace = RandomNumber();
+            dice[0].classList.add(newFace);
+            btnRolling.disabled = false;
+            
+            // Preload images based on the new face after roll completes
+            const imagesToPreload = getImagesForFace(newFace);
+            preloadImages(imagesToPreload);
+        }, 100);  // Short delay to ensure face is removed before adding a new one
+    }
+
+    var btnRolling = document.querySelector('#btnRolling');
+    btnRolling.onclick = function () {
+        btnRolling.disabled = true;  // Disable button to prevent multiple clicks during roll
+        rolling();
+    };
+
+    var btnDisplay = document.querySelector('#btnDisplay');
+
+
+    btnDisplay.onclick = function () {
+        document.querySelector('.dice01').style.display = 'none';
+        btnRolling.style.display = 'none';
+        btnDisplay.style.display = 'none';
+        btnGoBack.style.display = 'block';
+
+        // Get the current face
+        let currentFace = dice[0].classList[1];
+        // Get questions and images based on the current face
+        const { questions, images } = getQuestionsAndImagesForFace(currentFace);
         // Create image and text elements for questions
         for (let i = 0; i < 10; i++) {
             console.log("currentFace: ", currentFace)
             let container = document.createElement('div');
             console.log("questions: ", questions)
             let img = document.createElement('img');
-            img.src = images[i]; // Path to the image
+            // Use cached image if available, otherwise load normally
+            if (imageCache[images[i]]) {
+                img.src = imageCache[images[i]].src;
+            } else {
+                img.src = images[i]; // Path to the image
+            }
             img.alt = questions[i];
             container.appendChild(img);
 
@@ -690,7 +744,7 @@
 
             // Add click event listener to the image
             img.addEventListener('click', function () {
-                showModal(questions[i]); // Show the modal with the question
+                showModal(questions[i], images[i]); // Show the modal with the question and image
                 ask_question(questions[i]); // Speak the related question when clicked
                 question_gesture(questions[i]); // Speak the related question when clicked
                 value = questions[i];
@@ -811,10 +865,22 @@
     }
 
     // Modal functions
-    function showModal(questionText) {
+    function showModal(questionText, imageUrl) {
         const modal = document.getElementById('questionModal');
         const modalText = document.getElementById('modalQuestionText');
+        const modalImage = document.getElementById('modalQuestionImage');
+        
         modalText.innerText = questionText;
+        
+        // Show image if imageUrl is provided
+        if (imageUrl) {
+            modalImage.src = imageUrl;
+            modalImage.alt = questionText;
+            modalImage.style.display = 'block';
+        } else {
+            modalImage.style.display = 'none';
+        }
+        
         modal.style.display = 'flex';
     }
 

@@ -204,9 +204,8 @@
 
 
 
-            {#socket.emit('brown_talk', "#BIRD#", 1);#}
             socket.emit('brown_talk', currentPrompt, 2);
-            socket.emit('brown_talk', currentPrompt2, 4.3, true);
+            socket.emit('brown_talk', currentPrompt2, 3, true);
             socket.emit('brown_talk', "#BIRD#", 0);
 
             // Function to handle button clicks and sequence
@@ -245,7 +244,6 @@
 
             // Attach the function to buttons
             window.handleImageClick = handleImageClick; // Make it globally accessible
-            {#history.replaceState(null, "", "/story_game_young");#}
 
 
         });

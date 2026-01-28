@@ -54,6 +54,27 @@
         margin-top: 20px; /* Add space between the image and text */
     }
 
+    /* Question text styling */
+    .question-text {
+        position: absolute;
+        bottom: 450px; /* Position well above buttons to prevent overlap */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        min-height: 50px;
+        max-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #000000;
+        font-weight: bold;
+        padding: 10px;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
     /* Next button styling */
     .next-button {
         font-size: 35px;
@@ -113,7 +134,6 @@
         border: none;
         border-radius: 30px; /* Rounded corners */
         transition: all 0.3s ease; /* Smooth transition */
-    {#box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */#}
     }
 
     .stop button:disabled {
@@ -145,17 +165,26 @@
         font-size: 20px;
         background: rgba(250, 231, 200, 0.6);
         color: rgb(0, 0, 0);
-        width: 150px;
+        width: auto; /* Allow width to adjust based on content */
         height: 80px;
+        min-width: 150px; /* Minimum width for consistency */
+        max-width: 300px; /* Maximum width to prevent buttons from being too wide */
+        flex-shrink: 0; /* Prevent flex shrinking */
         border-radius: 30px;
         border: none;
         cursor: pointer;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        margin: 10px; /* Add space between buttons */
+        margin: 0; /* Remove margin, use gap instead */
+        text-align: center;
+        white-space: normal; /* Allow text to wrap within button */
+        padding: 10px 15px; /* Add padding for better text spacing */
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
     }
 
     /* Style for buttons container */
-    #buttons-container {
+    #question-container {
         display: none; /* Initially hidden */
         position: absolute;
         bottom: 200px; /* Place above the Next button */
@@ -163,9 +192,13 @@
         transform: translateX(-50%);
         display: flex;
         flex-direction: row; /* Arrange buttons in a row */
+        flex-wrap: nowrap; /* Prevent wrapping to new row */
         justify-content: center; /* Center the buttons horizontally */
+        align-items: center; /* Center buttons vertically */
         gap: 20px; /* Add spacing between buttons */
-    {#top: 350px;#}
+        width: auto;
+        white-space: nowrap; /* Prevent text wrapping */
+        margin-top: 0; /* Ensure no extra margin */
     }
 
 </style>
@@ -329,11 +362,17 @@
         let imageElement = document.getElementById("story-image");
         let textElement = document.getElementById("story-text");
         let questionElement = document.getElementById("question-text");
+        let questionTextContainer = document.querySelector(".question-text"); // Get the question text container div
         let nextButton = document.getElementById("next-button");
 
         let optionButtons = document.querySelectorAll(".button-option"); // Select all option buttons
 
-        let buttonsContainer = document.getElementById("buttons-container"); // Ensure this is inside the function
+        let buttonsContainer = document.getElementById("question-container"); // Ensure this is inside the function
+        
+        // Initialize: hide question text container initially
+        if (questionTextContainer) {
+            questionTextContainer.style.display = "none";
+        }
         function updateContent() {
             console.log("currentIndex:", currentIndex);
             if (currentIndex < steps.length) {
@@ -357,7 +396,8 @@
                 // Check if currentIndex is between 15 and 20
                 if (currentIndex === 15 || currentIndex === 17 || currentIndex === 19) {
                     textElement.innerHTML = ""
-                    buttonsContainer.style.display = "block"; // Show buttons
+                    questionTextContainer.style.display = "flex"; // Show question text container
+                    buttonsContainer.style.display = "flex"; // Show buttons
                     questionElement.innerHTML = steps[currentIndex].text;
 
 
@@ -373,7 +413,8 @@
 
                 } else if (currentIndex === 16 || currentIndex === 18 || currentIndex === 20) {
                     textElement.innerHTML = ""
-                    buttonsContainer.style.display = "block"; // Show buttons
+                    questionTextContainer.style.display = "flex"; // Show question text container
+                    buttonsContainer.style.display = "flex"; // Show buttons
                     questionElement.innerHTML = steps[currentIndex].text;
 
 
@@ -389,7 +430,8 @@
 
                 } else if (currentIndex === 21) {
                     textElement.innerHTML = ""
-                    buttonsContainer.style.display = "block"; // Show buttons
+                    questionTextContainer.style.display = "flex"; // Show question text container
+                    buttonsContainer.style.display = "flex"; // Show buttons
                     questionElement.innerHTML = steps[currentIndex].text;
 
 
@@ -404,7 +446,9 @@
                     optionButtons[2].setAttribute("onclick", `optionSelected('correct')`);
 
                 } else {
+                    questionTextContainer.style.display = "none"; // Hide question text container
                     buttonsContainer.style.display = "none"; // Hide buttons
+                    questionElement.innerHTML = ""; // Clear question text
                 }
 
                 // The story_line function takes a while, so use setTimeout so that it runs after updateContent()
@@ -514,7 +558,7 @@
 </div>
 
 <!-- Buttons Section (Initially Hidden) -->
-<div id="buttons-container" style="display: none; margin-top: 20px;">
+<div id="question-container" style="display: none; margin-top: 20px;">
     <button class="other button-option">Option 1</button>
     <button class="other button-option">Option 2</button>
     <button class="other button-option">Option 3</button>

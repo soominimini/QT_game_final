@@ -360,9 +360,11 @@
             encour4.style.display = displayState;
             encour5.style.display = displayState;
         }
-
         function praise_speak(msg) {
             socket.emit('praise', msg)
+        }
+        function encour_speak(msg) {
+            socket.emit('encourage', msg)
         }
 
 </script>
@@ -642,27 +644,27 @@ top: 340px; /* Distance from the top of the viewport */
     <div id="encour1" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 250px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Whoops!')">Oops!</button>
+        <button onclick="encour_speak('Whoops!')">Oops!</button>
     </div>
     <div id="encour2" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 300px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('Oh no!')">Oh no!</button>
+        <button onclick="encour_speak('Oh no!')">Oh no!</button>
     </div>
     <div id="encour3" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 350px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('#LAUGH02# That\'s silly!')">That's silly</button>
+        <button onclick="encour_speak('#LAUGH02# That\'s silly!')">That's silly</button>
     </div>
     <div id="encour4" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 400px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('#LAUGH01# That is so funny!')">That's funny!</button>
+        <button onclick="encour_speak('#LAUGH01# That is so funny!')">That's funny!</button>
     </div>
     <div id="encour5" class="other" style="display: none; position: fixed; /* Keeps it fixed relative to the viewport */
         top: 450px; /* Distance from the top of the viewport */
         right: 30px; /* Distance from the left of the viewport */">
-        <button onclick="speak('#AARGH01# Keep trying! ')">Keep trying!</button>
+        <button onclick="encour_speak('#AARGH01# Keep trying! ')">Keep trying!</button>
     </div>
 
 </body>

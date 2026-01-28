@@ -1,0 +1,183 @@
+Name: Seriah Mansah
+login closed  Fri Dec 19 11:07:26 2025
+at_talks
+Time: Fri Dec 19 11:09:49 2025
+at_talks
+Time: Fri Dec 19 11:10:32 2025
+at_talks
+Time: Fri Dec 19 11:10:44 2025
+at_talks
+Time: Fri Dec 19 11:11:18 2025
+at_talks
+Time: Fri Dec 19 11:11:43 2025
+at_talks
+Time: Fri Dec 19 11:11:58 2025
+at_talks
+Time: Fri Dec 19 11:12:21 2025
+[2025-12-19 11:12:33] ROBOT_SPEECH: Hello! How r you today?
+[2025-12-19 11:12:47] ROBOT_SPEECH: I'm fine!
+[2025-12-19 11:12:56] ROBOT_SPEECH: Whats your name?
+[2025-12-19 11:13:02] ROBOT_SPEECH: Whats your name?
+[2025-12-19 11:13:07] ROBOT_SPEECH: My name is QT!
+[2025-12-19 11:13:17] ROBOT_SPEECH: Wow! nice name!
+[2025-12-19 11:13:22] ROBOT_SPEECH: How's the weather today?
+[2025-12-19 11:13:34] ROBOT_SPEECH: Whoops!
+[2025-12-19 11:13:38] ROBOT_SPEECH: #AARGH01# Keep trying! 
+[2025-12-19 11:13:46] ROBOT_SPEECH: How's the weather today?
+[2025-12-19 11:13:51] ROBOT_SPEECH: Look \emph\here!
+[2025-12-19 11:13:54] ROBOT_SPEECH: Look \emph\here!
+[2025-12-19 11:13:58] ROBOT_SPEECH: Look \emph\here!
+[2025-12-19 11:14:03] ROBOT_SPEECH: Hey!
+[2025-12-19 11:14:04] ROBOT_SPEECH: Look \emph\here!
+[2025-12-19 11:14:07] ROBOT_SPEECH: How's the weather today?
+[2025-12-19 11:14:15] ROBOT_SPEECH: Hey!
+[2025-12-19 11:14:16] ROBOT_SPEECH: Look \emph\here!
+[2025-12-19 11:14:18] ROBOT_SPEECH: How's the weather today?
+[2025-12-19 11:14:49] ROBOT_SPEECH: Look \emph\here!
+[2025-12-19 11:15:02] ROBOT_SPEECH: How's the weather today?
+[2025-12-19 11:15:24] ROBOT_SPEECH: That's good to know!
+[2025-12-19 11:15:31] ROBOT_SPEECH: #AARGH01# Keep trying! 
+[2025-12-19 11:15:34] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-19 11:15:49] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-19 11:15:57] ROBOT_SPEECH: \emph\Give me!
+[2025-12-19 11:15:58] ROBOT_SPEECH: \emph\More!
+[2025-12-19 11:16:02] ROBOT_SPEECH: Hey!
+[2025-12-19 11:16:05] ROBOT_SPEECH: \emph\Give me!
+[2025-12-19 11:16:06] ROBOT_SPEECH: \emph\More!
+[2025-12-19 11:16:13] ROBOT_SPEECH: \emph\Give me!
+[2025-12-19 11:16:14] ROBOT_SPEECH: \emph\More!
+[2025-12-19 11:16:24] ROBOT_SPEECH: Let's do \emph\more
+[2025-12-19 11:16:29] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-19 11:16:45] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-19 11:16:58] ROBOT_SPEECH: Ouch!
+[2025-12-19 11:17:00] ROBOT_SPEECH: All done!
+[2025-12-19 11:18:39] ROBOT_SPEECH: Uh oh!
+[2025-12-19 11:18:44] ROBOT_SPEECH: Oh no!
+[2025-12-19 11:18:50] ROBOT_SPEECH: #LAUGH02# That's silly!
+[2025-12-19 11:20:47] ROBOT_SPEECH: Hey!
+[2025-12-19 11:21:07] ROBOT_SPEECH: \emph\Give me!
+[2025-12-19 11:24:12] ROBOT_SPEECH: Wonderful!
+[2025-12-19 11:24:15] ROBOT_SPEECH: Great!
+[2025-12-19 11:27:37] ROBOT_SPEECH: Oh no!
+[2025-12-19 11:27:42] ROBOT_SPEECH: Ouch!
+[2025-12-19 11:29:46] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-19 11:30:00] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-19 11:30:42] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-19 11:31:59] ROBOT_SPEECH: #MMM01# \emph\ Yummy!
+[2025-12-19 11:32:06] ROBOT_SPEECH: Whats your name?
+[2025-12-19 11:32:06] ROBOT_SPEECH: Whats your name?
+[2025-12-19 11:32:07] ROBOT_SPEECH: Whats your name?
+[2025-12-19 11:32:07] ROBOT_SPEECH: What is your favourite movie?
+[2025-12-19 11:32:07] ROBOT_SPEECH: What is your favourite movie?
+[2025-12-19 11:32:18] ROBOT_SPEECH: My name is QT!
+[2025-12-19 11:32:23] ROBOT_SPEECH: All done!
+Main closed  Fri Dec 19 11:32:44 2025
+instructions_game
+Time: Fri Dec 19 11:32:56 2025
+[2025-12-19 11:32:58] ROBOT_SPEECH: What place do you wanna go to?
+[2025-12-19 11:33:04] ROBOT_SPEECH: Let's go to hospital!
+[2025-12-19 11:33:08] ROBOT_SPEECH: The doctor, is next to the sink.
+[2025-12-19 11:33:23] ROBOT_SPEECH: Great!
+[2025-12-19 11:33:28] ROBOT_SPEECH: The patient, is waiting on the bed.
+[2025-12-19 11:33:31] ROBOT_SPEECH: The patient, is waiting on the bed.
+[2025-12-19 11:33:40] ROBOT_SPEECH: Hooray!
+[2025-12-19 11:33:46] ROBOT_SPEECH: Lets put the injection, on the stand.
+[2025-12-19 11:33:50] ROBOT_SPEECH: Lets put the injection, on the stand.
+[2025-12-19 11:34:00] ROBOT_SPEECH: Amazing!
+Taking Instruction hospital1 closed  Fri Dec 19 11:35:01 2025
+[2025-12-19 11:35:05] ROBOT_SPEECH: A patient, is sitting on a chair
+[2025-12-19 11:35:11] ROBOT_SPEECH: A patient, is sitting on a chair
+[2025-12-19 11:35:21] ROBOT_SPEECH: Perfect!
+[2025-12-19 11:35:25] ROBOT_SPEECH: The medical cart, is in the middle of the hallway
+[2025-12-19 11:35:29] ROBOT_SPEECH: The medical cart, is in the middle of the hallway
+[2025-12-19 11:36:14] ROBOT_SPEECH: Amazing!
+[2025-12-19 11:36:19] ROBOT_SPEECH: The nurse, is waiting beside the right door
+[2025-12-19 11:36:30] ROBOT_SPEECH: Great!
+Taking Instruction hospital2 closed  Fri Dec 19 11:37:04 2025
+[2025-12-19 11:37:08] ROBOT_SPEECH: The ambulance, is located on the left side of the building.
+[2025-12-19 11:37:30] ROBOT_SPEECH: Hooray!
+[2025-12-19 11:37:35] ROBOT_SPEECH: The doctor, is standing in front of the emergency entrance.
+[2025-12-19 11:37:40] ROBOT_SPEECH: The doctor, is standing in front of the emergency entrance.
+[2025-12-19 11:38:00] ROBOT_SPEECH: Perfect!
+[2025-12-19 11:38:05] ROBOT_SPEECH: A person, is walking towards, the emergency entrance on the right side.
+[2025-12-19 11:38:15] ROBOT_SPEECH: Perfect!
+at_talks
+Time: Fri Dec 19 11:39:49 2025
+[2025-12-19 11:39:52] ROBOT_SPEECH: My name is QT!
+[2025-12-19 11:39:58] ROBOT_SPEECH: Wow! nice name!
+[2025-12-19 11:40:07] ROBOT_SPEECH: My name is QT!
+[2025-12-19 11:40:14] ROBOT_SPEECH: Wow! nice name!
+[2025-12-19 11:40:20] ROBOT_SPEECH: Whats your name?
+[2025-12-19 11:40:22] ROBOT_SPEECH: Wow! nice name!
+[2025-12-19 11:40:27] ROBOT_SPEECH: My name is QT!
+[2025-12-19 11:40:33] ROBOT_SPEECH: Whats your name?
+[2025-12-19 11:40:36] ROBOT_SPEECH: Wow! nice name!
+[2025-12-19 11:40:39] ROBOT_SPEECH: All done!
+Taking Instruction hospital3 closed  Fri Dec 19 11:41:02 2025
+[2025-12-19 11:41:03] ROBOT_SPEECH: What place do you wanna go to?
+[2025-12-19 11:41:25] ROBOT_SPEECH: Let's go to play!
+[2025-12-19 11:41:29] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+[2025-12-19 11:42:01] ROBOT_SPEECH: Hooray!
+[2025-12-19 11:42:07] ROBOT_SPEECH: A sandbox, \spd=70\ is placed on the right side, in the park
+[2025-12-19 11:42:12] ROBOT_SPEECH: A sandbox, \spd=70\ is placed on the right side, in the park
+[2025-12-19 11:42:34] ROBOT_SPEECH: Don't give up!
+[2025-12-19 11:42:35] ROBOT_SPEECH: Keep trying!
+[2025-12-19 11:42:44] ROBOT_SPEECH: Keep trying!
+[2025-12-19 11:42:45] ROBOT_SPEECH: You can do it!
+[2025-12-19 11:42:53] ROBOT_SPEECH: Don't give up!
+[2025-12-19 11:42:54] ROBOT_SPEECH: Keep trying!
+[2025-12-19 11:42:56] ROBOT_SPEECH: You can do it!
+[2025-12-19 11:43:04] ROBOT_SPEECH: Great!
+[2025-12-19 11:43:08] ROBOT_SPEECH: A red monkey bar, is on the middle of the park
+[2025-12-19 11:43:15] ROBOT_SPEECH: Amazing!
+Taking Instruction park1 closed  Fri Dec 19 11:43:27 2025
+[2025-12-19 11:43:31] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-12-19 11:43:38] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-12-19 11:43:58] ROBOT_SPEECH: A family, is having a picnic under the trees.
+Taking Instruction park2 closed  Fri Dec 19 11:44:24 2025
+[2025-12-19 11:44:26] ROBOT_SPEECH: Where shall we go?
+[2025-12-19 11:44:27] ROBOT_SPEECH: Let's go to play!
+[2025-12-19 11:44:30] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+[2025-12-19 11:44:34] ROBOT_SPEECH: A man, is running along on the right side
+Taking Instruction park2 closed  Fri Dec 19 11:44:55 2025
+[2025-12-19 11:44:56] ROBOT_SPEECH: Where do you wanna go?
+[2025-12-19 11:45:00] ROBOT_SPEECH: A young child, is holding a frisbee, next to a tree.
+[2025-12-19 11:45:06] ROBOT_SPEECH: Hooray!
+[2025-12-19 11:45:12] ROBOT_SPEECH: A sandbox, \spd=70\ is placed on the right side, in the park
+[2025-12-19 11:45:17] ROBOT_SPEECH: Amazing!
+[2025-12-19 11:45:22] ROBOT_SPEECH: A red monkey bar, is on the middle of the park
+[2025-12-19 11:45:26] ROBOT_SPEECH: Great!
+Taking Instruction park1 closed  Fri Dec 19 11:46:27 2025
+[2025-12-19 11:46:31] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-12-19 11:46:36] ROBOT_SPEECH: A family, is having a picnic under the trees.
+[2025-12-19 11:48:13] ROBOT_SPEECH: Perfect!
+[2025-12-19 11:48:18] ROBOT_SPEECH: a person, is riding a bike, along the bike path
+[2025-12-19 11:48:22] ROBOT_SPEECH: a person, is riding a bike, along the bike path
+[2025-12-19 11:48:29] ROBOT_SPEECH: Amazing!
+[2025-12-19 11:48:34] ROBOT_SPEECH: A man, is running along on the right side
+[2025-12-19 11:48:42] ROBOT_SPEECH: Great!
+dice_action_young
+Time: Fri Dec 19 11:48:55 2025
+[2025-12-19 11:48:56] ROBOT_SPEECH: Let's roll the dice
+[2025-12-19 11:48:59] ROBOT_SPEECH: Let's have a high five!
+[2025-12-19 11:49:09] ROBOT_SPEECH: Let's do 10 jumping jacks!
+[2025-12-19 11:49:14] ROBOT_SPEECH: 1
+[2025-12-19 11:49:17] ROBOT_SPEECH: 2
+[2025-12-19 11:49:20] ROBOT_SPEECH: 3
+[2025-12-19 11:49:23] ROBOT_SPEECH: 4
+[2025-12-19 11:49:26] ROBOT_SPEECH: 5
+[2025-12-19 11:49:29] ROBOT_SPEECH: 6
+[2025-12-19 11:49:32] ROBOT_SPEECH: 7
+[2025-12-19 11:49:35] ROBOT_SPEECH: 8
+[2025-12-19 11:49:38] ROBOT_SPEECH: 9
+[2025-12-19 11:49:41] ROBOT_SPEECH: 10
+Main closed  Fri Dec 19 11:50:15 2025
+at_talks
+Time: Fri Dec 19 11:50:26 2025
+[2025-12-19 11:50:27] ROBOT_SPEECH: Ouch!
+[2025-12-19 11:51:39] ROBOT_SPEECH: All done!
+[2025-12-19 11:52:02] ROBOT_SPEECH: Let's do \emph\more
+[2025-12-19 11:53:17] ROBOT_SPEECH: Ouch!
+[2025-12-19 11:53:18] ROBOT_SPEECH: Uh oh!
+[2025-12-19 11:53:20] ROBOT_SPEECH: Oh no!
+[2025-12-19 11:55:47] ROBOT_SPEECH: Goodbye!

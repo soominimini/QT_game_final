@@ -1,0 +1,37 @@
+Name: Aasiya Kashif
+login closed  Fri Dec 19 14:12:04 2025
+Main closed  Fri Dec 19 14:12:09 2025
+at_talks
+Time: Fri Dec 19 14:18:02 2025
+[2025-12-19 14:20:27] ROBOT_SPEECH: Hello! How r you today?
+[2025-12-19 14:20:48] ROBOT_SPEECH: Hello! How r you today?
+[2025-12-19 14:21:26] ROBOT_SPEECH: What is your favourite movie?
+[2025-12-19 14:24:47] ROBOT_SPEECH: That's good to know!
+Main closed  Fri Dec 19 14:24:51 2025
+dice_5w1h
+Time: Fri Dec 19 14:25:00 2025
+[2025-12-19 14:25:00] ROBOT_SPEECH: Lets play around with wh questions
+[2025-12-19 14:25:05] ROBOT_SPEECH: Let's roll the dice
+[2025-12-19 14:25:17] ROBOT_SPEECH: when
+[2025-12-19 14:25:21] ROBOT_SPEECH: why
+[2025-12-19 14:25:23] ROBOT_SPEECH: when
+[2025-12-19 14:25:25] ROBOT_SPEECH: how
+[2025-12-19 14:25:41] ROBOT_SPEECH: How do you make a sandwich?
+[2025-12-19 14:26:34] ROBOT_SPEECH: How do you make a sandwich?
+[2025-12-19 14:28:34] ROBOT_SPEECH: How do you wrap a present?
+[2025-12-19 14:31:27] ROBOT_SPEECH: How do you go for "trick-or-treating"?
+[2025-12-19 14:33:38] ROBOT_SPEECH: How do you buy something at the store?
+[2025-12-19 14:34:40] ROBOT_SPEECH: How do you buy something at the store?
+[2025-12-19 14:35:33] ROBOT_SPEECH: How do you ride a bike?
+[2025-12-19 14:36:14] ROBOT_SPEECH: How do you ride a bike?
+story_young_client
+Time: Fri Dec 19 14:54:20 2025
+[2025-12-19 14:54:20] ROBOT_SPEECH: Lets choose a story
+Main closed  Fri Dec 19 14:54:28 2025
+story_old_client
+Time: Fri Dec 19 14:54:34 2025
+[2025-12-19 14:54:34] ROBOT_SPEECH: Lets choose a story
+goldilocks
+Time: Fri Dec 19 14:54:47 2025
+[2025-12-19 14:54:49] ROBOT_SPEECH: Lets start the story!
+[2025-12-19 15:01:08] ROBOT_SPEECH: Once upon a time lived Goldilocks and The Three Bears.

@@ -101,6 +101,8 @@ gesture_stop_event = threading.Event()
 audio_stop_event = threading.Event()
 
 global_sentence = ''
+last_song_played = ''
+last_gesture_played = ''
 
 def log_speech(speech_text):
     """Appends robot speech to the log file using the global file_name."""
@@ -298,17 +300,110 @@ def handle_repeat_speach(data):
     print("Speech say event received:", data)
 
 
+@socketio.on('break_speech')
+def handle_break_speach(data):
+    def say_speech():
+        speech_stop_event.clear()  # Reset stop signal before starting speech
+        # speechSay_pub.publish(data)  # Publish speech
+        # speechSay_servc(data)
+        talktext_pub.publish(data)
+
+    # Run speech processing in a separate thread
+    threading.Thread(target=say_speech).start()
+    print("Speech say event received:", data)
+
+
 @socketio.on('at_talk_speech')
-def handle_repeat_speach(data):
+def handle_at_talk_speach(data):
+    def say_speech():
+        speech_stop_event.clear()  # Reset stop signal before starting speech
+        # speechSay_pub.publish(data)  # Publish speech
+        # speechSay_servc(data)
+        talktext_pub.publish(data)
+
+    # Run speech processing in a separate thread
+    threading.Thread(target=say_speech).start()
+    print("Speech say event received:", data)
+
+
+@socketio.on('praise')
+def handle_praise_speach(data):
+    def say_speech():
+        speech_stop_event.clear()  # Reset stop signal before starting speech
+        # speechSay_pub.publish(data)  # Publish speech
+        # speechSay_servc(data)
+        talktext_pub.publish(data)
+
+    # Run speech processing in a separate thread
+    threading.Thread(target=say_speech).start()
+    print("Speech say event received:", data)
+
+
+@socketio.on('encourage')
+def handle_encourage_speach(data):
+    def say_speech():
+        speech_stop_event.clear()  # Reset stop signal before starting speech
+        # speechSay_pub.publish(data)  # Publish speech
+        # speechSay_servc(data)
+        talktext_pub.publish(data)
+
+    # Run speech processing in a separate thread
+    threading.Thread(target=say_speech).start()
+    print("Speech say event received:", data)
+
+
+@socketio.on('repeat_for_brain_break')
+def handle_repeat_brain_break(data):
+    """Handle repeat button for brain break/dice action young game"""
+    print("repeat_for_brain_break: ", data)
+    
     def say_speech_repeat():
         speech_stop_event.clear()  # Reset stop signal before starting speech
-
-        # behaviorTalk_servc(data)
-        talktext_pub.publish(data)
-        # Run speech processing in a separate thread
-
+        behaviorTalk_servc(data)
+    
     threading.Thread(target=say_speech_repeat).start()
-    print("at_talk_speech received:", data)
+    print("Brain break speech repeat event received:", data)
+
+
+@socketio.on('jumping_jack_repeat')
+def handle_jumping_jack_repeat():
+    """Handle repeat for jumping jacks"""
+    print("Jumping jack repeat triggered")
+    threading.Thread(target=execute_jumping_jacks).start()
+
+
+@socketio.on('audio_replay_brain_break')
+def handle_audio_replay_brain_break():
+    """Replay the last song for brain break"""
+    global last_song_played
+    print("Audio replay for brain break triggered")
+    print("Replaying song:", last_song_played)
+    
+    if last_song_played:
+        def replay_audio():
+            audio_stop_event.clear()
+            handle_audio_play(last_song_played)
+        
+        threading.Thread(target=replay_audio).start()
+    else:
+        print("No song to replay")
+
+
+@socketio.on('gesture_play_brain_break')
+def handle_gesture_play_brain_break():
+    """Handle gesture replay for brain break"""
+    global last_gesture_played
+    print("Gesture play brain break triggered")
+    print("Replaying gesture:", last_gesture_played)
+    
+    if last_gesture_played:
+        def replay_gesture():
+            gesture_stop_event.clear()
+            handle_gesture_play(last_gesture_played, 1)
+        
+        threading.Thread(target=replay_gesture).start()
+    else:
+        print("No gesture to replay")
 
 
 #     #     #     #     #     #     #     #     #     #     #     # #     #     #    STOP functions  #     #     #     #     #     #     #     #     #     #     #     #     #     #
@@ -1207,6 +1302,8 @@ def dice_face_in_young_action(dice_face_str):
     global emotionShow_pub
     global gesturePlay_servc
     global stop_triggered_flag
+    global last_song_played
+    global last_gesture_played
     print("dice_face_str: " + dice_face_str)
     handle_gesture_play("QT/neutral", 2)
     # gesturePlay_servc("QT/neutral", 2)
@@ -1231,12 +1328,13 @@ def dice_face_in_young_action(dice_face_str):
         # gesturePlay_pub.publish("breathing_soomin")
         # gesturePlay_servc("breathing_soomin", 1.5)
         handle_gesture_play("breathing_soomin", 1.5)
+        last_gesture_played = "breathing_soomin"
 
     elif dice_face_str == 'Sing a Song':
         # talktext_pub.publish("Let's sing a song!")
         music = ["spider", "ABC", "mcdonald", "twinkle", "wheels"]
         random_song = random.choice(music)
-        random_song = "wheels"
+        last_song_played = random_song  # Store the song for repeat functionality
         print("random_song: " + random_song)
         if str(random_song) == "spider":
             # talktext_pub.publish("Let's sing Incy Wincy Spider")
@@ -1245,6 +1343,7 @@ def dice_face_in_young_action(dice_face_str):
             rospy.sleep(2)
             # gesturePlay_pub.publish("IncyWincySpider")
             handle_gesture_play("IncyWincySpider", 1)
+            last_gesture_played = "IncyWincySpider"
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
 
@@ -1255,6 +1354,7 @@ def dice_face_in_young_action(dice_face_str):
             rospy.sleep(2)
             # gesturePlay_pub.publish("ABCsong")
             handle_gesture_play("ABCsong", 1)
+            last_gesture_played = "ABCsong"
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
 
@@ -1265,6 +1365,7 @@ def dice_face_in_young_action(dice_face_str):
             rospy.sleep(2)
             # gesturePlay_pub.publish("Old_MacDonald")
             handle_gesture_play("Old_MacDonald", 1)
+            last_gesture_played = "Old_MacDonald"
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
 
@@ -1275,6 +1376,7 @@ def dice_face_in_young_action(dice_face_str):
             rospy.sleep(2)
             # gesturePlay_pub.publish("twinkletwinklelittlestar")
             handle_gesture_play("twinkletwinklelittlestar", 1)
+            last_gesture_played = "twinkletwinklelittlestar"
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
 
@@ -1285,6 +1387,7 @@ def dice_face_in_young_action(dice_face_str):
             rospy.sleep(2)
             # gesturePlay_pub.publish("Wheels_bus")
             handle_gesture_play("Wheels_bus", 1)
+            last_gesture_played = "Wheels_bus"
             # audioPlay_pub.publish(random_song)
             handle_audio_play(random_song)
 
@@ -1614,7 +1717,7 @@ def story_speak(msg, sound):
 def break_fucn():
     # talktext_pub.publish("Let's roll the dice")
     handle_speech_say("Oh! Break Time!")
-    gesturePlay_pub.publish("child_idle_head1")
+    # gesturePlay_pub.publish("child_idle_head1")
     # gesturePlay_servc("head_natural", 1.5)
     # gesturePlay_pub.publish("head_natural")
     return render_template('break.html')
